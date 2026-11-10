@@ -83,6 +83,20 @@ entre en el largo del video. Los subtítulos no llevan signos de puntuación
   y modos distintos nunca se pisan. El `.srt` lleva el mismo nombre.
 - Los MP3 y SRT generados no se suben al repositorio (ver `.gitignore`).
 
+## Usar la voz en Cowork
+
+La voz elegida para el proyecto es Tomás en modo neutral (los valores por
+defecto). Para pasársela a Cowork como skill:
+
+```bash
+python empaquetar_skill.py   # genera OUTPUT/voz-tomas-argentina.zip
+```
+
+Subir ese `.zip` a Cowork como skill. Incluye las instrucciones
+(`cowork/voz-tomas-argentina/SKILL.md`), una copia de `narrador.py` y
+`requirements.txt`. El entorno de Cowork necesita salida a internet hacia
+`speech.platform.bing.com`.
+
 ## Entornos con proxy HTTPS (Claude Code Cloud)
 
 Si el entorno define `SSL_CERT_FILE` (o `REQUESTS_CA_BUNDLE`), `narrador.py`
