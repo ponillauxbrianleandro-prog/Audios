@@ -1,0 +1,3 @@
+OUTPUT/AUDIO/*.mp3
+OUTPUT/AUDIO/*.parcial
+__pycache__/
