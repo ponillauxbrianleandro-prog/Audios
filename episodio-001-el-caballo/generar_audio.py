@@ -25,9 +25,12 @@ VOZ = "es-PY-MarioNeural"
 FRECUENCIA = 24000  # Hz, mono, 16 bits
 RITMO = "-10%"  # velocidad general de la voz
 RITMO_APERTURA = "-20%"  # primera frase del episodio
-PAUSA_PARRAFO = 0.5
-PAUSA_ESCENA = 1.0
+PAUSA_PARRAFO = 0.35
+PAUSA_ESCENA = 0.85
 PAUSA_APERTURA = 1.2  # silencio después de la primera frase
+SILENCIO_INICIAL = 0.4  # antes de la primera frase, para que no se corte
+UMBRAL_VOZ = 30  # amplitud (de 32768) a partir de la cual hay voz
+MARGEN_VOZ = 0.08  # segundos que se conservan antes y después de la voz
 
 AQUI = Path(__file__).resolve().parent
 SALIDA = AQUI / "audio"
@@ -61,16 +64,18 @@ async def sintetizar(texto, destino, ritmo):
 
 
 def a_pcm(mp3):
-    """Decodifica a PCM y recorta el silencio de los extremos."""
-    filtro = (
-        "silenceremove=start_periods=1:start_threshold=-50dB,areverse,"
-        "silenceremove=start_periods=1:start_threshold=-50dB,areverse"
-    )
-    return subprocess.run(
-        ["ffmpeg", "-v", "error", "-i", str(mp3), "-af", filtro,
+    """Decodifica a PCM y recorta el silencio de los extremos, dejando un margen."""
+    pcm = subprocess.run(
+        ["ffmpeg", "-v", "error", "-i", str(mp3),
          "-f", "s16le", "-ac", "1", "-ar", str(FRECUENCIA), "-"],
         check=True, capture_output=True,
     ).stdout
+    muestras = struct.unpack(f"<{len(pcm) // 2}h", pcm)
+    con_voz = [i for i, v in enumerate(muestras) if abs(v) > UMBRAL_VOZ]
+    margen = int(FRECUENCIA * MARGEN_VOZ)
+    inicio = max(0, con_voz[0] - margen)
+    fin = min(len(muestras), con_voz[-1] + margen)
+    return pcm[inicio * 2:fin * 2]
 
 
 def silencio(segundos):
@@ -115,7 +120,7 @@ def guardar_srt(cues, destino):
 async def main():
     SALIDA.mkdir(exist_ok=True)
     escenas = leer_guion()
-    completo, cues_completo = b"", []
+    completo, cues_completo = silencio(SILENCIO_INICIAL), []
 
     with tempfile.TemporaryDirectory() as tmp:
         for numero, (titulo, parrafos) in enumerate(escenas, 1):
@@ -136,7 +141,7 @@ async def main():
             guardar_mp3(pcm, SALIDA / f"escena-{numero}.mp3")
             guardar_srt(cues, SALIDA / f"escena-{numero}.srt")
 
-            if completo:
+            if numero > 1:
                 completo += silencio(PAUSA_ESCENA)
             base = len(completo) / 2 / FRECUENCIA
             cues_completo += [(base + a, base + b, t) for a, b, t in cues]
