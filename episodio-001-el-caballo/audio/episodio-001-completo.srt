@@ -3,7 +3,7 @@
 ¡Te dejás montar!
 
 2
-00:00:03,073 --> 00:00:04,145
+00:00:03,073 --> 00:00:04,140
 Eres un caballo.
 
 3
@@ -15,15 +15,15 @@ Y no, no te dejás montar solamente porque sí. No es que cualquiera pueda subir
 Pero hay algo que probablemente no sabías.
 
 5
-00:00:15,329 --> 00:00:24,269
+00:00:15,329 --> 00:00:24,268
 Dos caballos criollos, Gato y Mancha, recorrieron junto a su jinete aproximadamente 21.500 kilómetros, desde Buenos Aires hasta Nueva York.
 
 6
-00:00:24,619 --> 00:00:29,659
+00:00:24,618 --> 00:00:29,658
 Gato se quedó en México. Mancha llegó, en 1928.
 
 7
-00:00:30,009 --> 00:00:34,448
+00:00:30,008 --> 00:00:34,447
 Y lo más interesante es que tenían sus raíces en la Patagonia: venían de Chubut.
 
 8
@@ -39,7 +39,7 @@ Algunas personas... ejem, ejem... uruguayos... ejem, ejem... creen que ciertos c
 Pero no puede ser.
 
 11
-00:00:46,940 --> 00:00:54,273
+00:00:46,940 --> 00:00:54,322
 El criollo desciende de los caballos que llegaron con la conquista, en 1536, y se criaron sueltos por toda la región.
 
 12
@@ -55,8 +55,8 @@ Aunque, conociendo a algunas personas, probablemente se los mirarían igual.
 Y aunque normalmente escuchamos que el perro es el mejor amigo del hombre, hay quienes también podrían darle ese título a otro animal.
 
 15
-00:01:13,195 --> 00:01:20,553
-En la Argentina hay más de dos millones seiscientos mil équidos registrados. El 25 por ciento, en Buenos Aires.
+00:01:13,195 --> 00:01:20,578
+En la Argentina hay más de dos millones seiscientos mil equinos registrados. El 25 por ciento, en Buenos Aires.
 
 16
 00:01:21,403 --> 00:01:22,388
@@ -67,7 +67,7 @@ Eres un gordo.
 Comes muchísimo.
 
 18
-00:01:24,149 --> 00:01:32,697
+00:01:24,150 --> 00:01:32,698
 Un caballo de 500 kilogramos consume entre 10 y 12,5 kilogramos de materia seca al día: entre el 2 y el 2,5 por ciento de su peso.
 
 19
@@ -75,7 +75,7 @@ Un caballo de 500 kilogramos consume entre 10 y 12,5 kilogramos de materia seca 
 ¿Y tu comida favorita? En un estudio con quince sabores ganaron el fenogreco y la banana. La zanahoria quedó sexta.
 
 20
-00:01:41,198 --> 00:01:44,096
+00:01:41,199 --> 00:01:44,097
 Pero necesitás mantener ese cuerpo grande y peluzón.
 
 21
@@ -91,11 +91,11 @@ No importa.
 Sí, pero no por sumiso.
 
 24
-00:01:49,874 --> 00:01:50,772
+00:01:49,875 --> 00:01:50,773
 Por leal.
 
 25
-00:01:51,122 --> 00:01:52,817
+00:01:51,122 --> 00:01:52,810
 Sí, te dejás montar.
 
 26
@@ -103,5 +103,5 @@ Sí, te dejás montar.
 Y con orgullo.
 
 27
-00:01:54,463 --> 00:01:55,536
+00:01:54,463 --> 00:01:55,535
 Eres un caballo.

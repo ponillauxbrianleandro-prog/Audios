@@ -2,7 +2,10 @@
 """Genera la narración del episodio a partir de guion.md.
 
 Requiere: pip install edge-tts, y ffmpeg en el PATH.
-Uso: python3 generar_audio.py
+Uso: python3 generar_audio.py [--mantener-tiempos]
+
+Con --mantener-tiempos, cada frase empieza en el mismo instante que en los
+.srt ya generados (para regrabar sin desincronizar un video ya montado).
 """
 import asyncio
 import math
@@ -10,6 +13,7 @@ import os
 import re
 import struct
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -31,6 +35,12 @@ PAUSA_APERTURA = 1.2  # silencio después de la primera frase
 SILENCIO_INICIAL = 0.4  # antes de la primera frase, para que no se corte
 UMBRAL_VOZ = 30  # amplitud (de 32768) a partir de la cual hay voz
 MARGEN_VOZ = 0.08  # segundos que se conservan antes y después de la voz
+PAUSA_MINIMA = 0.1  # piso de pausa al mantener tiempos
+
+# Grafías que se mandan al sintetizador cuando pronuncia mal la del guion.
+PRONUNCIACION = {
+    "se criaron": "se cri aron",  # si no, dice "se crearon"
+}
 
 AQUI = Path(__file__).resolve().parent
 SALIDA = AQUI / "audio"
@@ -52,7 +62,22 @@ def leer_guion():
     return escenas
 
 
+def inicios_previos(srt):
+    """Instantes de inicio (en segundos) de un .srt existente, o [] si no hay."""
+    if not srt.exists():
+        return []
+    marcas = re.findall(r"^(\d+):(\d+):(\d+),(\d+) -->", srt.read_text(encoding="utf-8"), re.M)
+    return [int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000 for h, m, s, ms in marcas]
+
+
+def pausa_hasta(pcm, objetivo):
+    """Silencio para que lo siguiente empiece en `objetivo` segundos."""
+    return silencio(max(PAUSA_MINIMA, objetivo - len(pcm) / 2 / FRECUENCIA))
+
+
 async def sintetizar(texto, destino, ritmo):
+    for escrito, dicho in PRONUNCIACION.items():
+        texto = texto.replace(escrito, dicho)
     for intento in range(4):
         try:
             await edge_tts.Communicate(texto, VOZ, rate=ritmo).save(str(destino))
@@ -120,17 +145,22 @@ def guardar_srt(cues, destino):
 async def main():
     SALIDA.mkdir(exist_ok=True)
     escenas = leer_guion()
+    mantener = "--mantener-tiempos" in sys.argv
+    previos_completo = inicios_previos(SALIDA / "episodio-001-completo.srt") if mantener else []
     completo, cues_completo = silencio(SILENCIO_INICIAL), []
 
     with tempfile.TemporaryDirectory() as tmp:
         for numero, (titulo, parrafos) in enumerate(escenas, 1):
             pcm, cues = b"", []
+            previos = inicios_previos(SALIDA / f"escena-{numero}.srt") if mantener else []
             for i, texto in enumerate(parrafos):
                 mp3 = Path(tmp) / f"{numero}-{i}.mp3"
                 apertura = numero == 1 and i == 0
                 await sintetizar(texto, mp3, RITMO_APERTURA if apertura else RITMO)
                 voz = a_pcm(mp3)
-                if pcm:
+                if pcm and len(previos) == len(parrafos):
+                    pcm += pausa_hasta(pcm, previos[i])
+                elif pcm:
                     pcm += silencio(PAUSA_APERTURA if numero == 1 and i == 1 else PAUSA_PARRAFO)
                 inicio = len(pcm) / 2 / FRECUENCIA
                 pcm += voz
@@ -141,7 +171,9 @@ async def main():
             guardar_mp3(pcm, SALIDA / f"escena-{numero}.mp3")
             guardar_srt(cues, SALIDA / f"escena-{numero}.srt")
 
-            if numero > 1:
+            if numero > 1 and len(previos_completo) > len(cues_completo):
+                completo += pausa_hasta(completo, previos_completo[len(cues_completo)])
+            elif numero > 1:
                 completo += silencio(PAUSA_ESCENA)
             base = len(completo) / 2 / FRECUENCIA
             cues_completo += [(base + a, base + b, t) for a, b, t in cues]

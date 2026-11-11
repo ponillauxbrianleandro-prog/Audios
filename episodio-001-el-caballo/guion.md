@@ -39,7 +39,7 @@ Aunque, conociendo a algunas personas, probablemente se los mirarían igual.
 
 Y aunque normalmente escuchamos que el perro es el mejor amigo del hombre, hay quienes también podrían darle ese título a otro animal.
 
-En la Argentina hay más de dos millones seiscientos mil équidos registrados. El 25 por ciento, en Buenos Aires.
+En la Argentina hay más de dos millones seiscientos mil equinos registrados. El 25 por ciento, en Buenos Aires.
 
 ## ESCENA 5. EL GORDO PELUSÓN
 
@@ -84,4 +84,5 @@ Al final de la escena 6 se agrega un jingle propio ("misión secundaria completa
 Notas:
 
 - No existe una encuesta verificable sobre el caballo como "mejor amigo del hombre"; por eso la escena 4 usa el censo oficial.
+- Los 2,6 millones son en rigor équidos: unos 2,53 millones de caballos más unos 100 mil burros y mulas. La narración dice "equinos" porque el sintetizador no pronuncia bien "équidos" y porque el informe oficial se titula "Existencias Equinas" para ese total.
 - No se pudo confirmar con fuente primaria si el tramo final Washington–Nueva York fue montado; el guion solo afirma que Mancha llegó a Nueva York.
