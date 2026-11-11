@@ -33,7 +33,7 @@ El criollo desciende de los caballos que llegaron con la conquista, en 1536, y s
 
 Además, si alguna vez te regalaron un caballo, ya sabés lo que dicen: a caballo regalado no se le miran los dientes.
 
-Aunque, conociendo a algunas personas, probablemente se los mirarían igual.
+Aunque, si el caballo es uruguayo, mirale los dientes igual.
 
 ## ESCENA 4. EL MEJOR AMIGO DEL HOMBRE
 

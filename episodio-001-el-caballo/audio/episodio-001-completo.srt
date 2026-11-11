@@ -3,7 +3,7 @@
 ¡Te dejás montar!
 
 2
-00:00:03,073 --> 00:00:04,140
+00:00:03,073 --> 00:00:04,145
 Eres un caballo.
 
 3
@@ -47,8 +47,8 @@ El criollo desciende de los caballos que llegaron con la conquista, en 1536, y s
 Además, si alguna vez te regalaron un caballo, ya sabés lo que dicen: a caballo regalado no se le miran los dientes.
 
 13
-00:01:01,544 --> 00:01:05,917
-Aunque, conociendo a algunas personas, probablemente se los mirarían igual.
+00:01:01,544 --> 00:01:05,242
+Aunque, si el caballo es uruguayo, mirale los dientes igual.
 
 14
 00:01:06,767 --> 00:01:12,845
@@ -59,7 +59,7 @@ Y aunque normalmente escuchamos que el perro es el mejor amigo del hombre, hay q
 En la Argentina hay más de dos millones seiscientos mil equinos registrados. El 25 por ciento, en Buenos Aires.
 
 16
-00:01:21,403 --> 00:01:22,388
+00:01:21,403 --> 00:01:22,390
 Eres un gordo.
 
 17
@@ -91,11 +91,11 @@ No importa.
 Sí, pero no por sumiso.
 
 24
-00:01:49,875 --> 00:01:50,773
+00:01:49,875 --> 00:01:50,544
 Por leal.
 
 25
-00:01:51,122 --> 00:01:52,810
+00:01:51,122 --> 00:01:52,817
 Sí, te dejás montar.
 
 26
