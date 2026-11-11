@@ -1,11 +1,11 @@
 1
-00:00:00,000 --> 00:00:08,941
+00:00:00,000 --> 00:00:09,314
 Vive en las Georgias del Sur, en las Orcadas y por la Antártida. A la costa argentina llega muy de vez en cuando, y perdido, como el que se bajó en la parada equivocada.
 
 2
-00:00:09,291 --> 00:00:17,187
-Ahora, la contra: pone dos huevos, y el primero, el más chiquito, casi siempre se pierde. Se queda con el segundo y listo.
+00:00:09,664 --> 00:00:15,446
+Ahora, la contra: pone dos huevos, y el primero, el más chiquito, casi siempre se pierde.
 
 3
-00:00:17,537 --> 00:00:18,626
+00:00:15,796 --> 00:00:16,934
 ¡Sos un desubicado!

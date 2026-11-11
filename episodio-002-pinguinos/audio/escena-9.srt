@@ -1,7 +1,7 @@
 1
-00:00:00,000 --> 00:00:03,370
-¿Todavía querés decirme gordo peluzón? Pensalo bien.
+00:00:00,000 --> 00:00:01,934
+¿Todavía querés decirme gordo peluzón?
 
 2
-00:00:03,720 --> 00:00:06,157
+00:00:02,284 --> 00:00:04,827
 Bueno, sí. Un poco sí.

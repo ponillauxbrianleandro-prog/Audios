@@ -2,16 +2,12 @@
 """Genera la narración del episodio a partir de guion.md.
 
 Requiere: pip install edge-tts, y ffmpeg en el PATH.
-Uso: python3 generar_audio.py [ritmo]
-
-Sin argumentos usa el ritmo normal de la voz y escribe en audio/.
-Con un ritmo (por ejemplo +30%) escribe la versión rápida en audio-rapido/.
+Uso: python3 generar_audio.py
 """
 import asyncio
 import os
 import struct
 import subprocess
-import sys
 import tempfile
 from pathlib import Path
 
@@ -25,7 +21,7 @@ if os.environ.get("SSL_CERT_FILE"):
 
 VOZ = "es-PY-MarioNeural"
 FRECUENCIA = 24000  # Hz, mono, 16 bits
-RITMO = sys.argv[1] if len(sys.argv) > 1 else "+0%"  # +0% es la velocidad normal
+RITMO = "-4%"  # velocidad de la voz (+0% es la normal)
 PAUSA_PARRAFO = 0.35
 PAUSA_ESCENA = 0.85
 SILENCIO_INICIAL = 0.4  # antes de la primera frase, para que no se corte
@@ -38,7 +34,7 @@ PRONUNCIACION = {
 }
 
 AQUI = Path(__file__).resolve().parent
-SALIDA = AQUI / ("audio-rapido" if len(sys.argv) > 1 else "audio")
+SALIDA = AQUI / "audio"
 
 
 def leer_guion():

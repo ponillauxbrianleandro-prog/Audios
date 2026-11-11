@@ -1,7 +1,7 @@
 1
-00:00:00,000 --> 00:00:07,071
+00:00:00,000 --> 00:00:07,361
 El pingüino macaroni. Penacho amarillo y naranja, ojos rojos, un pico enorme… y una cara de enojado que no se le va nunca.
 
 2
-00:00:07,421 --> 00:00:16,189
-¿Y por qué "macaroni"? Porque en la Inglaterra del siglo XVIII les decían así a los chetos que se peinaban exagerado. Así que a este lo bautizaron por cheto.
+00:00:07,711 --> 00:00:14,091
+¿Y por qué "macaroni"? Porque en la Inglaterra del siglo XVIII les decían así a los chetos que se peinaban exagerado.

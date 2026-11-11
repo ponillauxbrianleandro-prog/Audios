@@ -1,11 +1,7 @@
 1
-00:00:00,000 --> 00:00:12,327
+00:00:00,000 --> 00:00:12,836
 Y una vez por año, los dos pasan por la muda: cambian todas las plumas de golpe. Durante semanas no se pueden meter al agua, así que no comen. Se quedan ahí parados, inflados, largando pelusa por todos lados.
 
 2
-00:00:12,677 --> 00:00:14,056
+00:00:13,186 --> 00:00:14,614
 Parecés una bola de pelusa.
-
-3
-00:00:14,406 --> 00:00:20,213
-Y sí, técnicamente no es pelo, son plumas. Pero acá le decimos pelusa y no vamos a cambiar.

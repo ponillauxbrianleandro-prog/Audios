@@ -1,11 +1,11 @@
 # RíoPuratense — Episodio 002: Pingüinos
 
-Guion de narración (v1). Voz: Mario (`es-PY-MarioNeural`), ritmo normal. Duración objetivo: 1:45.
+Guion de narración (v1). Voz: Mario (`es-PY-MarioNeural`), ritmo pausado. Duración máxima: 1:59.
 Cada párrafo es una frase de narración; `generar_audio.py` lee todo lo que está entre los títulos `## ESCENA` y `## Notas`.
 
 ## ESCENA 1. MAGALLANES SE DA VUELTA
 
-¿Que soy un gordo peluzón? Sentate, que te explico.
+¿Que soy un gordo peluzón?
 
 ## ESCENA 2. POSTURA DE PUNTITAS
 
@@ -21,7 +21,7 @@ Sí. Se toma vacaciones en Brasil. Más que vos.
 
 Ah, y rebuzna.
 
-Como un burro. Lo escuchás de noche y pensás que se te metió un burro en la carpa.
+Como un burro.
 
 ## ESCENA 4. TRANSICIÓN
 
@@ -31,13 +31,13 @@ Pero esperá. Si este te parece peluzón… mirá quién viene.
 
 El pingüino macaroni. Penacho amarillo y naranja, ojos rojos, un pico enorme… y una cara de enojado que no se le va nunca.
 
-¿Y por qué "macaroni"? Porque en la Inglaterra del siglo XVIII les decían así a los chetos que se peinaban exagerado. Así que a este lo bautizaron por cheto.
+¿Y por qué "macaroni"? Porque en la Inglaterra del siglo XVIII les decían así a los chetos que se peinaban exagerado.
 
 ## ESCENA 6. DÓNDE VIVE Y LA CONTRA
 
 Vive en las Georgias del Sur, en las Orcadas y por la Antártida. A la costa argentina llega muy de vez en cuando, y perdido, como el que se bajó en la parada equivocada.
 
-Ahora, la contra: pone dos huevos, y el primero, el más chiquito, casi siempre se pierde. Se queda con el segundo y listo.
+Ahora, la contra: pone dos huevos, y el primero, el más chiquito, casi siempre se pierde.
 
 ¡Sos un desubicado!
 
@@ -47,8 +47,6 @@ Y una vez por año, los dos pasan por la muda: cambian todas las plumas de golpe
 
 Parecés una bola de pelusa.
 
-Y sí, técnicamente no es pelo, son plumas. Pero acá le decimos pelusa y no vamos a cambiar.
-
 ## ESCENA 8. LA CONTRA A LA CONTRA
 
 Pero el gordo es gordo por algo: esa grasa y esas plumas apretadas son lo que lo deja nadar en agua helada sin congelarse. Y el de Magallanes suele volver cada año a la misma cueva, con la misma pareja.
@@ -57,7 +55,7 @@ Gordo, sí. Pero fiel y abrigado.
 
 ## ESCENA 9. CIERRE
 
-¿Todavía querés decirme gordo peluzón? Pensalo bien.
+¿Todavía querés decirme gordo peluzón?
 
 Bueno, sí. Un poco sí.
 
