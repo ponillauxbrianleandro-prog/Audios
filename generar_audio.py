@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Genera un MP3 narrado a partir de un guion de texto usando edge-tts.
 
-Uso: python generar_audio.py guiones/pulpo_colorado.txt audios/salida.mp3 [--rate=+8%] [--voz es-BO-MarceloNeural]
+Uso: python generar_audio.py guiones/pulpo_colorado.txt audios/salida.mp3 [--rate=+0%] [--voz es-PY-MarioNeural]
 
 El guion se divide en bloques separados por líneas en blanco. Entre bloques se
 inserta un silencio (--pausa). Un bloque "[pausa N]" fija el silencio siguiente en N segundos.
@@ -49,7 +49,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("guion")
     ap.add_argument("salida")
-    ap.add_argument("--voz", default="es-BO-MarceloNeural")
+    ap.add_argument("--voz", default="es-PY-MarioNeural")
     ap.add_argument("--rate", default="+0%")
     ap.add_argument("--pausa", type=float, default=0.6)
     args = ap.parse_args()
