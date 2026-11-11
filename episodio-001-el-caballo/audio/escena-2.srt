@@ -1,11 +1,11 @@
 1
-00:00:00,000 --> 00:00:07,758
+00:00:00,000 --> 00:00:08,627
 Dos caballos criollos, Gato y Mancha, recorrieron junto a su jinete aproximadamente 21.500 kilómetros, desde Buenos Aires hasta Nueva York.
 
 2
-00:00:08,158 --> 00:00:12,501
+00:00:09,127 --> 00:00:13,959
 Gato se quedó en México. Mancha llegó, en 1928.
 
 3
-00:00:12,901 --> 00:00:16,695
+00:00:14,459 --> 00:00:18,670
 Y lo más interesante es que tenían sus raíces en la Patagonia: venían de Chubut.

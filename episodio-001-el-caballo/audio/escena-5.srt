@@ -1,23 +1,23 @@
 1
-00:00:00,000 --> 00:00:00,698
+00:00:00,000 --> 00:00:00,777
 Eres un gordo.
 
 2
-00:00:01,098 --> 00:00:01,869
+00:00:01,277 --> 00:00:02,132
 Comes muchísimo.
 
 3
-00:00:02,269 --> 00:00:09,742
+00:00:02,632 --> 00:00:10,946
 Un caballo de 500 kilogramos consume entre 10 y 12,5 kilogramos de materia seca al día: entre el 2 y el 2,5 por ciento de su peso.
 
 4
-00:00:10,142 --> 00:00:16,978
+00:00:11,446 --> 00:00:19,047
 ¿Y tu comida favorita? En un estudio con quince sabores ganaron el fenogreco y la banana. La zanahoria quedó sexta.
 
 5
-00:00:17,378 --> 00:00:19,808
+00:00:19,547 --> 00:00:22,247
 Pero necesitás mantener ese cuerpo grande y peluzón.
 
 6
-00:00:20,208 --> 00:00:20,780
+00:00:22,747 --> 00:00:23,386
 No importa.

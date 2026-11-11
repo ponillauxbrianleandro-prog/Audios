@@ -23,8 +23,11 @@ if os.environ.get("SSL_CERT_FILE"):
 
 VOZ = "es-PY-MarioNeural"
 FRECUENCIA = 24000  # Hz, mono, 16 bits
-PAUSA_PARRAFO = 0.4
-PAUSA_ESCENA = 0.8
+RITMO = "-10%"  # velocidad general de la voz
+RITMO_APERTURA = "-20%"  # primera frase del episodio
+PAUSA_PARRAFO = 0.5
+PAUSA_ESCENA = 1.0
+PAUSA_APERTURA = 1.2  # silencio después de la primera frase
 
 AQUI = Path(__file__).resolve().parent
 SALIDA = AQUI / "audio"
@@ -46,10 +49,10 @@ def leer_guion():
     return escenas
 
 
-async def sintetizar(texto, destino):
+async def sintetizar(texto, destino, ritmo):
     for intento in range(4):
         try:
-            await edge_tts.Communicate(texto, VOZ).save(str(destino))
+            await edge_tts.Communicate(texto, VOZ, rate=ritmo).save(str(destino))
             return
         except Exception:
             if intento == 3:
@@ -119,10 +122,11 @@ async def main():
             pcm, cues = b"", []
             for i, texto in enumerate(parrafos):
                 mp3 = Path(tmp) / f"{numero}-{i}.mp3"
-                await sintetizar(texto, mp3)
+                apertura = numero == 1 and i == 0
+                await sintetizar(texto, mp3, RITMO_APERTURA if apertura else RITMO)
                 voz = a_pcm(mp3)
                 if pcm:
-                    pcm += silencio(PAUSA_PARRAFO)
+                    pcm += silencio(PAUSA_APERTURA if numero == 1 and i == 1 else PAUSA_PARRAFO)
                 inicio = len(pcm) / 2 / FRECUENCIA
                 pcm += voz
                 cues.append((inicio, len(pcm) / 2 / FRECUENCIA, texto))

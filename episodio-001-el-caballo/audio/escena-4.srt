@@ -1,7 +1,7 @@
 1
-00:00:00,000 --> 00:00:05,260
+00:00:00,000 --> 00:00:05,838
 Y aunque normalmente escuchamos que el perro es el mejor amigo del hombre, hay quienes también podrían darle ese título a otro animal.
 
 2
-00:00:05,660 --> 00:00:12,087
+00:00:06,338 --> 00:00:13,488
 En la Argentina hay más de dos millones seiscientos mil équidos registrados. El 25 por ciento, en Buenos Aires.
