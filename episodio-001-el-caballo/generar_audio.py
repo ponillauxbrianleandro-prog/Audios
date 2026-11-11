@@ -23,8 +23,8 @@ if os.environ.get("SSL_CERT_FILE"):
 
 VOZ = "es-PY-MarioNeural"
 FRECUENCIA = 24000  # Hz, mono, 16 bits
-PAUSA_PARRAFO = 0.55
-PAUSA_ESCENA = 1.3
+PAUSA_PARRAFO = 0.4
+PAUSA_ESCENA = 0.8
 
 AQUI = Path(__file__).resolve().parent
 SALIDA = AQUI / "audio"

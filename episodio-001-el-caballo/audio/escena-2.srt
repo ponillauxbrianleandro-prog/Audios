@@ -1,27 +1,11 @@
 1
-00:00:00,000 --> 00:00:08,099
-En 1925, un maestro suizo llamado Aimé Tschiffely quiso demostrar de qué estaba hecho el criollo. Eligió dos caballos: Gato y Mancha.
+00:00:00,000 --> 00:00:07,758
+Dos caballos criollos, Gato y Mancha, recorrieron junto a su jinete aproximadamente 21.500 kilómetros, desde Buenos Aires hasta Nueva York.
 
 2
-00:00:08,649 --> 00:00:14,020
-No eran potrillos. Tenían más de quince años. Y varios dijeron que era una locura.
+00:00:08,158 --> 00:00:12,501
+Gato se quedó en México. Mancha llegó, en 1928.
 
 3
-00:00:14,570 --> 00:00:17,792
-Junto a su jinete recorrieron aproximadamente 21.500 kilómetros.
-
-4
-00:00:18,342 --> 00:00:19,956
-Desde Buenos Aires hasta Nueva York.
-
-5
-00:00:20,506 --> 00:00:24,822
-Atravesaron montañas, desiertos y selvas durante tres años y casi cinco meses.
-
-6
-00:00:25,372 --> 00:00:33,283
-Gato tuvo que quedarse en la Ciudad de México, después de la patada de una mula. Mancha llegó hasta Nueva York, en septiembre de 1928.
-
-7
-00:00:33,833 --> 00:00:40,650
-Y lo más interesante es que estos caballos tenían sus raíces en la Patagonia: venían de Chubut, de las tropillas del cacique tehuelche Liempichún.
+00:00:12,901 --> 00:00:16,695
+Y lo más interesante es que tenían sus raíces en la Patagonia: venían de Chubut.

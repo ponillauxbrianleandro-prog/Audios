@@ -3,37 +3,13 @@
 ¡Te dejás montar!
 
 2
-00:00:01,277 --> 00:00:02,056
+00:00:01,127 --> 00:00:01,907
 Eres un caballo.
 
 3
-00:00:02,606 --> 00:00:09,082
+00:00:02,307 --> 00:00:08,782
 Y no, no te dejás montar solamente porque sí. No es que cualquiera pueda subirse encima tuyo y esperar que hagas lo que quiera.
 
 4
-00:00:09,632 --> 00:00:13,931
-Pesas media tonelada. Si no quisieras, ahí arriba no se sube nadie.
-
-5
-00:00:14,481 --> 00:00:17,181
-Y aun así, llevas más de cuatro mil años cargándonos.
-
-6
-00:00:17,731 --> 00:00:25,460
-Pero lo raro es otra cosa. Tu familia nació en América. Vivió acá millones de años... y hace unos diez mil, desapareció.
-
-7
-00:00:26,010 --> 00:00:32,632
-Volviste en barco. En 1536, con Pedro de Mendoza, a una Buenos Aires que duró apenas cinco años.
-
-8
-00:00:33,182 --> 00:00:38,471
-Cuando la abandonaron, a vos te dejaron. Suelto, en la pampa, sin nadie que te cuidara.
-
-9
-00:00:39,021 --> 00:00:45,001
-Y te fue bárbaro. Cuando los españoles volvieron, en 1580, las manadas ya eran tuyas.
-
-10
-00:00:45,551 --> 00:00:51,223
-De esos caballos que se criaron solos sale el caballo criollo. Y dos de ellos hicieron algo que nadie creía posible.
+00:00:09,182 --> 00:00:11,006
+Pero hay algo que probablemente no sabías.

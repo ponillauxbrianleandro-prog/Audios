@@ -1,47 +1,23 @@
 1
-00:00:00,000 --> 00:00:00,697
+00:00:00,000 --> 00:00:00,698
 Eres un gordo.
 
 2
-00:00:01,247 --> 00:00:02,019
+00:00:01,098 --> 00:00:01,869
 Comes muchísimo.
 
 3
-00:00:02,569 --> 00:00:10,701
-Un caballo de aproximadamente 500 kilogramos puede consumir entre 10 y 12,5 kilogramos de materia seca al día, dependiendo de sus necesidades y actividad.
+00:00:02,269 --> 00:00:09,742
+Un caballo de 500 kilogramos consume entre 10 y 12,5 kilogramos de materia seca al día: entre el 2 y el 2,5 por ciento de su peso.
 
 4
-00:00:11,251 --> 00:00:18,657
-Y eso es materia seca, o sea, la comida sin contar el agua. En pasto fresco, estamos hablando de más de 50 kilos por día.
+00:00:10,142 --> 00:00:16,978
+¿Y tu comida favorita? En un estudio con quince sabores ganaron el fenogreco y la banana. La zanahoria quedó sexta.
 
 5
-00:00:19,207 --> 00:00:20,826
-Pero tampoco es que comas cualquier cosa.
-
-6
-00:00:21,376 --> 00:00:28,812
-Tu alimentación se basa principalmente en pastos y otros forrajes. También podés consumir heno y otros alimentos complementarios según tus necesidades.
-
-7
-00:00:29,362 --> 00:00:32,848
-¿Y tu comida favorita? Todos dirían manzana o zanahoria.
-
-8
-00:00:33,398 --> 00:00:44,531
-Pero en un estudio británico les dieron a probar quince sabores a un grupo de caballos. Ganaron el fenogreco y la banana. La zanahoria quedó sexta. Y la manzana ni entró entre las ocho primeras.
-
-9
-00:00:45,081 --> 00:00:49,105
-Igual, eran ocho caballos. Cada uno tiene sus propios gustos.
-
-10
-00:00:49,655 --> 00:00:52,420
-Y comes mucho. Quizás parece demasiado.
-
-11
-00:00:52,970 --> 00:00:55,400
+00:00:17,378 --> 00:00:19,808
 Pero necesitás mantener ese cuerpo grande y peluzón.
 
-12
-00:00:55,950 --> 00:00:56,522
+6
+00:00:20,208 --> 00:00:20,780
 No importa.
