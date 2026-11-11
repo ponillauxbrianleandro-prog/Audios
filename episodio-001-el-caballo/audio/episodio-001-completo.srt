@@ -1,107 +1,107 @@
 1
-00:00:00,400 --> 00:00:01,535
+00:00:00,400 --> 00:00:01,873
 ¡Te dejás montar!
 
 2
-00:00:02,735 --> 00:00:03,807
+00:00:03,073 --> 00:00:04,145
 Eres un caballo.
 
 3
-00:00:04,157 --> 00:00:11,558
+00:00:04,495 --> 00:00:11,896
 Y no, no te dejás montar solamente porque sí. No es que cualquiera pueda subirse encima tuyo y esperar que hagas lo que quiera.
 
 4
-00:00:11,908 --> 00:00:14,141
+00:00:12,246 --> 00:00:14,479
 Pero hay algo que probablemente no sabías.
 
 5
-00:00:14,991 --> 00:00:23,930
+00:00:15,329 --> 00:00:24,269
 Dos caballos criollos, Gato y Mancha, recorrieron junto a su jinete aproximadamente 21.500 kilómetros, desde Buenos Aires hasta Nueva York.
 
 6
-00:00:24,280 --> 00:00:29,320
+00:00:24,619 --> 00:00:29,659
 Gato se quedó en México. Mancha llegó, en 1928.
 
 7
-00:00:29,670 --> 00:00:34,109
+00:00:30,009 --> 00:00:34,448
 Y lo más interesante es que tenían sus raíces en la Patagonia: venían de Chubut.
 
 8
-00:00:34,959 --> 00:00:37,240
+00:00:35,298 --> 00:00:37,579
 Pero bueno, hay algo que tenemos que aclarar.
 
 9
-00:00:37,590 --> 00:00:44,927
+00:00:37,929 --> 00:00:45,266
 Algunas personas... ejem, ejem... uruguayos... ejem, ejem... creen que ciertos caballos de esta región son uruguayos.
 
 10
-00:00:45,277 --> 00:00:46,251
+00:00:45,616 --> 00:00:46,590
 Pero no puede ser.
 
 11
-00:00:46,601 --> 00:00:53,934
+00:00:46,940 --> 00:00:54,273
 El criollo desciende de los caballos que llegaron con la conquista, en 1536, y se criaron sueltos por toda la región.
 
 12
-00:00:54,284 --> 00:01:00,855
+00:00:54,623 --> 00:01:01,194
 Además, si alguna vez te regalaron un caballo, ya sabés lo que dicen: a caballo regalado no se le miran los dientes.
 
 13
-00:01:01,205 --> 00:01:05,578
+00:01:01,544 --> 00:01:05,917
 Aunque, conociendo a algunas personas, probablemente se los mirarían igual.
 
 14
-00:01:06,428 --> 00:01:12,506
+00:01:06,767 --> 00:01:12,845
 Y aunque normalmente escuchamos que el perro es el mejor amigo del hombre, hay quienes también podrían darle ese título a otro animal.
 
 15
-00:01:12,856 --> 00:01:20,214
+00:01:13,195 --> 00:01:20,553
 En la Argentina hay más de dos millones seiscientos mil équidos registrados. El 25 por ciento, en Buenos Aires.
 
 16
-00:01:21,064 --> 00:01:22,064
+00:01:21,403 --> 00:01:22,388
 Eres un gordo.
 
 17
-00:01:22,414 --> 00:01:23,475
+00:01:22,738 --> 00:01:23,799
 Comes muchísimo.
 
 18
-00:01:23,825 --> 00:01:32,373
+00:01:24,149 --> 00:01:32,697
 Un caballo de 500 kilogramos consume entre 10 y 12,5 kilogramos de materia seca al día: entre el 2 y el 2,5 por ciento de su peso.
 
 19
-00:01:32,723 --> 00:01:40,524
+00:01:33,047 --> 00:01:40,848
 ¿Y tu comida favorita? En un estudio con quince sabores ganaron el fenogreco y la banana. La zanahoria quedó sexta.
 
 20
-00:01:40,874 --> 00:01:43,772
+00:01:41,198 --> 00:01:44,096
 Pero necesitás mantener ese cuerpo grande y peluzón.
 
 21
-00:01:44,122 --> 00:01:45,081
+00:01:44,446 --> 00:01:45,405
 No importa.
 
 22
-00:01:45,931 --> 00:01:47,069
+00:01:46,255 --> 00:01:47,393
 ¿Que te dejás montar?
 
 23
-00:01:47,419 --> 00:01:49,201
+00:01:47,743 --> 00:01:49,524
 Sí, pero no por sumiso.
 
 24
-00:01:49,551 --> 00:01:50,448
+00:01:49,874 --> 00:01:50,772
 Por leal.
 
 25
-00:01:50,798 --> 00:01:52,486
+00:01:51,122 --> 00:01:52,817
 Sí, te dejás montar.
 
 26
-00:01:52,836 --> 00:01:53,782
+00:01:53,167 --> 00:01:54,113
 Y con orgullo.
 
 27
-00:01:54,132 --> 00:01:55,205
+00:01:54,463 --> 00:01:55,536
 Eres un caballo.

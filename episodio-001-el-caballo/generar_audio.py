@@ -24,7 +24,7 @@ if os.environ.get("SSL_CERT_FILE"):
 VOZ = "es-PY-MarioNeural"
 FRECUENCIA = 24000  # Hz, mono, 16 bits
 RITMO = "-10%"  # velocidad general de la voz
-RITMO_APERTURA = "-20%"  # primera frase del episodio
+RITMO_APERTURA = "-40%"  # primera frase del episodio
 PAUSA_PARRAFO = 0.35
 PAUSA_ESCENA = 0.85
 PAUSA_APERTURA = 1.2  # silencio después de la primera frase
