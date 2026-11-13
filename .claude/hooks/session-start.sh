@@ -16,10 +16,13 @@ if ! sha256sum --check --status "$hashes" 2>/dev/null; then
   sha256sum .claude/hooks/session-start.sh voice_ai/setup_qwen3_tts.sh > "$hashes" || rm -f "$hashes"
 fi
 
-# claude-code-video-toolkit: mismo criterio, se reinstala solo si cambió el hook o su script.
+# Video toolkit, skills de Remotion y marketplace a nivel usuario: mismo criterio de hashes.
 hashes=video_toolkit/.session-start.sha256
-if [ ! -d video_toolkit/claude-code-video-toolkit/.venv ] || ! sha256sum --check --status "$hashes" 2>/dev/null; then
+if [ ! -d /opt/claude-code-video-toolkit/.venv ] || ! sha256sum --check --status "$hashes" 2>/dev/null; then
   rm -f "$hashes"
-  bash video_toolkit/setup_video_toolkit.sh >&2
-  sha256sum .claude/hooks/session-start.sh video_toolkit/setup_video_toolkit.sh > "$hashes" || rm -f "$hashes"
+  if bash video_toolkit/install_global.sh >&2; then
+    sha256sum .claude/hooks/session-start.sh video_toolkit/install_global.sh > "$hashes" || rm -f "$hashes"
+  else
+    echo "install_global.sh falló; la sesión sigue sin el video toolkit." >&2
+  fi
 fi

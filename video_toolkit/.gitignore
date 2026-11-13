@@ -1,3 +1,2 @@
-# Se regenera con ./setup_video_toolkit.sh
-claude-code-video-toolkit/
+# Marca de instalación del hook SessionStart
 .session-start.sha256
