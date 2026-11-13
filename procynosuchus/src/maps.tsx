@@ -23,8 +23,8 @@ export const Pangea: React.FC<{ f: number; gap?: number; hi?: string[]; names?: 
   const arcD = `M${a[0]} ${a[1]}Q${a[0] + 330} ${(a[1] + b[1]) / 2} ${b[0]} ${b[1]}`;
   return (
     <g>
-      <rect width={W} height={H} fill="#123a6a" />
-      <rect width={W} height={H} fill="#1f6aa8" opacity={0.6} />
+      <rect x={-3000} y={-3000} width={8000} height={8000} fill="#123a6a" />
+      <rect x={-3000} y={-3000} width={8000} height={8000} fill="#1f6aa8" opacity={0.6} />
       {Array.from({ length: 9 }, (_, i) => <ellipse key={i} cx={960} cy={540} rx={200 + i * 150} ry={120 + i * 90} fill="none" stroke="#7fd0f0" strokeWidth={2} opacity={0.14} />)}
       {Array.from({ length: 40 }, (_, i) => { const x = r() * W, y = r() * H; return <path key={i} d={`M${x} ${y}q14 -9 28 0q14 9 28 0`} stroke="#bfeaff" strokeWidth={2.5} fill="none" opacity={0.25 + 0.2 * Math.sin(f / 10 + i)} />; })}
       {Object.entries(LAND).map(([k, pts]) => {
@@ -73,7 +73,7 @@ export const TreeDiagram: React.FC<{ f: number; t: number; stage: number }> = ({
   const blue = '#5fb4ff', or = '#ff9a3c';
   return (
     <g>
-      <rect width={W} height={H} fill="#0b0f22" />
+      <rect x={-3000} y={-3000} width={8000} height={8000} fill="#0b0f22" />
       {Array.from({ length: 60 }, (_, i) => { const r = rng(i + 30); return <circle key={i} cx={r() * W} cy={r() * H} r={1 + r() * 2} fill="#fff" opacity={0.1 + 0.2 * Math.abs(Math.sin(f / 20 + i))} />; })}
       <path d="M960 1040L960 800" stroke="#e8e4f0" strokeWidth={14} strokeLinecap="round" {...grow(g(0) * 2)} />
       <path d="M960 800C960 650 700 640 560 470" fill="none" stroke={blue} strokeWidth={12} strokeLinecap="round" {...grow(g(0) * 2 - 1)} />
@@ -128,7 +128,7 @@ export const JawEar: React.FC<{ f: number; t: number; travel?: boolean }> = ({ f
   const boom = seg(t, 0.8, 1);
   return (
     <g>
-      <rect width={W} height={H} fill="#0d1026" />
+      <rect x={-3000} y={-3000} width={8000} height={8000} fill="#0d1026" />
       <circle cx={520} cy={560} r={420} fill="#23306a" opacity={0.5} />
       <circle cx={1460} cy={540} r={380} fill="#3a2360" opacity={lerp(0.25, 0.7, k)} />
       <Beast x={170} y={860} s={2.6} jaw={8} f={f} shadow={false} sil="#1b2a5c" />

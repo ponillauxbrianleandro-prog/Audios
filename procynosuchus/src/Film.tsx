@@ -6,8 +6,9 @@ import { flatten } from './timeline';
 
 export const SUBS = true; // subtítulo guía temporal: poner en false cuando exista la voz
 
-export const Film: React.FC = () => {
-  const frame = useCurrentFrame();
+export const Film: React.FC<{ at?: number[] }> = ({ at }) => {
+  const cur = useCurrentFrame();
+  const frame = at ? at[cur] : cur;
   const { cuts } = useMemo(() => flatten(), []);
   let c = cuts[cuts.length - 1];
   for (const k of cuts) if (frame >= k.start && frame < k.start + k.dur) { c = k; break; }

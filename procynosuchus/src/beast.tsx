@@ -210,7 +210,7 @@ export const Beast: React.FC<BeastProps> = ({ kind = 'procy', x, y, s = 1, flip,
         <path d={jawD} transform={jawTf} fill={ink} stroke={ink} strokeWidth={sw * 2} strokeLinejoin="round" />
         <path d={skull} fill={ink} stroke={ink} strokeWidth={sw * 2} strokeLinejoin="round" />
         {/* cover the neck seam */}
-        <path d={capsule([-30 * hx, -4 * hy], [10 * hx, -4 * hy], 24 * hy, 26 * hy)} fill={C.base} />
+        <path d={capsule([-34 * hx, 8 * hy], [6 * hx, 6 * hy], 15 * hy, 17 * hy)} fill={C.base} />
         <path d={jawD} transform={jawTf} fill={sil ?? C.belly} />
         <path d={skull} fill={C.base} />
         {!sil && (

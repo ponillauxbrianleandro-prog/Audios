@@ -75,7 +75,7 @@ export const capsule = (a: Pt, b: Pt, ra: number, rb: number): string => {
   const dx = b[0] - a[0], dy = b[1] - a[1];
   const l = Math.hypot(dx, dy) || 1;
   const nx = -dy / l, ny = dx / l;
-  return `M${r1(a[0] + nx * ra)} ${r1(a[1] + ny * ra)}L${r1(b[0] + nx * rb)} ${r1(b[1] + ny * rb)}A${r1(rb)} ${r1(rb)} 0 0 1 ${r1(b[0] - nx * rb)} ${r1(b[1] - ny * rb)}L${r1(a[0] - nx * ra)} ${r1(a[1] - ny * ra)}A${r1(ra)} ${r1(ra)} 0 0 1 ${r1(a[0] + nx * ra)} ${r1(a[1] + ny * ra)}Z`;
+  return `M${r1(a[0] + nx * ra)} ${r1(a[1] + ny * ra)}L${r1(b[0] + nx * rb)} ${r1(b[1] + ny * rb)}A${r1(rb)} ${r1(rb)} 0 0 0 ${r1(b[0] - nx * rb)} ${r1(b[1] - ny * rb)}L${r1(a[0] - nx * ra)} ${r1(a[1] - ny * ra)}A${r1(ra)} ${r1(ra)} 0 0 0 ${r1(a[0] + nx * ra)} ${r1(a[1] + ny * ra)}Z`;
 };
 
 /** leaf / lens shape from a to b with width w, bent by `bend` */

@@ -47,11 +47,12 @@ const blinkAt = (f: number, at = 20) => clamp(1 - Math.abs(f - at) / 3);
 /** eye-centred close up; s = scale */
 const eyeShot = (s0: number, s1: number, bg: [string, string], extra?: Partial<BeastProps>, ez = eout): CutFn => (t, f) => {
   const s = lerp(s0, s1, ez(t));
+  const [ox, oy] = extra?.kind === 'gorgon' ? [415, 292] : [245, 119];
   return (
     <g>
       <rect width={W} height={H} fill={bg[0]} />
       <circle cx={960} cy={540} r={700} fill={bg[1]} />
-      <Beast x={960 - 245 * s} y={540 + 119 * s} s={s} f={f} shadow={false} blink={blinkAt(f, 9)} {...extra} />
+      <Beast x={960 - ox * s} y={540 + oy * s} s={s} f={f} shadow={false} blink={blinkAt(f, 9)} {...extra} />
     </g>
   );
 };
@@ -158,12 +159,12 @@ export const BEATS: Beat[] = [
     [1, eyeShot(3.4, 4, BG.cool, { head: -6 }, eio)],
   ] },
   { txt: 'Procynosuchus. «Antes del cocodrilo-perro».', cuts: [
-    [1, silCard('croc', '#bfe8a0', '#8fd070', 1.5, 640)],
+    [1, silCard('croc', '#bfe8a0', '#8fd070', 2.1, 620)],
     [1, silCard('dog', '#ffd9a0', '#ffb860', 2.3, 800)],
     [1.2, S({ seed: 6, px: [500, 540], z: [1.7, 1.9], c: [1050, 760], k: (t, f, px) => B({ x: px + 900, y: 880, s: 1.3, f, head: -10 + Math.sin(f / 6) * 6, blink: blinkAt(f, 14) }) })],
   ] },
   { txt: 'Un nombre raro para un animal que no era ni cocodrilo ni perro.', cuts: [
-    [1, silCard('croc', '#bfe8a0', '#8fd070', 1.5, 640, INK, true)],
+    [1, silCard('croc', '#bfe8a0', '#8fd070', 2.1, 620, INK, true)],
     [1, silCard('dog', '#ffd9a0', '#ffb860', 2.3, 800, INK, true)],
     [1.6, S({ env: 'd', seed: 4, px: [300, 520], z: [1.2, 1.2], c: [1000, 740], k: (t, f, px) => B({ x: px + 880, y: 880, s: 1.3, phase: wk(f, 230, 'procy', 1.3).phase, f }) })],
   ] },
@@ -181,7 +182,7 @@ export const BEATS: Beat[] = [
     [0.8, (t, f) => <g><rect width={W} height={H} fill="#ffe6b0" /><rect y={780} width={W} height={300} fill="#f0c070" />{[0, 1, 2].map((i) => <g key={i} transform={`translate(${700 + i * 260} ${760}) rotate(${Math.sin(f / 3 + i) * (t > 0.4 ? 7 : 2)})`}><ellipse rx={90} ry={116} fill="#fbf4e0" stroke={INK} strokeWidth={8} />{t > 0.5 && <path d="M-60 -20l30 30l26 -34l30 36l34 -30" stroke={INK} strokeWidth={7} fill="none" />}</g>)}</g>],
     [1.1, tree(0, [1.5, 1.25], [[960, 780], [960, 660]])],
   ] },
-  { txt: 'Una terminaría dando reptiles, dinosaurios y aves.', cuts: [[1, tree(1, [1.5, 1.6], [[620, 400], [560, 360]])]] },
+  { txt: 'Una terminaría dando reptiles, dinosaurios y aves.', cuts: [[1, tree(1, [1.25, 1.35], [[640, 460], [600, 430]])]] },
   { txt: 'La otra, los sinápsidos, terminaría dando algo que todavía no existía:', cuts: [[1, tree(2, [1.5, 1.7], [[1300, 520], [1420, 380]])]] },
   { txt: 'mamíferos.', dur: 1.3, cuts: [[1, (t, f) => <g>{tree(3, [2.4, 2.0], [[1640, 180], [1640, 180]])(t, f, 1)}<Burst x={1100} y={500} t={t} col="#ffb060" /><Flash a={0.8 * (1 - seg(t, 0, 0.25))} col="#ffb060" /></g>]] },
   { txt: 'Perros. Ballenas. Murciélagos. Caballos.', dur: 2.6, edit: true, cuts: [
@@ -192,7 +193,7 @@ export const BEATS: Beat[] = [
   ] },
   { txt: 'Vos.', dur: 1.5, cuts: [[1, (t, f) => <g>{silCard('human', '#ffc0b0', '#ff8f80', 1.15, 880)(t, f, 1)}<Flash a={0.6 * (1 - seg(t, 0, 0.2))} /></g>]] },
   { txt: 'Dentro de esa rama aparecieron los terápsidos. Y dentro de los terápsidos, un grupo chico, discreto, casi invisible al lado de los gigantes de su época: los cinodontos.', cuts: [
-    [1, tree(4, [1.9, 2.1], [[1400, 330], [1420, 300]])],
+    [1, tree(4, [1.55, 1.7], [[1420, 330], [1440, 310]])],
     [1.2, S({ env: 'd', seed: 5, px: [300, 480], z: [1.05, 1.05], k: (t, f, px) => <g>{B({ kind: 'pareia', x: 900 + wk(f, 70, 'pareia').dx, y: 860, s: 1.25, phase: wk(f, 70, 'pareia', 1.25).phase, f })}{B({ kind: 'dicyn', x: 1750 + wk(f, 90, 'dicyn').dx, y: 900, s: 1.3, phase: wk(f, 90, 'dicyn', 1.3).phase, f })}{B({ x: 1280 + wk(f, 260).dx, y: 940, s: 0.6, phase: wk(f, 260, 'procy', 0.6).phase, f })}</g> })],
     [0.9, S({ seed: 4, px: [700, 720], z: [2.0, 2.3], c: [1000, 820], k: (t, f, px) => <g>{B({ x: px + 840 + eout(seg(t, 0.1, 0.5)) * 110, y: 880, s: 1.1, f, crouch: 0.5, head: -8, blink: blinkAt(f, 34) })}<Fern x={px + 800} y={930} s={150} seed={7} pal={DAY} /></g> })],
     [0.9, tree(4, [2.6, 3], [[1470, 260], [1490, 250]])],
@@ -266,12 +267,12 @@ export const BEATS: Beat[] = [
   ] },
   { txt: 'En Tanzania, en las rocas donde también vivió Procynosuchus, se encontraron más de diez especies de gorgonópsidos.', cuts: [
     [0.8, mapShot(() => ({ sites: ['tanz'] }), [1.6, 3.6], [[960, 640], [1035, 680]])],
-    [1.2, (t, f) => <g><rect width={W} height={H} fill="#241634" />{Array.from({ length: 10 }, (_, i) => { const on = t * 12 > i; const cx = 250 + (i % 5) * 355, cy = 400 + Math.floor(i / 5) * 380; return on ? <g key={i}><circle cx={cx} cy={cy - 90} r={150} fill={['#5a2040', '#3a2460', '#204a5a', '#5a4020', '#402a5a'][i % 5]} /><Beast kind="gorgon" x={cx - 30} y={cy} s={0.3 + (i % 4) * 0.04} f={f + i * 9} jaw={10 + (i % 3) * 8} sil={i % 2 ? '#0a0810' : undefined} eyeGlow shadow={false} /></g> : null; })}</g>],
+    [1.2, (t, f) => <g><rect width={W} height={H} fill="#241634" />{Array.from({ length: 10 }, (_, i) => { const on = t * 12 > i; const cx = 250 + (i % 5) * 355, cy = 400 + Math.floor(i / 5) * 380; return on ? <g key={i}><circle cx={cx} cy={cy - 90} r={150} fill={['#5a2040', '#3a2460', '#204a5a', '#5a4020', '#402a5a'][i % 5]} /><Beast kind="gorgon" x={cx - 50} y={cy + 30} s={0.4 + (i % 4) * 0.04} f={f + i * 9} jaw={10 + (i % 3) * 8} sil={i % 2 ? '#0a0810' : undefined} eyeGlow shadow={false} /></g> : null; })}</g>],
   ] },
-  { txt: 'Diez formas distintas de cazar.', dur: 2.2, edit: true, cuts: Array.from({ length: 10 }, (_, i): [number, CutFn] => [1, (t, f) => <g><rect width={W} height={H} fill={['#5a2040', '#3a2460', '#204a5a', '#5a4020', '#402a5a'][i % 5]} /><circle cx={960} cy={540} r={560} fill="#000" opacity={0.25} /><Beast kind="gorgon" x={i % 2 ? 2500 : -600} y={1500 + (i % 3) * 60} s={4.2 + (i % 4) * 0.5} flip={i % 2 === 1} f={f + i * 13} jaw={12 + (i * 7) % 20} shadow={false} /></g>]) },
+  { txt: 'Diez formas distintas de cazar.', dur: 2.2, edit: true, cuts: Array.from({ length: 10 }, (_, i): [number, CutFn] => [1, (t, f) => <g><rect width={W} height={H} fill={['#5a2040', '#3a2460', '#204a5a', '#5a4020', '#402a5a'][i % 5]} /><circle cx={960} cy={540} r={560} fill="#000" opacity={0.25} /><Beast kind="gorgon" x={i % 2 ? 2350 : -500} y={1560} s={4.2 + (i % 4) * 0.5} flip={i % 2 === 1} f={f + i * 13} jaw={12 + (i * 7) % 20} shadow={false} /></g>]) },
   { txt: 'Una de ellas, Inostrancevia africana, pertenece a un género que en Rusia llegó a medir alrededor de tres metros.', cuts: [
-    [1, (t, f) => <g><rect width={W} height={H} fill="#f0d8b0" /><rect y={860} width={W} height={240} fill="#c89a68" /><rect y={856} width={W} height={10} fill={INK} /><g opacity={seg(t, 0, 0.1)}><Sil kind="human" x={330} y={860} s={1} col="#3a2c48" /></g><g transform={`translate(${lerp(500, 0, eout(seg(t, 0.05, 0.4)))} 0)`}><Beast kind="gorgon" x={1060} y={860} s={0.84} f={f} jaw={10} /></g><g opacity={seg(t, 0.45, 0.55)}><Beast x={1660} y={860} s={0.24} f={f} /><Ruler x0={610} x1={1510} y={930} t={seg(t, 0.4, 0.7)} text="≈ 3 m" /></g></g>],
-    [0.6, eyeShot(5, 6, BG.night, { kind: 'gorgon' } as Partial<BeastProps>, eio)],
+    [1, (t, f) => <g><rect width={W} height={H} fill="#f0d8b0" /><rect y={740} width={W} height={240} fill="#c89a68" /><rect y={736} width={W} height={10} fill={INK} /><g opacity={seg(t, 0, 0.1)}><Sil kind="human" x={330} y={740} s={1} col="#3a2c48" /></g><g transform={`translate(${lerp(500, 0, eout(seg(t, 0.05, 0.4)))} 0)`}><Beast kind="gorgon" x={1060} y={740} s={0.84} f={f} jaw={10} /></g><g opacity={seg(t, 0.45, 0.55)}><Beast x={1660} y={740} s={0.24} f={f} /><Ruler x0={610} x1={1510} y={800} t={seg(t, 0.4, 0.7)} text="≈ 3 m" /></g></g>],
+    [0.6, eyeShot(2.6, 3.2, ['#1a1030', '#5a2040'], { kind: 'gorgon', jaw: 10 }, eio)],
   ] },
   { txt: 'Ahora imaginá ser un animal de sesenta centímetros en ese barrio.', cuts: [
     [1, S({ pal: DUSK, seed: 2, px: [600, 640], z: [1.5, 1.7], c: [1100, 800], k: (t, f, px) => <g>{B({ kind: 'gorgon', x: px + 250 + wk(f, 120, 'gorgon', 1.7).dx, y: 1000, s: 1.7, phase: wk(f, 120, 'gorgon', 1.7).phase, f, sil: '#07050c', eyeGlow: true })}{B({ x: px + 1250, y: 890, s: 0.8, crouch: 0.8, f, flip: true, head: -20, blink: blinkAt(f, 30) })}</g> })],

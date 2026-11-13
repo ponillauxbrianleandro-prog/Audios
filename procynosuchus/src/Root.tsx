@@ -1,5 +1,5 @@
 import React from 'react';
-import { Composition, useCurrentFrame } from 'remotion';
+import { Composition, Freeze, useCurrentFrame } from 'remotion';
 import { FPS, H, W } from './lib';
 import { DAY, DRY, DUSK, VIOLET } from './art';
 import { Air, DryPlain, Riverbank, SpireVista } from './env';
@@ -23,9 +23,13 @@ const Test: React.FC = () => {
   );
 };
 
+const MIDS = flatten().cuts.map((c) => Math.floor(c.start + c.dur * 0.55));
+const Sheet: React.FC = () => { const f = useCurrentFrame(); void f; return <Film at={MIDS} />; };
+
 export const Root: React.FC = () => (
   <>
     <Composition id="Procyno" component={Film} width={W} height={H} fps={FPS} durationInFrames={flatten().total} />
+    <Composition id="Sheet" component={Sheet} width={W} height={H} fps={FPS} durationInFrames={MIDS.length} />
     <Composition id="Test" component={Test} width={W} height={H} fps={FPS} durationInFrames={60} />
   </>
 );
