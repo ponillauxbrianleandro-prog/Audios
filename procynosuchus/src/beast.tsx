@@ -1,244 +1,320 @@
-import React, { useId } from 'react';
-import { INK, Pt, capsule, clamp, leaf, lerp, poly, smooth } from './lib';
+import React from 'react';
+import { INK, Pt, clamp, lerp, mix, rng, smooth } from './lib';
 
+/**
+ * Animales construidos "como en 3D": un esqueleto de esferas (x adelante, y arriba, l lateral)
+ * que se proyecta a 2D con un giro (yaw). Se dibuja en tres pasadas: silueta oscura, masa de
+ * color corrida hacia la luz y lomo/brillos. Nunca se usa de perfil puro.
+ */
 export type Kind = 'procy' | 'gorgon' | 'dicyn' | 'pareia';
+type V3 = [number, number, number];
+type Col = { sh: string; lit: string; top?: string; bot?: string };
+type Sph = { p: V3; r: number; c: Col; blot?: number; tick?: boolean; knob?: boolean };
 type Spec = {
-  L: number; bh: number; stand: number; l1: number; l2: number; legW: number; tailL: number; tailW: number;
-  headL: number; headH: number; neck: number; fang: number; stride: number; lift: number; teeth: boolean;
-  col: { base: string; back: string; band: string; belly: string; leg: string; far: string; eye: string };
+  L: number; R: number; hipR: number; shR: number; cy: number; neck: number; neckR: number;
+  headL: number; r0: number; r1: number; jawR: number; tailL: number; tailR: number;
+  l1: number; l2: number; legW: number; sprawl: number; stride: number; lift: number; fang: number; teeth: boolean;
+  col: { base: string; back: string; blot: string; belly: string; leg: string; eye: string };
 };
 
 export const SPEC: Record<Kind, Spec> = {
-  procy: { L: 250, bh: 86, stand: 74, l1: 41, l2: 38, legW: 20, tailL: 310, tailW: 30, headL: 150, headH: 70, neck: 36, fang: 19, stride: 92, lift: 26, teeth: true,
-    col: { base: '#9a8c52', back: '#bf6f62', band: '#63294c', belly: '#d8c98c', leg: '#857a48', far: '#514a32', eye: '#f6c531' } },
-  gorgon: { L: 430, bh: 170, stand: 205, l1: 104, l2: 98, legW: 40, tailL: 330, tailW: 52, headL: 250, headH: 132, neck: 60, fang: 62, stride: 250, lift: 60, teeth: true,
-    col: { base: '#5b5666', back: '#3a3448', band: '#c48a3a', belly: '#9a938c', leg: '#4c4756', far: '#27242f', eye: '#ff5a3a' } },
-  dicyn: { L: 300, bh: 190, stand: 110, l1: 50, l2: 46, legW: 34, tailL: 90, tailW: 34, headL: 130, headH: 112, neck: 30, fang: 26, stride: 110, lift: 26, teeth: false,
-    col: { base: '#7fa07a', back: '#587a6c', band: '#3d5a58', belly: '#c2d0a4', leg: '#6a8a68', far: '#3c5648', eye: '#f2e9a0' } },
-  pareia: { L: 380, bh: 240, stand: 130, l1: 56, l2: 50, legW: 46, tailL: 150, tailW: 50, headL: 130, headH: 110, neck: 26, fang: 0, stride: 120, lift: 24, teeth: false,
-    col: { base: '#a8845e', back: '#7c5a46', band: '#4f3830', belly: '#d0b890', leg: '#8f6e50', far: '#4a382c', eye: '#f2e9a0' } },
+  procy: { L: 215, R: 54, hipR: 44, shR: 50, cy: 60, neck: 30, neckR: 42, headL: 168, r0: 50, r1: 40, jawR: 24, tailL: 300, tailR: 31,
+    l1: 50, l2: 46, legW: 20, sprawl: 46, stride: 92, lift: 24, fang: 24, teeth: true,
+    col: { base: '#a39448', back: '#c9645e', blot: '#6a2a66', belly: '#e4d48a', leg: '#8d8240', eye: '#ffd23a' } },
+  gorgon: { L: 400, R: 96, hipR: 80, shR: 96, cy: 205, neck: 60, neckR: 76, headL: 280, r0: 84, r1: 70, jawR: 36, tailL: 330, tailR: 52,
+    l1: 122, l2: 116, legW: 38, sprawl: 34, stride: 240, lift: 60, fang: 84, teeth: true,
+    col: { base: '#666070', back: '#3f384e', blot: '#d8922e', belly: '#a8a098', leg: '#575062', eye: '#ff5030' } },
+  dicyn: { L: 270, R: 112, hipR: 96, shR: 104, cy: 132, neck: 24, neckR: 82, headL: 140, r0: 72, r1: 46, jawR: 26, tailL: 90, tailR: 30,
+    l1: 72, l2: 62, legW: 34, sprawl: 50, stride: 110, lift: 26, fang: 34, teeth: false,
+    col: { base: '#7fae7a', back: '#4f7f6c', blot: '#2f5a58', belly: '#d0dca8', leg: '#6c9668', eye: '#f6eca0' } },
+  pareia: { L: 330, R: 132, hipR: 110, shR: 122, cy: 150, neck: 22, neckR: 88, headL: 126, r0: 68, r1: 52, jawR: 28, tailL: 150, tailR: 44,
+    l1: 80, l2: 66, legW: 44, sprawl: 62, stride: 120, lift: 24, fang: 0, teeth: false,
+    col: { base: '#b48a58', back: '#855a40', blot: '#5a3828', belly: '#dcc090', leg: '#9c7448', eye: '#f6eca0' } },
 };
 
-/** distance travelled in one full walk cycle */
 export const cycleLen = (kind: Kind, s = 1, run = false) => (SPEC[kind].stride * (run ? 1.7 : 1) * s) / 0.6;
 
 export type BeastProps = {
-  kind?: Kind; x: number; y: number; s?: number; flip?: boolean;
+  kind?: Kind; x: number; y: number; s?: number; flip?: boolean; yaw?: number; turn?: number;
   phase?: number; run?: boolean; head?: number; jaw?: number; crouch?: number; f?: number;
-  blink?: number; sil?: string; eyeGlow?: boolean; shadow?: boolean; tailAmp?: number; look?: number;
+  blink?: number; sil?: string; eyeGlow?: boolean; shadow?: boolean; tailAmp?: number; look?: number; drift?: number;
 };
 
-const ik = (r: Pt, t: Pt, l1: number, l2: number, dir: number): Pt => {
-  let dx = t[0] - r[0], dy = t[1] - r[1];
-  let d = Math.hypot(dx, dy);
-  const mx = l1 + l2 - 0.5;
-  if (d > mx) { dx *= mx / d; dy *= mx / d; d = mx; }
-  const a = Math.acos(clamp((l1 * l1 + d * d - l2 * l2) / (2 * l1 * d), -1, 1));
-  const b = Math.atan2(dy, dx) + a * dir;
-  return [r[0] + Math.cos(b) * l1, r[1] + Math.sin(b) * l1];
-};
+const PITCH = 0.3; // la cámara mira un poco desde arriba
+const DIST = 1500;
+const D2R = Math.PI / 180;
 
-type Shape = { d: string; fill: string; tf?: string };
-const TwoPass: React.FC<{ shapes: Shape[]; sw: number; ink: string; children?: React.ReactNode }> = ({ shapes, sw, ink, children }) => (
-  <g>
-    {shapes.map((s, i) => <path key={`o${i}`} d={s.d} transform={s.tf} fill={ink} stroke={ink} strokeWidth={sw * 2} strokeLinejoin="round" />)}
-    {shapes.map((s, i) => <path key={`f${i}`} d={s.d} transform={s.tf} fill={s.fill} />)}
-    {children}
-  </g>
-);
-
-export const Beast: React.FC<BeastProps> = ({ kind = 'procy', x, y, s = 1, flip, phase, run, head = 0, jaw = 0, crouch = 0, f = 0, blink = 0, sil, eyeGlow, shadow = true, tailAmp = 1, look = 0 }) => {
+const build = (pr: BeastProps) => {
+  const kind = pr.kind ?? 'procy';
   const P = SPEC[kind];
-  const uid = useId().replace(/:/g, '');
-  const C = sil ? { base: sil, back: sil, band: sil, belly: sil, leg: sil, far: sil, eye: P.col.eye } : P.col;
-  const ink = sil ?? INK;
-  const sw = Math.max(2.2, 3.2 / Math.sqrt(s));
+  const { phase, run, head = 0, jaw = 0, crouch = 0, f = 0, tailAmp = 1, turn = 0 } = pr;
+  const yaw = (pr.yaw ?? 32) * D2R;
+  const sil = pr.sil;
+  const cs = Math.cos(yaw), sn = Math.sin(yaw), cp = Math.cos(PITCH), sp = Math.sin(PITCH);
+  const proj = (p: V3) => {
+    const xw = p[0] * cs - p[2] * sn, zw = p[0] * sn + p[2] * cs;
+    const d = zw * cp + p[1] * sp;
+    const k = 1 + d / DIST;
+    return { x: xw * k, y: (-p[1] * cp + zw * sp) * k, d, k };
+  };
   const moving = phase !== undefined;
   const ph = phase ?? 0;
-  const breath = Math.sin(f / 14) * 1.5;
-  const bob = moving ? Math.sin(ph * Math.PI * 4) * (run ? 7 : 3) : breath * 0.6;
-  const pitch = moving && run ? Math.sin(ph * Math.PI * 2) * 5 : 0;
-  const stand = P.stand * (1 - crouch * 0.45);
-  const hip: Pt = [-P.L / 2 + 8, -stand + bob - pitch];
-  const sh: Pt = [P.L / 2 - 8, -stand - bob * 0.6 + pitch];
-  const bh = P.bh;
-  const hc = hip[1] - bh * 0.18, sc = sh[1] - bh * 0.18, mc = (hc + sc) / 2;
-  const nRaise = -bh * 0.1 - crouch * 4;
-  const N: Pt = [P.L / 2 + P.neck, sc + nRaise];
-  const sag = bh * 0.06 + (moving ? Math.sin(ph * Math.PI * 4 + 1) * 2 : breath);
-  const torso = smooth([
-    [-P.L / 2 - bh * 0.5, hc - bh * 0.12], [-P.L / 2 - bh * 0.05, hc - bh * 0.5], [-P.L * 0.1, mc - bh * 0.56], [P.L / 2 - bh * 0.15, sc - bh * 0.52],
-    [N[0] - 4, N[1] - bh * 0.3], [N[0] + 16, N[1] + 2], [N[0] - 6, N[1] + bh * 0.34], [P.L / 2 - 4, sc + bh * 0.46],
-    [0, mc + bh * 0.5 + sag], [-P.L / 2 + 6, hc + bh * 0.44], [-P.L / 2 - bh * 0.42, hc + bh * 0.24],
-  ], true, 0.9);
+  const breath = Math.sin(f / 14);
+  const bob = moving ? Math.sin(ph * Math.PI * 4) * (run ? 6 : 2.5) : breath * 0.8;
+  const cy = P.cy * (1 - crouch * 0.38) + bob;
+  const C = P.col;
+  const c = (base: string, top?: string, bot?: string): Col => (sil ? { sh: sil, lit: sil } : { sh: mix(base, '#1c1030', 0.42), lit: base, top, bot });
+  const bodyC = c(C.base, C.back, C.belly), legC = c(C.leg), headC = c(C.base, C.back), jawC = c(C.belly);
 
-  // tail
-  const n = 8;
-  const T0: Pt = [-P.L / 2 - bh * 0.34, hc + bh * 0.04];
-  const chain: Pt[] = [T0];
-  let th0 = 0;
-  for (let i = 0; i < n; i++) {
-    const wave = Math.sin((moving ? ph * Math.PI * 2 : f / 22) - i * 0.75) * 0.16 * (i / n + 0.25) * tailAmp * (run ? 1.8 : 1);
-    const th = Math.PI - 0.28 + 0.085 * i + wave - crouch * 0.05 * i;
-    if (i === 0) th0 = th;
-    const p = chain[i];
-    chain.push([p[0] + (Math.cos(th) * P.tailL) / n, p[1] + (Math.sin(th) * P.tailL) / n]);
+  // ---- columna, cola y cuello
+  const body: Sph[] = [];
+  const und = (t: number) => (moving ? Math.sin(ph * Math.PI * 2 + t * Math.PI) * P.R * 0.1 : 0);
+  const NS = 26;
+  for (let i = 0; i <= NS; i++) {
+    const t = i / NS;
+    const r = t < 0.45 ? lerp(P.hipR, P.R, Math.sin((t / 0.45) * Math.PI / 2)) : lerp(P.R, P.shR, (t - 0.45) / 0.55);
+    body.push({ p: [-P.L / 2 + t * P.L, cy - Math.sin(Math.PI * t) * P.R * 0.07, und(t)], r, c: bodyC, blot: i % 3 === 1 ? i : undefined, tick: i % 2 === 0, knob: kind === 'pareia' && i % 3 === 0 });
   }
-  void th0;
-  const tw = (i: number) => P.tailW * Math.pow(1 - i / (n + 0.4), 0.85) + 1.5;
-  const tl: Pt[] = [], tr: Pt[] = [];
-  for (let i = 0; i <= n; i++) {
-    const a = chain[Math.max(0, i - 1)], b = chain[Math.min(n, i + 1)];
-    const l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-    const nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l;
-    tl.push([chain[i][0] + nx * tw(i), chain[i][1] + ny * tw(i)]);
-    tr.unshift([chain[i][0] - nx * tw(i), chain[i][1] - ny * tw(i)]);
+  const TN = 26;
+  let tp: V3 = [-P.L / 2 - P.hipR * 0.3, cy, und(0)];
+  let ang = Math.PI, drop = 0;
+  for (let i = 0; i <= TN; i++) {
+    const t = i / TN;
+    const r = P.tailR * Math.pow(1 - t, 0.8) + 2.5;
+    const wave = Math.sin((moving ? ph * Math.PI * 2 : f / 24) - t * 4.2) * 0.5 * t * tailAmp * (run ? 1.5 : 1);
+    ang = Math.PI + wave;
+    drop = Math.max(r, lerp(cy, r + 2, Math.min(1, t * 1.5)));
+    tp = [tp[0] + (Math.cos(ang) * P.tailL) / TN, drop, tp[2] + (Math.sin(ang) * P.tailL) / TN];
+    body.push({ p: tp, r, c: bodyC, blot: i % 4 === 2 ? 100 + i : undefined });
   }
-  const tail = smooth([[T0[0] + bh * 0.3, T0[1]], ...tl, ...tr], true, 0.8);
+  const sh0: V3 = [P.L / 2, cy, und(1)];
+  const N: V3 = [P.L / 2 + P.neck, cy + P.R * 0.12 - crouch * 6, und(1) * 0.6];
+  for (let i = 1; i <= 5; i++) {
+    const t = i / 5;
+    body.push({ p: [lerp(sh0[0], N[0], t), lerp(sh0[1], N[1], t), lerp(sh0[2], N[2], t)], r: lerp(P.shR * 0.92, P.neckR, t), c: bodyC, blot: i === 3 ? 60 : undefined });
+  }
 
-  // legs
+  // ---- cabeza (coordenadas locales: x adelante, y arriba, l lateral)
+  const hp = (head + (moving ? Math.sin(ph * Math.PI * 4 + 0.5) * 2 : Math.sin(f / 31) * 1.5)) * D2R;
+  const ht = turn * D2R;
+  const hloc = (x: number, y: number, l: number): V3 => {
+    const x1 = x * Math.cos(hp) + y * Math.sin(hp), y1 = -x * Math.sin(hp) + y * Math.cos(hp);
+    const x2 = x1 * Math.cos(ht) - l * Math.sin(ht), l2 = x1 * Math.sin(ht) + l * Math.cos(ht);
+    return [N[0] + x2, N[1] + y1, N[2] + l2];
+  };
+  const HL = P.headL, r0 = P.r0, r1 = P.r1;
+  const skR = (t: number) => lerp(r0, r1, Math.pow(t, 1.4));
+  const skX = (t: number) => t * (HL - r1 * 0.9);
+  const skY = (t: number) => r0 * 0.12 - t * r0 * 0.1;
+  const skull: Sph[] = [];
+  for (let i = 0; i <= 12; i++) { const t = i / 12; skull.push({ p: hloc(skX(t), skY(t), 0), r: skR(t), c: headC, blot: i === 2 || i === 5 ? 200 + i : undefined }); }
+  // ceja ósea
+  const eyeT = 0.4;
+  const eyeL = skR(eyeT) * 0.62;
+  for (const sgn of [1, -1]) skull.push({ p: hloc(skX(eyeT) - 4, skY(eyeT) + skR(eyeT) * 0.58, sgn * eyeL * 0.86), r: skR(eyeT) * 0.42, c: headC });
+  const ja = jaw * D2R;
+  const hinge: [number, number] = [HL * 0.04, -r0 * 0.5];
+  const jloc = (x: number, y: number, l: number): V3 => {
+    const dx = x - hinge[0], dy = y - hinge[1];
+    return hloc(hinge[0] + dx * Math.cos(ja) + dy * Math.sin(ja), hinge[1] - dx * Math.sin(ja) + dy * Math.cos(ja), l);
+  };
+  const jawS: Sph[] = [];
+  const jwY = (t: number) => lerp(-r0 * 0.62, -r1 * 0.74, t);
+  const jwX = (t: number) => hinge[0] + t * (HL * 0.9 - hinge[0]);
+  for (let i = 0; i <= 11; i++) { const t = i / 11; jawS.push({ p: jloc(jwX(t), jwY(t), 0), r: lerp(P.jawR * 1.25, P.jawR * 0.78, t), c: jawC }); }
+
+  // ---- patas
   const S = P.stride * (run ? 1.7 : 1), lift = P.lift * (run ? 1.5 : 1);
-  const foot = (off: number, jx: number, rest: number): { p: Pt; tilt: number } => {
-    if (!moving) return { p: [jx + rest, -P.legW * 0.42], tilt: 0 };
+  const footX = (off: number, rest: number): { x: number; y: number } => {
+    if (!moving) return { x: rest, y: 0 };
     const u = (((ph + off) % 1) + 1) % 1;
-    if (u < 0.6) { const k = u / 0.6; return { p: [jx + rest * 0.5 + S / 2 - S * k, -P.legW * 0.42], tilt: 0 }; }
-    const k = (u - 0.6) / 0.4;
-    const e = k * k * (3 - 2 * k);
-    return { p: [jx + rest * 0.5 - S / 2 + S * e, -P.legW * 0.42 - Math.sin(Math.PI * k) * lift], tilt: Math.sin(Math.PI * k) * 28 };
+    if (u < 0.6) return { x: rest * 0.5 + S / 2 - S * (u / 0.6), y: 0 };
+    const k = (u - 0.6) / 0.4, e = k * k * (3 - 2 * k);
+    return { x: rest * 0.5 - S / 2 + S * e, y: Math.sin(Math.PI * k) * lift };
   };
-  const leg = (joint: Pt, off: number, rest: number, dir: number, far: boolean): Shape[] => {
-    const ft = foot(off, joint[0], rest);
-    const knee = ik(joint, ft.p, P.l1, P.l2, dir);
-    const c1 = far ? C.far : C.leg, w = P.legW;
-    const fw = w * 1.9, fh = w * 0.42;
-    const [ax, ay] = ft.p;
-    const footD = capsule([ax - fw * 0.12, ay], [ax + fw * 0.7, ay + fh * 0.35], w * 0.5, w * 0.34);
-    return [
-      { d: capsule(joint, knee, w * 1.08, w * 0.8), fill: c1 },
-      { d: capsule(knee, ft.p, w * 0.78, w * 0.56), fill: c1 },
-      { d: footD, fill: c1, tf: `rotate(${ft.tilt.toFixed(1)} ${ax.toFixed(1)} ${ay.toFixed(1)})` },
-    ];
+  const leg = (front: boolean, side: number, off: number, rest: number): { sph: Sph[]; claws: [V3, V3][] } => {
+    const jx = front ? P.L / 2 - 6 : -P.L / 2 + 10;
+    const jr = front ? P.shR : P.hipR;
+    const J: V3 = [jx, cy - jr * 0.15, side * jr * 0.72 + und(front ? 1 : 0)];
+    const ft = footX(off, rest);
+    const A: V3 = [jx + ft.x, P.legW * 0.55 + ft.y, side * (jr * 0.72 + P.sprawl)];
+    let dx = A[0] - J[0], dy = A[1] - J[1], dz = A[2] - J[2];
+    let d = Math.hypot(dx, dy, dz);
+    const mx = P.l1 + P.l2 - 0.5;
+    if (d > mx) { const q = mx / d; dx *= q; dy *= q; dz *= q; d = mx; }
+    const dir: V3 = [dx / d, dy / d, dz / d];
+    const a = (P.l1 * P.l1 - P.l2 * P.l2 + d * d) / (2 * d);
+    const h = Math.sqrt(Math.max(0, P.l1 * P.l1 - a * a));
+    const pole: V3 = [front ? -0.55 : 0.6, 0.55, side * 1];
+    const dot = pole[0] * dir[0] + pole[1] * dir[1] + pole[2] * dir[2];
+    let pv: V3 = [pole[0] - dot * dir[0], pole[1] - dot * dir[1], pole[2] - dot * dir[2]];
+    const pl = Math.hypot(...pv) || 1;
+    pv = [pv[0] / pl, pv[1] / pl, pv[2] / pl];
+    const K: V3 = [J[0] + dir[0] * a + pv[0] * h, J[1] + dir[1] * a + pv[1] * h, J[2] + dir[2] * a + pv[2] * h];
+    const E: V3 = [J[0] + dx, J[1] + dy, J[2] + dz];
+    const sph: Sph[] = [];
+    const w = P.legW;
+    for (let i = 0; i <= 6; i++) { const t = i / 6; sph.push({ p: [lerp(J[0], K[0], t), lerp(J[1], K[1], t), lerp(J[2], K[2], t)], r: lerp(w * 1.25, w * 0.95, t), c: legC }); }
+    for (let i = 1; i <= 6; i++) { const t = i / 6; sph.push({ p: [lerp(K[0], E[0], t), lerp(K[1], E[1], t), lerp(K[2], E[2], t)], r: lerp(w * 0.95, w * 0.72, t), c: legC }); }
+    // mano ancha de cinco dedos con garras
+    const claws: [V3, V3][] = [];
+    const up = ft.y;
+    for (let k = 0; k < 5; k++) {
+      const a2 = (-0.25 + k * 0.33) * side + (front ? 0 : 0.1 * side);
+      const len = w * (1.25 + (k === 2 || k === 1 ? 0.3 : 0));
+      const tip: V3 = [E[0] + Math.cos(a2) * len, w * 0.3 + up * 0.7, E[2] + Math.sin(a2) * len];
+      for (let i = 1; i <= 3; i++) { const t = i / 3; sph.push({ p: [lerp(E[0], tip[0], t), lerp(E[1] - w * 0.15, tip[1], t), lerp(E[2], tip[2], t)], r: lerp(w * 0.5, w * 0.3, t), c: legC }); }
+      claws.push([tip, [tip[0] + Math.cos(a2) * w * 0.55, Math.max(0, up * 0.7 - 1), tip[2] + Math.sin(a2) * w * 0.55]]);
+    }
+    return { sph, claws };
   };
-  const fJ: Pt = [sh[0], sh[1] + bh * 0.12], hJ: Pt = [hip[0], hip[1] + bh * 0.12];
-  const farOff: Pt = [P.L * 0.05, -3];
-  const farLegs = [...leg([fJ[0] + farOff[0], fJ[1] + farOff[1]], 0.5, P.l1 * 0.2 - 10, 1, true), ...leg([hJ[0] + farOff[0], hJ[1] + farOff[1]], 0, -P.l1 * 0.1 - 12, -1, true)];
-  const nearLegs = [...leg(fJ, 0, P.l1 * 0.2 + 12, 1, false), ...leg(hJ, 0.5, -P.l1 * 0.1 + 12, -1, false)];
-
-  // head (template 150 x 70)
-  const hx = P.headL / 150, hy = P.headH / 70;
-  const hp = (pts: Pt[]) => pts.map(([a, b]) => [a * hx, b * hy] as Pt);
-  const skull = smooth(hp([[-20, 26], [-24, -8], [-10, -34], [30, -46], [78, -42], [118, -31], [146, -21], [157, -7], [153, 7], [120, 10], [70, 12], [18, 15]]), true, 0.85);
-  const jawD = smooth(hp([[4, 9], [70, 10], [130, 8], [149, 8], [147, 18], [128, 26], [70, 32], [20, 35], [-12, 30], [-16, 14]]), true, 0.85);
-  const jp: Pt = [6 * hx, 14 * hy];
-  const jawTf = `rotate(${jaw.toFixed(1)} ${jp[0].toFixed(1)} ${jp[1].toFixed(1)})`;
-  const jr = (jaw * Math.PI) / 180;
-  const jt: Pt = [jp[0] + Math.cos(jr) * 142 * hx, jp[1] + Math.sin(jr) * 142 * hx - 4];
-  const inside = poly([[4 * hx, 10 * hy], [150 * hx, 6 * hy], jt, [jp[0] + Math.cos(jr) * 40 * hx, jp[1] + Math.sin(jr) * 40 * hx + 6]]);
-  const peg = (px: number, py: number, w: number, len: number, cusp = false) => cusp
-    ? `M${px - w} ${py}L${px - w * 0.6} ${py + len * 0.55}L${px - w * 0.3} ${py + len * 0.3}L${px} ${py + len}L${px + w * 0.3} ${py + len * 0.3}L${px + w * 0.6} ${py + len * 0.55}L${px + w} ${py}Z`
-    : `M${px - w} ${py}L${px} ${py + len}L${px + w} ${py}Z`;
-  const up: string[] = [], lo: string[] = [];
-  if (P.teeth) {
-    for (let i = 0; i < 5; i++) up.push(peg((150 - i * 5.5) * hx, (6.5 + i * 0.3) * hy, 2.6 * hx, 7 * hy));
-    for (let i = 0; i < 3; i++) up.push(peg((120 - i * 4) * hx - 14 * hx, 10 * hy, 1.8 * hx, 4 * hy));
-    for (let i = 0; i < 7; i++) up.push(peg((92 - i * 9) * hx, (10.5 + i * 0.3) * hy, 4 * hx, 6.5 * hy, true));
-    for (let i = 0; i < 4; i++) lo.push(peg((146 - i * 5.5) * hx, 9 * hy, 2.4 * hx, -6.5 * hy));
-    lo.push(peg(120 * hx, 9 * hy, 4 * hx, -P.fang * 0.55));
-    for (let i = 0; i < 7; i++) lo.push(peg((96 - i * 9) * hx, 10 * hy, 4 * hx, -6 * hy, true));
-  }
-  const fx = 116 * hx, fy = 8 * hy, fg = P.fang;
-  const fang = `M${fx - 5.5 * hx} ${fy}Q${fx - 5 * hx} ${fy + fg * 0.7} ${fx - 7 * hx} ${fy + fg}Q${fx + 5 * hx} ${fy + fg * 0.55} ${fx + 6.5 * hx} ${fy}Z`;
-  const ex = 84 * hx + look * 2, ey = -21 * hy;
-  const er = Math.min(hx, hy) * (kind === 'gorgon' ? 0.75 : 1);
-  const headRot = head + (moving ? Math.sin(ph * Math.PI * 4 + 0.5) * 2 : Math.sin(f / 31) * 1.2);
-  const headTf = `translate(${N[0].toFixed(1)} ${N[1].toFixed(1)}) rotate(${headRot.toFixed(1)})`;
-
-  const bands: React.ReactNode[] = [];
-  const nb = Math.round(P.L / 38);
-  for (let i = 0; i < nb; i++) {
-    const bx = lerp(-P.L / 2 - bh * 0.2, P.L / 2 + P.neck * 0.3, i / (nb - 1));
-    bands.push(<path key={i} d={leaf([bx + 6, mc - bh * 0.7], [bx - 10 + (i % 2) * 8, mc + bh * (0.02 + (i % 3) * 0.08)], bh * 0.085, 4)} fill={C.band} />);
-  }
-  const tailBands: React.ReactNode[] = [];
-  for (let i = 0; i < n; i++) {
-    const a = chain[i], b = chain[i + 1];
-    const m: Pt = [lerp(a[0], b[0], 0.5), lerp(a[1], b[1], 0.5)];
-    const l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-    const nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l;
-    tailBands.push(<path key={i} d={leaf([m[0] + nx * tw(i) * 1.3, m[1] + ny * tw(i) * 1.3], [m[0] - nx * tw(i) * 0.1 + 4, m[1] - ny * tw(i) * 0.1], P.tailL / n * 0.2)} fill={C.band} />);
-  }
-  const knobs: React.ReactNode[] = [];
-  if (kind === 'pareia' && !sil) for (let i = 0; i < 9; i++) knobs.push(<circle key={i} cx={lerp(-P.L / 2, P.L / 2, i / 8)} cy={mc - bh * (0.5 + 0.06 * Math.sin(i * 1.3)) + 6} r={bh * 0.045} fill={C.belly} stroke={ink} strokeWidth={2} />);
-
-  const bodyShapes: Shape[] = [
-    { d: tail, fill: C.base }, { d: torso, fill: C.base },
-    ...(jaw > 0.5 ? [{ d: inside, fill: sil ?? '#5a1530', tf: headTf }] : []),
+  const legs = [
+    { key: 'nf', near: true, ...leg(true, 1, 0, P.l1 * 0.2 + 8) },
+    { key: 'nh', near: true, ...leg(false, 1, 0.5, -P.l1 * 0.1 + 10) },
+    { key: 'ff', near: false, ...leg(true, -1, 0.5, P.l1 * 0.2 - 8) },
+    { key: 'fh', near: false, ...leg(false, -1, 0, -P.l1 * 0.1 - 10) },
   ];
 
-  return (
-    <g transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${flip ? -s : s} ${s})`}>
-      {shadow && !sil && <ellipse cx={0} cy={3} rx={P.L * 0.85} ry={P.stand * 0.16 + 6} fill="#0a0814" opacity={0.28} />}
-      <TwoPass shapes={farLegs} sw={sw} ink={ink} />
-      <TwoPass shapes={bodyShapes} sw={sw} ink={ink}>
-        {!sil && (
-          <>
-            <clipPath id={`t${uid}`}><path d={torso} /></clipPath>
-            <clipPath id={`l${uid}`}><path d={tail} /></clipPath>
-            <g clipPath={`url(#l${uid})`}>
-              <path d={smooth([...tl, ...chain.slice().reverse()], true, 0.8)} fill={C.back} />
-              {tailBands}
-            </g>
-            <g clipPath={`url(#t${uid})`}>
-              <rect x={-P.L} y={mc - bh} width={P.L * 2.4} height={bh * 0.86} fill={C.back} />
-              <rect x={-P.L} y={mc + bh * 0.2} width={P.L * 2.4} height={bh} fill={C.belly} />
-              {bands}
-              <path d={leaf([-P.L / 2, mc - bh * 0.44], [P.L / 2, mc - bh * 0.42], bh * 0.07, -bh * 0.05)} fill="#ffffff" opacity={0.22} />
-              <rect x={-P.L} y={mc + bh * 0.32} width={P.L * 2.4} height={bh} fill="#1a0f24" opacity={0.28} />
-            </g>
-            {knobs}
-          </>
-        )}
-      </TwoPass>
-      {/* head */}
-      <g transform={headTf}>
-        {jaw > 0.5 && P.teeth && !sil && (
-          <>
-            {up.map((d, i) => <path key={`u${i}`} d={d} fill="#fdf8e6" stroke={INK} strokeWidth={0.9} strokeLinejoin="round" />)}
-            <g transform={jawTf}>{lo.map((d, i) => <path key={`l${i}`} d={d} fill="#fdf8e6" stroke={INK} strokeWidth={0.9} strokeLinejoin="round" />)}</g>
-          </>
-        )}
-        <path d={jawD} transform={jawTf} fill={ink} stroke={ink} strokeWidth={sw * 2} strokeLinejoin="round" />
-        <path d={skull} fill={ink} stroke={ink} strokeWidth={sw * 2} strokeLinejoin="round" />
-        {/* cover the neck seam */}
-        <path d={capsule([-34 * hx, 8 * hy], [6 * hx, 6 * hy], 15 * hy, 17 * hy)} fill={C.base} />
-        <path d={jawD} transform={jawTf} fill={sil ?? C.belly} />
-        <path d={skull} fill={C.base} />
-        {!sil && (
-          <>
-            <clipPath id={`s${uid}`}><path d={skull} /></clipPath>
-            <g clipPath={`url(#s${uid})`}>
-              <path d={smooth(hp([[-30, -50], [160, -50], [160, -16], [120, -22], [70, -30], [20, -24], [-30, -14]]), true, 0.7)} fill={C.back} />
-              <path d={leaf([36 * hx, -52 * hy], [28 * hx, -16 * hy], 7 * hx, 3)} fill={C.band} />
-              <path d={leaf([8 * hx, -50 * hy], [0, -10 * hy], 7 * hx, 3)} fill={C.band} />
-              <path d={leaf([112 * hx, -40 * hy], [108 * hx, -18 * hy], 5 * hx, 2)} fill={C.band} />
-              <path d={leaf([10 * hx, -38 * hy], [120 * hx, -30 * hy], 4 * hy, -3)} fill="#ffffff" opacity={0.25} />
-            </g>
-            <path d={smooth(hp([[152, 7], [120, 10], [70, 12], [22, 14], [10, 10]]), false)} fill="none" stroke={INK} strokeWidth={sw * 0.8} strokeLinecap="round" />
-            {jaw > 3 && <path d={smooth(hp([[6, 10], [70, 10], [130, 8], [148, 8]]), false)} transform={jawTf} fill="none" stroke={INK} strokeWidth={sw * 0.8} strokeLinecap="round" />}
-            <path d={`M${ex - 17 * er} ${ey - 13 * er}Q${ex} ${ey - 19 * er} ${ex + 19 * er} ${ey - 9 * er}`} fill="none" stroke={INK} strokeWidth={sw * 1.25} strokeLinecap="round" />
-            <ellipse cx={ex} cy={ey} rx={11 * er} ry={9 * er * Math.max(0.08, 1 - blink)} fill={C.eye} stroke={INK} strokeWidth={sw * 0.75} />
-            <ellipse cx={ex + look * 2} cy={ey} rx={4.6 * er} ry={6.6 * er * Math.max(0.08, 1 - blink)} fill="#0b0810" />
-            {blink < 0.5 && <circle cx={ex - 3 * er + look * 2} cy={ey - 3.2 * er} r={2.3 * er} fill="#fff" />}
-            <ellipse cx={147 * hx} cy={-10 * hy} rx={3.4 * hx} ry={2 * hy} fill={INK} transform={`rotate(-30 ${147 * hx} ${-10 * hy})`} />
-            {kind === 'procy' && [[128, -2], [135, 2], [121, 2], [128, 5]].map(([a, b], i) => <circle key={i} cx={a * hx} cy={b * hy - 4} r={1.3} fill={INK} opacity={0.55} />)}
-            <path d={`M${40 * hx} ${6 * hy}q${10 * hx} ${6 * hy} ${4 * hx} ${16 * hy}`} fill="none" stroke={INK} strokeWidth={sw * 0.6} strokeLinecap="round" opacity={0.6} />
-          </>
-        )}
-        {sil && eyeGlow && <ellipse cx={ex} cy={ey} rx={9 * er} ry={5 * er} fill={P.col.eye} />}
-        {fg > 0 && <path d={fang} fill={sil && !eyeGlow ? sil : '#fdf8e6'} stroke={ink} strokeWidth={sw * 0.7} strokeLinejoin="round" />}
-        {kind === 'dicyn' && !sil && <path d={poly(hp([[150, -8], [162, 4], [150, 14], [136, 8]]))} fill="#3a3440" stroke={INK} strokeWidth={sw * 0.7} strokeLinejoin="round" />}
+  // ---- dientes y ojos
+  const teethUp: { a: V3; len: number; near: boolean; big?: boolean }[] = [];
+  const teethLo: { a: V3; len: number }[] = [];
+  if (P.teeth) {
+    for (const sgn of [1, -1]) {
+      for (let i = 0; i < 9; i++) {
+        const t = 0.4 + i * 0.062;
+        teethUp.push({ a: hloc(skX(t) + skR(t) * 0.25, skY(t) - skR(t) * 0.8, sgn * skR(t) * 0.52), len: r1 * 0.24, near: sgn > 0 });
+      }
+      for (let i = 0; i < 8; i++) { const t = 0.42 + i * 0.07; teethLo.push({ a: jloc(jwX(t), jwY(t) + P.jawR * 0.8, sgn * P.jawR * 0.9), len: -r1 * 0.2 }); }
+    }
+    for (let i = 0; i < 5; i++) { const l = (i - 2) * r1 * 0.2; teethUp.push({ a: hloc(HL - r1 * 0.32 - Math.abs(i - 2) * 3, skY(1) - r1 * 0.78, l), len: r1 * 0.26, near: true }); }
+  }
+  if (P.fang > 0) for (const sgn of [1, -1]) { const t = 0.74; teethUp.push({ a: hloc(skX(t) + skR(t) * 0.2, skY(t) - skR(t) * 0.7, sgn * skR(t) * 0.6), len: P.fang, near: sgn > 0, big: true }); }
+  const eyes = [1, -1].map((sgn) => ({ p: hloc(skX(eyeT) + 6, skY(eyeT) + skR(eyeT) * 0.34, sgn * eyeL * 1.12), near: sgn > 0 }));
+  const nostrils = [1, -1].map((sgn) => ({ p: hloc(HL - r1 * 0.3, skY(1) + r1 * 0.42, sgn * r1 * 0.45), near: sgn > 0 }));
+  const mouth = [hloc(hinge[0] + 6, hinge[1] + 4, r0 * 0.5), hloc(HL * 0.5, skY(0.5) - skR(0.5) * 0.6, skR(0.5) * 0.55), hloc(HL - r1 * 0.5, skY(1) - r1 * 0.6, r1 * 0.3), jloc(HL * 0.86, jwY(1) + P.jawR * 0.3, P.jawR * 0.4), jloc(HL * 0.5, jwY(0.5) + P.jawR * 0.5, P.jawR * 0.8)];
+  const beak = kind === 'dicyn' ? [hloc(HL - r1 * 0.9, skY(1) + r1 * 0.2, 0), hloc(HL + r1 * 0.1, skY(1) - r1 * 0.2, 0), hloc(HL - r1 * 0.5, skY(1) - r1 * 1.1, 0), hloc(HL - r1 * 1.3, skY(1) - r1 * 0.7, 0)] : null;
+  return { P, proj, body, skull, jawS, legs, teethUp, teethLo, eyes, nostrils, mouth, beak, N, cy, kind, yawDeg: pr.yaw ?? 32, headPt: hloc(HL * 0.5, 0, 0), shoulder: sh0, skR, eyeR: skR(eyeT) };
+};
+
+/** posición proyectada (sin escala) de puntos clave, para encuadrar primeros planos */
+export const anchors = (pr: BeastProps) => {
+  const b = build(pr);
+  const e = b.proj(b.eyes[0].p), m = b.proj(b.mouth[2]), h = b.proj(b.headPt), fg = b.teethUp.find((t) => t.big && t.near);
+  const fp = fg ? b.proj(fg.a) : m;
+  const sgn = pr.flip ? -1 : 1;
+  const hg = b.proj(b.mouth[0]), tl = b.proj(b.body[40].p);
+  return { eye: [e.x * sgn, e.y] as Pt, mouth: [m.x * sgn, m.y] as Pt, head: [h.x * sgn, h.y] as Pt, fang: [fp.x * sgn, fp.y] as Pt, hinge: [hg.x * sgn, hg.y] as Pt, tail: [tl.x * sgn, tl.y] as Pt };
+};
+
+export const Beast: React.FC<BeastProps> = (pr) => {
+  const { x, y, s = 1, flip, f = 0, blink = 0, sil, eyeGlow, shadow = true, look = 0, jaw = 0 } = pr;
+  const b = build(pr);
+  const { P, proj, kind } = b;
+  const ink = sil ?? INK;
+  const sw = Math.max(2, 3 / Math.sqrt(s));
+  const lx = flip ? 0.55 : -0.55, ly = -0.82; // luz desde arriba a la izquierda en pantalla
+  const yawR = b.yawDeg * D2R;
+  // deriva en profundidad al caminar
+  const trav = pr.phase !== undefined ? pr.phase * cycleLen(kind, 1, pr.run) * (pr.drift ?? 1) : 0;
+  const dy = trav * Math.sin(yawR) * 0.3 * s;
+  const sc = s * (1 + dy / 2600);
+
+  const group = (sph: Sph[], key: string, deco = false): React.ReactNode => {
+    const q = sph.map((sp) => ({ ...sp, q: proj(sp.p) })).sort((a, b2) => a.q.d - b2.q.d);
+    const out: React.ReactNode[] = [];
+    q.forEach((o, i) => out.push(<circle key={`o${i}`} cx={o.q.x.toFixed(1)} cy={o.q.y.toFixed(1)} r={(o.r * o.q.k + sw).toFixed(1)} fill={ink} />));
+    const each = (fn: (o: (typeof q)[number], i: number, r: number, cx: number, cy: number) => void) => q.forEach((o, i) => fn(o, i, o.r * o.q.k, o.q.x, o.q.y));
+    each((o, i, r, cx, cy) => out.push(<circle key={`s${i}`} cx={cx.toFixed(1)} cy={cy.toFixed(1)} r={r.toFixed(1)} fill={o.c.sh} />));
+    if (!sil) {
+      each((o, i, r, cx, cy) => { if (o.c.bot) out.push(<circle key={`b${i}`} cx={(cx + lx * r * 0.04).toFixed(1)} cy={(cy + r * 0.16).toFixed(1)} r={(r * 0.78).toFixed(1)} fill={mix(o.c.bot, '#1c1030', 0.22)} />); });
+      each((o, i, r, cx, cy) => out.push(<circle key={`l${i}`} cx={(cx + lx * r * 0.14).toFixed(1)} cy={(cy + ly * r * (o.c.bot ? 0.3 : 0.14)).toFixed(1)} r={(r * (o.c.bot ? 0.7 : 0.85)).toFixed(1)} fill={o.c.lit} />));
+      each((o, i, r, cx, cy) => { if (o.c.top) out.push(<circle key={`t${i}`} cx={(cx + lx * r * 0.2).toFixed(1)} cy={(cy - r * 0.42).toFixed(1)} r={(r * 0.56).toFixed(1)} fill={o.c.top} />); });
+      each((o, i, r, cx, cy) => { if (o.c.top && r > 24) out.push(<circle key={`h${i}`} cx={(cx + lx * r * 0.4).toFixed(1)} cy={(cy - r * 0.66).toFixed(1)} r={(r * 0.2).toFixed(1)} fill={mix(o.c.top, '#ffffff', 0.38)} />); });
+      each((o, i, r, cx, cy) => {
+        if (deco && o.blot !== undefined) {
+          const rr = rng(o.blot + 7);
+          const bx = cx + (rr() - 0.5) * r * 0.4 + lx * r * 0.1, by = cy - r * (0.2 + rr() * 0.3);
+          const d = smooth([[bx - r * 0.22, by - r * 0.5], [bx + r * 0.2, by - r * 0.55], [bx + r * 0.3, by - r * 0.1], [bx + r * 0.1, by + r * (0.25 + rr() * 0.35)], [bx - r * 0.12, by + r * 0.1], [bx - r * 0.3, by - r * 0.15]], true, 1);
+          out.push(<path key={`p${i}`} d={d} fill={P.col.blot} opacity={0.92} />);
+          out.push(<circle key={`pp${i}`} cx={(bx + r * 0.46).toFixed(1)} cy={(by + r * 0.2).toFixed(1)} r={(r * 0.09).toFixed(1)} fill={P.col.blot} />);
+          out.push(<circle key={`pq${i}`} cx={(bx - r * 0.4).toFixed(1)} cy={(by + r * 0.34).toFixed(1)} r={(r * 0.06).toFixed(1)} fill={P.col.blot} />);
+        }
+        if (deco && o.tick && r > 14) {
+          const rr = rng(i * 13 + 3);
+          const tx = cx + (rr() - 0.4) * r * 0.5, ty = cy + r * (0.05 + rr() * 0.3), q2 = r * 0.13;
+          out.push(<path key={`k${i}`} d={`M${(tx - q2).toFixed(1)} ${ty.toFixed(1)}q${q2.toFixed(1)} ${(q2 * 0.9).toFixed(1)} ${(q2 * 2).toFixed(1)} 0`} fill="none" stroke={INK} strokeWidth={sw * 0.5} strokeLinecap="round" opacity={0.45} />);
+          out.push(<circle key={`w${i}`} cx={(tx + r * 0.2).toFixed(1)} cy={(ty - r * 0.5).toFixed(1)} r={(r * 0.05).toFixed(1)} fill={mix(o.c.lit, '#ffffff', 0.45)} />);
+        }
+        if (o.knob) out.push(<circle key={`n${i}`} cx={cx.toFixed(1)} cy={(cy - r * 0.92).toFixed(1)} r={(r * 0.13).toFixed(1)} fill={mix(P.col.belly, '#ffffff', 0.2)} stroke={INK} strokeWidth={sw * 0.6} />);
+      });
+    }
+    return <g key={key}>{out}</g>;
+  };
+
+  const tooth = (t: { a: V3; len: number; big?: boolean }, i: number, key: string) => {
+    const q = proj(t.a);
+    const w = (t.big ? P.fang * 0.2 : Math.abs(t.len) * 0.42) * q.k, L2 = t.len * q.k;
+    const d = t.big
+      ? `M${(q.x - w).toFixed(1)} ${q.y.toFixed(1)}Q${(q.x - w * 0.9).toFixed(1)} ${(q.y + L2 * 0.7).toFixed(1)} ${(q.x - w * 1.3).toFixed(1)} ${(q.y + L2).toFixed(1)}Q${(q.x + w * 0.9).toFixed(1)} ${(q.y + L2 * 0.55).toFixed(1)} ${(q.x + w).toFixed(1)} ${q.y.toFixed(1)}Z`
+      : `M${(q.x - w).toFixed(1)} ${q.y.toFixed(1)}L${q.x.toFixed(1)} ${(q.y + L2).toFixed(1)}L${(q.x + w).toFixed(1)} ${q.y.toFixed(1)}Z`;
+    return <path key={`${key}${i}`} d={d} fill={sil && !eyeGlow ? sil : '#fff8e2'} stroke={ink} strokeWidth={t.big ? sw * 0.7 : sw * 0.35} strokeLinejoin="round" />;
+  };
+
+  const legG = (lg: (typeof b.legs)[number]) => (
+    <g key={lg.key}>
+      {group(lg.near || sil ? lg.sph : lg.sph.map((o) => ({ ...o, c: { sh: mix(o.c.sh, '#140c20', 0.35), lit: mix(o.c.lit, '#140c20', 0.4) } })), lg.key)}
+      {!sil && lg.claws.map(([a, t], i) => { const pa = proj(a), pt = proj(t); const nx = -(pt.y - pa.y), ny = pt.x - pa.x; const l = Math.hypot(nx, ny) || 1; const w = P.legW * 0.2; return <path key={i} d={`M${(pa.x + (nx / l) * w).toFixed(1)} ${(pa.y + (ny / l) * w).toFixed(1)}L${pt.x.toFixed(1)} ${(pt.y + 2).toFixed(1)}L${(pa.x - (nx / l) * w).toFixed(1)} ${(pa.y - (ny / l) * w).toFixed(1)}Z`} fill="#2a2030" stroke={INK} strokeWidth={sw * 0.4} strokeLinejoin="round" />; })}
+    </g>
+  );
+
+  const eye = (e: { p: V3; near: boolean }, i: number) => {
+    const q = proj(e.p);
+    const er = b.eyeR * 0.15 * q.k * (kind === 'gorgon' ? 0.8 : 1);
+    if (sil) return eyeGlow ? <ellipse key={i} cx={q.x} cy={q.y} rx={er * 1.3} ry={er * 0.8} fill={P.col.eye} /> : null;
+    const op = Math.max(0.08, 1 - blink);
+    return (
+      <g key={i}>
+        <ellipse cx={q.x} cy={q.y + er * 0.2} rx={er * 1.9} ry={er * 1.6} fill="#2a1830" opacity={0.55} />
+        <ellipse cx={q.x} cy={q.y} rx={er * 1.25} ry={er * 1.1 * op} fill={P.col.eye} stroke={INK} strokeWidth={sw * 0.7} />
+        <ellipse cx={q.x + look * er * 0.3} cy={q.y} rx={er * 0.5} ry={er * 0.85 * op} fill="#0b0810" />
+        {blink < 0.5 && <circle cx={q.x - er * 0.4 + look * er * 0.3} cy={q.y - er * 0.4} r={er * 0.3} fill="#fff" />}
+        <path d={`M${q.x - er * 2.3} ${q.y - er * 1.2}Q${q.x} ${q.y - er * 2.6} ${q.x + er * 2.5} ${q.y - er * 0.9}`} fill="none" stroke={INK} strokeWidth={sw * 1.15} strokeLinecap="round" />
       </g>
-      <TwoPass shapes={nearLegs} sw={sw} ink={ink} />
+    );
+  };
+
+  const hd = proj(b.headPt).d, sd = proj(b.shoulder).d;
+  const headFront = hd >= sd - 20;
+  const showFar = Math.sin(yawR) > 0.55;
+  const mp = b.mouth.map((m) => proj(m));
+  const headG = (
+    <g key="head">
+      {b.teethUp.filter((t) => !t.near).map((t, i) => tooth(t, i, 'fu'))}
+      {group(b.jawS, 'jaw')}
+      {jaw > 2 && <path d={`M${mp.map((m) => `${m.x.toFixed(1)} ${m.y.toFixed(1)}`).join('L')}Z`} fill={sil ?? '#5a1232'} stroke={ink} strokeWidth={sw * 0.6} strokeLinejoin="round" />}
+      {jaw > 2 && !sil && b.teethLo.map((t, i) => tooth(t, i, 'lo'))}
+      {group(b.skull, 'skull', true)}
+      {!sil && b.beak && <path d={smooth(b.beak.map((p) => { const q = proj(p); return [q.x, q.y] as Pt; }), true, 0.6)} fill="#3a3444" stroke={INK} strokeWidth={sw * 0.7} />}
+      {b.teethUp.filter((t) => t.near).map((t, i) => tooth(t, i, 'nu'))}
+      {!sil && <path d={`M${mp[0].x.toFixed(1)} ${mp[0].y.toFixed(1)}Q${mp[1].x.toFixed(1)} ${(mp[1].y + 3).toFixed(1)} ${mp[2].x.toFixed(1)} ${mp[2].y.toFixed(1)}`} fill="none" stroke={INK} strokeWidth={sw * 0.8} strokeLinecap="round" opacity={0.85} />}
+      {b.eyes.filter((e) => e.near || showFar).sort((a, c2) => (a.near ? 1 : 0) - (c2.near ? 1 : 0)).map(eye)}
+      {!sil && b.nostrils.filter((n) => n.near || showFar).map((n, i) => { const q = proj(n.p); return <ellipse key={i} cx={q.x} cy={q.y} rx={P.r1 * 0.1 * q.k} ry={P.r1 * 0.06 * q.k} fill={INK} transform={`rotate(-25 ${q.x.toFixed(1)} ${q.y.toFixed(1)})`} />; })}
+    </g>
+  );
+  const near = b.legs.filter((l) => l.near), far = b.legs.filter((l) => !l.near);
+  const byDepth = (a: (typeof b.legs)[number], c2: (typeof b.legs)[number]) => proj(a.sph[0].p).d - proj(c2.sph[0].p).d;
+  // sombra proyectada
+  const shPts: Pt[] = [];
+  for (let i = 0; i < 14; i++) { const a = (i / 14) * Math.PI * 2; const q = proj([Math.cos(a) * (P.L * 0.72 + P.headL * 0.3) + P.headL * 0.2, 0, Math.sin(a) * (P.R * 1.3 + P.sprawl * 0.8)]); shPts.push([q.x - lx * 26, q.y + 6]); }
+  return (
+    <g transform={`translate(${x.toFixed(1)} ${(y + dy).toFixed(1)}) scale(${(flip ? -sc : sc).toFixed(4)} ${sc.toFixed(4)})`}>
+      {shadow && !sil && <path d={smooth(shPts, true, 0.9)} fill="#0c0718" opacity={0.3} />}
+      {far.sort(byDepth).map(legG)}
+      {!headFront && headG}
+      {group(b.body, 'body', true)}
+      {headFront && headG}
+      {near.sort(byDepth).map(legG)}
     </g>
   );
 };
+void clamp;

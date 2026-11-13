@@ -16,11 +16,11 @@ export type Pal = {
 export const DAY: Pal = {
   sky: ['#2f8fd6', '#6fc7e8', '#c9f0e4'],
   far: '#7d8fd0', far2: '#9fb4e0',
-  leafD: '#0e5a3a', leafM: '#1f9a4c', leafL: '#63cf4e', leafH: '#c8f06a',
-  alt: '#0f7a78', altL: '#3fd0b4',
+  leafD: '#0a5238', leafM: '#16a34e', leafL: '#5fe04a', leafH: '#d8ff6a',
+  alt: '#087f86', altL: '#35e8d0',
   trunk: '#5a4636', trunkL: '#a08660',
-  ground: '#4fb03e', groundD: '#22763a', groundL: '#a5e05a',
-  water: '#22b6c9', waterL: '#a8f2ee',
+  ground: '#48b83a', groundD: '#1c7038', groundL: '#b4f25a',
+  water: '#12b4d8', waterL: '#b8fff4',
   rock: '#8f7fb6', rockL: '#cbbfe6', rockD: '#4b3f78',
   haze: '#d8f5ee', ink: INK,
 };
@@ -134,9 +134,33 @@ export const Glosso: React.FC<{ x: number; y: number; h: number; seed: number; p
       {br}
       <path d={trunk} fill={pal.trunk} stroke={pal.ink} strokeWidth={SW + 1} strokeLinejoin="round" />
       <path d={hi} fill={pal.trunkL} opacity={0.9} />
+      <path d={hi} fill={pal.ink} opacity={0.3} transform={`translate(${tw * 1.05} 0)`} />
       {marks}
       {tongues}
       {clumps.map((c, i) => <Clump key={i} x={c.x} y={c.y} r={c.r} seed={c.s} pal={pal} alt={alt} />)}
+    </g>
+  );
+});
+
+/** árbol alto de copa chata (como paraguas): tronco cilíndrico con raíces y copa en racimos */
+export const Umbrella: React.FC<{ x: number; y: number; h: number; seed: number; pal: Pal }> = React.memo(({ x, y, h, seed, pal }) => {
+  const r = rng(seed);
+  const lean = (r() - 0.5) * h * 0.12;
+  const tw = h * 0.028;
+  const top: Pt = [x + lean, y - h * 0.82];
+  const mid: Pt = [x + lean * 0.3 + (r() - 0.5) * tw * 3, y - h * 0.42];
+  const trunk = smooth([[x - tw * 3.2, y + 4], [x - tw * 1.2, y - h * 0.06], [mid[0] - tw * 0.8, mid[1]], [top[0] - tw * 0.9, top[1]], [top[0] - tw * 3.4, top[1] - h * 0.07], [top[0] + tw * 3.4, top[1] - h * 0.07], [top[0] + tw * 0.9, top[1]], [mid[0] + tw * 0.8, mid[1]], [x + tw * 1.2, y - h * 0.06], [x + tw * 3.4, y + 4]], true, 0.75);
+  const cw = h * (0.2 + r() * 0.07), ch = h * 0.075;
+  const cy = top[1] - h * 0.08;
+  const clumps = Array.from({ length: 7 }, (_, i) => ({ cx: top[0] + (i / 6 - 0.5) * cw * 1.75 + (r() - 0.5) * cw * 0.1, cy: cy - ch * (0.5 + Math.sin((i / 6) * Math.PI) * 0.7) + (r() - 0.5) * ch * 0.3, rr: cw * (0.26 + r() * 0.1), s: seed * 17 + i }));
+  return (
+    <g>
+      <path d={trunk} fill={pal.trunk} stroke={pal.ink} strokeWidth={SW} strokeLinejoin="round" />
+      <path d={smooth([[x - tw * 0.9, y - h * 0.05], [mid[0] - tw * 0.6, mid[1]], [top[0] - tw * 0.7, top[1]], [top[0] - tw * 0.1, top[1]], [mid[0] - tw * 0.05, mid[1]], [x - tw * 0.1, y - h * 0.05]], true, 0.75)} fill={pal.trunkL} />
+      <path d={smooth([[x + tw * 1.1, y - h * 0.05], [mid[0] + tw * 0.75, mid[1]], [top[0] + tw * 0.85, top[1]], [top[0] + tw * 0.35, top[1]], [mid[0] + tw * 0.3, mid[1]], [x + tw * 0.5, y - h * 0.05]], true, 0.75)} fill={pal.ink} opacity={0.35} />
+      <path d={scallop(top[0], cy + ch * 0.25, cw, ch * 0.75, 12, seed + 5)} fill={pal.leafD} stroke={pal.ink} strokeWidth={SW} strokeLinejoin="round" />
+      {[-0.7, -0.35, 0, 0.35, 0.7].map((k, i) => <path key={i} d={`M${top[0] + k * tw * 3} ${top[1] - h * 0.06}Q${top[0] + k * cw * 0.6} ${cy + ch * 0.5} ${top[0] + k * cw * 1.05} ${cy + ch * 0.1}`} stroke={pal.ink} strokeWidth={2.2} fill="none" opacity={0.5} />)}
+      {clumps.sort((a, b) => a.cy - b.cy).map((c, i) => <Clump key={i} x={c.cx} y={c.cy} r={c.rr} ry={c.rr * 0.62} seed={c.s} pal={pal} />)}
     </g>
   );
 });

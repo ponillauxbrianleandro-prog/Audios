@@ -1,6 +1,6 @@
 import React from 'react';
 import { H, INK, Pt, W, clamp, eio, eout, leaf, lerp, poly, rng, seg, smooth } from './lib';
-import { Beast } from './beast';
+import { Beast, anchors } from './beast';
 import { Burst, Label, Sil } from './fx';
 import { Rock, DRY } from './art';
 
@@ -8,8 +8,8 @@ const B: Pt[] = [[800, 455], [865, 550], [855, 670], [800, 790]];
 const LAND: Record<string, Pt[]> = {
   na: [[520, 170], [700, 110], [880, 150], [930, 260], [905, 380], [810, 450], [660, 440], [560, 340], [500, 250]],
   eu: [[930, 150], [1100, 90], [1320, 110], [1470, 200], [1440, 330], [1300, 385], [1150, 365], [1010, 405], [935, 330]],
-  sa: [[640, 450], ...B, [740, 900], [680, 840], [630, 690], [600, 560]],
-  af: [[800, 455], [1010, 410], [1150, 440], [1210, 540], [1150, 660], [1075, 790], [960, 870], [860, 850], [800, 790], [855, 670], [865, 550]],
+  sa: [[600, 480], [690, 438], ...B, [765, 870], [738, 940], [700, 885], [655, 760], [615, 640], [585, 545]],
+  af: [[800, 455], [880, 415], [1010, 404], [1120, 428], [1195, 470], [1245, 522], [1175, 562], [1152, 660], [1090, 780], [1010, 860], [960, 876], [900, 852], [850, 802], [800, 790], [855, 670], [865, 550]],
   an: [[750, 905], [860, 862], [960, 882], [1090, 862], [1200, 900], [1180, 990], [1000, 1030], [820, 1000]],
   ind: [[1085, 795], [1160, 672], [1232, 700], [1250, 800], [1170, 852]],
   au: [[1212, 882], [1262, 812], [1400, 800], [1470, 880], [1400, 960], [1262, 972]],
@@ -115,7 +115,10 @@ export const TreeDiagram: React.FC<{ f: number; t: number; stage: number }> = ({
 
 /** jaw bones -> ear bones. t 0..1 */
 export const JawEar: React.FC<{ f: number; t: number; travel?: boolean }> = ({ f, t, travel = true }) => {
-  const hinge: Pt = [505, 598], ear: Pt = [1490, 520];
+  const BP = { x: 400, y: 740, s: 2.1, yaw: 40, jaw: 8 };
+  const an = anchors(BP);
+  const hinge: Pt = [BP.x + an.hinge[0] * BP.s + 30, BP.y + an.hinge[1] * BP.s - 10], ear: Pt = [1490, 520];
+  const mth: Pt = [BP.x + an.mouth[0] * BP.s, BP.y + an.mouth[1] * BP.s + 20];
   const k = travel ? eio(seg(t, 0.35, 0.8)) : 0;
   const pos = (o: number): Pt => {
     const kk = clamp(k - o * 0.06);
@@ -131,11 +134,10 @@ export const JawEar: React.FC<{ f: number; t: number; travel?: boolean }> = ({ f
       <rect x={-3000} y={-3000} width={8000} height={8000} fill="#0d1026" />
       <circle cx={520} cy={560} r={420} fill="#23306a" opacity={0.5} />
       <circle cx={1460} cy={540} r={380} fill="#3a2360" opacity={lerp(0.25, 0.7, k)} />
-      <Beast x={170} y={860} s={2.6} jaw={8} f={f} shadow={false} sil="#1b2a5c" />
-      <g opacity={0.9}><Beast x={170} y={860} s={2.6} jaw={8} f={f} shadow={false} /></g>
+      <Beast {...BP} f={f} shadow={false} />
       <rect width={960} height={H} fill="#0d1026" opacity={0.45} />
       {/* dentary highlight */}
-      <path d={leaf([560, 606], [860, 610], 34, 8)} fill="none" stroke="#9fd0ff" strokeWidth={4} strokeDasharray="10 8" opacity={seg(t, 0.05, 0.2)} />
+      <path d={leaf([hinge[0] + 30, hinge[1] + 26], [mth[0], mth[1] + 10], 40, 10)} fill="none" stroke="#9fd0ff" strokeWidth={4} strokeDasharray="10 8" opacity={seg(t, 0.05, 0.2)} />
       <path d={head} fill="#1b1436" stroke="#b9a8ff" strokeWidth={5} opacity={lerp(0.35, 1, k)} />
       <path d={`M${ear[0] - 30} ${ear[1] - 55}q70 -20 60 50q-6 50 -40 60q-20 -10 -10 -40q14 -30 -10 -70z`} fill="#2a1f52" stroke="#b9a8ff" strokeWidth={4} opacity={lerp(0.35, 1, k)} />
       <path d={`M${hinge[0]} ${hinge[1]}Q${(hinge[0] + ear[0]) / 2} ${hinge[1] - 560} ${ear[0]} ${ear[1]}`} fill="none" stroke="#ffb040" strokeWidth={4} strokeDasharray="3 14" strokeLinecap="round" opacity={0.55 * seg(t, 0.3, 0.45) * (1 - boom)} />
@@ -163,7 +165,7 @@ export const Dig: React.FC<{ f: number; t: number; close?: boolean }> = ({ f, t,
     <g>
       <rect width={W} height={H} fill="#d9a868" />
       {Array.from({ length: 40 }, (_, i) => <ellipse key={i} cx={r() * W} cy={r() * H} rx={40 + r() * 160} ry={8 + r() * 14} fill={r() < 0.5 ? '#c08a50' : '#f0cc90'} opacity={0.5} />)}
-      <Rock x={960} y={900} w={1300} h={560} seed={5} pal={{ ...DRY, rock: '#b08a70', rockL: '#d8b898', rockD: '#806058' }} />
+      <path d={smooth([[330, 880], [300, 620], [470, 380], [820, 300], [1250, 330], [1560, 470], [1640, 760], [1500, 930], [900, 980]], true, 0.5)} fill="#b08a70" stroke={INK} strokeWidth={8} strokeLinejoin="round" /><path d={smooth([[360, 860], [330, 630], [480, 410], [820, 330], [1230, 360], [1300, 600], [900, 760], [600, 900]], true, 0.5)} fill="#d2b090" /><path d="M1300 380l-60 180l90 130M520 520l110 60" stroke={INK} strokeWidth={5} fill="none" strokeLinecap="round" opacity={0.6} />
       <g transform={`translate(${close ? -160 : 0} ${close ? -60 : 0})`}>
         <g transform="translate(900 520) rotate(-8)">
           <path d={smooth([[-170, 20], [-150, -60], [-40, -100], [90, -80], [170, -30], [150, 30], [60, 20], [0, 50], [-90, 40]], true, 0.7)} fill={bone} stroke={INK} strokeWidth={6} strokeLinejoin="round" />
@@ -198,8 +200,8 @@ export const TitleCard: React.FC<{ f: number; t: number }> = ({ f, t }) => {
       <rect width={W} height={H} fill="#07050c" />
       <circle cx={960} cy={500} r={lerp(200, 520, k)} fill="#ff7a3c" opacity={0.9} />
       <circle cx={960} cy={500} r={lerp(120, 400, k)} fill="#ffd060" />
-      <Beast x={1010} y={690} s={lerp(2.6, 2.1, k)} phase={f / 26} f={f} sil="#07050c" shadow={false} />
-      <rect x={0} y={690} width={W} height={400} fill="#07050c" />
+      <Beast x={900} y={640} s={lerp(2.2, 1.8, k)} yaw={30} drift={0} phase={f / 26} f={f} sil="#07050c" shadow={false} />
+      <rect x={0} y={735} width={W} height={400} fill="#07050c" />
       <text x={960} y={850} textAnchor="middle" fontFamily="Inter, sans-serif" fontWeight={900} fontSize={104} fill="#fff" letterSpacing={lerp(40, 14, k)} opacity={k}>PROCYNOSUCHUS</text>
       <text x={960} y={915} textAnchor="middle" fontFamily="Inter, sans-serif" fontWeight={500} fontSize={30} fill="#ffd060" letterSpacing={12} opacity={seg(t, 0.25, 0.5)}>UN ANIMAL CHIQUITO · UN MUNDO GIGANTE</text>
     </g>

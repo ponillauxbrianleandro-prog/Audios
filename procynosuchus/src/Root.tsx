@@ -10,15 +10,18 @@ import { flatten } from './timeline';
 const Test: React.FC = () => {
   const f = useCurrentFrame();
   const k = Math.floor(f / 10);
+  const yaws = [20, 40, 60, 80, -20, -40, -60, 35];
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
-      {k === 0 && <Riverbank f={f} px={300}><Beast x={1250} y={860} s={1.3} phase={0.2} f={f} /></Riverbank>}
-      {k === 1 && <Riverbank f={f} px={900} pal={VIOLET} seed={4} moon><Beast x={1900} y={880} s={1.6} jaw={24} head={-8} f={f} flip /></Riverbank>}
-      {k === 2 && <DryPlain f={f} px={500}><Beast x={1400} y={880} s={1.2} phase={0.7} run f={f} /><Beast kind="dicyn" x={2000} y={820} s={1} phase={0.3} f={f} flip /></DryPlain>}
-      {k === 3 && <SpireVista f={f} px={200} />}
-      {k === 4 && <Riverbank f={f} px={500} pal={DUSK} seed={2}><Beast kind="gorgon" x={1500} y={900} s={1.1} phase={0.4} jaw={18} f={f} /><Beast x={2150} y={900} s={1} phase={0.1} run f={f} /></Riverbank>}
-      {k === 5 && <g><rect width={W} height={H} fill="#e8e0d0" /><Beast x={500} y={400} s={1.6} f={f} /><Beast x={1300} y={400} s={1.6} phase={0.35} f={f} /><Beast x={500} y={800} s={1.6} jaw={30} head={-10} crouch={0.6} f={f} /><Beast kind="pareia" x={1350} y={900} s={1} phase={0.8} f={f} /><Beast x={700} y={1900} s={7} jaw={26} f={f} shadow={false} /></g>}
-      <Air f={f} pal={DAY} bugs={k === 0 ? 3 : 0} />
+      <rect width={W} height={H} fill="#cfe8d8" />
+      {k === 0 && yaws.map((yw, i) => <Beast key={i} x={260 + (i % 4) * 470} y={400 + Math.floor(i / 4) * 480} s={0.62} yaw={yw} f={f} phase={i === 7 ? 0.3 : undefined} jaw={i === 3 ? 22 : 0} />)}
+      {k === 1 && <g><Beast x={700} y={760} s={2.1} yaw={34} f={f} jaw={4} /></g>}
+      {k === 2 && <g><Beast x={520} y={520} s={0.9} yaw={40} phase={0.3} f={f} /><Beast x={1400} y={480} s={0.9} yaw={55} jaw={26} head={-12} f={f} flip /><Beast x={520} y={960} s={0.9} yaw={-35} phase={0.7} f={f} /><Beast x={1400} y={960} s={0.9} yaw={30} crouch={0.8} f={f} turn={25} /></g>}
+      {k === 4 && <Riverbank f={f} px={300}><Beast x={1300} y={860} s={1.2} yaw={36} phase={0.2} f={f} /></Riverbank>}
+      {k === 5 && <Riverbank f={f} px={900} pal={VIOLET} seed={4} moon><Beast x={1900} y={880} s={1.4} yaw={50} jaw={20} f={f} flip /></Riverbank>}
+      {k === 6 && <DryPlain f={f} px={500}><Beast x={1400} y={880} s={1.2} yaw={30} phase={0.7} run f={f} /><Beast kind="dicyn" x={2100} y={800} s={0.9} yaw={45} f={f} flip /></DryPlain>}
+      {k === 7 && <Riverbank f={f} px={500} pal={DUSK} seed={2}><Beast kind="gorgon" x={1400} y={880} s={1} yaw={35} phase={0.4} jaw={18} f={f} /></Riverbank>}
+      {k === 3 && <g><Beast kind="gorgon" x={520} y={620} s={0.75} yaw={38} phase={0.2} jaw={16} f={f} /><Beast kind="dicyn" x={1450} y={480} s={0.8} yaw={40} f={f} flip /><Beast kind="pareia" x={1400} y={980} s={0.75} yaw={35} phase={0.6} f={f} /><Beast kind="gorgon" x={520} y={1020} s={0.5} yaw={-40} f={f} sil="#0a0810" eyeGlow /></g>}
     </svg>
   );
 };
@@ -30,6 +33,6 @@ export const Root: React.FC = () => (
   <>
     <Composition id="Procyno" component={Film} width={W} height={H} fps={FPS} durationInFrames={flatten().total} />
     <Composition id="Sheet" component={Sheet} width={W} height={H} fps={FPS} durationInFrames={MIDS.length} />
-    <Composition id="Test" component={Test} width={W} height={H} fps={FPS} durationInFrames={60} />
+    <Composition id="Test" component={Test} width={W} height={H} fps={FPS} durationInFrames={90} />
   </>
 );
