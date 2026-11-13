@@ -15,3 +15,11 @@ if ! sha256sum --check --status "$hashes" 2>/dev/null; then
   bash voice_ai/setup_qwen3_tts.sh >&2
   sha256sum .claude/hooks/session-start.sh voice_ai/setup_qwen3_tts.sh > "$hashes" || rm -f "$hashes"
 fi
+
+# claude-code-video-toolkit: mismo criterio, se reinstala solo si cambió el hook o su script.
+hashes=video_toolkit/.session-start.sha256
+if [ ! -d video_toolkit/claude-code-video-toolkit/.venv ] || ! sha256sum --check --status "$hashes" 2>/dev/null; then
+  rm -f "$hashes"
+  bash video_toolkit/setup_video_toolkit.sh >&2
+  sha256sum .claude/hooks/session-start.sh video_toolkit/setup_video_toolkit.sh > "$hashes" || rm -f "$hashes"
+fi
