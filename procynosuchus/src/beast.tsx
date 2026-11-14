@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { INK, Pt, clamp, lerp, mix, rng, smooth } from './lib';
 
 /**
@@ -18,9 +18,9 @@ type Spec = {
 };
 
 export const SPEC: Record<Kind, Spec> = {
-  procy: { L: 215, R: 54, hipR: 44, shR: 50, cy: 60, neck: 30, neckR: 42, headL: 168, r0: 50, r1: 40, jawR: 24, tailL: 300, tailR: 31,
-    l1: 50, l2: 46, legW: 20, sprawl: 46, stride: 92, lift: 24, fang: 24, teeth: true,
-    col: { base: '#a39448', back: '#c9645e', blot: '#6a2a66', belly: '#e4d48a', leg: '#8d8240', eye: '#ffd23a' } },
+  procy: { L: 205, R: 60, hipR: 48, shR: 54, cy: 64, neck: 84, neckR: 31, headL: 140, r0: 46, r1: 37, jawR: 22, tailL: 290, tailR: 35,
+    l1: 52, l2: 48, legW: 23, sprawl: 50, stride: 92, lift: 24, fang: 13, teeth: true,
+    col: { base: '#746c46', back: '#935e6c', blot: '#3c2340', belly: '#4f4838', leg: '#5f593a', eye: '#17121a' } },
   gorgon: { L: 400, R: 96, hipR: 80, shR: 96, cy: 205, neck: 60, neckR: 76, headL: 280, r0: 84, r1: 70, jawR: 36, tailL: 330, tailR: 52,
     l1: 122, l2: 116, legW: 38, sprawl: 34, stride: 240, lift: 60, fang: 84, teeth: true,
     col: { base: '#666070', back: '#3f384e', blot: '#d8922e', belly: '#a8a098', leg: '#575062', eye: '#ff5030' } },
@@ -37,7 +37,7 @@ export const cycleLen = (kind: Kind, s = 1, run = false) => (SPEC[kind].stride *
 export type BeastProps = {
   kind?: Kind; x: number; y: number; s?: number; flip?: boolean; yaw?: number; turn?: number;
   phase?: number; run?: boolean; head?: number; jaw?: number; crouch?: number; f?: number;
-  blink?: number; sil?: string; eyeGlow?: boolean; shadow?: boolean; tailAmp?: number; look?: number; drift?: number;
+  blink?: number; paint?: boolean; amb?: string; sil?: string; eyeGlow?: boolean; shadow?: boolean; tailAmp?: number; look?: number; drift?: number;
 };
 
 const PITCH = 0.3; // la cámara mira un poco desde arriba
@@ -88,10 +88,10 @@ const build = (pr: BeastProps) => {
     body.push({ p: tp, r, c: bodyC, blot: i % 4 === 2 ? 100 + i : undefined });
   }
   const sh0: V3 = [P.L / 2, cy, und(1)];
-  const N: V3 = [P.L / 2 + P.neck, cy + P.R * 0.12 - crouch * 6, und(1) * 0.6];
-  for (let i = 1; i <= 5; i++) {
-    const t = i / 5;
-    body.push({ p: [lerp(sh0[0], N[0], t), lerp(sh0[1], N[1], t), lerp(sh0[2], N[2], t)], r: lerp(P.shR * 0.92, P.neckR, t), c: bodyC, blot: i === 3 ? 60 : undefined });
+  const N: V3 = [P.L / 2 + P.neck, cy + P.R * 0.3 - crouch * 8, und(1) * 0.6];
+  for (let i = 1; i <= 8; i++) {
+    const t = i / 8;
+    body.push({ p: [lerp(sh0[0], N[0], t), lerp(sh0[1], N[1], t), lerp(sh0[2], N[2], t)], r: lerp(P.shR * 0.9, P.neckR, Math.pow(t, 0.6)), c: bodyC, blot: i === 4 ? 60 : undefined });
   }
 
   // ---- cabeza (coordenadas locales: x adelante, y arriba, l lateral)
@@ -103,7 +103,7 @@ const build = (pr: BeastProps) => {
     return [N[0] + x2, N[1] + y1, N[2] + l2];
   };
   const HL = P.headL, r0 = P.r0, r1 = P.r1;
-  const skR = (t: number) => lerp(r0, r1, Math.pow(t, 1.4));
+  const skR = (t: number) => (t < 0.22 ? lerp(r0 * 0.74, r0, t / 0.22) : lerp(r0, r1, Math.pow((t - 0.22) / 0.78, 1.4)));
   const skX = (t: number) => t * (HL - r1 * 0.9);
   const skY = (t: number) => r0 * 0.12 - t * r0 * 0.1;
   const skull: Sph[] = [];
@@ -120,7 +120,7 @@ const build = (pr: BeastProps) => {
   };
   const jawS: Sph[] = [];
   const jwY = (t: number) => lerp(-r0 * 0.62, -r1 * 0.74, t);
-  const jwX = (t: number) => hinge[0] + t * (HL * 0.9 - hinge[0]);
+  const jwX = (t: number) => hinge[0] + t * (HL * 0.82 - hinge[0]);
   for (let i = 0; i <= 11; i++) { const t = i / 11; jawS.push({ p: jloc(jwX(t), jwY(t), 0), r: lerp(P.jawR * 1.25, P.jawR * 0.78, t), c: jawC }); }
 
   // ---- patas
@@ -212,6 +212,11 @@ export const Beast: React.FC<BeastProps> = (pr) => {
   const { P, proj, kind } = b;
   const ink = sil ?? INK;
   const sw = Math.max(2, 3 / Math.sqrt(s));
+  const paint = !!pr.paint && !sil;
+  const uid = useId().replace(/:/g, '');
+  const LN = paint ? '#2a1a24' : INK;
+  const lw = paint ? 0.45 : 1;
+  const amb = pr.amb ?? '#7fd0e0';
   const lx = flip ? 0.55 : -0.55, ly = -0.82; // luz desde arriba a la izquierda en pantalla
   const yawR = b.yawDeg * D2R;
   // deriva en profundidad al caminar
@@ -251,19 +256,58 @@ export const Beast: React.FC<BeastProps> = (pr) => {
     return <g key={key}>{out}</g>;
   };
 
+  /** pintado realista: sin tinta, volumen con degradé suave recortado a la silueta, escamas encima */
+  const pgroup = (sph: Sph[], key: string, deco = false): React.ReactNode => {
+    const q = sph.map((sp) => ({ ...sp, q: proj(sp.p) })).sort((a, b2) => a.q.d - b2.q.d);
+    const id = `${uid}${key}`;
+    const C = (k: string, i: number, cx: number, cy: number, r: number, fill: string, op = 1) => <circle key={`${k}${i}`} cx={cx.toFixed(1)} cy={cy.toFixed(1)} r={Math.max(0.5, r).toFixed(1)} fill={fill} opacity={op} />;
+    const base: React.ReactNode[] = [], mid: React.ReactNode[] = [], top: React.ReactNode[] = [], hi: React.ReactNode[] = [], bl: React.ReactNode[] = [], rim: React.ReactNode[] = [];
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    q.forEach((o, i) => {
+      const r = o.r * o.q.k, cx = o.q.x, cy = o.q.y;
+      x0 = Math.min(x0, cx - r); x1 = Math.max(x1, cx + r); y0 = Math.min(y0, cy - r); y1 = Math.max(y1, cy + r);
+      base.push(C('a', i, cx, cy, r * 1.3, mix(o.c.sh, '#0c0616', 0.45)));
+      if (o.c.bot) mid.push(C('b', i, cx + lx * r * 0.05, cy + r * 0.12, r * 0.8, mix(o.c.bot, '#140c20', 0.15)));
+      mid.push(C('l', i, cx + lx * r * 0.22, cy + ly * r * (o.c.bot ? 0.34 : 0.22), r * (o.c.bot ? 0.66 : 0.74), o.c.lit));
+      if (o.c.top) top.push(C('t', i, cx + lx * r * 0.2, cy - r * 0.46, r * 0.52, o.c.top));
+      hi.push(C('h', i, cx + lx * r * 0.5, cy - r * 0.62, r * 0.2, mix(o.c.top ?? o.c.lit, '#fff2dc', 0.5), 0.75));
+      rim.push(C('r', i, cx - lx * r * 0.5, cy + r * 0.86, r * 0.12, amb, 0.22));
+      if (deco && o.blot !== undefined) {
+        const rr = rng(o.blot + 7);
+        const bx = cx + (rr() - 0.5) * r * 0.5 + lx * r * 0.1, by = cy - r * (0.25 + rr() * 0.3);
+        bl.push(<path key={`p${i}`} d={smooth([[bx - r * 0.24, by - r * 0.45], [bx + r * 0.22, by - r * 0.5], [bx + r * 0.34, by - r * 0.05], [bx + r * 0.12, by + r * (0.2 + rr() * 0.4)], [bx - r * 0.14, by + r * 0.12], [bx - r * 0.34, by - r * 0.12]], true, 1)} fill={P.col.blot} opacity={0.85} />);
+        bl.push(C('q', i, bx + r * 0.5, by + r * 0.25, r * 0.1, P.col.blot, 0.8));
+        bl.push(C('y', i, bx - r * 0.3, by + r * 0.62, r * 0.2, '#c2aa5a', 0.5));
+      }
+    });
+    const bw = P.R * 0.075;
+    return (
+      <g key={key}>
+        {q.map((o, i) => <circle key={`e${i}`} cx={o.q.x.toFixed(1)} cy={o.q.y.toFixed(1)} r={(o.r * o.q.k + sw * 0.45).toFixed(1)} fill="#1c121c" />)}
+        <clipPath id={id}>{q.map((o, i) => <circle key={i} cx={o.q.x.toFixed(1)} cy={o.q.y.toFixed(1)} r={(o.r * o.q.k).toFixed(1)} />)}</clipPath>
+        <g clipPath={`url(#${id})`}>
+          <g filter={`url(#${uid}bl)`}>{base}{mid}{top}{bl}{hi}{rim}</g>
+          <rect x={x0 - bw} y={y0 - bw} width={x1 - x0 + bw * 2} height={y1 - y0 + bw * 2} fill={`url(#${uid}sc)`} opacity={deco ? 0.34 : 0.26} />
+        </g>
+      </g>
+    );
+  };
+  const G = paint ? pgroup : group;
+
   const tooth = (t: { a: V3; len: number; big?: boolean }, i: number, key: string) => {
     const q = proj(t.a);
-    const w = (t.big ? P.fang * 0.2 : Math.abs(t.len) * 0.42) * q.k, L2 = t.len * q.k;
+    const tk = paint ? (t.big ? 1 : 0.55 + ((i * 37) % 10) / 22) : 1;
+    const w = (t.big ? P.fang * 0.2 : Math.abs(t.len) * 0.42) * q.k * (paint ? 0.8 : 1), L2 = t.len * q.k * tk;
     const d = t.big
       ? `M${(q.x - w).toFixed(1)} ${q.y.toFixed(1)}Q${(q.x - w * 0.9).toFixed(1)} ${(q.y + L2 * 0.7).toFixed(1)} ${(q.x - w * 1.3).toFixed(1)} ${(q.y + L2).toFixed(1)}Q${(q.x + w * 0.9).toFixed(1)} ${(q.y + L2 * 0.55).toFixed(1)} ${(q.x + w).toFixed(1)} ${q.y.toFixed(1)}Z`
       : `M${(q.x - w).toFixed(1)} ${q.y.toFixed(1)}L${q.x.toFixed(1)} ${(q.y + L2).toFixed(1)}L${(q.x + w).toFixed(1)} ${q.y.toFixed(1)}Z`;
-    return <path key={`${key}${i}`} d={d} fill={sil && !eyeGlow ? sil : '#fff8e2'} stroke={ink} strokeWidth={t.big ? sw * 0.7 : sw * 0.35} strokeLinejoin="round" />;
+    return <path key={`${key}${i}`} d={d} fill={sil && !eyeGlow ? sil : paint ? '#cfc6a8' : '#fff8e2'} stroke={paint ? '#4a3a34' : ink} strokeWidth={(t.big ? sw * 0.7 : sw * 0.35) * (paint ? 0.6 : 1)} strokeLinejoin="round" />;
   };
 
   const legG = (lg: (typeof b.legs)[number]) => (
     <g key={lg.key}>
-      {group(lg.near || sil ? lg.sph : lg.sph.map((o) => ({ ...o, c: { sh: mix(o.c.sh, '#140c20', 0.35), lit: mix(o.c.lit, '#140c20', 0.4) } })), lg.key)}
-      {!sil && lg.claws.map(([a, t], i) => { const pa = proj(a), pt = proj(t); const nx = -(pt.y - pa.y), ny = pt.x - pa.x; const l = Math.hypot(nx, ny) || 1; const w = P.legW * 0.2; return <path key={i} d={`M${(pa.x + (nx / l) * w).toFixed(1)} ${(pa.y + (ny / l) * w).toFixed(1)}L${pt.x.toFixed(1)} ${(pt.y + 2).toFixed(1)}L${(pa.x - (nx / l) * w).toFixed(1)} ${(pa.y - (ny / l) * w).toFixed(1)}Z`} fill="#2a2030" stroke={INK} strokeWidth={sw * 0.4} strokeLinejoin="round" />; })}
+      {G(lg.near || sil ? lg.sph : lg.sph.map((o) => ({ ...o, c: { sh: mix(o.c.sh, '#140c20', 0.35), lit: mix(o.c.lit, '#140c20', 0.4) } })), lg.key)}
+      {!sil && lg.claws.map(([a, t], i) => { const pa = proj(a), pt = proj(t); const nx = -(pt.y - pa.y), ny = pt.x - pa.x; const l = Math.hypot(nx, ny) || 1; const w = P.legW * 0.2; return <path key={i} d={`M${(pa.x + (nx / l) * w).toFixed(1)} ${(pa.y + (ny / l) * w).toFixed(1)}L${pt.x.toFixed(1)} ${(pt.y + 2).toFixed(1)}L${(pa.x - (nx / l) * w).toFixed(1)} ${(pa.y - (ny / l) * w).toFixed(1)}Z`} fill={paint ? '#241c22' : '#2a2030'} stroke={LN} strokeWidth={sw * 0.4 * lw} strokeLinejoin="round" />; })}
     </g>
   );
 
@@ -272,6 +316,18 @@ export const Beast: React.FC<BeastProps> = (pr) => {
     const er = b.eyeR * 0.15 * q.k * (kind === 'gorgon' ? 0.8 : 1);
     if (sil) return eyeGlow ? <ellipse key={i} cx={q.x} cy={q.y} rx={er * 1.3} ry={er * 0.8} fill={P.col.eye} /> : null;
     const op = Math.max(0.08, 1 - blink);
+    if (paint) {
+      const e2 = er * 0.44;
+      return (
+        <g key={i}>
+          <ellipse cx={q.x} cy={q.y + e2 * 0.4} rx={e2 * 2.8} ry={e2 * 2.2} fill="#1e1220" opacity={0.6} filter={`url(#${uid}bl)`} />
+          <ellipse cx={q.x} cy={q.y} rx={e2 * 1.3} ry={e2 * 1.1 * op} fill="#5c5038" />
+          <ellipse cx={q.x + look * e2 * 0.2} cy={q.y} rx={e2 * 1.08} ry={e2 * 0.98 * op} fill="#0e0a10" />
+          {blink < 0.5 && <ellipse cx={q.x - e2 * 0.35} cy={q.y - e2 * 0.4} rx={e2 * 0.26} ry={e2 * 0.16} fill="#dfe6ea" opacity={0.8} />}
+          <path d={`M${q.x - e2 * 2.2} ${q.y - e2 * 1.2}Q${q.x} ${q.y - e2 * 2.3} ${q.x + e2 * 2.4} ${q.y - e2 * 0.9}`} fill="none" stroke="#1e1220" strokeWidth={sw * 1.2} strokeLinecap="round" opacity={0.45} filter={`url(#${uid}bl)`} />
+        </g>
+      );
+    }
     return (
       <g key={i}>
         <ellipse cx={q.x} cy={q.y + er * 0.2} rx={er * 1.9} ry={er * 1.6} fill="#2a1830" opacity={0.55} />
@@ -290,15 +346,15 @@ export const Beast: React.FC<BeastProps> = (pr) => {
   const headG = (
     <g key="head">
       {b.teethUp.filter((t) => !t.near).map((t, i) => tooth(t, i, 'fu'))}
-      {group(b.jawS, 'jaw')}
-      {jaw > 2 && <path d={`M${mp.map((m) => `${m.x.toFixed(1)} ${m.y.toFixed(1)}`).join('L')}Z`} fill={sil ?? '#5a1232'} stroke={ink} strokeWidth={sw * 0.6} strokeLinejoin="round" />}
+      {G(b.jawS, 'jaw')}
+      {jaw > 2 && <path d={`M${mp.map((m) => `${m.x.toFixed(1)} ${m.y.toFixed(1)}`).join('L')}Z`} fill={sil ?? '#4a1028'} stroke={paint ? '#2a0a18' : ink} strokeWidth={sw * 0.6 * lw} strokeLinejoin="round" />}
       {jaw > 2 && !sil && b.teethLo.map((t, i) => tooth(t, i, 'lo'))}
-      {group(b.skull, 'skull', true)}
+      {G(b.skull, 'skull', true)}
       {!sil && b.beak && <path d={smooth(b.beak.map((p) => { const q = proj(p); return [q.x, q.y] as Pt; }), true, 0.6)} fill="#3a3444" stroke={INK} strokeWidth={sw * 0.7} />}
       {b.teethUp.filter((t) => t.near).map((t, i) => tooth(t, i, 'nu'))}
-      {!sil && <path d={`M${mp[0].x.toFixed(1)} ${mp[0].y.toFixed(1)}Q${mp[1].x.toFixed(1)} ${(mp[1].y + 3).toFixed(1)} ${mp[2].x.toFixed(1)} ${mp[2].y.toFixed(1)}`} fill="none" stroke={INK} strokeWidth={sw * 0.8} strokeLinecap="round" opacity={0.85} />}
+      {!sil && <path d={`M${mp[0].x.toFixed(1)} ${mp[0].y.toFixed(1)}Q${mp[1].x.toFixed(1)} ${(mp[1].y + 3).toFixed(1)} ${mp[2].x.toFixed(1)} ${mp[2].y.toFixed(1)}`} fill="none" stroke={LN} strokeWidth={sw * 0.8 * (paint ? 0.7 : 1)} strokeLinecap="round" opacity={paint ? 0.6 : 0.85} />}
       {b.eyes.filter((e) => e.near || showFar).sort((a, c2) => (a.near ? 1 : 0) - (c2.near ? 1 : 0)).map(eye)}
-      {!sil && b.nostrils.filter((n) => n.near || showFar).map((n, i) => { const q = proj(n.p); return <ellipse key={i} cx={q.x} cy={q.y} rx={P.r1 * 0.1 * q.k} ry={P.r1 * 0.06 * q.k} fill={INK} transform={`rotate(-25 ${q.x.toFixed(1)} ${q.y.toFixed(1)})`} />; })}
+      {!sil && b.nostrils.filter((n) => n.near || showFar).map((n, i) => { const q = proj(n.p); return <ellipse key={i} cx={q.x} cy={q.y} rx={P.r1 * 0.1 * q.k} ry={P.r1 * 0.06 * q.k} fill={LN} transform={`rotate(-25 ${q.x.toFixed(1)} ${q.y.toFixed(1)})`} />; })}
     </g>
   );
   const near = b.legs.filter((l) => l.near), far = b.legs.filter((l) => !l.near);
@@ -308,10 +364,20 @@ export const Beast: React.FC<BeastProps> = (pr) => {
   for (let i = 0; i < 14; i++) { const a = (i / 14) * Math.PI * 2; const q = proj([Math.cos(a) * (P.L * 0.72 + P.headL * 0.3) + P.headL * 0.2, 0, Math.sin(a) * (P.R * 1.3 + P.sprawl * 0.8)]); shPts.push([q.x - lx * 26, q.y + 6]); }
   return (
     <g transform={`translate(${x.toFixed(1)} ${(y + dy).toFixed(1)}) scale(${(flip ? -sc : sc).toFixed(4)} ${sc.toFixed(4)})`}>
-      {shadow && !sil && <path d={smooth(shPts, true, 0.9)} fill="#0c0718" opacity={0.3} />}
+      {paint && (
+        <defs>
+          <filter id={`${uid}bl`} x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation={(P.R * 0.085).toFixed(2)} /></filter>
+          <filter id={`${uid}sh`} x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation={(P.R * 0.2).toFixed(2)} /></filter>
+          <pattern id={`${uid}sc`} width={P.R * 0.2} height={P.R * 0.105} patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+            <path d={`M0 ${P.R * 0.065}q${P.R * 0.05} ${-P.R * 0.07} ${P.R * 0.1} 0q${P.R * 0.05} ${P.R * 0.07} ${P.R * 0.1} 0`} fill="none" stroke="#1c1220" strokeWidth={P.R * 0.014} opacity={0.6} />
+            <circle cx={P.R * 0.05} cy={P.R * 0.02} r={P.R * 0.012} fill="#fff0d0" opacity={0.35} />
+          </pattern>
+        </defs>
+      )}
+      {shadow && !sil && <path d={smooth(shPts, true, 0.9)} fill={paint ? '#0a0424' : '#0c0718'} opacity={paint ? 0.5 : 0.3} filter={paint ? `url(#${uid}sh)` : undefined} />}
       {far.sort(byDepth).map(legG)}
       {!headFront && headG}
-      {group(b.body, 'body', true)}
+      {G(b.body, 'body', true)}
       {headFront && headG}
       {near.sort(byDepth).map(legG)}
     </g>
