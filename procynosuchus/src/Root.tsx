@@ -8,6 +8,7 @@ import { Film } from './Film';
 import { BiomePreview, LAYERS, LayerSheet } from './biomes';
 import { PH, PW } from './paint';
 import { EstiloBase } from './Estilo';
+import { LaminaPersonajes } from './Personajes';
 import { flatten } from './timeline';
 
 const Test: React.FC = () => {
@@ -36,6 +37,7 @@ export const Root: React.FC = () => (
   <>
     <Composition id="Procyno" component={Film} width={W} height={H} fps={FPS} durationInFrames={flatten().total} />
     <Composition id="Layers" component={() => { const f = useCurrentFrame(); return <LayerSheet i={f} />; }} width={PW} height={PH} fps={FPS} durationInFrames={LAYERS.length} />
+    <Composition id="E3" component={LaminaPersonajes} width={W} height={H} fps={FPS} durationInFrames={1} />
     <Composition id="Estilo" component={() => { const f = useCurrentFrame(); return <EstiloBase i={f} />; }} width={PW} height={PH} fps={FPS} durationInFrames={7} />
     <Composition id="Biome" component={() => { const f = useCurrentFrame(); return <BiomePreview name={['valle', 'agujas', 'mesetas', 'agua'][f]} />; }} width={PW} height={PH} fps={FPS} durationInFrames={4} />
     <Composition id="Sheet" component={Sheet} width={W} height={H} fps={FPS} durationInFrames={MIDS.length} />
