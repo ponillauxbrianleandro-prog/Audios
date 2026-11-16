@@ -22,7 +22,7 @@ for s in SC:
             pass
         elif kind == "quote":
             q = D.QUOTES.get(val) if isinstance(val, str) else val
-            out.append(dict(cap=s["cap"], t=t + 0.5, dur=D.QDUR - 1.0, text=None, quote=repr(q)[:300]))
+            out.append(dict(cap=s["cap"], t=t + 0.5, dur=D.QDUR - 1.0, text=None, quote=repr(q)))
             t += D.QDUR
         else:
             d = sum(max(1.7, len(ch.split()) / D.WPS + 0.35) for ch in D.chunks(val)) + 0.7
