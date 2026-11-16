@@ -134,7 +134,7 @@ def fern(seed, ppm=420):
     return _finish(c.rgb, c.a, ppm, "fern")
 
 
-def glossopteris(seed, ppm=90, height=None):
+def glossopteris(seed, ppm=90, height=None, season='green'):
     rng = np.random.default_rng(seed)
     H = height or rng.uniform(4.5, 8.5)
     Wm = H * 0.95
@@ -169,6 +169,9 @@ def glossopteris(seed, ppm=90, height=None):
         c.line((px, py), (x2, y2), bark * rng.uniform(0.9, 1.05), th)
         c.line((px - th * 0.25, py), (x2 - th * 0.25, y2), bark * 1.3, th * 0.28)
         px, py = x2, y2
+        if f > 0.42:
+            for _ in range(2):
+                tips.append((px + rng.normal(0, 0.05 * H), py + rng.normal(0, 0.15), 3))
         if f > 0.25:
             for side in (-1, 1):
                 if rng.uniform() < 0.9:
@@ -187,13 +190,17 @@ def glossopteris(seed, ppm=90, height=None):
             lightk = 0.5 + 0.5 * np.clip((y + oy - H * 0.3) / (H * 0.6), 0, 1) - 0.35 * (x + ox) / Wm + 0.25 * np.sin(a)
             leaves.append((rng.uniform() + lightk, x + ox, y + oy, a, ln, lightk))
     leaves.sort(key=lambda l: l[0])
+    if season == 'bare':
+        leaves = leaves[::30]
     for _, x, y, a, ln, lk in leaves:
         lk = np.clip(lk + rng.normal(0, 0.12), 0, 1.1)
         col = np.array([0.07, 0.12, 0.08]) * (1 - lk) + np.array([0.30, 0.39, 0.20]) * lk
         if rng.uniform() < 0.04:
             col = np.array([0.50, 0.46, 0.22]) * (0.6 + 0.4 * lk)      # alguna hoja amarillenta
+        if season != 'green':
+            col = (np.array([0.26, 0.18, 0.09]) * (1 - lk) + np.array([0.56, 0.43, 0.20]) * lk) * rng.uniform(0.8, 1.15)
         c.leaf(x, y, a, ln, ln * 0.17, col)
-    return _finish(c.rgb, c.a, ppm, "tree", soft=0.5)
+    return _finish(c.rgb, c.a, ppm, "tree", soft=0.5, seed=seed)
 
 
 def shrub(seed, ppm=240):
@@ -249,18 +256,171 @@ def rock(seed, ppm=420):
     return dict(rgb=(col * mask[..., None]).astype(np.float32), a=mask.astype(np.float32), ppm=ppm, kind="rock")
 
 
+def conifer(seed, ppm=90):
+    """Conífera voltzial: tronco recto, pisos de ramas con agujas cortas."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(5.0, 11.0)
+    c = Canvas(H * 0.55, H * 1.05 + 0.3, ppm)
+    bark = np.array([0.27, 0.22, 0.19])
+    c.line((0, 0), (0, H), bark, 0.035 * H ** 0.8)
+    c.line((-0.01 * H ** 0.8, 0), (-0.004, H), bark * 1.35, 0.01 * H ** 0.8)
+    tufts = []
+    n = int(H * 2.6)
+    for i in range(n):
+        f = 0.22 + 0.78 * i / n
+        y = H * f
+        span = H * 0.21 * (1 - f) ** 0.8 + 0.25
+        for side in (-1, 1):
+            L = span * rng.uniform(0.6, 1.05)
+            droop = rng.uniform(0.05, 0.3)
+            pts = [(side * L * u, y - droop * L * u * u + rng.normal(0, 0.02)) for u in np.linspace(0, 1, 6)]
+            for p0, p1 in zip(pts[:-1], pts[1:]):
+                c.line(p0, p1, bark * 0.9, 0.012)
+                tufts.append((rng.uniform(), p1[0], p1[1], side))
+    tufts.sort()
+    for _, x, y, side in tufts:
+        for _ in range(9):
+            a = rng.uniform(0, 2 * np.pi)
+            lk = np.clip(0.5 + 0.4 * y / H - 0.5 * x / H + 0.3 * np.sin(a) + rng.normal(0, 0.12), 0, 1)
+            col = np.array([0.06, 0.11, 0.09]) * (1 - lk) + np.array([0.22, 0.32, 0.22]) * lk
+            ln = rng.uniform(0.10, 0.2)
+            c.line((x, y), (x + np.cos(a) * ln, y + np.sin(a) * ln * 0.7), col, 0.014)
+    return _finish(c.rgb, c.a, ppm, "conifer", soft=0.5, seed=seed)
+
+
+def lycopsid(seed, ppm=420):
+    """Licófita baja: tallos bifurcados cubiertos de hojitas."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(0.25, 0.55)
+    c = Canvas(H * 1.6, H + 0.1, ppm)
+
+    def stem(x, y, ang, ln, lvl, dark):
+        segs = 7
+        for i in range(segs):
+            ang += rng.normal(0, 0.08)
+            x2, y2 = x + np.cos(ang) * ln / segs, y + np.sin(ang) * ln / segs
+            g = np.array([0.17, 0.27, 0.14]) * dark
+            c.line((x, y), (x2, y2), g, 0.006)
+            for sd in (-1, 1):
+                a2 = ang + sd * rng.uniform(0.5, 0.9)
+                gl = np.array([0.30, 0.42, 0.22]) * dark * rng.uniform(0.8, 1.2) * (1.15 if np.cos(a2) < 0 else 0.85)
+                c.line((x2, y2), (x2 + np.cos(a2) * 0.018, y2 + np.sin(a2) * 0.018), gl, 0.0035)
+            x, y = x2, y2
+        if lvl < 2:
+            for sd in (-1, 1):
+                stem(x, y, ang + sd * rng.uniform(0.25, 0.5), ln * 0.7, lvl + 1, dark)
+
+    for k in range(rng.integers(4, 9)):
+        stem(rng.normal(0, H * 0.18), 0, np.pi / 2 + rng.normal(0, 0.35), H * rng.uniform(0.35, 0.55), 0, 0.6 + 0.5 * k / 8)
+    return _finish(c.rgb, c.a, ppm, "lycopsid", seed=seed)
+
+
+def treefern(seed, ppm=200):
+    """Helecho arborescente / helecho con semilla: tronco fibroso y corona de frondas."""
+    rng = np.random.default_rng(seed)
+    T = rng.uniform(0.8, 2.4)
+    R = rng.uniform(0.9, 1.5)
+    c = Canvas(R * 2.4, T + R * 1.1 + 0.2, ppm)
+    x = 0.0
+    for i in range(12):
+        y0, y1 = T * i / 12, T * (i + 1) / 12
+        x2 = x + rng.normal(0, 0.012)
+        c.line((x, y0), (x2, y1), np.array([0.22, 0.17, 0.12]) * rng.uniform(0.8, 1.2), 0.11 - 0.03 * i / 12)
+        c.line((x - 0.025, y0), (x2 - 0.025, y1), np.array([0.34, 0.27, 0.19]), 0.03)
+        x = x2
+    fr = sorted([(rng.uniform(-1.5, 1.5), rng.uniform(0.6, 1.0) * R, rng.uniform()) for _ in range(rng.integers(11, 18))], key=lambda f: f[2])
+    for a0, L, depth in fr:
+        dark = 0.5 + 0.5 * depth
+        g1 = np.array([0.14, 0.24, 0.13]) * dark
+        g2 = np.array([0.30, 0.41, 0.22]) * dark
+        m = 30
+        tt = np.linspace(0, 1, m)
+        ang = np.pi / 2 - a0 * (0.3 + 1.1 * tt ** 1.2)
+        xs, ys = x + np.cumsum(np.cos(ang) * L / m), T + np.cumsum(np.sin(ang) * L / m)
+        for i in range(2, m - 1):
+            pl = L * 0.17 * np.sin(np.pi * tt[i] ** 0.7) ** 0.8 + 0.006
+            for side in (-1, 1):
+                pa = ang[i] + side * rng.uniform(1.05, 1.35)
+                c.leaf(xs[i], ys[i], pa, pl, pl * 0.13 + 0.003, (g2 if np.cos(pa) < 0 else g1) * rng.uniform(0.85, 1.12))
+        for i in range(m - 1):
+            c.line((xs[i], ys[i]), (xs[i + 1], ys[i + 1]), g1 * 0.8, 0.006)
+    return _finish(c.rgb, c.a, ppm, "treefern", seed=seed)
+
+
+def log(seed, ppm=300):
+    rng = np.random.default_rng(seed)
+    L = rng.uniform(1.2, 3.2)
+    r = rng.uniform(0.10, 0.22)
+    w, h = int(L * ppm), int(r * 2.4 * ppm)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    v = (h - yy) / (r * 2 * ppm)
+    u = xx / w
+    prof = 1.0 - 0.25 * u + 0.08 * np.sin(u * 9 + seed)
+    n = cv2.resize(fbm((64, 512), 1.6, seed), (w, h))
+    mask = np.clip((prof - v) * 6, 0, 1) * np.clip(v * 30, 0, 1) * np.clip(u * 40, 0, 1) * np.clip((1 - u) * 40, 0, 1)
+    cyl = np.sqrt(np.clip(1 - (2 * v / prof - 1) ** 2, 0, 1))
+    lit = np.clip(0.25 + 0.9 * cyl * np.clip(v / prof * 1.3, 0.2, 1), 0, 1.3)
+    col = np.array([0.36, 0.30, 0.25]) * (0.6 + 0.8 * n[..., None]) * lit[..., None]
+    mask = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 1.0)
+    return dict(rgb=(col * mask[..., None]).astype(np.float32), a=mask, ppm=ppm, kind="log")
+
+
+def branch(seed, ppm=700):
+    """Rama de Glossopteris para primer plano (pegada a la cámara)."""
+    rng = np.random.default_rng(seed)
+    L = 0.75
+    c = Canvas(1.5, 1.0, ppm)
+    x, y, ang = -0.6, 0.15, rng.uniform(0.25, 0.6)
+    for i in range(14):
+        ang += rng.normal(0, 0.06) - 0.02
+        x2, y2 = x + np.cos(ang) * L / 9, y + np.sin(ang) * L / 9
+        c.line((x, y), (x2, y2), np.array([0.25, 0.21, 0.17]), 0.014 * (1 - i / 18))
+        for _ in range(rng.integers(3, 6)):
+            a = ang + rng.uniform(-1.4, 1.4)
+            lk = rng.uniform(0.2, 1.0)
+            col = np.array([0.09, 0.15, 0.09]) * (1 - lk) + np.array([0.33, 0.43, 0.22]) * lk
+            ln = rng.uniform(0.13, 0.21)
+            c.leaf(x2, y2, a, ln, ln * 0.19, col)
+        x, y = x2, y2
+    return _finish(c.rgb, c.a, ppm, "branch", seed=seed)
+
+
+def recolor(sp, mul, mix=0.0, to=(0.6, 0.5, 0.3)):
+    """Variante estacional de un sprite (seco / amarillento)."""
+    a = sp["a"][..., None]
+    rgb = sp["rgb"]
+    lum = rgb.mean(-1, keepdims=True)
+    out = (rgb * (1 - mix) + lum * 2.2 * np.array(to, np.float32) * mix) * np.array(mul, np.float32)
+    return dict(rgb=np.minimum(out, a).astype(np.float32) if False else out.astype(np.float32), a=sp["a"], ppm=sp["ppm"], kind=sp["kind"])
+
+
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants.pkl")
+    p = os.path.join(CACHE, "plants3.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(
-        horsetail=[horsetail(100 + i) for i in range(8)],
-        fern=[fern(200 + i) for i in range(8)],
+        horsetail=[horsetail(100 + i) for i in range(10)],
+        fern=[fern(200 + i) for i in range(10)],
         tree=[glossopteris(300 + i) for i in range(8)],
-        shrub=[shrub(400 + i) for i in range(6)],
+        tree_hi=[glossopteris(350 + i, ppm=130) for i in range(3)],
+        tree_autumn=[glossopteris(360 + i, season='autumn') for i in range(6)],
+        tree_bare=[glossopteris(370 + i, season='bare') for i in range(6)],
+        shrub=[shrub(400 + i) for i in range(8)],
         rock=[rock(500 + i) for i in range(8)],
+        conifer=[conifer(600 + i) for i in range(7)],
+        lycopsid=[lycopsid(700 + i) for i in range(8)],
+        treefern=[treefern(800 + i) for i in range(7)],
+        log=[log(900 + i) for i in range(5)],
+        branch=[branch(950 + i) for i in range(5)],
     )
+    lib["horsetail_dry"] = [recolor(s_, (0.95, 0.9, 0.8), 0.75, (0.62, 0.52, 0.30)) for s_ in lib["horsetail"]]
+    lib["fern_dry"] = [recolor(s_, (0.9, 0.85, 0.75), 0.7, (0.55, 0.42, 0.24)) for s_ in lib["fern"]]
+    lib["shrub_dry"] = [recolor(s_, (0.95, 0.9, 0.8), 0.65, (0.60, 0.48, 0.25)) for s_ in lib["shrub"]]
+    for k in lib:           # 8 bits: cuatro veces menos memoria por proceso
+        for sp in lib[k]:
+            sp['rgb'] = (np.clip(sp['rgb'], 0, 1) * 255 + 0.5).astype(np.uint8)
+            sp['a'] = (np.clip(sp['a'], 0, 1) * 255 + 0.5).astype(np.uint8)
     pickle.dump(lib, open(p, "wb"))
     return lib

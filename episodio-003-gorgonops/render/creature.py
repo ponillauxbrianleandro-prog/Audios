@@ -15,7 +15,7 @@ from scipy.ndimage import map_coordinates
 from util import smoothstep, lerp
 import world
 
-SKIN, TOOTH, EYE, DARK, CLAW = 0, 1, 2, 3, 4
+SKIN, TOOTH, EYE, DARK, CLAW, MOUTH = 0, 1, 2, 3, 4, 5
 
 _NOISE = None
 
@@ -52,6 +52,32 @@ PROCYNOSUCHUS = dict(
     scale=0.40, speed=0.42, period=0.62, canine=False, tail=1.55,
     dorsal=(0.30, 0.24, 0.18), flank=(0.43, 0.35, 0.26), ventral=(0.68, 0.61, 0.50),
     bars=0.05, sheen=0.05, leg=0.70, head=0.80, girth=0.86, sprawl=1.25, low=0.10,
+)
+
+
+# Diictodon: dicinodonte excavador de ~45 cm, pico córneo y dos colmillos pequeños.
+DIICTODON = dict(
+    scale=0.30, speed=0.30, period=0.55, canine=True, tail=0.45, noincisors=True,
+    dorsal=(0.33, 0.27, 0.20), flank=(0.50, 0.42, 0.32), ventral=(0.74, 0.68, 0.58),
+    bars=0.03, sheen=0.05, leg=0.62, head=1.2, girth=1.12, sprawl=1.3, low=0.12, snout=0.62,
+)
+# Pareiasaurio: herbívoro acorazado de ~2,5 m.
+PAREIASAUR = dict(
+    scale=1.45, speed=0.35, period=2.0, canine=False, tail=0.6,
+    dorsal=(0.30, 0.28, 0.25), flank=(0.47, 0.44, 0.39), ventral=(0.66, 0.63, 0.57),
+    bars=0.02, sheen=0.04, leg=0.85, head=0.72, girth=1.32, sprawl=1.35, low=0.06, snout=0.7, rough=3.0,
+)
+# Thrinaxodon: cinodonte del Triásico temprano, del tamaño de un gato.
+THRINAXODON = dict(
+    scale=0.30, speed=0.40, period=0.55, canine=False, tail=1.15,
+    dorsal=(0.33, 0.28, 0.23), flank=(0.47, 0.40, 0.32), ventral=(0.70, 0.64, 0.55),
+    bars=0.04, sheen=0.05, leg=0.70, head=0.85, girth=0.88, sprawl=1.2, low=0.10,
+)
+# Anfibio temnospóndilo de orilla.
+ANFIBIO = dict(
+    scale=0.55, speed=0.2, period=1.4, canine=False, tail=1.4,
+    dorsal=(0.17, 0.18, 0.14), flank=(0.31, 0.31, 0.24), ventral=(0.62, 0.61, 0.52),
+    bars=0.10, sheen=0.30, leg=0.50, head=1.1, girth=0.80, sprawl=1.7, low=0.17,
 )
 
 
@@ -107,7 +133,7 @@ STAND = dict(LH=-0.05, LF=0.07, RH=0.06, RF=-0.06)
 
 
 def build(spec, phase=0.0, walk=1.0, t=0.0, head_pitch=0.0, head_yaw=0.0, head_dx=0.0, head_dy=0.0,
-          drop=0.0, gape=0.0, tail_amp=1.0):
+          drop=0.0, gape=0.0, tail_amp=1.0, crouch=0.0, curl=0.0, bob=1.0):
     """Devuelve esferas en el sistema del animal (x adelante, y arriba, z derecha)."""
     b = Builder()
     tw = 2 * np.pi * phase
@@ -122,11 +148,11 @@ def build(spec, phase=0.0, walk=1.0, t=0.0, head_pitch=0.0, head_yaw=0.0, head_d
         trunk = 0.022 * np.cos(np.pi * np.clip(f, -0.3, 1.3)) * np.sin(tw) * walk * spec["sprawl"]
         tf = np.clip((XH - x) / (0.62 * tl), 0, 1)
         tail = (0.10 * tf ** 1.4) * (np.sin(tw - 2.4 * tf + 0.6) * walk + 0.55 * np.sin(t * 0.9 - 2.0 * tf) * (1 - 0.6 * walk)) * tail_amp
-        return trunk + tail
+        return trunk + tail + curl * 0.9 * (x - 0.0) ** 2 * np.sign(x)
 
     def yoff(x):
         f = np.clip((x - XH) / (XS - XH), -0.2, 1.4)
-        return 0.006 * np.sin(2 * tw + 0.5) * walk - drop * f - spec.get("low", 0.0)
+        return 0.006 * bob * np.sin(2 * tw + 0.5) * walk - drop * f - spec.get("low", 0.0) - 0.235 * crouch
 
     breath = 1 + 0.014 * np.sin(2 * np.pi * t / 3.4)
     pts = rest.copy()
@@ -155,7 +181,9 @@ def build(spec, phase=0.0, walk=1.0, t=0.0, head_pitch=0.0, head_yaw=0.0, head_d
     cy, sy = np.cos(head_yaw), np.sin(head_yaw)
 
     def hd(p, jaw=False):
-        p = np.atleast_2d(np.asarray(p, np.float64)) * hs
+        p = np.atleast_2d(np.asarray(p, np.float64)).copy()
+        p[:, 0] = np.where(p[:, 0] > 0.08, 0.08 + (p[:, 0] - 0.08) * spec.get('snout', 1.0), p[:, 0])
+        p = p * hs
         if jaw and gape:
             jx, jy = 0.015 * hs, -0.062 * hs
             cg, sg = np.cos(gape), np.sin(gape)
@@ -188,9 +216,21 @@ def build(spec, phase=0.0, walk=1.0, t=0.0, head_pitch=0.0, head_yaw=0.0, head_d
         if spec["canine"]:
             hchain([(0.232, -0.072, s * 0.040), (0.236, -0.105, s * 0.040), (0.242, -0.143, s * 0.038)],
                    [0.0105, 0.0078, 0.0025], TOOTH, k=0.3)
-            for ix in (0.262, 0.277, 0.290):
+            for ix in (() if spec.get('noincisors') else (0.262, 0.277, 0.290)):
                 hchain([(ix, -0.074, s * 0.021), (ix + 0.002, -0.094, s * 0.020)], [0.0055, 0.002], TOOTH, k=0.3)
     hchain([(0.256, -0.130, 0), (0.270, -0.116, 0)], [0.026, 0.030], jaw=True)
+
+    if gape > 0.12:      # interior de la boca y dientes inferiores, visibles al abrir
+        hchain([(0.05, -0.050, 0), (0.15, -0.058, 0), (0.25, -0.062, 0)], [0.036, 0.032, 0.024], MOUTH)
+        hchain([(0.04, -0.078, 0), (0.14, -0.094, 0), (0.235, -0.100, 0)], [0.030, 0.027, 0.020], MOUTH, jaw=True)
+        for s in (-1, 1):
+            for ix in (0.125, 0.150, 0.175):
+                hchain([(ix, -0.078, s * 0.030), (ix, -0.064, s * 0.030)], [0.0045, 0.0018], TOOTH, jaw=True, k=0.3)
+                hchain([(ix, -0.072, s * 0.036), (ix, -0.086, s * 0.036)], [0.0045, 0.0018], TOOTH, k=0.3)
+            if spec["canine"] and not spec.get('noincisors'):
+                hchain([(0.212, -0.088, s * 0.026), (0.214, -0.058, s * 0.027)], [0.007, 0.002], TOOTH, jaw=True, k=0.3)
+                for ix in (0.240, 0.252, 0.263):
+                    hchain([(ix, -0.094, s * 0.014), (ix, -0.078, s * 0.014)], [0.0045, 0.0018], TOOTH, jaw=True, k=0.3)
 
     # --- patas
     lg = spec["leg"]
@@ -265,6 +305,8 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     yc = rel[:, 1]
     zc = rel[:, 0] * cam.s + rel[:, 2] * cam.c
     z0 = float(np.median(zc))
+    if z0 < 0.45:
+        return None
     sc = cam.f / z0 * ss                         # px por metro (perspectiva débil)
     sci = cam.f / np.maximum(zc, 0.2) * ss
     px = xc * sci
@@ -314,7 +356,7 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     nf = n3(rp, 21.0)
     nw = n3(rp * np.array([1.0, 0.25, 1.0]), 11.0)
     disp = np.zeros((h, w), np.float32)
-    disp[yy, xx] = ((nm - 0.5) * 0.0030 + (nw - 0.5) * 0.0022 + (nf - 0.5) * 0.0014) * skin * spec["scale"]
+    disp[yy, xx] = spec.get('rough', 1.0) * ((nm - 0.5) * 0.0030 + (nw - 0.5) * 0.0022 + (nf - 0.5) * 0.0014) * skin * spec["scale"]
     kr = max(1, int(round(0.011 * spec['scale'] * sc)))
     ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * kr + 1, 2 * kr + 1))
     Dop = cv2.dilate(cv2.erode(Df, ker), ker)                 # rellena surcos estrechos: une volúmenes
@@ -352,6 +394,7 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     alb = alb * (1 - 0.35 * snout[:, None])
     tooth = np.array([0.66, 0.61, 0.50], np.float32) * (0.8 + 0.3 * nf[:, None])
     alb = np.where((kind == TOOTH)[:, None], tooth, alb)
+    alb = np.where((kind == MOUTH)[:, None], np.array([0.42, 0.17, 0.16], np.float32) * (0.8 + 0.3 * nf[:, None]), alb)
     alb = np.where((kind == CLAW)[:, None], np.array([0.16, 0.14, 0.13], np.float32), alb)
     alb = np.where((kind == DARK)[:, None], np.array([0.07, 0.06, 0.06], np.float32), alb)
     alb = np.where((kind == EYE)[:, None], np.array([0.085, 0.055, 0.03], np.float32), alb)

@@ -1,15 +1,23 @@
-"""Composición de cada fotograma: mundo + flora + animales + óptica de cámara."""
+"""Composición de cada fotograma: mundo + flora del bioma + animales + vida ambiental + óptica."""
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import world
 import plants
 import creature
+import biomes
 from util import fbm, smoothstep, lerp
 
 LIB = None
-SCN = None
+SCNS = {}
 MIST = None
+_CAND = None
+
+SWAY = dict(horsetail=0.030, horsetail_dry=0.034, fern=0.022, fern_dry=0.024, shrub=0.014, shrub_dry=0.016,
+            tree=0.008, tree_hi=0.008, tree_autumn=0.009, tree_bare=0.006, conifer=0.006, lycopsid=0.012,
+            treefern=0.014, branch=0.030, rock=0.0, log=0.0)
+TALL = ("tree", "tree_hi", "tree_autumn", "tree_bare", "conifer", "treefern")
+DEF_LIGHT = dict(sun=(1.00, 0.95, 0.86), amb=(0.62, 0.72, 0.86), fog=(0.80, 0.855, 0.905))
 
 
 def _pyr(sp):
@@ -19,9 +27,10 @@ def _pyr(sp):
     sp["pyr"] = lv
 
 
-def setup(keepouts=()):
-    """Carga el mundo y reparte la vegetación de forma determinista."""
-    global LIB, SCN, MIST
+def setup():
+    global LIB, MIST, _CAND
+    if LIB is not None:
+        return
     world.load()
     LIB = plants.library()
     for k in LIB:
@@ -29,34 +38,52 @@ def setup(keepouts=()):
             _pyr(sp)
     MIST = fbm((256, 1024), 2.4, 77)
     rng = np.random.default_rng(2024)
-    n = 700000
+    n = 900000
     X = rng.uniform(-128, 128, n)
-    Z = rng.uniform(1.0, 495, n)
+    Z = rng.uniform(0.5, 495, n)
     m = world.MAPS[0]
     tx = ((X - world.GX0) / world.GRES).astype(int)
     tz = ((Z - world.GZ0) / world.GRES).astype(int)
-    wet, veg, tone, dist = (m[tz, tx, i] for i in range(4))
-    u = rng.uniform(0, 1, n)
     clump = cv2.resize(fbm((512, 512), 1.8, 5), (m.shape[1], m.shape[0]))[tz, tx]
-    kinds = np.full(n, -1)
-    near = Z < 170
-    kinds[(dist > -0.45) & (dist < 2.4) & (clump > 0.53) & (u < 0.34) & near] = 0                 # colas de caballo
-    kinds[(dist > 1.6) & (dist < 34) & (veg > 0.47) & (u < 0.016) & (Z < 130)] = 1                 # helechos
-    kinds[(dist > 4.0) & (dist < 70) & (veg > 0.45) & (u > 0.9950) & (Z < 200)] = 2                # matas
-    kinds[(dist > 7.0) & (clump * 0.5 + veg * 0.6 > 0.60) & (u > 0.50) & (u < 0.50 + 0.016 + 0.02 * (Z > 110)) & (Z > 24)] = 3   # árboles
-    kinds[(dist > 0.3) & (u > 0.25) & (u < 0.2535) & (Z < 90)] = 4                                # rocas
-    sel = kinds >= 0
-    for (kx, kz, kr) in keepouts:
-        sel &= ((X - kx) ** 2 + (Z - kz) ** 2) > kr * kr
-    names = ["horsetail", "fern", "shrub", "tree", "rock"]
-    SCN = dict(X=X[sel], Z=Z[sel], kind=kinds[sel], var=rng.integers(0, 6, sel.sum()),
-               sc=rng.uniform(0.45, 1.2, sel.sum()), flip=rng.uniform(0, 1, sel.sum()) < 0.5,
-               ph=rng.uniform(0, 6.28, sel.sum()), dist=dist[sel], names=names)
-    return SCN
+    _CAND = dict(X=X, Z=Z, veg=m[tz, tx, 1], tone=m[tz, tx, 2], dist=m[tz, tx, 3], clump=clump)
 
 
-def _coc(cam, z, zf, ap):
-    return np.minimum(ap * cam.f * np.abs(1.0 / np.maximum(z, 0.05) - 1.0 / zf), 14.0 * cam.W / 1920)
+def scene(name):
+    """Vegetación del bioma, repartida de forma determinista."""
+    if name in SCNS:
+        return SCNS[name]
+    B = biomes.BIOMES[name]
+    c = _CAND
+    n = len(c["X"])
+    rng = np.random.default_rng(abs(hash(name)) % 100000 if False else sum(map(ord, name)))
+    dist = c["dist"] + B.get("dry", 0.0) * (1.0 + 2.2 * c["tone"])
+    kind = np.full(n, -1)
+    names = []
+    lo, hi = np.zeros(n, np.float32), np.ones(n, np.float32)
+    for r in B["flora"]:
+        u = rng.uniform(0, 1, n)
+        ok = (kind < 0) & (u < r["p"]) & (dist > r.get("dmin", 0.3)) & (dist < r.get("dmax", 1e9))
+        ok &= (c["veg"] > r.get("vmin", -1)) & (c["clump"] > r.get("cmin", -1)) & (c["clump"] < r.get("cmax", 9))
+        ok &= (c["Z"] > r.get("zmin", 0)) & (c["Z"] < r.get("zmax", 1e9))
+        if "box" in r:
+            x0, x1, z0, z1 = r["box"]
+            ok &= (c["X"] > x0) & (c["X"] < x1) & (c["Z"] > z0) & (c["Z"] < z1)
+        if r["kind"] not in names:
+            names.append(r["kind"])
+        kind[ok] = names.index(r["kind"])
+        s0, s1 = r.get("sc", (0.6, 1.2))
+        lo[ok], hi[ok] = s0, s1
+    sel = kind >= 0
+    ns = int(sel.sum())
+    S = dict(X=c["X"][sel], Z=c["Z"][sel], kind=kind[sel], var=rng.integers(0, 12, ns),
+             sc=(lo[sel] + (hi[sel] - lo[sel]) * rng.uniform(0, 1, ns)), flip=rng.uniform(0, 1, ns) < 0.5,
+             ph=rng.uniform(0, 6.28, ns), dist=dist[sel], names=names)
+    SCNS[name] = S
+    return S
+
+
+def _coc(cam, z, zf, ap, cap=16.0):
+    return np.minimum(ap * cam.f * np.abs(1.0 / np.maximum(z, 0.05) - 1.0 / zf), cap * cam.W / 1920)
 
 
 def _put(dst, rgb, a, x0, y0, dst_a=None):
@@ -89,8 +116,9 @@ def _soft(rgb, a, sig):
     return cv2.GaussianBlur(rgb, (0, 0), sig), cv2.GaussianBlur(a, (0, 0), sig), p
 
 
-def _plant_image(sp, target_h, shear, flip):
-    """Escala (con mipmap) e inclina por el viento."""
+def _plant_image(sp, target_h, shear, flip, u, v, W, H, margin):
+    """Escala (mipmap), inclina por el viento y recorta a la parte visible.
+    Devuelve rgb, alfa (float) y la esquina (x0, y0) en el cuadro; None si queda fuera."""
     h0 = sp["a"].shape[0]
     s = target_h / h0
     L = int(np.clip(np.floor(-np.log2(max(s, 1e-6))), 0, len(sp["pyr"]) - 1))
@@ -99,17 +127,46 @@ def _plant_image(sp, target_h, shear, flip):
     h, w = a.shape
     th, tw = max(1, int(round(h * s2))), max(1, int(round(w * s2)))
     pad = int(abs(shear) * th) + 1
-    M = np.array([[s2 * (-1 if flip else 1), -shear, (tw if flip else 0) + pad + shear * th], [0, s2, 0]], np.float32)
-    rgb2 = cv2.warpAffine(rgb, M, (tw + 2 * pad, th), flags=cv2.INTER_LINEAR)
-    a2 = cv2.warpAffine(a, M, (tw + 2 * pad, th), flags=cv2.INTER_LINEAR)
-    return rgb2, a2
+    fw = tw + 2 * pad
+    x0, y0 = int(round(u - fw / 2)), int(round(v - th + max(1, 0.02 * th)))
+    xa, ya = max(x0, -margin), max(y0, -margin)
+    xb, yb = min(x0 + fw, W + margin), min(y0 + th, H + margin)
+    if xa >= xb or ya >= yb:
+        return None
+    M = np.array([[s2 * (-1 if flip else 1), -shear, (tw if flip else 0) + pad + shear * th - (xa - x0)],
+                  [0, s2, -(ya - y0)]], np.float32)
+    rgb2 = cv2.warpAffine(rgb, M, (xb - xa, yb - ya), flags=cv2.INTER_LINEAR).astype(np.float32) * (1 / 255.0)
+    a2 = cv2.warpAffine(a, M, (xb - xa, yb - ya), flags=cv2.INTER_LINEAR).astype(np.float32) * (1 / 255.0)
+    return rgb2, a2, xa, ya
 
 
-def frame(shot, t, W=1920, H=1080):
-    """shot: dict con cam(t)->Camera, animals(t)->lista, weather, focus(t), aperture."""
+def _keep_mask(shot, S):
+    """Plantas que se quitan del plano: trayectos de los animales y eje cámara-sujeto."""
+    key = "_keep_" + shot["biome"]
+    if key not in shot:
+        ok = np.ones(len(S["X"]), bool)
+        for (kx, kz, kr) in shot.get("keep", ()):
+            ok &= ((S["X"] - kx) ** 2 + (S["Z"] - kz) ** 2) > kr * kr
+        shot[key] = ok
+    return shot[key]
+
+
+def frame(shot, t, W=1280, H=720):
+    """shot: biome, cam(t,W,H), animals(t), focus(t), aperture, wx (sobrescribe el clima), fg, keep, ripples."""
+    setup()
     k = W / 1920.0
+    B = biomes.BIOMES[shot["biome"]]
+    wx = dict(B.get("wx", {}))
+    wx.update(shot.get("wx", {}))
+    if "dry" in B:
+        wx.setdefault("dry", B["dry"])
+    L = dict(DEF_LIGHT)
+    L.update(wx.get("light", {}))
+    world.SUN_COL = np.array(L["sun"], np.float32)
+    world.SKY_AMB = np.array(L["amb"], np.float32)
+    world.FOG_COL = np.array(L["fog"], np.float32)
+    ptint = np.array(wx.get("plant_tint", (1, 1, 1)), np.float32)
     cam = shot["cam"](t, W, H)
-    wx = shot.get("weather", {})
     fogd = wx.get("fog", 1.0)
     zf = shot["focus"](t)
     ap = shot.get("aperture", 0.004)
@@ -118,12 +175,13 @@ def frame(shot, t, W=1920, H=1080):
     if cinf > 0.4:
         bg = cv2.GaussianBlur(bg, (0, 0), cinf)
 
-    # ---- animales (se dibujan antes para tener sombras y reflejos)
     items = []
     shadow = np.zeros((H, W), np.float32)
     contact = np.zeros((H, W), np.float32)
     for an in shot["animals"](t):
         spr = creature.render(an["spec"], cam, an["pos"], an["heading"], an["pose"], ss=an.get("ss", 1.6))
+        if spr is None:
+            continue
         P, R = spr["shadow"]
         z_an = spr["zc"]
         tmp = np.zeros((H, W), np.float32)
@@ -132,12 +190,11 @@ def frame(shot, t, W=1920, H=1080):
         G[:, 1] = 0
         u, v, zc = cam.project(G)
         for i in range(len(P)):
-            if zc[i] < 0.3:
+            if zc[i] < 0.3 or not (0 <= u[i] < W and 0 <= v[i] < H):
                 continue
             rx = R[i] * cam.f / zc[i] * 1.1
             ry = max(0.6, R[i] * cam.f * cam.pos[1] / zc[i] ** 2 * 1.5)
-            if 0 <= u[i] < W and 0 <= v[i] < H:
-                cv2.ellipse(tmp, (int(u[i] * 16), int(v[i] * 16)), (int(rx * 16) + 1, int(ry * 16) + 1), 0, 0, 360, 1.0, -1, cv2.LINE_AA, 4)
+            cv2.ellipse(tmp, (int(u[i] * 16), int(v[i] * 16)), (int(rx * 16) + 1, int(ry * 16) + 1), 0, 0, 360, 1.0, -1, cv2.LINE_AA, 4)
         lowm = (P[:, 1] - R) < 0.10 * an["spec"]["scale"]
         G2 = P[lowm].copy()
         G2[:, 1] = 0
@@ -149,79 +206,97 @@ def frame(shot, t, W=1920, H=1080):
             rx = R2[i] * cam.f / z2[i] * 1.5
             ry = max(0.6, R2[i] * cam.f * cam.pos[1] / z2[i] ** 2 * 2.2)
             cv2.ellipse(tmp2, (int(u2[i] * 16), int(v2[i] * 16)), (int(rx * 16) + 1, int(ry * 16) + 1), 0, 0, 360, 1.0, -1, cv2.LINE_AA, 4)
-        sg = max(0.8, 0.030 * an["spec"]["scale"] ** 0.5 * cam.f / z_an)
-        shadow = np.maximum(shadow, cv2.GaussianBlur(tmp, (0, 0), sg) * 0.72)
+        sg = max(0.8, 0.030 * an["spec"]["scale"] ** 0.5 * cam.f / max(z_an, 0.3))
+        sst = wx.get("shadow", 1.0)
+        shadow = np.maximum(shadow, cv2.GaussianBlur(tmp, (0, 0), sg) * 0.72 * sst)
         contact = np.maximum(contact, cv2.GaussianBlur(tmp2, (0, 0), sg * 0.5) * 0.55)
         items.append((z_an, "animal", spr))
 
     # ---- vegetación visible
-    S = SCN
+    S = scene(shot["biome"])
+    keep = _keep_mask(shot, S)
     u, v, zc = cam.project(np.stack([S["X"], np.zeros_like(S["X"]), S["Z"]], 1))
-    vis = (zc > 0.8) & (u > -0.2 * W) & (u < 1.2 * W)
-    idx = np.nonzero(vis)[0]
+    vis = keep & (zc > 0.35) & (u > -0.25 * W) & (u < 1.25 * W)
     refl = np.zeros((H, W, 3), np.float32)
     refl_a = np.zeros((H, W), np.float32)
     pshadow = np.zeros((H, W), np.float32)
     wind = wx.get("wind", 1.0)
-    for i in idx:
+    minpx = 2.2
+    for i in np.nonzero(vis)[0]:
         name = S["names"][S["kind"][i]]
         lst = LIB[name]
         sp = lst[S["var"][i] % len(lst)]
         th = sp["a"].shape[0] / sp["ppm"] * S["sc"][i] * cam.f / zc[i]
-        if th < 2.0 or v[i] - th > H or v[i] < -H:
+        if th < minpx or v[i] - th > H or v[i] < -0.2 * H or th > 14 * H:
             continue
-        items.append((zc[i], "plant", (i, sp, th, name)))
+        items.append((zc[i], "plant", (u[i], v[i], sp, th, name, S["ph"][i], bool(S["flip"][i]), S["dist"][i])))
+    for fgp in shot.get("fg", ()):              # plantas pegadas a la cámara
+        fu, fv, fz = cam.project(np.array([fgp["x"], fgp.get("y", 0.0), fgp["z"]]))
+        if fz < 0.15:
+            continue
+        lst = LIB[fgp["kind"]]
+        sp = lst[fgp.get("var", 0) % len(lst)]
+        th = sp["a"].shape[0] / sp["ppm"] * fgp.get("sc", 1.0) * cam.f / fz
+        items.append((float(fz), "plant", (float(fu), float(fv), sp, th, fgp["kind"], fgp.get("ph", 0.0), fgp.get("flip", False), 99.0)))
     items.sort(key=lambda it: -it[0])
 
+    gust = lambda x, zz: 1.0 + 0.9 * max(0.0, np.sin(0.05 * x + 0.03 * zz - 0.45 * t)) ** 3
     draws = []
     for z, kind, d in items:
-        sig = float(_coc(cam, z, zf, ap))
         if kind == "plant":
-            i, sp, th, name = d
-            amp = {"horsetail": 0.030, "fern": 0.022, "shrub": 0.014, "tree": 0.008, "rock": 0.0}[name]
-            sh = amp * wind * (np.sin(t * 1.3 + S["ph"][i]) + 0.5 * np.sin(t * 2.9 + 1.7 * S["ph"][i])) if z < 90 else 0.0
-            rgb, a = _plant_image(sp, th, sh, bool(S["flip"][i]))
+            pu, pv, sp, th, name, ph, flip, pdist = d
+            sig = float(_coc(cam, z, zf, ap, cap=16.0 if z > 1.6 else 42.0))
+            amp = SWAY.get(name, 0.01)
+            sh = amp * wind * gust(pu, z * 30) * (np.sin(t * 1.3 + ph) + 0.5 * np.sin(t * 2.9 + 1.7 * ph)) if z < 90 else 0.0
+            r_ = _plant_image(sp, th, sh, flip, pu, pv, W, H, int(sig * 3) + 4)
+            if r_ is None:
+                continue
+            rgb, a, x0, y0 = r_
             hh, ww = a.shape
-            x0, y0 = int(round(u[i] - ww / 2)), int(round(v[i] - hh + max(1, 0.02 * hh)))
-            rgbf = _fog(rgb, a, z, fogd)
-            if z < 120 and name != "rock" or (name == "rock" and z < 60):
-                rx = max(2, int(ww * (0.22 if name != "tree" else 0.30)))
+            ww = int(min(ww, sp['a'].shape[1] / sp['a'].shape[0] * th))
+            rgbf = _fog(rgb * ptint, a, z, fogd)
+            if z > 1.2 and ((z < 120 and name not in ("rock", "log", "branch")) or z < 50):
+                rx = max(2, int(ww * (0.30 if name in TALL else 0.22)))
                 ry = max(1, int(rx * cam.pos[1] / z * 1.3))
-                cv2.ellipse(pshadow, (int(u[i] + rx * 0.45), int(v[i])), (rx, ry), 0, 0, 360, 0.5 if name != "tree" else 0.62, -1, cv2.LINE_AA)
-            if S["dist"][i] < 9 and z < 260:
-                _put(refl, rgbf[::-1] * 0.9, a[::-1], x0, int(round(v[i])), refl_a)
+                cv2.ellipse(pshadow, (int(pu + rx * 0.45), int(pv)), (rx, ry), 0, 0, 360, 0.62 if name in TALL else 0.5, -1, cv2.LINE_AA)
+            if pdist < 9 and z < 260 and z > 1.2:
+                _put(refl, rgbf[::-1] * 0.9, a[::-1], x0, int(round(pv)), refl_a)
             draws.append((z, rgbf, a, x0, y0, sig))
         else:
             spr = d
+            sig = float(_coc(cam, z, zf, ap))
             rgb, a = spr["rgb"], spr["a"]
             x0, y0 = int(round(spr["x0"])), int(round(spr["y0"]))
             rgbf = _fog(rgb, a, z, fogd)
             _put(refl, rgbf[::-1] * 0.9, a[::-1], x0, int(round(2 * spr["base_y"] - y0 - a.shape[0])), refl_a)
             draws.append((z, rgbf, a, x0, y0, sig))
 
-    pshadow = cv2.GaussianBlur(pshadow, (0, 0), 5 * k)
+    pshadow = cv2.GaussianBlur(pshadow, (0, 0), 5 * k) * wx.get("shadow", 1.0)
     shadow_all = np.clip(np.maximum(shadow, pshadow * 0.8) + contact, 0, 0.92)
     refl_rgba = np.dstack([refl, refl_a])
-    img, (y0g, tz) = world.ground(cam, t, bg, refl_rgba, shadow_all, wx, shot.get("ripples", lambda t: ())(t))
+    rip = list(shot.get("ripples", lambda t: ())(t))
+    img, (y0g, tz) = world.ground(cam, t, bg, refl_rgba, shadow_all, wx, rip)
 
-    # desenfoque del suelo según la distancia (profundidad de campo)
-    cg = _coc(cam, tz[:, 0], zf, ap)
-    if cg.max() > 0.5:
-        sub = img[y0g:]
-        b1 = cv2.GaussianBlur(sub, (0, 0), 2.5 * k)
-        b2 = cv2.GaussianBlur(sub, (0, 0), 7.0 * k)
-        w1 = np.clip(cg / (2.5 * k), 0, 1)[:, None, None]
-        w2 = np.clip((cg - 2.5 * k) / (4.5 * k), 0, 1)[:, None, None]
-        img[y0g:] = lerp(lerp(sub, b1, w1), b2, w2)
+    if y0g < H:
+        cg = _coc(cam, tz[:, 0], zf, ap)
+        if cg.max() > 0.5:
+            sub = img[y0g:]
+            b1 = cv2.GaussianBlur(sub, (0, 0), 2.5 * k)
+            b2 = cv2.GaussianBlur(sub, (0, 0), 7.0 * k)
+            w1 = np.clip(cg / (2.5 * k), 0, 1)[:, None, None]
+            w2 = np.clip((cg - 2.5 * k) / (4.5 * k), 0, 1)[:, None, None]
+            img[y0g:] = lerp(lerp(sub, b1, w1), b2, w2)
 
-    # ---- bruma baja del amanecer (antes de lo que está cerca)
     def mist():
+        ms = wx.get("mist", 0.5)
+        if ms <= 0:
+            return
         rows = np.arange(H, dtype=np.float32)[:, None]
         band = np.exp(-((rows - cam.vh - 10 * k) / (0.012 * cam.f + 14 * k)) ** 2)
         mx = (np.arange(W, dtype=np.float32)[None, :] / k * 0.35 + cam.yaw * 900 + t * 6.0) + np.zeros((H, 1), np.float32)
         my = (rows / k * 0.5 + t * 0.8) + np.zeros((1, W), np.float32)
         n = cv2.remap(MIST, mx.astype(np.float32), my.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_WRAP)
-        a = (band * (0.25 + 0.75 * n) * wx.get("mist", 0.5))[..., None]
+        a = (band * (0.25 + 0.75 * n) * ms)[..., None]
         img[:] = img * (1 - a) + world.FOG_COL * 1.03 * a
 
     misted = False
@@ -233,15 +308,20 @@ def frame(shot, t, W=1920, H=1080):
         _put(img, rgb2, a2, x0 - p, y0 - p)
     if not misted:
         mist()
+    life(img, cam, t, wx, zf, ap, k, shot.get("life_at"))
+    return post(img, t, k, wx.get("grade", {}))
 
-    # ---- motas en el aire (polvo, esporas, insectos diminutos)
+
+def life(img, cam, t, wx, zf, ap, k, at=None):
+    """Vida ambiental: motas, insectos en vuelo, hojas que caen, lluvia, polvo."""
+    H, W = img.shape[:2]
+    c0 = np.array([cam.pos[0] + np.sin(cam.yaw) * 10, 0, cam.pos[2] + np.cos(cam.yaw) * 10]) if at is None else np.asarray(at, float)
     rng = np.random.default_rng(99)
+    # motas / esporas
     nm = 22
-    base = np.column_stack([rng.uniform(-10, 10, nm), rng.uniform(0.2, 2.2, nm), rng.uniform(2.5, 22, nm)])
+    base = np.column_stack([rng.uniform(-10, 10, nm), rng.uniform(0.2, 2.2, nm), rng.uniform(-8, 12, nm)])
     ph = rng.uniform(0, 6.28, (nm, 3))
-    dx = cam.pos[0] + np.sin(cam.yaw) * 10
-    dz = cam.pos[2] + np.cos(cam.yaw) * 10
-    pts = base + np.column_stack([dx + 0.5 * np.sin(t * 0.4 + ph[:, 0]) + 0.12 * t, 0.25 * np.sin(t * 0.7 + ph[:, 1]), dz - 10 + 0.4 * np.sin(t * 0.3 + ph[:, 2])])
+    pts = base + c0 + np.column_stack([0.5 * np.sin(t * 0.4 + ph[:, 0]) + 0.12 * t, 0.25 * np.sin(t * 0.7 + ph[:, 1]), 0.4 * np.sin(t * 0.3 + ph[:, 2])])
     mu, mv, mz = cam.project(pts)
     lay = np.zeros((H, W), np.float32)
     for i in range(nm):
@@ -249,25 +329,115 @@ def frame(shot, t, W=1920, H=1080):
             r = np.clip(0.006 * cam.f / mz[i], 0.8, 5 * k) + float(_coc(cam, mz[i], zf, ap)) * 0.5
             cv2.circle(lay, (int(mu[i] * 16), int(mv[i] * 16)), int(r * 16), float(0.11 / (1 + r * 0.25)), -1, cv2.LINE_AA, 4)
     lay = cv2.GaussianBlur(lay, (0, 0), 1.2 * k)
-    img += lay[..., None] * np.array([1.0, 0.98, 0.9], np.float32) * wx.get("motes", 1.0)
-    return post(img, t, k)
+    img += lay[..., None] * np.array(wx.get("mote_col", (1.0, 0.98, 0.9)), np.float32) * wx.get("motes", 1.0)
+
+    # insectos en vuelo (paleodictiópteros y parientes de las libélulas)
+    nd = int(wx.get("insects", 4))
+    for i in range(nd):
+        r = np.random.default_rng(500 + i)
+        cx, cz = r.uniform(-6, 6), r.uniform(-5, 7)
+        a1, a2, a3 = r.uniform(0.5, 1.3, 3)
+        p1, p2, p3 = r.uniform(0, 6.28, 3)
+        def pos(tt):
+            return c0 + np.array([cx + 2.6 * np.sin(a1 * tt + p1) + 0.8 * np.sin(2.7 * a2 * tt + p2),
+                                  0.5 + r.uniform(0.2, 1.2) + 0.35 * np.sin(a3 * tt * 1.9 + p3),
+                                  cz + 2.2 * np.sin(a2 * tt * 0.8 + p2) + 0.7 * np.sin(2.3 * a1 * tt + p3)])
+        r = np.random.default_rng(500 + i)
+        r.uniform(-6, 6, 2); r.uniform(0.5, 1.3, 3); r.uniform(0, 6.28, 3)
+        hofs = r.uniform(0.2, 1.2)
+        def pos(tt, hofs=hofs):
+            return c0 + np.array([cx + 2.6 * np.sin(a1 * tt + p1) + 0.8 * np.sin(2.7 * a2 * tt + p2),
+                                  0.5 + hofs + 0.35 * np.sin(a3 * tt * 1.9 + p3),
+                                  cz + 2.2 * np.sin(a2 * tt * 0.8 + p2) + 0.7 * np.sin(2.3 * a1 * tt + p3)])
+        P0, P1 = pos(t), pos(t + 0.03)
+        (u0, v0, z0), (u1, v1, z1) = cam.project(P0), cam.project(P1)
+        if z0 < 1.0 or not (-50 < u0 < W + 50 and -50 < v0 < H + 50):
+            continue
+        s = 0.085 * cam.f / z0                       # largo del cuerpo en px
+        if s < 1.2:
+            continue
+        d = np.array([u1 - u0, v1 - v0])
+        d = d / (np.linalg.norm(d) + 1e-6)
+        pad = int(s * 2 + 6)
+        tile = np.zeros((2 * pad, 2 * pad), np.float32)
+        wing = np.zeros((2 * pad, 2 * pad), np.float32)
+        c = np.array([pad, pad], float)
+        cv2.line(tile, tuple(int(x * 16) for x in (c - d * s * 0.5)), tuple(int(x * 16) for x in (c + d * s * 0.5)), 1.0, max(1, int(s * 0.10)), cv2.LINE_AA, 4)
+        n_ = np.array([-d[1], d[0]])
+        beat = 0.55 + 0.45 * np.sin(t * 150 + i)
+        for sd in (-1, 1):
+            wc = c + d * s * 0.12 + n_ * sd * s * 0.42 * beat
+            cv2.ellipse(wing, (int(wc[0] * 16), int(wc[1] * 16)), (int(s * 0.45 * 16), int(s * 0.13 * 16) + 8),
+                        float(np.degrees(np.arctan2(n_[1], n_[0]))), 0, 360, 1.0, -1, cv2.LINE_AA, 4)
+        sg = 0.5 + float(_coc(cam, z0, zf, ap)) * 0.7
+        tile = cv2.GaussianBlur(tile, (0, 0), sg)
+        wing = cv2.GaussianBlur(wing, (0, 0), sg + 0.8)
+        x0, y0 = int(u0) - pad, int(v0) - pad
+        _put(img, np.dstack([wing] * 3) * 0.78 * 0.22, wing * 0.22, x0, y0)
+        _put(img, np.dstack([tile] * 3) * np.array([0.10, 0.09, 0.07], np.float32), tile * 0.9, x0, y0)
+
+    # hojas que caen
+    nl = int(wx.get("leaves", 0))
+    if nl:
+        r = np.random.default_rng(321)
+        bx, bz = r.uniform(-9, 9, nl), r.uniform(-7, 10, nl)
+        h0, sp_, ph = r.uniform(0, 6, nl), r.uniform(0.45, 0.9, nl), r.uniform(0, 6.28, nl)
+        y = (h0 - sp_ * t) % 6.0
+        P = c0 + np.column_stack([bx + 0.5 * np.sin(t * 1.1 + ph) + 0.35 * t, y, bz + 0.3 * np.sin(t * 0.8 + 2 * ph)])
+        lu, lv, lz = cam.project(P)
+        for i in range(nl):
+            if lz[i] < 0.8 or not (0 <= lu[i] < W and 0 <= lv[i] < H):
+                continue
+            s = 0.13 * cam.f / lz[i]
+            if s < 1.5:
+                continue
+            pad = int(s + 4)
+            tile = np.zeros((2 * pad, 2 * pad), np.float32)
+            cv2.ellipse(tile, (pad * 16, pad * 16), (int(s * 0.5 * 16), int(s * 0.16 * (0.4 + 0.6 * abs(np.sin(t * 3 + ph[i]))) * 16) + 8),
+                        float(np.degrees(t * 2.2 + ph[i])), 0, 360, 1.0, -1, cv2.LINE_AA, 4)
+            tile = cv2.GaussianBlur(tile, (0, 0), 0.6 + float(_coc(cam, lz[i], zf, ap)) * 0.7)
+            col = np.array([0.50, 0.38, 0.16], np.float32) * (0.7 + 0.5 * ((i * 37) % 10) / 10)
+            _put(img, tile[..., None] * col, tile * 0.95, int(lu[i]) - pad, int(lv[i]) - pad)
+
+    # lluvia fina
+    rn = wx.get("rain", 0.0)
+    if rn > 0:
+        r = np.random.default_rng(int(t * 24) + 7)
+        lay = np.zeros((H, W), np.float32)
+        for _ in range(int(900 * rn * k * k)):
+            x, y = r.uniform(0, W), r.uniform(0, H)
+            ln = r.uniform(14, 46) * k
+            cv2.line(lay, (int(x), int(y)), (int(x - ln * 0.16), int(y + ln)), float(r.uniform(0.25, 0.8)), 1, cv2.LINE_AA)
+        lay = cv2.GaussianBlur(lay, (0, 0), 0.7)
+        img += lay[..., None] * 0.20 * np.array([0.9, 0.95, 1.0], np.float32)
+
+    # polvo en suspensión
+    du = wx.get("dust", 0.0)
+    if du > 0:
+        rows = np.arange(H, dtype=np.float32)[:, None]
+        mx = (np.arange(W, dtype=np.float32)[None, :] / k * 0.22 + t * 14.0 + cam.yaw * 600) + np.zeros((H, 1), np.float32)
+        my = (rows / k * 0.3 + t * 1.5) + np.zeros((1, W), np.float32)
+        n = cv2.remap(MIST, mx.astype(np.float32), my.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_WRAP)
+        a = (np.exp(-np.abs(rows - cam.vh - 40 * k) / (H * 0.45)) * (0.3 + 0.7 * n) * du * 0.42)[..., None]
+        img[:] = img * (1 - a) + np.array([0.78, 0.70, 0.60], np.float32) * a
 
 
 _VIG = {}
 
 
-def post(img, t, k):
+def post(img, t, k, grade=None):
+    grade = grade or {}
     H, W = img.shape[:2]
-    img = np.clip(img, 0, 4)
-    img = cv2.GaussianBlur(img, (0, 0), 0.55 * k)                 # suavidad de lente
+    img = np.clip(img, 0, 4) * grade.get("expo", 1.0)
+    img = cv2.GaussianBlur(img, (0, 0), 0.55 * max(k, 0.7))
     hi = np.clip(img - 0.78, 0, None)
-    img = img + cv2.GaussianBlur(hi, (0, 0), 22 * k) * 0.55        # halo de altas luces
+    img = img + cv2.GaussianBlur(hi, (0, 0), 22 * k) * 0.55
     lum = img @ np.array([0.25, 0.62, 0.13], np.float32)
-    img = lum[..., None] + (img - lum[..., None]) * 0.90
-    img = img * np.array([0.975, 1.0, 1.035], np.float32)          # gradación fría
+    img = lum[..., None] + (img - lum[..., None]) * 0.90 * grade.get("sat", 1.0)
+    img = img * np.array([0.975, 1.0, 1.035], np.float32) * np.array(grade.get("tint", (1, 1, 1)), np.float32)
     img = np.clip(img, 0, 1)
-    img = img * img * (3 - 2 * img) * 0.55 + img * 0.45            # curva suave
-    img = 0.035 + img * 0.955                                      # negros levantados
+    img = img * img * (3 - 2 * img) * 0.55 + img * 0.45
+    img = 0.035 + img * 0.955
     if (H, W) not in _VIG:
         yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
         r2 = ((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2
@@ -275,12 +445,20 @@ def post(img, t, k):
     img = img * _VIG[(H, W)]
     rng = np.random.default_rng(int(t * 1000) + 5)
     g = rng.normal(0, 1, (H, W)).astype(np.float32)
-    g = cv2.GaussianBlur(g, (0, 0), 0.7 * k)
-    img = img + g[..., None] * 0.022 * (1.1 - img.mean(-1, keepdims=True))
+    g = cv2.GaussianBlur(g, (0, 0), 0.7 * max(k, 0.7))
+    img = img + g[..., None] * 0.018 * (1.1 - img.mean(-1, keepdims=True))
     return np.clip(img, 0, 1)
 
 
 _FONT = {}
+
+
+def font(size, weight="Medium", italic=False):
+    key = (size, weight, italic)
+    if key not in _FONT:
+        nm = ("Italic" if weight == "Regular" else weight + "Italic") if italic else weight
+        _FONT[key] = ImageFont.truetype(f"/usr/share/fonts/opentype/inter/Inter-{nm}.otf", size)
+    return _FONT[key]
 
 
 def subtitle(img8, text, alpha=1.0):
@@ -289,19 +467,17 @@ def subtitle(img8, text, alpha=1.0):
         return img8
     H, W = img8.shape[:2]
     size = int(46 * W / 1920)
-    if size not in _FONT:
-        _FONT[size] = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Medium.otf", size)
-    font = _FONT[size]
+    f = font(size)
     base = Image.fromarray(img8).convert("RGBA")
     lay = Image.new("RGBA", base.size, (0, 0, 0, 0))
     sh = Image.new("RGBA", base.size, (0, 0, 0, 0))
     lines = text.split("\n")
     y = H - int(H * 0.085) - len(lines) * int(size * 1.3)
     for ln in lines:
-        w = ImageDraw.Draw(lay).textlength(ln, font=font)
+        w = ImageDraw.Draw(lay).textlength(ln, font=f)
         x = (W - w) / 2
-        ImageDraw.Draw(sh).text((x, y + 2), ln, font=font, fill=(0, 0, 0, int(205 * alpha)))
-        ImageDraw.Draw(lay).text((x, y), ln, font=font, fill=(246, 246, 242, int(255 * alpha)))
+        ImageDraw.Draw(sh).text((x, y + 2), ln, font=f, fill=(0, 0, 0, int(205 * alpha)))
+        ImageDraw.Draw(lay).text((x, y), ln, font=f, fill=(246, 246, 242, int(255 * alpha)))
         y += int(size * 1.3)
     sh = sh.filter(ImageFilter.GaussianBlur(size * 0.11))
     out = Image.alpha_composite(Image.alpha_composite(Image.alpha_composite(base, sh), sh), lay)

@@ -221,21 +221,24 @@ class Camera:
 
 
 def _sample_lod(pyr, mx, my, lod, wrap):
-    """Muestreo trilineal sencillo sobre una pirámide."""
+    """Muestreo trilineal sobre una pirámide. lod varía solo por fila: cada nivel se
+    remuestrea únicamente en la franja de filas donde pesa."""
     lod = np.clip(lod, 0, len(pyr) - 1.001)
-    l0, l1 = int(np.floor(lod.min())), int(np.ceil(lod.max()))
-    out = None
+    lr = lod[:, 0] if lod.ndim == 2 else lod
     bm = cv2.BORDER_WRAP if wrap else cv2.BORDER_REPLICATE
-    for L in range(l0, l1 + 1):
-        wgt = np.clip(1 - np.abs(lod - L), 0, 1)
-        if wgt.max() <= 0:
+    nch = 1 if pyr[0].ndim == 2 else pyr[0].shape[2]
+    out = np.zeros(mx.shape + (nch,), np.float32)
+    for L in range(int(np.floor(lr.min())), int(np.ceil(lr.max())) + 1):
+        wr = np.clip(1 - np.abs(lr - L), 0, 1)
+        rows = np.nonzero(wr > 0)[0]
+        if len(rows) == 0:
             continue
+        r0, r1 = rows[0], rows[-1] + 1
         sc = 1.0 / (2 ** L)
-        s = cv2.remap(pyr[L], (mx + 0.5) * sc - 0.5, (my + 0.5) * sc - 0.5, cv2.INTER_LINEAR, borderMode=bm)
+        s = cv2.remap(pyr[L], (mx[r0:r1] + 0.5) * sc - 0.5, (my[r0:r1] + 0.5) * sc - 0.5, cv2.INTER_LINEAR, borderMode=bm)
         if s.ndim == 2:
             s = s[..., None]
-        s = s * wgt[..., None]
-        out = s if out is None else out + s
+        out[r0:r1] += s * wr[r0:r1, None, None]
     return out
 
 
@@ -275,6 +278,16 @@ def sky(cam, t, weather):
                 (lit * (0.55 + 0.45 * (1 - dens)))[..., None])
     img = lerp(img, np.array([0.95, 0.96, 0.98], np.float32), (cirr * farf)[..., None])
     img = lerp(img, ccol, (dens * farf * 0.93)[..., None])
+    if weather.get('stars', 0) > 0:
+        rs = np.random.default_rng(8)
+        sa, se = rs.uniform(-np.pi, np.pi, 1500), rs.uniform(0.02, 1.2, 1500)
+        su = W / 2 + f * np.tan(np.clip(((sa - cam.yaw + np.pi) % (2 * np.pi)) - np.pi, -1.4, 1.4))
+        sv = cam.vh - se * f
+        okk = (su > 0) & (su < W - 1) & (sv > 0) & (sv < H - 1)
+        st = np.zeros((H, W), np.float32)
+        st[sv[okk].astype(int), su[okk].astype(int)] = rs.uniform(0.3, 1.0, 1500)[okk]
+        st = cv2.GaussianBlur(st, (0, 0), 0.8) * 3.0
+        img = img + st[..., None] * (1 - dens * farf)[..., None] * 0.8
     # bruma anómala en el horizonte (incógnita narrativa)
     hz = weather.get("plume", 0.0)
     if hz > 0:
@@ -291,7 +304,7 @@ def sky(cam, t, weather):
         py = (pano.shape[0] - 1 - vv * PANO_PPR).astype(np.float32)
         s = cv2.remap(pano, px, py, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
         a = s[..., 3:4]
-        img = img * (1 - a) + s[..., :3] * a * 1.0 + 0 * fogk
+        img = img * (1 - a) + s[..., :3] * a * np.array(weather.get('pano_tint', (1, 1, 1)), np.float32)
     if hz > 0:   # la bruma también vela la base de las montañas
         img = lerp(img, np.array([0.66, 0.62, 0.59], np.float32), a * 0.0 + (shape * 0.35 * hz)[..., None])
     # calima baja pegada al horizonte
@@ -323,6 +336,8 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
 
     m = _sample_lod(MAPS, (X - GX0) / GRES, (Z - GZ0) / GRES, lod(GRES), False)
     wet, veg, tone, dist = m[..., 0], m[..., 1], m[..., 2], m[..., 3]
+    dist = dist + weather.get('dry', 0.0) * (1.0 + 2.2 * tone)          # estación seca: el río se retira
+    wet = np.exp(-np.maximum(dist, 0) / 2.2)
     ta = 1.7 / 1024
     tb = 9.0 / 1024
     A = _sample_lod(TILE_A, X / ta, Z / ta, lod(ta), True)
@@ -333,21 +348,39 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
     var = 0.45 * A[..., 1] + 0.3 * A2[..., 1] + 0.25 * B[..., 1]
     edge = dist + (B[..., 1] - 0.5) * 0.9 + (A2[..., 1] - 0.5) * 0.25
     # --- tierra
-    dry_a = np.array([0.64, 0.60, 0.54], np.float32)
-    dry_b = np.array([0.47, 0.43, 0.39], np.float32)
+    dry_a = np.array(weather.get('soil_a', [0.64, 0.60, 0.54]), np.float32)
+    dry_b = np.array(weather.get('soil_b', [0.47, 0.43, 0.39]), np.float32)
     soil = lerp(dry_b, dry_a, np.clip(0.6 * tone + 0.4 * var, 0, 1)[..., None])
     wetk = np.clip(wet * 1.25 - 0.1 + 0.3 * (B[..., 1] - 0.5), 0, 1)
     soil = soil * lerp(1.0, 0.50, wetk)[..., None] * np.array([1.0, 0.99, 0.985], np.float32)
     # cubierta baja (musgos, hepáticas, helechos rastreros): no hay hierba en el Pérmico
-    vk = smoothstep(0.47, 0.74, veg + 0.55 * (A2[..., 1] - 0.5) + 0.35 * (B[..., 2] - 0.5))
-    moss = lerp(np.array([0.17, 0.21, 0.14], np.float32), np.array([0.35, 0.37, 0.25], np.float32),
+    vk = weather.get('moss', 1.0) * smoothstep(0.47, 0.74, veg + weather.get('moss_bias', 0.0) + 0.55 * (A2[..., 1] - 0.5) + 0.35 * (B[..., 2] - 0.5))
+    moss = lerp(np.array(weather.get('moss_a', [0.17, 0.21, 0.14]), np.float32), np.array(weather.get('moss_b', [0.35, 0.37, 0.25]), np.float32),
                 np.clip(1.3 * A[..., 2] * var + 0.25 * tone, 0, 1)[..., None])
     vsh = 0.55 + 0.75 * A[..., 2]
     col = lerp(soil * shade[..., None], moss * (vsh * (0.5 + 0.5 * shade))[..., None], (vk * 0.85)[..., None])
     und = _sample_lod(TILE_B, X / 60.0 / (1.0 / 1024), Z / 22.0 / (1.0 / 1024), lod(0.04), True)[..., 0]
     col = col * np.clip(0.80 + 0.22 * und, 0.7, 1.25)[..., None]
+    # hojarasca y barro agrietado
+    lit = weather.get('litter', 0.0)
+    if lit > 0:
+        lk = smoothstep(0.52, 0.70, A2[..., 2] * 0.6 + B[..., 2] * 0.5 + 0.25 * veg) * lit
+        lcol = lerp(np.array([0.30, 0.24, 0.16], np.float32), np.array([0.52, 0.44, 0.28], np.float32), A[..., 1:2])
+        col = lerp(col, lcol * (0.6 + 0.6 * A[..., 2:3]), (lk * 0.8)[..., None])
+    cr = weather.get('cracks', 0.0)
+    if cr > 0:
+        ck = _sample_lod(TILE_B, (X * 0.9 + Z * 0.43) / (0.9 / 1024), (Z * 0.9 - X * 0.43) / (0.9 / 1024), lod(0.9 / 1024), True)[..., 2]
+        line = smoothstep(0.035, 0.0, np.abs(ck - 0.5)) * smoothstep(40.0, 8.0, tz) * cr * wetk
+        col = col * (1 - 0.6 * line[..., None])
     light = SUN_COL * SUN[1] * 1.28 + SKY_AMB * 0.42
     col = col * light
+    cs = weather.get('cloud_shadow', 0.35)
+    if cs > 0:
+        cmx = ((X + 9000 + t * 9.0 + 1900 * SUN[0] / SUN[1]) * (2048 / 26000.0)).astype(np.float32)
+        cmy = ((Z + 4000 + t * 3.0 + 1900 * SUN[2] / SUN[1]) * (2048 / 26000.0)).astype(np.float32)
+        cd = cv2.remap(CLOUDS[..., 0], cmx, cmy, cv2.INTER_LINEAR, borderMode=cv2.BORDER_WRAP)
+        cov = weather.get('cloud', 0.47)
+        col = col * (1 - cs * smoothstep(1 - cov - 0.04, 1 - cov + 0.26, cd))[..., None]
     if shadow is not None:
         col = col * (1 - shadow[y0:, :, None] * np.array([0.60, 0.56, 0.50], np.float32))
     # --- agua
