@@ -1,0 +1,5 @@
+.venv/
+models/
+Qwen3-TTS/
+*.wav
+descarga.log
