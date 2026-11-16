@@ -8,6 +8,7 @@
 """
 import argparse
 import os
+import shutil
 import subprocess
 import sys
 from multiprocessing import Pool
@@ -719,6 +720,12 @@ def ts_srt(x):
     return f"{h:02d}:{m:02d}:{int(s):02d},{int(round((s - int(s)) * 1000)) % 1000:03d}"
 
 
+def shift_srt(t, off):
+    h, m, rest = t.split(":")
+    s, ms = rest.split(",")
+    return ts_srt(int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000 + off)
+
+
 def write_srt():
     VIDEO.mkdir(exist_ok=True)
     (VIDEO / "capitulos").mkdir(exist_ok=True)
@@ -726,6 +733,17 @@ def write_srt():
     full = open(VIDEO / "gorgonops-completo.srt", "w", encoding="utf-8")
     for cap in sorted(TL):
         c = TL[cap]
+        sv = VIDEO / "srt_voz" / f"{CHAPTERS[cap]}.srt"          # subtítulos re-temporizados con la voz real (voz.py)
+        if sv.exists():
+            shutil.copy(sv, VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt")
+            for blk in sv.read_text(encoding="utf-8").strip().split("\n\n"):
+                ln = blk.split("\n")
+                if len(ln) >= 3:
+                    p, q = ln[1].split(" --> ")
+                    full.write(f"{n}\n{shift_srt(p, off)} --> {shift_srt(q, off)}\n" + "\n".join(ln[2:]) + "\n\n")
+                    n += 1
+            off += round(c["t"] * FPS) / FPS
+            continue
         with open(VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt", "w", encoding="utf-8") as fh:
             for k, (a, b, txt) in enumerate(c["subs"], 1):
                 fh.write(f"{k}\n{ts_srt(a)} --> {ts_srt(b)}\n{txt}\n\n")

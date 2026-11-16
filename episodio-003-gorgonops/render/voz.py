@@ -76,6 +76,7 @@ def main():
         sin = VIDEO / "audio_sin_voz" / f"{name}.wav"
         if not sin.exists():
             shutil.copy(bed_p, sin)
+        bed_p.parent.mkdir(exist_ok=True)
         bed = leer_wav(sin)
         n = len(bed)
         voz = np.zeros(n, np.float32)

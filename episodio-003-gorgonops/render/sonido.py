@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 SR = 48000
 AQUI = Path(__file__).resolve().parent
 MUS = AQUI.parent / "musica" / "wav"
-OUT = AQUI.parent / "video" / "audio"
+OUT = AQUI.parent / "video" / "audio_sin_voz"
 
 
 def load(name):
