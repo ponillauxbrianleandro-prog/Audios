@@ -863,13 +863,23 @@ def main():
     tasks = [(cap, j) for cap in caps for j in range(len(TL[cap]["shots"])) if not seg_path(cap, j).exists()]
     total = sum(round(TL[c]["shots"][j][1] * FPS) for c, j in tasks)
     print(f"{len(tasks)} planos pendientes, {total} fotogramas", flush=True)
-    t0, done = time.time(), 0
-    with Pool(a.jobs, initializer=init, maxtasksperchild=8) as pool:
-        for path, sec in pool.imap_unordered(render_segment, tasks):
+    t0, done, frames_done = time.time(), 0, 0
+    import multiprocessing as mp
+    from concurrent.futures import ProcessPoolExecutor, as_completed
+    # Si un proceso muere (p. ej. por memoria) el pool se rompe y el script termina con error: run_all.sh lo relanza
+    # y los planos ya terminados se saltan.
+    with ProcessPoolExecutor(max_workers=a.jobs, mp_context=mp.get_context("spawn"), initializer=init, max_tasks_per_child=8) as ex:
+        futs = {ex.submit(render_segment, tk): tk for tk in tasks}
+        for f in as_completed(futs):
+            path, sec = f.result()
+            cap, j = futs[f]
             done += 1
+            frames_done += round(TL[cap]["shots"][j][1] * FPS)
             el = time.time() - t0
-            print(f"[{done}/{len(tasks)}] {Path(path).name} {sec:5.0f}s · transcurrido {el / 60:5.1f} min", flush=True)
-
+            eta = el / max(frames_done, 1) * (total - frames_done)
+            msg = f"[{done}/{len(tasks)}] {Path(path).name} {sec:5.0f}s · {frames_done}/{total} fotogramas · transcurrido {el / 60:5.1f} min · faltan ~{eta / 60:5.1f} min"
+            print(msg, flush=True)
+            (VIDEO / "progreso.txt").write_text(msg + "\n")
 
 if __name__ == "__main__":
     main()

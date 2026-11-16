@@ -1,0 +1,8 @@
+# material intermedio del render (grande y regenerable)
+video/segmentos/
+video/master/
+video/audio/
+video/run_all.log
+video/progreso.txt
+*.part.mp4
+musica/wav/
