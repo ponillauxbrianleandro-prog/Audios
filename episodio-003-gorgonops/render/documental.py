@@ -257,6 +257,8 @@ FG_REED = [("horsetail", 1, 0.05, 1.05, 1.0, 1.0), ("horsetail", 4, 0.93, 1.08, 
 FG_BRANCH = [("branch", 0, 0.20, 0.42, 0.8, 0.55), ("branch", 2, 0.90, 0.30, 0.9, 0.5)]
 FG_BRANCH_R = [("branch", 1, 0.86, 0.38, 0.8, 0.6)]
 FG_LOW = [("lycopsid", 1, 0.12, 1.10, 0.8, 0.45), ("fern", 5, 0.88, 1.22, 1.0, 0.7), ("lycopsid", 4, 0.55, 1.16, 0.7, 0.3)]
+FG_FRAME_R = [("outcrop", 1, 0.97, 1.10, 5.0, 0.60), ("rama_alta", 0, 0.80, 0.30, 0.8, 0.55), ("hongo", 2, 0.12, 1.12, 0.45, 0.16)]
+FG_FRAME_L = [("outcrop", 3, 0.03, 1.10, 5.5, 0.58), ("rama_alta", 2, 0.22, 0.28, 0.8, 0.5), ("hongo", 4, 0.88, 1.12, 0.45, 0.14)]
 FG_DRY = [("horsetail_dry", 1, 0.07, 1.06, 1.0, 0.9), ("fern_dry", 2, 0.93, 1.2, 0.9, 0.7)]
 
 QUOTES = {
@@ -376,12 +378,12 @@ def build():
            (2.0, land("ribera", fg=FG_REED, **V2)),
            (2.0, land("ribera", (-2, 2.2, 4), 0.28, f=4300, pitch=-0.035, move=(0.05, 0, 0), zf=300, ap=0.004, shk=0.0003)),
            (2.2, land("pantano", (mx - 6.0, 0.7, 40.0), 0.55, f=1900, pitch=0.0, move=(0.06, 0, 0.10), zf=7.0, ap=0.008, fg=FG_LR)),
-           (2.0, land("bosque", (FX, 1.5, FZ - 6), 0.15, f=1500, pitch=-0.05, move=(0.0, 0.03, 0.16), zf=14, ap=0.004, fg=FG_BRANCH))])
+           (2.0, land("bosque", (FX, 1.5, FZ - 6), 0.15, f=1500, pitch=-0.05, move=(0.0, 0.03, 0.16), zf=14, ap=0.004, fg=FG_FRAME_R))])
 
     scene(0, "2 · Un solo continente", [N("El mundo tampoco se parece al nuestro. Casi toda la tierra firme está unida en un solo continente, Pangea."),
                                         N("Y este valle queda en su extremo sur, lejos del ecuador, donde los inviernos son fríos y los ríos crecen y se secan con las estaciones."),
                                         N("Mucho antes, hace unos trescientos millones de años, el sur de Gondwana estuvo cubierto de hielo. Sus huellas todavía están en las rocas del Karoo."), SIL(5)],
-          [(1.1, land("pantano", (mx - 9.0, 1.6, 47.0), 0.9, f=5200, pitch=-0.02, zf=9.0, ap=0.02, fg=FG_BRANCH, shk=0.0003)),
+          [(1.1, land("pantano", (mx - 9.0, 1.6, 47.0), 0.9, f=5200, pitch=-0.02, zf=9.0, ap=0.02, fg=FG_FRAME_R, shk=0.0003)),
            (2.2, gfx(G.pangea, mode="valle")),
            (1.7, track("nevado", walk_b, cam=(9.5, 2.5, 1.0), f=3400, v=0.60, ap=0.010, fg=FG_L, pan=0.6, rot="KAROO · INVIERNO (hipótesis)")),
            (1.4, land("nevado", (-7, 1.35, -1), 0.10, f=1450, pitch=0.012, zf=60, fg=FG_R)),
@@ -429,7 +431,7 @@ def build():
            (2.0, gfx(G.skull, mode="fenestra")),
            (1.6, track("ribera", walk_r, cam=(6.0, 9.0, 0.9), f=4000, v=0.6, ap=0.014, fg=FG_L)),
            (1.6, land("pantano", (mx - 4.0, 0.9, 50.0), 0.35, f=2200, zf=10, ap=0.006, fg=FG_LR, wx=dict(insects=12))),
-           (2.2, track("ribera", walk_b, cam=(14.0, -3.0, 1.3), f=2300, v=0.6, ap=0.004, pan=0.2, fg=FG_BRANCH_R))])
+           (2.2, track("ribera", walk_b, cam=(14.0, -3.0, 1.3), f=2300, v=0.6, ap=0.004, pan=0.2, fg=FG_FRAME_L))])
 
     # ========================================================= CAP 2
     scene(2, "7 · Caminar", [SIL(3), N("Mírelo caminar. Las patas de adelante se abren hacia los lados. Las de atrás, en cambio, ya trabajan más debajo del cuerpo."),
@@ -442,7 +444,7 @@ def build():
            (1.6, track("ribera", walk_r, cam=(5.5, 1.0, 4.2), f=2600, v=0.55, ap=0.006, wx=NOON)),
            (1.8, track("bosque", gor_f, cam=(7.0, 5.5, 0.8), f=3600, v=0.6, ap=0.014, fg=FG_LR, through=True)),
            (1.4, track("ribera", idle_b, cam=(5.0, 4.0, 1.9), f=9500, v=0.5, tgt=(0.66, 0.52), ap=0.03, wx=NOON)),
-           (1.6, track("bosque", gor_f, cam=(9.0, -1.0, 1.0), f=4400, v=0.58, ap=0.02, fg=FG_BRANCH)),
+           (1.6, track("bosque", gor_f, cam=(9.0, -1.0, 1.0), f=4400, v=0.58, ap=0.02, fg=FG_FRAME_R)),
            (1.4, track("ribera", walk_b, cam=(10.0, 3.0, 1.0), f=5200, wx=NOON, fg=FG_L))])
 
     scene(2, "8 · Tres clases de dientes", [N("Un cocodrilo tiene decenas de dientes, y todos son, más o menos, el mismo diente repetido."), N("Él no."),
@@ -465,9 +467,9 @@ def build():
            (1.6, track("bosque", stalker, cam=(6.0, 6.0, 0.5), f=5200, v=0.58, ap=0.025, wx=DUSK, fg=FG_LR, through=True)),
            (1.0, track("bosque", dii[1], cam=(2.2, 1.6, 0.2), f=6000, v=0.55, tgt=(0.5, 0.30), ap=0.03, wx=DUSK, extra=(dii[0],))),
            (1.3, track("bosque", dasher, cam=(11.0, -7.0, 1.0), f=2700, v=0.62, ap=0.006, wx=dict(DUSK, dust=0.5), extra=dii_run, pan=0.5, tnom=1.2)),
-           (1.4, land("bosque", (FX + 14, 1.2, FZ - 2), -0.75, f=2200, zf=14, ap=0.005, wx=dict(DUSK, dust=0.9), fg=FG_BRANCH)),
+           (1.4, land("bosque", (FX + 14, 1.2, FZ - 2), -0.75, f=2200, zf=14, ap=0.005, wx=dict(DUSK, dust=0.9), fg=FG_FRAME_R)),
            (1.8, track("bosque", eater, cam=(7.5, -6.5, 0.8), f=4600, v=0.6, ap=0.02, wx=DUSK, fg=FG_L)),
-           (1.4, track("bosque", par_f, cam=(16.0, 4.0, 1.3), f=3000, v=0.6, tgt=(0, 0.3), ap=0.008, wx=DUSK, fg=FG_BRANCH_R))])
+           (1.4, track("bosque", par_f, cam=(16.0, 4.0, 1.3), f=3000, v=0.6, tgt=(0, 0.3), ap=0.008, wx=DUSK, fg=FG_FRAME_L))])
 
     scene(2, "10 · Lo que duele igual", [SIL(4), N("En 2016, un equipo de la Universidad de Washington cortó en láminas la mandíbula de un gorgonópsido para estudiar cómo se sujetaban sus dientes."),
                                          N("Encontraron algo que no buscaban: un odontoma, un tumor benigno hecho de dientes diminutos. Tiene doscientos cincuenta y cinco millones de años. Es el mismo tumor que hoy un dentista extrae a una persona."),
@@ -479,7 +481,7 @@ def build():
            (1.6, land("ribera", (-9, 1.3, -2), 0.2, f=1500, pitch=-0.06, move=(0.1, 0, 0.1), wx=NIGHT, zf=80)),
            (1.6, track("ribera", sleeper, cam=(4.5, 4.5, 0.4), f=8000, v=0.55, tgt=(0.7, 0.2), ap=0.03, wx=NIGHT)),
            (1.6, land("pantano", (mx - 5.0, 0.6, 43.0), 0.6, f=2000, zf=8, ap=0.008, wx=NIGHT, fg=FG_REED)),
-           (1.8, track("ribera", sleeper, cam=(11.0, 0.0, 1.4), f=2600, v=0.6, ap=0.006, wx=NIGHT, fg=FG_BRANCH_R))])
+           (1.8, track("ribera", sleeper, cam=(11.0, 0.0, 1.4), f=2600, v=0.6, ap=0.006, wx=NIGHT, fg=FG_FRAME_L))])
 
     # ========================================================= CAP 3
     scene(3, "11 · El valle habitado", [SIL(4), N("Ningún animal vive solo. A su alrededor hay todo un mundo, y casi nada de él nos resultaría familiar."),
@@ -491,7 +493,7 @@ def build():
            (1.3, track("bosque", dii[0], cam=(3.0, 1.5, 0.22), f=5200, v=0.6, ap=0.025, extra=dii[1:3], fg=FG_LOW)),
            (1.5, land("pantano", (mx - 2.5, 0.22, 38.0), 0.5, f=2600, pitch=-0.03, zf=6, ap=0.01, wx=dict(insects=16), fg=FG_REED, life_at=(mx + 1.5, 0, 43))),
            (1.3, track("ribera", anf, cam=(3.2, 1.2, 0.18), f=5000, v=0.6, tgt=(0.2, 0.25), ap=0.03, fg=FG_REED, through=True)),
-           (1.7, land("ladera", (96, 7.5, 150), -1.15, f=1400, pitch=0.11, move=(0, 0, 0.12), zf=120, fg=FG_BRANCH_R)),
+           (1.7, land("ladera", (96, 7.5, 150), -1.15, f=1400, pitch=0.11, move=(0, 0, 0.12), zf=120, fg=FG_FRAME_L)),
            (1.6, land("bosque", (FX - 6, 1.3, FZ + 2), 0.25, f=1500, move=(0.02, 0, 0.22), zf=12, ap=0.004, fg=FG_LR)),
            (1.7, track("selva", actor(PRO, (mx - 3.0, 46.0), np.arctan2(-0.25, -0.97), ss=2.0), cam=(2.6, 2.4, 0.30), f=3600, v=0.60, ap=0.02, fg=FG_LOW + FG_L, through=True, rot="CATASIA · TRÓPICO")),
            (1.5, track("desierto", walk_b, cam=(11.0, 1.5, 1.0), f=4500, u=0.47, rot="INTERIOR DE PANGEA")),

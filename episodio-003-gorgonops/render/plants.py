@@ -590,10 +590,120 @@ def snowify(sp, tint=(0.93, 0.96, 1.0), amount=1.0, seed=0):
     return dict(rgb=rgb.astype(np.float32), a=sp["a"], ppm=sp["ppm"], kind=sp["kind"])
 
 
+
+def mossify(sp, amount=1.0, seed=0, patch=0.55):
+    """Musgo sobre lo que mira hacia arriba y en manchas: del estilo de la roca cubierta de la referencia."""
+    a = sp["a"].astype(np.float32)
+    h, w = a.shape
+    top = np.zeros_like(a)
+    for m, wt in ((1, 1.0), (3, 0.95), (6, 0.8), (11, 0.6), (18, 0.42), (30, 0.25)):
+        dd = max(1, int(m * h / 300))
+        sh = np.zeros_like(a)
+        sh[dd:] = a[:-dd]
+        top = np.maximum(top, a * np.clip(1 - sh, 0, 1) * wt)
+    top = cv2.GaussianBlur(top, (0, 0), max(1.2, h / 160))
+    nz = cv2.resize(fbm((48, 48), 1.7, 700 + seed), (w, h))
+    nz2 = cv2.resize(fbm((160, 160), 1.3, 710 + seed), (w, h))
+    wgt = np.clip((top * 1.3 + patch * np.clip(nz - 0.48, 0, 1) * 2.4) * (0.6 + 0.8 * nz2) * amount, 0, 1)
+    col = (np.array([0.14, 0.24, 0.10]) * (1 - nz2[..., None]) + np.array([0.34, 0.46, 0.18]) * nz2[..., None])
+    lit = np.clip(0.8 + 0.6 * (top[..., None] - 0.3), 0.6, 1.3)
+    rgb = sp["rgb"].astype(np.float32)
+    rgb = rgb * (1 - wgt[..., None]) + col * lit * (a * wgt)[..., None]
+    return dict(rgb=rgb.astype(np.float32), a=sp["a"], ppm=sp["ppm"], kind=sp["kind"])
+
+
+def outcrop(seed, ppm=150, moss=True):
+    """Afloramiento rocoso estratificado y vertical (3-6 m), con musgo en las repisas."""
+    rng = np.random.default_rng(seed)
+    wm = rng.uniform(3.0, 5.5)
+    hm = wm * rng.uniform(0.55, 0.9)
+    w, h = int(wm * ppm), int(hm * ppm)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    u = (xx / w - 0.5) * 2
+    v = 1 - yy / h
+    nx = cv2.resize(fbm((8, 128), 1.4, seed), (w, 1))[0]
+    n = cv2.resize(fbm((256, 256), 2.0, seed + 3), (w, h))
+    n2 = cv2.resize(fbm((256, 256), 1.3, seed + 4), (w, h))
+    top = (0.55 + 0.45 * (1 - np.abs(u) ** 2.2)) * (0.78 + 0.34 * nx)
+    if rng.uniform() < 0.6:                                     # una cara cae casi vertical, como en la referencia
+        top = np.where(u > 0.1 * rng.uniform(-1, 1), top * 1.0, top * (0.55 + 0.45 * (1 + u)))
+    edge = 1 - np.abs(u) ** 3.2
+    mask = np.clip((top * edge ** 0.5 - v) * h / 2.2, 0, 1) * (np.abs(u) < 0.995)
+    strata = np.sin(v * rng.uniform(9, 15) * np.pi + n * 3.0) * 0.5 + 0.5
+    relief = cv2.GaussianBlur(strata * 0.10 + n * 0.16 + n2 * 0.05 + np.clip(v, 0, 1) * 0.1 - u * 0.1, (0, 0), 1.6)
+    gy, gx = np.gradient(relief * w * 0.18)
+    nrm = np.stack([-gx, gy, np.ones_like(gx)], -1)
+    nrm /= np.linalg.norm(nrm, axis=-1, keepdims=True)
+    ndl = np.clip(nrm[..., 0] * -0.6 + nrm[..., 1] * 0.55 + nrm[..., 2] * 0.5, 0, 1)
+    alb = (np.array([0.50, 0.46, 0.43]) * (0.72 + 0.5 * strata[..., None]) * (0.8 + 0.4 * n2[..., None]))
+    col = alb * (0.30 + 0.95 * ndl[..., None]) * (0.5 + 0.5 * np.clip(v * 2.5, 0, 1))[..., None]
+    mask = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 0.9)
+    sp = dict(rgb=(col * mask[..., None]).astype(np.float32), a=mask, ppm=ppm, kind="outcrop")
+    return mossify(sp, 1.15, seed, 0.9) if moss else sp
+
+
+def hongo(seed, ppm=900):
+    """Hongos pequeños y apagados (2-8 cm) sobre madera o hojarasca: los hongos ya existían en el Pérmico."""
+    rng = np.random.default_rng(seed)
+    c = Canvas(0.22, 0.14, ppm)
+    for _ in range(rng.integers(3, 7)):
+        x = rng.normal(0, 0.045)
+        hs = rng.uniform(0.025, 0.075)
+        rc = hs * rng.uniform(0.45, 0.75)
+        tone = rng.uniform(0.0, 1.0)
+        cap = np.array([0.55, 0.42, 0.30]) * (1 - tone) + np.array([0.70, 0.64, 0.52]) * tone
+        c.line((x, 0.0), (x + rng.normal(0, 0.004), hs), np.array([0.72, 0.68, 0.58]), rc * 0.22)
+        t = np.linspace(0, np.pi, 12)
+        pts = [(x + rc * np.cos(a_), hs + rc * 0.55 * np.sin(a_)) for a_ in t]
+        c.poly(pts + [(x - rc, hs - 0.004), (x + rc, hs - 0.004)][::-1][:0], cap)
+        c.poly([(x - rc * 0.95, hs), (x + rc * 0.95, hs), (x + rc * 0.7, hs - 0.008), (x - rc * 0.7, hs - 0.008)], cap * 0.55)
+    return _finish(c.rgb, c.a, ppm, "hongo", soft=0.4, seed=seed)
+
+
+def rama_alta(seed, ppm=300):
+    """Rama grande con hojas en cinta que cuelgan: enmarca el cuadro desde arriba."""
+    rng = np.random.default_rng(seed)
+    c = Canvas(4.2, 3.0, ppm)
+    bark = np.array([0.27, 0.23, 0.19])
+    x, y, ang = -1.8, 0.35, rng.uniform(0.15, 0.45)
+    pts = []
+    for i in range(14):
+        ang += rng.normal(0, 0.05) - 0.012
+        x2, y2 = x + np.cos(ang) * 0.20, y + np.sin(ang) * 0.20
+        c.line((x, y), (x2, y2), bark, 0.05 * (1 - i / 24))
+        pts.append((x2, y2))
+        x, y = x2, y2
+    leaves = []
+    for (px, py) in pts[3:]:
+        for _ in range(rng.integers(3, 6)):
+            vx, vy = rng.uniform(-0.5, 0.9), rng.uniform(-0.2, 0.5)
+            L = rng.uniform(0.5, 1.0)
+            xx, yy = px, py
+            P = [(xx, yy)]
+            for _i in range(9):
+                vy -= 0.22
+                nn = np.hypot(vx, vy)
+                xx += vx / nn * L / 9
+                yy += vy / nn * L / 9
+                P.append((xx, yy))
+            lk = rng.uniform(0.25, 1.0)
+            leaves.append((lk + rng.uniform(0, 0.4), P, lk))
+    leaves.sort(key=lambda l: l[0])
+    for _, P, lk in leaves:
+        col = np.array([0.08, 0.15, 0.10]) * (1 - lk) + np.array([0.30, 0.42, 0.22]) * lk
+        P = np.array(P)
+        nx_ = np.gradient(P[:, 1])
+        ny_ = -np.gradient(P[:, 0])
+        nn = np.hypot(nx_, ny_) + 1e-9
+        wd = 0.05 * (1 - np.linspace(0, 1, len(P)) ** 2.2) + 0.005
+        c.poly(np.vstack([P + np.stack([nx_ / nn * wd, ny_ / nn * wd], 1), (P - np.stack([nx_ / nn * wd, ny_ / nn * wd], 1))[::-1]]), col)
+    return _finish(c.rgb, c.a, ppm, "rama_alta", soft=0.5, seed=seed)
+
+
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants4.pkl")
+    p = os.path.join(CACHE, "plants5.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(
@@ -620,6 +730,16 @@ def library():
         stump=[stump(1500 + i) for i in range(6)],
         seedfern=[recolor(fern(1600 + i), (0.85, 1.0, 1.1)) for i in range(7)],
     )
+    lib.update(
+        outcrop=[outcrop(1700 + i) for i in range(5)],
+        outcrop_bare=[outcrop(1750 + i, moss=False) for i in range(4)],
+        hongo=[hongo(1800 + i) for i in range(7)],
+        rama_alta=[rama_alta(1900 + i) for i in range(4)],
+        rock_moss=[mossify(s_, 1.0, j, 0.8) for j, s_ in enumerate(lib["rock"])],
+    )
+    lib["outcrop_snow"] = [snowify(s_, seed=j) for j, s_ in enumerate(lib["outcrop"])]
+    lib["outcrop_dry"] = [recolor(s_, (1.25, 1.1, 0.85), 0.6, (0.74, 0.60, 0.42)) for s_ in lib["outcrop_bare"]]
+    lib["rock_moss_snow"] = [snowify(s_, seed=j) for j, s_ in enumerate(lib["rock_moss"])]
     lib["mossmat_grey"] = [recolor(s_, (0.88, 0.92, 0.88), 0.55, (0.60, 0.66, 0.55)) for s_ in lib["mossmat"]]
     lib["log_stone"] = [recolor(s_, (1.35, 1.2, 0.95), 0.6, (0.72, 0.58, 0.42)) for s_ in lib["log"]]
     for kk in ("tree", "conifer", "treefern", "horsetail", "fern", "shrub", "rock", "log", "calamites", "cordaites", "ginkgo", "stump", "lycopsid", "mossmat", "seedfern"):

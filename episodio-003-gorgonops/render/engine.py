@@ -16,7 +16,7 @@ _CAND = None
 SWAY = dict(horsetail=0.030, horsetail_dry=0.034, horsetail_frozen=0.012, fern=0.022, fern_dry=0.024, seedfern=0.022, shrub=0.014,
             shrub_dry=0.016, tree=0.008, tree_hi=0.008, tree_autumn=0.009, tree_bare=0.006, conifer=0.006, lycopsid=0.012,
             treefern=0.014, branch=0.030, rock=0.0, log=0.0, stump=0.0, mossmat=0.0, calamites=0.012, cordaites=0.006,
-            gigantopteris=0.016, ginkgo=0.007)
+            gigantopteris=0.016, ginkgo=0.007, outcrop=0.0, hongo=0.0, rama_alta=0.028, rock_moss=0.0)
 TALL = ("tree", "tree_hi", "tree_autumn", "tree_bare", "conifer", "treefern", "calamites", "cordaites", "ginkgo")
 
 
@@ -215,7 +215,7 @@ def _pass(items, cam, t, W, H, k, wx, zf, ap, ptint, tint1, fogd, wind, sink):
             ww = int(min(a.shape[1], sp["a"].shape[1] / sp["a"].shape[0] * th))
             rgbf = rgb if tint1 else rgb * ptint
             fq = _fq(z, fogd)
-            if z > 1.2 and ((z < 120 and name.split('_')[0] not in ("rock", "log", "branch", "mossmat", "stump")) or z < 50):
+            if z > 1.2 and ((z < 120 and name.split('_')[0] not in ("rock", "log", "branch", "mossmat", "stump", "outcrop", "hongo", "rama_alta")) or z < 50):
                 rx = max(2, int(ww * (0.30 if _base(name) in TALL else 0.22)))
                 ry = max(1, int(rx * cam.pos[1] / z * 1.3))
                 cv2.ellipse(pshadow, (int(pu + rx * 0.45), int(pv)), (rx, ry), 0, 0, 360, 0.62 if _base(name) in TALL else 0.5, -1, cv2.LINE_AA)
