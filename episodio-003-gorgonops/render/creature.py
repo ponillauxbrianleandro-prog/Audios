@@ -314,6 +314,12 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     pr = r * sci
     x_min, x_max = int(np.floor((px - pr).min())) - 4, int(np.ceil((px + pr).max())) + 4
     y_min, y_max = int(np.floor((py - pr).min())) - 4, int(np.ceil((py + pr).max())) + 4
+    # solo se calcula lo que cae dentro del cuadro (+ margen): los primeros planos enormes no gastan memoria de más
+    mg = 48 * ss
+    x_min, x_max = max(x_min, int(-cam.W / 2 * ss - mg)), min(x_max, int(cam.W / 2 * ss + mg))
+    y_min, y_max = max(y_min, int(-cam.vh * ss - mg)), min(y_max, int((cam.H - cam.vh) * ss + mg))
+    if x_max - x_min < 4 or y_max - y_min < 4:
+        return None
     w, h = x_max - x_min, y_max - y_min
     D = np.full((h, w), np.inf, np.float32)
     I = np.zeros((h, w), np.int32)
