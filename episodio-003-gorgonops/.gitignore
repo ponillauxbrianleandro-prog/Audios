@@ -7,3 +7,7 @@ video/progreso.txt
 *.part.mp4
 musica/wav/
 video/segmentos_viejos/
+video/audio/
+video/audio_sin_voz/
+video/*.log
+video/*.txt
