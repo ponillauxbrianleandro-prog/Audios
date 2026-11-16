@@ -1,6 +1,6 @@
 # Episodio 003 — «Gorgonops: lo que el barro recuerda»
 
-Guion de documental (v1). Duración prevista: **23 min 30 s**. Formato 1920×1080, 24 fps.
+Guion de documental (v2). Duración prevista: **≈ 24 min 30 s** (incluye la apertura «Sombra» de 15 s y créditos de 18 s). Formato 1920×1080, 24 fps.
 Narración en español neutro (voz definitiva: la del autor). Música: tango instrumental original (`musica/`).
 Ficha científica, citas y fuentes: [`fuentes.md`](fuentes.md).
 
@@ -38,7 +38,20 @@ Ficha científica, citas y fuentes: [`fuentes.md`](fuentes.md).
 
 ---
 
-## PRÓLOGO — Antes de los nombres (00:00–02:40)
+## APERTURA — diseño «Sombra» (00:00–00:15)
+
+Lenguaje gráfico plano del canal: fondo rojo ligeramente azulado, siluetas negras tomadas del propio animal, texto blanco, verde+negro para lo positivo y rojo claro+negro para lo negativo. Sin narración: los datos van en pantalla.
+
+| Tiempo | Pantalla | Dato |
+|---|---|---|
+| 0:00–0:03 | Título «GORGONOPS» con la silueta grande, que se achica y empieza a caminar por el suelo | *Gorgonops torvus* · Pérmico tardío |
+| 0:03–0:07 | **CUÁNDO** · línea de tiempo 300→250 Ma | especie 260–254 Ma (≈ 6 M años) · linaje ≥ 18 M años (~270→252 Ma) · marca roja de la extinción |
+| 0:07–0:12 | **DÓNDE** · mapa esquemático de Pangea | ≈ 700 000 km² (cuenca del Karoo, único lugar donde se conoce la especie) · radio equivalente ≈ 470 km · ≈ 11 300 km Karoo→Rusia (el grupo) |
+| 0:12–0:15 | **UN RANGO NO ES UN RECORRIDO** · libreta y lapicera | huesos hallados = lugares conocidos (✓) · Σ lugares → km · cuánto caminaba cada uno: se infiere (✕) |
+
+Salvedades de cada cifra: `fuentes.md`, sección 5.
+
+## PRÓLOGO — Antes de los nombres (00:15–02:55)
 
 ### Escena 1 · El valle (00:00–01:10)
 
@@ -65,6 +78,13 @@ Todo eso llegará mucho después. Lo que hay aquí es más antiguo: helechos, co
 
 **NARRADOR:**
 El mundo tampoco se parece al nuestro. Casi toda la tierra firme está unida en un solo continente, Pangea. Y este valle queda en su extremo sur, lejos del ecuador, donde los inviernos son fríos y los ríos crecen y se secan con las estaciones.
+
+**IMAGEN:** Invierno en el valle: nieve sobre las plantas, el agua semihelada, el Gorgonops caminando (rótulo «KAROO · INVIERNO (hipótesis)»).
+
+**NARRADOR:**
+Mucho antes, hace unos trescientos millones de años, el sur de Gondwana estuvo cubierto de hielo. Sus huellas todavía están en las rocas del Karoo. `[a verificar: glaciación Dwyka]`
+
+**IMAGEN:** Retrospectiva sin animales: hielo, rocas y suelo helado (rótulo «HACE ~300 Ma · EL VALLE BAJO EL HIELO»).
 
 **IMAGEN:** Volvemos al valle. Panorámica lenta hacia la derecha. En el horizonte, sobre las montañas, una franja de **bruma parda**, distinta de la niebla blanca del río.
 
@@ -451,6 +471,21 @@ Le basta con seguir.
 **CRÉDITOS** sobre negro, con la lista de fuentes científicas.
 
 ---
+
+## Inserciones de libreta («Sombra»)
+
+Una libreta con marco rojo entra por la esquina, anota con una lapicera y sale. Verde = confirmado, rojo claro = no confirmado o negativo.
+
+| Escena | Anotaciones |
+|---|---|
+| 4 · Presentación | ✓ 1,2–2 m de largo · ✓ cráneo de 22–35 cm · ✕ pelo: sin evidencia |
+| 8 · Tres clases de dientes | ✓ incisivos · caninos · postcaninos · ✓ reemplazo dental continuo · ✕ apertura > 90°: estimación |
+| 14 · La bruma tenía dueño | ✕ ≈ 252 Ma: extinción del Pérmico · ✕ gorgonópsidos: desaparecen · ✓ cinodontes: sobreviven |
+| 15 · La rama que termina | ✓ cinodontes → mamíferos · ✕ gorgonópsidos: sin descendientes |
+
+## Biomas y capas de plantas
+
+Ribera (Karoo) · selva húmeda (Catasia, rotulada, sin *Gorgonops*) · bosque de *Glossopteris* · desierto (interior de Pangea) · nevado (hipótesis) · ártico (solo paisaje, retrospectiva de ~300 Ma) · montaña. En cada uno: gigantes lejanos sobre las sierras, árboles de plano medio, plantas bajas en la franja del animal (siempre despejada) y frondas pegadas a la cámara, a veces tapándola. Hojas que caen y polvo que cruza aparecen como eventos espaciados, no de forma continua.
 
 ## Notas de producción
 

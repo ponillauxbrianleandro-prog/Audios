@@ -413,6 +413,8 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     col = col + (ndh ** spec_p * spec_k)[:, None] * world.SUN_COL
     rgb = np.zeros((h, w, 3), np.float32)
     rgb[yy, xx] = col
+    idm = np.full((h, w), 255, np.uint8)
+    idm[yy, xx] = kind
     # antialias: bajar de la resolución de trabajo
     asoft = cv2.GaussianBlur(a, (0, 0), 0.55 * ss)
     rgb = cv2.GaussianBlur(rgb, (0, 0), 0.45 * ss) / np.maximum(cv2.GaussianBlur(a, (0, 0), 0.45 * ss), 1e-3)[..., None]
@@ -420,10 +422,11 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     ow_, oh_ = max(1, int(round(w / ss))), max(1, int(round(h / ss)))
     rgb = cv2.resize(rgb * asoft[..., None], (ow_, oh_), interpolation=cv2.INTER_AREA)
     asoft = cv2.resize(asoft, (ow_, oh_), interpolation=cv2.INTER_AREA)
+    idm = cv2.resize(idm, (ow_, oh_), interpolation=cv2.INTER_NEAREST)
     u0, v0, _ = cam.project(np.array([cam.pos[0], cam.pos[1], cam.pos[2]]) + 0)   # sin uso; ancla abajo
     # ancla: el centro de proyección débil corresponde a (xc=0,yc=0) -> píxel (W/2, vh)
     X0 = cam.W / 2 + x_min / ss
     Y0 = cam.vh + y_min / ss
     sel = (r > 0.012 * spec["scale"])
-    return dict(rgb=rgb, a=asoft, x0=X0, y0=Y0, zc=z0, shadow=(Wd[sel][::2], r[sel][::2]),
+    return dict(rgb=rgb, a=asoft, kind=idm, x0=X0, y0=Y0, zc=z0, shadow=(Wd[sel][::2], r[sel][::2]),
                 base_y=cam.vh + cam.f * cam.pos[1] / z0)

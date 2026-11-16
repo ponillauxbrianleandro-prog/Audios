@@ -22,6 +22,7 @@ import engine
 import biomes
 import creature as C
 import graficos as G
+import sombra
 
 FPS = 24
 AQUI = Path(__file__).resolve().parent
@@ -169,7 +170,7 @@ def actor(spec, p0, ang, speed=1.0, pose=None, start=0.0, ss=1.7, stop=None, go=
 
 
 # ---- planos
-def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=0.0, zf=60.0, ap=0.0015, wx=None, fg=None,
+def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=0.0, zf=60.0, ap=0.0015, wx=None, fg=None, rot=None,
          shk=0.0009, actors=(), ripples=None, through=True, life_at=None):
     pos = np.array(pos, float)
 
@@ -177,7 +178,7 @@ def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=
         sy, sp = shake(t + pos[0], shk)
         return world.Camera(W, H, f * W / 1920, pos + np.array(move) * t, yaw + dyaw * t + sy, pitch + dpitch * t + sp)
     s = dict(biome=biome, cam=cam, animals=lambda t: [a(t) for a in actors], focus=(zf if callable(zf) else (lambda t: zf)), aperture=ap,
-             wx=wx or {}, fg_spec=fg or (), through=through, actors=actors)
+             wx=wx or {}, fg_spec=fg or (), through=through, actors=actors, rot=rot)
     if ripples:
         s["ripples"] = ripples
     if life_at is not None:
@@ -185,7 +186,7 @@ def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=
     return s
 
 
-def track(biome, a, cam=(5, -9, 1.0), f=5000, v=0.58, u=0.5, tgt=(0.0, 0.36), ap=0.02, wx=None, fg=None, extra=(), pan=1.0,
+def track(biome, a, cam=(5, -9, 1.0), f=5000, v=0.58, u=0.5, tgt=(0.0, 0.36), ap=0.02, wx=None, fg=None, extra=(), pan=1.0, rot=None,
           tnom=4.0, shk=0.0004, through=False, ripples=None, zf=None):
     """Cámara fija en un trípode que sigue (pan) al actor 'a'. cam = (lado, adelante, altura) respecto del animal."""
     D = unit(a.ang)
@@ -203,26 +204,34 @@ def track(biome, a, cam=(5, -9, 1.0), f=5000, v=0.58, u=0.5, tgt=(0.0, 0.36), ap
         return world.Camera(W, H, ff, cp, yaw + sy, pitch + sp)
     s = dict(biome=biome, cam=camf, animals=lambda t: [x(t) for x in extra] + [a(t)],
              focus=zf or (lambda t: float(np.hypot(*(a.pos(t)[[0, 2]] - cp[[0, 2]])))), aperture=ap, wx=wx or {}, fg_spec=fg or (),
-             through=through, actors=(a,) + tuple(extra), life_at=pm)
+             through=through, actors=(a,) + tuple(extra), life_at=pm, rot=rot)
     if ripples:
         s["ripples"] = ripples
     return s
 
 
-def gfx(fn, **kw):
-    return dict(gfx=lambda t, W, H, dur: fn(t, W, H, dur=dur, **kw))
+def gfx(fn, native=False, **kw):
+    return dict(gfx=lambda t, W, H, dur: fn(t, W, H, dur=dur, **kw), native=native)
+
+
+_SEED = 0
 
 
 def finalize(shot, dur):
     """Calcula despejes de vegetación y coloca las plantas de primer plano."""
     if "gfx" in shot or "keep" in shot:
         return
+    global _SEED
+    _SEED += 1
+    shot.setdefault("seed", _SEED)
     W, H = 1280, 720
     keep = []
     c0 = shot["cam"](0.0, W, H)
     for t in np.linspace(0, dur, 7):
         c = shot["cam"](t, W, H)
         keep.append((c.pos[0], c.pos[2], 0.5 if shot["through"] else 1.1))
+        for s_ in (2.0, 4.5, 7.0, 10.0, 14.0):                      # pasillo despejado frente a la cámara
+            keep.append((c.pos[0] + np.sin(c.yaw) * s_, c.pos[2] + np.cos(c.yaw) * s_, 0.9 + 0.06 * s_))
         for i, a in enumerate(shot.get("actors", ())):
             p = a.pos(t)
             keep.append((p[0], p[2], 0.35 + 0.75 * a.spec["scale"] ** 0.6))
@@ -358,6 +367,8 @@ def build():
     V2 = dict(pos=(-12.5, 0.34, 6.6), yaw=0.42, f=1700, pitch=-0.02, move=(0.10, 0, 0.05), zf=12.0, ap=0.004)
 
     # ========================================================= PRÓLOGO
+    scene(0, "0 · Apertura", [("vis", 15.0)], [(1.0, gfx(sombra.intro, native=True))])
+
     scene(0, "1 · El valle", [SIL(9), N("Hace doscientos cincuenta y cinco millones de años, este valle no tenía nombre."), SIL(4),
                               N("No había flores. No había hierba. Ningún ave cruzaba el cielo."),
                               N("Todo eso llegará mucho después. Lo que hay aquí es más antiguo: helechos, colas de caballo, y unos árboles de hojas con forma de lengua que hoy solo conocemos como huellas en la piedra."), SIL(3)],
@@ -368,10 +379,15 @@ def build():
            (2.0, land("bosque", (FX, 1.5, FZ - 6), 0.15, f=1500, pitch=-0.05, move=(0.0, 0.03, 0.16), zf=14, ap=0.004, fg=FG_BRANCH))])
 
     scene(0, "2 · Un solo continente", [N("El mundo tampoco se parece al nuestro. Casi toda la tierra firme está unida en un solo continente, Pangea."),
-                                        N("Y este valle queda en su extremo sur, lejos del ecuador, donde los inviernos son fríos y los ríos crecen y se secan con las estaciones."), SIL(7)],
-          [(1.3, land("pantano", (mx - 9.0, 1.6, 47.0), 0.9, f=5200, pitch=-0.02, zf=9.0, ap=0.02, fg=FG_BRANCH, shk=0.0003)),
-           (2.4, gfx(G.pangea, mode="valle")),
-           (2.0, land("ribera", (-3, 1.5, 0), 0.16, f=1900, dyaw=0.022, wx=dict(plume=0.75), zf=200))])
+                                        N("Y este valle queda en su extremo sur, lejos del ecuador, donde los inviernos son fríos y los ríos crecen y se secan con las estaciones."),
+                                        N("Mucho antes, hace unos trescientos millones de años, el sur de Gondwana estuvo cubierto de hielo. Sus huellas todavía están en las rocas del Karoo."), SIL(5)],
+          [(1.1, land("pantano", (mx - 9.0, 1.6, 47.0), 0.9, f=5200, pitch=-0.02, zf=9.0, ap=0.02, fg=FG_BRANCH, shk=0.0003)),
+           (2.2, gfx(G.pangea, mode="valle")),
+           (1.7, track("nevado", walk_b, cam=(9.5, 2.5, 1.0), f=3400, v=0.60, ap=0.010, fg=FG_L, pan=0.6, rot="KAROO · INVIERNO (hipótesis)")),
+           (1.4, land("nevado", (-7, 1.35, -1), 0.10, f=1450, pitch=0.012, zf=60, fg=FG_R)),
+           (1.6, land("artico", (-7, 1.35, -1), 0.10, f=1450, pitch=0.012, move=(0.1, 0, 0.1), zf=60, rot="HACE ~300 Ma · EL VALLE BAJO EL HIELO")),
+           (1.3, land("artico", (-12, 0.5, 3), 0.35, f=2600, pitch=-0.02, zf=10, ap=0.008)),
+           (1.7, land("ribera", (-3, 1.5, 0), 0.16, f=1900, dyaw=0.022, wx=dict(plume=0.75), zf=200))])
 
     scene(0, "3 · Alguien", [SIL(3), N("Y sin embargo, alguien caminaba por aquí cada mañana."), SIL(9), ("vis", 7.5)],
           [(1.6, land("pantano", (mx - 7.5, 0.30, 44.5), 1.25, f=3000, pitch=0.0, zf=6.5, ap=0.012, fg=FG_LOW, actors=(cyn_b,), shk=0.0004)),
@@ -381,6 +397,7 @@ def build():
     # ========================================================= CAP 1
     scene(1, "4 · Presentación", [SIL(3), N("Se llama Gorgonops. El nombre es nuestro, claro, y es exagerado: significa «cara de gorgona»."),
                                   N("Mide un metro y medio, quizá dos. Pesa lo que un perro grande. Tiene el cuerpo en forma de barril, la cola corta, y una cara que parece permanentemente concentrada en una sola idea: encontrar algo que comer."),
+                                  ("nota", ([("ok", "1,2–2 m de largo"), ("ok", "cráneo de 22–35 cm"), ("no", "pelo: sin evidencia")], 7.0)),
                                   SIL(6), N("Es fácil mirarlo y pensar que es un animal sencillo. Vamos a pasar los próximos veinte minutos comprobando cuánto nos equivocamos."), SIL(3)],
           [(2.2, track("ribera", walk_b, cam=(11.0, 1.5, 1.0), f=5000, u=0.47)),
            (1.5, track("ribera", walk_b, cam=(5.0, -7.0, 0.8), f=4200, v=0.60, fg=FG_R)),
@@ -430,6 +447,7 @@ def build():
 
     scene(2, "8 · Tres clases de dientes", [N("Un cocodrilo tiene decenas de dientes, y todos son, más o menos, el mismo diente repetido."), N("Él no."),
                                             N("Adelante tiene incisivos, para sujetar y arrancar. Detrás, dos caninos como sables. Y más atrás, unos pocos dientes pequeños. Tres herramientas distintas en una misma boca."),
+                                            ("nota", ([("ok", "incisivos · caninos · postcaninos"), ("ok", "reemplazo dental continuo"), ("no", "apertura > 90°: estimación")], 7.5)),
                                             SIL(4), N("Abra usted la suya frente a un espejo. Incisivos. Caninos. Muelas. El plano es el mismo."),
                                             N("Puede abrir la mandíbula más de noventa grados. No mastica: muerde, arranca y traga. Y cuando un sable se rompe, otro crece en su lugar, una y otra vez."),
                                             N("Al fondo de esa mandíbula hay, además, dos huesos pequeños. Guárdelos en la memoria. Vamos a volver a ellos."), SIL(3)],
@@ -475,6 +493,8 @@ def build():
            (1.3, track("ribera", anf, cam=(3.2, 1.2, 0.18), f=5000, v=0.6, tgt=(0.2, 0.25), ap=0.03, fg=FG_REED, through=True)),
            (1.7, land("ladera", (96, 7.5, 150), -1.15, f=1400, pitch=0.11, move=(0, 0, 0.12), zf=120, fg=FG_BRANCH_R)),
            (1.6, land("bosque", (FX - 6, 1.3, FZ + 2), 0.25, f=1500, move=(0.02, 0, 0.22), zf=12, ap=0.004, fg=FG_LR)),
+           (1.7, track("selva", actor(PRO, (mx - 3.0, 46.0), np.arctan2(-0.25, -0.97), ss=2.0), cam=(2.6, 2.4, 0.30), f=3600, v=0.60, ap=0.02, fg=FG_LOW + FG_L, through=True, rot="CATASIA · TRÓPICO")),
+           (1.5, track("desierto", walk_b, cam=(11.0, 1.5, 1.0), f=4500, u=0.47, rot="INTERIOR DE PANGEA")),
            (1.4, land("pantano", (mx - 8.0, 1.0, 55.0), 0.8, f=2000, zf=10, ap=0.006, wx=RAIN, fg=FG_L)),
            (1.4, gfx(G.leaf_fossil)),
            (2.0, gfx(G.pangea, mode="glosso"))])
@@ -505,13 +525,16 @@ def build():
                                            N("Al otro lado del continente, en lo que hoy es Siberia, la Tierra se está abriendo. No un volcán: una región entera, del tamaño de Europa occidental, derramando lava durante cientos de miles de años."),
                                            N("Los gases que salen de ahí están cambiando el aire, la lluvia y la temperatura de todo el planeta."),
                                            N("Lo que viene se conoce como la extinción del final del Pérmico, la mayor que ha registrado la vida: desaparecerá la gran mayoría de las especies del mar y buena parte de las de tierra firme."),
+                                           ("nota", ([("no", "≈ 252 Ma: extinción del Pérmico"), ("no", "gorgonópsidos: desaparecen"), ("ok", "cinodontes: sobreviven")], 8.0)),
                                            Q("viglietti"), N("Los grandes cazadores cayeron primero. Siempre pasa: son pocos, crecen despacio, y dependen de que todo lo que está debajo de ellos funcione."), SIL(8)],
           [(2.0, track("seco", dry_idle, cam=(12.0, -2.0, 0.9), f=1900, v=0.80, ap=0.003, wx=dict(plume=1.0), pan=0.0)),
            (2.6, gfx(G.pangea, mode="siberia")),
            (1.6, land("ladera", (98, 8.0, 160), -1.25, f=1500, pitch=0.10, wx=dict(plume=1.0, dust=0.5, plume_az=-1.2), zf=150)),
            (1.6, land("seco", (-3, 1.5, 0), 0.30, f=2600, pitch=-0.05, dyaw=0.012, wx=dict(plume=1.0), zf=200)),
            (1.6, track("seco", dry_idle, cam=(6.0, 4.0, 0.8), f=7500, v=0.5, tgt=(0.7, 0.46), ap=0.03, wx=dict(plume=1.0))),
-           (1.8, land("seco", (-16, 1.2, 2), 0.5, f=1700, move=(0.1, 0, 0.05), wx=dict(plume=1.0, dust=0.9), fg=FG_DRY))])
+           (1.8, land("seco", (-16, 1.2, 2), 0.5, f=1700, move=(0.1, 0, 0.05), wx=dict(plume=1.0, dust=0.9), fg=FG_DRY)),
+           (1.6, track("desierto", walk_r, cam=(8.0, 6.0, 0.9), f=3600, u=0.45, wx=dict(plume=0.8), rot="INTERIOR DE PANGEA")),
+           (1.4, land("desierto", (-10, 1.4, 0), 0.20, f=1700, pitch=0.01, wx=dict(plume=0.8), zf=80))])
 
     # ========================================================= CAP 5
     scene(5, "15 · La rama que termina", [SIL(4), N("Hasta aquí le hemos contado esta historia como si él fuera el comienzo de algo."), SIL(2), N("No lo es."), SIL(5),
@@ -519,6 +542,7 @@ def build():
                                           SIL(6), N("El futuro estaba en otra parte. Estaba en el animal pequeño que se escondía entre los helechos."),
                                           N("Los cinodontes, su grupo, son primos de Gorgonops: comparten un antepasado. Y de todos los primos, fueron ellos los que cruzaron al otro lado. Pequeños, capaces de refugiarse bajo tierra, de comer casi cualquier cosa."),
                                           N("De ellos, decenas de millones de años después, saldrán los primeros mamíferos."),
+                                          ("nota", ([("ok", "cinodontes → mamíferos"), ("no", "gorgonópsidos: sin descendientes")], 7.0)),
                                           N("En las rocas que vienen justo después de la catástrofe, en este mismo valle, los paleontólogos encuentran una y otra vez la misma escena: un cinodonte del tamaño de un gato, Thrinaxodon, fosilizado dentro de su madriguera, enroscado sobre sí mismo."),
                                           N("El mundo de arriba se había vuelto inhabitable. Ellos lo esperaron abajo."), Q("kammerer"), SIL(3)],
           [(2.6, track("seco", away, cam=(-2.0, -9.0, 1.3), f=1800, v=0.60, ap=0.003, wx=dict(plume=1.0, dust=0.7), pan=0.0, tnom=3.0)),
@@ -553,6 +577,9 @@ def build():
            (1.4, land("pantano", (mx - 6.0, 0.5, 60.0), 0.7, f=2000, zf=8, ap=0.007, wx=dict(insects=14), fg=FG_REED)),
            (2.2, gfx(G.prints)),
            (1.6, land("ribera", (-2, 2.2, 4), 0.28, f=4300, pitch=-0.035, zf=300, ap=0.004, wx=DUSK, shk=0.0003)),
+           (1.4, land("selva", (mx - 7.5, 0.55, 44.0), 1.15, f=2200, pitch=0.0, zf=8.0, ap=0.012, fg=FG_LR, rot="CATASIA · TRÓPICO")),
+           (1.2, land("nevado", (-7, 1.35, -1), 0.30, f=1700, pitch=0.01, zf=60, fg=FG_R, rot="KAROO · INVIERNO")),
+           (1.2, land("artico", (-9, 1.2, 0), 0.60, f=1700, pitch=0.01, zf=60, rot="HIELO")),
            (2.0, land("ribera", wx=DUSK, **V1))])
 
     # ========================================================= EPÍLOGO
@@ -566,7 +593,7 @@ def build():
                                         N("A veces contamos la evolución como si fuera una carrera con una meta. No lo es. Nadie corría. Había un animal grande y un animal pequeño, cada uno ocupado en su mañana."),
                                         N("Uno de los dos resultó ser nuestro antepasado. El otro, no."),
                                         N("Ninguno lo supo nunca. Y los dos estuvieron, exactamente igual, vivos."), SIL(9),
-                                        N("La vida no necesita conocer su destino para hacer cosas extraordinarias."), N("Le basta con seguir."), SIL(12), ("vis", 16)],
+                                        N("La vida no necesita conocer su destino para hacer cosas extraordinarias."), N("Le basta con seguir."), SIL(12), ("vis", 18)],
           [(2.0, land("ribera", **V1)),
            (2.6, drink_shot(drinker_long, ripples=riplong)),
            (1.4, drink_shot(drinker_long, f=9000, tgt=(0.80, 0.20), v=0.55, u=0.5, ripples=riplong, ap=0.02)),
@@ -576,7 +603,7 @@ def build():
            (2.6, track("ribera", leave, cam=(12.0, 1.0, 1.2), f=2400, v=0.62, ap=0.005, pan=0.0, tnom=5.0)),
            (2.2, land("ribera", (-17.0, 0.25, zb(-17.0) - 1.0), 0.75, f=2600, pitch=-0.03, zf=6, ap=0.008, fg=FG_REED,
                       ripples=lambda t: [(snout[0], snout[1], t0, 0.5) for t0 in (-3.0, -1.5, 0.0)], life_at=(snout[0], 0, snout[1]))),
-           (2.6, gfx(G.credits))])
+           (2.6, gfx(sombra.creditos, native=True))])
     return sc
 
 
@@ -616,12 +643,14 @@ def timeline(scenes):
     """Asigna tiempos: escenas, planos, subtítulos y citas. Tiempos relativos al capítulo."""
     caps = {}
     for s in scenes:
-        c = caps.setdefault(s["cap"], dict(t=0.0, shots=[], subs=[], quotes=[], scenes=[]))
+        c = caps.setdefault(s["cap"], dict(t=0.0, shots=[], subs=[], quotes=[], notes=[], scenes=[]))
         t0 = c["t"]
         t = t0
         for kind, val in s["items"]:
             if kind in ("sil", "vis"):
                 t += val
+            elif kind == "nota":
+                c["notes"].append((t + 0.3, val[1], val[0]))
             elif kind == "quote":
                 c["quotes"].append((t + 0.5, QDUR - 1.0, val))
                 t += QDUR
@@ -671,6 +700,11 @@ def render_frame(args):
         img = shot["gfx"](lt, W, H, d)
     else:
         img = engine.frame(shot, lt, W, H)
+    if not ("gfx" in shot) and shot.get("rot"):
+        img = sombra.rotulo(img, lt, d, shot["rot"])
+    for nt, nd, lines in c["notes"]:
+        if nt <= t < nt + nd:
+            img = sombra.nota_overlay(img, t - nt, nd, lines)
     for qt, qd, key in c["quotes"]:
         if qt <= t < qt + qd:
             img = G.quote_overlay(img, t - qt, qd, *QUOTES[key])
@@ -699,78 +733,142 @@ def write_srt():
     full.close()
 
 
+def seg_path(cap, j):
+    return VIDEO / "segmentos" / f"c{cap:02d}_s{j:03d}.mp4"
+
+
+def render_segment(args):
+    """Renderiza un plano completo a un MP4 de 1080p (reanudable: si el archivo existe, no hace nada)."""
+    import time
+    cap, j = args
+    out = seg_path(cap, j)
+    if out.exists():
+        return str(out), 0.0
+    ts, dd, shot, nm = TL[cap]["shots"][j]
+    native = bool(shot.get("native"))
+    W, H = (1920, 1080) if native else (1280, 720)
+    f0, nf = int(round(ts * FPS)), int(round(dd * FPS))
+    tmp = out.with_suffix(".part.mp4")
+    vf = [] if native else ["-vf", "scale=1920:1080:flags=lanczos"]
+    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-"]
+                          + vf + ["-an", "-c:v", "libx264", "-preset", "fast", "-crf", "16", "-threads", "2", "-pix_fmt", "yuv420p", str(tmp)], stdin=subprocess.PIPE)
+    t0 = time.time()
+    for i in range(f0, f0 + nf):
+        ff.stdin.write(render_frame((cap, i, W, H)))
+    ff.stdin.close()
+    ff.wait()
+    tmp.rename(out)
+    return str(out), time.time() - t0
+
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode:
+        print(r.stderr[-1500:])
+        raise SystemExit(1)
+
+
+def assemble(caps):
+    """Une los planos de cada capítulo: copia limpia (sin audio ni subtítulos) y versión final con audio y subtítulos."""
+    (VIDEO / "master").mkdir(exist_ok=True)
+    (VIDEO / "capitulos").mkdir(exist_ok=True)
+    finals = []
+    for cap in caps:
+        n = len(TL[cap]["shots"])
+        files = [seg_path(cap, j) for j in range(n)]
+        miss = [f.name for f in files if not f.exists()]
+        if miss:
+            print(f"capítulo {cap}: faltan {len(miss)} planos ({miss[:3]}…)")
+            continue
+        lst = VIDEO / "master" / f"{CHAPTERS[cap]}.txt"
+        lst.write_text("".join(f"file '{f.resolve()}'\n" for f in files))
+        master = VIDEO / "master" / f"{CHAPTERS[cap]}.mp4"
+        run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(master)])
+        wav = VIDEO / "audio" / f"{CHAPTERS[cap]}.wav"
+        srt = VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt"
+        out = VIDEO / "capitulos" / f"{CHAPTERS[cap]}.mp4"
+        style = "FontName=Inter,Fontsize=40,PrimaryColour=&HF2F3F7&,OutlineColour=&H000000&,BorderStyle=1,Outline=2.4,Shadow=0,MarginV=64,Alignment=2"
+        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(master)]
+        if wav.exists():
+            cmd += ["-i", str(wav)]
+        cmd += ["-vf", f"subtitles={srt}:original_size=1920x1080:force_style='{style}'", "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p"]
+        cmd += (["-c:a", "aac", "-b:a", "192k", "-shortest"] if wav.exists() else ["-an"]) + [str(out)]
+        run(cmd)
+        finals.append(out)
+        print("listo:", out, flush=True)
+    return finals
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tiempos", action="store_true")
     ap.add_argument("--srt", action="store_true")
     ap.add_argument("--preview")
     ap.add_argument("--only", type=int, nargs="*")
-    ap.add_argument("--cap", type=int, nargs="*")
+    ap.add_argument("--seg", type=int, nargs="*", help="renderiza los planos de estos capítulos (sin argumentos: todos)")
+    ap.add_argument("--assemble", type=int, nargs="*", help="une capítulos ya renderizados (sin argumentos: todos)")
     ap.add_argument("--scale", type=float, default=1280 / 1920)
-    ap.add_argument("--jobs", type=int, default=os.cpu_count())
+    ap.add_argument("--jobs", type=int, default=3)
     a = ap.parse_args()
     W, H = int(1920 * a.scale) // 2 * 2, int(1080 * a.scale) // 2 * 2
-    if a.tiempos or a.srt:
+    global SC, TL
+    if a.tiempos or a.srt or a.assemble is not None:
         world.load()
-        global SC, TL
         engine.setup()
         SC = build()
         TL = timeline(SC)
-        tot = 0
-        for cap in sorted(TL):
-            c = TL[cap]
-            print(f"{CHAPTERS[cap]:28s} {c['t'] / 60:5.2f} min  {len(c['shots'])} planos")
-            for nm, t0, d in c["scenes"]:
-                print(f"    {nm:34s} {t0 / 60:5.2f} -> {d:6.1f} s")
-            tot += c["t"]
-        print(f"TOTAL {tot / 60:.2f} min, {sum(len(c['shots']) for c in TL.values())} planos")
-        if a.srt:
-            write_srt()
+        if a.tiempos or a.srt:
+            tot = 0
+            for cap in sorted(TL):
+                c = TL[cap]
+                print(f"{CHAPTERS[cap]:28s} {c['t'] / 60:5.2f} min  {len(c['shots'])} planos")
+                for nm, t0, dd in c["scenes"]:
+                    print(f"    {nm:38s} {t0 / 60:5.2f} -> {dd:6.1f} s")
+                tot += c["t"]
+            print(f"TOTAL {tot / 60:.2f} min, {sum(len(c['shots']) for c in TL.values())} planos")
+            if a.srt:
+                write_srt()
+            return
+        write_srt()
+        assemble(a.assemble or sorted(TL))
         return
     if a.preview:
         init()
         os.makedirs(a.preview, exist_ok=True)
         k = 0
+        import time
         for cap in sorted(TL):
-            for j, (ts, d, shot, nm) in enumerate(TL[cap]["shots"]):
+            for j, (ts, dd, shot, nm) in enumerate(TL[cap]["shots"]):
                 k += 1
                 if a.only and k not in a.only:
                     continue
-                import time
                 t0 = time.time()
                 try:
-                    buf = render_frame((cap, int((ts + d * 0.5) * FPS), W, H))
+                    buf = render_frame((cap, int((ts + dd * 0.5) * FPS), W, H))
                     img = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
                     cv2.imwrite(f"{a.preview}/{k:03d}_c{cap}_{j:02d}.jpg", img[..., ::-1], [cv2.IMWRITE_JPEG_QUALITY, 88])
-                    print(f"{k:03d} c{cap} {nm[:24]:24s} {d:5.1f}s  {time.time() - t0:5.1f}s", flush=True)
+                    print(f"{k:03d} c{cap} {nm[:24]:24s} {dd:5.1f}s  {time.time() - t0:5.1f}s", flush=True)
                 except Exception as e:
                     import traceback
                     print(f"{k:03d} c{cap} {nm} ERROR {e!r}", flush=True)
                     traceback.print_exc()
         return
-    (VIDEO / "master-720p").mkdir(parents=True, exist_ok=True)
+    import time
     world.load()
     engine.setup()
     SC = build()
     TL = timeline(SC)
-    for cap in a.cap:
-        out = VIDEO / "master-720p" / f"{CHAPTERS[cap]}.mp4"
-        if out.exists():
-            print("ya existe", out)
-            continue
-        n = int(round(TL[cap]["t"] * FPS))
-        tmp = out.with_suffix(".part.mp4")
-        ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
-                               "-i", "-", "-an", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p", str(tmp)], stdin=subprocess.PIPE)
-        with Pool(a.jobs, initializer=init) as pool:
-            for i, buf in enumerate(pool.imap(render_frame, [(cap, i, W, H) for i in range(n)], chunksize=2)):
-                ff.stdin.write(buf)
-                if i % 240 == 0:
-                    print(f"cap {cap}: {i}/{n}", flush=True)
-        ff.stdin.close()
-        ff.wait()
-        tmp.rename(out)
-        print("listo:", out, flush=True)
+    (VIDEO / "segmentos").mkdir(parents=True, exist_ok=True)
+    caps = a.seg if a.seg else sorted(TL)
+    tasks = [(cap, j) for cap in caps for j in range(len(TL[cap]["shots"])) if not seg_path(cap, j).exists()]
+    total = sum(round(TL[c]["shots"][j][1] * FPS) for c, j in tasks)
+    print(f"{len(tasks)} planos pendientes, {total} fotogramas", flush=True)
+    t0, done = time.time(), 0
+    with Pool(a.jobs, initializer=init, maxtasksperchild=8) as pool:
+        for path, sec in pool.imap_unordered(render_segment, tasks):
+            done += 1
+            el = time.time() - t0
+            print(f"[{done}/{len(tasks)}] {Path(path).name} {sec:5.0f}s · transcurrido {el / 60:5.1f} min", flush=True)
 
 
 if __name__ == "__main__":

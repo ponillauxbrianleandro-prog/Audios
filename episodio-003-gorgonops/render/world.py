@@ -304,7 +304,12 @@ def sky(cam, t, weather):
         py = (pano.shape[0] - 1 - vv * PANO_PPR).astype(np.float32)
         s = cv2.remap(pano, px, py, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
         a = s[..., 3:4]
-        img = img * (1 - a) + s[..., :3] * a * np.array(weather.get('pano_tint', (1, 1, 1)), np.float32)
+        pc = s[..., :3] * np.array(weather.get('pano_tint', (1, 1, 1)), np.float32)
+        pw = weather.get('pano_white', 0.0)
+        if pw > 0:
+            lum_ = pc.mean(-1, keepdims=True)
+            pc = lerp(pc, np.array([0.90, 0.93, 0.98], np.float32) * np.clip(lum_ * 1.5 + 0.38, 0, 1.08), pw)
+        img = img * (1 - a) + pc * a
     if hz > 0:   # la bruma también vela la base de las montañas
         img = lerp(img, np.array([0.66, 0.62, 0.59], np.float32), a * 0.0 + (shape * 0.35 * hz)[..., None])
     # calima baja pegada al horizonte
@@ -381,6 +386,18 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
         cd = cv2.remap(CLOUDS[..., 0], cmx, cmy, cv2.INTER_LINEAR, borderMode=cv2.BORDER_WRAP)
         cov = weather.get('cloud', 0.47)
         col = col * (1 - cs * smoothstep(1 - cov - 0.04, 1 - cov + 0.26, cd))[..., None]
+    dn = weather.get('dunes', 0.0)
+    if dn > 0:
+        rid = np.sin((X * 0.55 + Z * 0.22) / 2.6 + 5.0 * (B[..., 1] - 0.5)) * 0.5 + 0.5
+        rid2 = np.sin((X * 0.18 - Z * 0.10) / 5.0 + 3.0 * (B[..., 1] - 0.5)) * 0.5 + 0.5
+        col = col * (1 - dn * 0.30 * (1 - rid) * smoothstep(140.0, 25.0, tz) - dn * 0.22 * (1 - rid2) * smoothstep(300.0, 40.0, tz))[..., None]
+    sn = weather.get('snow', 0.0)
+    if sn > 0:
+        patch = 0.9 * (A2[..., 1] - 0.5) + 0.5 * (B[..., 1] - 0.5) + 0.35 * (tone - 0.5)
+        smask = smoothstep(0.40, 0.62, sn * 1.12 + patch * (1.15 - 0.65 * sn) - 0.02 * vk)
+        scol = np.array(weather.get('snow_col', (0.90, 0.93, 0.98)), np.float32) * (SUN_COL * SUN[1] * 1.05 + SKY_AMB * 0.55)
+        scol = scol * np.clip(0.80 + 0.22 * (shade - 1.0) + 0.12 * (A[..., 2] - 0.5), 0.55, 1.1)[..., None]
+        col = lerp(col, scol, (smask * 0.96)[..., None])
     if shadow is not None:
         col = col * (1 - shadow[y0:, :, None] * np.array([0.60, 0.56, 0.50], np.float32))
     # --- agua
@@ -418,7 +435,14 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
         deep = np.array([0.20, 0.27, 0.25], np.float32) * (0.85 + 0.3 * tone[..., None])
         depth = smoothstep(0.0, -1.3, edge)
         body = lerp(col * 0.62, deep, depth[..., None])
-        water = lerp(body, refl * np.array([0.93, 0.96, 0.97], np.float32), (fres * (0.45 + 0.55 * depth))[..., None])
+        ice = weather.get('ice', 0.0)
+        water = lerp(body, refl * np.array([0.93, 0.96, 0.97], np.float32), (fres * (1 - 0.7 * ice) * (0.45 + 0.55 * depth))[..., None])
+        if ice > 0:
+            icec = np.array([0.66, 0.80, 0.88], np.float32) * (0.80 + 0.30 * (B[..., 0] - 0.5) + 0.25 * depth)[..., None]
+            crack = smoothstep(0.045, 0.0, np.abs(_sample_lod(TILE_B, (X * 0.7 + Z * 0.7) / (1.3 / 1024), (Z * 0.7 - X * 0.7) / (1.3 / 1024),
+                                                              lod(1.3 / 1024), True)[..., 2] - 0.5))
+            icec = icec * (1 - 0.45 * crack[..., None] * smoothstep(60.0, 8.0, tz)[..., None]) * (SUN_COL * 0.8 + SKY_AMB * 0.55)
+            water = lerp(water, icec, ice * 0.88)
         glint = np.clip((nx * SUN[0] + nz * SUN[2]) * 3.0 - 0.86, 0, 1) ** 2
         water = water + glint[..., None] * 0.55 * np.exp(-tz / 90.0)[..., None]
         if shadow is not None:

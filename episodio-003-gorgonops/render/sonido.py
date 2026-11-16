@@ -77,7 +77,7 @@ def music(n, stems, parts, start=0.0, gain=1.0, t_in=4.0, t_out=5.0, offset=0.0)
 
 # capítulo: (viento, agua, insectos), lista de entradas de música (instrumentos, inicio s, ganancia, desplazamiento en el tango)
 PLAN = {
-    0: ((1.0, 1.0, 0.8), [(("contrabajo",), 50.0, 0.9, 4.0)]),
+    0: ((1.0, 1.0, 0.8), [(("contrabajo",), 62.0, 0.9, 4.0)]),
     1: ((0.8, 1.0, 1.0), [(("bandoneon", "contrabajo"), 3.0, 0.55, 4.0)]),
     2: ((0.9, 0.5, 0.8), [(("piano", "contrabajo"), 2.0, 0.50, 4.0), (("violin",), 216.0, 0.6, 36.0)]),
     3: ((0.7, 0.9, 1.3), [(("bandoneon", "violin", "piano", "contrabajo"), 2.0, 0.42, 4.0)]),
@@ -103,7 +103,7 @@ def main():
         for parts, start, gain, off in cues:
             x += music(n, stems, parts, start, gain * 0.55, offset=off)
         if cap == 7:                     # coda: chan-chan antes de los créditos
-            i0 = n - int(21.0 * SR)
+            i0 = n - int(19.5 * SR)
             x[i0:i0 + len(coda)] += coda[:n - i0] * 0.5
         # las citas bajan la música un poco (hay texto en pantalla)
         peak = np.abs(x).max()

@@ -48,3 +48,32 @@ Todas son textuales y fueron verificadas en la fuente indicada. La traducción a
 - [Gorgonops](https://en.wikipedia.org/wiki/Gorgonops) y [Gorgonopsia](https://en.wikipedia.org/wiki/Gorgonopsia) (Wikipedia, como índice hacia la literatura primaria).
 - [Procynosuchus delaharpae](https://geol.umd.edu/~jmerck/EFMB/animals/procynosuchus.html), Universidad de Maryland.
 - [Preguntas frecuentes sobre el odontoma](https://washington.edu/news/2016/12/08/frequently-asked-questions-odontoma-in-a-gorgonopsian), UW News.
+
+## 5. Cifras de la apertura «Sombra» (muestra de 30 s v2)
+
+Cada cifra se rotula en pantalla con lo que realmente significa. Salvedades:
+
+| Cifra en pantalla | De dónde sale | Salvedad |
+|---|---|---|
+| Especie: **260–254 Ma** (≈ 6 millones de años) | Rango estratigráfico del género *Gorgonops* en las zonas de *Tropidostoma* y *Cistecephalus* del Karoo (Wuchiapingiense). Fuente: [Wikipedia, Gorgonops](https://en.wikipedia.org/wiki/Gorgonops) y [Cistecephalus Assemblage Zone](https://cavac.at/cavacopedia/Cistecephalus%20assemblage%20zone). | Fuente secundaria; las atribuciones por zona llevan una marca de «cita necesaria». **Pendiente:** contrastar con la literatura primaria (p. ej. Kammerer 2016). Mientras tanto se muestra como «260–254» sin más precisión. |
+| Linaje: **≥ 18 Ma** | Gorgonopsia: ~270 → 251,9 Ma ([Wikipedia, Gorgonopsia](https://en.wikipedia.org/wiki/Gorgonopsia)). | Es el linaje, no la especie. El gorgonópsido de Mallorca (Matamales-Andreu et al. 2024, *Nature Communications* 15, 10346), de ~270–280 Ma, lo extendería ([Sci.News](https://www.sci.news/paleontology/mallorca-gorgonopsian-13515.html)); por eso se escribe «≥». |
+| **≈ 700 000 km²**, radio equivalente ≈ 470 km | Área de la cuenca del Karoo: más de 700 000 km² (resúmenes técnicos de Petroleum Agency SA / AAPG); ~630 000 km² solo con afloramientos (Svensen et al.). | *G. torvus* solo se conoce de la cuenca del Karoo. El radio es el de un círculo del mismo área (√(700 000/π) ≈ 472 km): sirve para dar escala, **no** es un recorrido. Otras fuentes dan 300 000–400 000 km² para subregiones. |
+| «≈ 2,3 veces la provincia de Buenos Aires» | 700 000 / 307 571 km². | Comparación visual propia. |
+| **≈ 11 300 km**, Karoo → Rusia | Distancia que citan Kammerer et al. 2023 (*Current Biology*, doi:10.1016/j.cub.2023.04.007) para *Inostrancevia*, hallado en Sudáfrica y conocido antes solo de Rusia ([Sci.News](https://www.sci.news/paleontology/south-african-inostrancevia-11935.html)). | Es una distancia entre dos hallazgos del **grupo**, no lo que caminó un animal. |
+| Sitios en el mapa | Sudáfrica (Karoo), Tanzania (cuenca de Ruhuhu), Zambia, Malawi, Rusia, China (Xinjiang, ~253,3 Ma) y Mallorca. | Zambia y Malawi aparecen solo en un resumen ([JVP 2024](https://complete.bioone.org/journals/journal-of-vertebrate-paleontology/volume-43/issue-4/02724634.2024.2313622/Earliest-Evidence-of-Inostrancevia-in-the-Southern-Hemisphere--New/10.1080/02724634.2024.2313622.full)); pendiente confirmarlos con el artículo. Níger no se incluye porque no pude confirmarlo. El mapa es **esquemático**: no está a escala. |
+
+**Cómo se arma un «rango»:** los kilómetros salen de sumar los lugares donde aparecen huesos (y de los que se deduce, por la roca, que el ambiente era el mismo). Cuánto caminaba cada animal es una inferencia aparte; el guion lo dice así.
+
+## 6. Biomas nuevos y su base científica
+
+| Bioma | Qué se muestra | Salvedad |
+|---|---|---|
+| **Ribera / llanura** (Karoo) | Llanura aluvial semiárida y fría con ríos estacionales (~16–20 °C, 100–500 mm de lluvia anual). | Datos del ambiente del Beaufort Group. |
+| **Selva húmeda** | Humedal tropical de Catasia (sur de China): helechos arborescentes, calamites, *Gigantopteris*. | En el Karoo **no** hubo selva. Se rotula «Catasia · trópico» y no aparece *Gorgonops* (sí un cinodonte, solo como ilustración del estilo). |
+| **Bosque de *Glossopteris*** | Bosque de hojas en forma de lengua con *Cordaites*, ginkgoales y sotobosque. | Composición inferida de la flora del Pérmico de Gondwana. |
+| **Desierto** | Interior de Pangea, árido: arena, troncos petrificados, matas secas. | Hay desiertos en el interior de Pangea (p. ej. formación Moradi, Níger); es una escena ambiental. |
+| **Nevado** | Invierno en el Karoo con nieve sobre las plantas. | **Hipótesis:** por la latitud, los inviernos serían fríos; no hay evidencia directa de nieve ni de que *Gorgonops* la pisara. Se rotula «(hipótesis)». |
+| **Ártico** | Hielo, morrenas y suelo helado, **sin animales**. | Retrospectiva del valle bajo el glaciar hace ~300 Ma (glaciación Dwyka, tillitas del Karoo). **Pendiente de verificar con una fuente** antes de usar la línea de narración. |
+| **Montaña** | Laderas con coníferas gigantes. | Coníferas voltzianas del Pérmico. |
+
+Plantas: ninguna con flores ni hierba (no existen aún). Color, piel y conducta de los animales son hipótesis.

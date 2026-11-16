@@ -394,10 +394,206 @@ def recolor(sp, mul, mix=0.0, to=(0.6, 0.5, 0.3)):
     return dict(rgb=np.minimum(out, a).astype(np.float32) if False else out.astype(np.float32), a=sp["a"], ppm=sp["ppm"], kind=sp["kind"])
 
 
+def calamites(seed, ppm=110):
+    """Calamites / Paracalamites: colas de caballo arborescentes de 3-7 m, con verticilos de hojas finas."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(3.5, 7.0)
+    c = Canvas(H * 0.85, H * 1.05 + 0.3, ppm)
+    th0 = 0.05 + 0.012 * H
+    bark = np.array([0.27, 0.31, 0.21])
+    n = int(H / 0.22)
+    x, lean = 0.0, rng.normal(0, 0.025)
+    nodes = []
+    for i in range(n):
+        f = i / n
+        y0, y1 = H * i / n, H * (i + 1) / n
+        x2 = x + lean * (y1 - y0) + rng.normal(0, 0.004)
+        th = th0 * (1 - 0.5 * f)
+        c.line((x, y0), (x2, y1), bark * rng.uniform(0.9, 1.1), th)
+        c.line((x - th * 0.25, y0), (x2 - th * 0.25, y1), bark * 1.4, th * 0.3)
+        c.line((x - th * 0.6, y1), (x2 + th * 0.6, y1), bark * 0.55, 0.006)
+        x = x2
+        nodes.append((x, y1, f))
+    for (x, y, f) in nodes:
+        if f < 0.25:
+            continue
+        for j in range(rng.integers(7, 11)):
+            a = rng.uniform(-0.55, np.pi + 0.55)
+            ll = (0.28 + 0.55 * f) * rng.uniform(0.7, 1.2) * (1.0 if f < 0.9 else 0.7)
+            lk = np.clip(0.45 + 0.5 * np.sin(a) - 0.3 * np.cos(a) + rng.normal(0, 0.12), 0, 1)
+            col = np.array([0.10, 0.18, 0.10]) * (1 - lk) + np.array([0.36, 0.46, 0.24]) * lk
+            ex, ey = x + np.cos(a) * ll, y + np.sin(a) * ll - 0.10 * ll
+            c.line((x, y), (ex, ey), col, 0.010)
+    return _finish(c.rgb, c.a, ppm, "calamites", soft=0.5, seed=seed)
+
+
+def cordaites(seed, ppm=100):
+    """Cordaites: árbol alto con copa de hojas en cinta de más de un metro, arqueadas hacia abajo."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(5.0, 10.0)
+    c = Canvas(H * 0.75, H * 1.05 + 0.3, ppm)
+    bark = np.array([0.28, 0.24, 0.20])
+    top = H * 0.80
+    c.line((0, 0), (rng.normal(0, 0.1), top), bark, 0.045 * H ** 0.8)
+    c.line((-0.012 * H ** 0.8, 0), (0, top), bark * 1.35, 0.012 * H ** 0.8)
+    leaves = []
+    for _ in range(rng.integers(55, 85)):
+        a0 = rng.uniform(0.25, np.pi - 0.25)
+        L = rng.uniform(0.9, 1.6) * (0.55 + H * 0.07)
+        vx, vy = np.cos(a0), np.sin(a0)
+        x, y = rng.normal(0, 0.08), top + rng.uniform(-0.1, 0.25)
+        pts = [(x, y)]
+        for i in range(10):
+            vy -= 0.20 * 1.0
+            nrm = np.hypot(vx, vy)
+            x += vx / nrm * L / 10
+            y += vy / nrm * L / 10
+            pts.append((x, y))
+        lk = np.clip(0.5 + 0.35 * np.sin(a0) - 0.35 * np.cos(a0) + rng.normal(0, 0.12), 0, 1)
+        leaves.append((lk + rng.uniform(0, 0.5), pts, lk))
+    leaves.sort(key=lambda l: l[0])
+    for _, pts, lk in leaves:
+        col = np.array([0.08, 0.15, 0.10]) * (1 - lk) + np.array([0.30, 0.42, 0.22]) * lk
+        P = np.array(pts)
+        nx = np.gradient(P[:, 1])
+        ny = -np.gradient(P[:, 0])
+        nn = np.hypot(nx, ny) + 1e-9
+        wd = 0.045 * (1 - np.linspace(0, 1, len(P)) ** 2.2) + 0.004
+        left = P + np.stack([nx / nn * wd, ny / nn * wd], 1)
+        right = P - np.stack([nx / nn * wd, ny / nn * wd], 1)
+        c.poly(np.vstack([left, right[::-1]]), col)
+    return _finish(c.rgb, c.a, ppm, "cordaites", soft=0.5, seed=seed)
+
+
+def gigantopteris(seed, ppm=280):
+    """Gigantopteris: arbusto trepador de Catasia con hojas grandes de nervadura reticulada."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(1.1, 2.1)
+    c = Canvas(H * 1.5, H + 0.2, ppm)
+    leaves = []
+    for st in range(rng.integers(3, 6)):
+        ang = np.pi / 2 + rng.normal(0, 0.55)
+        x, y = rng.normal(0, 0.05), 0.0
+        L = H * rng.uniform(0.6, 1.0)
+        for i in range(8):
+            ang += rng.normal(0, 0.12) + (0.06 if st % 2 else -0.06)
+            x2, y2 = x + np.cos(ang) * L / 8, y + np.sin(ang) * L / 8
+            c.line((x, y), (x2, y2), np.array([0.27, 0.23, 0.17]), 0.014)
+            if i >= 1:
+                for sd in (-1, 1):
+                    a2 = ang + sd * rng.uniform(0.7, 1.2)
+                    leaves.append((rng.uniform(), x2, y2, a2, rng.uniform(0.20, 0.34)))
+            x, y = x2, y2
+    leaves.sort()
+    for _, x, y, a, ln in leaves:
+        lk = np.clip(0.45 + 0.35 * np.sin(a) - 0.25 * np.cos(a) + rng.normal(0, 0.1), 0, 1)
+        col = np.array([0.10, 0.20, 0.12]) * (1 - lk) + np.array([0.30, 0.46, 0.22]) * lk
+        us = np.linspace(0, 1, 14)
+        hw = ln * 0.55 * np.sin(np.pi * us ** 0.7) ** 0.85 * (1 + 0.10 * np.sin(us * 22 + rng.uniform(0, 6)))
+        ca, sa = np.cos(a), np.sin(a)
+        px, py = x + ca * ln * us, y + sa * ln * us
+        poly = np.vstack([np.stack([px - sa * hw, py + ca * hw], 1), np.stack([px + sa * hw, py - ca * hw], 1)[::-1]])
+        c.poly(poly, col)
+        vc = col * 1.35 + 0.05
+        c.line((x, y), (x + ca * ln, y + sa * ln), vc, 0.004)
+        for u in np.linspace(0.15, 0.85, 6):
+            hh = ln * 0.50 * np.sin(np.pi * u ** 0.7) ** 0.85
+            for sd in (-1, 1):
+                c.line((x + ca * ln * u, y + sa * ln * u), (x + ca * ln * (u + 0.12) - sd * sa * hh * 0.9, y + sa * ln * (u + 0.12) + sd * ca * hh * 0.9), vc, 0.0025)
+    return _finish(c.rgb, c.a, ppm, "gigantopteris", soft=1.0, seed=seed)
+
+
+def ginkgo(seed, ppm=100):
+    """Ginkgoales: árbol con hojas en abanico."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(4.0, 8.0)
+    c = Canvas(H * 0.9, H * 1.05 + 0.3, ppm)
+    bark = np.array([0.30, 0.26, 0.22])
+    top = H * 0.9
+    c.line((0, 0), (0, top), bark, 0.04 * H ** 0.8)
+    tips = [(0, top)]
+    for i in range(rng.integers(6, 10)):
+        f = rng.uniform(0.35, 0.95)
+        sd = rng.choice([-1, 1])
+        L = H * 0.28 * (1.1 - f) + 0.4
+        ang = np.pi / 2 - sd * rng.uniform(0.55, 1.1)
+        x0, y0 = 0.0, H * f
+        x1, y1 = x0 + np.cos(ang) * L, y0 + np.sin(ang) * L
+        c.line((x0, y0), (x1, y1), bark, 0.016)
+        tips.append((x1, y1))
+    fans = []
+    for (x, y) in tips:
+        for _ in range(rng.integers(26, 40)):
+            fans.append((rng.uniform(), x + rng.normal(0, 0.35), y + rng.normal(0, 0.28), rng.uniform(0, 2 * np.pi)))
+    fans.sort()
+    for _, x, y, a in fans:
+        lk = np.clip(0.5 + 0.4 * (y / H) - 0.3 * (x / H) + 0.2 * np.sin(a) + rng.normal(0, 0.12), 0, 1)
+        col = np.array([0.22, 0.30, 0.10]) * (1 - lk) + np.array([0.56, 0.62, 0.20]) * lk
+        r = 0.13
+        pts = [(x, y)] + [(x + np.cos(a + t_) * r, y + np.sin(a + t_) * r) for t_ in np.linspace(-0.7, 0.7, 7)]
+        c.poly(pts, col)
+    return _finish(c.rgb, c.a, ppm, "ginkgo", soft=0.5, seed=seed)
+
+
+def mossmat(seed, ppm=420):
+    """Alfombra de musgo / hepática: bulto bajo y de bordes irregulares."""
+    rng = np.random.default_rng(seed)
+    wm = rng.uniform(0.5, 1.4)
+    hm = rng.uniform(0.07, 0.14)
+    w, h = int(wm * ppm), int(hm * ppm)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    u = (xx / w - 0.5) * 2
+    v = (h - yy) / h
+    n = cv2.resize(fbm((32, 128), 1.6, seed), (w, h))
+    n2 = cv2.resize(fbm((128, 512), 1.2, seed + 1), (w, h))
+    prof = np.clip(1 - np.abs(u) ** 2.2, 0, 1) ** 0.7 * (0.7 + 0.5 * n[0:1, :])
+    mask = np.clip((prof - v) * h * 0.35, 0, 1) * np.clip(v * h * 1.2, 0, 1)
+    lit = np.clip(0.55 + 0.7 * v / np.maximum(prof, 0.05), 0.4, 1.3)
+    col = (np.array([0.16, 0.26, 0.12]) * (1 - n2[..., None]) + np.array([0.38, 0.48, 0.22]) * n2[..., None]) * lit[..., None]
+    mask = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 0.8)
+    return dict(rgb=(col * mask[..., None]).astype(np.float32), a=mask, ppm=ppm, kind="mossmat")
+
+
+def stump(seed, ppm=300):
+    rng = np.random.default_rng(seed)
+    wm, hm = rng.uniform(0.35, 0.6), rng.uniform(0.5, 1.3)
+    w, h = int(wm * ppm), int(hm * ppm)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    u = (xx / w - 0.5) * 2
+    top = (0.12 + 0.15 * cv2.resize(fbm((1, 64), 1.0, seed), (w, 1))[0]) * h
+    mask = (np.abs(u) < 1 - 0.1 * (1 - yy / h)) & (yy[:, :1] >= top[None, :])
+    cyl = np.sqrt(np.clip(1 - u * u, 0, 1))
+    streak = cv2.resize(fbm((4, 128), 1.4, seed + 2), (w, h))
+    col = np.array([0.34, 0.28, 0.23]) * (0.55 + 0.75 * streak[..., None]) * (0.25 + 0.95 * cyl[..., None] * (0.5 + 0.5 * (-u[..., None] + 1) / 2))
+    m = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 1.0)
+    return dict(rgb=(col * m[..., None]).astype(np.float32), a=m, ppm=ppm, kind="stump")
+
+
+def snowify(sp, tint=(0.93, 0.96, 1.0), amount=1.0, seed=0):
+    """Variante nevada: casquete blanco en todo lo que mira hacia arriba (copas, ramas, rocas, troncos)."""
+    a = sp["a"].astype(np.float32)
+    h, w = a.shape
+    top = np.zeros_like(a)
+    for m, wt in ((1, 1.0), (2, 0.95), (4, 0.85), (7, 0.62), (12, 0.4), (20, 0.25)):
+        dd = max(1, int(m * h / 380))
+        sh = np.zeros_like(a)
+        sh[dd:] = a[:-dd]
+        top = np.maximum(top, a * np.clip(1 - sh, 0, 1) * wt)
+    top = cv2.GaussianBlur(top, (0, 0), max(0.6, h / 600))
+    nz = cv2.resize(fbm((64, 64), 1.8, 400 + seed), (w, h))
+    wgt = np.clip(top * (0.55 + 0.9 * nz) * amount * 1.25, 0, 1)
+    rgb = sp["rgb"].astype(np.float32)
+    lum = rgb.mean(-1, keepdims=True)
+    rgb = rgb * 0.85 + lum * 0.15
+    snow = np.array(tint, np.float32) * 0.96
+    rgb = rgb * (1 - wgt[..., None]) + snow * (a * wgt)[..., None]
+    return dict(rgb=rgb.astype(np.float32), a=sp["a"], ppm=sp["ppm"], kind=sp["kind"])
+
+
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants3.pkl")
+    p = os.path.join(CACHE, "plants4.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(
@@ -415,6 +611,20 @@ def library():
         log=[log(900 + i) for i in range(5)],
         branch=[branch(950 + i) for i in range(5)],
     )
+    lib.update(
+        calamites=[calamites(1000 + i) for i in range(7)],
+        cordaites=[cordaites(1100 + i) for i in range(7)],
+        gigantopteris=[gigantopteris(1200 + i) for i in range(9)],
+        ginkgo=[ginkgo(1300 + i) for i in range(6)],
+        mossmat=[mossmat(1400 + i) for i in range(10)],
+        stump=[stump(1500 + i) for i in range(6)],
+        seedfern=[recolor(fern(1600 + i), (0.85, 1.0, 1.1)) for i in range(7)],
+    )
+    lib["mossmat_grey"] = [recolor(s_, (0.88, 0.92, 0.88), 0.55, (0.60, 0.66, 0.55)) for s_ in lib["mossmat"]]
+    lib["log_stone"] = [recolor(s_, (1.35, 1.2, 0.95), 0.6, (0.72, 0.58, 0.42)) for s_ in lib["log"]]
+    for kk in ("tree", "conifer", "treefern", "horsetail", "fern", "shrub", "rock", "log", "calamites", "cordaites", "ginkgo", "stump", "lycopsid", "mossmat", "seedfern"):
+        lib[kk + "_snow"] = [snowify(s_, seed=j) for j, s_ in enumerate(lib[kk])]
+    lib["horsetail_frozen"] = [snowify(s_, (0.80, 0.90, 1.0), 0.8, seed=j) for j, s_ in enumerate(lib["horsetail"])]
     lib["horsetail_dry"] = [recolor(s_, (0.95, 0.9, 0.8), 0.75, (0.62, 0.52, 0.30)) for s_ in lib["horsetail"]]
     lib["fern_dry"] = [recolor(s_, (0.9, 0.85, 0.75), 0.7, (0.55, 0.42, 0.24)) for s_ in lib["fern"]]
     lib["shrub_dry"] = [recolor(s_, (0.95, 0.9, 0.8), 0.65, (0.60, 0.48, 0.25)) for s_ in lib["shrub"]]
