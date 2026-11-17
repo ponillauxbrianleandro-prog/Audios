@@ -1,0 +1,127 @@
+{
+ "escenas": [
+  {
+   "titulo": "ESCENA 1. EL INSULTO",
+   "inicio": 0.4,
+   "fin": 6.61875
+  },
+  {
+   "titulo": "ESCENA 2. EL FAMILIAR",
+   "inicio": 7.46875,
+   "fin": 17.902458333333335
+  },
+  {
+   "titulo": "ESCENA 3. APARECE EL TAGUÁ",
+   "inicio": 18.752458333333333,
+   "fin": 26.581625
+  },
+  {
+   "titulo": "ESCENA 4. COME",
+   "inicio": 27.431625,
+   "fin": 42.70166666666667
+  },
+  {
+   "titulo": "ESCENA 5. EXTINTO",
+   "inicio": 43.55166666666667,
+   "fin": 54.61441666666667
+  },
+  {
+   "titulo": "ESCENA 6. EL OLOR",
+   "inicio": 55.464416666666665,
+   "fin": 60.66229166666666
+  },
+  {
+   "titulo": "ESCENA 7. COMIDA FAVORITA",
+   "inicio": 61.51229166666667,
+   "fin": 71.40641666666667
+  },
+  {
+   "titulo": "ESCENA 8. DEDOS Y MANADA",
+   "inicio": 72.25641666666667,
+   "fin": 82.06841666666666
+  },
+  {
+   "titulo": "ESCENA 9. REAPARECE",
+   "inicio": 82.91841666666667,
+   "fin": 88.04254166666668
+  },
+  {
+   "titulo": "ESCENA 10. CIERRE",
+   "inicio": 88.89254166666667,
+   "fin": 98.32604166666667
+  }
+ ],
+ "cues": [
+  [
+   0.4,
+   6.61875,
+   "¡Vos! Sí, vos. ¡Chancho! Sos un chancho gordo, panzón y peludo."
+  ],
+  [
+   7.46875,
+   17.902458333333335,
+   "Mirá este. Rosadito, redondito, feliz en el barro. Hermoso, ¿no? Bueno… olvidate de él. El verdadero chancho argentino es otro."
+  ],
+  [
+   18.752458333333333,
+   26.581625,
+   "Se llama chancho quimilero. O taguá, en guaraní. Vive en el Chaco seco, y es una bola de cerdas erizadas con patitas finitas."
+  ],
+  [
+   27.431625,
+   34.286125,
+   "¿Y qué come el gordo este? Cactus. Quimil, tuna, con espinas y todo, masticado como si fueran fideos."
+  ],
+  [
+   34.636125,
+   39.03420833333333,
+   "Se pasa el día entero comiendo. Comer, masticar, y comer de nuevo."
+  ],
+  [
+   39.38420833333333,
+   42.70166666666667,
+   "Y casi no toma agua. El agua se la saca al cactus."
+  ],
+  [
+   43.55166666666667,
+   54.61441666666667,
+   "Pero ojo, que de golpe: en 1930 lo declararon extinto. Sí. Lo conocían solo por fósiles. Lo dieron por muerto, y el gordo estaba tranquilo comiendo cactus."
+  ],
+  [
+   55.464416666666665,
+   60.66229166666666,
+   "Ah, y tiene una glándula en el lomo que larga un olor fuerte. Más fuerte que vos después de un domingo de asado."
+  ],
+  [
+   61.51229166666667,
+   71.40641666666667,
+   "¿Su comida favorita? Tuna fresca, raíces gorditas y bromelias. Se come una planta con púas, y después pide repetir. Y de postre, más tuna."
+  ],
+  [
+   72.25641666666667,
+   82.06841666666666,
+   "Atrás tiene tres dedos, uno menos que los otros chanchos, pero igual de panzón. Y anda en manada de hasta diez. Diez gordos erizados cruzando el monte, como colectivo lleno."
+  ],
+  [
+   82.91841666666667,
+   88.04254166666668,
+   "Y en los años setenta apareció vivo, en el Gran Chaco. Vivito, coleando y panzón."
+  ],
+  [
+   88.89254166666667,
+   90.31716666666668,
+   "¿Todavía querés decirme chancho?"
+  ],
+  [
+   90.66716666666667,
+   97.26675,
+   "Declarado extinto, resucitado y panzón. Chancho, sí. Pero el chancho que le ganó a la extinción."
+  ],
+  [
+   97.61675000000001,
+   98.32604166666667,
+   "¡Con orgullo!"
+  ]
+ ],
+ "total": 98.72604166666667
+}
