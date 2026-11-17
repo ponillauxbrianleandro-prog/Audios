@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import documental as D
 
-GAP_MAX = 1.6
+GAP_MAX = 2.6          # respiro natural entre párrafos y transiciones
 EXENTAS = {"0 · Apertura"}          # gráficos con acción (diseño Sombra) y créditos
 D.world.load(); D.engine.setup()
 tl = D.timeline(D.build())
