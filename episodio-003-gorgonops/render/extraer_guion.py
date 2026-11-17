@@ -21,5 +21,11 @@ for s in SC:
             continue
         vistos.add(k)
         out.append(dict(key=k, cap=s["cap"], escena=s["name"], text=txt))
+from guion_extra import BRIDGES
+for snip, txt in BRIDGES:
+    k = D.clave_voz(txt)
+    if k not in vistos:
+        vistos.add(k)
+        out.append(dict(key=k, cap=-1, escena="puente", text=txt))
 Path(__file__).resolve().parents[2].joinpath("voice_ai/lineas_v2.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
 print(len(out), "líneas;", sum(len(o["text"].split()) for o in out), "palabras")

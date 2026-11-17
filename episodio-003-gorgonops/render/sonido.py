@@ -143,7 +143,7 @@ def musica(n, escenas, stems, coda, voz_lineas, seed):
                 if i1 > i0:
                     out[i0:i1] += seg_audio[:i1 - i0]
                 # solape irregular + pequeño silencio musical ocasional (el ambiente lo cubre)
-                t += seg - float(rng.uniform(1.0, 2.2)) + (float(rng.uniform(0.6, 1.8)) if rng.uniform() < 0.25 else 0.0)
+                t += seg - float(rng.uniform(1.4, 2.6)) + 0.0
     # golpes en las revelaciones
     for (tv, dv, texto) in voz_lineas:
         for frase, inten in ACENTOS.items():
@@ -204,7 +204,7 @@ def main():
         n = int(round(c["t"] * 24) / 24 * SR)
         escenas = c["scenes"]
         amb = {0: (1.0, 1.0, 0.8), 1: (0.8, 1.0, 1.0), 2: (0.9, 0.5, 0.8), 3: (0.7, 0.9, 1.3), 4: (1.6, 0.2, 0.3), 5: (1.2, 0.3, 0.4), 6: (0.8, 0.7, 1.0), 7: (0.9, 1.1, 0.9)}[cap]
-        bed = ambience(n, 100 + cap, *amb) * 1.15
+        bed = ambience(n, 100 + cap, *amb) * 2.6        # el ambiente cubre cualquier hueco (nunca por debajo de ≈ −42 dB)
         vl = [(t, d, textos.get(k, "")) for (t, d, k) in c["voz"]]
         bed += musica(n, escenas, stems, coda, vl, 4000 + cap)
         voz = voz_pista(n, c["voz"])

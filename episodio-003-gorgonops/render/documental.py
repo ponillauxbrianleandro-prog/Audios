@@ -734,6 +734,39 @@ def timeline(scenes):
             ts += d
         c["t"] = ts
         c["scenes"].append((s["name"], t0, ts - t0))
+    # frases puente (solo audio): se colocan centradas en el hueco que sigue a la frase indicada
+    from guion_extra import BRIDGES
+    textos = {}
+    for s in scenes:
+        for kind, val in s["items"]:
+            if kind == "nar":
+                textos[clave_voz(val)] = val
+            elif kind == "quote":
+                textos[clave_voz(texto_cita(val))] = texto_cita(val)
+    for cap, c in caps.items():
+        vz = sorted(c["voz"])
+        for snip, text in BRIDGES:
+            k, v = clave_voz(text), voz.get(clave_voz(text))
+            if not v:
+                continue
+            for i, (t, dd, key) in enumerate(vz):
+                if snip in textos.get(key, ""):
+                    g0 = t + dd
+                    g1 = vz[i + 1][0] if i + 1 < len(vz) else c["t"]
+                    if g1 - g0 < v + 0.6:
+                        break
+                    ts_ = g0 + 1.0 if i + 1 >= len(vz) else g0 + (g1 - g0 - v) / 2
+                    c["voz"].append((ts_, v, k))
+                    ch = chunks(text)
+                    pal = [max(1, len(x.split())) for x in ch]
+                    a = ts_
+                    for x, p in zip(ch, pal):
+                        b = a + v * p / float(sum(pal))
+                        c["subs"].append((a, b - 0.04, two_lines(x)))
+                        a = b
+                    break
+        c["voz"].sort()
+        c["subs"].sort()
     return caps
 
 

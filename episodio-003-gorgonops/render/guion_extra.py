@@ -67,3 +67,16 @@ EXTRA = {
 }
 SIL_MAX = 1.2          # ninguna pausa sin voz supera esto
 VIS_MAX = {"3 · Alguien": 3.0}   # «vis» = plano sin voz; los gráficos con acción (apertura, créditos) no se tocan
+
+# Frases puente (solo audio): rellenan los huecos de transición sin tocar la imagen ni los tiempos de los planos.
+# (fragmento de la frase que las precede, texto del puente)
+BRIDGES = [
+    ("espera cuando no la hay", "Un mundo inmenso y callado."),
+    ("cuentan una historia sorprendente", "Esta es su historia."),
+    ("comprobando cuánto nos equivocamos", "Empecemos por una mañana cualquiera."),
+    ("Vamos a volver a ellos", "¿Y cómo la usa?"),
+    ("un mordisco profundo y retirarse", "Imaginemos la escena: una espera larga, un instante de velocidad. Y probablemente, muchas veces, gana el hambre."),
+    ("cada gesto cuesta", "Veamos su mandíbula por dentro."),
+    ("Los océanos todavía no estaban ahí", "Volvamos a los animales."),
+    ("Le basta con seguir", "Este documental es una reconstrucción animada. Los datos, las citas y las fuentes están en la descripción."),
+]
