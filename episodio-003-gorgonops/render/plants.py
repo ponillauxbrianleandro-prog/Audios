@@ -25,9 +25,9 @@ def _finish(rgb, a, ppm, kind, soft=0.6, seed=0):
     core = 1.0 - 0.45 * np.clip(dens * 1.5 - 0.55, 0, 1)
     mot = cv2.resize(fbm((256, 256), 1.5, 900 + seed), (w, h), interpolation=cv2.INTER_LINEAR)
     k = (lit * core * (0.78 + 0.44 * mot))[..., None]
-    rgb = rgb * k * np.array([0.97, 1.0, 1.03], np.float32)
+    rgb = rgb * k * np.array([1.01, 1.03, 0.96], np.float32) * 1.07
     gray = rgb.mean(-1, keepdims=True)
-    rgb = rgb * 0.74 + gray * 0.26
+    rgb = gray + (rgb - gray) * 1.16          # colores vivos: más saturación que el tono frío original
     rgb = cv2.GaussianBlur(rgb, (0, 0), soft * SS)
     a = cv2.GaussianBlur(a, (0, 0), soft * SS)
     rgb = cv2.resize(rgb, (w // SS, h // SS), interpolation=cv2.INTER_AREA)
@@ -703,7 +703,7 @@ def rama_alta(seed, ppm=300):
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants5.pkl")
+    p = os.path.join(CACHE, "plants6.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(

@@ -252,8 +252,8 @@ def sky(cam, t, weather):
     az = (az + np.pi) % (2 * np.pi) - np.pi
     el = np.clip(vv, -0.02, None)
     k = np.exp(-el * 3.2)[..., None]
-    zen = np.array(weather.get("zenith", [0.50, 0.66, 0.86]), np.float32)
-    hor = np.array(weather.get("horizon", [0.86, 0.90, 0.93]), np.float32)
+    zen = np.array(weather.get("zenith", [0.34, 0.60, 0.94]), np.float32)
+    hor = np.array(weather.get("horizon", [0.80, 0.91, 0.98]), np.float32)
     img = zen + (hor - zen) * k
     # resplandor hacia el sol (fuera de cuadro, a la izquierda)
     saz = np.arctan2(SUN[0], SUN[2])
@@ -360,7 +360,7 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
     soil = soil * lerp(1.0, 0.50, wetk)[..., None] * np.array([1.0, 0.99, 0.985], np.float32)
     # cubierta baja (musgos, hepáticas, helechos rastreros): no hay hierba en el Pérmico
     vk = weather.get('moss', 1.0) * smoothstep(0.47, 0.74, veg + weather.get('moss_bias', 0.0) + 0.55 * (A2[..., 1] - 0.5) + 0.35 * (B[..., 2] - 0.5))
-    moss = lerp(np.array(weather.get('moss_a', [0.17, 0.21, 0.14]), np.float32), np.array(weather.get('moss_b', [0.35, 0.37, 0.25]), np.float32),
+    moss = lerp(np.array(weather.get('moss_a', [0.13, 0.26, 0.09]), np.float32), np.array(weather.get('moss_b', [0.30, 0.50, 0.15]), np.float32),
                 np.clip(1.3 * A[..., 2] * var + 0.25 * tone, 0, 1)[..., None])
     vsh = 0.55 + 0.75 * A[..., 2]
     col = lerp(soil * shade[..., None], moss * (vsh * (0.5 + 0.5 * shade))[..., None], (vk * 0.85)[..., None])
@@ -432,7 +432,7 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
             refl = refl * (1 - rr2[..., 3:4]) + rr2[..., :3]
         cosv = dd / np.sqrt(1 + dd * dd + uu * uu)
         fres = 0.30 + 0.70 * (1 - np.clip(cosv * 2.2, 0, 1)) ** 2.0
-        deep = np.array([0.20, 0.27, 0.25], np.float32) * (0.85 + 0.3 * tone[..., None])
+        deep = np.array([0.09, 0.30, 0.33], np.float32) * (0.85 + 0.3 * tone[..., None])
         depth = smoothstep(0.0, -1.3, edge)
         body = lerp(col * 0.62, deep, depth[..., None])
         ice = weather.get('ice', 0.0)

@@ -93,7 +93,7 @@ BIOMES = {
             dict(kind="log", p=0.006, box=FOREST_BOX),
             dict(kind="rock", p=0.004, box=FOREST_BOX),
         ] + _BASE,
-        wx=dict(mist=0.35, leaves=7, litter=0.85, moss=1.2, plant_tint=(0.80, 0.84, 0.80), moss_bias=0.15, cloud_shadow=0.55, cloud=0.6, shadow=0.6, insects=6,
+        wx=dict(mist=0.35, leaves=7, litter=0.85, moss=1.2, plant_tint=(0.93, 0.97, 0.92), moss_bias=0.15, cloud_shadow=0.55, cloud=0.6, shadow=0.6, insects=6,
                 plume=0.0, soil_a=(0.50, 0.45, 0.38), soil_b=(0.33, 0.29, 0.25),
                 light=dict(sun=(0.86, 0.86, 0.76), amb=(0.52, 0.64, 0.66), fog=(0.70, 0.80, 0.80)),
                 grade=dict(expo=1.06)),
@@ -133,7 +133,7 @@ BIOMES = {
                 insects=2, wind=1.5, soil_a=(0.70, 0.67, 0.61), soil_b=(0.53, 0.50, 0.46),
                 zenith=(0.56, 0.68, 0.84), horizon=(0.88, 0.88, 0.86),
                 light=dict(sun=(1.0, 0.97, 0.90), amb=(0.66, 0.72, 0.82), fog=(0.84, 0.85, 0.85)),
-                grade=dict(sat=0.9)),
+                grade=dict(sat=1.0)),
     ),
 
     # después de la extinción: casi nada
@@ -149,7 +149,7 @@ BIOMES = {
                 mote_col=(0.9, 0.82, 0.7), soil_a=(0.74, 0.70, 0.64), soil_b=(0.58, 0.54, 0.49),
                 zenith=(0.66, 0.70, 0.76), horizon=(0.86, 0.84, 0.80),
                 light=dict(sun=(1.0, 0.95, 0.88), amb=(0.72, 0.74, 0.78), fog=(0.84, 0.82, 0.79)),
-                grade=dict(sat=0.62, expo=1.05)),
+                grade=dict(sat=0.72, expo=1.05)),
     ),
 }
 
@@ -190,7 +190,7 @@ BIOMES["selva"] = dict(
     flora=_SELVA + _FAR + _BASE,
     wx=dict(mist=0.85, moss=1.35, moss_bias=0.30, insects=14, leaves=5, plume=0.0, cloud=0.62, shadow=0.55, cloud_shadow=0.5,
             soil_a=(0.40, 0.36, 0.30), soil_b=(0.26, 0.24, 0.20), moss_a=(0.15, 0.24, 0.12), moss_b=(0.30, 0.44, 0.20), litter=0.5,
-            light=dict(sun=(0.90, 0.92, 0.80), amb=(0.52, 0.68, 0.64), fog=(0.66, 0.80, 0.76)), plant_tint=(1.0, 1.0, 0.97), grade=dict(sat=1.0, expo=1.22)),
+            light=dict(sun=(0.90, 0.92, 0.80), amb=(0.52, 0.68, 0.64), fog=(0.66, 0.80, 0.76)), plant_tint=(1.0, 1.0, 0.97), grade=dict(sat=1.06, expo=1.22)),
 )
 
 _SN = {k: k + "_snow" for k in ("tree", "tree_hi", "conifer", "treefern", "fern", "shrub", "rock", "log", "calamites", "cordaites",
@@ -214,7 +214,7 @@ BIOMES["nevado"] = dict(
     wx=dict(snow=0.82, ice=0.55, pano_white=0.55, flurry=0.55, mist=0.45, moss=0.0, litter=0.0, plume=0.0, cloud=0.82, insects=0, leaves=0,
             cloud_shadow=0.3, shadow=0.6, wind=0.7, zenith=(0.58, 0.66, 0.78), horizon=(0.86, 0.89, 0.93), cold=1.0,
             soil_a=(0.62, 0.62, 0.62), soil_b=(0.46, 0.46, 0.48),
-            light=dict(sun=(0.86, 0.90, 1.0), amb=(0.70, 0.78, 0.92), fog=(0.84, 0.88, 0.93)), grade=dict(sat=0.78, expo=1.04)),
+            light=dict(sun=(0.86, 0.90, 1.0), amb=(0.70, 0.78, 0.92), fog=(0.84, 0.88, 0.93)), grade=dict(sat=0.92, expo=1.04)),
 )
 
 BIOMES["desierto"] = dict(
@@ -243,5 +243,5 @@ BIOMES["artico"] = dict(
     wx=dict(snow=1.0, ice=1.0, pano_white=0.92, flurry=0.7, mist=0.55, moss=0.0, litter=0.0, plume=0.0, cloud=0.55, insects=0, leaves=0,
             cloud_shadow=0.15, shadow=0.7, wind=1.0, cold=1.0, zenith=(0.60, 0.70, 0.84), horizon=(0.88, 0.91, 0.95),
             soil_a=(0.58, 0.60, 0.62), soil_b=(0.42, 0.44, 0.48), snow_col=(0.92, 0.95, 1.0),
-            light=dict(sun=(0.90, 0.94, 1.0), amb=(0.72, 0.80, 0.94), fog=(0.86, 0.90, 0.95)), grade=dict(sat=0.72, expo=1.06)),
+            light=dict(sun=(0.90, 0.94, 1.0), amb=(0.72, 0.80, 0.94), fog=(0.86, 0.90, 0.95)), grade=dict(sat=0.86, expo=1.06)),
 )

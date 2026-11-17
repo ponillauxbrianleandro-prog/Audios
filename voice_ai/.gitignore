@@ -5,3 +5,6 @@ Qwen3-TTS/
 descarga.log
 cache/
 narracion.log
+cache_v2/
+referencia_v2_raw.wav
+prueba_v2_*.wav

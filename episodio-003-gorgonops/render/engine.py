@@ -468,7 +468,7 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
     c0 = np.array([cam.pos[0] + np.sin(cam.yaw) * 10, 0, cam.pos[2] + np.cos(cam.yaw) * 10]) if at is None else np.asarray(at, float)
     rng = np.random.default_rng(99)
     # motas / esporas
-    nm = 22
+    nm = 36
     base = np.column_stack([rng.uniform(-10, 10, nm), rng.uniform(0.2, 2.2, nm), rng.uniform(-8, 12, nm)])
     ph = rng.uniform(0, 6.28, (nm, 3))
     pts = base + c0 + np.column_stack([0.5 * np.sin(t * 0.4 + ph[:, 0]) + 0.12 * t, 0.25 * np.sin(t * 0.7 + ph[:, 1]), 0.4 * np.sin(t * 0.3 + ph[:, 2])])
@@ -482,10 +482,13 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
     img += lay[..., None] * np.array(wx.get("mote_col", (1.0, 0.98, 0.9)), np.float32) * wx.get("motes", 1.0)
 
     # insectos en vuelo
-    for i in range(int(wx.get("insects", 4))):
+    nin = int(round(wx.get("insects", 4) * 1.6))
+    ndr = int(wx.get("dragonflies", 2 if nin > 0 else 0))
+    for i in range(nin + ndr):
+        big = i >= nin                                  # libélulas pérmicas: más grandes y rápidas
         r = np.random.default_rng(500 + i)
         cx, cz = r.uniform(-6, 6, 2)
-        a1, a2, a3 = r.uniform(0.5, 1.3, 3)
+        a1, a2, a3 = r.uniform(0.5, 1.3, 3) * (1.9 if big else 1.0)
         p1, p2, p3 = r.uniform(0, 6.28, 3)
         hofs = r.uniform(0.2, 1.2)
 
@@ -496,7 +499,7 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
         (u0, v0, z0), (u1, v1, z1) = cam.project(pos(t)), cam.project(pos(t + 0.03))
         if z0 < 1.0 or not (-50 < u0 < W + 50 and -50 < v0 < H + 50):
             continue
-        s = 0.085 * cam.f / z0
+        s = (0.20 if big else 0.085) * cam.f / z0
         if s < 1.2:
             continue
         d = np.array([u1 - u0, v1 - v0])
@@ -521,7 +524,7 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
     # hojas: ráfagas cortas y espaciadas (cada 7-15 s caen 4-9 hojas)
     nl = int(wx.get("leaves", 0))
     if nl:
-        for bi, tb in enumerate(_events(t, seed * 7 + 3, 7.0, 15.0, 9.0, wx.get('ev_first'))):
+        for bi, tb in enumerate(_events(t, seed * 7 + 3, 4.5, 9.5, 9.0, wx.get('ev_first'))):
             r = np.random.default_rng(seed * 131 + int(tb * 10))
             n = int(r.integers(max(2, nl // 2 + 1), nl + 3))
             bx, bz = r.uniform(-7, 7), r.uniform(-4, 9)
@@ -632,8 +635,8 @@ def post(img, t, k, grade=None):
     hi = np.clip(img - 0.78, 0, None)
     img = img + cv2.GaussianBlur(hi, (0, 0), 22 * k) * 0.55
     lum = img @ np.array([0.25, 0.62, 0.13], np.float32)
-    img = lum[..., None] + (img - lum[..., None]) * 0.90 * grade.get("sat", 1.0)
-    img = img * np.array([0.975, 1.0, 1.035], np.float32) * np.array(grade.get("tint", (1, 1, 1)), np.float32)
+    img = lum[..., None] + (img - lum[..., None]) * 1.14 * grade.get("sat", 1.0)          # más color que la v2 (0,90)
+    img = img * np.array([0.995, 1.0, 1.015], np.float32) * np.array(grade.get("tint", (1, 1, 1)), np.float32)
     img = np.clip(img, 0, 1)
     img = img * img * (3 - 2 * img) * 0.55 + img * 0.45
     img = 0.035 + img * 0.955

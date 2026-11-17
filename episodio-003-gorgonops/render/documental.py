@@ -174,6 +174,8 @@ def actor(spec, p0, ang, speed=1.0, pose=None, start=0.0, ss=1.7, stop=None, go=
 def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=0.0, zf=60.0, ap=0.0015, wx=None, fg=None, rot=None,
          shk=0.0009, actors=(), ripples=None, through=True, life_at=None):
     pos = np.array(pos, float)
+    if not any(move) and dyaw == 0.0:            # nunca una cámara quieta: deriva lenta
+        move, dyaw = (0.07, 0.0, 0.09), 0.006
 
     def cam(t, W, H):
         sy, sp = shake(t + pos[0], shk)
@@ -200,9 +202,10 @@ def track(biome, a, cam=(5, -9, 1.0), f=5000, v=0.58, u=0.5, tgt=(0.0, 0.36), ap
         ff = f * W / 1920
         p = a.pos(tnom + (t - tnom) * pan)
         target = p + np.array([D[0] * tgt[0] * sc, tgt[1] * sc, D[1] * tgt[0] * sc])
-        yaw, pitch = aim(W, H, ff, cp, target, v, u)
+        cpt = cp + np.array([S[0], 0.0, S[1]]) * 0.10 * (t - tnom) + np.array([D[0], 0.0, D[1]]) * 0.06 * (t - tnom)   # dolly lento
+        yaw, pitch = aim(W, H, ff, cpt, target, v, u)
         sy, sp = shake(t + cp[0], shk)
-        return world.Camera(W, H, ff, cp, yaw + sy, pitch + sp)
+        return world.Camera(W, H, ff, cpt, yaw + sy, pitch + sp)
     s = dict(biome=biome, cam=camf, animals=lambda t: [x(t) for x in extra] + [a(t)],
              focus=zf or (lambda t: float(np.hypot(*(a.pos(t)[[0, 2]] - cp[[0, 2]])))), aperture=ap, wx=wx or {}, fg_spec=fg or (),
              through=through, actors=(a,) + tuple(extra), life_at=pm, rot=rot)
@@ -306,7 +309,24 @@ def build():
     sc = []
 
     def scene(cap, name, items, shots):
-        sc.append(dict(cap=cap, name=name, items=items, shots=shots))
+        from guion_extra import EXTRA, SIL_MAX, VIS_MAX
+        extra = sorted(EXTRA.get(name, []), key=lambda e: e[0])
+        out, k, e = [], 0, 0
+        while e < len(extra) and extra[e][0] == 0:
+            out.append(N(extra[e][1]))
+            e += 1
+        for kind, val in items:
+            if kind == "sil":
+                val = min(val, SIL_MAX)
+            elif kind == "vis" and name in VIS_MAX:
+                val = min(val, VIS_MAX[name])
+            out.append((kind, val))
+            if kind == "nar":
+                k += 1
+                while e < len(extra) and extra[e][0] == k:
+                    out.append(N(extra[e][1]))
+                    e += 1
+        sc.append(dict(cap=cap, name=name, items=out, shots=shots))
 
     # --- actores recurrentes en la ribera
     walk_b = actor(GOR, (-2.0, 8.6), np.arctan2(-0.28, -0.96))                 # camina por la orilla hacia la izquierda
@@ -642,11 +662,36 @@ def two_lines(s, maxl=46):
     return s[:i] + "\n" + s[i + 1:]
 
 
+VOZ_JSON = Path(__file__).resolve().parents[2] / "voice_ai" / "duraciones.json"
+GAP_VOZ = 0.55          # respiro tras cada párrafo
+LEAD_VOZ = 0.15
+
+
+def clave_voz(texto):
+    import hashlib
+    return hashlib.sha1(texto.encode("utf-8")).hexdigest()[:12]
+
+
+def texto_cita(k):
+    a, rol, _en, es = QUOTES[k]
+    return f"{a}, {rol.split('·')[0].strip().lower()}, dice: {es}"
+
+
+def cargar_voz():
+    import json
+    try:
+        return json.loads(VOZ_JSON.read_text())
+    except Exception:
+        return {}
+
+
 def timeline(scenes):
-    """Asigna tiempos: escenas, planos, subtítulos y citas. Tiempos relativos al capítulo."""
+    """Asigna tiempos: escenas, planos, subtítulos y citas. Tiempos relativos al capítulo.
+    Si hay duraciones reales de voz (voice_ai/duraciones.json), la película se arma a partir de ellas."""
+    voz = cargar_voz()
     caps = {}
     for s in scenes:
-        c = caps.setdefault(s["cap"], dict(t=0.0, shots=[], subs=[], quotes=[], notes=[], scenes=[]))
+        c = caps.setdefault(s["cap"], dict(t=0.0, shots=[], subs=[], quotes=[], notes=[], scenes=[], voz=[]))
         t0 = c["t"]
         t = t0
         for kind, val in s["items"]:
@@ -655,14 +700,31 @@ def timeline(scenes):
             elif kind == "nota":
                 c["notes"].append((t + 0.3, val[1], val[0]))
             elif kind == "quote":
-                c["quotes"].append((t + 0.5, QDUR - 1.0, val))
-                t += QDUR
+                v = voz.get(clave_voz(texto_cita(val)))
+                qd = (v + 1.4) if v else QDUR
+                c["quotes"].append((t + 0.4, qd - 0.8, val))
+                if v:
+                    c["voz"].append((t + 0.4 + LEAD_VOZ, v, clave_voz(texto_cita(val))))
+                t += qd
             else:
-                for ch in chunks(val):
-                    d = max(1.7, len(ch.split()) / WPS + 0.35)
-                    c["subs"].append((t, t + d - 0.15, two_lines(ch)))
-                    t += d
-                t += 0.7
+                v = voz.get(clave_voz(val))
+                if v:
+                    ch = chunks(val)
+                    pal = [max(1, len(x.split())) for x in ch]
+                    tot = float(sum(pal))
+                    a = t + LEAD_VOZ
+                    for x, p in zip(ch, pal):
+                        b = a + v * p / tot
+                        c["subs"].append((a, b - 0.04, two_lines(x)))
+                        a = b
+                    c["voz"].append((t + LEAD_VOZ, v, clave_voz(val)))
+                    t += LEAD_VOZ + v + GAP_VOZ
+                else:
+                    for ch in chunks(val):
+                        d = max(1.7, len(ch.split()) / WPS + 0.35)
+                        c["subs"].append((t, t + d - 0.15, two_lines(ch)))
+                        t += d
+                    t += 0.7
         dur = t - t0
         wsum = sum(w for w, _ in s["shots"])
         ts = t0
@@ -733,17 +795,6 @@ def write_srt():
     full = open(VIDEO / "gorgonops-completo.srt", "w", encoding="utf-8")
     for cap in sorted(TL):
         c = TL[cap]
-        sv = VIDEO / "srt_voz" / f"{CHAPTERS[cap]}.srt"          # subtítulos re-temporizados con la voz real (voz.py)
-        if sv.exists():
-            shutil.copy(sv, VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt")
-            for blk in sv.read_text(encoding="utf-8").strip().split("\n\n"):
-                ln = blk.split("\n")
-                if len(ln) >= 3:
-                    p, q = ln[1].split(" --> ")
-                    full.write(f"{n}\n{shift_srt(p, off)} --> {shift_srt(q, off)}\n" + "\n".join(ln[2:]) + "\n\n")
-                    n += 1
-            off += round(c["t"] * FPS) / FPS
-            continue
         with open(VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt", "w", encoding="utf-8") as fh:
             for k, (a, b, txt) in enumerate(c["subs"], 1):
                 fh.write(f"{k}\n{ts_srt(a)} --> {ts_srt(b)}\n{txt}\n\n")
@@ -807,12 +858,12 @@ def assemble(caps):
         wav = VIDEO / "audio" / f"{CHAPTERS[cap]}.wav"
         srt = VIDEO / "capitulos" / f"{CHAPTERS[cap]}.srt"
         out = VIDEO / "capitulos" / f"{CHAPTERS[cap]}.mp4"
-        style = "FontName=Inter,Fontsize=40,PrimaryColour=&HF2F3F7&,OutlineColour=&H000000&,BorderStyle=1,Outline=2.4,Shadow=0,MarginV=64,Alignment=2"
+        style = "FontName=Inter,Fontsize=14,PrimaryColour=&HF2F3F7&,OutlineColour=&H000000&,BorderStyle=1,Outline=1.0,Shadow=0,MarginV=2,Alignment=2"
         cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(master)]
         if wav.exists():
             cmd += ["-i", str(wav)]
         cmd += ["-vf", f"subtitles={srt}:original_size=1920x1080:force_style='{style}'", "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p"]
-        cmd += (["-c:a", "aac", "-b:a", "192k", "-shortest"] if wav.exists() else ["-an"]) + [str(out)]
+        cmd += (["-c:a", "aac", "-b:a", "256k", "-shortest"] if wav.exists() else ["-an"]) + [str(out)]
         run(cmd)
         finals.append(out)
         print("listo:", out, flush=True)

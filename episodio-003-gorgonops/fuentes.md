@@ -77,3 +77,24 @@ Cada cifra se rotula en pantalla con lo que realmente significa. Salvedades:
 | **Montaña** | Laderas con coníferas gigantes. | Coníferas voltzianas del Pérmico. |
 
 Plantas: ninguna con flores ni hierba (no existen aún). Color, piel y conducta de los animales son hipótesis.
+
+
+## 7. Afirmaciones añadidas en la v3 (narración ampliada)
+
+Todas son de consenso paleontológico general; las que no lo son llevan «probablemente» o «algunos investigadores» en la narración. Pendiente de cita puntual en cada caso (se rotulan aquí como *consenso* hasta tener la referencia exacta).
+
+| Afirmación en la narración | Estatus | Nota |
+|---|---|---|
+| Insectos voladores existían mucho antes que cualquier vertebrado volador | Consenso | Insectos alados desde el Carbonífero (~325 Ma); los primeros vertebrados voladores (pterosaurios) ~230 Ma |
+| El interior de Pangea recibía poca lluvia | Consenso | Clima continental seco en el interior del supercontinente |
+| Ojos dirigidos hacia adelante → visión en profundidad «probablemente» | Inferencia | Ver tabla de la sección 2 («visión probablemente binocular») |
+| Los fósiles del Karoo aparecen en nódulos de roca | Consenso | Concreciones carbonáticas en la Formación Beaufort |
+| Los sinápsidos fueron los animales terrestres dominantes durante decenas de millones de años | Consenso | Pérmico (~300–252 Ma) |
+| Caninos > 10 cm en los gorgonópsidos más grandes; borde a menudo aserrado | Consenso (grupo) | No se afirma para *G. torvus* en particular |
+| Los dicinodontes eran presa habitual; *Diictodon* cavaba madrigueras en espiral | Consenso / inferencia | Madrigueras: Smith, 1987 (conducta de presa: inferencia) |
+| Pareiasaurios herbívoros acorazados; terocéfalos; dicinodontes del tamaño de una rata a un buey | Consenso | Fauna del Karoo |
+| *Procynosuchus*: paladar secundario; «algunos investigadores» lo creen buen nadador | Consenso / hipótesis | Hipótesis semiacuática (Kemp, 1979) |
+| El golpe más duro de la extinción en unas decenas de miles de años | Consenso | Burgess et al., 2014 (*PNAS*): ~60 000 ± 48 000 años |
+| *Lystrosaurus*: en algunas rocas del Triásico temprano casi todos los fósiles | Consenso | Dominancia de *Lystrosaurus* tras la extinción (cifras de >90 % en ciertos niveles) |
+| Primeros mamíferos hace más de 200 Ma, pequeños, «probablemente» nocturnos | Consenso / inferencia | Mamiferiformes del Triásico tardío; nocturnidad inferida |
+| Cuerpo «más activo que el de un lagarto» (sin afirmar grado de endotermia) | Inferencia | El debate sobre el metabolismo sigue abierto (tabla sección 2) |
