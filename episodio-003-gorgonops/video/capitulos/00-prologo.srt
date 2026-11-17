@@ -113,3 +113,7 @@ y los huesos hablan despacio.
 Pero si uno aprende a escucharlos,
 cuentan una historia sorprendente.
 
+26
+00:01:54,205 --> 00:01:56,805
+Esta es su historia.
+
