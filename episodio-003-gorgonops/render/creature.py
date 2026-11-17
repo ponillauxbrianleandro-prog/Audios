@@ -341,6 +341,8 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
         sub[m] = z[m]
         I[ya:yb, xa:xb][m] = i
     mask = np.isfinite(D)
+    if not mask.any():
+        return None
     a = mask.astype(np.float32)
     zfar = float(D[mask].max()) + 0.02
     Df = np.where(mask, D, zfar).astype(np.float32)
