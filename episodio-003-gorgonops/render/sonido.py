@@ -72,7 +72,7 @@ ACENTOS = {
 
 def leer(p):
     sr, x = wavfile.read(str(p))
-    x = x.astype(np.float32) / (32768.0 if x.dtype == np.int16 else 8388608.0 if x.dtype == np.int32 else 1.0)
+    x = x.astype(np.float32) / (32768.0 if x.dtype == np.int16 else 2147483648.0 if x.dtype == np.int32 else 1.0)    # PCM_24 llega como int32 escalado a 32 bits
     return sr, x
 
 
