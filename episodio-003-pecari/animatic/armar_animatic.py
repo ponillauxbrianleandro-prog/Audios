@@ -53,7 +53,7 @@ def pelusa(d, cx, cy, rx, ry, color, rng, n=170):
         x = cx + rx * r * rng.uniform(0.92, 1.05) * __import__("math").cos(a)
         y = cy + ry * r * rng.uniform(0.92, 1.05) * __import__("math").sin(a)
         s = rng.randint(28, 60)
-        tono = tuple(max(0, min(255, c + rng.randint(-10, 12))) for c in color)
+        tono = tuple(max(0, min(255, c + rng.randint(-4, 5))) for c in color)
         d.ellipse([x - s, y - s, x + s, y + s], fill=tono)
 
 
@@ -164,12 +164,12 @@ def main():
     sin_audio = TARJETAS / "sin-audio.mp4"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lista),
                     "-c", "copy", str(sin_audio)], check=True)
-    estilo = ("FontName=Inter,FontSize=15,Bold=1,PrimaryColour=&H00FFFFFF,OutlineColour=&H00503C78,"
-              "BorderStyle=1,Outline=3,Alignment=2,MarginV=150")
+    estilo = ("FontName=Inter,FontSize=9,Bold=1,PrimaryColour=&H00FFFFFF,OutlineColour=&H00503C78,"
+              "BorderStyle=1,Outline=3,Alignment=2,MarginV=30")
     srt = str(AUDIO / "episodio-003-voz.srt").replace(":", r"\:")
     subprocess.run(
         ["ffmpeg", "-v", "error", "-y", "-i", str(sin_audio), "-i", str(AUDIO / "episodio-003-final.mp3"),
-         "-vf", f"subtitles='{srt}':force_style='{estilo}'", "-c:v", "libx264", "-crf", "20",
+         "-vf", f"subtitles='{srt}':original_size=720x1280:force_style='{estilo}'", "-c:v", "libx264", "-crf", "20",
          "-c:a", "aac", "-b:a", "192k", "-shortest", str(AQUI / "episodio-003-animatic.mp4")], check=True)
     print("Listo:", AQUI / "episodio-003-animatic.mp4")
 

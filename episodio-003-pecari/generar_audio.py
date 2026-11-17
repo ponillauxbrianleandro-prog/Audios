@@ -8,6 +8,7 @@ Salida en audio/: escena-N.wav/.srt, episodio-003-voz.wav/.srt y escenas.json (t
 La voz queda limpia: solo se recortan silencios, se acelera un poco (atempo) y se normaliza el pico.
 No se aplica eco, reverb ni distorsión.
 """
+import hashlib
 import json
 import struct
 import subprocess
@@ -66,10 +67,20 @@ class Voz:
         """Devuelve PCM s16le mono a FRECUENCIA Hz."""
         import numpy as np
 
-        wavs, sr = self.modelo.generate_voice_clone(
-            text=texto, language="Spanish", voice_clone_prompt=self.prompt
-        )
-        x = np.asarray(wavs[0], dtype=np.float32)
+        # El códec va a 12 tokens/s y se habla ~15 caracteres/s: tope = 2x lo esperado, para que
+        # una frase que no emite el fin de audio no corra 170 s (el tope por defecto es 2048).
+        tope = int(len(texto) / 15 * 12 * 2) + 24
+        mejor = None
+        for _ in range(3):
+            wavs, sr = self.modelo.generate_voice_clone(
+                text=texto, language="Spanish", voice_clone_prompt=self.prompt, max_new_tokens=tope
+            )
+            x = np.asarray(wavs[0], dtype=np.float32)
+            if mejor is None or len(x) < len(mejor):
+                mejor = x
+            if len(x) / sr < tope / 12 * 0.9:  # terminó solo, sin chocar con el tope
+                break
+        x = mejor
         pcm = (np.clip(x, -1, 1) * 32767).astype("<i2").tobytes()
         if sr != FRECUENCIA:
             pcm = ffmpeg_pcm(pcm, sr, FRECUENCIA)
@@ -131,7 +142,15 @@ def main():
     for numero, (titulo, parrafos) in enumerate(leer_guion(), 1):
         pcm, cues = b"", []
         for texto in parrafos:
-            frase = limpiar(voz.sintetizar(texto))
+            # Caché por texto: si el guion no cambió esa frase, no se vuelve a sintetizar.
+            clave = SALIDA / "cache" / (hashlib.sha1(texto.encode()).hexdigest()[:16] + ".pcm")
+            if clave.exists():
+                frase = clave.read_bytes()
+            else:
+                frase = limpiar(voz.sintetizar(texto))
+                clave.parent.mkdir(exist_ok=True)
+                clave.write_bytes(frase)
+            print(f"  · {len(frase) / 2 / FRECUENCIA:.1f} s  {texto[:40]}", flush=True)
             if pcm:
                 pcm += silencio(PAUSA_PARRAFO)
             inicio = len(pcm) / 2 / FRECUENCIA
