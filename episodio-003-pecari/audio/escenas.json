@@ -1,0 +1,56 @@
+[
+  {
+    "escena": 1,
+    "titulo": "ESCENA 1. EL INSULTO",
+    "inicio": 0.3,
+    "fin": 3.8425833333333332
+  },
+  {
+    "escena": 2,
+    "titulo": "ESCENA 2. LA PRESENTACIÓN",
+    "inicio": 4.442583333333333,
+    "fin": 13.735125
+  },
+  {
+    "escena": 3,
+    "titulo": "ESCENA 3. LA COMIDA",
+    "inicio": 14.335125,
+    "fin": 22.917458333333332
+  },
+  {
+    "escena": 4,
+    "titulo": "ESCENA 4. EL PERFUME",
+    "inicio": 23.517458333333334,
+    "fin": 31.495958333333334
+  },
+  {
+    "escena": 5,
+    "titulo": "ESCENA 5. EL RANKING",
+    "inicio": 32.095958333333336,
+    "fin": 41.85341666666667
+  },
+  {
+    "escena": 6,
+    "titulo": "ESCENA 6. LA PATOTA",
+    "inicio": 42.45341666666667,
+    "fin": 47.6505
+  },
+  {
+    "escena": 7,
+    "titulo": "ESCENA 7. LAS PATAS",
+    "inicio": 48.2505,
+    "fin": 54.62745833333334
+  },
+  {
+    "escena": 8,
+    "titulo": "ESCENA 8. LA REFUTACIÓN",
+    "inicio": 55.22745833333333,
+    "fin": 68.423125
+  },
+  {
+    "escena": 9,
+    "titulo": "ESCENA 9. CIERRE CON ORGULLO",
+    "inicio": 69.023125,
+    "fin": 76.03183333333332
+  }
+]
