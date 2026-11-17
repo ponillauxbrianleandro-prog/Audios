@@ -47,7 +47,12 @@ for i, o in enumerate(lines):
         continue
     parts, sr = [], SR_OUT
     for fr in frases(o["text"]):
-        w, sr = m.generate_voice_clone(text=fr, language="Spanish", voice_clone_prompt=prompt)
+        nw = len(fr.split())
+        for intento in range(3):                       # tope de duración: evita las generaciones que no terminan
+            w, sr = m.generate_voice_clone(text=fr, language="Spanish", voice_clone_prompt=prompt, max_new_tokens=int(nw * 9 + 48))
+            if len(w[0]) / sr <= nw * 0.75 + 1.5:
+                break
+            print(f"  reintento ({len(w[0]) / sr:.1f} s para {nw} palabras)", flush=True)
         parts += [w[0].astype(np.float32), np.zeros(int(0.22 * sr), np.float32)]
     x = np.concatenate(parts[:-1])
     x = L.limpiar(x, sr, rt60=0.35, reverb=True, ruido=False)         # sin eco; sin saturación
