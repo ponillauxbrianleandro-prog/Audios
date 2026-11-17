@@ -1,249 +1,334 @@
 1
-00:00:03,150 --> 00:00:03,959
+00:00:01,350 --> 00:00:02,212
 Mírelo caminar.
 
 2
-00:00:03,959 --> 00:00:07,598
+00:00:02,252 --> 00:00:06,270
 Las patas de adelante se
 abren hacia los lados.
 
 3
-00:00:07,598 --> 00:00:12,297
+00:00:06,310 --> 00:00:11,230
 Las de atrás, en cambio, ya
 trabajan más debajo del cuerpo.
 
 4
-00:00:16,506 --> 00:00:19,881
+00:00:11,970 --> 00:00:17,358
 Es un cuerpo que está, por así
 decirlo, a mitad de una frase.
 
 5
-00:00:19,881 --> 00:00:22,477
+00:00:17,398 --> 00:00:21,533
 Ni se arrastra ni corre como lo hará un lobo.
 
 6
-00:00:22,477 --> 00:00:24,554
+00:00:21,573 --> 00:00:24,873
 Pero para su mundo es un caminante eficaz:
 
 7
-00:00:24,554 --> 00:00:26,890
+00:00:24,913 --> 00:00:28,630
 puede recorrer la llanura
 sin detenerse a cada paso.
 
 8
-00:00:26,890 --> 00:00:29,736
+00:00:29,370 --> 00:00:33,947
 En lo alto del cráneo tiene,
 además, un pequeño orificio.
 
 9
-00:00:39,119 --> 00:00:41,793
-En lo alto del cráneo tiene,
-además, un pequeño orificio.
-
-10
-00:00:41,793 --> 00:00:43,397
+00:00:33,987 --> 00:00:36,717
 Ahí se alojaba un tercer ojo.
 
-11
-00:00:43,397 --> 00:00:45,001
+10
+00:00:36,757 --> 00:00:39,487
 No formaba imágenes: medía la luz.
 
-12
-00:00:45,001 --> 00:00:48,743
+11
+00:00:39,527 --> 00:00:45,950
 Le decía a su cuerpo cuánto duraba
 el día y en qué estación estaba.
 
+12
+00:00:46,690 --> 00:00:52,362
+Nosotros conservamos lo que queda de
+ese órgano, hundido en el cerebro:
+
 13
-00:00:48,743 --> 00:00:52,202
-Nosotros conservamos lo que queda de
-ese órgano, hundido en el cerebro:
-
-14
-00:00:59,681 --> 00:01:03,061
-Nosotros conservamos lo que queda de
-ese órgano, hundido en el cerebro:
-
-15
-00:01:03,061 --> 00:01:05,314
+00:00:52,402 --> 00:00:56,170
 la glándula pineal, la
 que regula nuestro sueño.
 
-16
-00:01:05,314 --> 00:01:08,100
+14
+00:00:56,910 --> 00:00:59,919
 Y eso no es lo más extraño que tiene.
 
-17
-00:01:11,337 --> 00:01:14,560
-Y eso no es lo más extraño que tiene.
-
-18
-00:01:14,560 --> 00:01:17,675
+15
+00:00:59,959 --> 00:01:02,630
 Lo más extraño está dentro de la boca.
 
+16
+00:01:03,370 --> 00:01:09,090
+La forma de su pecho y de sus huesos
+sugiere un cuerpo más activo que el de un
+
+17
+00:01:09,130 --> 00:01:09,410
+lagarto.
+
+18
+00:01:09,450 --> 00:01:12,930
+Cuánto más, es una de las preguntas
+abiertas de la paleontología.
+
 19
-00:01:23,455 --> 00:01:28,123
-el mismo diente repetido.
+00:01:14,858 --> 00:01:20,158
+Un cocodrilo tiene decenas de
+dientes, y todos son, más o menos,
 
 20
-00:01:28,123 --> 00:01:30,707
-Él no.
+00:01:20,198 --> 00:01:21,938
+el mismo diente repetido.
 
 21
-00:01:33,060 --> 00:01:35,049
+00:01:22,678 --> 00:01:23,838
+Él no.
+
+22
+00:01:24,578 --> 00:01:27,748
 Adelante tiene incisivos,
 para sujetar y arrancar.
 
-22
-00:01:35,460 --> 00:01:38,562
+23
+00:01:27,788 --> 00:01:30,040
 Detrás, dos caninos como sables.
 
-23
-00:01:38,562 --> 00:01:42,905
+24
+00:01:30,080 --> 00:01:33,249
 Y más atrás, unos pocos dientes pequeños.
 
-24
-00:01:42,905 --> 00:01:47,497
+25
+00:01:33,289 --> 00:01:36,458
 Tres herramientas distintas en una misma boca.
 
-25
-00:01:54,894 --> 00:01:55,286
-Incisivos.
-
 26
-00:01:55,286 --> 00:01:55,678
-Caninos.
+00:01:37,198 --> 00:01:43,421
+En los gorgonópsidos más grandes, los
+caninos pueden superar los diez centímetros.
 
 27
-00:01:55,678 --> 00:01:56,071
-Muelas.
+00:01:43,461 --> 00:01:49,161
+Son largos y aplanados, con el
+borde a menudo finamente aserrado:
 
 28
-00:01:56,071 --> 00:01:58,033
-El plano es el mismo.
+00:01:49,201 --> 00:01:53,858
+sirven más para sujetar y
+desgarrar que para triturar.
 
 29
-00:01:58,033 --> 00:02:01,421
+00:01:55,798 --> 00:01:59,878
+Abra usted la suya frente a un espejo.
+
+30
+00:01:59,918 --> 00:02:00,393
+Incisivos.
+
+31
+00:02:00,433 --> 00:02:00,908
+Caninos.
+
+32
+00:02:00,948 --> 00:02:01,423
+Muelas.
+
+33
+00:02:01,463 --> 00:02:03,998
+El plano es el mismo.
+
+34
+00:02:04,738 --> 00:02:07,788
 Puede abrir la mandíbula
 más de noventa grados.
 
-30
-00:02:08,060 --> 00:02:09,673
+35
+00:02:07,828 --> 00:02:10,105
 No mastica: muerde, arranca y traga.
 
-31
-00:02:09,673 --> 00:02:13,705
+36
+00:02:10,145 --> 00:02:15,898
 Y cuando un sable se rompe, otro
 crece en su lugar, una y otra vez.
 
-32
-00:02:13,705 --> 00:02:16,642
+37
+00:02:16,638 --> 00:02:20,767
 Al fondo de esa mandíbula hay,
 además, dos huesos pequeños.
 
-33
-00:02:24,682 --> 00:02:27,683
+38
+00:02:20,807 --> 00:02:22,434
 Guárdelos en la memoria.
 
-34
-00:02:27,683 --> 00:02:31,685
+39
+00:02:22,474 --> 00:02:24,518
 Vamos a volver a ellos.
 
-35
-00:02:43,176 --> 00:02:46,213
+40
+00:02:27,600 --> 00:02:29,492
+Sus piernas son cortas.
+
+41
+00:02:29,532 --> 00:02:32,390
 No está hecho para persecuciones largas.
 
-36
-00:02:46,213 --> 00:02:51,275
+42
+00:02:32,430 --> 00:02:37,219
 Creemos que cazaba como cazan hoy
 muchos depredadores de emboscada:
 
-37
-00:02:51,275 --> 00:02:55,068
+43
+00:02:37,259 --> 00:02:40,600
 esperar, acercarse, un
 mordisco profundo y retirarse.
 
-38
-00:03:08,122 --> 00:03:13,072
+44
+00:02:50,340 --> 00:02:53,217
+Sus presas eran los herbívoros del valle:
+
+45
+00:02:53,257 --> 00:02:56,967
 dicinodontes como Diictodon, que
 vivían en madrigueras en espiral,
 
-39
-00:03:13,072 --> 00:03:17,723
+46
+00:02:57,007 --> 00:03:00,300
 y quizá las crías de los
 enormes pareiasaurios.
 
-40
-00:03:25,179 --> 00:03:29,156
+47
+00:03:01,040 --> 00:03:03,667
+Los dicinodontes eran una presa habitual:
+
+48
+00:03:03,707 --> 00:03:06,778
+numerosos, con dos colmillos y pico córneo.
+
+49
+00:03:06,818 --> 00:03:09,000
+Diictodon cavaba madrigueras en espiral,
+
+50
+00:03:09,040 --> 00:03:13,000
+y esas galerías todavía
+se encuentran en la roca.
+
+51
+00:03:14,940 --> 00:03:17,740
+No hay crueldad en la escena.
+
+52
+00:03:17,780 --> 00:03:20,580
 Hay hambre, que es otra cosa.
 
-41
-00:03:40,733 --> 00:03:46,822
+53
+00:03:21,320 --> 00:03:24,606
+Probablemente no persiguiera
+nada que no valiera la pena.
+
+54
+00:03:24,646 --> 00:03:29,040
+Para un animal que come poco y
+espera mucho, cada gesto cuesta.
+
+55
+00:03:32,183 --> 00:03:37,993
+En 2016, un equipo de la Universidad de
+Washington cortó en láminas la mandíbula de
+
+56
+00:03:38,033 --> 00:03:41,503
 un gorgonópsido para estudiar
 cómo se sujetaban sus dientes.
 
-42
-00:03:46,822 --> 00:03:50,454
+57
+00:03:42,243 --> 00:03:44,812
 Encontraron algo que no buscaban:
 
-43
-00:03:54,441 --> 00:03:57,032
+58
+00:03:44,852 --> 00:03:49,508
 un odontoma, un tumor benigno
 hecho de dientes diminutos.
 
-44
-00:03:57,032 --> 00:03:59,334
+59
+00:03:49,548 --> 00:03:53,682
 Tiene doscientos cincuenta
 y cinco millones de años.
 
-45
-00:03:59,334 --> 00:04:02,789
+60
+00:03:53,722 --> 00:03:59,943
 Es el mismo tumor que hoy un
 dentista extrae a una persona.
 
-46
-00:04:02,789 --> 00:04:05,629
+61
+00:04:00,683 --> 00:04:04,805
 Lo que buscaban era otra
 cosa, igual de reveladora.
 
-47
-00:04:13,977 --> 00:04:18,729
+62
+00:04:04,845 --> 00:04:09,891
 En casi todos los reptiles, el
 diente está soldado al hueso.
 
-48
-00:04:18,729 --> 00:04:20,457
+63
+00:04:09,931 --> 00:04:11,740
 En los mamíferos no:
 
-49
-00:04:20,457 --> 00:04:24,345
+64
+00:04:11,780 --> 00:04:15,902
 lo sostiene una trama de
 ligamentos, firme pero flexible.
 
-50
-00:04:24,345 --> 00:04:28,233
+65
+00:04:15,942 --> 00:04:20,063
 El equipo quería saber de
 qué lado estaba Gorgonops.
 
-51
-00:04:28,233 --> 00:04:31,939
+66
+00:04:20,803 --> 00:04:23,904
 Hay otro fósil que habla de su cuerpo:
 
-52
-00:04:37,965 --> 00:04:41,797
+67
+00:04:23,944 --> 00:04:27,437
 un hueso del antebrazo con
 una herida que cicatrizó.
 
-53
-00:04:41,797 --> 00:04:48,609
+68
+00:04:27,477 --> 00:04:33,718
 El hueso nuevo creció deprisa, más parecido
 a como sana un mamífero que a como sana
 
-54
-00:04:48,609 --> 00:04:49,711
+69
+00:04:33,758 --> 00:04:34,503
 un cocodrilo.
 
-55
-00:05:10,338 --> 00:05:16,123
+70
+00:04:47,203 --> 00:04:50,881
+Compartimos con él la forma de los dientes.
+
+71
+00:04:50,921 --> 00:04:56,923
 Y, por lo visto, también algunas
 de las cosas que pueden salir mal.
+
+72
+00:04:57,663 --> 00:04:58,753
+Comer, curarse, envejecer:
+
+73
+00:04:58,793 --> 00:05:04,027
+en lo esencial, un cuerpo de hace doscientos
+cincuenta millones de años se parece
+
+74
+00:05:04,067 --> 00:05:06,663
+más al nuestro de lo que parece.
 

@@ -1,61 +1,76 @@
 1
-00:00:04,150 --> 00:00:08,468
+00:00:01,350 --> 00:00:06,175
 Doscientos cincuenta millones de años
 es una cifra que no se puede sentir.
 
 2
-00:00:08,468 --> 00:00:09,132
+00:00:06,215 --> 00:00:06,923
 Probemos así:
 
 3
-00:00:09,132 --> 00:00:14,779
+00:00:06,963 --> 00:00:13,285
 si cada año fuera un paso, habría que dar
 más de cuatro vueltas a la Tierra para
 
 4
-00:00:14,779 --> 00:00:17,022
+00:00:13,325 --> 00:00:15,530
 llegar desde aquel valle hasta hoy.
 
 5
-00:00:26,062 --> 00:00:30,796
+00:00:16,270 --> 00:00:21,116
+Los primeros mamíferos aparecen hace
+más de doscientos millones de años:
+
+6
+00:00:21,156 --> 00:00:24,669
+pequeños, probablemente nocturnos,
+del tamaño de un ratón.
+
+7
+00:00:24,709 --> 00:00:29,110
+Durante mucho tiempo vivieron
+a la sombra de los dinosaurios.
+
+8
+00:00:29,850 --> 00:00:35,604
 En esos pasos, el pequeño animal de
 los helechos se convirtió en todo esto.
 
-6
-00:00:30,796 --> 00:00:32,825
+9
+00:00:35,644 --> 00:00:38,087
 En algo que vuela de noche.
 
-7
-00:00:32,825 --> 00:00:35,193
+10
+00:00:38,127 --> 00:00:40,984
 En algo que canta bajo el agua.
 
-8
-00:00:35,193 --> 00:00:39,501
+11
+00:00:41,024 --> 00:00:45,950
 En algo que mira hacia atrás
 y se pregunta de dónde viene.
 
-9
-00:00:48,162 --> 00:00:50,364
+12
+00:00:46,690 --> 00:00:48,810
 Ninguno de esos pasos fue grande.
 
-10
-00:00:50,364 --> 00:00:52,199
+13
+00:00:48,850 --> 00:00:50,610
 Un diente un poco distinto.
 
-11
-00:00:52,199 --> 00:00:54,401
+14
+00:00:50,650 --> 00:00:52,770
 Un hueso un poco más pequeño.
 
-12
-00:00:54,401 --> 00:00:57,220
+15
+00:00:52,810 --> 00:00:55,290
 Una cría que sobrevive un invierno más.
 
-13
-00:01:14,569 --> 00:01:17,645
+16
+00:01:13,270 --> 00:01:18,627
 Darwin escribió eso sin haber
 visto nunca un fósil de Gorgonops.
 
-14
-00:01:17,645 --> 00:01:19,013
+17
+00:01:18,667 --> 00:01:20,590
 No le hizo falta.
 

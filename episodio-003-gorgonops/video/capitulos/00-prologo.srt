@@ -1,68 +1,115 @@
 1
-00:00:24,150 --> 00:00:28,706
+00:00:16,350 --> 00:00:21,510
 Hace doscientos cincuenta y cinco millones
 de años, este valle no tenía nombre.
 
 2
-00:00:35,867 --> 00:00:36,970
+00:00:23,450 --> 00:00:24,915
 No había flores.
 
 3
-00:00:36,970 --> 00:00:38,073
+00:00:24,955 --> 00:00:26,421
 No había hierba.
 
 4
-00:00:38,073 --> 00:00:40,161
+00:00:26,461 --> 00:00:28,930
 Ningún ave cruzaba el cielo.
 
 5
-00:00:43,258 --> 00:00:44,584
+00:00:29,670 --> 00:00:31,604
 Todo eso llegará mucho después.
 
 6
-00:00:44,584 --> 00:00:46,440
+00:00:31,644 --> 00:00:34,366
 Lo que hay aquí es más antiguo:
 
 7
-00:00:46,440 --> 00:00:50,418
+00:00:34,406 --> 00:00:40,287
 helechos, colas de caballo, y unos árboles
 de hojas con forma de lengua que hoy
 
 8
-00:00:50,418 --> 00:00:52,524
+00:00:40,327 --> 00:00:43,050
 solo conocemos como huellas en la piedra.
 
 9
-00:01:05,794 --> 00:01:09,267
+00:00:43,790 --> 00:00:45,906
+No se oye ningún canto de pájaro.
+
+10
+00:00:45,946 --> 00:00:51,450
+Lo que se oye es el agua, el viento entre
+las colas de caballo y el zumbido de
+
+11
+00:00:51,490 --> 00:00:54,530
+insectos que ya volaban desde mucho
+antes que cualquier vertebrado.
+
+12
+00:00:56,442 --> 00:00:59,084
+El mundo tampoco se parece al nuestro.
+
+13
+00:00:59,124 --> 00:01:03,682
 Casi toda la tierra firme está
 unida en un solo continente, Pangea.
 
-10
-00:01:09,267 --> 00:01:12,701
+14
+00:01:04,422 --> 00:01:08,376
 Y este valle queda en su
 extremo sur, lejos del ecuador,
 
-11
-00:01:16,937 --> 00:01:22,562
+15
+00:01:08,416 --> 00:01:13,822
 donde los inviernos son fríos y los ríos
 crecen y se secan con las estaciones.
 
-12
-00:01:22,562 --> 00:01:25,813
+16
+00:01:14,562 --> 00:01:17,798
 Mucho antes, hace unos
 trescientos millones de años,
 
-13
-00:01:31,671 --> 00:01:35,318
+17
+00:01:17,838 --> 00:01:21,075
 el sur de Gondwana estuvo cubierto de hielo.
 
-14
-00:01:35,318 --> 00:01:39,671
+18
+00:01:21,115 --> 00:01:24,762
 Sus huellas todavía están
 en las rocas del Karoo.
 
-15
-00:01:54,241 --> 00:01:58,487
+19
+00:01:25,502 --> 00:01:28,825
+Pangea es tan grande que su
+interior casi no recibe lluvia.
+
+20
+00:01:28,865 --> 00:01:30,965
+La vida se acomoda a ese ritmo:
+
+21
+00:01:31,005 --> 00:01:34,022
+crece cuando hay agua, y
+espera cuando no la hay.
+
+22
+00:01:37,225 --> 00:01:42,385
 Y sin embargo, alguien
 caminaba por aquí cada mañana.
+
+23
+00:01:43,125 --> 00:01:46,213
+No ha dejado una sola
+huella que podamos señalar.
+
+24
+00:01:46,253 --> 00:01:49,689
+Lo conocemos por sus huesos,
+y los huesos hablan despacio.
+
+25
+00:01:49,729 --> 00:01:53,165
+Pero si uno aprende a escucharlos,
+cuentan una historia sorprendente.
 
