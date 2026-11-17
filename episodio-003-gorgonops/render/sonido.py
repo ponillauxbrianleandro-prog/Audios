@@ -207,6 +207,13 @@ def main():
         bed = ambience(n, 100 + cap, *amb) * 2.6        # el ambiente cubre cualquier hueco (nunca por debajo de ≈ −42 dB)
         vl = [(t, d, textos.get(k, "")) for (t, d, k) in c["voz"]]
         bed += musica(n, escenas, stems, coda, vl, 4000 + cap)
+        # nivelador: el fondo (música + ambiente) nunca baja de ≈ −34 dB de nivel medio, así no hay tramos casi mudos
+        mono = np.abs(bed).mean(1)
+        env = np.sqrt(np.maximum(np.convolve(mono ** 2, np.ones(int(1.0 * SR)) / int(1.0 * SR), "same"), 1e-12))
+        suelo = 10 ** (-34 / 20)
+        ganancia = np.clip(suelo / env, 1.0, 5.0)
+        ganancia = sosfiltfilt(butter(2, 0.8, btype="low", fs=SR, output="sos"), ganancia).astype(np.float32)
+        bed = bed * np.clip(ganancia, 1.0, 5.0)[:, None]
         voz = voz_pista(n, c["voz"])
         # ducking: la música/ambiente bajan ~9 dB mientras habla y suben en los huecos
         env = np.abs(voz)

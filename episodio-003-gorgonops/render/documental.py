@@ -753,7 +753,7 @@ def timeline(scenes):
                 if snip in textos.get(key, ""):
                     g0 = t + dd
                     g1 = vz[i + 1][0] if i + 1 < len(vz) else c["t"]
-                    if g1 - g0 < v + 0.6:
+                    if g1 - g0 < v + 0.4:
                         break
                     ts_ = g0 + 1.0 if i + 1 >= len(vz) else g0 + (g1 - g0 - v) / 2
                     c["voz"].append((ts_, v, k))
