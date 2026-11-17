@@ -521,802 +521,826 @@ Guárdelos en la memoria.
 Vamos a volver a ellos.
 
 116
+00:07:54,089 --> 00:07:56,529
+¿Y cómo la usa?
+
+117
 00:07:56,850 --> 00:07:58,742
 Sus piernas son cortas.
 
-117
+118
 00:07:58,782 --> 00:08:01,640
 No está hecho para persecuciones largas.
 
-118
+119
 00:08:01,680 --> 00:08:06,469
 Creemos que cazaba como cazan hoy
 muchos depredadores de emboscada:
 
-119
+120
 00:08:06,509 --> 00:08:09,850
 esperar, acercarse, un
 mordisco profundo y retirarse.
 
-120
+121
+00:08:10,100 --> 00:08:11,698
+Imaginemos la escena:
+
+122
+00:08:11,738 --> 00:08:15,519
+una espera larga, un instante de velocidad.
+
+123
+00:08:15,559 --> 00:08:19,340
+Y probablemente, muchas veces, gana el hambre.
+
+124
 00:08:19,590 --> 00:08:22,467
 Sus presas eran los herbívoros del valle:
 
-121
+125
 00:08:22,507 --> 00:08:26,217
 dicinodontes como Diictodon, que
 vivían en madrigueras en espiral,
 
-122
+126
 00:08:26,257 --> 00:08:29,550
 y quizá las crías de los
 enormes pareiasaurios.
 
-123
+127
 00:08:30,290 --> 00:08:32,917
 Los dicinodontes eran una presa habitual:
 
-124
+128
 00:08:32,957 --> 00:08:36,028
 numerosos, con dos colmillos y pico córneo.
 
-125
+129
 00:08:36,068 --> 00:08:38,250
 Diictodon cavaba madrigueras en espiral,
 
-126
+130
 00:08:38,290 --> 00:08:42,250
 y esas galerías todavía
 se encuentran en la roca.
 
-127
+131
 00:08:44,190 --> 00:08:46,990
 No hay crueldad en la escena.
 
-128
+132
 00:08:47,030 --> 00:08:49,830
 Hay hambre, que es otra cosa.
 
-129
+133
 00:08:50,570 --> 00:08:53,856
 Probablemente no persiguiera
 nada que no valiera la pena.
 
-130
+134
 00:08:53,896 --> 00:08:58,290
 Para un animal que come poco y
 espera mucho, cada gesto cuesta.
 
-131
+135
+00:08:58,882 --> 00:09:00,842
+Veamos su mandíbula.
+
+136
 00:09:01,433 --> 00:09:07,243
 En 2016, un equipo de la Universidad de
 Washington cortó en láminas la mandíbula de
 
-132
+137
 00:09:07,283 --> 00:09:10,753
 un gorgonópsido para estudiar
 cómo se sujetaban sus dientes.
 
-133
+138
 00:09:11,493 --> 00:09:14,062
 Encontraron algo que no buscaban:
 
-134
+139
 00:09:14,102 --> 00:09:18,758
 un odontoma, un tumor benigno
 hecho de dientes diminutos.
 
-135
+140
 00:09:18,798 --> 00:09:22,932
 Tiene doscientos cincuenta
 y cinco millones de años.
 
-136
+141
 00:09:22,972 --> 00:09:29,193
 Es el mismo tumor que hoy un
 dentista extrae a una persona.
 
-137
+142
 00:09:29,933 --> 00:09:34,055
 Lo que buscaban era otra
 cosa, igual de reveladora.
 
-138
+143
 00:09:34,095 --> 00:09:39,141
 En casi todos los reptiles, el
 diente está soldado al hueso.
 
-139
+144
 00:09:39,181 --> 00:09:40,990
 En los mamíferos no:
 
-140
+145
 00:09:41,030 --> 00:09:45,152
 lo sostiene una trama de
 ligamentos, firme pero flexible.
 
-141
+146
 00:09:45,192 --> 00:09:49,313
 El equipo quería saber de
 qué lado estaba Gorgonops.
 
-142
+147
 00:09:50,053 --> 00:09:53,154
 Hay otro fósil que habla de su cuerpo:
 
-143
+148
 00:09:53,194 --> 00:09:56,687
 un hueso del antebrazo con
 una herida que cicatrizó.
 
-144
+149
 00:09:56,727 --> 00:10:02,968
 El hueso nuevo creció deprisa, más parecido
 a como sana un mamífero que a como sana
 
-145
+150
 00:10:03,008 --> 00:10:03,753
 un cocodrilo.
 
-146
+151
 00:10:16,453 --> 00:10:20,131
 Compartimos con él la forma de los dientes.
 
-147
+152
 00:10:20,171 --> 00:10:26,173
 Y, por lo visto, también algunas
 de las cosas que pueden salir mal.
 
-148
+153
 00:10:26,913 --> 00:10:28,003
 Comer, curarse, envejecer:
 
-149
+154
 00:10:28,043 --> 00:10:33,277
 en lo esencial, un cuerpo de hace doscientos
 cincuenta millones de años se parece
 
-150
+155
 00:10:33,317 --> 00:10:35,913
 más al nuestro de lo que parece.
 
-151
+156
 00:10:39,100 --> 00:10:40,542
 Ningún animal vive solo.
 
-152
+157
 00:10:40,582 --> 00:10:46,100
 A su alrededor hay todo un mundo, y casi
 nada de él nos resultaría familiar.
 
-153
+158
 00:10:46,840 --> 00:10:48,189
 No hay mamíferos.
 
-154
+159
 00:10:48,229 --> 00:10:49,578
 No hay dinosaurios:
 
-155
+160
 00:10:49,618 --> 00:10:54,207
 faltan más de veinte millones
 de años para el primero.
 
-156
+161
 00:10:54,247 --> 00:10:58,836
 Los grandes herbívoros son
 parientes suyos con pico de tortuga,
 
-157
+162
 00:10:58,876 --> 00:11:02,540
 o reptiles acorazados del tamaño de una vaca.
 
-158
+163
 00:11:03,280 --> 00:11:07,424
 Están los pareiasaurios, enormes
 y acorazados, que mastican hojas.
 
-159
+164
 00:11:07,464 --> 00:11:11,607
 Están los terocéfalos, parientes
 lejanos, más pequeños y ágiles.
 
-160
+165
 00:11:11,647 --> 00:11:18,580
 Y están los dicinodontes, que van
 del tamaño de una rata al de un buey.
 
-161
+166
 00:11:31,120 --> 00:11:33,213
 Hasta los árboles cuentan algo.
 
-162
+167
 00:11:33,253 --> 00:11:37,480
 Las hojas de Glossopteris aparecen
 fosilizadas en Sudamérica, en África,
 
-163
+168
 00:11:37,520 --> 00:11:41,320
 en la India, en Australia y en la Antártida.
 
-164
+169
 00:11:42,060 --> 00:11:47,387
 Durante décadas nadie supo explicar cómo
 un mismo árbol había cruzado tantos
 
-165
+170
 00:11:47,427 --> 00:11:47,835
 océanos.
 
-166
+171
 00:11:47,875 --> 00:11:49,176
 No los cruzó.
 
-167
+172
 00:11:49,216 --> 00:11:51,860
 Los océanos todavía no estaban ahí.
 
-168
+173
+00:11:52,218 --> 00:11:54,658
+Pero hay más.
+
+174
 00:11:55,017 --> 00:11:58,657
 Y entre todos ellos, hay
 uno que casi nadie ve.
 
-169
+175
 00:11:59,397 --> 00:12:00,547
 Mide medio metro.
 
-170
+176
 00:12:00,587 --> 00:12:01,737
 Se llama Procynosuchus.
 
-171
+177
 00:12:01,777 --> 00:12:04,117
 Come insectos y lo que puede.
 
-172
+178
 00:12:04,157 --> 00:12:08,877
 Pasa buena parte de su vida escondiéndose
 de animales como el nuestro.
 
-173
+179
 00:12:10,817 --> 00:12:14,577
 No tiene nada de especial.
 
-174
+180
 00:12:14,617 --> 00:12:15,337
 Todavía.
 
-175
+181
 00:12:16,077 --> 00:12:19,244
 Su paladar ya separa la boca de la nariz,
 
-176
+182
 00:12:19,284 --> 00:12:21,739
 lo que permite respirar mientras se mastica:
 
-177
+183
 00:12:21,779 --> 00:12:27,442
 una pista técnica, pero una de las que lo
 ponen del lado de los futuros mamíferos.
 
-178
+184
 00:12:27,482 --> 00:12:29,937
 Y algunos investigadores
 creen que nadaba bien.
 
-179
+185
 00:12:33,058 --> 00:12:35,174
 Las sequías son parte de su vida.
 
-180
+186
 00:12:35,214 --> 00:12:39,178
 Los ríos de este valle siempre crecieron
 y se secaron con las estaciones.
 
-181
+187
 00:12:39,918 --> 00:12:45,803
 Pero las capas de roca de esta región
 cuentan que, hacia el final de su tiempo,
 
-182
+188
 00:12:45,843 --> 00:12:47,284
 algo empezó a cambiar.
 
-183
+189
 00:12:47,324 --> 00:12:49,506
 Las sequías se hicieron más largas.
 
-184
+190
 00:12:49,546 --> 00:12:52,098
 Los ríos, más violentos y más breves.
 
-185
+191
 00:12:52,838 --> 00:12:55,548
 En la roca se leen los años secos:
 
-186
+192
 00:12:55,588 --> 00:12:59,329
 grietas de barro, bancos de
 arena, ríos que cambian de cauce.
 
-187
+193
 00:12:59,369 --> 00:13:02,078
 Es un archivo del clima, escrito en capas.
 
-188
+194
 00:13:04,018 --> 00:13:05,555
 Él no puede saberlo.
 
-189
+195
 00:13:05,595 --> 00:13:09,498
 Solo nota que hay que caminar
 más para encontrar agua.
 
-190
+196
 00:13:11,442 --> 00:13:15,402
 ¿Recuerda la bruma del horizonte?
 
-191
+197
 00:13:16,142 --> 00:13:22,639
 Al otro lado del continente, en lo que hoy
 es Siberia, la Tierra se está abriendo.
 
-192
+198
 00:13:22,679 --> 00:13:23,865
 No un volcán:
 
-193
+199
 00:13:23,905 --> 00:13:27,133
 una región entera, del
 tamaño de Europa occidental,
 
-194
+200
 00:13:27,173 --> 00:13:30,402
 derramando lava durante
 cientos de miles de años.
 
-195
+201
 00:13:31,142 --> 00:13:34,639
 Los gases que salen de ahí
 están cambiando el aire,
 
-196
+202
 00:13:34,679 --> 00:13:37,822
 la lluvia y la temperatura de todo el planeta.
 
-197
+203
 00:13:38,562 --> 00:13:42,762
 Lo que viene se conoce como la
 extinción del final del Pérmico,
 
-198
+204
 00:13:42,802 --> 00:13:45,235
 la mayor que ha registrado la vida:
 
-199
+205
 00:13:45,275 --> 00:13:50,888
 desaparecerá la gran mayoría de las especies
 del mar y buena parte de las de tierra
 
-200
+206
 00:13:50,928 --> 00:13:51,242
 firme.
 
-201
+207
 00:13:51,982 --> 00:13:53,727
 Y no fue una explosión.
 
-202
+208
 00:13:53,767 --> 00:13:59,440
 Fue un proceso con pulsos, y el golpe más
 duro se concentra en unas pocas decenas
 
-203
+209
 00:13:59,480 --> 00:14:00,868
 de miles de años:
 
-204
+210
 00:14:00,908 --> 00:14:04,082
 poco para la geología, muchísimo
 para quien vive dentro.
 
-205
+211
 00:14:17,182 --> 00:14:19,385
 Los grandes cazadores cayeron primero.
 
-206
+212
 00:14:19,425 --> 00:14:20,283
 Siempre pasa:
 
-207
+213
 00:14:20,323 --> 00:14:27,013
 son pocos, crecen despacio, y dependen
 de que todo lo que está debajo de ellos
 
-208
+214
 00:14:27,053 --> 00:14:27,462
 funcione.
 
-209
+215
 00:14:30,642 --> 00:14:36,522
 Hasta aquí le hemos contado esta historia
 como si él fuera el comienzo de algo.
 
-210
+216
 00:14:38,462 --> 00:14:39,702
 No lo es.
 
-211
+217
 00:14:41,642 --> 00:14:43,959
 Los gorgonópsidos no dejaron descendientes.
 
-212
+218
 00:14:43,999 --> 00:14:44,902
 Ni uno.
 
-213
+219
 00:14:44,942 --> 00:14:48,202
 Su linaje entero termina en esta crisis,
 
-214
+220
 00:14:48,242 --> 00:14:51,973
 hace doscientos cincuenta
 y dos millones de años.
 
-215
+221
 00:14:52,013 --> 00:14:54,802
 Ningún animal vivo lleva su sangre.
 
-216
+222
 00:14:56,742 --> 00:14:59,299
 El futuro estaba en otra parte.
 
-217
+223
 00:14:59,339 --> 00:15:04,062
 Estaba en el animal pequeño que
 se escondía entre los helechos.
 
-218
+224
 00:15:04,802 --> 00:15:06,744
 Sobreviven los que pueden esperar:
 
-219
+225
 00:15:06,784 --> 00:15:11,503
 los que comen poco, los que cavan,
 los que se reproducen deprisa.
 
-220
+226
 00:15:11,543 --> 00:15:13,882
 No es una cuestión de fuerza.
 
-221
+227
 00:15:14,622 --> 00:15:18,435
 Los cinodontes, su grupo,
 son primos de Gorgonops:
 
-222
+228
 00:15:18,475 --> 00:15:19,881
 comparten un antepasado.
 
-223
+229
 00:15:19,921 --> 00:15:26,143
 Y de todos los primos, fueron ellos
 los que cruzaron al otro lado.
 
-224
+230
 00:15:26,183 --> 00:15:31,442
 Pequeños, capaces de refugiarse bajo
 tierra, de comer casi cualquier cosa.
 
-225
+231
 00:15:32,182 --> 00:15:38,462
 De ellos, decenas de millones de años
 después, saldrán los primeros mamíferos.
 
-226
+232
 00:15:39,202 --> 00:15:44,652
 En las rocas que vienen justo después
 de la catástrofe, en este mismo valle,
 
-227
+233
 00:15:44,692 --> 00:15:48,574
 los paleontólogos encuentran
 una y otra vez la misma escena:
 
-228
+234
 00:15:48,614 --> 00:15:51,712
 un cinodonte del tamaño
 de un gato, Thrinaxodon,
 
-229
+235
 00:15:51,752 --> 00:15:55,242
 fosilizado dentro de su madriguera,
 enroscado sobre sí mismo.
 
-230
+236
 00:15:55,982 --> 00:15:59,942
 El mundo de arriba se
 había vuelto inhabitable.
 
-231
+237
 00:15:59,982 --> 00:16:01,942
 Ellos lo esperaron abajo.
 
-232
+238
 00:16:02,682 --> 00:16:07,312
 También cruza al otro lado Lystrosaurus,
 un dicinodonte pequeño y robusto.
 
-233
+239
 00:16:07,352 --> 00:16:11,134
 Durante un tiempo, en algunas
 rocas del Triásico temprano,
 
-234
+240
 00:16:11,174 --> 00:16:13,682
 casi todos los fósiles son suyos.
 
-235
+241
 00:16:27,817 --> 00:16:31,857
 ¿Recuerda los dos huesos
 del fondo de la mandíbula?
 
-236
+242
 00:16:32,597 --> 00:16:36,871
 En Gorgonops, y en todos sus parientes,
 servían para articular la boca.
 
-237
+243
 00:16:36,911 --> 00:16:41,545
 En el linaje de los cinodontes,
 a lo largo de millones de años,
 
-238
+244
 00:16:41,585 --> 00:16:44,061
 esos huesos se fueron haciendo más pequeños.
 
-239
+245
 00:16:44,101 --> 00:16:45,859
 Se soltaron de la mandíbula.
 
-240
+246
 00:16:45,899 --> 00:16:47,657
 Y terminaron en otro lugar.
 
-241
+247
 00:16:48,397 --> 00:16:52,550
 El camino fue gradual y quedó
 escrito en fósiles intermedios:
 
-242
+248
 00:16:52,590 --> 00:16:58,001
 huesos de la mandíbula cada vez más
 pequeños, y una segunda articulación, nueva,
 
-243
+249
 00:16:58,041 --> 00:17:00,517
 que se va formando por delante.
 
-244
+250
 00:17:01,257 --> 00:17:03,927
 Hoy se llaman martillo y yunque.
 
-245
+251
 00:17:03,967 --> 00:17:06,186
 Están dentro de su oído.
 
-246
+252
 00:17:06,226 --> 00:17:08,897
 Con ellos está escuchando esta frase.
 
-247
+253
 00:17:10,837 --> 00:17:13,429
 No hace falta creerlo por los fósiles.
 
-248
+254
 00:17:13,469 --> 00:17:16,813
 En cada embrión de mamífero,
 también en el nuestro,
 
-249
+255
 00:17:16,853 --> 00:17:20,197
 esos huesecillos empiezan a
 formarse pegados a la mandíbula,
 
-250
+256
 00:17:20,237 --> 00:17:22,077
 y solo después se separan.
 
-251
+257
 00:17:22,817 --> 00:17:24,908
 Gorgonops no nos dio esos huesos.
 
-252
+258
 00:17:24,948 --> 00:17:25,973
 Pero los tenía.
 
-253
+259
 00:17:26,013 --> 00:17:31,657
 Mirarlo a él es mirar cómo era nuestra
 familia antes de que nada de esto ocurriera.
 
-254
+260
 00:17:34,808 --> 00:17:39,633
 Doscientos cincuenta millones de años
 es una cifra que no se puede sentir.
 
-255
+261
 00:17:39,673 --> 00:17:40,381
 Probemos así:
 
-256
+262
 00:17:40,421 --> 00:17:46,743
 si cada año fuera un paso, habría que dar
 más de cuatro vueltas a la Tierra para
 
-257
+263
 00:17:46,783 --> 00:17:48,988
 llegar desde aquel valle hasta hoy.
 
-258
+264
 00:17:49,728 --> 00:17:54,574
 Los primeros mamíferos aparecen hace
 más de doscientos millones de años:
 
-259
+265
 00:17:54,614 --> 00:17:58,127
 pequeños, probablemente nocturnos,
 del tamaño de un ratón.
 
-260
+266
 00:17:58,167 --> 00:18:02,568
 Durante mucho tiempo vivieron
 a la sombra de los dinosaurios.
 
-261
+267
 00:18:03,308 --> 00:18:09,062
 En esos pasos, el pequeño animal de
 los helechos se convirtió en todo esto.
 
-262
+268
 00:18:09,102 --> 00:18:11,545
 En algo que vuela de noche.
 
-263
+269
 00:18:11,585 --> 00:18:14,442
 En algo que canta bajo el agua.
 
-264
+270
 00:18:14,482 --> 00:18:19,408
 En algo que mira hacia atrás
 y se pregunta de dónde viene.
 
-265
+271
 00:18:20,148 --> 00:18:22,268
 Ninguno de esos pasos fue grande.
 
-266
+272
 00:18:22,308 --> 00:18:24,068
 Un diente un poco distinto.
 
-267
+273
 00:18:24,108 --> 00:18:26,228
 Un hueso un poco más pequeño.
 
-268
+274
 00:18:26,268 --> 00:18:28,748
 Una cría que sobrevive un invierno más.
 
-269
+275
 00:18:46,728 --> 00:18:52,086
 Darwin escribió eso sin haber
 visto nunca un fósil de Gorgonops.
 
-270
+276
 00:18:52,126 --> 00:18:54,048
 No le hizo falta.
 
-271
+277
 00:18:57,142 --> 00:19:00,222
 Volvamos a él.
 
-272
+278
 00:19:00,962 --> 00:19:03,108
 Ya sabemos cómo termina su historia.
 
-273
+279
 00:19:03,148 --> 00:19:06,388
 Sabemos que su familia no llegó al otro lado,
 
-274
+280
 00:19:06,428 --> 00:19:10,762
 y que el futuro pasó junto
 a él sin que lo notara.
 
-275
+281
 00:19:11,502 --> 00:19:13,337
 Mientras tanto, el sol sube.
 
-276
+282
 00:19:13,377 --> 00:19:20,090
 Las colas de caballo se mueven con el viento
 y el agua sigue su camino hacia el mar.
 
-277
+283
 00:19:20,130 --> 00:19:23,842
 Es una mañana corriente,
 y es la única que tiene.
 
-278
+284
 00:19:24,582 --> 00:19:26,622
 Él no sabe nada de eso.
 
-279
+285
 00:19:28,562 --> 00:19:32,127
 No sabe que su boca se parece a la nuestra.
 
-280
+286
 00:19:32,167 --> 00:19:38,618
 No sabe qué son los huesos del oído, ni
 qué es un mamífero, ni qué es el futuro.
 
-281
+287
 00:19:38,658 --> 00:19:41,142
 No estaba intentando llegar a ninguna parte.
 
-282
+288
 00:19:41,882 --> 00:19:44,882
 Tenía sed, y vino al río.
 
-283
+289
 00:19:46,822 --> 00:19:53,534
 A veces contamos la evolución como
 si fuera una carrera con una meta.
 
-284
+290
 00:19:53,574 --> 00:19:55,092
 No lo es.
 
-285
+291
 00:19:55,132 --> 00:19:56,130
 Nadie corría.
 
-286
+292
 00:19:56,170 --> 00:20:03,402
 Había un animal grande y un animal
 pequeño, cada uno ocupado en su mañana.
 
-287
+293
 00:20:04,142 --> 00:20:09,280
 Uno de los dos resultó ser nuestro antepasado.
 
-288
+294
 00:20:09,320 --> 00:20:11,222
 El otro, no.
 
-289
+295
 00:20:11,962 --> 00:20:13,871
 Ninguno lo supo nunca.
 
-290
+296
 00:20:13,911 --> 00:20:17,282
 Y los dos estuvieron,
 exactamente igual, vivos.
 
-291
+297
 00:20:19,222 --> 00:20:25,422
 La vida no necesita conocer su destino
 para hacer cosas extraordinarias.
 
-292
+298
 00:20:26,162 --> 00:20:29,242
 Le basta con seguir.
 
-293
+299
 00:20:30,282 --> 00:20:32,924
 Este documental es una reconstrucción animada.
 
-294
+300
 00:20:32,964 --> 00:20:37,842
 Los datos, las citas y las
 fuentes están en la descripción.
