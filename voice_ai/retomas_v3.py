@@ -79,7 +79,7 @@ for n, o in enumerate(cola):
     nw = len(o["text"].split())
     mejor, mf, mdev = None, None, exist.get(k) and dev(exist[k]) or 99.0
     for toma in range(4):
-        x, sr = sintetizar(o["text"], 5000 + 17 * n + toma)
+        x, sr = sintetizar(o["text"], 9000 + 31 * n + toma)
         mt = metr(x, sr, nw); ff = f0(x, sr); dv = dev(ff)
         ok = mt["clip"] == 0 and 0.25 <= mt["spw"] <= 0.80 + 1.0 / max(nw, 1)
         if ok and dv < mdev:
