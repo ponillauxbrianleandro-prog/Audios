@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Genera la narración del episodio 003 a partir de guion.md, con la voz clonada.
+"""Genera la narración del episodio 004 a partir de guion.md, con la voz clonada.
 
 Voz: Qwen3-TTS 0.6B Base clonando el audio de referencia (REFERENCIA).
 Se ejecuta con el entorno de voice_ai:
-    voice_ai/.venv/bin/python episodio-003-pecari/generar_audio.py [--rapido]
-Salida en audio/: escena-N.wav/.srt, episodio-003-voz.wav/.srt y escenas.json (tiempos por escena).
+    voice_ai/.venv/bin/python episodio-004-tuco-tuco/generar_audio.py [--rapido]
+Salida en audio/: escena-N.wav/.srt, episodio-004-voz.wav/.srt y escenas.json (tiempos por escena).
 La voz queda limpia: solo se recortan silencios, se acelera un poco (atempo) y se normaliza el pico.
 No se aplica eco, reverb ni distorsión.
 """
@@ -170,8 +170,8 @@ def main():
         print(f"{titulo}: {len(pcm) / 2 / FRECUENCIA:.1f} s", flush=True)
 
     completo += silencio(0.5)
-    guardar_wav(completo, SALIDA / "episodio-003-voz.wav")
-    guardar_srt(cues_completo, SALIDA / "episodio-003-voz.srt")
+    guardar_wav(completo, SALIDA / "episodio-004-voz.wav")
+    guardar_srt(cues_completo, SALIDA / "episodio-004-voz.srt")
     (SALIDA / "escenas.json").write_text(json.dumps(tiempos, ensure_ascii=False, indent=2))
     print(f"Total: {len(completo) / 2 / FRECUENCIA:.1f} s")
 

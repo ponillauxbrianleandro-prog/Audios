@@ -5,8 +5,8 @@ Sin eco, sin reverb y sin distorsión: solo ondas sintéticas con envolventes su
 La energía cambia por escena (INTENSIDAD) para que el fondo sea irregular según lo que se muestra.
 La música baja sola cuando habla la voz (sidechaincompress, que no agrega ningún efecto al sonido).
 
-Uso: python3 musica.py   (requiere audio/episodio-003-voz.wav y audio/escenas.json)
-Salida: audio/musica.wav, audio/episodio-003-final.mp3
+Uso: python3 musica.py   (requiere audio/episodio-004-voz.wav y audio/escenas.json)
+Salida: audio/musica.wav, audio/episodio-004-final.mp3
 """
 import json
 import subprocess
@@ -121,7 +121,7 @@ def sintetizar(duracion, escenas):
 
 def main():
     escenas = json.loads((SALIDA / "escenas.json").read_text())
-    voz = SALIDA / "episodio-003-voz.wav"
+    voz = SALIDA / "episodio-004-voz.wav"
     dur = float(subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(voz)],
         capture_output=True, text=True, check=True).stdout)
@@ -140,9 +140,9 @@ def main():
     subprocess.run(
         ["ffmpeg", "-v", "error", "-y", "-i", str(voz), "-i", str(musica),
          "-filter_complex", filtro, "-map", "[o]", "-codec:a", "libmp3lame", "-b:a", "192k",
-         str(SALIDA / "episodio-003-final.mp3")],
+         str(SALIDA / "episodio-004-final.mp3")],
         check=True)
-    print("Listo:", SALIDA / "episodio-003-final.mp3")
+    print("Listo:", SALIDA / "episodio-004-final.mp3")
 
 
 if __name__ == "__main__":
