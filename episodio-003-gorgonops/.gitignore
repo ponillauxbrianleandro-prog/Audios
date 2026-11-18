@@ -13,3 +13,4 @@ video/*.log
 video/*.txt
 video/capitulos/*.mp4
 video/gorgonops-completo-*.mp4
+video/_tmp_audio/

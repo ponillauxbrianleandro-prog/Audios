@@ -10,3 +10,6 @@ referencia_v2_raw.wav
 prueba_v2_*.wav
 duraciones.json
 narracion_v2.log
+cache_v3/
+narracion_v3.log
+referencia_v3.wav

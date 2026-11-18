@@ -1,0 +1,722 @@
+[
+ {
+  "key": "4282cea707a2",
+  "cap": 0,
+  "escena": "1 · El valle",
+  "text": "Hace doscientos cincuenta y cinco millones de años, este valle no tenía nombre."
+ },
+ {
+  "key": "8c5a1bb068ff",
+  "cap": 0,
+  "escena": "1 · El valle",
+  "text": "No había flores. No había hierba. Ningún ave cruzaba el cielo."
+ },
+ {
+  "key": "725971056c1a",
+  "cap": 0,
+  "escena": "1 · El valle",
+  "text": "Todo eso llegará mucho después. Lo que hay aquí es más antiguo: helechos, colas de caballo, y unos árboles de hojas con forma de lengua que hoy solo conocemos como huellas en la piedra."
+ },
+ {
+  "key": "02c12c9f8ed4",
+  "cap": 0,
+  "escena": "1 · El valle",
+  "text": "No se oye ningún canto de pájaro. Lo que se oye es el agua, el viento entre las colas de caballo y el zumbido de insectos que ya volaban desde mucho antes que cualquier vertebrado."
+ },
+ {
+  "key": "8c71399db1af",
+  "cap": 0,
+  "escena": "2 · Un solo continente",
+  "text": "El mundo tampoco se parece al nuestro. Casi toda la tierra firme está unida en un solo continente, Pangea."
+ },
+ {
+  "key": "27f76b094131",
+  "cap": 0,
+  "escena": "2 · Un solo continente",
+  "text": "Y este valle queda en su extremo sur, lejos del ecuador, donde los inviernos son fríos y los ríos crecen y se secan con las estaciones."
+ },
+ {
+  "key": "b7039390b1a1",
+  "cap": 0,
+  "escena": "2 · Un solo continente",
+  "text": "Mucho antes, hace unos trescientos millones de años, el sur de Gondwana estuvo cubierto de hielo. Sus huellas todavía están en las rocas del Karoo."
+ },
+ {
+  "key": "a12ef79d23a2",
+  "cap": 0,
+  "escena": "2 · Un solo continente",
+  "text": "Pangea es tan grande que su interior casi no recibe lluvia. La vida se acomoda a ese ritmo: crece cuando hay agua, y espera cuando no la hay."
+ },
+ {
+  "key": "f410fa8c100a",
+  "cap": 0,
+  "escena": "3 · Alguien",
+  "text": "Y sin embargo, alguien caminaba por aquí cada mañana."
+ },
+ {
+  "key": "a668a0374cea",
+  "cap": 0,
+  "escena": "3 · Alguien",
+  "text": "No ha dejado una sola huella que podamos señalar. Lo conocemos por sus huesos, y los huesos hablan despacio. Pero si uno aprende a escucharlos, cuentan una historia sorprendente."
+ },
+ {
+  "key": "493b0fe0fc2a",
+  "cap": 1,
+  "escena": "4 · Presentación",
+  "text": "Se llama Gorgonops. El nombre es nuestro, claro, y es exagerado: significa «cara de gorgona»."
+ },
+ {
+  "key": "5b731ce10400",
+  "cap": 1,
+  "escena": "4 · Presentación",
+  "text": "Mide un metro y medio, quizá dos. Pesa lo que un perro grande. Tiene el cuerpo en forma de barril, la cola corta, y una cara que parece permanentemente concentrada en una sola idea: encontrar algo que comer."
+ },
+ {
+  "key": "144a561abc38",
+  "cap": 1,
+  "escena": "4 · Presentación",
+  "text": "Sus ojos miran bastante hacia adelante, lo que probablemente le daba visión en profundidad. De qué color era, en cambio, no lo sabemos: no hay piel fosilizada. Lo que ve en pantalla es una reconstrucción prudente, no una fotografía."
+ },
+ {
+  "key": "3709bd2f650a",
+  "cap": 1,
+  "escena": "4 · Presentación",
+  "text": "Es fácil mirarlo y pensar que es un animal sencillo. Vamos a pasar los próximos veinte minutos comprobando cuánto nos equivocamos."
+ },
+ {
+  "key": "62092495412e",
+  "cap": 1,
+  "escena": "5 · La mañana",
+  "text": "Bebe. Olfatea. Sabemos, por las cavidades de su cráneo, que el olfato era uno de sus sentidos principales."
+ },
+ {
+  "key": "985c703d9eed",
+  "cap": 1,
+  "escena": "5 · La mañana",
+  "text": "El agua es el centro de todo. Aquí beben los herbívoros, aquí se acercan los cazadores, y aquí las huellas se hunden en el barro y, a veces, se conservan millones de años."
+ },
+ {
+  "key": "d30e460dd7d4",
+  "cap": 1,
+  "escena": "5 · La mañana",
+  "text": "Probablemente este valle era, para él, sobre todo un mapa de olores."
+ },
+ {
+  "key": "d9791c26f802",
+  "cap": 1,
+  "escena": "5 · La mañana",
+  "text": "Un depredador que vive junto a un río de estaciones aprende a leer el calendario: el nivel del agua, la sombra, el olor de la tierra mojada."
+ },
+ {
+  "key": "77fd8696645d",
+  "cap": 1,
+  "escena": "5b · Cómo lo sabemos",
+  "text": "Todo lo que vamos a contar sale de la piedra. El primer cráneo de Gorgonops apareció en el Karoo sudafricano, y el anatomista Richard Owen lo describió en 1876."
+ },
+ {
+  "key": "31a6ba4a7501",
+  "cap": 1,
+  "escena": "5b · Cómo lo sabemos",
+  "text": "Los paleontólogos que recorren el Karoo caminan sobre el fondo de antiguos ríos. Los huesos aparecen dentro de nódulos de roca, y hay que abrirlos con cuidado, a veces durante muchas horas, para llegar a ellos."
+ },
+ {
+  "key": "7e45e59a9a82",
+  "cap": 1,
+  "escena": "5b · Cómo lo sabemos",
+  "text": "Desde entonces, esa cuenca ha entregado miles de fósiles de sus parientes: es el archivo más completo que existe sobre el origen de nuestro propio linaje."
+ },
+ {
+  "key": "17b5e3d62883",
+  "cap": 1,
+  "escena": "5b · Cómo lo sabemos",
+  "text": "Cuando en este documental digamos «sabemos», habrá un hueso detrás. Cuando digamos «creemos», le estaremos avisando de que es una deducción."
+ },
+ {
+  "key": "bce6d2e1f462",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "Durante mucho tiempo se llamó a los animales como él «reptiles mamiferoides». Es un nombre equivocado."
+ },
+ {
+  "key": "345a484bcadc",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "No es un reptil. Tampoco es un mamífero."
+ },
+ {
+  "key": "bfd9f7cc5541",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "Es otra cosa, y esa otra cosa tuvo su propio mundo: durante decenas de millones de años, los sinápsidos fueron los animales dominantes de la tierra."
+ },
+ {
+  "key": "8dd251d19701",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "Detrás de cada ojo, su cráneo tiene una única abertura. Esa abertura define a un linaje entero, los sinápsidos. Y ese linaje se separó del de los reptiles muchísimo antes de que existiera el primer dinosaurio."
+ },
+ {
+  "key": "a6565e46a012",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "Ken Angielczyk, paleontólogo, dice: Los gorgonópsidos están más emparentados con los mamíferos que con cualquier otro animal vivo."
+ },
+ {
+  "key": "450a77db72a0",
+  "cap": 1,
+  "escena": "6 · Ni reptil ni mamífero",
+  "text": "Dicho de otro modo: si este animal tuviera que buscar a sus parientes vivos más cercanos, no los encontraría entre los lagartos ni entre los cocodrilos. Nos encontraría a nosotros."
+ },
+ {
+  "key": "68ef49588c05",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "Mírelo caminar. Las patas de adelante se abren hacia los lados. Las de atrás, en cambio, ya trabajan más debajo del cuerpo."
+ },
+ {
+  "key": "59637ff9d67a",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "Es un cuerpo que está, por así decirlo, a mitad de una frase. Ni se arrastra ni corre como lo hará un lobo. Pero para su mundo es un caminante eficaz: puede recorrer la llanura sin detenerse a cada paso."
+ },
+ {
+  "key": "a84505e0b95b",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "En lo alto del cráneo tiene, además, un pequeño orificio. Ahí se alojaba un tercer ojo. No formaba imágenes: medía la luz. Le decía a su cuerpo cuánto duraba el día y en qué estación estaba."
+ },
+ {
+  "key": "857de13dcf3a",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "Nosotros conservamos lo que queda de ese órgano, hundido en el cerebro: la glándula pineal, la que regula nuestro sueño."
+ },
+ {
+  "key": "624a0b5f1cef",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "Y eso no es lo más extraño que tiene. Lo más extraño está dentro de la boca."
+ },
+ {
+  "key": "d2d1bf6ea822",
+  "cap": 2,
+  "escena": "7 · Caminar",
+  "text": "La forma de su pecho y de sus huesos sugiere un cuerpo más activo que el de un lagarto. Cuánto más, es una de las preguntas abiertas de la paleontología."
+ },
+ {
+  "key": "32e12f554055",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Un cocodrilo tiene decenas de dientes, y todos son, más o menos, el mismo diente repetido."
+ },
+ {
+  "key": "f33f6db60e46",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Él no."
+ },
+ {
+  "key": "af957c1d0d37",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Adelante tiene incisivos, para sujetar y arrancar. Detrás, dos caninos como sables. Y más atrás, unos pocos dientes pequeños. Tres herramientas distintas en una misma boca."
+ },
+ {
+  "key": "94e740b632fb",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "En los gorgonópsidos más grandes, los caninos pueden superar los diez centímetros. Son largos y aplanados, con el borde a menudo finamente aserrado: sirven más para sujetar y desgarrar que para triturar."
+ },
+ {
+  "key": "fd7cc58cc9af",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Abra usted la suya frente a un espejo. Incisivos. Caninos. Muelas. El plano es el mismo."
+ },
+ {
+  "key": "991ad73e95c5",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Puede abrir la mandíbula más de noventa grados. No mastica: muerde, arranca y traga. Y cuando un sable se rompe, otro crece en su lugar, una y otra vez."
+ },
+ {
+  "key": "59e46cef6341",
+  "cap": 2,
+  "escena": "8 · Tres clases de dientes",
+  "text": "Al fondo de esa mandíbula hay, además, dos huesos pequeños. Guárdelos en la memoria. Vamos a volver a ellos."
+ },
+ {
+  "key": "c7b2ad54633e",
+  "cap": 2,
+  "escena": "9 · La caza",
+  "text": "Sus piernas son cortas. No está hecho para persecuciones largas. Creemos que cazaba como cazan hoy muchos depredadores de emboscada: esperar, acercarse, un mordisco profundo y retirarse."
+ },
+ {
+  "key": "bbf8df530e0f",
+  "cap": 2,
+  "escena": "9 · La caza",
+  "text": "Sus presas eran los herbívoros del valle: dicinodontes como Diictodon, que vivían en madrigueras en espiral, y quizá las crías de los enormes pareiasaurios."
+ },
+ {
+  "key": "49f4dafd4ef6",
+  "cap": 2,
+  "escena": "9 · La caza",
+  "text": "Los dicinodontes eran una presa habitual: numerosos, con dos colmillos y pico córneo. Diictodon cavaba madrigueras en espiral, y esas galerías todavía se encuentran en la roca."
+ },
+ {
+  "key": "9139d5c3abe1",
+  "cap": 2,
+  "escena": "9 · La caza",
+  "text": "No hay crueldad en la escena. Hay hambre, que es otra cosa."
+ },
+ {
+  "key": "e6ba64744051",
+  "cap": 2,
+  "escena": "9 · La caza",
+  "text": "Probablemente no persiguiera nada que no valiera la pena. Para un animal que come poco y espera mucho, cada gesto cuesta."
+ },
+ {
+  "key": "f5c2b39a8e73",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "En 2016, un equipo de la Universidad de Washington cortó en láminas la mandíbula de un gorgonópsido para estudiar cómo se sujetaban sus dientes."
+ },
+ {
+  "key": "4989bf2ffe1a",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Encontraron algo que no buscaban: un odontoma, un tumor benigno hecho de dientes diminutos. Tiene doscientos cincuenta y cinco millones de años. Es el mismo tumor que hoy un dentista extrae a una persona."
+ },
+ {
+  "key": "0a3a4f6cad33",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Lo que buscaban era otra cosa, igual de reveladora. En casi todos los reptiles, el diente está soldado al hueso. En los mamíferos no: lo sostiene una trama de ligamentos, firme pero flexible. El equipo quería saber de qué lado estaba Gorgonops."
+ },
+ {
+  "key": "5b5bef3db8c6",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Hay otro fósil que habla de su cuerpo: un hueso del antebrazo con una herida que cicatrizó. El hueso nuevo creció deprisa, más parecido a como sana un mamífero que a como sana un cocodrilo."
+ },
+ {
+  "key": "c6852f2d6d9a",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Megan Whitney, bióloga, dice: La mayoría de los sinápsidos se han extinguido, y nosotros —es decir, los mamíferos— somos sus únicos descendientes vivos."
+ },
+ {
+  "key": "045db68aee43",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Compartimos con él la forma de los dientes. Y, por lo visto, también algunas de las cosas que pueden salir mal."
+ },
+ {
+  "key": "f011222147f4",
+  "cap": 2,
+  "escena": "10 · Lo que duele igual",
+  "text": "Comer, curarse, envejecer: en lo esencial, un cuerpo de hace doscientos cincuenta millones de años se parece más al nuestro de lo que parece."
+ },
+ {
+  "key": "cae293280005",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "Ningún animal vive solo. A su alrededor hay todo un mundo, y casi nada de él nos resultaría familiar."
+ },
+ {
+  "key": "6b05828668a1",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "No hay mamíferos. No hay dinosaurios: faltan más de veinte millones de años para el primero. Los grandes herbívoros son parientes suyos con pico de tortuga, o reptiles acorazados del tamaño de una vaca."
+ },
+ {
+  "key": "da19e287d788",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "Están los pareiasaurios, enormes y acorazados, que mastican hojas. Están los terocéfalos, parientes lejanos, más pequeños y ágiles. Y están los dicinodontes, que van del tamaño de una rata al de un buey."
+ },
+ {
+  "key": "25e6c777ee9b",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "Ken Angielczyk, paleontólogo, dice: Antes de la época de los dinosaurios hubo una era de antiguos parientes de los mamíferos."
+ },
+ {
+  "key": "d1a2176d2bd1",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "Hasta los árboles cuentan algo. Las hojas de Glossopteris aparecen fosilizadas en Sudamérica, en África, en la India, en Australia y en la Antártida."
+ },
+ {
+  "key": "173376e80da8",
+  "cap": 3,
+  "escena": "11 · El valle habitado",
+  "text": "Durante décadas nadie supo explicar cómo un mismo árbol había cruzado tantos océanos. No los cruzó. Los océanos todavía no estaban ahí."
+ },
+ {
+  "key": "6bbfec93cdd7",
+  "cap": 3,
+  "escena": "12 · El pequeño",
+  "text": "Y entre todos ellos, hay uno que casi nadie ve."
+ },
+ {
+  "key": "047f6531a11c",
+  "cap": 3,
+  "escena": "12 · El pequeño",
+  "text": "Mide medio metro. Se llama Procynosuchus. Come insectos y lo que puede. Pasa buena parte de su vida escondiéndose de animales como el nuestro."
+ },
+ {
+  "key": "d5e3c7cfeaf0",
+  "cap": 3,
+  "escena": "12 · El pequeño",
+  "text": "No tiene nada de especial. Todavía."
+ },
+ {
+  "key": "1c2a430c0649",
+  "cap": 3,
+  "escena": "12 · El pequeño",
+  "text": "Su paladar ya separa la boca de la nariz, lo que permite respirar mientras se mastica: una pista técnica, pero una de las que lo ponen del lado de los futuros mamíferos. Y algunos investigadores creen que nadaba bien."
+ },
+ {
+  "key": "b28f266a355f",
+  "cap": 4,
+  "escena": "13 · La estación seca",
+  "text": "Las sequías son parte de su vida. Los ríos de este valle siempre crecieron y se secaron con las estaciones."
+ },
+ {
+  "key": "8446d4b2597b",
+  "cap": 4,
+  "escena": "13 · La estación seca",
+  "text": "Pero las capas de roca de esta región cuentan que, hacia el final de su tiempo, algo empezó a cambiar. Las sequías se hicieron más largas. Los ríos, más violentos y más breves."
+ },
+ {
+  "key": "c0a3dad50efd",
+  "cap": 4,
+  "escena": "13 · La estación seca",
+  "text": "En la roca se leen los años secos: grietas de barro, bancos de arena, ríos que cambian de cauce. Es un archivo del clima, escrito en capas."
+ },
+ {
+  "key": "84a72f623921",
+  "cap": 4,
+  "escena": "13 · La estación seca",
+  "text": "Él no puede saberlo. Solo nota que hay que caminar más para encontrar agua."
+ },
+ {
+  "key": "5700935d79b5",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "¿Recuerda la bruma del horizonte?"
+ },
+ {
+  "key": "1189392e8136",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Al otro lado del continente, en lo que hoy es Siberia, la Tierra se está abriendo. No un volcán: una región entera, del tamaño de Europa occidental, derramando lava durante cientos de miles de años."
+ },
+ {
+  "key": "8216f43ad4ce",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Los gases que salen de ahí están cambiando el aire, la lluvia y la temperatura de todo el planeta."
+ },
+ {
+  "key": "bb072fdeeef2",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Lo que viene se conoce como la extinción del final del Pérmico, la mayor que ha registrado la vida: desaparecerá la gran mayoría de las especies del mar y buena parte de las de tierra firme."
+ },
+ {
+  "key": "ddcea039bcda",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Y no fue una explosión. Fue un proceso con pulsos, y el golpe más duro se concentra en unas pocas decenas de miles de años: poco para la geología, muchísimo para quien vive dentro."
+ },
+ {
+  "key": "847ba66c28bb",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Pia Viglietti, paleontóloga, dice: Todos los grandes depredadores del Pérmico tardío de Sudáfrica se extinguieron bastante antes de la extinción masiva del final del Pérmico."
+ },
+ {
+  "key": "64141922b330",
+  "cap": 4,
+  "escena": "14 · La bruma tenía dueño",
+  "text": "Los grandes cazadores cayeron primero. Siempre pasa: son pocos, crecen despacio, y dependen de que todo lo que está debajo de ellos funcione."
+ },
+ {
+  "key": "7988b9a06914",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "Hasta aquí le hemos contado esta historia como si él fuera el comienzo de algo."
+ },
+ {
+  "key": "991c930121e5",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "No lo es."
+ },
+ {
+  "key": "014b67ddaa17",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "Los gorgonópsidos no dejaron descendientes. Ni uno. Su linaje entero termina en esta crisis, hace doscientos cincuenta y dos millones de años. Ningún animal vivo lleva su sangre."
+ },
+ {
+  "key": "544bd8b3d91c",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "El futuro estaba en otra parte. Estaba en el animal pequeño que se escondía entre los helechos."
+ },
+ {
+  "key": "f03486e1ccc0",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "Sobreviven los que pueden esperar: los que comen poco, los que cavan, los que se reproducen deprisa. No es una cuestión de fuerza."
+ },
+ {
+  "key": "6b7caacd5d63",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "Los cinodontes, su grupo, son primos de Gorgonops: comparten un antepasado. Y de todos los primos, fueron ellos los que cruzaron al otro lado. Pequeños, capaces de refugiarse bajo tierra, de comer casi cualquier cosa."
+ },
+ {
+  "key": "a37ae2aed4f5",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "De ellos, decenas de millones de años después, saldrán los primeros mamíferos."
+ },
+ {
+  "key": "3ab079a3e3a2",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "En las rocas que vienen justo después de la catástrofe, en este mismo valle, los paleontólogos encuentran una y otra vez la misma escena: un cinodonte del tamaño de un gato, Thrinaxodon, fosilizado dentro de su madriguera, enroscado sobre sí mismo."
+ },
+ {
+  "key": "573bd42d331d",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "El mundo de arriba se había vuelto inhabitable. Ellos lo esperaron abajo."
+ },
+ {
+  "key": "d3505a1a1d0c",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "También cruza al otro lado Lystrosaurus, un dicinodonte pequeño y robusto. Durante un tiempo, en algunas rocas del Triásico temprano, casi todos los fósiles son suyos."
+ },
+ {
+  "key": "eb1e3083465b",
+  "cap": 5,
+  "escena": "15 · La rama que termina",
+  "text": "Christian Kammerer, paleontólogo, dice: Entre los sinápsidos del Pérmico estaban nuestros propios antepasados, y no hay ni de lejos suficiente gente que lo sepa."
+ },
+ {
+  "key": "3b29ba0ff409",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "¿Recuerda los dos huesos del fondo de la mandíbula?"
+ },
+ {
+  "key": "d432730145b2",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "En Gorgonops, y en todos sus parientes, servían para articular la boca. En el linaje de los cinodontes, a lo largo de millones de años, esos huesos se fueron haciendo más pequeños. Se soltaron de la mandíbula. Y terminaron en otro lugar."
+ },
+ {
+  "key": "80bd2b987980",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "El camino fue gradual y quedó escrito en fósiles intermedios: huesos de la mandíbula cada vez más pequeños, y una segunda articulación, nueva, que se va formando por delante."
+ },
+ {
+  "key": "c6e1701f26ec",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "Hoy se llaman martillo y yunque. Están dentro de su oído. Con ellos está escuchando esta frase."
+ },
+ {
+  "key": "2bc262dbe75f",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "No hace falta creerlo por los fósiles. En cada embrión de mamífero, también en el nuestro, esos huesecillos empiezan a formarse pegados a la mandíbula, y solo después se separan."
+ },
+ {
+  "key": "8548503a080d",
+  "cap": 5,
+  "escena": "16 · Los huesos que escuchan",
+  "text": "Gorgonops no nos dio esos huesos. Pero los tenía. Mirarlo a él es mirar cómo era nuestra familia antes de que nada de esto ocurriera."
+ },
+ {
+  "key": "9d1e1cb611ae",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "Doscientos cincuenta millones de años es una cifra que no se puede sentir. Probemos así: si cada año fuera un paso, habría que dar más de cuatro vueltas a la Tierra para llegar desde aquel valle hasta hoy."
+ },
+ {
+  "key": "a51eba893b5b",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "Los primeros mamíferos aparecen hace más de doscientos millones de años: pequeños, probablemente nocturnos, del tamaño de un ratón. Durante mucho tiempo vivieron a la sombra de los dinosaurios."
+ },
+ {
+  "key": "ec285b57f631",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "En esos pasos, el pequeño animal de los helechos se convirtió en todo esto. En algo que vuela de noche. En algo que canta bajo el agua. En algo que mira hacia atrás y se pregunta de dónde viene."
+ },
+ {
+  "key": "3e84d7fdc3ae",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "Ninguno de esos pasos fue grande. Un diente un poco distinto. Un hueso un poco más pequeño. Una cría que sobrevive un invierno más."
+ },
+ {
+  "key": "60ca332c5a51",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "Charles Darwin, el origen de las especies, 1859, dice: …a partir de un comienzo tan sencillo han evolucionado, y siguen evolucionando, infinidad de formas, las más bellas y las más maravillosas."
+ },
+ {
+  "key": "4fa1812b6e87",
+  "cap": 6,
+  "escena": "17 · Las formas sin fin",
+  "text": "Darwin escribió eso sin haber visto nunca un fósil de Gorgonops. No le hizo falta."
+ },
+ {
+  "key": "6b18a57b926d",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Volvamos a él."
+ },
+ {
+  "key": "624643487432",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Ya sabemos cómo termina su historia. Sabemos que su familia no llegó al otro lado, y que el futuro pasó junto a él sin que lo notara."
+ },
+ {
+  "key": "84d5d9ac8e2e",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Mientras tanto, el sol sube. Las colas de caballo se mueven con el viento y el agua sigue su camino hacia el mar. Es una mañana corriente, y es la única que tiene."
+ },
+ {
+  "key": "35656aac80c9",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Él no sabe nada de eso."
+ },
+ {
+  "key": "67e0819a7bbe",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "No sabe que su boca se parece a la nuestra. No sabe qué son los huesos del oído, ni qué es un mamífero, ni qué es el futuro. No estaba intentando llegar a ninguna parte."
+ },
+ {
+  "key": "5f67d86403f6",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Tenía sed, y vino al río."
+ },
+ {
+  "key": "d8b94646efc2",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "A veces contamos la evolución como si fuera una carrera con una meta. No lo es. Nadie corría. Había un animal grande y un animal pequeño, cada uno ocupado en su mañana."
+ },
+ {
+  "key": "83e18801b58e",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Uno de los dos resultó ser nuestro antepasado. El otro, no."
+ },
+ {
+  "key": "3771264d62d3",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Ninguno lo supo nunca. Y los dos estuvieron, exactamente igual, vivos."
+ },
+ {
+  "key": "ea18e014b64e",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "La vida no necesita conocer su destino para hacer cosas extraordinarias."
+ },
+ {
+  "key": "bda31b840aa7",
+  "cap": 7,
+  "escena": "18 · Simplemente vivía",
+  "text": "Le basta con seguir."
+ },
+ {
+  "key": "47d6b66ada51",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Gorgonops torvus. Pérmico tardío."
+ },
+ {
+  "key": "75dc25b6aa12",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Doscientos sesenta a doscientos cincuenta y cuatro millones de años. El linaje, dieciocho."
+ },
+ {
+  "key": "3896be778502",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Setecientos mil kilómetros cuadrados. Radio: cuatrocientos setenta. Y once mil trescientos, hasta Rusia."
+ },
+ {
+  "key": "4aa1c8cc2a84",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Un rango no es un recorrido."
+ },
+ {
+  "key": "22725f4d2808",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Un mundo inmenso."
+ },
+ {
+  "key": "81382c048f55",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Esta es su historia."
+ },
+ {
+  "key": "e27269f236ce",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Una mañana cualquiera."
+ },
+ {
+  "key": "1607edee9bd5",
+  "cap": -1,
+  "escena": "puente",
+  "text": "¿Y cómo la usa?"
+ },
+ {
+  "key": "5962d712e216",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Imaginemos la escena: una espera larga, un instante de velocidad. Y probablemente, muchas veces, gana el hambre."
+ },
+ {
+  "key": "cea1049725f1",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Veamos su mandíbula."
+ },
+ {
+  "key": "a2048bb73411",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Pero hay más."
+ },
+ {
+  "key": "bd728662b067",
+  "cap": -1,
+  "escena": "puente",
+  "text": "Este documental es una reconstrucción animada. Los datos, las citas y las fuentes están en la descripción."
+ }
+]

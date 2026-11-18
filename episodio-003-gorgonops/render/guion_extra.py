@@ -80,3 +80,12 @@ BRIDGES = [
     ("Los océanos todavía no estaban ahí", "Pero hay más."),
     ("Le basta con seguir", "Este documental es una reconstrucción animada. Los datos, las citas y las fuentes están en la descripción."),
 ]
+
+# Apertura «Sombra» (15 s): las cifras se locutan rápido (≈ 3 palabras/s) junto con cada tarjeta.
+# (inicio s, duración máxima de la ventana s, texto) — si la voz es más larga que la ventana se acelera (≤ 1,2×).
+INTRO = [
+    (0.3, 2.5, "Gorgonops torvus. Pérmico tardío."),
+    (2.9, 4.3, "Doscientos sesenta a doscientos cincuenta y cuatro millones de años. El linaje, dieciocho."),
+    (7.4, 4.2, "Setecientos mil kilómetros cuadrados. Radio: cuatrocientos setenta. Y once mil trescientos, hasta Rusia."),
+    (11.7, 3.1, "Un rango no es un recorrido."),
+]

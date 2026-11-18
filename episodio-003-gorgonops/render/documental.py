@@ -765,6 +765,21 @@ def timeline(scenes):
                         c["subs"].append((a, b - 0.04, two_lines(x)))
                         a = b
                     break
+        if cap == 0:                                   # apertura: cifras locutadas con las tarjetas (tiempos fijos)
+            from guion_extra import INTRO
+            for t_i, win, text in INTRO:
+                v = voz.get(clave_voz(text))
+                if not v:
+                    continue
+                de = min(v, win)
+                c["voz"].append((t_i, de, clave_voz(text)))
+                ch = chunks(text)
+                pal = [max(1, len(x.split())) for x in ch]
+                a = t_i
+                for x, p in zip(ch, pal):
+                    b = a + de * p / float(sum(pal))
+                    c["subs"].append((a, b - 0.04, two_lines(x)))
+                    a = b
         c["voz"].sort()
         c["subs"].sort()
     return caps

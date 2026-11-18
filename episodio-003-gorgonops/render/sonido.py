@@ -21,7 +21,8 @@ sys.path.insert(0, str(AQUI))
 SR = 48000
 MUS = AQUI.parent / "musica" / "wav"
 VIDEO = AQUI.parent / "video"
-VOZ = AQUI.parents[1] / "voice_ai" / "cache_v2"
+TMP = AQUI.parent / "video" / "_tmp_audio"
+VOZ = AQUI.parents[1] / "voice_ai" / "cache_v3" / "final"
 BAR = 4 * 60.0 / 118.0
 
 # (inicio, fin) en compases del tango: intro 0-2, A 2-10, A 10-18, B 18-26, A 26-34, C 34-42, A 42-50, A-tutti 50-58
@@ -165,7 +166,33 @@ def musica(n, escenas, stems, coda, voz_lineas, seed):
     return out
 
 
+def comprimir(x, thr_db=-26.0, ratio=2.2, rel=0.09, look=0.006):
+    """Compresor suave (sin saturación): reduce picos de la voz para subir el volumen percibido."""
+    thr = 10 ** (thr_db / 20)
+    nl = max(1, int(look * SR))
+    pk = np.abs(x)
+    pk = np.maximum.reduce([np.roll(pk, -k) for k in range(0, nl, max(1, nl // 6))])      # mirada adelantada
+    g = np.where(pk > thr, (thr / np.maximum(pk, 1e-9)) ** (1 - 1 / ratio), 1.0)
+    from scipy.signal import lfilter
+    a_ = np.exp(-1.0 / (rel * SR))
+    gs = lfilter([1 - a_], [1, -a_], g)             # suavizado (liberación); el ataque lo cubre la mirada adelantada
+    gs = np.minimum(gs, g + 0.0) if False else gs
+    return (x * np.minimum(gs, 1.0)).astype(np.float32)
+
+
+def estirar(x, factor):
+    """Acelera x un 'factor' (>1) con ffmpeg atempo (conserva el tono)."""
+    import subprocess, tempfile
+    with tempfile.TemporaryDirectory() as td:
+        pi, po = Path(td) / "i.wav", Path(td) / "o.wav"
+        wavfile.write(str(pi), SR, x.astype(np.float32))
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(pi), "-filter:a", f"atempo={factor:.4f}", "-c:a", "pcm_f32le", str(po)], check=True)
+        _, y = wavfile.read(str(po))
+    return y.astype(np.float32)
+
+
 def voz_pista(n, voz_lineas_keys):
+    import json as _json
     v = np.zeros(n, np.float32)
     for tv, dv, key in voz_lineas_keys:
         f = VOZ / f"{key}.wav"
@@ -176,6 +203,17 @@ def voz_pista(n, voz_lineas_keys):
             x = x.mean(1)
         g = np.gcd(SR, sr)
         x = resample_poly(x, SR // g, sr // g).astype(np.float32)
+        d_nat = len(x) / SR
+        if d_nat > dv * 1.02:                                          # la ventana manda (apertura): se acelera, sin pasar de 1,2×
+            x = estirar(x, min(d_nat / dv, 1.2))
+        act = x[np.abs(x) > 0.02]
+        rms = np.sqrt((act ** 2).mean()) if len(act) else 1.0
+        x = x * (10 ** (-19 / 20) / rms)                              # nivel de voz uniforme: −19 dBFS RMS activo
+        try:
+            x = x * 10 ** (_json.loads((VOZ / f"{key}.json").read_text()).get("gain_db", 0.0) / 20)   # variación de intensidad (irregular)
+        except Exception:
+            pass
+        x = comprimir(x)
         i0 = int(tv * SR)
         i1 = min(n, i0 + len(x))
         if i1 > i0:
@@ -199,6 +237,8 @@ def main():
         for it in s["items"]:
             if it[0] == "quote":
                 textos[D.clave_voz(D.texto_cita(it[1]))] = D.texto_cita(it[1])
+    TMP.mkdir(parents=True, exist_ok=True)
+    nombres = []
     for cap in ([int(a) for a in sys.argv[1:]] or sorted(tl)):
         c = tl[cap]
         n = int(round(c["t"] * 24) / 24 * SR)
@@ -219,19 +259,39 @@ def main():
         env = np.abs(voz)
         env = np.clip(sosfiltfilt(butter(2, 5.0, btype="low", fs=SR, output="sos"), env) * 9.0, 0, 1)
         duck = (1.0 - 0.65 * env)[:, None]
-        bed_s = bed.copy()
-        pk = np.abs(bed_s).max()
-        if pk > 0.9:
-            bed_s *= 0.9 / pk
         mezcla = bed * duck + np.stack([voz, voz], 1)
-        pk = np.abs(mezcla).max()
-        if pk > 0.89:                                   # limitador lineal: sin recortes ni saturación
-            mezcla *= 0.89 / pk
-        for path, x in ((VIDEO / "audio_sin_voz" / f"{D.CHAPTERS[cap]}.wav", bed_s), (VIDEO / "audio" / f"{D.CHAPTERS[cap]}.wav", mezcla)):
-            with wave.open(str(path), "wb") as wv:
-                wv.setnchannels(2); wv.setsampwidth(2); wv.setframerate(SR)
-                wv.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
-        print(D.CHAPTERS[cap], f"{n / SR:.1f} s", f"pico {np.abs(mezcla).max():.2f}", flush=True)
+        name = D.CHAPTERS[cap]
+        for suf, x in (("mix", mezcla), ("bed", bed)):
+            wavfile.write(str(TMP / f"{name}_{suf}.wav"), SR, x.astype(np.float32))
+        nombres.append(name)
+        print(name, f"{n / SR:.1f} s (pre-mezcla)", flush=True)
+    finalizar(nombres)
+
+
+def lufs(archivos):
+    """Loudness integrado (EBU R128) de la concatenación de archivos, con ffmpeg."""
+    import re, subprocess
+    lst = TMP / "lista.txt"
+    lst.write_text("".join(f"file '{a}'\n" for a in archivos))
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-f", "concat", "-safe", "0", "-i", str(lst), "-af", "ebur128=peak=true", "-f", "null", "-"],
+                       capture_output=True, text=True).stderr
+    m = re.findall(r"I:\s+(-?[\d.]+) LUFS", r)
+    return float(m[-1])
+
+
+def finalizar(nombres, objetivo=-16.0, techo=0.84):
+    """Un solo limitador de anticipación y una ganancia común a todos los capítulos (objetivo −16 LUFS integrados)."""
+    import subprocess
+    for suf, destino in (("mix", "audio"), ("bed", "audio_sin_voz")):
+        files = [TMP / f"{n}_{suf}.wav" for n in nombres]
+        L = lufs(files)
+        g = objetivo - L
+        print(f"{destino}: {L:.1f} LUFS -> ganancia {g:+.1f} dB", flush=True)
+        for n_, f in zip(nombres, files):
+            out = VIDEO / destino / f"{n_}.wav"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(f), "-af",
+                            f"volume={g:.2f}dB,alimiter=limit={techo}:attack=5:release=60:level=disabled", "-c:a", "pcm_s24le", str(out)], check=True)
+            f.unlink()
 
 
 if __name__ == "__main__":
