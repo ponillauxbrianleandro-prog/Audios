@@ -14,9 +14,9 @@ TUCO = ("tuco-tuco, stocky short-legged burrowing rodent like a pocket gopher, t
 RATA = ("brown city rat, realistic anatomy, long thin tail, small pink ears, whiskers, wet dark eyes, "
         "coarse grey-brown fur")
 NEGATIVO = ("cartoon, 3d render, vector, flat colors, sticker, big eyes, long legs, big ears, stripes, tiger, deer, "
-            "dog, squirrel, toy, plush, text, watermark, signature, orange fur, human")
+            "dog, squirrel, toy, plush, text, watermark, signature, orange fur, human, two animals, multiple animals, twins, duplicate")
 NEGATIVO_RATA = ("cartoon, 3d render, vector, flat colors, sticker, mouse, hamster, toy, plush, text, watermark, "
-                 "signature, human, cute")
+                 "signature, human, cute, two animals, multiple animals, twins, duplicate")
 
 TOMAS = [
     # --- 1. EL INSULTO (rata de ciudad, mundo familiar)
@@ -27,8 +27,8 @@ TOMAS = [
          prompt="rat face close-up, side glance, shallow depth of field, wet pavement, city lights bokeh"),
     # --- 2. LA PRESENTACIÓN (estepa)
     dict(id="s02a", escena=2, peso=1.3, animal="tuco", move="push_in", centro=(0.5, 0.72), polvo=0.7,
-         prompt="wide patagonian steppe at sunrise, tiny animal beside its burrow far away, coiron grass tufts "
-                "in foreground, distant mesa, haze, golden dust"),
+         prompt="wide patagonian steppe at sunrise, small animal sitting on a dirt mound in the middle distance, "
+                "clearly visible, coiron grass tufts in foreground, distant mesa, haze, golden dust"),
     dict(id="s02b", escena=2, peso=1.2, animal="tuco", move="pan_right", centro=(0.45, 0.6), polvo=0.7,
          prompt="three-quarter view beside its burrow, golden dust in the air, dry grass in foreground, "
                 "warm low sun"),
@@ -41,7 +41,8 @@ TOMAS = [
     dict(id="s03b", escena=3, peso=1.1, animal="tuco", move="tilt_down", centro=(0.5, 0.55), polvo=0.4,
          prompt="high angle looking down, pulling a root out of the soil with its forepaws, dry earth, pebbles"),
     dict(id="s03c", escena=3, peso=1.0, animal="tuco", move="pan_left", centro=(0.4, 0.7), polvo=0.5,
-         prompt="wide view, wind bending the grass, lizard on a rock watching, animal near burrow, late light"),
+         prompt="wide view, wind bending the grass, animal sitting near its burrow in the middle, "
+                "small lizard on a rock at the side, late light"),
     # --- 4. EL RANKING
     dict(id="s04a", escena=4, peso=1.2, animal="tuco", move="pan_left", centro=(0.55, 0.6), polvo=0.5,
          prompt="reverse three-quarter view, looking at a bunch of roots on the ground, low raking sunset light"),
@@ -62,7 +63,7 @@ TOMAS = [
     dict(id="s06b", escena=6, peso=1.2, animal="tuco", move="pull_out", centro=(0.5, 0.7), polvo=0.4,
          prompt="dark burrow hole close-up in the ground, animal's face just appearing in the shadow, grass edges"),
     # --- 7. LA SOLEDAD
-    dict(id="s07a", escena=7, peso=1.4, animal="tuco", move="pan_right", centro=(0.5, 0.7), polvo=0.5,
+    dict(id="s07a", escena=7, peso=1.4, animal="tuco", varios=True, move="pan_right", centro=(0.5, 0.7), polvo=0.5,
          prompt="wide steppe with several separate burrow mounds, one animal peeking at each, "
                 "distant guanaco on a hill, evening light"),
     dict(id="s07b", escena=7, peso=1.2, animal="tuco", move="push_in", centro=(0.5, 0.35), polvo=0.3,
@@ -96,4 +97,5 @@ TOMAS = [
 
 def prompt_completo(t):
     base = RATA if t["animal"] == "rata" else TUCO
-    return f"{t['prompt']}, {base}, {ESTILO}"
+    solo = "" if t.get("varios") else "single animal alone, "
+    return f"{solo}{t['prompt']}, {base}, {ESTILO}"
