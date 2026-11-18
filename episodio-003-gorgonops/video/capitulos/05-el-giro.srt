@@ -1,203 +1,203 @@
 1
-00:00:01,350 --> 00:00:06,990
+00:00:01,350 --> 00:00:06,870
 Hasta aquí le hemos contado esta historia
 como si él fuera el comienzo de algo.
 
 2
-00:00:08,930 --> 00:00:10,810
+00:00:08,810 --> 00:00:10,777
 No lo es.
 
 3
-00:00:12,750 --> 00:00:15,147
+00:00:12,717 --> 00:00:15,025
 Los gorgonópsidos no dejaron descendientes.
 
 4
-00:00:15,187 --> 00:00:16,121
+00:00:15,065 --> 00:00:15,965
 Ni uno.
 
 5
-00:00:16,161 --> 00:00:19,532
+00:00:16,005 --> 00:00:19,252
 Su linaje entero termina en esta crisis,
 
 6
-00:00:19,572 --> 00:00:23,431
+00:00:19,292 --> 00:00:23,009
 hace doscientos cincuenta
 y dos millones de años.
 
 7
-00:00:23,471 --> 00:00:26,355
+00:00:23,049 --> 00:00:25,827
 Ningún animal vivo lleva su sangre.
 
 8
-00:00:28,295 --> 00:00:30,575
+00:00:27,767 --> 00:00:29,966
 El futuro estaba en otra parte.
 
 9
-00:00:30,615 --> 00:00:34,828
+00:00:30,006 --> 00:00:34,070
 Estaba en el animal pequeño que
 se escondía entre los helechos.
 
 10
-00:00:35,568 --> 00:00:37,331
+00:00:34,810 --> 00:00:36,976
 Sobreviven los que pueden esperar:
 
 11
-00:00:37,371 --> 00:00:41,658
+00:00:37,016 --> 00:00:42,271
 los que comen poco, los que cavan,
 los que se reproducen deprisa.
 
 12
-00:00:41,698 --> 00:00:43,822
+00:00:42,311 --> 00:00:44,918
 No es una cuestión de fuerza.
 
 13
-00:00:44,562 --> 00:00:48,380
+00:00:45,658 --> 00:00:49,682
 Los cinodontes, su grupo,
 son primos de Gorgonops:
 
 14
-00:00:48,420 --> 00:00:49,826
+00:00:49,722 --> 00:00:51,207
 comparten un antepasado.
 
 15
-00:00:49,866 --> 00:00:56,095
+00:00:51,247 --> 00:00:57,811
 Y de todos los primos, fueron ellos
 los que cruzaron al otro lado.
 
 16
-00:00:56,135 --> 00:01:01,399
+00:00:57,851 --> 00:01:03,400
 Pequeños, capaces de refugiarse bajo
 tierra, de comer casi cualquier cosa.
 
 17
-00:01:02,139 --> 00:01:07,923
+00:01:04,140 --> 00:01:10,456
 De ellos, decenas de millones de años
 después, saldrán los primeros mamíferos.
 
 18
-00:01:08,663 --> 00:01:13,920
+00:01:11,196 --> 00:01:16,782
 En las rocas que vienen justo después
 de la catástrofe, en este mismo valle,
 
 19
-00:01:13,960 --> 00:01:17,704
+00:01:16,822 --> 00:01:20,801
 los paleontólogos encuentran
 una y otra vez la misma escena:
 
 20
-00:01:17,744 --> 00:01:20,731
+00:01:20,841 --> 00:01:24,016
 un cinodonte del tamaño
 de un gato, Thrinaxodon,
 
 21
-00:01:20,771 --> 00:01:24,137
+00:01:24,056 --> 00:01:27,633
 fosilizado dentro de su madriguera,
 enroscado sobre sí mismo.
 
 22
-00:01:24,877 --> 00:01:28,886
+00:01:28,373 --> 00:01:32,300
 El mundo de arriba se
 había vuelto inhabitable.
 
 23
-00:01:28,926 --> 00:01:30,911
+00:01:32,340 --> 00:01:34,284
 Ellos lo esperaron abajo.
 
 24
-00:01:31,651 --> 00:01:36,550
+00:01:35,024 --> 00:01:40,223
 También cruza al otro lado Lystrosaurus,
 un dicinodonte pequeño y robusto.
 
 25
-00:01:36,590 --> 00:01:40,591
+00:01:40,263 --> 00:01:44,509
 Durante un tiempo, en algunas
 rocas del Triásico temprano,
 
 26
-00:01:40,631 --> 00:01:43,285
+00:01:44,549 --> 00:01:47,366
 casi todos los fósiles son suyos.
 
 27
-00:01:57,525 --> 00:02:01,895
+00:02:01,317 --> 00:02:05,601
 ¿Recuerda los dos huesos
 del fondo de la mandíbula?
 
 28
-00:02:02,635 --> 00:02:07,581
+00:02:06,341 --> 00:02:11,194
 En Gorgonops, y en todos sus parientes,
 servían para articular la boca.
 
 29
-00:02:07,621 --> 00:02:12,983
+00:02:11,234 --> 00:02:16,494
 En el linaje de los cinodontes,
 a lo largo de millones de años,
 
 30
-00:02:13,023 --> 00:02:15,891
+00:02:16,534 --> 00:02:19,348
 esos huesos se fueron haciendo más pequeños.
 
 31
-00:02:15,931 --> 00:02:17,969
+00:02:19,388 --> 00:02:21,387
 Se soltaron de la mandíbula.
 
 32
-00:02:18,009 --> 00:02:20,046
+00:02:21,427 --> 00:02:23,426
 Y terminaron en otro lugar.
 
 33
-00:02:20,786 --> 00:02:25,566
+00:02:24,166 --> 00:02:28,857
 El camino fue gradual y quedó
 escrito en fósiles intermedios:
 
 34
-00:02:25,606 --> 00:02:31,832
+00:02:28,897 --> 00:02:35,008
 huesos de la mandíbula cada vez más
 pequeños, y una segunda articulación, nueva,
 
 35
-00:02:31,872 --> 00:02:34,724
+00:02:35,048 --> 00:02:37,847
 que se va formando por delante.
 
 36
-00:02:35,464 --> 00:02:38,008
+00:02:38,587 --> 00:02:41,328
 Hoy se llaman martillo y yunque.
 
 37
-00:02:38,048 --> 00:02:40,162
+00:02:41,368 --> 00:02:43,646
 Están dentro de su oído.
 
 38
-00:02:40,202 --> 00:02:42,746
+00:02:43,686 --> 00:02:46,428
 Con ellos está escuchando esta frase.
 
 39
-00:02:44,686 --> 00:02:47,460
+00:02:48,368 --> 00:02:51,156
 No hace falta creerlo por los fósiles.
 
 40
-00:02:47,500 --> 00:02:51,077
+00:02:51,196 --> 00:02:54,793
 En cada embrión de mamífero,
 también en el nuestro,
 
 41
-00:02:51,117 --> 00:02:54,694
+00:02:54,833 --> 00:02:58,430
 esos huesecillos empiezan a
 formarse pegados a la mandíbula,
 
 42
-00:02:54,734 --> 00:02:56,704
+00:02:58,470 --> 00:03:00,451
 y solo después se separan.
 
 43
-00:02:57,444 --> 00:02:59,740
+00:03:01,191 --> 00:03:03,405
 Gorgonops no nos dio esos huesos.
 
 44
-00:02:59,780 --> 00:03:00,908
+00:03:03,445 --> 00:03:04,532
 Pero los tenía.
 
 45
-00:03:00,948 --> 00:03:07,138
+00:03:04,572 --> 00:03:10,543
 Mirarlo a él es mirar cómo era nuestra
 familia antes de que nada de esto ocurriera.
 

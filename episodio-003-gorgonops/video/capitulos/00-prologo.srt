@@ -1,152 +1,148 @@
 1
-00:00:00,300 --> 00:00:01,510
+00:00:00,350 --> 00:00:01,654
 Gorgonops torvus.
 
 2
-00:00:01,550 --> 00:00:02,760
-Pérmico tardío.
-
-3
-00:00:02,900 --> 00:00:06,168
+00:00:02,094 --> 00:00:06,933
 Doscientos sesenta a doscientos
 cincuenta y cuatro millones de años.
 
-4
-00:00:06,208 --> 00:00:07,160
-El linaje, dieciocho.
+3
+00:00:06,973 --> 00:00:07,908
+Linaje: dieciocho.
 
-5
-00:00:07,400 --> 00:00:08,652
+4
+00:00:08,348 --> 00:00:11,144
 Setecientos mil kilómetros cuadrados.
 
+5
+00:00:11,184 --> 00:00:13,272
+Radio, cuatrocientos setenta.
+
 6
-00:00:08,692 --> 00:00:09,622
-Radio: cuatrocientos setenta.
+00:00:13,312 --> 00:00:16,817
+Once mil trescientos, hasta Rusia.
 
 7
-00:00:09,662 --> 00:00:11,560
-Y once mil trescientos, hasta Rusia.
-
-8
-00:00:11,700 --> 00:00:14,760
+00:00:17,257 --> 00:00:20,692
 Un rango no es un recorrido.
 
-9
-00:00:16,350 --> 00:00:21,750
+8
+00:00:22,892 --> 00:00:28,328
 Hace doscientos cincuenta y cinco millones
 de años, este valle no tenía nombre.
 
-10
-00:00:23,690 --> 00:00:25,116
+9
+00:00:30,268 --> 00:00:31,769
 No había flores.
 
-11
-00:00:25,156 --> 00:00:26,582
+10
+00:00:31,809 --> 00:00:33,311
 No había hierba.
 
-12
-00:00:26,622 --> 00:00:29,026
+11
+00:00:33,351 --> 00:00:35,881
 Ningún ave cruzaba el cielo.
 
-13
-00:00:29,766 --> 00:00:31,700
+12
+00:00:36,621 --> 00:00:38,577
 Todo eso llegará mucho después.
 
-14
-00:00:31,740 --> 00:00:34,462
+13
+00:00:38,617 --> 00:00:41,373
 Lo que hay aquí es más antiguo:
 
-15
-00:00:34,502 --> 00:00:40,383
+14
+00:00:41,413 --> 00:00:47,362
 helechos, colas de caballo, y unos árboles
 de hojas con forma de lengua que hoy
 
-16
-00:00:40,423 --> 00:00:43,146
+15
+00:00:47,402 --> 00:00:50,158
 solo conocemos como huellas en la piedra.
 
-17
-00:00:43,886 --> 00:00:46,434
+16
+00:00:50,898 --> 00:00:53,485
 No se oye ningún canto de pájaro.
 
-18
-00:00:46,474 --> 00:00:53,089
+17
+00:00:53,525 --> 00:01:00,243
 Lo que se oye es el agua, el viento entre
 las colas de caballo y el zumbido de
 
-19
-00:00:53,129 --> 00:00:56,786
+18
+00:01:00,283 --> 00:01:03,997
 insectos que ya volaban desde mucho
 antes que cualquier vertebrado.
 
-20
-00:00:58,692 --> 00:01:01,245
+19
+00:01:05,900 --> 00:01:08,495
 El mundo tampoco se parece al nuestro.
 
-21
-00:01:01,285 --> 00:01:05,692
+20
+00:01:08,535 --> 00:01:13,012
 Casi toda la tierra firme está
 unida en un solo continente, Pangea.
 
-22
-00:01:06,432 --> 00:01:10,475
+21
+00:01:13,752 --> 00:01:17,700
 Y este valle queda en su
 extremo sur, lejos del ecuador,
 
-23
-00:01:10,515 --> 00:01:16,043
+22
+00:01:17,740 --> 00:01:23,137
 donde los inviernos son fríos y los ríos
 crecen y se secan con las estaciones.
 
-24
-00:01:16,783 --> 00:01:20,045
+23
+00:01:23,877 --> 00:01:27,192
 Mucho antes, hace unos
 trescientos millones de años,
 
-25
-00:01:20,085 --> 00:01:23,347
+24
+00:01:27,232 --> 00:01:30,547
 el sur de Gondwana estuvo cubierto de hielo.
 
-26
-00:01:23,387 --> 00:01:27,063
+25
+00:01:30,587 --> 00:01:34,321
 Sus huellas todavía están
 en las rocas del Karoo.
 
-27
-00:01:27,803 --> 00:01:32,273
+26
+00:01:35,061 --> 00:01:39,435
 Pangea es tan grande que su
 interior casi no recibe lluvia.
 
-28
-00:01:32,313 --> 00:01:35,144
+27
+00:01:39,475 --> 00:01:42,244
 La vida se acomoda a ese ritmo:
 
-29
-00:01:35,184 --> 00:01:39,245
+28
+00:01:42,284 --> 00:01:46,257
 crece cuando hay agua, y
 espera cuando no la hay.
 
-30
-00:01:42,433 --> 00:01:47,001
+29
+00:01:49,433 --> 00:01:54,299
 Y sin embargo, alguien
 caminaba por aquí cada mañana.
 
-31
-00:01:47,741 --> 00:01:50,705
+30
+00:01:55,039 --> 00:01:58,862
 No ha dejado una sola
 huella que podamos señalar.
 
-32
-00:01:50,745 --> 00:01:54,043
+31
+00:01:58,902 --> 00:02:03,154
 Lo conocemos por sus huesos,
 y los huesos hablan despacio.
 
-33
-00:01:54,083 --> 00:01:57,381
+32
+00:02:03,194 --> 00:02:07,446
 Pero si uno aprende a escucharlos,
 cuentan una historia sorprendente.
 
-34
-00:01:58,421 --> 00:02:00,794
+33
+00:02:08,486 --> 00:02:10,823
 Esta es su historia.
 
