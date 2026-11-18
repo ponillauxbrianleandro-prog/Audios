@@ -16,6 +16,8 @@ BASE = "Sonido de estudio profesional, sin ruido ni reverberación, dicción cla
 VARIANTES = {
     "a_grave_calida": BASE + "Voz masculina adulta de narrador de documental, grave y gruesa, cálida, con cuerpo, ritmo pausado pero vivo, entonación natural y expresiva.",
     "b_baritono": BASE + "Voz masculina de barítono profundo y resonante, textura gruesa, seria pero cercana, narración de documental de naturaleza, ritmo medio, entonación con matices.",
+    "d_bajo_profundo": BASE + "Voz de hombre maduro, muy grave: un bajo profundo, tono muy bajo y grueso, pecho resonante, narrador de documental, ritmo calmado pero con vida, entonación natural.",
+    "e_locutor_grave": BASE + "Locutor masculino de radio con voz extremadamente grave y aterciopelada, tono muy bajo, voz gruesa y cálida con mucha resonancia de pecho, ritmo medio, expresivo.",
     "c_media_viva": BASE + "Voz masculina media-grave, firme y gruesa, con energía contenida y curiosidad, narrador de documental científico, ritmo ágil sin apuro, entonación viva y natural.",
 }
 sel = sys.argv[1:] or list(VARIANTES)
