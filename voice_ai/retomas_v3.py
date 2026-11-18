@@ -81,7 +81,7 @@ for n, o in enumerate(cola):
     for toma in range(4):
         x, sr = sintetizar(o["text"], 5000 + 17 * n + toma)
         mt = metr(x, sr, nw); ff = f0(x, sr); dv = dev(ff)
-        ok = mt["clip"] == 0 and 0.25 <= mt["spw"] <= 0.80
+        ok = mt["clip"] == 0 and 0.25 <= mt["spw"] <= 0.80 + 1.0 / max(nw, 1)
         if ok and dv < mdev:
             mejor, mf, mdev = x, ff, dv
         if ok and dv <= 0.8:
@@ -91,6 +91,7 @@ for n, o in enumerate(cola):
         (RAW / f"{k}.tmp.wav").rename(RAW / f"{k}.wav")
         for ext in (".wav", ".json"):
             (FIN / f"{k}{ext}").unlink(missing_ok=True)                 # se reprocesa
-    hecho.add(k); HECHO.write_text(json.dumps(sorted(hecho)))
+    if mejor is not None or k in exist:
+        hecho.add(k); HECHO.write_text(json.dumps(sorted(hecho)))
     print(f"{n + 1}/{len(cola)} cap{o['cap']} desvío -> {mdev:.2f} st (f0 {mf if mf else exist.get(k)}) · {(time.time() - t_all) / 60:.1f} min", flush=True)
 print("== RETOMAS TERMINADAS", flush=True)
