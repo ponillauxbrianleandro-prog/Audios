@@ -11,15 +11,15 @@ from util import catmull, smoothstep
 
 # Tuco-tuco: ~25 cm de cuerpo, cabeza ancha, orejas diminutas, ojos chicos, incisivos anaranjados.
 TUCOTUCO = dict(
-    kind="tuco", scale=0.30, speed=0.25, period=0.5, fur=dict(len=1.0, tip=0.55, ruff=1.0), fuse=4.5, soft=6.0, tooth_col=(0.78, 0.46, 0.14),
-    dorsal=(0.40, 0.295, 0.185), flank=(0.62, 0.465, 0.285), ventral=(0.82, 0.710, 0.530),
+    kind="tuco", scale=0.30, speed=0.25, period=0.5, fur=dict(len=1.0, tip=0.22, ruff=1.0), fuse=4.5, soft=6.0, tooth_col=(0.98, 0.72, 0.50),
+    dorsal=(0.82, 0.69, 0.60), flank=(0.95, 0.84, 0.72), ventral=(0.98, 0.94, 0.90),
     belly=1.15, girth=1.2, head=1.0, leg=1.0, tail=1.0, claw=1.0, ear=1.0, snout=1.0, tooth=1.0,
     bars=0.0, sheen=0.0, rough=0.0,
 )
 # Rata parda de ciudad: cuerpo largo y esbelto, hocico puntiagudo, orejas grandes, cola larga casi pelada.
 RATA = dict(
-    kind="rata", scale=0.30, speed=0.9, period=0.4, fur=dict(len=0.30, tip=0.20, ruff=0.0), fuse=2.0, soft=2.0, tooth_col=(0.80, 0.62, 0.30),
-    dorsal=(0.32, 0.255, 0.200), flank=(0.50, 0.420, 0.340), ventral=(0.72, 0.650, 0.570),
+    kind="rata", scale=0.30, speed=0.9, period=0.4, fur=dict(len=0.30, tip=0.20, ruff=0.0), fuse=2.0, soft=2.0, tooth_col=(0.97, 0.82, 0.66),
+    dorsal=(0.68, 0.62, 0.68), flank=(0.82, 0.78, 0.82), ventral=(0.94, 0.92, 0.94),
     belly=0.62, girth=0.58, head=0.74, leg=1.25, tail=3.0, claw=0.6, ear=1.5, snout=2.3, tooth=0.55,
     bars=0.0, sheen=0.0, rough=0.0,
 )

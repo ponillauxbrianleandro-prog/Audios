@@ -38,13 +38,15 @@ TUCO, RATA = R.TUCOTUCO, R.RATA
 SUN0 = np.array([-0.50, 0.62, -0.42])
 
 # ------------------------------------------------------------------ luz (se mezcla con el wx del bioma)
-AMANECER = dict(light=dict(sun=(1.0, 0.78, 0.55), amb=(0.52, 0.54, 0.66), fog=(0.95, 0.78, 0.62)),
-                zenith=(0.42, 0.54, 0.80), horizon=(0.98, 0.78, 0.58))
-TARDE = dict(light=dict(sun=(1.0, 0.86, 0.62), amb=(0.58, 0.58, 0.66), fog=(0.92, 0.80, 0.66)))
-ATARDECER = dict(light=dict(sun=(1.0, 0.66, 0.40), amb=(0.50, 0.46, 0.58), fog=(0.96, 0.66, 0.50)),
-                 zenith=(0.34, 0.38, 0.66), horizon=(1.0, 0.60, 0.36))
-CUEVA = dict(light=dict(sun=(0.95, 0.62, 0.34), amb=(0.34, 0.28, 0.24), fog=(0.30, 0.22, 0.17)),
-             zenith=(0.10, 0.08, 0.08), horizon=(0.42, 0.26, 0.15), mist=0.1)
+# Paleta fría y pastel: sol blanco-rosado, sombras lavanda, cielos celeste/rosa/lila, niebla malva.
+AMANECER = dict(light=dict(sun=(1.0, 0.93, 0.93), amb=(0.82, 0.84, 0.95), fog=(0.93, 0.88, 0.96)),
+                zenith=(0.58, 0.74, 0.98), horizon=(1.0, 0.84, 0.91))
+TARDE = dict(light=dict(sun=(1.0, 0.95, 0.95), amb=(0.82, 0.84, 0.94), fog=(0.91, 0.90, 0.97)),
+             zenith=(0.60, 0.76, 0.98), horizon=(0.96, 0.88, 0.95))
+ATARDECER = dict(light=dict(sun=(1.0, 0.86, 0.88), amb=(0.76, 0.74, 0.92), fog=(0.95, 0.84, 0.92)),
+                 zenith=(0.52, 0.58, 0.92), horizon=(1.0, 0.80, 0.88))
+CUEVA = dict(light=dict(sun=(0.98, 0.82, 0.90), amb=(0.54, 0.50, 0.72), fog=(0.54, 0.46, 0.66)),
+             zenith=(0.52, 0.46, 0.68), horizon=(0.86, 0.68, 0.78), mist=0.12)
 
 
 def unit(v):
@@ -107,7 +109,7 @@ def sky_aves(bg, cam, t):
         flap = np.sin(t * 7.0 + i * 1.7)
         pts = np.array([[x - s, y + s * 0.15 * flap - s * 0.3], [x - s * 0.5, y - s * 0.15 * flap], [x, y],
                         [x + s * 0.5, y - s * 0.15 * flap], [x + s, y + s * 0.15 * flap - s * 0.3]], np.float32)
-        cv2.polylines(bg, [pts.astype(np.int32).reshape(-1, 1, 2)], False, (0.16, 0.14, 0.15), 2)
+        cv2.polylines(bg, [pts.astype(np.int32).reshape(-1, 1, 2)], False, (0.42, 0.38, 0.58), 2)
 
 
 def sky_ciudad(bg, cam, t):
@@ -119,18 +121,18 @@ def sky_ciudad(bg, cam, t):
         bw = int(rng.integers(40, 110))
         bh = int(rng.integers(60, 230))
         top = int(cam.vh - bh)
-        cv2.rectangle(lay, (x, top), (x + bw, int(cam.vh) + 4), (0.10, 0.11, 0.20), -1)
+        cv2.rectangle(lay, (x, top), (x + bw, int(cam.vh) + 4), (0.50, 0.48, 0.74), -1)
         for wy in range(top + 8, int(cam.vh) - 6, 14):
             for wx_ in range(x + 6, x + bw - 6, 12):
                 if rng.random() < 0.28:
-                    cv2.rectangle(lay, (wx_, wy), (wx_ + 4, wy + 6), (0.95, 0.78, 0.40), -1)
+                    cv2.rectangle(lay, (wx_, wy), (wx_ + 4, wy + 6), (1.0, 0.92, 0.66), -1)
         x += bw + int(rng.integers(0, 10))
     mask = (lay.sum(-1, keepdims=True) > 0).astype(np.float32)
-    bg[:] = bg * (1 - 0.92 * mask) + lay * mask * 0.92
+    bg[:] = bg * (1 - 0.88 * mask) + lay * mask * 0.88
     bok = np.zeros_like(bg)
     for _ in range(26):
         cx, cy = rng.uniform(0, w), cam.vh + rng.uniform(-30, 25)
-        col = [(1.0, 0.72, 0.35), (1.0, 0.45, 0.30), (0.95, 0.90, 0.60)][int(rng.integers(0, 3))]
+        col = [(1.0, 0.80, 0.62), (1.0, 0.66, 0.78), (0.78, 0.92, 1.0)][int(rng.integers(0, 3))]
         cv2.circle(bok, (int(cx), int(cy)), int(rng.integers(8, 20)), col, -1)
     bok = cv2.GaussianBlur(bok, (0, 0), 3.0)
     bg[:] = np.minimum(1.5, bg + 0.35 * bok)

@@ -641,8 +641,10 @@ def post(img, t, k, grade=None):
     img = lum[..., None] + (img - lum[..., None]) * 1.14 * grade.get("sat", 1.0)          # más color que la v2 (0,90)
     img = img * np.array([0.995, 1.0, 1.015], np.float32) * np.array(grade.get("tint", (1, 1, 1)), np.float32)
     img = np.clip(img, 0, 1)
-    img = img * img * (3 - 2 * img) * 0.55 + img * 0.45
-    img = 0.035 + img * 0.955
+    cs = grade.get("contrast", 0.55)
+    img = img * img * (3 - 2 * img) * cs + img * (1 - cs)
+    lf = grade.get("lift", 0.035)
+    img = lf + img * (1 - lf - 0.045)
     if (H, W) not in _VIG:
         yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
         r2 = ((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2

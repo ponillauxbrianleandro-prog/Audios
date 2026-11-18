@@ -396,7 +396,7 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
         eyem = np.zeros((h, w), np.uint8)
         eyem[yy, xx] = (kind == EYE)
         ring = np.exp(-np.minimum(cv2.distanceTransform(1 - eyem, cv2.DIST_L2, 3) / (0.030 * sc), 9.0) ** 2)[yy, xx]
-        ao = ao * (1 - 0.16 * np.clip(-s1, 0, 2.5) * skin)
+        ao = ao * (1 - 0.10 * np.clip(-s1, 0, 2.5) * skin)
     # --- albedo
     dorsal, flank, ventral = (np.array(spec[k], np.float32) for k in ("dorsal", "flank", "ventral"))
     tv = smoothstep(-0.30, 0.60, ny + 0.5 * (nl - 0.5) + 0.25 * (nm - 0.5))
@@ -407,11 +407,11 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     alb = alb * (1 - spec["bars"] * bars[:, None])
     if furk:
         alb = alb * (0.80 + 0.40 * nl[:, None])
-        alb = alb * np.clip(1 + 0.10 * s1 + 0.08 * s2, 0.6, 1.4)[:, None]
+        alb = alb * np.clip(1 + 0.075 * s1 + 0.06 * s2, 0.7, 1.3)[:, None]
         tip = furk["tip"] * smoothstep(0.3, 2.0, s1) * skin
         alb = alb * (1 - 0.30 * tip)[:, None]
         guard = smoothstep(1.6, 3.0, s2) * skin
-        alb = alb * (1 + 0.14 * guard)[:, None] * np.array([1.03, 1.0, 0.95], np.float32)
+        alb = alb * (1 + 0.14 * guard)[:, None] * np.array([1.0, 1.0, 1.04], np.float32)
         alb = alb * (1 - 0.70 * ring * skin)[:, None]
         cream = smoothstep(0.60, 0.70, rp[:, 0]) * smoothstep(0.255, 0.185, rp[:, 1]) * skin
         alb = lerp(alb, ventral * 1.05, (0.75 * cream)[:, None])
@@ -425,8 +425,8 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     alb = np.where((kind == TOOTH)[:, None], tooth, alb)
     alb = np.where((kind == MOUTH)[:, None], np.array([0.42, 0.17, 0.16], np.float32) * (0.8 + 0.3 * nf[:, None]), alb)
     alb = np.where((kind == CLAW)[:, None], np.array([0.16, 0.14, 0.13], np.float32), alb)
-    alb = np.where((kind == DARK)[:, None], np.array([0.07, 0.06, 0.06], np.float32), alb)
-    alb = np.where((kind == EYE)[:, None], np.array([0.085, 0.055, 0.03], np.float32), alb)
+    alb = np.where((kind == DARK)[:, None], np.array([0.30, 0.22, 0.30], np.float32), alb)
+    alb = np.where((kind == EYE)[:, None], np.array([0.16, 0.11, 0.14], np.float32), alb)
     # --- luz
     wrap = np.clip((ndl + (0.95 if furk else 0.25)) / (1.95 if furk else 1.25), 0, 1)
     sky = world.SKY_AMB * (0.50 + 0.38 * ny)[:, None]

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Sintetiza un tango limpio y lo mezcla con la voz.
+"""Mezcla la narración con el tango (cuarteto de stems) del episodio 004.
 
-Sin eco, sin reverb y sin distorsión: solo ondas sintéticas con envolventes suaves.
-La energía cambia por escena (INTENSIDAD) para que el fondo sea irregular según lo que se muestra.
-La música baja sola cuando habla la voz (sidechaincompress, que no agrega ningún efecto al sonido).
+Sin eco, sin reverberación y sin distorsión: solo ganancias por instrumento y escena, la música que baja sola
+mientras habla la voz (envolvente de la voz, no un efecto) y normalización de volumen.
 
-Uso: python3 musica.py   (requiere audio/episodio-004-voz.wav y audio/escenas.json)
-Salida: audio/musica.wav, audio/episodio-004-final.mp3
+Requiere: musica/stems/{bandoneon,violin,piano,contrabajo}.mp3 (python3 musica/generar_tango.py --corto)
+y audio/episodio-004-voz.wav + audio/escenas.json (generar_audio.py).
+Salida: audio/episodio-004-final.mp3 (voz + tango) y audio/tango-fondo.mp3 (solo la música con su dinámica).
+Uso: python3 musica.py
 """
 import json
 import subprocess
@@ -15,135 +16,102 @@ from pathlib import Path
 import numpy as np
 
 AQUI = Path(__file__).resolve().parent
-SALIDA = AQUI / "audio"
+AUDIO = AQUI / "audio"
+STEMS = AQUI / "musica" / "stems"
 SR = 44100
-BPM = 116
-# Progresión en re menor, un compás por acorde (fundamental, tercera, quinta, y bajo en Hz).
-ACORDES = [
-    ("Dm", [293.66, 349.23, 440.00], 73.42),
-    ("A7", [277.18, 392.00, 440.00], 55.00),
-    ("Dm", [293.66, 349.23, 440.00], 73.42),
-    ("Gm", [293.66, 349.23, 466.16], 98.00),
-    ("A7", [277.18, 392.00, 440.00], 55.00),
-    ("Dm", [293.66, 349.23, 440.00], 73.42),
-]
-# Melodía de bandoneón (nota Hz, duración en pulsos) que acompaña cada acorde.
-MELODIA = [
-    [(587.33, 1.5), (523.25, 0.5), (440.00, 2)],
-    [(554.37, 1), (587.33, 1), (659.25, 2)],
-    [(698.46, 1.5), (659.25, 0.5), (587.33, 2)],
-    [(466.16, 1), (587.33, 1), (698.46, 2)],
-    [(659.25, 1), (554.37, 1), (440.00, 2)],
-    [(587.33, 3), (440.00, 1)],
-]
-# Por escena: (bajo, acordes, melodía), niveles 0 a 1. Alto al inicio, más calmo en 8.
-INTENSIDAD = {
-    1: (1.0, 1.0, 1.0),   # insulto: tango fuerte de golpe
-    2: (0.9, 0.9, 0.8),
-    3: (1.0, 0.9, 0.7),
-    4: (0.5, 0.6, 0.5),
-    5: (0.9, 1.0, 0.8),
-    6: (0.3, 0.4, 0.4),   # el nombre: baja
-    7: (0.4, 0.5, 0.3),
-    8: (0.7, 0.8, 0.6),
-    9: (0.0, 0.1, 0.45),  # refutación: casi solo bandoneón
-    10: (1.0, 1.0, 1.0),  # cierre
+INSTR = ["bandoneon", "violin", "piano", "contrabajo"]
+
+# Ganancia por escena (0 a 1): fuerte y completo al abrir y cerrar, íntimo en el nombre y la soledad,
+# casi solo bandoneón en la refutación.
+GANANCIA = {
+    1: (1.00, 0.85, 1.00, 1.00),
+    2: (1.00, 0.65, 1.00, 1.00),
+    3: (0.85, 0.70, 1.00, 1.00),
+    4: (0.65, 0.45, 0.85, 0.95),
+    5: (1.00, 0.80, 1.00, 1.00),
+    6: (0.55, 0.00, 0.70, 0.85),
+    7: (0.45, 0.35, 0.65, 0.75),
+    8: (0.85, 0.65, 0.95, 0.95),
+    9: (0.90, 0.50, 0.30, 0.20),
+    10: (1.00, 1.00, 1.00, 1.00),
 }
+NIVEL_MUSICA = 0.72        # nivel base de la música respecto de la voz
+PROFUNDIDAD_DUCK = 0.55    # cuánto baja la música mientras habla la voz
+FUNDIDO = 1.0              # s de transición entre escenas
 
 
-def envolvente(n, ataque, caida):
-    t = np.arange(n) / SR
-    return np.minimum(1, t / ataque) * np.exp(-t / caida)
+def leer(path, canales):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "f32le", "-ac", str(canales), "-ar", str(SR), "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.float32)
+    return x.reshape(-1, canales) if canales > 1 else x
 
 
-def nota_bajo(f, dur):
-    n = int(dur * SR)
-    t = np.arange(n) / SR
-    onda = np.sin(2 * np.pi * f * t) + 0.35 * np.sin(2 * np.pi * 2 * f * t)
-    return onda * envolvente(n, 0.005, 0.30)
+def ajustar_tempo(x, factor):
+    """Cambia la duración sin cambiar el tono (atempo de ffmpeg; factor = velocidad)."""
+    if abs(factor - 1.0) < 0.002:
+        return x
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ac", "2", "-ar", str(SR), "-i", "-", "-af", f"atempo={factor:.5f}",
+                          "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"], input=x.astype(np.float32).tobytes(), capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).reshape(-1, 2)
 
 
-def acorde_seco(freqs, dur):
-    n = int(dur * SR)
-    t = np.arange(n) / SR
-    onda = sum(np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * 2 * f * t) for f in freqs)
-    return onda * envolvente(n, 0.004, 0.11) / len(freqs)
+def curva_ganancia(escenas, n, idx):
+    """Ganancia de un instrumento a lo largo del tiempo, con fundidos suaves entre escenas."""
+    g = np.zeros(n, np.float32)
+    puntos_t, puntos_g = [0.0], [GANANCIA[escenas[0]["escena"]][idx]]
+    for e in escenas:
+        v = GANANCIA[e["escena"]][idx]
+        puntos_t += [max(0.0, e["inicio"] - FUNDIDO / 2), e["inicio"] + FUNDIDO / 2]
+        puntos_g += [puntos_g[-1], v]
+    puntos_t.append(n / SR)
+    puntos_g.append(puntos_g[-1])
+    return np.interp(np.arange(n) / SR, puntos_t, puntos_g).astype(np.float32)
 
 
-def nota_bandoneon(f, dur):
-    """Diente de sierra suave (armónicos hasta el 8) con vibrato leve y envolvente de fuelle."""
-    n = int(dur * SR)
-    t = np.arange(n) / SR
-    fase = 2 * np.pi * f * t + 0.012 * np.sin(2 * np.pi * 5.5 * t)
-    onda = sum(np.sin(k * fase) / k for k in range(1, 9))
-    sube = np.minimum(1, t / 0.05)
-    baja = np.minimum(1, (dur - t) / 0.08)
-    return onda * sube * np.clip(baja, 0, 1) * (0.8 + 0.2 * np.sin(2 * np.pi * 2 * t))
-
-
-def poner(destino, sonido, inicio, ganancia):
-    i = int(inicio * SR)
-    if i >= len(destino):
-        return
-    corte = min(len(sonido), len(destino) - i)
-    destino[i:i + corte] += sonido[:corte] * ganancia
-
-
-def sintetizar(duracion, escenas):
-    pulso = 60 / BPM
-    compas = 4 * pulso
-    pista = np.zeros(int(duracion * SR))
-
-    def nivel(t, capa):
-        for e in escenas:
-            if e["inicio"] - 0.3 <= t < e["fin"] + 0.3:
-                return INTENSIDAD[e["escena"]][capa]
-        return INTENSIDAD[escenas[-1]["escena"]][capa]
-
-    c = 0
-    while c * compas < duracion:
-        _, freqs, bajo = ACORDES[c % len(ACORDES)]
-        base = c * compas
-        for b in range(4):  # marcato: bajo en 1 y 3, acordes secos en 2 y 4
-            t = base + b * pulso
-            if b in (0, 2):
-                poner(pista, nota_bajo(bajo, pulso * 1.8), t, 0.55 * nivel(t, 0))
-            else:
-                poner(pista, acorde_seco(freqs, pulso), t, 0.45 * nivel(t, 1))
-        t = base
-        for f, p in MELODIA[c % len(MELODIA)]:
-            poner(pista, nota_bandoneon(f, p * pulso * 0.95), t, 0.22 * nivel(t, 2))
-            t += p * pulso
-        c += 1
-
-    pista /= max(1e-9, np.abs(pista).max())
-    return (pista * 0.8 * 32767).astype("<i2")
+def envolvente_voz(v):
+    """Nivel suave de la voz (0 a 1): ataque rápido, caída lenta."""
+    a = np.abs(v)
+    paso = SR // 100
+    m = np.maximum.reduceat(a, np.arange(0, len(a), paso))
+    env = np.zeros_like(m)
+    for i in range(len(m)):
+        prev = env[i - 1] if i else 0.0
+        env[i] = m[i] if m[i] > prev else prev * 0.965 + m[i] * 0.035
+    env = np.clip(env / max(1e-6, np.percentile(env, 95)), 0, 1)
+    return np.interp(np.arange(len(a)), np.arange(len(m)) * paso, env).astype(np.float32)
 
 
 def main():
-    escenas = json.loads((SALIDA / "escenas.json").read_text())
-    voz = SALIDA / "episodio-004-voz.wav"
-    dur = float(subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(voz)],
-        capture_output=True, text=True, check=True).stdout)
-    pista = sintetizar(dur, escenas)
-    musica = SALIDA / "musica.wav"
-    subprocess.run(
-        ["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ac", "1", "-ar", str(SR), "-i", "-", str(musica)],
-        input=pista.tobytes(), check=True)
-    # La música a -14 dB y se agacha otros ~10 dB cuando habla la voz; luego loudnorm sin clipping.
-    filtro = (
-        "[0:a]aresample=44100,asplit=2[v][vsc];"
-        "[1:a]volume=-14dB[m];"
-        "[m][vsc]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=300[md];"
-        "[v][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-16:TP=-1.5:LRA=11[o]"
-    )
-    subprocess.run(
-        ["ffmpeg", "-v", "error", "-y", "-i", str(voz), "-i", str(musica),
-         "-filter_complex", filtro, "-map", "[o]", "-codec:a", "libmp3lame", "-b:a", "192k",
-         str(SALIDA / "episodio-004-final.mp3")],
-        check=True)
-    print("Listo:", SALIDA / "episodio-004-final.mp3")
+    escenas = json.loads((AUDIO / "escenas.json").read_text())
+    voz = leer(AUDIO / "episodio-004-voz.wav", 1)
+    n = len(voz)
+    T = n / SR
+    stems = {i: leer(STEMS / f"{i}.mp3", 2) for i in INSTR}
+    largo = max(len(s) for s in stems.values()) / SR
+    factor = float(np.clip(largo / T, 0.92, 1.08))          # el acorde final cae al final del video
+    print(f"tango {largo:.1f} s, voz {T:.1f} s, tempo x{factor:.3f}")
+    musica = np.zeros((n, 2), np.float32)
+    for k, inst in enumerate(INSTR):
+        s = ajustar_tempo(stems[inst], factor)
+        s = np.pad(s, ((0, max(0, n - len(s))), (0, 0)))[:n]
+        musica += s * curva_ganancia(escenas, n, k)[:, None]
+    musica /= max(1e-6, np.abs(musica).max())
+    # fundido de salida corto sobre el último acorde (evita el corte brusco)
+    fo = int(0.9 * SR)
+    musica[-fo:] *= np.linspace(1, 0, fo, dtype=np.float32)[:, None]
+    solo = musica.copy()
+    duck = 1.0 - PROFUNDIDAD_DUCK * envolvente_voz(voz)
+    mezcla = musica * NIVEL_MUSICA * duck[:, None] + np.repeat(voz[:, None], 2, 1) * 0.9
+
+    def guardar(x, destino, normalizar):
+        filtro = "loudnorm=I=-16:TP=-1.5:LRA=11" if normalizar else "alimiter=limit=0.9"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ac", "2", "-ar", str(SR), "-i", "-", "-af", filtro,
+                        "-codec:a", "libmp3lame", "-b:a", "192k", str(destino)], input=x.astype(np.float32).tobytes(), check=True)
+
+    guardar(mezcla, AUDIO / "episodio-004-final.mp3", True)
+    guardar(solo * 0.8, AUDIO / "tango-fondo.mp3", False)
+    print("Listo:", AUDIO / "episodio-004-final.mp3")
 
 
 if __name__ == "__main__":

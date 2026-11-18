@@ -19,10 +19,11 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent
 SALIDA = AQUI / "audio"
 MODELO = RAIZ / "voice_ai" / "models" / "Qwen3-TTS-12Hz-0.6B-Base"
-REFERENCIA = AQUI / "referencia" / "voz-referencia.wav"  # 24 kHz mono, convertido del .opus original
+REFERENCIA = AQUI / "referencia" / "voz-referencia.wav"  # 24 kHz mono, de la grabación del usuario (7,6 s)
+REFERENCIA_TEXTO = AQUI / "referencia" / "voz-referencia.txt"  # lo que dice la muestra (whisper): permite clonar con texto
 
 FRECUENCIA = 24000  # Hz, mono, 16 bits
-VELOCIDAD = 1.04 # atempo: más energía sin cambiar el tono
+VELOCIDAD = 1.00 # atempo: más energía sin cambiar el tono
 PAUSA_PARRAFO = 0.30
 PAUSA_ESCENA = 0.60
 SILENCIO_INICIAL = 0.3
@@ -59,8 +60,10 @@ class Voz:
         self.modelo = Qwen3TTSModel.from_pretrained(
             str(MODELO), device_map="cpu", dtype=torch.float32
         )
+        texto = REFERENCIA_TEXTO.read_text(encoding="utf-8").strip() if REFERENCIA_TEXTO.exists() else None
+        # con texto de referencia se clona también el ritmo y la entonación (modo en contexto)
         self.prompt = self.modelo.create_voice_clone_prompt(
-            ref_audio=str(REFERENCIA), ref_text=None, x_vector_only_mode=True
+            ref_audio=str(REFERENCIA), ref_text=texto, x_vector_only_mode=texto is None
         )
 
     def sintetizar(self, texto):
@@ -143,13 +146,15 @@ def main():
         pcm, cues = b"", []
         for texto in parrafos:
             # Caché por texto: si el guion no cambió esa frase, no se vuelve a sintetizar.
-            clave = SALIDA / "cache" / (hashlib.sha1(texto.encode()).hexdigest()[:16] + ".pcm")
+            # (se guarda la voz cruda: cambiar VELOCIDAD o el recorte no obliga a resintetizar)
+            clave = SALIDA / "cache" / (hashlib.sha1(texto.encode()).hexdigest()[:16] + ".raw.pcm")
             if clave.exists():
-                frase = clave.read_bytes()
+                crudo = clave.read_bytes()
             else:
-                frase = limpiar(voz.sintetizar(texto))
+                crudo = voz.sintetizar(texto)
                 clave.parent.mkdir(exist_ok=True)
-                clave.write_bytes(frase)
+                clave.write_bytes(crudo)
+            frase = limpiar(crudo)
             print(f"  · {len(frase) / 2 / FRECUENCIA:.1f} s  {texto[:40]}", flush=True)
             if pcm:
                 pcm += silencio(PAUSA_PARRAFO)

@@ -141,10 +141,10 @@ BIOMES = {
         dry=3.2,
         flora=[dict(kind="rock", p=0.003, zmax=40, sc=(0.07, 0.20))],
         wx=dict(mist=0.30, litter=0.0, cracks=0.0, moss=0.0, dust=0.15, leaves=6, plume=0.0, cloud=0.35,
-                insects=0, wind=0.8, soil_a=(0.44, 0.44, 0.47), soil_b=(0.30, 0.30, 0.34),
-                zenith=(0.20, 0.24, 0.46), horizon=(0.96, 0.62, 0.44),
-                light=dict(sun=(1.0, 0.72, 0.50), amb=(0.62, 0.64, 0.84), fog=(0.66, 0.52, 0.56)),
-                grade=dict(sat=1.0)),
+                insects=0, wind=0.9, motes=1.4, soil_a=(0.88, 0.82, 0.88), soil_b=(0.76, 0.70, 0.80),
+                zenith=(0.50, 0.56, 0.90), horizon=(1.0, 0.80, 0.88),
+                light=dict(sun=(1.0, 0.88, 0.90), amb=(0.78, 0.76, 0.94), fog=(0.84, 0.74, 0.88)),
+                grade=dict(expo=1.08, sat=1.08, tint=(0.99, 1.0, 1.03), contrast=0.28, lift=0.07)),
     ),
 
     # estepa patagónica: coirones, neneos, suelo ocre y luz rasante
@@ -157,11 +157,12 @@ BIOMES = {
             dict(kind="neneo", p=0.020, dmin=0.1, zmax=330, sc=(0.8, 1.4)),
             dict(kind="rock", p=0.0060, zmax=120, sc=(0.25, 0.9)),
         ],
-        wx=dict(mist=0.18, litter=0.0, cracks=0.35, moss=0.0, dust=0.55, leaves=0, plume=0.0, cloud=0.20,
-                insects=2, wind=1.5, soil_a=(0.74, 0.62, 0.44), soil_b=(0.56, 0.46, 0.32),
-                zenith=(0.46, 0.58, 0.82), horizon=(0.96, 0.80, 0.62),
-                light=dict(sun=(1.00, 0.84, 0.62), amb=(0.60, 0.60, 0.68), fog=(0.92, 0.80, 0.66)),
-                grade=dict(sat=1.06)),
+        wx=dict(mist=0.26, litter=0.0, cracks=0.30, moss=0.0, dust=0.65, leaves=0, plume=0.0, cloud=0.26,
+                insects=3, wind=1.7, motes=1.5, plant_tint=(0.99, 1.02, 1.02),
+                soil_a=(1.0, 0.90, 0.86), soil_b=(0.92, 0.82, 0.82),
+                zenith=(0.58, 0.74, 0.98), horizon=(0.97, 0.86, 0.93),
+                light=dict(sun=(1.0, 0.95, 0.95), amb=(0.82, 0.84, 0.94), fog=(0.91, 0.90, 0.97)),
+                grade=dict(expo=1.08, sat=1.10, tint=(0.99, 1.0, 1.03), contrast=0.28, lift=0.07)),
     ),
 
     # después de la extinción: casi nada

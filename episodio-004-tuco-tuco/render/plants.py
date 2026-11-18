@@ -774,10 +774,10 @@ def coiron(seed, ppm=420):
     for depth, bx, ang, ht in blades:
         shade = 0.62 + 0.38 * (1 - min(1, depth))
         mix = rng.uniform(0, 1)
-        straw = np.array([0.80, 0.69, 0.40])
-        green = np.array([0.50, 0.55, 0.30])
+        straw = np.array([0.88, 0.86, 0.64])
+        green = np.array([0.62, 0.82, 0.68])
         tip = (straw * (1 - mix * 0.45) + green * mix * 0.45) * shade * rng.uniform(0.9, 1.1)
-        base = np.array([0.36, 0.30, 0.16]) * shade
+        base = np.array([0.52, 0.48, 0.38]) * shade
         x, y = bx, 0.0
         n_seg = 8
         curv = rng.normal(0, 0.55) + out_sign(ang) * 0.5
@@ -806,7 +806,7 @@ def neneo(seed, ppm=420):
     # base de ramitas leñosas
     for _ in range(18):
         x0 = rng.uniform(-R * 0.6, R * 0.6)
-        c.line((x0, 0.0), (x0 + rng.normal(0, 0.03), H * 0.5), np.array([0.30, 0.24, 0.16]), 0.005)
+        c.line((x0, 0.0), (x0 + rng.normal(0, 0.03), H * 0.5), np.array([0.48, 0.40, 0.38]), 0.005)
     spines = []
     for _ in range(900):
         u = rng.uniform(-1, 1)
@@ -820,12 +820,12 @@ def neneo(seed, ppm=420):
     for sy, sx, ang in spines:
         ln = rng.uniform(0.035, 0.085)
         f = sy / H
-        col = (np.array([0.24, 0.31, 0.15]) * (1 - f) + np.array([0.52, 0.58, 0.27]) * f) * rng.uniform(0.85, 1.15)
+        col = (np.array([0.42, 0.56, 0.46]) * (1 - f) + np.array([0.74, 0.88, 0.72]) * f) * rng.uniform(0.88, 1.12)
         c.line((sx, sy), (sx + np.cos(ang) * ln, sy + np.sin(ang) * ln), col, 0.0032)
     for _ in range(int(rng.integers(8, 20))):                         # flores amarillas
         u = rng.uniform(-0.8, 0.8)
         fx, fy = u * R, np.sqrt(max(0.0, 1 - u * u)) * H * rng.uniform(0.85, 1.05)
-        c.leaf(fx, fy, rng.uniform(0.6, 2.5), 0.028, 0.007, np.array([0.88, 0.70, 0.16]))
+        c.leaf(fx, fy, rng.uniform(0.6, 2.5), 0.028, 0.007, np.array([1.0, 0.80, 0.88]))
     return _finish(c.rgb, c.a, ppm, "neneo", soft=0.5, seed=seed)
 
 
@@ -837,25 +837,25 @@ def cueva(seed, ppm=420):
     H2 = rng.uniform(0.17, 0.23)
     xs = np.linspace(-W2, W2, 44)
     top = [(x, H2 * np.sqrt(max(0.0, 1 - (x / W2) ** 2)) * rng.uniform(0.94, 1.04)) for x in xs]
-    c.poly([(-W2, 0.0)] + top + [(W2, 0.0)], np.array([0.54, 0.43, 0.30]))
+    c.poly([(-W2, 0.0)] + top + [(W2, 0.0)], np.array([0.76, 0.68, 0.72]))
     for _ in range(140):                                              # terrones y tierra suelta, más claros arriba
         x = rng.uniform(-W2 * 0.9, W2 * 0.9)
         y = rng.uniform(0.01, H2 * np.sqrt(max(0.0, 1 - (x / W2) ** 2)) * 0.95)
         f = y / H2
-        col = np.array([0.48, 0.38, 0.26]) * (1 - f) + np.array([0.60, 0.49, 0.35]) * f
+        col = np.array([0.68, 0.60, 0.66]) * (1 - f) + np.array([0.86, 0.80, 0.82]) * f
         c.leaf(x, y, rng.uniform(0, 3.14), rng.uniform(0.02, 0.05), rng.uniform(0.006, 0.014), col * rng.uniform(0.85, 1.1))
     hole = [(0.03 + 0.125 * np.cos(a), 0.062 + 0.058 * np.sin(a)) for a in np.linspace(0, 2 * np.pi, 28)]
-    c.poly(hole, np.array([0.050, 0.038, 0.030]))
+    c.poly(hole, np.array([0.24, 0.18, 0.30]))
     for a in np.linspace(0.2, 2.9, 9):                                # labio claro de la boca
         c.line((0.03 + 0.13 * np.cos(a), 0.062 + 0.062 * np.sin(a)), (0.03 + 0.16 * np.cos(a), 0.062 + 0.075 * np.sin(a)),
-               np.array([0.70, 0.58, 0.40]), 0.012)
+               np.array([0.90, 0.84, 0.86]), 0.012)
     return _finish(c.rgb, c.a, ppm, "cueva", soft=0.5, seed=seed)
 
 
 def library():
     import os, pickle
     from world import CACHE
-    p7 = os.path.join(CACHE, "plants8.pkl")
+    p7 = os.path.join(CACHE, "plants9.pkl")
     if os.path.exists(p7):
         return pickle.load(open(p7, "rb"))
     lib = _library_base()
