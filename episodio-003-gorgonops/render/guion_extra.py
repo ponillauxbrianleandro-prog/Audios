@@ -89,7 +89,7 @@ INTRO = [
     "Setecientos mil kilómetros cuadrados. Radio, cuatrocientos setenta. Once mil trescientos, hasta Rusia.",
     "Un rango no es un recorrido.",
 ]
-INTRO_RITMO = 1.12        # aceleración uniforme de las 4 frases (rápido, no exagerado)
+INTRO_RITMO = 1.18        # aceleración uniforme de las 4 frases (rápido, no exagerado)
 INTRO_ANTES, INTRO_ENTRE, INTRO_DESPUES = 0.35, 0.40, 0.80
 
 
