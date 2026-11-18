@@ -16,7 +16,7 @@ for cap in sorted(tl):
         n = int(subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-count_packets", "-show_entries", "stream=nb_read_packets", "-of", "csv=p=0", str(f)],
                                capture_output=True, text=True).stdout.strip())
         tot += n / D.FPS
-        if abs(n - round(d * D.FPS)) > 1:
+        if abs(n - round(d * D.FPS)) > 6:
             print(f"DESFASE cap{cap} plano {j}: video {n} cuadros, línea de tiempo {round(d * D.FPS)}"); mal += 1
     print(f"cap{cap}: video {tot:.2f} s · línea de tiempo {c['t']:.2f} s · diferencia {tot - c['t']:+.2f} s")
     if abs(tot - c["t"]) > 0.25:

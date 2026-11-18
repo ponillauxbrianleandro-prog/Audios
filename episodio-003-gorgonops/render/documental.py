@@ -391,7 +391,7 @@ def build():
 
     # ========================================================= PRÓLOGO
     from guion_extra import intro_plan as _ip
-    _st, _de, _tot = _ip(cargar_voz(), clave_voz)
+    _st, _de, _tot = _ip(voz_apertura(), clave_voz)
     scene(0, "0 · Apertura", [("vis", _tot)], [(1.0, gfx(sombra.intro, native=True, starts=tuple(_st), total=_tot))])
 
     scene(0, "1 · El valle", [SIL(9), N("Hace doscientos cincuenta y cinco millones de años, este valle no tenía nombre."), SIL(4),
@@ -679,6 +679,15 @@ def texto_cita(k):
     return f"{a}, {rol.split('·')[0].strip().lower()}, dice: {es}"
 
 
+def voz_apertura():
+    """Duraciones con las que se renderizó la apertura (v5): las tarjetas ya están fijadas a esos tiempos."""
+    import json
+    try:
+        return json.loads((VOZ_JSON.parent / "duraciones_v5_congeladas.json").read_text())
+    except Exception:
+        return cargar_voz()
+
+
 def cargar_voz():
     import json
     try:
@@ -691,11 +700,18 @@ def timeline(scenes):
     """Asigna tiempos: escenas, planos, subtítulos y citas. Tiempos relativos al capítulo.
     Si hay duraciones reales de voz (voice_ai/duraciones.json), la película se arma a partir de ellas."""
     voz = cargar_voz()
+    try:
+        import json as _j
+        relleno = _j.loads((VOZ_JSON.parent / "relleno_escena.json").read_text())
+    except Exception:
+        relleno = {}
     caps = {}
     for s in scenes:
         c = caps.setdefault(s["cap"], dict(t=0.0, shots=[], subs=[], quotes=[], notes=[], scenes=[], voz=[]))
         t0 = c["t"]
         t = t0
+        n_nar = max(1, sum(1 for k_, _ in s["items"] if k_ == "nar"))
+        extra = relleno.get(s["name"], 0.0) / n_nar
         for kind, val in s["items"]:
             if kind in ("sil", "vis"):
                 t += val
@@ -720,7 +736,7 @@ def timeline(scenes):
                         c["subs"].append((a, b - 0.04, two_lines(x)))
                         a = b
                     c["voz"].append((t + LEAD_VOZ, v, clave_voz(val)))
-                    t += LEAD_VOZ + v + GAP_VOZ
+                    t += LEAD_VOZ + v + GAP_VOZ + extra
                 else:
                     for ch in chunks(val):
                         d = max(1.7, len(ch.split()) / WPS + 0.35)
@@ -767,12 +783,14 @@ def timeline(scenes):
                         c["subs"].append((a, b - 0.04, two_lines(x)))
                         a = b
                     break
-        if cap == 0:                                   # apertura: cifras en secuencia, sin solapes
+        if cap == 0:                                   # apertura: cifras en secuencia, sin solapes; ventanas fijadas por las tarjetas ya renderizadas
             from guion_extra import INTRO, intro_plan
-            st, de, _tot = intro_plan(voz, clave_voz)
-            for t_i, dd, text in zip(st, de, INTRO):
-                if not voz.get(clave_voz(text)):
+            st, de, _tot = intro_plan(voz_apertura(), clave_voz)
+            for t_i, win, text in zip(st, de, INTRO):
+                v_ = voz.get(clave_voz(text))
+                if not v_:
                     continue
+                dd = min(v_, win)
                 c["voz"].append((t_i, dd, clave_voz(text)))
                 ch = chunks(text)
                 pal = [max(1, len(x.split())) for x in ch]

@@ -49,8 +49,9 @@ def procesar(x, sr, f0_obj, v, T=None):
     f0 = mediana_f0(x, sr) or f0_obj
     pitch_var = (v - 0.5) * 0.8                    # ±0,4 st
     destino = f0_obj * 2 ** (pitch_var / 12)
+    destino = f0 * 2 ** (float(np.clip(12 * np.log2(destino / f0), -1.6, 1.6)) / 12)       # correcciones grandes de tono degradan: máx. ±1,6 st (las preguntas suben de forma natural)
     # la película ya está renderizada con las duraciones congeladas de cada frase: la voz se ajusta a ellas (0,85–1,15×)
-    dur = float(np.clip(T / (len(x) / sr), 0.85, 1.15)) if T else 1.0 + 0.03 * (1 - v)
+    dur = float(np.clip(T / (len(x) / sr), 0.75, 1.6)) if T else 1.0 + 0.03 * (1 - v)
     rango = 1.0 + 0.10 * v
     snd = parselmouth.Sound(x.astype(np.float64), sr)
     out = call(snd, "Change gender", 70, 350, 1.0, float(destino), float(rango), float(dur))     # sin cambio de formantes
@@ -64,7 +65,7 @@ def procesar(x, sr, f0_obj, v, T=None):
                    dev_in_st=round(12 * np.log2(f0 / f0_obj), 2))
 
 
-_fz = AQUI / "duraciones_v5_congeladas.json"
+_fz = AQUI / "objetivos_T.json"
 FROZEN = json.loads(_fz.read_text()) if (_fz.exists() and os.environ.get("CONGELAR") == "1") else {}   # v6: la línea de tiempo y el video se reajustan a la voz, no al revés
 
 
