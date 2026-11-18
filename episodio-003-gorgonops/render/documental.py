@@ -860,7 +860,8 @@ def write_srt():
 
 
 def seg_path(cap, j):
-    return VIDEO / "segmentos" / f"c{cap:02d}_s{j:03d}.mp4"
+    """Planos renderizados. Si existe SEG_DIR (por ejemplo «segmentos_r», planos reajustados a la duración de la voz) se usa esa carpeta."""
+    return VIDEO / os.environ.get("SEG_DIR", "segmentos") / f"c{cap:02d}_s{j:03d}.mp4"
 
 
 def render_segment(args):

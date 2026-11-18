@@ -6,7 +6,7 @@
    tono ±0,4 st, ritmo hasta 3 % más lento, entonación ×1,00–1,10, ganancia ±1 dB. Frases vecinas casi idénticas.
 Entrada: cache_v3/raw/<clave>.wav · Salida: cache_v3/final/<clave>.wav y .json, y duraciones.json.
 """
-import json, sys
+import json, os, sys
 from pathlib import Path
 import numpy as np, soundfile as sf, parselmouth
 from parselmouth.praat import call
@@ -65,7 +65,7 @@ def procesar(x, sr, f0_obj, v, T=None):
 
 
 _fz = AQUI / "duraciones_v5_congeladas.json"
-FROZEN = json.loads(_fz.read_text()) if _fz.exists() else {}
+FROZEN = json.loads(_fz.read_text()) if (_fz.exists() and os.environ.get("CONGELAR") == "1") else {}   # v6: la línea de tiempo y el video se reajustan a la voz, no al revés
 
 
 def main():
