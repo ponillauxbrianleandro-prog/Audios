@@ -22,7 +22,9 @@ SR = 48000
 MUS = AQUI.parent / "musica" / "wav"
 VIDEO = AQUI.parent / "video"
 TMP = AQUI.parent / "video" / "_tmp_audio"
-VOZ = AQUI.parents[1] / "voice_ai" / "cache_v3" / "final"
+_VA = AQUI.parents[1] / "voice_ai"
+_act = _VA / "cache_activa.txt"
+VOZ = _VA / (_act.read_text().strip() if _act.exists() else "cache_v3") / "final"
 BAR = 4 * 60.0 / 118.0
 
 # (inicio, fin) en compases del tango: intro 0-2, A 2-10, A 10-18, B 18-26, A 26-34, C 34-42, A 42-50, A-tutti 50-58

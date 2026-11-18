@@ -7,7 +7,8 @@ import numpy as np
 from scipy.io import wavfile
 
 VIDEO = Path(__file__).resolve().parents[1] / "video"
-VOZ = Path(__file__).resolve().parents[2] / "voice_ai" / "cache_v3" / "final"
+_VA = Path(__file__).resolve().parents[2] / "voice_ai"
+VOZ = _VA / (( _VA / "cache_activa.txt").read_text().strip() if (_VA / "cache_activa.txt").exists() else "cache_v3") / "final"
 mal = 0
 for carpeta in ("audio", "audio_sin_voz"):
     files = sorted((VIDEO / carpeta).glob("*.wav"))

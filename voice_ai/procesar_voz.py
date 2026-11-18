@@ -13,7 +13,9 @@ from parselmouth.praat import call
 from scipy.signal import butter, sosfiltfilt, lfilter
 
 AQUI = Path(__file__).resolve().parent
-RAW, FIN = AQUI / "cache_v3" / "raw", AQUI / "cache_v3" / "final"
+_act = AQUI / "cache_activa.txt"
+CACHE = AQUI / (_act.read_text().strip() if _act.exists() else "cache_v3")
+RAW, FIN = CACHE / "raw", CACHE / "final"
 FIN.mkdir(parents=True, exist_ok=True)
 
 
@@ -43,20 +45,27 @@ def de_esser(x, sr, lo=5500, hi=9500, umbral=0.035, ratio=2.5):
     return (x - b + b * g).astype(np.float32)
 
 
-def procesar(x, sr, f0_obj, v):
+def procesar(x, sr, f0_obj, v, T=None):
     f0 = mediana_f0(x, sr) or f0_obj
     pitch_var = (v - 0.5) * 0.8                    # ±0,4 st
     destino = f0_obj * 2 ** (pitch_var / 12)
-    dur = 1.0 + 0.03 * (1 - v)                     # 1,00–1,03 (como mucho 3 % más lento)
+    # la película ya está renderizada con las duraciones congeladas de cada frase: la voz se ajusta a ellas (0,85–1,15×)
+    dur = float(np.clip(T / (len(x) / sr), 0.85, 1.15)) if T else 1.0 + 0.03 * (1 - v)
     rango = 1.0 + 0.10 * v
     snd = parselmouth.Sound(x.astype(np.float64), sr)
     out = call(snd, "Change gender", 70, 350, 1.0, float(destino), float(rango), float(dur))     # sin cambio de formantes
     y = np.asarray(out.values[0], dtype=np.float32)
+    if T and len(y) / sr < T:                       # si queda más corta que su hueco, se completa con silencio (sin tocar la línea de tiempo)
+        y = np.concatenate([y, np.zeros(int((T - len(y) / sr) * sr), np.float32)])
     y = de_esser(shelf_grave(y, sr, 180.0, 1.0), sr)
     g_db = (v - 0.5) * 2.0
     y = y * 10 ** (g_db / 20)
     return y, dict(f0_in=round(f0, 1), f0_obj=round(float(destino), 1), v=round(v, 3), dur=round(dur, 3), rango=round(rango, 3), gain_db=round(g_db, 2),
                    dev_in_st=round(12 * np.log2(f0 / f0_obj), 2))
+
+
+_fz = AQUI / "duraciones_v5_congeladas.json"
+FROZEN = json.loads(_fz.read_text()) if _fz.exists() else {}
 
 
 def main():
@@ -69,13 +78,13 @@ def main():
     base = float(np.median([v for v in f0s if v]))
     objetivo = base * 2 ** (-0.3 / 12)
     print(f"tono objetivo {objetivo:.1f} Hz (mediana {base:.1f})", flush=True)
-    (AQUI / "cache_v3" / "objetivo_f0.json").write_text(json.dumps(dict(objetivo=objetivo, base=base)))
+    (CACHE / "objetivo_f0.json").write_text(json.dumps(dict(objetivo=objetivo, base=base)))
     for i, o in enumerate(lines):
         f_in, f_out = RAW / f"{o['key']}.wav", FIN / f"{o['key']}.wav"
         if not f_in.exists() or f_out.exists():
             continue
         x, sr = sf.read(str(f_in)); x = x.astype(np.float32)
-        y, m = procesar(x, sr, objetivo, viveza(float(o.get("t_film", 0.0))))
+        y, m = procesar(x, sr, objetivo, viveza(float(o.get("t_film", 0.0))), FROZEN.get(o["key"]))
         pk = float(np.abs(y).max())
         if pk > 0.95:
             y *= 0.95 / pk
@@ -86,7 +95,7 @@ def main():
     for o in lines:
         f = FIN / f"{o['key']}.wav"
         if f.exists():
-            x, sr = sf.read(str(f)); d[o["key"]] = round(len(x) / sr, 3)
+            x, sr = sf.read(str(f)); d[o["key"]] = FROZEN.get(o["key"], round(len(x) / sr, 3))   # duraciones congeladas: el video no cambia
     (AQUI / "duraciones.json").write_text(json.dumps(d))
     print("duraciones:", len(d), "de", len(lines))
 
