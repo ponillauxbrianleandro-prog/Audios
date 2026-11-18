@@ -1,229 +1,233 @@
 1
-00:00:01,350 --> 00:00:02,990
+00:00:01,350 --> 00:00:02,941
 Se llama Gorgonops.
 
 2
-00:00:03,030 --> 00:00:07,470
+00:00:02,981 --> 00:00:07,290
 El nombre es nuestro, claro, y es exagerado:
 
 3
-00:00:07,510 --> 00:00:09,710
+00:00:07,330 --> 00:00:09,464
 significa «cara de gorgona».
 
 4
-00:00:10,450 --> 00:00:13,295
+00:00:10,204 --> 00:00:12,806
 Mide un metro y medio, quizá dos.
 
 5
-00:00:13,335 --> 00:00:15,767
+00:00:12,846 --> 00:00:15,070
 Pesa lo que un perro grande.
 
 6
-00:00:15,807 --> 00:00:19,888
+00:00:15,110 --> 00:00:18,845
 Tiene el cuerpo en forma
 de barril, la cola corta,
 
 7
-00:00:19,928 --> 00:00:24,422
+00:00:18,885 --> 00:00:22,996
 y una cara que parece permanentemente
 concentrada en una sola idea:
 
 8
-00:00:24,462 --> 00:00:26,070
+00:00:23,036 --> 00:00:24,506
 encontrar algo que comer.
 
 9
-00:00:26,810 --> 00:00:29,524
+00:00:25,246 --> 00:00:28,194
 Sus ojos miran bastante hacia adelante,
 
 10
-00:00:29,564 --> 00:00:33,196
+00:00:28,234 --> 00:00:32,177
 lo que probablemente le
 daba visión en profundidad.
 
 11
-00:00:33,236 --> 00:00:37,326
+00:00:32,217 --> 00:00:36,659
 De qué color era, en cambio, no lo sabemos:
 
 12
-00:00:37,366 --> 00:00:39,162
+00:00:36,699 --> 00:00:38,651
 no hay piel fosilizada.
 
 13
-00:00:39,202 --> 00:00:44,670
+00:00:38,691 --> 00:00:44,626
 Lo que ve en pantalla es una reconstrucción
 prudente, no una fotografía.
 
 14
-00:00:46,610 --> 00:00:51,180
+00:00:46,566 --> 00:00:50,640
 Es fácil mirarlo y pensar
 que es un animal sencillo.
 
 15
-00:00:51,220 --> 00:00:56,250
+00:00:50,680 --> 00:00:55,166
 Vamos a pasar los próximos veinte minutos
 comprobando cuánto nos equivocamos.
 
 16
-00:00:59,392 --> 00:00:59,836
-Bebe.
+00:00:55,592 --> 00:00:57,882
+Una mañana cualquiera.
 
 17
-00:00:59,876 --> 00:01:00,321
-Olfatea.
+00:00:58,308 --> 00:00:58,695
+Bebe.
 
 18
-00:01:00,361 --> 00:01:03,712
-Sabemos, por las cavidades de su cráneo,
+00:00:58,735 --> 00:00:59,122
+Olfatea.
 
 19
-00:01:03,752 --> 00:01:08,072
+00:00:59,162 --> 00:01:02,108
+Sabemos, por las cavidades de su cráneo,
+
+20
+00:01:02,148 --> 00:01:05,948
 que el olfato era uno de
 sus sentidos principales.
 
-20
-00:01:08,812 --> 00:01:11,415
+21
+00:01:06,688 --> 00:01:09,644
 El agua es el centro de todo.
 
-21
-00:01:11,455 --> 00:01:14,813
+22
+00:01:09,684 --> 00:01:13,496
 Aquí beben los herbívoros,
 aquí se acercan los cazadores,
 
-22
-00:01:14,853 --> 00:01:21,232
+23
+00:01:13,536 --> 00:01:20,771
 y aquí las huellas se hunden en el barro
 y, a veces, se conservan millones de años.
 
-23
-00:01:21,972 --> 00:01:28,092
+24
+00:01:21,511 --> 00:01:26,751
 Probablemente este valle era, para
 él, sobre todo un mapa de olores.
 
-24
-00:01:28,832 --> 00:01:34,614
+25
+00:01:27,491 --> 00:01:32,474
 Un depredador que vive junto a un río de
 estaciones aprende a leer el calendario:
 
-25
-00:01:34,654 --> 00:01:39,272
+26
+00:01:32,514 --> 00:01:36,491
 el nivel del agua, la sombra,
 el olor de la tierra mojada.
 
-26
-00:01:41,233 --> 00:01:45,524
+27
+00:01:38,400 --> 00:01:42,730
 Todo lo que vamos a contar sale de la piedra.
 
-27
-00:01:45,564 --> 00:01:49,855
+28
+00:01:42,770 --> 00:01:47,099
 El primer cráneo de Gorgonops
 apareció en el Karoo sudafricano,
 
-28
-00:01:49,895 --> 00:01:53,753
+29
+00:01:47,139 --> 00:01:51,032
 y el anatomista Richard
 Owen lo describió en 1876.
 
-29
-00:01:54,493 --> 00:01:59,704
+30
+00:01:51,772 --> 00:01:57,523
 Los paleontólogos que recorren el Karoo
 caminan sobre el fondo de antiguos ríos.
 
-30
-00:01:59,744 --> 00:02:05,358
+31
+00:01:57,563 --> 00:02:03,760
 Los huesos aparecen dentro de nódulos de
 roca, y hay que abrirlos con cuidado,
 
-31
-00:02:05,398 --> 00:02:08,993
+32
+00:02:03,800 --> 00:02:07,769
 a veces durante muchas
 horas, para llegar a ellos.
 
-32
-00:02:09,733 --> 00:02:13,681
+33
+00:02:08,509 --> 00:02:12,974
 Desde entonces, esa cuenca ha entregado
 miles de fósiles de sus parientes:
 
-33
-00:02:13,721 --> 00:02:18,333
+34
+00:02:13,014 --> 00:02:18,229
 es el archivo más completo que existe
 sobre el origen de nuestro propio linaje.
 
-34
-00:02:19,073 --> 00:02:23,338
+35
+00:02:18,969 --> 00:02:24,854
 Cuando en este documental digamos
 «sabemos», habrá un hueso detrás.
 
-35
-00:02:23,378 --> 00:02:28,073
+36
+00:02:24,894 --> 00:02:31,371
 Cuando digamos «creemos», le estaremos
 avisando de que es una deducción.
 
-36
-00:02:30,025 --> 00:02:35,505
+37
+00:02:33,275 --> 00:02:42,775
 Durante mucho tiempo se llamó a los
 animales como él «reptiles mamiferoides».
 
-37
-00:02:35,545 --> 00:02:37,345
+38
+00:02:42,815 --> 00:02:45,955
 Es un nombre equivocado.
 
-38
-00:02:38,085 --> 00:02:39,685
+39
+00:02:46,695 --> 00:02:49,135
 No es un reptil.
 
-39
-00:02:39,725 --> 00:02:41,325
+40
+00:02:49,175 --> 00:02:51,615
 Tampoco es un mamífero.
 
-40
-00:02:42,065 --> 00:02:46,154
+41
+00:02:52,355 --> 00:02:56,207
 Es otra cosa, y esa otra
 cosa tuvo su propio mundo:
 
-41
-00:02:46,194 --> 00:02:48,407
+42
+00:02:56,247 --> 00:02:58,330
 durante decenas de millones de años,
 
-42
-00:02:48,447 --> 00:02:51,785
+43
+00:02:58,370 --> 00:03:01,515
 los sinápsidos fueron los
 animales dominantes de la tierra.
 
-43
-00:02:52,525 --> 00:02:56,613
+44
+00:03:02,255 --> 00:03:06,882
 Detrás de cada ojo, su cráneo
 tiene una única abertura.
 
-44
-00:02:56,653 --> 00:03:00,328
+45
+00:03:06,922 --> 00:03:11,082
 Esa abertura define a un
 linaje entero, los sinápsidos.
 
-45
-00:03:00,368 --> 00:03:06,519
+46
+00:03:11,122 --> 00:03:18,082
 Y ese linaje se separó del de los reptiles
 muchísimo antes de que existiera el
 
-46
-00:03:06,559 --> 00:03:07,345
+47
+00:03:18,122 --> 00:03:19,015
 primer dinosaurio.
 
-47
-00:03:18,765 --> 00:03:20,165
+48
+00:03:31,056 --> 00:03:32,616
 Dicho de otro modo:
 
-48
-00:03:20,205 --> 00:03:24,485
+49
+00:03:32,656 --> 00:03:37,416
 si este animal tuviera que buscar
 a sus parientes vivos más cercanos,
 
-49
-00:03:24,525 --> 00:03:28,085
+50
+00:03:37,456 --> 00:03:41,416
 no los encontraría entre los
 lagartos ni entre los cocodrilos.
 
-50
-00:03:28,125 --> 00:03:29,525
+51
+00:03:41,456 --> 00:03:43,016
 Nos encontraría a nosotros.
 

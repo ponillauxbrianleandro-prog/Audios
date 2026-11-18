@@ -1,133 +1,133 @@
 1
-00:00:01,350 --> 00:00:03,466
+00:00:01,350 --> 00:00:03,998
 Las sequías son parte de su vida.
 
 2
-00:00:03,506 --> 00:00:07,470
+00:00:04,038 --> 00:00:08,990
 Los ríos de este valle siempre crecieron
 y se secaron con las estaciones.
 
 3
-00:00:08,210 --> 00:00:14,095
+00:00:09,730 --> 00:00:16,122
 Pero las capas de roca de esta región
 cuentan que, hacia el final de su tiempo,
 
 4
-00:00:14,135 --> 00:00:15,576
+00:00:16,162 --> 00:00:17,731
 algo empezó a cambiar.
 
 5
-00:00:15,616 --> 00:00:17,798
+00:00:17,771 --> 00:00:20,143
 Las sequías se hicieron más largas.
 
 6
-00:00:17,838 --> 00:00:20,390
+00:00:20,183 --> 00:00:22,957
 Los ríos, más violentos y más breves.
 
 7
-00:00:21,130 --> 00:00:23,840
+00:00:23,697 --> 00:00:26,952
 En la roca se leen los años secos:
 
 8
-00:00:23,880 --> 00:00:27,620
+00:00:26,992 --> 00:00:31,482
 grietas de barro, bancos de
 arena, ríos que cambian de cauce.
 
 9
-00:00:27,660 --> 00:00:30,370
+00:00:31,522 --> 00:00:34,777
 Es un archivo del clima, escrito en capas.
 
 10
-00:00:32,310 --> 00:00:33,847
+00:00:36,717 --> 00:00:38,555
 Él no puede saberlo.
 
 11
-00:00:33,887 --> 00:00:37,790
+00:00:38,595 --> 00:00:43,250
 Solo nota que hay que caminar
 más para encontrar agua.
 
 12
-00:00:39,733 --> 00:00:43,693
+00:00:45,150 --> 00:00:48,790
 ¿Recuerda la bruma del horizonte?
 
 13
-00:00:44,433 --> 00:00:50,930
+00:00:49,530 --> 00:00:56,365
 Al otro lado del continente, en lo que hoy
 es Siberia, la Tierra se está abriendo.
 
 14
-00:00:50,970 --> 00:00:52,156
+00:00:56,405 --> 00:00:57,653
 No un volcán:
 
 15
-00:00:52,196 --> 00:00:55,425
+00:00:57,693 --> 00:01:01,091
 una región entera, del
 tamaño de Europa occidental,
 
 16
-00:00:55,465 --> 00:00:58,693
+00:01:01,131 --> 00:01:04,528
 derramando lava durante
 cientos de miles de años.
 
 17
-00:00:59,433 --> 00:01:02,930
+00:01:05,268 --> 00:01:08,866
 Los gases que salen de ahí
 están cambiando el aire,
 
 18
-00:01:02,970 --> 00:01:06,113
+00:01:08,906 --> 00:01:12,140
 la lluvia y la temperatura de todo el planeta.
 
 19
-00:01:06,853 --> 00:01:11,053
+00:01:12,880 --> 00:01:17,160
 Lo que viene se conoce como la
 extinción del final del Pérmico,
 
 20
-00:01:11,093 --> 00:01:13,527
+00:01:17,200 --> 00:01:19,680
 la mayor que ha registrado la vida:
 
 21
-00:01:13,567 --> 00:01:19,180
+00:01:19,720 --> 00:01:25,440
 desaparecerá la gran mayoría de las especies
 del mar y buena parte de las de tierra
 
 22
-00:01:19,220 --> 00:01:19,533
+00:01:25,480 --> 00:01:25,800
 firme.
 
 23
-00:01:20,273 --> 00:01:22,019
+00:01:26,540 --> 00:01:28,282
 Y no fue una explosión.
 
 24
-00:01:22,059 --> 00:01:27,732
+00:01:28,322 --> 00:01:33,983
 Fue un proceso con pulsos, y el golpe más
 duro se concentra en unas pocas decenas
 
 25
-00:01:27,772 --> 00:01:29,160
+00:01:34,023 --> 00:01:35,408
 de miles de años:
 
 26
-00:01:29,200 --> 00:01:32,373
+00:01:35,448 --> 00:01:38,615
 poco para la geología, muchísimo
 para quien vive dentro.
 
 27
-00:01:45,473 --> 00:01:47,677
+00:01:50,509 --> 00:01:52,748
 Los grandes cazadores cayeron primero.
 
 28
-00:01:47,717 --> 00:01:48,574
+00:01:52,788 --> 00:01:53,659
 Siempre pasa:
 
 29
-00:01:48,614 --> 00:01:55,305
+00:01:53,699 --> 00:02:00,496
 son pocos, crecen despacio, y dependen
 de que todo lo que está debajo de ellos
 
 30
-00:01:55,345 --> 00:01:55,753
+00:02:00,536 --> 00:02:00,952
 funcione.
 
