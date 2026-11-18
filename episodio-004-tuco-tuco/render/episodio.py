@@ -25,6 +25,7 @@ sys.path.insert(0, str(EP))
 
 import numpy as np
 import cv2
+cv2.setNumThreads(1)          # un hilo por proceso: el reparto lo hace el Pool
 import world
 import engine
 import camaras as D
