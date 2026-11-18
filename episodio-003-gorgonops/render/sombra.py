@@ -331,7 +331,11 @@ def _pt(name, mx, my, mw, mh):
 
 
 # ------------------------------------------------------------------ apertura (15 s)
-def intro(t, W, H, dur=15.0):
+def intro(t, W, H, dur=15.0, starts=None, total=None):
+    # las tarjetas siguen a las frases de la voz: se deforma el tiempo para que cada una aparezca cuando empieza su frase
+    if starts is not None and total:
+        real = [0.0, max(0.5, starts[1] - 0.25), max(1.0, starts[2] - 0.25), max(1.5, starts[3] - 0.25), float(total)]
+        t = float(np.interp(t, real, [0.0, 2.6, 6.8, 11.2, 15.0]))
     k = W / 1280 * SS
     im, d = _canvas(W, H)
     fondo(im, d, W, H, k, t, 0.81)

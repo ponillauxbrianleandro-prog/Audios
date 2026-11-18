@@ -81,11 +81,26 @@ BRIDGES = [
     ("Le basta con seguir", "Este documental es una reconstrucción animada. Los datos, las citas y las fuentes están en la descripción."),
 ]
 
-# Apertura «Sombra» (15 s): las cifras se locutan rápido (≈ 3 palabras/s) junto con cada tarjeta.
-# (inicio s, duración máxima de la ventana s, texto) — si la voz es más larga que la ventana se acelera (≤ 1,2×).
+# Apertura «Sombra»: las cifras se locutan en secuencia, sin superponer nada, con un ritmo ligeramente rápido (1,12×).
+# Cada tarjeta aparece cuando empieza su frase; la duración de la apertura sale de la voz real (≥ 15 s).
 INTRO = [
-    (0.3, 2.5, "Gorgonops torvus. Pérmico tardío."),
-    (2.9, 4.3, "Doscientos sesenta a doscientos cincuenta y cuatro millones de años. El linaje, dieciocho."),
-    (7.4, 4.2, "Setecientos mil kilómetros cuadrados. Radio: cuatrocientos setenta. Y once mil trescientos, hasta Rusia."),
-    (11.7, 3.1, "Un rango no es un recorrido."),
+    "Gorgonops torvus.",
+    "Doscientos sesenta a doscientos cincuenta y cuatro millones de años. Linaje: dieciocho.",
+    "Setecientos mil kilómetros cuadrados. Radio, cuatrocientos setenta. Once mil trescientos, hasta Rusia.",
+    "Un rango no es un recorrido.",
 ]
+INTRO_RITMO = 1.12        # aceleración uniforme de las 4 frases (rápido, no exagerado)
+INTRO_ANTES, INTRO_ENTRE, INTRO_DESPUES = 0.35, 0.40, 0.80
+
+
+def intro_plan(voz, clave):
+    """Devuelve (inicios, duraciones efectivas, duración total). Sin voz medida: 15 s con las ventanas originales."""
+    ds = [voz.get(clave(t)) for t in INTRO]
+    if not all(ds):
+        return [0.3, 2.9, 7.4, 11.7], [2.5, 4.3, 4.2, 3.1], 15.0
+    de = [d / INTRO_RITMO for d in ds]
+    st, t = [], INTRO_ANTES
+    for d in de:
+        st.append(t)
+        t += d + INTRO_ENTRE
+    return st, de, max(15.0, t - INTRO_ENTRE + INTRO_DESPUES)

@@ -25,7 +25,16 @@ for carpeta in ("audio", "audio_sin_voz"):
     ok = abs(L + 16) <= 1.5 and TP <= -1.0 and llenos == 0
     print(f"{carpeta}: {L:.1f} LUFS · true-peak {TP:.1f} dBTP · muestras a escala completa {llenos} -> {'OK' if ok else 'FALLA'}")
     mal += 0 if ok else 1
+import math
 metas = [json.loads(p.read_text()) for p in VOZ.glob("*.json")]
+if metas and "v" in metas[0]:                       # v5: voz estable
+    obj = json.loads((VOZ.parent / "objetivo_f0.json").read_text())["objetivo"]
+    dev = [abs(12 * math.log2(m["f0_obj"] / obj)) for m in metas]
+    dur = [m["dur"] for m in metas]
+    print(f"voz: variación de tono respecto del objetivo ≤ {max(dev):.2f} st · ritmo {min(dur):.3f}–{max(dur):.3f} · entonación ×{min(m['rango'] for m in metas):.2f}–{max(m['rango'] for m in metas):.2f}")
+    if max(dev) > 0.6:
+        mal += 1
+    metas = []
 if metas:
     from collections import Counter
     c = Counter(m["perfil"] for m in metas)

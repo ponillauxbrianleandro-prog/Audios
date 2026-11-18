@@ -390,7 +390,9 @@ def build():
     V2 = dict(pos=(-12.5, 0.34, 6.6), yaw=0.42, f=1700, pitch=-0.02, move=(0.10, 0, 0.05), zf=12.0, ap=0.004)
 
     # ========================================================= PRÓLOGO
-    scene(0, "0 · Apertura", [("vis", 15.0)], [(1.0, gfx(sombra.intro, native=True))])
+    from guion_extra import intro_plan as _ip
+    _st, _de, _tot = _ip(cargar_voz(), clave_voz)
+    scene(0, "0 · Apertura", [("vis", _tot)], [(1.0, gfx(sombra.intro, native=True, starts=tuple(_st), total=_tot))])
 
     scene(0, "1 · El valle", [SIL(9), N("Hace doscientos cincuenta y cinco millones de años, este valle no tenía nombre."), SIL(4),
                               N("No había flores. No había hierba. Ningún ave cruzaba el cielo."),
@@ -765,23 +767,28 @@ def timeline(scenes):
                         c["subs"].append((a, b - 0.04, two_lines(x)))
                         a = b
                     break
-        if cap == 0:                                   # apertura: cifras locutadas con las tarjetas (tiempos fijos)
-            from guion_extra import INTRO
-            for t_i, win, text in INTRO:
-                v = voz.get(clave_voz(text))
-                if not v:
+        if cap == 0:                                   # apertura: cifras en secuencia, sin solapes
+            from guion_extra import INTRO, intro_plan
+            st, de, _tot = intro_plan(voz, clave_voz)
+            for t_i, dd, text in zip(st, de, INTRO):
+                if not voz.get(clave_voz(text)):
                     continue
-                de = min(v, win)
-                c["voz"].append((t_i, de, clave_voz(text)))
+                c["voz"].append((t_i, dd, clave_voz(text)))
                 ch = chunks(text)
                 pal = [max(1, len(x.split())) for x in ch]
                 a = t_i
                 for x, p in zip(ch, pal):
-                    b = a + de * p / float(sum(pal))
+                    b = a + dd * p / float(sum(pal))
                     c["subs"].append((a, b - 0.04, two_lines(x)))
                     a = b
         c["voz"].sort()
-        c["subs"].sort()
+        # los subtítulos no se muestran durante las citas (ya están en pantalla y la voz las lee) ni se solapan entre sí
+        qs = [(t, t + dd) for t, dd, _ in c["quotes"]]
+        subs = [s_ for s_ in sorted(c["subs"]) if not any(q0 - 0.1 <= s_[0] < q1 for q0, q1 in qs)]
+        for i in range(len(subs) - 1):
+            if subs[i][1] > subs[i + 1][0] - 0.04:
+                subs[i] = (subs[i][0], max(subs[i][0] + 0.3, subs[i + 1][0] - 0.04), subs[i][2])
+        c["subs"] = subs
     return caps
 
 
@@ -817,7 +824,7 @@ def render_frame(args):
         img = sombra.rotulo(img, lt, d, shot["rot"])
     for nt, nd, lines in c["notes"]:
         if nt <= t < nt + nd:
-            img = sombra.nota_overlay(img, t - nt, nd, lines)
+            img = sombra.nota_overlay(img, t - nt, nd, lines, corner="tr")
     for qt, qd, key in c["quotes"]:
         if qt <= t < qt + qd:
             img = G.quote_overlay(img, t - qt, qd, *QUOTES[key])
