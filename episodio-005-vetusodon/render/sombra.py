@@ -39,7 +39,7 @@ def silueta(name, n=32):
     Se calcula una vez desde creature.render y se guarda en caché."""
     if name in _SIL:
         return _SIL[name]
-    spec = dict(gorgonops=C.GORGONOPS, procynosuchus=C.PROCYNOSUCHUS, diictodon=C.DIICTODON, pareiasaur=C.PAREIASAUR)[name]
+    spec = dict(gorgonops=C.GORGONOPS, procynosuchus=C.PROCYNOSUCHUS, diictodon=C.DIICTODON, pareiasaur=C.PAREIASAUR, vetusodon=C.VETUSODON)[name]
     path = os.path.join(world.CACHE, f"sil_{name}.pkl")
     if os.path.exists(path):
         _SIL[name] = pickle.load(open(path, "rb"))

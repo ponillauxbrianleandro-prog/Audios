@@ -1,0 +1,8 @@
+musica/wav/
+video/segmentos/
+video/master/
+video/audio/
+video/*.mp4
+video/*.log
+video/*.txt
+__pycache__/

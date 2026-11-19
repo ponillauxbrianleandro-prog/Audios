@@ -9,7 +9,7 @@ import numpy as np
 import cv2
 from util import fbm, smoothstep, lerp, blur, catmull
 
-CACHE = os.environ.get("GORGO_CACHE", "/tmp/gorgo_cache")
+CACHE = os.environ.get("GORGO_CACHE", "/tmp/vet_cache")
 os.makedirs(CACHE, exist_ok=True)
 
 SUN = np.array([-0.50, 0.62, -0.42])           # hacia el sol (mundo: X der, Y arriba, Z fondo)

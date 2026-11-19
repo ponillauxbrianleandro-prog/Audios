@@ -245,3 +245,75 @@ BIOMES["artico"] = dict(
             soil_a=(0.58, 0.60, 0.62), soil_b=(0.42, 0.44, 0.48), snow_col=(0.92, 0.95, 1.0),
             light=dict(sun=(0.90, 0.94, 1.0), amb=(0.72, 0.80, 0.94), fog=(0.86, 0.90, 0.95)), grade=dict(sat=0.86, expo=1.06)),
 )
+
+
+# ================================================================= episodio 005: un color dominante por escena
+# Cada paleta tiñe cielo, horizonte, luz, suelo, musgo, plantas y sierras a la vez; las plantas exóticas conservan su matiz propio.
+_PALETAS = dict(
+    ambar=dict(zenith=(0.93, 0.55, 0.26), horizon=(1.0, 0.82, 0.42), sun=(1.0, 0.76, 0.38), amb=(0.95, 0.58, 0.38), fog=(1.0, 0.70, 0.40),
+               soil_a=(0.62, 0.34, 0.15), soil_b=(0.40, 0.19, 0.10), moss_a=(0.55, 0.38, 0.06), moss_b=(0.80, 0.55, 0.10),
+               plant=(1.12, 0.88, 0.52), pano=(1.05, 0.62, 0.40), sat=1.22, expo=1.05, tint=(1.04, 1.0, 0.90)),
+    violeta=dict(zenith=(0.38, 0.24, 0.70), horizon=(0.80, 0.62, 0.95), sun=(0.88, 0.72, 1.0), amb=(0.52, 0.42, 0.92), fog=(0.66, 0.52, 0.90),
+                 soil_a=(0.42, 0.30, 0.54), soil_b=(0.26, 0.19, 0.38), moss_a=(0.18, 0.34, 0.30), moss_b=(0.30, 0.60, 0.46),
+                 plant=(0.98, 0.72, 1.25), pano=(0.62, 0.50, 0.95), sat=1.20, expo=1.05, tint=(0.98, 0.96, 1.06)),
+    azul=dict(zenith=(0.08, 0.30, 0.82), horizon=(0.55, 0.80, 1.0), sun=(0.88, 0.96, 1.0), amb=(0.34, 0.54, 0.95), fog=(0.50, 0.72, 0.96),
+              soil_a=(0.86, 0.82, 0.70), soil_b=(0.60, 0.64, 0.60), moss_a=(0.12, 0.40, 0.50), moss_b=(0.25, 0.65, 0.70),
+              plant=(0.78, 0.96, 1.30), pano=(0.45, 0.65, 1.0), sat=1.18, expo=1.08, tint=(0.96, 1.0, 1.08)),
+    oxido=dict(zenith=(0.80, 0.40, 0.26), horizon=(1.0, 0.68, 0.42), sun=(1.0, 0.72, 0.44), amb=(0.88, 0.52, 0.40), fog=(0.92, 0.58, 0.40),
+               soil_a=(0.66, 0.30, 0.17), soil_b=(0.42, 0.18, 0.11), moss_a=(0.46, 0.30, 0.10), moss_b=(0.62, 0.40, 0.12),
+               plant=(1.08, 0.74, 0.55), pano=(0.95, 0.52, 0.38), sat=1.12, expo=1.06, tint=(1.05, 0.98, 0.92)),
+    ceniza=dict(zenith=(0.30, 0.27, 0.38), horizon=(0.64, 0.55, 0.58), sun=(0.82, 0.66, 0.60), amb=(0.50, 0.46, 0.58), fog=(0.58, 0.50, 0.54),
+                soil_a=(0.40, 0.34, 0.36), soil_b=(0.24, 0.20, 0.24), moss_a=(0.20, 0.20, 0.24), moss_b=(0.32, 0.30, 0.36),
+                plant=(0.82, 0.66, 0.84), pano=(0.52, 0.42, 0.52), sat=1.0, expo=1.0, tint=(1.0, 0.97, 1.0)),
+    noche=dict(zenith=(0.06, 0.10, 0.30), horizon=(0.22, 0.30, 0.52), sun=(0.42, 0.52, 0.80), amb=(0.20, 0.30, 0.56), fog=(0.20, 0.28, 0.50),
+               soil_a=(0.20, 0.24, 0.40), soil_b=(0.12, 0.15, 0.28), moss_a=(0.08, 0.20, 0.30), moss_b=(0.14, 0.36, 0.46),
+               plant=(0.50, 0.72, 1.20), pano=(0.30, 0.42, 0.75), sat=1.1, expo=1.30, tint=(0.94, 1.0, 1.10)),
+    esmeralda=dict(zenith=(0.12, 0.52, 0.62), horizon=(0.72, 0.95, 0.80), sun=(1.0, 0.95, 0.70), amb=(0.40, 0.75, 0.70), fog=(0.58, 0.85, 0.74),
+                   soil_a=(0.58, 0.46, 0.28), soil_b=(0.34, 0.26, 0.15), moss_a=(0.10, 0.40, 0.18), moss_b=(0.25, 0.75, 0.30),
+                   plant=(0.88, 1.18, 0.92), pano=(0.40, 0.72, 0.70), sat=1.20, expo=1.05, tint=(1.0, 1.02, 0.96)),
+)
+
+# familias de color de las plantas exóticas por paleta: (paraguas, pompon, cicada, hongo_gigante, espiral)
+_FAM = dict(ambar=(3, 2, 2, 3, 3), violeta=(1, 0, 3, 1, 2), azul=(0, 1, 1, 0, 1), oxido=(3, 2, 2, 3, 3), ceniza=(1, 0, 3, 1, 2),
+            noche=(0, 1, 1, 0, 1), esmeralda=(2, 3, 0, 2, 0))
+
+
+def _exo(pal):
+    a, b, c, d, e = _FAM[pal]
+    far = [dict(kind=f"paraguas_{a}", p=0.050, dmin=-99, zmin=240, sc=(2.4, 4.4)),
+           dict(kind=f"pompon_{b}", p=0.040, dmin=-99, zmin=240, sc=(2.2, 3.8)),
+           dict(kind=f"cicada_{c}", p=0.030, dmin=-99, zmin=240, sc=(2.0, 3.4))]
+    mid = [dict(kind=f"paraguas_{a}", p=0.010, dmin=3.0, zmin=18, zmax=240, sc=(0.8, 1.4)),
+           dict(kind=f"pompon_{b}", p=0.020, dmin=2.0, zmin=10, zmax=240, sc=(0.8, 1.3)),
+           dict(kind=f"cicada_{c}", p=0.030, dmin=1.2, zmin=5, zmax=200, sc=(0.8, 1.4)),
+           dict(kind=f"hongo_gigante_{d}", p=0.040, dmin=0.8, zmax=70, sc=(0.8, 1.5)),
+           dict(kind=f"espiral_{e}", p=0.045, dmin=0.5, zmax=90, sc=(0.8, 1.3))]
+    seca = [dict(kind=f"cicada_{c}", p=0.045, dmin=0.0, zmax=160, sc=(0.6, 1.2)),
+            dict(kind=f"espiral_{e}", p=0.05, dmin=0.0, zmax=80, sc=(0.6, 1.1)),
+            dict(kind=f"hongo_gigante_{d}", p=0.03, dmin=0.0, zmax=50, sc=(0.6, 1.1))]
+    return far, mid, seca
+
+
+def look(nombre, pal, flora="viva", niebla=0.5, nubes=0.5, bicho=10, hojas=5, humo=0.0, lluvia=0.0, dry=0.0, dragon=3, **extra):
+    """Registra un bioma 'nombre' con paleta dominante `pal`."""
+    P = _PALETAS[pal]
+    far, mid, seca = _exo(pal)
+    fl = {"viva": far + mid + _BASE, "seca": far + seca + _BASE, "densa": far + mid + _SELVA + _BASE}[flora]
+    pt = tuple(1 + 0.55 * (c - 1) for c in P["plant"])          # tinte de plantas más suave: conservan su matiz propio
+    wx = dict(mist=niebla, cloud=nubes, insects=bicho, dragonflies=dragon, leaves=hojas, plume=humo, rain=lluvia, shadow=0.55, cloud_shadow=0.4,
+              soil_a=P["soil_a"], soil_b=P["soil_b"], moss_a=P["moss_a"], moss_b=P["moss_b"], moss=1.2, litter=0.35,
+              light=dict(sun=P["sun"], amb=P["amb"], fog=P["fog"]), plant_tint=pt, pano_tint=P["pano"],
+              grade=dict(sat=P["sat"] * 0.93, expo=P["expo"], tint=P["tint"], contrast=0.58, lift=0.02),
+              zenith=P["zenith"], horizon=P["horizon"])
+    wx.update(extra)
+    BIOMES[nombre] = dict(flora=fl, wx=wx, bake_z=40.0, near_clear=(7.0, 3.0), thin=(10.0, 120.0, 0.10))
+    if dry:
+        BIOMES[nombre]["dry"] = dry
+    return nombre
+
+
+for _n, _p in (("v_ambar", "ambar"), ("v_violeta", "violeta"), ("v_azul", "azul"), ("v_noche", "noche"), ("v_esmeralda", "esmeralda")):
+    look(_n, _p, "viva")
+look("v_oxido", "oxido", "seca", niebla=0.35, nubes=0.25, bicho=4, hojas=2, humo=0.45, dry=1.4)
+look("v_ceniza", "ceniza", "seca", niebla=0.85, nubes=0.9, bicho=0, dragon=0, hojas=0, humo=0.8, lluvia=0.45, dry=1.0)
+look("v_ceniza_selva", "ceniza", "viva", niebla=0.9, nubes=0.9, bicho=1, dragon=0, hojas=1, humo=0.9, lluvia=0.7)

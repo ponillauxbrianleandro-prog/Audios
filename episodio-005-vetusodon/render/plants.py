@@ -700,10 +700,181 @@ def rama_alta(seed, ppm=300):
     return _finish(c.rgb, c.a, ppm, "rama_alta", soft=0.5, seed=seed)
 
 
+# ====================================================================== flora exótica (episodio 005)
+def _vivo(col, k):
+    return np.clip(np.array(col, np.float32) * k, 0, 1.2)
+
+
+def paraguas(seed, ppm=60, pal=0):
+    """Árbol-paraguas: tronco estriado y copa plana en abanico con borde claro (referencia: imagen azul y blanca)."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(6.0, 11.0)
+    R = H * rng.uniform(0.38, 0.55)
+    c = Canvas(2 * R + 1.0, H * 1.15 + 0.4, ppm)
+    PAL = [((0.10, 0.20, 0.62), (0.80, 0.88, 1.0)), ((0.42, 0.14, 0.52), (1.0, 0.80, 0.92)), ((0.05, 0.42, 0.50), (0.85, 1.0, 0.92)),
+           ((0.70, 0.30, 0.10), (1.0, 0.92, 0.65))][pal % 4]
+    cap_c, rim_c = np.array(PAL[0], np.float32), np.array(PAL[1], np.float32)
+    top = H
+    # tronco: base ancha que se afina, con estrías verticales
+    th0, th1 = 0.07 * H, 0.032 * H
+    xs = np.linspace(0, 1, 18)
+    lean = rng.normal(0, 0.25)
+    for i in range(17):
+        y0, y1 = xs[i] * top, xs[i + 1] * top
+        r0, r1 = th0 + (th1 - th0) * xs[i] ** 0.7, th0 + (th1 - th0) * xs[i + 1] ** 0.7
+        col = np.array([0.88, 0.86, 0.78]) * (1 - xs[i]) + cap_c * 0.9 * xs[i]
+        c.poly([(-r0 + lean * xs[i], y0), (r0 + lean * xs[i], y0), (r1 + lean * xs[i + 1], y1), (-r1 + lean * xs[i + 1], y1)], col)
+    for k in range(10):
+        f = rng.uniform(-0.85, 0.85)
+        c.line((f * th0, 0), (f * th1 + lean, top), np.array([0.55, 0.60, 0.80]) * 0.8, 0.004 * H)
+    # copa: abanico con nervaduras radiales
+    n = 26
+    for layer, (rr, yy, k) in enumerate(((1.0, 0.0, 0.70), (0.86, 0.035 * H, 0.9), (0.62, 0.06 * H, 1.1))):
+        ang = np.linspace(np.pi * 0.06, np.pi * 0.94, n)
+        up = [(lean + np.cos(a_) * R * rr, top + yy + np.sin(a_) * R * 0.20 * rr + 0.04 * H) for a_ in ang]
+        low = [(lean + np.cos(a_) * R * rr * 0.96, top + yy - 0.02 * H - np.sin(a_) * R * 0.10 * rr) for a_ in ang][::-1]
+        c.poly(up + low, cap_c * k)
+        if layer == 0:
+            for a_ in np.linspace(np.pi * 0.1, np.pi * 0.9, 17):
+                c.line((lean, top), (lean + np.cos(a_) * R, top + np.sin(a_) * R * 0.17 + 0.02 * H), cap_c * 0.6, 0.006 * H)
+    rimpts = [(lean + np.cos(a_) * R, top + 0.04 * H + np.sin(a_) * R * 0.20) for a_ in np.linspace(np.pi * 0.06, np.pi * 0.94, 40)]
+    for p0, p1 in zip(rimpts[:-1], rimpts[1:]):
+        c.line(p0, p1, rim_c, 0.014 * H)
+    return _finish(c.rgb, c.a, ppm, "paraguas", soft=0.5, seed=seed)
+
+
+def pompon(seed, ppm=110, pal=0):
+    """Árbol de pompones: tronco delgado y racimos esféricos brillantes (referencia: árboles violetas de la imagen 1)."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(3.0, 6.5)
+    c = Canvas(H * 0.8, H * 1.15 + 0.3, ppm)
+    PAL = [(0.55, 0.28, 0.75), (0.15, 0.55, 0.80), (0.90, 0.40, 0.25), (0.25, 0.70, 0.35)][pal % 4]
+    bark = np.array([0.30, 0.22, 0.28], np.float32)
+    x, y = 0.0, 0.0
+    tips = []
+    for seg in range(3):
+        ang = np.pi / 2 + rng.normal(0, 0.28)
+        ln = H * rng.uniform(0.28, 0.40)
+        nx, ny = x + np.cos(ang) * ln, y + np.sin(ang) * ln
+        c.line((x, y), (nx, ny), bark, 0.05 * H * (1 - seg * 0.2))
+        tips.append((nx, ny))
+        if seg == 1 and rng.random() < 0.8:
+            for sgn in (-1, 1):
+                a2 = np.pi / 2 + sgn * rng.uniform(0.7, 1.1)
+                tx, ty = nx + np.cos(a2) * H * 0.22, ny + np.sin(a2) * H * 0.22
+                c.line((nx, ny), (tx, ty), bark, 0.03 * H)
+                tips.append((tx, ty))
+        x, y = nx, ny
+    for (tx, ty) in tips:
+        R = H * rng.uniform(0.10, 0.17)
+        for k in range(7):
+            ox, oy = rng.normal(0, R * 0.55), rng.normal(0, R * 0.5)
+            r = R * rng.uniform(0.45, 0.85)
+            t = np.linspace(0, 2 * np.pi, 16)
+            col = np.array(PAL, np.float32) * rng.uniform(0.7, 1.15)
+            c.poly([(tx + ox + np.cos(a_) * r, ty + oy + np.sin(a_) * r * 0.95) for a_ in t], col)
+            t2 = np.linspace(0, 2 * np.pi, 12)
+            c.poly([(tx + ox - r * 0.2 + np.cos(a_) * r * 0.45, ty + oy + r * 0.25 + np.sin(a_) * r * 0.40) for a_ in t2], np.minimum(col * 1.5 + 0.12, 1.2))
+    return _finish(c.rgb, c.a, ppm, "pompon", soft=0.5, seed=seed)
+
+
+def cicada(seed, ppm=140, pal=0):
+    """Cicada: tronco corto y grueso con corona de frondas plumosas arqueadas."""
+    rng = np.random.default_rng(seed)
+    H = rng.uniform(1.2, 3.2)
+    c = Canvas(H * 1.9, H * 1.5 + 0.4, ppm)
+    PAL = [(0.14, 0.55, 0.20), (0.15, 0.50, 0.50), (0.60, 0.50, 0.12), (0.55, 0.22, 0.50)][pal % 4]
+    trunk = np.array([0.34, 0.26, 0.20], np.float32)
+    top = H * 0.55
+    c.poly([(-0.16 * H, 0), (0.16 * H, 0), (0.11 * H, top), (-0.11 * H, top)], trunk)
+    for k in range(7):
+        yy = top * (k + 0.5) / 7
+        c.line((-0.15 * H, yy), (0.15 * H, yy - 0.02 * H), trunk * 0.6, 0.012 * H)
+    nf = rng.integers(14, 22)
+    fr = []
+    for i in range(nf):
+        a0 = np.pi / 2 + rng.uniform(-1.35, 1.35)
+        L = H * rng.uniform(0.9, 1.35)
+        fr.append((a0, L, rng.uniform(0, 1)))
+    fr.sort(key=lambda f: f[2])
+    for a0, L, lk in fr:
+        vx, vy = np.cos(a0), np.sin(a0)
+        x, y = 0.0, top
+        pts = [(x, y)]
+        for i in range(12):
+            vy -= 0.11
+            nn = np.hypot(vx, vy)
+            x += vx / nn * L / 12
+            y += vy / nn * L / 12
+            pts.append((x, y))
+        P = np.array(pts)
+        base = np.array(PAL, np.float32) * (0.55 + 0.6 * lk)
+        c.line(tuple(P[0]), tuple(P[-1]), base * 0.7, 0.006 * H)
+        for j in range(1, len(P) - 1):
+            tang = P[j + 1] - P[j - 1]
+            tang = tang / (np.hypot(*tang) + 1e-9)
+            nrm = np.array([-tang[1], tang[0]])
+            ll = L * 0.17 * (1 - j / len(P)) ** 0.6
+            for sgn in (-1, 1):
+                q = P[j] + nrm * sgn * ll + tang * ll * 0.35
+                c.line(tuple(P[j]), tuple(q), base * (0.9 + 0.2 * sgn), 0.012 * H)
+    return _finish(c.rgb, c.a, ppm, "cicada", soft=0.5, seed=seed)
+
+
+def hongo_gigante(seed, ppm=300, pal=0):
+    """Hongos de sombrero grande con manchas luminosas (referencia: hongos azules de la imagen 1)."""
+    rng = np.random.default_rng(seed)
+    c = Canvas(1.4, 0.95, ppm)
+    PAL = [((0.12, 0.18, 0.78), (0.65, 0.75, 1.0)), ((0.70, 0.12, 0.45), (1.0, 0.75, 0.85)), ((0.10, 0.55, 0.55), (0.75, 1.0, 0.95)),
+           ((0.85, 0.45, 0.10), (1.0, 0.90, 0.60))][pal % 4]
+    cap_c, spot_c = np.array(PAL[0], np.float32), np.array(PAL[1], np.float32)
+    for _ in range(rng.integers(3, 6)):
+        x = rng.normal(0, 0.28)
+        hs = rng.uniform(0.18, 0.60)
+        rc = hs * rng.uniform(0.55, 0.85)
+        c.line((x, 0.0), (x + rng.normal(0, 0.03), hs), np.array([0.82, 0.80, 0.72], np.float32), rc * 0.20)
+        t = np.linspace(0, np.pi, 18)
+        c.poly([(x + rc * np.cos(a_), hs + rc * 0.52 * np.sin(a_)) for a_ in t], cap_c * rng.uniform(0.85, 1.15))
+        c.poly([(x - rc * 0.98, hs), (x + rc * 0.98, hs), (x + rc * 0.7, hs - 0.03), (x - rc * 0.7, hs - 0.03)], cap_c * 0.45)
+        for _k in range(int(8 + rc * 18)):
+            a_ = rng.uniform(0.2, np.pi - 0.2)
+            rr = rng.uniform(0.15, 0.85)
+            px, py = x + rc * rr * np.cos(a_), hs + rc * 0.46 * rr * np.sin(a_)
+            c.poly([(px + np.cos(b) * rc * 0.07, py + np.sin(b) * rc * 0.05) for b in np.linspace(0, 6.28, 9)], spot_c)
+    return _finish(c.rgb, c.a, ppm, "hongo_gigante", soft=0.4, seed=seed)
+
+
+def espiral(seed, ppm=300, pal=0):
+    """Frondas enrolladas gigantes (báculos) y hojas como cintas, saturadas y translúcidas."""
+    rng = np.random.default_rng(seed)
+    c = Canvas(1.9, 2.0, ppm)
+    PAL = [(0.20, 0.75, 0.30), (0.25, 0.60, 0.85), (0.85, 0.40, 0.55), (0.95, 0.70, 0.15)][pal % 4]
+    for _ in range(rng.integers(4, 8)):
+        x0 = rng.normal(0, 0.45)
+        h = rng.uniform(0.7, 1.7)
+        col = np.array(PAL, np.float32) * rng.uniform(0.7, 1.15)
+        pts = []
+        for t in np.linspace(0, 1, 28):
+            if t < 0.72:
+                pts.append((x0 + 0.18 * np.sin(t * 3 + x0) * t, h * t / 0.72 * 0.85))
+            else:
+                u = (t - 0.72) / 0.28
+                r = 0.20 * (1 - u * 0.8)
+                ang = -np.pi / 2 + u * 2 * np.pi * 0.78
+                pts.append((x0 + 0.18 * np.sin(2.2 + x0) * 0.72 + np.cos(ang) * r, h * 0.85 + r + np.sin(ang) * r))
+        for p0, p1 in zip(pts[:-1], pts[1:]):
+            c.line(p0, p1, col, 0.030)
+        for j in range(3, 20, 2):
+            p0 = pts[j]
+            for sgn in (-1, 1):
+                c.leaf(p0[0], p0[1], np.pi / 2 + sgn * 1.0, rng.uniform(0.22, 0.38), 0.03, col * (1.0 + 0.1 * sgn))
+    return _finish(c.rgb, c.a, ppm, "espiral", soft=0.4, seed=seed)
+
+
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants6.pkl")
+    p = os.path.join(CACHE, "plants_v9.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(
@@ -737,6 +908,12 @@ def library():
         rama_alta=[rama_alta(1900 + i) for i in range(4)],
         rock_moss=[mossify(s_, 1.0, j, 0.8) for j, s_ in enumerate(lib["rock"])],
     )
+    for pp in range(4):           # una familia de color por escena: variantes por paleta (0..3)
+        lib[f"paraguas_{pp}"] = [paraguas(2000 + 10 * pp + i, pal=pp) for i in range(4)]
+        lib[f"pompon_{pp}"] = [pompon(2100 + 10 * pp + i, pal=pp) for i in range(4)]
+        lib[f"cicada_{pp}"] = [cicada(2200 + 10 * pp + i, pal=pp) for i in range(4)]
+        lib[f"hongo_gigante_{pp}"] = [hongo_gigante(2300 + 10 * pp + i, pal=pp) for i in range(4)]
+        lib[f"espiral_{pp}"] = [espiral(2400 + 10 * pp + i, pal=pp) for i in range(4)]
     lib["outcrop_snow"] = [snowify(s_, seed=j) for j, s_ in enumerate(lib["outcrop"])]
     lib["outcrop_dry"] = [recolor(s_, (1.25, 1.1, 0.85), 0.6, (0.74, 0.60, 0.42)) for s_ in lib["outcrop_bare"]]
     lib["rock_moss_snow"] = [snowify(s_, seed=j) for j, s_ in enumerate(lib["rock_moss"])]
