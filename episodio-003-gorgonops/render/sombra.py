@@ -45,7 +45,7 @@ def silueta(name, n=32):
         _SIL[name] = pickle.load(open(path, "rb"))
         return _SIL[name]
     world.load()
-    cam = world.Camera(1280, 720, 3000, (0, 0.9, 0), 0.0, 0.0)
+    cam = world.Camera(3200, 1800, 3000, (0, 0.9, 0), 0.0, 0.0)          # cuadro amplio: los cinodontes cercanos no deben quedar recortados
     z = 5.5 / (1.0 if spec["scale"] >= 0.9 else 2.2)
     spr = []
     for i in range(n):
