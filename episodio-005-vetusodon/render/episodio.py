@@ -267,6 +267,9 @@ def timeline():
             acc += n
             lst.append((ts, n / FPS, sh))
             ts += n / FPS
+        for _, _, sh in lst:
+            if "aperture" in sh:
+                sh["aperture"] = min(sh["aperture"], 0.004)      # menos desenfoque: el animal siempre nítido
         c["shots"], c["dur"] = lst, ts
         c["t0"] = t0
         t0 += ts

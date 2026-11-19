@@ -845,36 +845,48 @@ def hongo_gigante(seed, ppm=300, pal=0):
 
 
 def espiral(seed, ppm=300, pal=0):
-    """Frondas enrolladas gigantes (báculos) y hojas como cintas, saturadas y translúcidas."""
+    """Roseta de hojas anchas y arqueadas (tipo bromelia gigante), con nervio claro y degradé base→punta."""
     rng = np.random.default_rng(seed)
-    c = Canvas(1.9, 2.0, ppm)
-    PAL = [(0.20, 0.75, 0.30), (0.25, 0.60, 0.85), (0.85, 0.40, 0.55), (0.95, 0.70, 0.15)][pal % 4]
-    for _ in range(rng.integers(4, 8)):
-        x0 = rng.normal(0, 0.45)
-        h = rng.uniform(0.7, 1.7)
-        col = np.array(PAL, np.float32) * rng.uniform(0.7, 1.15)
-        pts = []
-        for t in np.linspace(0, 1, 28):
-            if t < 0.72:
-                pts.append((x0 + 0.18 * np.sin(t * 3 + x0) * t, h * t / 0.72 * 0.85))
-            else:
-                u = (t - 0.72) / 0.28
-                r = 0.20 * (1 - u * 0.8)
-                ang = -np.pi / 2 + u * 2 * np.pi * 0.78
-                pts.append((x0 + 0.18 * np.sin(2.2 + x0) * 0.72 + np.cos(ang) * r, h * 0.85 + r + np.sin(ang) * r))
-        for p0, p1 in zip(pts[:-1], pts[1:]):
-            c.line(p0, p1, col, 0.030)
-        for j in range(3, 20, 2):
-            p0 = pts[j]
-            for sgn in (-1, 1):
-                c.leaf(p0[0], p0[1], np.pi / 2 + sgn * 1.0, rng.uniform(0.22, 0.38), 0.03, col * (1.0 + 0.1 * sgn))
+    H = rng.uniform(0.9, 1.9)
+    c = Canvas(H * 2.0, H * 1.25, ppm)
+    PAL = [((0.10, 0.45, 0.16), (0.55, 0.95, 0.45)), ((0.10, 0.30, 0.65), (0.55, 0.85, 1.0)), ((0.65, 0.15, 0.40), (1.0, 0.65, 0.80)),
+           ((0.80, 0.50, 0.08), (1.0, 0.90, 0.40))][pal % 4]
+    dark, light = np.array(PAL[0], np.float32), np.array(PAL[1], np.float32)
+    hojas = []
+    for i in range(rng.integers(9, 15)):
+        a0 = np.pi / 2 + rng.uniform(-1.25, 1.25)
+        hojas.append((abs(a0 - np.pi / 2) + rng.uniform(0, 0.25), a0, rng.uniform(0.75, 1.15)))
+    hojas.sort(reverse=True)                                           # primero las laterales, al frente las verticales
+    for _, a0, k in hojas:
+        L = H * k
+        vx, vy = np.cos(a0), np.sin(a0)
+        x, y = rng.normal(0, 0.03), 0.0
+        pts = [(x, y)]
+        for j in range(14):
+            vy -= 0.085 + 0.02 * abs(vx)
+            nn = np.hypot(vx, vy)
+            x += vx / nn * L / 14
+            y += vy / nn * L / 14
+            pts.append((x, max(y, 0.0)))
+        P = np.array(pts)
+        tang = np.gradient(P, axis=0)
+        tang /= np.linalg.norm(tang, axis=1, keepdims=True) + 1e-9
+        nrm = np.stack([-tang[:, 1], tang[:, 0]], 1)
+        u = np.linspace(0, 1, len(P))
+        wd = (0.015 + 0.075 * H * np.sin(np.pi * u ** 0.75)) * (1.0 + 0.2 * rng.random())
+        left, right = P + nrm * wd[:, None], P - nrm * wd[:, None]
+        for j in range(len(P) - 1):                                       # degradé a tramos
+            col = dark * (1 - u[j]) + light * u[j]
+            c.poly([tuple(left[j]), tuple(left[j + 1]), tuple(right[j + 1]), tuple(right[j])], col * (0.85 + 0.3 * rng.random() * 0.3))
+        for j in range(len(P) - 1):
+            c.line(tuple(P[j]), tuple(P[j + 1]), light * 1.05, 0.010 * H)
     return _finish(c.rgb, c.a, ppm, "espiral", soft=0.4, seed=seed)
 
 
 def library():
     import os, pickle
     from world import CACHE
-    p = os.path.join(CACHE, "plants_v9.pkl")
+    p = os.path.join(CACHE, "plants_v10.pkl")
     if os.path.exists(p):
         return pickle.load(open(p, "rb"))
     lib = dict(
