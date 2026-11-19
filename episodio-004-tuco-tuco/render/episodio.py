@@ -77,7 +77,7 @@ def p_dig(**kw):
 
 def p_alert(**kw):
     def f(t, d):
-        return dict(t=t, head_pitch=0.14, head_yaw=0.55 * np.sin(t * 0.8) + 0.08 * np.sin(t * 2.3), head_dy=0.02, **kw)
+        return dict(t=t, head_pitch=0.14, head_yaw=0.30 * np.sin(t * 0.8) + 0.05 * np.sin(t * 2.3), head_dy=0.02, **kw)
     return f
 
 

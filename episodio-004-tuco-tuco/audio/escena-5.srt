@@ -1,7 +1,7 @@
 1
-00:00:00,000 --> 00:00:07,024
-Y esos dientes enormes, anaranjados, a la vista. Cava con ellos y con las garras. Una pala con patas.
+00:00:00,000 --> 00:00:07,640
+Y esos dientes enormes, anaranjados, a la vista. Y cava con ellos y con las garras. Una pala con patas.
 
 2
-00:00:07,324 --> 00:00:11,738
+00:00:08,020 --> 00:00:13,470
 Y no para: cava, cava y cava. Un obrero gordo que no pide vacaciones.

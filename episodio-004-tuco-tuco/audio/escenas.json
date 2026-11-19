@@ -3,60 +3,60 @@
     "escena": 1,
     "titulo": "ESCENA 1. EL INSULTO",
     "inicio": 0.3,
-    "fin": 3.0044999999999997
+    "fin": 3.4032916666666666
   },
   {
     "escena": 2,
     "titulo": "ESCENA 2. LA PRESENTACIÓN",
-    "inicio": 3.6045,
-    "fin": 14.476083333333333
+    "inicio": 3.953291666666667,
+    "fin": 16.1635
   },
   {
     "escena": 3,
     "titulo": "ESCENA 3. LA COMIDA",
-    "inicio": 15.076083333333333,
-    "fin": 29.924833333333332
+    "inicio": 16.7135,
+    "fin": 33.54595833333333
   },
   {
     "escena": 4,
     "titulo": "ESCENA 4. EL RANKING",
-    "inicio": 30.524833333333333,
-    "fin": 42.779833333333336
+    "inicio": 34.095958333333336,
+    "fin": 48.13783333333333
   },
   {
     "escena": 5,
     "titulo": "ESCENA 5. LOS DIENTES",
-    "inicio": 43.37983333333333,
-    "fin": 55.117958333333334
+    "inicio": 48.68783333333333,
+    "fin": 62.15758333333333
   },
   {
     "escena": 6,
     "titulo": "ESCENA 6. EL NOMBRE",
-    "inicio": 55.717958333333335,
-    "fin": 62.753416666666666
+    "inicio": 62.70758333333333,
+    "fin": 70.058375
   },
   {
     "escena": 7,
     "titulo": "ESCENA 7. LA SOLEDAD",
-    "inicio": 63.35341666666667,
-    "fin": 67.74916666666667
+    "inicio": 70.608375,
+    "fin": 76.29166666666666
   },
   {
     "escena": 8,
     "titulo": "ESCENA 8. LO CHIQUITO",
-    "inicio": 68.34916666666666,
-    "fin": 83.7435
+    "inicio": 76.84166666666667,
+    "fin": 92.85170833333333
   },
   {
     "escena": 9,
     "titulo": "ESCENA 9. LA REFUTACIÓN",
-    "inicio": 84.3435,
-    "fin": 96.31775
+    "inicio": 93.40170833333333,
+    "fin": 108.36270833333333
   },
   {
     "escena": 10,
     "titulo": "ESCENA 10. CIERRE CON ORGULLO",
-    "inicio": 96.91775,
-    "fin": 102.595375
+    "inicio": 108.91270833333333,
+    "fin": 117.056
   }
 ]

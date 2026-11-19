@@ -522,7 +522,7 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
         tile, wing = cv2.GaussianBlur(tile, (0, 0), sg), cv2.GaussianBlur(wing, (0, 0), sg + 0.8)
         x0, y0 = int(u0) - pad, int(v0) - pad
         _put(img, np.dstack([wing] * 3) * 0.78 * 0.22, wing * 0.22, x0, y0)
-        _put(img, np.dstack([tile] * 3) * np.array([0.10, 0.09, 0.07], np.float32), tile * 0.9, x0, y0)
+        _put(img, np.dstack([tile] * 3) * np.array([0.60, 0.55, 0.76], np.float32) * 0.7, tile * 0.7, x0, y0)
 
     # hojas: ráfagas cortas y espaciadas (cada 7-15 s caen 4-9 hojas)
     nl = int(wx.get("leaves", 0))
@@ -550,7 +550,7 @@ def life(img, cam, t, wx, zf, ap, k, at=None, shot=None):
                 cv2.ellipse(tile, (pad * 16, pad * 16), (int(s * 0.5 * 16), int(s * 0.16 * (0.4 + 0.6 * abs(np.sin(age * 3 + ph_))) * 16) + 8),
                             float(np.degrees(age * 2.2 + ph_)), 0, 360, 1.0, -1, cv2.LINE_AA, 4)
                 tile = cv2.GaussianBlur(tile, (0, 0), 0.6 + float(_coc(cam, lz, zf, ap)) * 0.7)
-                col = np.array([0.50, 0.38, 0.16], np.float32) * (0.7 + 0.5 * ((i * 37) % 10) / 10)
+                col = np.array([1.0, 0.78, 0.82], np.float32) * (0.75 + 0.35 * ((i * 37) % 10) / 10)
                 _put(img, tile[..., None] * col, tile * 0.95, int(lu) - pad, int(lv) - pad)
 
     # lluvia fina

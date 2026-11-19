@@ -106,15 +106,15 @@ def build_roedor(spec, phase=0.0, walk=0.0, t=0.0, head_pitch=0.0, head_yaw=0.0,
     # bóveda craneal ancha, mejillas con volumen propio, hocico romo
     hchain([(-0.12, 0.02, 0), (-0.04, 0.04, 0), (0.06, 0.02, 0)], [0.125 * wd + 0.015, 0.135 * wd + 0.015, 0.125 * wd + 0.015])
     for s in (-1, 1):
-        hchain([(-0.02, 0.035, s * 0.075 * wd), (0.09, 0.040, s * 0.080 * wd)], [0.085 * wd + 0.015, 0.075 * wd + 0.015])   # frente y ceja
+        hchain([(-0.02, 0.035, s * 0.060 * wd), (0.09, 0.040, s * 0.062 * wd)], [0.085 * wd + 0.015, 0.078 * wd + 0.015])   # frente y ceja (más estrecha)
         hball((0.06, -0.050, s * 0.100 * wd), 0.088 * wd + 0.005)                       # mejilla con volumen propio
         hball((0.17, -0.050, s * 0.062 * wd), 0.072 * wd + 0.005)                       # almohadilla de bigotes
         hball((-0.07, 0.10, s * 0.095 * wd), 0.030 * spec["ear"] ** 0.5)                # oreja (diminuta en el tuco-tuco)
         if rata:
             hchain([(-0.09, 0.13, s * 0.085), (-0.105, 0.20, s * 0.098)], [0.040, 0.056])
-        hball((0.165, 0.062, s * 0.128 * wd), 0.0175, EYE)                              # ojo pequeño integrado en el cráneo
+        hball((0.165, 0.031, s * 0.106 * wd), 0.0185, EYE)                              # ojo pequeño integrado en el cráneo
     hchain([(0.10, 0.0, 0), (0.22, -0.020, 0), (0.33, -0.040, 0)], [0.092 * wd + 0.012, 0.074, 0.056])          # hocico
-    hball((0.372 + 0.02 * (spec["snout"] - 1), -0.030, 0), 0.020, DARK)               # nariz
+    hball((0.372 if not rata else 0.356, -0.030, 0), 0.020, DARK)               # nariz
     # incisivos: grandes y a la vista en el tuco-tuco
     ts = spec["tooth"]
     for s in (-1, 1):
