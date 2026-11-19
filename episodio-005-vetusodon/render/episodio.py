@@ -78,6 +78,15 @@ def nb_oido(d):
             dict(k="circulo", c=(1350, 985), r=(330, 70), t0=21.3, t1=22.0)]
 
 
+def cabeza(bio, a, side=1.5, fwd=1.7, h=0.5, f=2300, fg=None, extra=()):
+    """Primer plano de la cara: animal quieto, cámara por delante y de costado, enfoque en la cabeza."""
+    return track(bio, a, cam=(side, fwd, h), f=f, v=0.55, u=0.5, tgt=(0.78, 0.46), ap=0.0025, fg=fg or FG_L, extra=extra, pan=0.0)
+
+
+def quieto(spec, x, ang, pose=None, dz=1.9, dry=0.0):
+    return actor(spec, (x, zb(x, dry) - dz), ang, speed=0.0, pose=pose or p_idle(look=0.45))
+
+
 def nb_shot(items, seed):
     """Plano de cuaderno + ventanas de tiempo de cada trazo (para el sonido de lápiz)."""
     sh = K.gfx(cuaderno.cuaderno, native=False, items=items, seed=seed)
@@ -125,22 +134,23 @@ def build(vd):
         v = actor(VET, (-4.0, zb(-4.0) - 1.9), np.arctan2(-0.20, -0.98), speed=0.8)
         v2 = actor(VET, (-24.0, zb(-24.0) - 2.0), np.arctan2(0.12, 0.99), speed=0.8)
         return [(5, track("v_ambar", v, cam=(2.6, -4.2, 0.55), f=3000, v=0.58, u=0.55, tgt=(0.1, 0.40), ap=0.010, fg=FG_LR)),
-                (4, track("v_ambar", v, cam=(1.6, 1.9, 0.50), f=3800, v=0.55, u=0.50, tgt=(0.60, 0.42), ap=0.008, fg=FG_L)),
+                (4, cabeza("v_ambar", quieto(VET, -6.0, np.arctan2(-0.15, -0.99), p_sniff()), side=1.6, fwd=1.9, f=2300)),
                 (5, land("v_ambar", (-12.0, 1.6, 4.0), 0.12, f=1250, pitch=0.02, move=(0.3, 0.0, 0.5), actors=(v2,), fg=FG_LOW)),
                 (5, track("v_ambar", v2, cam=(4.0, -6.0, 0.9), f=4600, v=0.57, u=0.52, ap=0.016, fg=FG_FRAME_R)),
-                (4, track("v_ambar", v, cam=(0.9, -2.8, 0.35), f=5200, v=0.60, u=0.50, tgt=(-0.55, 0.30), ap=0.008, fg=FG_LOW))]
+                (4, track("v_ambar", v, cam=(1.3, -3.2, 0.40), f=2800, v=0.58, u=0.50, tgt=(-0.30, 0.30), ap=0.003, fg=FG_LOW))]
     escena(1, "1 · El nombre", 36.0, s1, marcos=[(2, 0.4, "CRÁNEO ≈ 18 cm")], amb="amanecer")
 
     # ---------- 2 · EL VALLE (violeta)
     def s2(ctx):
         a = actor(DII, (-9.0, zb(-9.0) - 2.4), np.arctan2(0.1, 0.99), speed=0.9)
         b = actor(ANF, (-14.0, zb(-14.0) - 0.9), np.arctan2(-0.3, -0.95), speed=0.5)
-        far = actor(VET, (-36.0, zb(-36.0) - 4.0), np.arctan2(0.05, 1.0), speed=0.7)
-        return [(7, land("v_violeta", (-48.0, 1.7, 3.0), 0.30, f=1000, pitch=0.03, move=(0.9, 0.0, 0.2), dyaw=-0.012, actors=(far,), fg=FG_LOW)),
-                (5, track("v_violeta", a, cam=(2.2, -3.4, 0.45), f=2900, v=0.58, u=0.55, ap=0.008, fg=FG_LR)),
-                (5, land("v_violeta", (-18.0, 0.55, 3.2), 0.55, f=1500, pitch=0.01, move=(0.2, 0.0, 0.4), fg=FG_REED, actors=(b,))),
-                (5, land("v_violeta", (-30.0, 2.4, 2.0), 0.2, f=900, pitch=0.12, move=(0.0, 0.5, 0.7), fg=FG_BRANCH)),
-                (6, land("v_violeta", (-10.0, 1.2, 1.0), 0.45, f=1300, pitch=0.02, move=(0.6, 0.0, 0.5), actors=(a,), fg=FG_FRAME_L))]
+        v = actor(VET, (-30.0, zb(-30.0) - 2.2), np.arctan2(0.05, 1.0), speed=0.7)
+        v2 = actor(VET, (-14.0, zb(-14.0) - 2.4), np.arctan2(-0.08, -0.99), speed=0.6)
+        return [(7, land("v_violeta", (-44.0, 1.5, 2.6), 0.22, f=1100, pitch=0.02, move=(1.1, 0.0, 0.2), dyaw=-0.006, actors=(v,), fg=FG_LOW)),
+                (5, track("v_violeta", a, cam=(2.2, -3.4, 0.45), f=2600, v=0.58, u=0.55, ap=0.004, fg=FG_LR, extra=(b,))),
+                (6, track("v_violeta", v, cam=(3.0, -4.2, 0.6), f=2700, v=0.58, u=0.5, ap=0.004, fg=FG_REED)),
+                (5, land("v_violeta", (-22.0, 2.2, 1.4), 0.50, f=1000, pitch=0.12, move=(0.0, 0.4, 0.6), actors=(v2,), fg=FG_BRANCH)),
+                (6, track("v_violeta", v2, cam=(2.0, -3.0, 0.5), f=2900, v=0.58, u=0.5, ap=0.004, fg=FG_FRAME_L))]
     escena(2, "2 · El valle", 48.0, s2, amb="valle")
 
     # ---------- 3 · CUADERNO 1: EL HALLAZGO
@@ -154,16 +164,16 @@ def build(vd):
 
     # ---------- 4 · UNA MAÑANA (ámbar)
     def s4(ctx):
-        v = actor(VET, (-7.0, zb(-7.0) - 1.8), np.arctan2(-0.15, -0.99), speed=0.0, pose=p_sniff())
+        v = quieto(VET, -7.0, np.arctan2(-0.15, -0.99), p_sniff())
         w = actor(VET, (-2.0, zb(-2.0) - 2.2), np.arctan2(-0.25, -0.97), speed=0.9)
-        e = actor(VET, (-16.0, zb(-16.0) - 2.0), np.arctan2(0.0, 1.0), speed=0.0, pose=p_eat())
-        return [(5, track("v_ambar", v, cam=(1.4, 1.7, 0.45), f=3600, v=0.56, u=0.52, tgt=(0.55, 0.30), ap=0.009, fg=FG_L)),
-                (6, track("v_ambar", w, cam=(3.0, -4.5, 0.7), f=3600, v=0.58, u=0.5, ap=0.012, fg=FG_LR)),
-                (5, track("v_ambar", e, cam=(2.0, 1.0, 0.5), f=3300, v=0.58, u=0.55, tgt=(0.2, 0.35), ap=0.010, fg=FG_FRAME_L)),
-                (6, track("v_ambar", w, cam=(0.5, -3.8, 0.45), f=3000, v=0.57, u=0.5, ap=0.010, fg=FG_LOW)),
-                (5, land("v_ambar", (-22.0, 2.2, 5.0), 0.05, f=1100, pitch=0.06, move=(0.5, 0.0, 0.0), fg=FG_BRANCH_R)),
-                (5, track("v_ambar", e, cam=(0.9, 0.6, 0.30), f=6200, v=0.62, u=0.5, tgt=(0.45, 0.20), ap=0.006, fg=FG_LOW)),
-                (5, track("v_ambar", w, cam=(5.0, -3.0, 1.4), f=4400, v=0.56, u=0.5, ap=0.018, fg=FG_FRAME_R))]
+        e = quieto(VET, -16.0, 0.0, p_eat())
+        return [(5, cabeza("v_esmeralda", v, side=1.6, fwd=1.9, f=2300)),
+                (6, track("v_esmeralda", w, cam=(3.0, -4.5, 0.7), f=3200, v=0.58, u=0.5, ap=0.004, fg=FG_LR)),
+                (5, track("v_esmeralda", e, cam=(2.4, 0.8, 0.5), f=2500, v=0.58, u=0.55, tgt=(0.5, 0.40), ap=0.004, fg=FG_FRAME_L, pan=0.0)),
+                (6, track("v_esmeralda", w, cam=(1.2, -3.4, 0.45), f=2600, v=0.57, u=0.5, ap=0.004, fg=FG_LOW)),
+                (5, land("v_esmeralda", (-22.0, 2.2, 5.0), 0.05, f=1100, pitch=0.06, move=(0.5, 0.0, 0.0), actors=(w,), fg=FG_BRANCH_R)),
+                (5, cabeza("v_esmeralda", e, side=1.4, fwd=1.5, h=0.4, f=2500, fg=FG_LOW)),
+                (5, track("v_esmeralda", w, cam=(5.0, -3.0, 1.4), f=3800, v=0.56, u=0.5, ap=0.004, fg=FG_FRAME_R))]
     escena(4, "4 · Una mañana", 60.0, s4, amb="mañana", sfx=["pasos"])
 
     # ---------- 5 · MONTAJE: ¿qué es un cinodonte?
@@ -179,23 +189,23 @@ def build(vd):
     # ---------- 6 · EL VECINO (óxido)
     def s6(ctx):
         g = actor(GOR, (-12.0, zb(-12.0) - 4.0), np.arctan2(0.1, 0.99), speed=0.5, pose=p_stalk(GOR))
-        v = actor(VET, (-6.0, zb(-6.0) - 2.0), np.arctan2(-0.1, -0.99), speed=0.0, pose=p_idle(look=0.5))
+        v = quieto(VET, -6.0, np.arctan2(-0.1, -0.99), p_idle(look=0.5))
         run = actor(VET, (-26.0, zb(-26.0) - 2.2), np.arctan2(0.05, 1.0), speed=2.4)
         chase = actor(GOR, (-31.0, zb(-31.0) - 2.4), np.arctan2(0.05, 1.0), speed=2.1)
-        return [(6, track("v_oxido", g, cam=(3.0, -5.0, 0.8), f=3600, v=0.58, u=0.5, ap=0.014, fg=FG_DRY)),
-                (5, track("v_oxido", v, cam=(1.5, 1.8, 0.45), f=3400, v=0.57, u=0.52, tgt=(0.55, 0.36), ap=0.008, fg=FG_LOW)),
-                (7, land("v_oxido", (-4.0, 1.5, 2.0), 0.15, f=1200, pitch=0.03, move=(0.2, 0.0, 0.2), actors=(v, g), fg=FG_FRAME_L)),
-                (6, track("v_oxido", run, cam=(3.4, -3.8, 0.7), f=3000, v=0.58, u=0.5, ap=0.012, extra=(chase,), fg=FG_DRY, tnom=3.0)),
-                (5, track("v_oxido", chase, cam=(2.4, -2.8, 0.5), f=2600, v=0.58, u=0.5, ap=0.010, fg=FG_LOW, tnom=3.0)),
-                (5, land("v_oxido", (-20.0, 0.5, 3.0), 0.45, f=1500, pitch=0.0, move=(0.5, 0.0, 0.3), actors=(run, chase), fg=FG_DRY)),
-                (5, track("v_oxido", run, cam=(0.8, -2.0, 0.35), f=3600, v=0.62, u=0.5, ap=0.008, fg=FG_LOW, tnom=3.0))]
+        return [(6, track("v_azul", g, cam=(3.0, -5.0, 0.8), f=3200, v=0.58, u=0.5, ap=0.004, fg=FG_DRY)),
+                (5, cabeza("v_azul", v, side=1.5, fwd=1.8, f=2300, fg=FG_LOW)),
+                (7, land("v_azul", (-4.0, 1.5, 2.0), 0.15, f=1200, pitch=0.03, move=(0.2, 0.0, 0.2), actors=(v, g), fg=FG_FRAME_L)),
+                (6, track("v_azul", run, cam=(3.4, -3.8, 0.7), f=2800, v=0.58, u=0.5, ap=0.004, extra=(chase,), fg=FG_DRY, tnom=3.0)),
+                (5, track("v_azul", chase, cam=(2.4, -2.8, 0.5), f=2400, v=0.58, u=0.5, ap=0.004, fg=FG_LOW, tnom=3.0)),
+                (5, land("v_azul", (-20.0, 0.5, 3.0), 0.45, f=1500, pitch=0.0, move=(0.5, 0.0, 0.3), actors=(run, chase), fg=FG_DRY)),
+                (5, track("v_azul", run, cam=(1.4, -2.6, 0.4), f=2500, v=0.60, u=0.5, ap=0.003, fg=FG_LOW, tnom=3.0))]
     escena(6, "6 · El vecino", 72.0, s6, amb="tension", sfx=["pasos", "respira"])
 
     # ---------- 7 · CUADERNO 2: LOS HUESOS DEL OÍDO
     def s7(ctx):
         n2 = nb_shot(nb_oido(ctx["dur"]), 2)
         p = actor(PRO, (-8.0, zb(-8.0) - 1.6), np.arctan2(-0.1, -0.99), speed=0.0, pose=p_idle(look=0.5))
-        return [(24, n2), (8, track("v_azul", p, cam=(1.1, 1.2, 0.30), f=3600, v=0.56, u=0.52, tgt=(0.4, 0.2), ap=0.008, fg=FG_L)),
+        return [(24, n2), (8, cabeza("v_azul", p, side=0.9, fwd=0.9, h=0.25, f=2400)),
                 (20, nb_shot(nb_oido(ctx["dur"]), 4))]
     escena(7, "7 · Cuaderno: el oído", 52.0, s7, amb="cuaderno", sfx=["lapiz", "papel"])
 
@@ -219,7 +229,7 @@ def build(vd):
                 (7, land("v_ceniza", (-8.0, 1.2, 3.0), 0.55, f=1200, pitch=0.03, move=(0.3, 0.0, 0.3), actors=(g,), fg=FG_FRAME_R)),
                 (7, track("v_ceniza_selva", g, cam=(3.0, -4.5, 0.8), f=3200, v=0.58, u=0.5, ap=0.014, fg=FG_L)),
                 (6, land("v_ceniza", (-20.0, 1.6, 0.5), 0.0, f=800, pitch=0.2, move=(0.0, 0.2, 0.9), dpitch=-0.02, fg=FG_BRANCH)),
-                (6, track("v_ceniza", v, cam=(1.0, -2.4, 0.4), f=3800, v=0.6, u=0.5, ap=0.009, fg=FG_LOW))]
+                (6, track("v_ceniza", v, cam=(1.6, -3.0, 0.5), f=2600, v=0.58, u=0.5, ap=0.004, fg=FG_LOW))]
     escena(9, "9 · La nube", 66.0, s9, amb="ceniza", sfx=["pasos"])
 
     # ---------- 10 · EL REFUGIO (noche azul)
@@ -228,7 +238,7 @@ def build(vd):
         p = actor(PRO, (-7.4, zb(-7.4) - 1.7), np.arctan2(-0.15, -0.99), speed=0.0, pose=p_idle(look=0.6))
         w = actor(VET, (-1.0, zb(-1.0) - 2.0), np.arctan2(-0.1, -0.99), speed=0.5)
         return [(6, land("v_noche", (-22.0, 1.5, 2.0), 0.3, f=1000, pitch=0.04, move=(0.4, 0.0, 0.1), actors=(w,), fg=FG_LOW)),
-                (7, track("v_noche", v, cam=(1.6, 1.5, 0.42), f=3300, v=0.57, u=0.5, tgt=(0.5, 0.34), ap=0.009, extra=(p,), fg=FG_L)),
+                (7, cabeza("v_noche", v, side=1.5, fwd=1.7, h=0.45, f=2300, extra=(p,))),
                 (7, track("v_noche", v, cam=(2.4, -1.8, 0.5), f=2900, v=0.58, u=0.5, ap=0.010, extra=(p,), fg=FG_FRAME_L)),
                 (7, track("v_noche", w, cam=(2.6, -4.0, 0.7), f=3400, v=0.58, u=0.5, ap=0.012, fg=FG_LR)),
                 (6, land("v_noche", (-10.0, 0.4, 3.0), 0.5, f=1600, pitch=0.0, move=(0.1, 0.0, 0.3), fg=FG_REED))]
@@ -237,11 +247,12 @@ def build(vd):
     # ---------- 11 · TU PARIENTE (ámbar suave) + cartel final
     def s11(ctx):
         v = actor(VET, (-4.0, zb(-4.0) - 1.9), np.arctan2(-0.15, -0.99), speed=0.5)
+        q = quieto(VET, -9.0, np.arctan2(-0.1, -0.99), p_idle(look=0.35))
         cart = K.gfx(montaje.cartel, native=False, texto="ESTE CAMINO LLEVA A VOS", variante=1)
-        return [(7, track("v_esmeralda", v, cam=(2.4, -4.0, 0.55), f=3200, v=0.58, u=0.5, ap=0.010, fg=FG_LR)),
-                (7, track("v_esmeralda", v, cam=(1.1, 2.0, 0.45), f=4200, v=0.55, u=0.5, tgt=(0.6, 0.42), ap=0.008, fg=FG_L)),
-                (6, land("v_esmeralda", (-14.0, 1.5, 4.0), 0.1, f=1200, pitch=0.03, move=(0.3, 0.0, 0.4), fg=FG_FRAME_R)),
-                (6, track("v_esmeralda", v, cam=(0.2, 2.2, 0.40), f=3600, v=0.58, u=0.5, tgt=(0.7, 0.40), ap=0.007, fg=FG_LOW)),
+        return [(7, track("v_ambar", v, cam=(2.4, -4.0, 0.55), f=3000, v=0.58, u=0.5, ap=0.004, fg=FG_LR)),
+                (7, cabeza("v_ambar", q, side=1.7, fwd=2.0, f=2500)),
+                (6, land("v_ambar", (-14.0, 1.5, 4.0), 0.1, f=1200, pitch=0.03, move=(0.3, 0.0, 0.4), actors=(q,), fg=FG_FRAME_R)),
+                (6, cabeza("v_ambar", q, side=0.8, fwd=2.2, h=0.4, f=2900, fg=FG_LOW)),
                 (5, cart)]
     escena(11, "11 · Tu pariente", 46.0, s11, marcos=[(2, 0.2, "VETUSODON ELIKHULU · 2019")], amb="final")
     return out
