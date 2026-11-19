@@ -174,12 +174,19 @@ def actor(spec, p0, ang, speed=1.0, pose=None, start=0.0, ss=1.7, stop=None, go=
 def land(biome, pos, yaw, f=1450, pitch=0.012, move=(0, 0, 0), dyaw=0.0, dpitch=0.0, zf=60.0, ap=0.0015, wx=None, fg=None, rot=None,
          shk=0.0009, actors=(), ripples=None, through=True, life_at=None):
     pos = np.array(pos, float)
-    if not any(move) and dyaw == 0.0:            # nunca una cámara quieta: deriva lenta
-        move, dyaw = (0.07, 0.0, 0.09), 0.006
+    if not any(move) and dyaw == 0.0:            # nunca una cámara quieta: travelling + giro suave
+        move, dyaw = (0.32, 0.015, 0.50), 0.020
+    else:                                        # v7: movimientos más amplios que en la v6
+        move, dyaw, dpitch = tuple(np.array(move) * 1.9), dyaw * 1.8, dpitch * 1.5
+    ph = (pos[0] * 0.37 + pos[2] * 0.11) % 6.28
 
     def cam(t, W, H):
-        sy, sp = shake(t + pos[0], shk)
-        return world.Camera(W, H, f * W / 1920, pos + np.array(move) * t, yaw + dyaw * t + sy, pitch + dpitch * t + sp)
+        sy, sp = shake(t + pos[0], max(shk, 0.0011))
+        sway = 0.0045 * np.sin(0.55 * t + ph)                      # respiración de cámara en el plano lateral
+        bob = 0.035 * np.sin(0.9 * t + ph * 1.7)
+        zoom = 1.0 + 0.018 * t                                      # empuje progresivo
+        return world.Camera(W, H, min(f * 1.28, f * zoom) * W / 1920, pos + np.array(move) * t + np.array([0, bob, 0]),
+                            yaw + dyaw * t + sy + sway, pitch + dpitch * t + sp)
     s = dict(biome=biome, cam=cam, animals=lambda t: [a(t) for a in actors], focus=(zf if callable(zf) else (lambda t: zf)), aperture=ap,
              wx=wx or {}, fg_spec=fg or (), through=through, actors=actors, rot=rot)
     if ripples:
@@ -202,7 +209,11 @@ def track(biome, a, cam=(5, -9, 1.0), f=5000, v=0.58, u=0.5, tgt=(0.0, 0.36), ap
         ff = f * W / 1920
         p = a.pos(tnom + (t - tnom) * pan)
         target = p + np.array([D[0] * tgt[0] * sc, tgt[1] * sc, D[1] * tgt[0] * sc])
-        cpt = cp + np.array([S[0], 0.0, S[1]]) * 0.10 * (t - tnom) + np.array([D[0], 0.0, D[1]]) * 0.06 * (t - tnom)   # dolly lento
+        tt = t - tnom
+        orb = 0.55 * np.sin(0.42 * tt)                                                       # órbita lateral suave alrededor del animal
+        cpt = (cp + np.array([S[0], 0.0, S[1]]) * (0.30 * tt + orb) + np.array([D[0], 0.0, D[1]]) * 0.22 * tt
+               + np.array([0.0, 0.06 * np.sin(0.7 * tt), 0.0]))                              # dolly + órbita + leve grúa
+        ff = ff * float(np.clip(1.0 + 0.030 * tt, 0.85, 1.35))                              # empuje de lente
         yaw, pitch = aim(W, H, ff, cpt, target, v, u)
         sy, sp = shake(t + cp[0], shk)
         return world.Camera(W, H, ff, cpt, yaw + sy, pitch + sp)
@@ -807,6 +818,27 @@ def timeline(scenes):
             if subs[i][1] > subs[i + 1][0] - 0.04:
                 subs[i] = (subs[i][0], max(subs[i][0] + 0.3, subs[i + 1][0] - 0.04), subs[i][2])
         c["subs"] = subs
+    return congelar(caps)
+
+
+def congelar(caps):
+    """Duraciones de plano congeladas (voice_ai/planos_congelados.json, frames por plano y capítulo): la película ya tiene
+    voz y música mezcladas a esos tiempos, así que el nuevo render conserva exactamente la misma línea de tiempo."""
+    import json
+    f = VOZ_JSON.parent / "planos_congelados.json"
+    if os.environ.get("GORGO_CONGELADO", "1") == "0" or not f.exists():
+        return caps
+    fr = json.loads(f.read_text())
+    for cap, c in caps.items():
+        fl = fr.get(str(cap))
+        if not fl or len(fl) != len(c["shots"]):
+            print(f"congelar: capítulo {cap} no coincide ({len(c['shots'])} planos)")
+            continue
+        ts, nuevos = 0.0, []
+        for (t0, d0, shot, nm), n in zip(c["shots"], fl):
+            nuevos.append((ts, n / FPS, shot, nm))
+            ts += n / FPS
+        c["shots"], c["t"] = nuevos, ts
     return caps
 
 

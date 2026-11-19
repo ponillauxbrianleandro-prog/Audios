@@ -81,6 +81,16 @@ ANFIBIO = dict(
 )
 
 
+def _frio(rgb):
+    r, g, b = rgb
+    return (round(r * 0.87, 3), round(g * 0.93, 3), round(min(1.0, b * 1.02 + 0.015), 3))
+
+
+for _sp in (GORGONOPS, PROCYNOSUCHUS, DIICTODON, PAREIASAUR, THRINAXODON, ANFIBIO):      # animales: paleta fría (v7)
+    for _k in ("dorsal", "flank", "ventral"):
+        _sp[_k] = _frio(_sp[_k])
+
+
 class Builder:
     def __init__(self):
         self.c, self.r, self.rest, self.cid = [], [], [], []
@@ -411,7 +421,8 @@ def render(spec, cam, pos, heading, pose, ss=1.6, fogk=1.0):
     sky = world.SKY_AMB * (0.50 + 0.38 * ny)[:, None]
     bounce = np.array([0.42, 0.37, 0.31], np.float32) * (np.clip(-ny, 0, 1) * 0.42)[:, None]
     rim = (1 - np.clip(-N[:, 2], 0, 1)) ** 2.5
-    light = world.SUN_COL * (wrap * 1.15)[:, None] * ao2[yy, xx][:, None] + (sky + bounce) + world.SKY_AMB * (0.55 * rim)[:, None]
+    light = (world.SUN_COL * (wrap * 1.15)[:, None] * ao2[yy, xx][:, None] + (sky + bounce)
+             + np.array([0.50, 0.74, 1.0], np.float32) * (1.05 * rim ** 1.3 * (0.35 + 0.65 * np.clip(ny + 0.4, 0, 1)))[:, None])
     col = alb * light * ao[:, None]
     Hh = Lc + np.array([0, 0, -1.0])
     Hh /= np.linalg.norm(Hh)
