@@ -494,7 +494,10 @@ def write_srt(path):
     n = 1
     with open(path, "w", encoding="utf-8") as fh:
         for c in TL:
-            for t, d, tx in c["lineas"]:
+            con_tarjeta = {i for (e, i, _d, _k, _dd) in GD.CARDS if e == c["esc"]}
+            for k, (t, d, tx) in enumerate(c["lineas"]):
+                if k in con_tarjeta:                       # la cita ya está en pantalla en grande: sin subtítulo duplicado
+                    continue
                 lines = partir(tx)
                 bloques = [lines[i:i + 2] for i in range(0, len(lines), 2)]
                 tot = sum(len(" ".join(b)) for b in bloques) or 1
