@@ -279,7 +279,7 @@ def build(vd):
         ex = (b, carc)
         return [(6, track("v_oxido", a, cam=(3.2, -0.4, 0.55), f=2100, v=0.58, u=0.5, tgt=(1.0, 0.42), ap=0.004, extra=ex, pan=0.0, fg=FG_LOW)),
                 (5, track("v_oxido", a, cam=(-3.2, 0.6, 0.55), f=2100, v=0.58, u=0.5, tgt=(1.0, 0.42), ap=0.004, extra=ex, pan=0.0, fg=FG_DRY)),
-                (5, track("v_oxido", a, cam=(1.4, 1.6, 0.5), f=2300, v=0.56, u=0.5, tgt=(0.95, 0.46), ap=0.003, extra=ex, pan=0.0, fg=FG_L)),
+                (5, track("v_oxido", a, cam=(1.9, 1.5, 0.5), f=1800, v=0.56, u=0.5, tgt=(0.95, 0.44), ap=0.003, extra=ex, pan=0.0, zf=lambda t: 2.0, fg=FG_L)),
                 (5, track("v_oxido", a, cam=(4.5, -1.5, 1.4), f=1500, v=0.58, u=0.5, tgt=(1.0, 0.40), ap=0.004, extra=ex, pan=0.0, fg=FG_FRAME_R)),
                 (5, track("v_oxido", a, cam=(2.4, 0.4, 0.22), f=2200, v=0.60, u=0.5, tgt=(1.0, 0.40), ap=0.004, extra=ex, pan=0.0, fg=FG_LOW))]
     escena(12, "12 · La pelea", 32.0, s12, amb="tension", sfx=["respira", "pelea"], clima="boom", booms=[3.2, 7.0, 11.0, 16.0, 21.0])
@@ -301,14 +301,16 @@ def build(vd):
 
     # ---------- 14 · LYSTROSAURUS: LA ESPECIE INVASORA (BOOM 7)
     def s14(ctx):
-        herd = [actor(LYS, (-34.0 + 2.2 * (i % 4) + 0.8 * (i // 4), zb(-30.0, 1.0) - 2.0 - 0.9 * (i % 3) - 0.6 * (i // 4)),
-                      np.arctan2(0.02 * (i - 3), 1.0), speed=0.8 + 0.07 * (i % 3), start=0.0) for i in range(8)]
-        lead = herd[0]
-        return [(7, land("v_oxido", (-28.0, 1.6, zb(-28.0, 1.0) - 6.0), 0.12, f=1100, pitch=0.04, move=(0.3, 0.0, 0.1), actors=tuple(herd), fg=FG_DRY)),
-                (6, track("v_oxido", lead, cam=(3.0, -3.0, 0.5), f=2500, v=0.58, u=0.5, ap=0.004, extra=tuple(herd[1:]), fg=FG_DRY, tnom=3.0)),
-                (6, track("v_oxido", lead, cam=(1.5, 2.6, 0.38), f=2800, v=0.58, u=0.5, ap=0.004, extra=tuple(herd[1:]), tgt=(0.6, 0.30), fg=FG_LOW, tnom=3.0)),
-                (6, land("v_oxido", (-24.0, 3.2, zb(-24.0, 1.0) - 4.0), 0.10, f=1000, pitch=0.22, move=(0.4, 0.0, 0.2), actors=tuple(herd), fg=FG_BRANCH)),
-                (6, track("v_oxido", herd[3], cam=(2.2, -2.2, 0.45), f=2700, v=0.58, u=0.5, ap=0.004, extra=tuple(h for h in herd if h is not herd[3]), fg=FG_FRAME_L, tnom=3.0))]
+        zr = zb(-24.0, 1.0)
+        herd = [actor(LYS, (-31.0 + 1.5 * (i % 4) + 0.9 * (i // 4), zr - 2.3 - 0.9 * (i % 3) - 0.7 * (i // 4)),
+                      np.arctan2(0.03 * (i % 3 - 1), 1.0), speed=1.0 + 0.08 * (i % 3)) for i in range(10)]
+        lead = herd[1]
+        otros = lambda a: tuple(h for h in herd if h is not a)
+        return [(7, land("v_oxido", (-24.0, 1.5, zr - 6.0), 0.0, f=1150, pitch=0.04, move=(0.15, 0.0, 0.05), actors=tuple(herd), fg=FG_DRY)),
+                (6, track("v_oxido", lead, cam=(3.0, -2.5, 0.55), f=2300, v=0.58, u=0.5, ap=0.004, extra=otros(lead), fg=FG_DRY, tnom=3.0)),
+                (6, track("v_oxido", lead, cam=(1.4, 2.4, 0.40), f=2400, v=0.58, u=0.5, ap=0.004, extra=otros(lead), tgt=(0.5, 0.30), fg=FG_LOW, tnom=3.0)),
+                (6, land("v_oxido", (-24.0, 3.4, zr - 4.5), 0.0, f=1000, pitch=0.24, move=(0.3, 0.0, 0.2), actors=tuple(herd), fg=FG_BRANCH)),
+                (6, track("v_oxido", herd[4], cam=(2.2, -2.0, 0.5), f=2400, v=0.58, u=0.5, ap=0.004, extra=otros(herd[4]), fg=FG_FRAME_L, tnom=3.0))]
     escena(14, "14 · Lystrosaurus", 40.0, s14, amb="sequia", sfx=["pasos"], clima="boom", booms=[4.0, 16.0, 28.0])
 
     out.sort(key=lambda c: GD.ORDEN.index(c["esc"]))
@@ -436,7 +438,8 @@ def render_frame(i, W, H):
                 img = montaje.marco_overlay(img, lt - tm, tx, W, H)
         for tc, key, dd in c["cards"]:
             if tc <= lt < tc + dd:
-                img = G.quote_overlay(img, lt - tc, dd, *GD.QUOTES[key])
+                au, ro, en, es = GD.QUOTES[key]
+                img = G.quote_overlay(img, lt - tc, dd, au, ro, es, en)          # español grande, original pequeño
     total = TL[-1]["t0"] + TL[-1]["dur"]
     fade = min(1.0, t / 0.6, (total - t) / 1.2)
     return (np.clip(img * max(fade, 0), 0, 1) * 255 + 0.5).astype(np.uint8)

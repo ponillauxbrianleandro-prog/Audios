@@ -18,8 +18,9 @@ from scipy.signal import butter, sosfilt, fftconvolve
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 SR = 48000
-VOZ = AQUI.parents[1] / "voice_ai" / "cache_v8"
+VOZ = AQUI.parents[1] / "voice_ai" / "cache_v9"
 MUS = AQUI.parent / "musica" / "wav"
+TANGO = Path("/root/.claude/uploads/206e7cfb-ffe4-542d-b71e-f006d55357a5/a873ee74-VoztypeRecorderVoiceMP3_160K.mp3")
 VIDEO = AQUI.parent / "video"
 rng = np.random.default_rng(8)
 
@@ -84,7 +85,13 @@ def procesar_voz():
         x = np.tanh(x * 1.25) / 1.25                                     # limitador suave, sin recortes
         x[:int(0.01 * SR)] *= np.linspace(0, 1, int(0.01 * SR))
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
-        sf.write(str(fin / f.name), x.astype(np.float32), SR, subtype="FLOAT")
+        tmp = fin / "_tmp.wav"
+        sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
+        cadena = ("highpass=f=85,equalizer=f=220:t=q:w=0.9:g=1.5,equalizer=f=3200:t=q:w=1.1:g=2.2,equalizer=f=7500:t=q:w=1.5:g=-2.5,"
+                  "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
+        y = rw(fin / f.name)[:, 0]
+        x = y
         durs[f.stem] = len(x) / SR
     (VOZ / "durs.json").write_text(json.dumps(durs))
     print(len(durs), "frases procesadas")
@@ -221,6 +228,40 @@ def rugido(vol=1.0):
     return x * 0.25 * vol
 
 
+def impacto(vol=1.0):
+    """Golpe grave de cine: caída de tono, ruido y cola."""
+    n = int(2.2 * SR)
+    t = np.arange(n) / SR
+    f = 38 + 90 * np.exp(-t * 7)
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = np.sin(ph) * np.exp(-t * 2.6) * 0.95 + lp(noise(n), 900) * np.exp(-t * 7) * 0.5 + hp(noise(n), 3000) * np.exp(-t * 18) * 0.25
+    return x * vol * 0.8
+
+
+def subida(dur=2.0, vol=1.0):
+    """Tensión que crece antes de un golpe: ruido filtrado que sube de volumen y de brillo."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = bp(noise(n), 300, 3000) * (t / dur) ** 2.2 * 0.22 + np.sin(2 * np.pi * np.cumsum(60 + 120 * (t / dur) ** 2) / SR) * (t / dur) ** 2 * 0.15
+    return x * vol
+
+
+def mordida(vol=1.0):
+    n = int(0.45 * SR)
+    t = np.arange(n) / SR
+    x = lp(noise(n), 1600) * np.exp(-t * 20) * 0.9 + bp(noise(n), 1200, 5000) * np.exp(-t * 35) * 0.4
+    return x * vol * 0.7
+
+
+def gruñido(vol=1.0, grave=1.0):
+    n = int(1.1 * SR)
+    t = np.arange(n) / SR
+    f = (95 + 25 * np.sin(2 * np.pi * 8 * t) + 20 * np.sin(2 * np.pi * 3.1 * t)) / grave
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = sum(np.sin(k * ph) / k ** 0.7 for k in range(1, 10))
+    return bp(x * (0.7 + 0.3 * noise(n) * 0.2), 70, 1300) * np.sin(np.pi * np.clip(t / 1.1, 0, 1)) ** 0.8 * 0.22 * vol
+
+
 def lapiz(dur, vol=1.0):
     n = int(dur * SR)
     t = np.arange(n) / SR
@@ -273,31 +314,9 @@ GAINS = dict(
 )
 
 
-def cargar_stems():
-    d = {}
-    for f in MUS.glob("*.wav"):
-        if f.stem in ("mezcla",):
-            continue
-        d[f.stem] = rw(f)
-    sec = json.loads((MUS / "secciones.json").read_text())
-    return d, sec
-
-
-def musica_escena(stems, sec, mood, dur, offset_bars):
-    n = int(dur * SR)
-    out = np.zeros((n, 2))
-    g = GAINS[mood]
-    bar = sec["bar"]
-    i0 = int(offset_bars * bar * SR)
-    for k, x in stems.items():
-        seg = x[i0:i0 + n]
-        if len(seg) < n:
-            seg = np.vstack([seg, np.zeros((n - len(seg), 2))])
-        out += seg * g.get(k, 0.0)
-    f = int(0.9 * SR)
-    out[:f] *= np.linspace(0, 1, f)[:, None]
-    out[-f:] *= np.linspace(1, 0, f)[:, None]
-    return out
+def plan_musica(TL):
+    """Plan de la música: por escena, clima, duración y momentos boom (s desde el inicio de la escena)."""
+    return [dict(clima=c["clima"], dur=round(c["dur"], 3), booms=[round(b, 2) for b in c["booms"] if b < c["dur"] - 0.5]) for c in TL]
 
 
 def mezclar():
@@ -309,8 +328,14 @@ def mezclar():
     fx = np.zeros((n, 2))
     amb = np.zeros((n, 2))
     mus = np.zeros((n, 2))
-    stems, sec = cargar_stems()
-    offs = [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88]
+    plan = plan_musica(TL)
+    (AQUI.parent / "musica").mkdir(exist_ok=True)
+    (AQUI.parent / "musica" / "plan.json").write_text(json.dumps(plan))
+    wavm = MUS / "musica_v9.wav"
+    if not wavm.exists():
+        subprocess.run([sys.executable, str(AQUI.parent / "musica" / "musica_real.py"), str(TANGO), str(wavm), str(AQUI.parent / "musica" / "plan.json")], check=True)
+    mus_full = rw(wavm)
+    put(mus, mus_full[:n], 0.0, 1.0)
     for c in TL:
         t0 = c["t0"]
         # voz: cada frase en su instante; nunca se solapa (el tiempo de escena ya las separa)
@@ -319,8 +344,6 @@ def mezclar():
             if f.exists():
                 put(voz, rw(f)[:, 0], t0 + t)
         # música
-        mus_s = musica_escena(stems, sec, MOOD[c["esc"]], c["dur"] + 0.6, offs[c["esc"] % len(offs)] + 1)
-        put(mus, mus_s, t0, 0.65)
         # ambiente
         a = tinta_ambiente(c["amb"], c["dur"], MATERIAL.get(c["amb"], "arcilla"))
         f = int(0.8 * SR)
@@ -328,7 +351,7 @@ def mezclar():
         a[-f:] *= np.linspace(1, 0, f)
         put(amb, a, t0, 1.0)
         # efectos por plano
-        for ts, d, sh in c["shots"]:
+        for shot_idx, (ts, d, sh) in enumerate(c["shots"]):
             T = t0 + ts
             if sh.get("tomas_lazy"):                                                # cortes del montaje = clic de cámara
                 for tc in sh["cortes"]:
@@ -341,6 +364,7 @@ def mezclar():
                 put(fx, papel(), T + d - 1.0, 0.7)
             acts = sh.get("actors", ())
             vel = max([getattr(a, "vel", 0.0) for a in acts] or [0.0])
+            mov = sum(1 for a in acts if getattr(a, "vel", 0.0) > 0.05)
             esc = c["esc"]
             if vel > 0.05 and "pasos" in c["sfx"]:
                 spec = acts[0].spec
@@ -348,7 +372,8 @@ def mezclar():
                 tt, j = 0.1, 0
                 mat = MATERIAL.get(c["amb"], "arcilla")
                 while tt < d - 0.1:
-                    put(fx, paso(mat, 0.35 + 0.5 * min(1.0, spec["scale"])), T + tt + rng.normal(0, 0.012), 0.7 * (0.8 + 0.2 * (j % 2)))
+                    for q in range(min(mov, 4)):
+                        put(fx, paso(mat, 0.35 + 0.5 * min(1.0, spec["scale"])), T + tt + rng.normal(0, 0.03) + 0.07 * q, (0.7 / (1 + 0.4 * q)) * (0.8 + 0.2 * (j % 2)))
                     tt += step * rng.uniform(0.92, 1.08)
                     j += 1
             if "respira" in c["sfx"]:
@@ -357,11 +382,28 @@ def mezclar():
             if esc == 10:
                 for tt in np.arange(0.8, d, 1.0):
                     put(fx, latido(0.7), T + tt, 0.5)
+            if esc == 12:
+                for tb in c["booms"]:
+                    if ts <= tb < ts + d:
+                        put(fx, mordida(), t0 + tb, 0.9)
+                        put(fx, gruñido(1.0, 1.0 + 0.2 * (tb % 3)), t0 + tb - 0.2, 0.7)
+                        put(fx, gruñido(0.8, 1.4), t0 + tb + 0.5, 0.6)
+            if esc in (13, 14, 6) and shot_idx == 0:
+                for tt in np.arange(2.0, c["dur"] - 2, 5.5):
+                    put(fx, gruñido(0.7, 1.5), t0 + tt, 0.5)
             if esc == 6 and len(acts) >= 2:
                 put(fx, rugido(), T + min(1.0, d * 0.3), 0.9)
+    for c in TL:                                                            # momentos boom: tensión creciente y golpe grave
+        for tb in c["booms"]:
+            if c["esc"] == 12:
+                continue
+            put(fx, subida(1.8), c["t0"] + tb - 1.8, 0.8)
+            put(fx, impacto(), c["t0"] + tb, 0.9)
+        for tc, key, dd in c.get("cards", []):                               # tarjeta de cita: golpe y cola
+            put(fx, impacto(), c["t0"] + tc, 0.8)
     # insectos que pasan volando y que salen de la tierra en escenas vivas
     for c in TL:
-        if c["esc"] in (1, 2, 4, 11, 10):
+        if c["esc"] in (1, 2, 4, 11, 10, 13):
             for tt in np.arange(3.0, c["dur"] - 3, 5.5):
                 put(fx, zumbido(rng.uniform(1.4, 2.4)), c["t0"] + tt + rng.uniform(-0.8, 0.8), 0.8)
             for tt in np.arange(6.0, c["dur"] - 3, 13.0):

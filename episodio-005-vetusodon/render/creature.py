@@ -115,7 +115,7 @@ VETUSODON = dict(
 
 # Lystrosaurus: dicinodonte robusto del tamaño de un cerdo, pico córneo y dos colmillos; la «especie invasora» del Triásico temprano.
 LYSTRO = dict(
-    scale=0.62, speed=0.42, period=0.80, canine=True, noincisors=True, tail=0.35,
+    scale=0.80, speed=0.42, period=0.85, canine=True, noincisors=True, tail=0.35,
     dorsal=(0.36, 0.29, 0.22), flank=(0.52, 0.43, 0.32), ventral=(0.74, 0.67, 0.56),
     bars=0.03, sheen=0.05, leg=0.66, head=1.22, girth=1.28, sprawl=1.25, low=0.10, snout=0.60, rough=1.6,
 )

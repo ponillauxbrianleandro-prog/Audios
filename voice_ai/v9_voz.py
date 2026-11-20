@@ -53,17 +53,17 @@ for n, (esc, i, texto) in enumerate(L):
     tx = sheismo(texto)
     nw = len(tx.split())
     mejor = None
-    for toma in range(4):
+    for toma in range(2):
         torch.manual_seed(100 + 13 * n + toma)
         w, sr = m.generate_voice_clone(text=tx, language="Spanish", voice_clone_prompt=prompt, max_new_tokens=int(nw * 9 + 48),
                                        temperature=0.62, top_k=30, subtalker_temperature=0.62)
         x = recorta(w[0].astype(np.float32), sr)
         dur = len(x) / sr
         ok = int((np.abs(x) > 0.99).sum()) == 0 and 0.22 * nw <= dur <= 0.75 * nw + 1.5
-        score = abs(dur / nw - 0.38) if ok else 9.0                       # ritmo de narrador: ~2,6 palabras por segundo
+        score = abs(dur / nw - 0.40) if ok else 9.0                       # ritmo de narrador: ~2,5 palabras por segundo
         if mejor is None or score < mejor[1]:
             mejor = (x, score)
-        if ok and score < 0.07:
+        if ok and score < 0.22:
             break
     mejor = mejor[0]
     sf.write(str(fo.with_suffix(".tmp.wav")), mejor, sr, subtype="FLOAT"); fo.with_suffix(".tmp.wav").rename(fo)
