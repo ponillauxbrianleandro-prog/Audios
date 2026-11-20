@@ -367,11 +367,10 @@ def mezclar():
             for tt in np.arange(6.0, c["dur"] - 3, 13.0):
                 put(fx, tierra_que_cae(), c["t0"] + tt, 0.8)
     # bajar la música y el ambiente bajo la voz
-    env = np.abs(voz[:, 0])
-    k = int(0.18 * SR)
-    env = np.convolve(env, np.ones(k) / k, "same")
+    from scipy.ndimage import uniform_filter1d
+    env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
     env = np.clip(env / 0.10, 0, 1)
-    env = np.convolve(env, np.ones(int(0.25 * SR)) / int(0.25 * SR), "same")
+    env = uniform_filter1d(env, int(0.25 * SR), mode="nearest")
     duck = 1 - 0.62 * env
     out = voz * 1.0 + mus * duck[:, None] * 0.95 + amb * (1 - 0.35 * env)[:, None] * 1.0 + fx * 0.9
     out *= 0.9 / (np.abs(out).max() + 1e-9)
