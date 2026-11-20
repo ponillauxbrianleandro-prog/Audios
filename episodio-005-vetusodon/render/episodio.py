@@ -198,7 +198,7 @@ def build(vd):
         sh["tomas_lazy"] = True
         sh["cortes"] = cortes
         return [(1.0, sh)]
-    escena(5, "5 · Montaje: cinodonte", 7.0, s5, marcos=[(0, 0.2, "SINÁPSIDOS > 300 Ma")], amb="calle", sfx=["clic"], clima="rafaga")
+    escena(5, "5 · Montaje: cinodonte", 7.0, s5, marcos=[(0, -4.3, "SINÁPSIDOS > 300 Ma")], amb="calle", sfx=["clic"], clima="rafaga")
 
     # ---------- 6 · EL VECINO (óxido)
     def s6(ctx):

@@ -92,7 +92,7 @@ QUOTES = {
                "…a partir de un comienzo tan sencillo han evolucionado, y siguen evolucionando, infinidad de formas, las más bellas y las más maravillosas."),
 }
 # (escena, índice de la frase, retardo tras empezar la frase, clave, duración s): la tarjeta cubre la imagen mientras la voz dice la cita
-CARDS = [(13, 1, 0.3, "aristoteles", 8.5), (9, 1, 0.3, "viglietti", 11.5), (11, 1, 0.3, "darwin", 12.0)]
+CARDS = [(13, 1, 0.3, "aristoteles", 10.2), (9, 1, 0.3, "viglietti", 11.5), (11, 1, 0.3, "darwin", 12.0)]
 
 _V = "aeiouáéíóúüAEIOUÁÉÍÓÚÜ"
 
