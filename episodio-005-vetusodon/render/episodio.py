@@ -452,6 +452,7 @@ def main():
     ap.add_argument("--seg", action="store_true")
     ap.add_argument("--srt", action="store_true")
     ap.add_argument("--jobs", type=int, default=3)
+    ap.add_argument("--esc", type=int, nargs="*", help="solo estas escenas (con --seg)")
     a = ap.parse_args()
     global TL
     if a.tomas:
@@ -485,7 +486,7 @@ def main():
     if a.seg:
         import time
         init()
-        pend = [(ci, j) for ci, c in enumerate(TL) for j in range(len(c["shots"])) if not seg_path(c, j).exists()]
+        pend = [(ci, j) for ci, c in enumerate(TL) if not a.esc or c["esc"] in a.esc for j in range(len(c["shots"])) if not seg_path(c, j).exists()]
         nf = sum(int(round(TL[ci]["shots"][j][1] * FPS)) for ci, j in pend)
         print(f"{len(pend)} planos pendientes, {nf} fotogramas", flush=True)
         done, t0 = 0, time.time()
