@@ -306,10 +306,10 @@ def build(vd):
                       np.arctan2(0.03 * (i % 3 - 1), 1.0), speed=1.0 + 0.08 * (i % 3)) for i in range(10)]
         lead = herd[1]
         otros = lambda a: tuple(h for h in herd if h is not a)
-        return [(7, land("v_oxido", (-24.0, 1.5, zr - 6.0), 0.0, f=1150, pitch=0.04, move=(0.15, 0.0, 0.05), actors=tuple(herd), fg=FG_DRY)),
+        return [(7, land("v_oxido", (-28.0, 1.8, zr - 9.5), 0.0, f=800, pitch=0.05, move=(0.12, 0.0, 0.05), actors=tuple(herd), fg=FG_DRY)),
                 (6, track("v_oxido", lead, cam=(3.0, -2.5, 0.55), f=2300, v=0.58, u=0.5, ap=0.004, extra=otros(lead), fg=FG_DRY, tnom=3.0)),
                 (6, track("v_oxido", lead, cam=(1.4, 2.4, 0.40), f=2400, v=0.58, u=0.5, ap=0.004, extra=otros(lead), tgt=(0.5, 0.30), fg=FG_LOW, tnom=3.0)),
-                (6, land("v_oxido", (-24.0, 3.4, zr - 4.5), 0.0, f=1000, pitch=0.24, move=(0.3, 0.0, 0.2), actors=tuple(herd), fg=FG_BRANCH)),
+                (6, land("v_oxido", (-28.0, 4.2, zr - 7.5), 0.0, f=800, pitch=0.28, move=(0.3, 0.0, 0.2), actors=tuple(herd), fg=FG_BRANCH)),
                 (6, track("v_oxido", herd[4], cam=(2.2, -2.0, 0.5), f=2400, v=0.58, u=0.5, ap=0.004, extra=otros(herd[4]), fg=FG_FRAME_L, tnom=3.0))]
     escena(14, "14 · Lystrosaurus", 40.0, s14, amb="sequia", sfx=["pasos"], clima="boom", booms=[4.0, 16.0, 28.0])
 
