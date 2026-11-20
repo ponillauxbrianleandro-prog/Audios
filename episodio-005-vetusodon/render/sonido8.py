@@ -41,14 +41,11 @@ def noise(n):
 
 
 def rw(path):
-    w = wave.open(str(path))
-    ch, sw, sr = w.getnchannels(), w.getsampwidth(), w.getframerate()
-    x = np.frombuffer(w.readframes(w.getnframes()), np.int16 if sw == 2 else np.int32).astype(np.float64) / (32768 if sw == 2 else 2**31)
-    x = x.reshape(-1, ch)
-    if sr != SR:
-        n = int(len(x) * SR / sr)
-        x = np.stack([np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x[:, c]) for c in range(ch)], 1)
-    return x
+    """Lee un WAV (también float32) como float64 [n, canales] a 48 kHz, vía ffmpeg."""
+    ch = 2 if "musica" in str(path) else 1
+    r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "s16le", "-ac", str(ch), "-ar", str(SR), "-"], capture_output=True, check=True)
+    x = np.frombuffer(r.stdout, np.int16).astype(np.float64) / 32768
+    return x.reshape(-1, ch)
 
 
 def put(buf, x, t, gain=1.0):
