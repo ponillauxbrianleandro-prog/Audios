@@ -11,7 +11,7 @@ import biomes
 import creature as C
 
 FPS = 24
-GOR, PRO, DII, PAR, THR, ANF, VET = C.GORGONOPS, C.PROCYNOSUCHUS, C.DIICTODON, C.PAREIASAUR, C.THRINAXODON, C.ANFIBIO, C.VETUSODON
+GOR, PRO, DII, PAR, THR, ANF, VET, LYS = C.GORGONOPS, C.PROCYNOSUCHUS, C.DIICTODON, C.PAREIASAUR, C.THRINAXODON, C.ANFIBIO, C.VETUSODON, C.LYSTRO
 def unit(a):
     return np.array([np.cos(a), np.sin(a)])
 
@@ -117,6 +117,23 @@ def p_eat():
 def p_stalk(spec):
     def f(t, d):
         return dict(phase=d / (spec["speed"] * spec["period"]), walk=1.0, t=t, crouch=0.32, head_dy=-0.10, head_pitch=0.12, bob=0.4, tail_amp=0.4)
+    return f
+
+
+def p_fight(spec, ph=0.0, ritmo=1.7):
+    """Pelea reconstruida: embestidas con la cabeza adelantada y la boca abierta, retroceso y vuelta al acecho."""
+    def f(t, d):
+        c = ((t + ph) % ritmo) / ritmo
+        lunge = float(np.sin(np.pi * c / 0.34)) if c < 0.34 else 0.0
+        return dict(phase=0.0, walk=0.0, t=t, crouch=0.10 + 0.10 * lunge, head_dx=0.30 * lunge - 0.04, head_pitch=0.22 - 0.30 * lunge,
+                    head_yaw=0.16 * np.sin(t * 3.1 + ph), gape=1.05 * lunge, tail_amp=1.8, bob=1.4)
+    return f
+
+
+def p_alerta(spec, mira=0.0):
+    """Quieto y atento: cabeza alta, mirando al frente con leves giros."""
+    def f(t, d):
+        return dict(phase=0.0, walk=0.0, t=t, head_pitch=-0.05, head_dy=0.04, head_yaw=mira + 0.10 * np.sin(t * 0.9), tail_amp=1.0)
     return f
 
 
