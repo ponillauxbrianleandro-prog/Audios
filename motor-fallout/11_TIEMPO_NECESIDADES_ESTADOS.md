@@ -29,7 +29,7 @@ Descansar 1 h = +10% PV y −10 fatiga. Despertarse por encuentro: ventaja para 
 |---|---|---|---|---|
 | Herido | Daño por debajo del 40% PV | −10% acciones | Hasta curar | Medicina/descanso |
 | Cansado / Exhausto | Fatiga 80/100 | −15% / −30% | — | Dormir |
-| Asustado | Evento/habilidad | −15% impacto | 3 rondas | Tiempo |
+| Asustado | Evento/enemigo | −15% impacto | 3 rondas | Tiempo |
 | Confundido | Veneno/golpe | Acciones al azar | 2 rondas | Tiempo |
 | Desorientado | Niebla/ceguera | Viaje: +25% interrupción | 1-2 h | Despejar |
 | Incapacitado | PV ≤ 0 | No actúa | Hasta desenlace | 06 |

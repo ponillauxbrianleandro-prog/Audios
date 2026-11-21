@@ -14,23 +14,23 @@ Regla: Un contenedor vacío permanece vacío. Un contenedor abierto permanece ab
 
 ## CERRADURAS
 Niveles: 0 Sin cerradura | 1 Simple | 2 Media | 3 Difícil | 4 Muy difícil | 5 Imposible (solo llave/código).
-Métodos y %éxito base (se suma habilidad correspondiente y dificultad se resta):
+Métodos y %éxito base (`nivel_cerr` = nivel de la cerradura; se suma bono_nivel del jugador; sin habilidades):
 | Método | Requiere | %base | Fallo |
 |---|---|---|---|
 | Abrir normal | Sin cerradura | 100 | — |
 | Llave correcta | Llave en inventario | 100 | — |
-| Ganzúa | Ganzúa (consumible) | 70 − 12×nivel + Ganzúas hab/2 | Si tirada ≥ 90 → ganzúa se rompe |
-| Forzar | Palanca o FUE | 60 − 10×nivel + FUE×3 | Ruido; si ≥ 95 daña el contenido (−1 objeto frágil) |
-| Hackear (cerradura electrónica) | Terminal + Ciencia | 70 − 12×nivel + Ciencia/2 | Tres fallos → bloqueo por 24 h |
+| Ganzúa | Ganzúa (consumible) | 70 − 12×nivel_cerr + AGI×3 + bono_nivel | Si tirada ≥ 90 → ganzúa se rompe |
+| Forzar | Palanca o FUE | 60 − 10×nivel_cerr + FUE×3 + bono_nivel | Ruido; si ≥ 95 daña el contenido (−1 objeto frágil) |
+| Hackear (cerradura electrónica) | Terminal | 70 − 12×nivel_cerr + INT×3 + bono_nivel | Tres fallos → bloqueo por 24 h |
 | Código | Conocerlo | 100 | Código incorrecto: alarma posible |
 Límite 5–95. Nivel 5 solo con llave/código.
-Intentos: cada intento fallido cuesta tiempo. Tras 3 fallos seguidos con el mismo método, ese método ya no se puede intentar con esa cerradura hasta mejorar habilidad/herramienta.
+Intentos: cada intento fallido cuesta tiempo. Tras 3 fallos seguidos con el mismo método, ese método ya no se puede intentar con esa cerradura hasta subir de nivel o conseguir mejor herramienta.
 
 ## TRAMPAS
 `trampa: ninguna | tipo | detectada(sí/no) | desarmada`
 Probabilidad de que exista: normal 5%, caja fuerte/ubicación hostil 20%, depósito militar 25%. Tipos según lore: mecánica, gas, descarga, alarma, explosiva.
-- **Examinar trampa:** tirada PER + Búsqueda; si éxito → detectada.
-- **Desactivar:** tirada Ciencia/Reparar; fallo → se activa (daño o alarma). Pifia = efecto máximo.
+- **Examinar trampa:** tirada 40 + PER×4 + bono_nivel; si éxito → detectada.
+- **Desactivar:** tirada 35 + INT×4 + bono_nivel; fallo → se activa (daño o alarma). Pifia = efecto máximo.
 - Si no se detectó, al abrir tirada de activación 60% (reducido por AGI).
 
 ## PROPIEDAD Y TESTIGOS

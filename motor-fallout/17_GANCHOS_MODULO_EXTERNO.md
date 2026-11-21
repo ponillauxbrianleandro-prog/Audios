@@ -19,6 +19,11 @@ modulo_activo = off
 | `[PUNTO_VIAJE]` | Resultado de viaje rápido = encuentro/interrupción | tipo, zona | deltas + posible nuevo estado |
 Si el módulo externo no responde o está off, el motor resuelve el punto con la regla estándar del 06 (despiertas más tarde, pierdes objetos, etc.), sin detalle adicional.
 
+## GANCHOS DE PRESENTACIÓN (vacíos, solo si el módulo está activo)
+- `[VESTIMENTA_EXTRA]`: el módulo define la vestimenta de humanos E0 (bloque 26) y otros tiers. Si está off, usar descripciones estándar.
+- `[APARIENCIA_EXTRA]`: el módulo amplía la descripción física por fase (08, 25). El motor solo entrega fase, especie, apariencia (femenina/masculina) y vestimenta.
+Ninguno cambia números ni reglas.
+
 ## CONTRATO DEL MÓDULO
 - Debe respetar el estado y los IDs del motor; no puede crear objetos o ubicaciones fuera de reglas.
 - Debe devolver siempre: `tiempo transcurrido`, `deltas de JUG/INV/FLAGS`, `desenlace`, y `próximos botones`.

@@ -42,8 +42,8 @@ Reglas de coherencia: una vivienda no da recursos industriales; un bosque no da 
 - F: revela una conexión oculta ya definida o la crea y la registra (estado "libre" o "bloqueada" con causa).
 - G: la ubicación pasa a "detectada" (indicio) o "descubierta" si se la ve claramente.
 
-## BÚSQUEDA CON BONUS (PER y habilidad Búsqueda)
-Añadir al paso 1: +1% por cada punto de PER sobre 5 al "Hallazgo relevante" (reduciendo "Nada"). Herramientas (linterna de noche, detector) suman +5%.
+## BÚSQUEDA CON BONUS (PER y nivel)
+Añadir al paso 1: +1% por cada punto de PER sobre 5 y +0.5% por nivel del jugador al "Hallazgo relevante" (reduciendo "Nada"). Herramientas (linterna de noche, detector) suman +5%.
 
 ## PERSISTENCIA
 - Lo encontrado se vuelve elemento/objeto con ID y se guarda. Lo recogido se elimina de la escena.

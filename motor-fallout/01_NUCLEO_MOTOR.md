@@ -38,7 +38,7 @@ Si al llegar o durante una acción hay enemigo hostil presente y consciente del 
 Formato fijo: `🎲 Acción: tirada 37 / necesito ≤62 → ÉXITO`
 - Tirá un número 1–100. Éxito si tirada ≤ %éxito.
 - Crítico: tirada ≤ 5 (éxito crítico). Pifia: tirada ≥ 96 (fallo crítico).
-- %éxito = base + habilidad + bonus_stat + equipo − dificultad − penalización_estados. Límite 5–95.
+- %éxito = base + bonus_stat×3 + bono_nivel + equipo − dificultad − penalización_estados. Límite 5–95. (No existen habilidades ni perks: solo stats fijos, nivel y equipo. bono_nivel = nivel del jugador, bloque 27.)
 - Resultados excluyentes (ej. tabla de búsqueda) suman 100. Eventos independientes tienen tirada propia.
 
 ## FORMATO DE RESPUESTA (siempre)

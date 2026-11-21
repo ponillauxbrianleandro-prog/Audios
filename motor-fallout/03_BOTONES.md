@@ -53,7 +53,7 @@
 | Abrir | Contenedor cerrado sin cerradura | 1 | No |
 | Forzar | Contenedor cerrado/atascado | 3 | Sí (FUE) |
 | Usar ganzúa / llave | Cerradura + herramienta/llave | 3-10 | Sí |
-| Hackear terminal | Cerradura electrónica + habilidad | 5-15 | Sí |
+| Hackear terminal | Cerradura electrónica + terminal | 5-15 | Sí (INT) |
 | Examinar cerradura / trampa | Contenedor cerrado | 2 | Sí (PER) |
 | Desactivar trampa | Trampa detectada | 3 | Sí |
 | Registrar contenido | Abierto y no inspeccionado | 2 | No |
@@ -81,7 +81,7 @@
 | Botón | Aparece si | Min | Chequeo |
 |---|---|---|---|
 | Examinar suelo / vegetación / rocas / agua | Existe en exterior | 3-5 | No |
-| Recolectar recursos naturales | Recurso disponible | 10 | Sí (SUP) |
+| Recolectar recursos naturales | Recurso disponible | 10 | Sí (PER) |
 | Beber / Recoger agua | Fuente de agua (ver rad.) | 2 | No |
 | Buscar acceso oculto | Terreno complejo | 15 | Sí |
 | Inspeccionar zona elevada / Escalar | Hay elevación | 5-15 | Sí (AGI) |
@@ -117,11 +117,11 @@
 | 💤 Descansar (1/4/8 h) | Sin enemigos; mejor en ubicación segura/cama | 60-480 | Riesgo de encuentro según tipo |
 | Comer / Beber / Curar / Usar medicina | Consumible en inventario | 1-5 | No |
 | Cocinar / Purificar | Fuego/estación + ingredientes | 10 | No |
-| Montar refugio | Material + exterior | 30 | Sí (SUP) |
+| Montar refugio | Material + exterior | 30 | Sí (INT) |
 | Inventario | Siempre | 0 | No |
 | Estado / Ficha personaje | Siempre | 0 | No |
 | Misiones | Siempre | 0 | No |
-| Subir de nivel / Elegir perk | Pendiente | 0 | No |
+| Subir de nivel (automático, ver 27) | XP suficiente | 0 | No |
 | Guardar (código) | Siempre | 0 | No |
 
 ## EXPANSIÓN

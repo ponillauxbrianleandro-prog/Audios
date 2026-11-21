@@ -1,7 +1,8 @@
 # 16 · ARRANQUE DE PARTIDA
 
 ## INSTRUCCIÓN INICIAL (la IA ejecuta esto al empezar)
-1. Cargar lore (14), reglas (01-13) y formato (15).
+1. Cargar lore (14, con CONFIG_LORE del 34), reglas (01-13, 18, 24-34) y formato (15). Cargar bestiarios de los temas activos (19-23, 35, 36).
+1b. Tirar 1d3 por criatura y fase para el número de variantes (27) o cargar el bestiario generado; calcular enemigos disponibles al nivel 1 (pool inicial T1).
 2. Si el jugador pegó un CÓDIGO DE GUARDADO (02), cargarlo y continuar. Si no, crear partida nueva con los datos de abajo.
 3. Generar la ubicación inicial (ficha completa con ID L-001), su escena, elementos, contenedores y NPC.
 4. Mostrar la pantalla inicial (formato 15) con botones.
@@ -22,11 +23,10 @@ MÓDULO EXTERNO (17): [off / on]
 NOMBRE:
 APARIENCIA:
 EDAD FICTICIA:
-CATEGORÍA/ESPECIE (08):
+TEMA / ESPECIE / FASE (08, 18):
+APARIENCIA CORPORAL (femenina / masculina, solo describe el cuerpo):
 HISTORIA PERSONAL (1-3 líneas):
 STATS INICIALES (FUE PER RES CAR INT AGI SUE, suma 28, 1-10 cada una):
-HABILIDADES ETIQUETADAS (3):
-PERK INICIAL:
 OBJETIVO PERSONAL:
 ```
 Valores variables (nivel, equipo, relaciones, karma, etc.) los gestiona la IA después.

@@ -13,11 +13,12 @@ NECESIDADES ACTIVAS: [hambre/sed/fatiga/contaminación sí/no]
 REGIONES:  [nombre | bioma | amenaza min-max | clima]
 UBICACIONES SEMILLA: [L- id | nombre | clase | espacio | palabras clave | conexiones]
 FACCIONES: [nombre | ideología | zona | relación inicial]
-ESPECIES PERMITIDAS: [categoría | especie | amenaza | bioma | comportamiento]
+ESPECIES PERMITIDAS: [tema | especie | fases | amenaza | bioma | comportamiento]
 JEFES: [nombre | ubicación | invoca? | recompensa]
 OBJETOS HABITUALES / EXCEPCIONALES / PROHIBIDOS:
 ARMAS Y EQUIPO PERMITIDOS:
-LISTA DE PERKS Y HABILIDADES ESPECÍFICAS:
+TEMAS ACTIVOS (18) Y FASES QUE APARECEN (08):
+NOMBRES DE COMIDA / MEDICINA / MUNICIÓN / ARMAS (34):
 NOMBRES: [estilo para generar nombres de lugares y personajes]
 REGLAS ESPECIALES DEL UNIVERSO:
 ```
@@ -46,9 +47,9 @@ REGLAS ESPECIALES DEL UNIVERSO:
 - Complejo habitado de lujo: segura · interior · complejo, comercio, tensión social.
 - Oasis: especial · exterior · naturaleza rara, refugio, misterio.
 - Plaza de la radio: normal · exterior · sector urbano, caos, señales.
-- Aldea pequeña, ciudad-barco, comunidad subterránea infantil, base de esclavistas (hostil), república ermitaña.
+- Aldea pequeña, ciudad-barco, comunidad subterránea, base de esclavistas (hostil), república ermitaña.
 **FACCIONES:** Refugiados del 22 (neutral) · Mercaderes de la Chapa (neutral) · Saqueadores del Cráter (hostil) · Guardia del Asfalto (amigable) · Culto del Cielo Rojo (variable).
-**ESPECIES PERMITIDAS:** Cat I roedores gigantes (Cr. 1-2), lobos mutados (2-3), insectos gigantes (1-3), arañas gigantes, parásitos de agua; Cat II conejos erguidos bípedos, zorros erguidos; Cat III antropomórficos caninos y vulpinos (nómadas, mercaderes); Cat VI humanos supervivientes, saqueadores, soldados, ghouls (humano mutado). Modificadores: mutado, gigante, radiactivo, cibernético (robots).
+**ESPECIES PERMITIDAS:** fase 1 roedores gigantes (Cr. 1-2), lobos mutados (2-3), insectos gigantes (1-3), parásitos de agua; fases 3-4 conejos erguidos, zorros erguidos; fases 6-7 caninos y vulpinos humanizados (nómadas, mercaderes); fase 13 humanos supervivientes, saqueadores, soldados; variante zombi (necróticos radiactivos). Modificadores: mutado, gigante, radiactivo, robótico. Temas activos (18): Animales + Artificiales.
 **JEFES:** Reina de la Colmena (colmena subterránea, invoca insectos, tope 6, cooldown 3) · Capataz del Cráter (+4 saqueadores, tope 5).
 **OBJETOS HABITUALES:** latas de comida, agua sucia/purificada, chatarra, tuercas, cables, documentos, botiquines, herramientas. **EXCEPCIONALES:** planos, llaves de bóvedas, armas de élite. **PROHIBIDOS:** magia, objetos de otros universos.
 **ARMAS (abstractas):** improvisadas, de caño, rifles reparados, energéticas raras. Munición limitada.

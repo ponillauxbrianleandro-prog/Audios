@@ -7,12 +7,12 @@ No todo campo es obligatorio. Objetos especiales pueden tener campos extra. Los 
 ## CINCO CATEGORÍAS
 1. **Consumibles:** alimentos, bebidas, agua, recuperación, médicos ficticios, supervivencia, ambientales, mejoras temporales, materiales de uso limitado. Campos: efecto, duración, condición, compatibilidad.
 2. **Equipo:** ropa, exteriores, calzado, accesorios, mochilas, protección corporal, equipo ambiental, dispositivos, herramientas, instrumentos. Campos: durabilidad, protección abstracta, modificadores, efectos pasivos.
-3. **Armas y equipamiento de combate:** según lore. Campos: ID, categoría, estado, compatibilidad, cantidad, propiedades abstractas, requisitos (stat/habilidad), modificadores (daño, %impacto, alcance, costo PA).
+3. **Armas y equipamiento de combate:** según lore. Campos: ID, categoría, estado, compatibilidad, cantidad, propiedades abstractas, requisitos (stat mínimo), modificadores (daño, %impacto, alcance, costo PA).
 4. **Objetos generales:** basura, chatarra, materiales, documentos, libros, fotos, notas, llaves, tarjetas, personales, coleccionables, componentes, piezas, herramientas, objetos de misión, decorativos, valor, desconocidos. La chatarra puede servir para comercio, fabricación o misiones.
 5. **Recursos:** naturales, industriales, componentes, biológicos, minerales, tecnológicos, ambientales, fabricación, intercambio. Disponibilidad por bioma.
 
 ## ARMADURA Y ARMAS (valores abstractos)
-- **Arma:** daño min-max, %base, alcance (cuerpo/corto/medio/largo), costo PA, requisito (FUE/PER/hab.), munición (si aplica), durabilidad. Armas deben pertenecer al lore. Lore puede reemplazar todo.
+- **Arma:** daño min-max, %base, alcance (cuerpo/corto/medio/largo), costo PA, requisito (FUE/PER/AGI mínimo), munición (si aplica), durabilidad. Armas deben pertenecer al lore. Lore puede reemplazar todo.
 - **Armadura:** reducción de daño (RD) por pieza: cabeza 1-3, torso 2-8, piernas 1-4, pies 0-2. Total RD = suma; resistencias a ambiente.
 - **Durabilidad:** pierde 1-3 por uso/golpe. A 0 → "roto": sin bonus, reparable.
 
@@ -25,8 +25,8 @@ No todo campo es obligatorio. Objetos especiales pueden tener campos extra. Los 
 ## REGLAS DE USO
 - Usar consumible: reduce cantidad, aplica efecto y duración. Consumible caducado/contaminado: riesgo (estado enfermo).
 - Equipar: reemplaza el equipo del mismo slot (el reemplazado vuelve a inventario). Requisitos de uso se validan (sin requisitos: penalización −20%).
-- Reparar: requiere herramienta + componentes + habilidad; recupera durabilidad.
-- Fabricar: planos + componentes + estación. Tirada de éxito (habilidad), fallo pierde parte de componentes.
+- Reparar: requiere herramienta + componentes (tirada INT); recupera durabilidad.
+- Fabricar: planos + componentes + estación. Tirada de éxito (50 + INT×4 + bono_nivel), fallo pierde parte de componentes.
 - Desarmar: objeto → componentes (según lore).
 - Valor base por rareza: Común 1×, Útil 3×, Raro 10×, Excepcional 40×.
 

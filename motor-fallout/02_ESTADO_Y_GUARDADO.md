@@ -5,7 +5,7 @@ Existe UN estado vivo de la partida. Se divide en secciones. Cada turno solo se 
 
 ## SECCIONES DEL ESTADO
 **[JUG] Jugador**
-`nombre | nivel | xp | pv/pvmax | pa (energía) | stats FUE PER RES CAR INT AGI SUE | hab{} | perks[] | estados[] | hambre | sed | fatiga | rad | karma | chapas | carga/cargamax | equipo{cabeza,torso,piernas,pies,arma1,arma2,acc} | ubic | modo_mov`
+`nombre | nivel | xp | pv/pvmax | pa (energía) | stats FUE PER RES CAR INT AGI SUE (fijos) | bono_nivel | desbloqueo_slot | estados[] | adicciones[] | sigilo(oculto/precaución/detectado) | hambre | sed | fatiga | rad | karma | chapas | carga/cargamax | equipo{cabeza,torso,piernas,pies,arma1,arma2,acc} | ubic | modo_mov`
 
 **[TIEMPO]** `día | hora(HH:MM) | clima | luz(día/noche)`
 

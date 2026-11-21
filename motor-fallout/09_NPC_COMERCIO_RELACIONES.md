@@ -15,7 +15,7 @@ Reglas:
 - Efectos: precios, información disponible, misiones, ayuda en combate, acceso.
 
 ## CONVERSACIÓN
-Botones de diálogo: opciones generadas por contexto (3-5). Temas: lugares, personas, hechos, rumores, misiones, comercio. Chequeo social con CAR: `%éxito = 30 + CAR×5 + Habla/2 + bonus_rel − dificultad`. Cada NPC guarda qué le dijiste para no repetir ni contradecir.
+Botones de diálogo: opciones generadas por contexto (3-5). Temas: lugares, personas, hechos, rumores, misiones, comercio. Chequeo social con CAR: `%éxito = 30 + CAR×5 + bono_nivel + bonus_rel − dificultad`. Cada NPC guarda qué le dijiste para no repetir ni contradecir.
 
 ## COMERCIO
 Aparece si NPC es comerciante y relación ≥ neutral.
@@ -29,7 +29,7 @@ Aparece si NPC es comerciante y relación ≥ neutral.
 ## DELITOS Y TESTIGOS (acciones no autorizadas)
 Acciones: robar, abrir contenedor ajeno, entrar a propiedad privada/zona restringida, manipular pertenencias, atacar.
 Tirada de detección por cada NPC con línea de visión:
-`%detectado = 30 + visibilidad(0-30) + seguridad_lugar(0-20) + tiempo_empleado/2 − sigilo(AGI×3 + hab. Sigilo/2) − oscuridad(10)`.
+`%detectado = 30 + visibilidad(0-30) + seguridad_lugar(0-20) + tiempo_empleado/2 − sigilo(AGI×3 + bono_nivel + equipo; ver 33) − oscuridad(10)`.
 Sin testigos, no hay detección (pero queda rastro: contenedor forzado/robado).
 Consecuencias (escalonadas): advertencia → reclamo → pérdida de confianza → expulsión → restricción de acceso → hostilidad/guardias → recompensa. Reputación de facción cae. Registrar en LOG y en FLAGS.
 Si el NPC es aliado y la acción es menor: puede perdonarse con tirada CAR.
