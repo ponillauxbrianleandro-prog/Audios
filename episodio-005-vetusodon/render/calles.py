@@ -351,11 +351,11 @@ def cartel_cierre(t_in, W, H, tipo, texto):
         d.rounded_rectangle([W * 0.08, H * 0.18, W * 0.92, H * 0.56], radius=int(H * 0.04), fill=ROJO, outline=BLANCO, width=8)
         d.text((W / 2, H * 0.37), "¡MUCHAS GRACIAS!", font=F(H * 0.105 * s), fill=BLANCO, anchor="mm")
     elif tipo == "chau":
-        semaforo(d, cx - W * 0.075, H * 0.04, W * 0.15, H * 0.44, paso=int(t_in * 4) % 2)
+        semaforo(d, cx - W * 0.07, H * 0.03, W * 0.14, H * 0.40, paso=int(t_in * 4) % 2)
     if tipo == "chau":
-        placa(d, W / 2, H * 0.57, W * 0.70, H * 0.11, "NOS VEMOS DENTRO DE", NEGRO, 0.46)
-        placa(d, W / 2, H * 0.70, W * 0.78, H * 0.12, "252.000.000 DE AÑOS", ROJO, 0.52)
-        placa(d, W / 2, H * 0.82, W * 0.30, H * 0.09, "ADIÓS", NEGRO, 0.55)
+        placa(d, W / 2, H * 0.52, W * 0.70, H * 0.10, "NOS VEMOS DENTRO DE", NEGRO, 0.46)
+        placa(d, W / 2, H * 0.645, W * 0.78, H * 0.115, "252.000.000 DE AÑOS", ROJO, 0.52)
+        placa(d, W / 2, H * 0.765, W * 0.30, H * 0.085, "ADIÓS", NEGRO, 0.55)
     elif tipo != "gracias":
         placa(d, W / 2, H * 0.70, W * 0.80, H * 0.15, texto, NEGRO if tipo != "suscribite" else ROJO_D, 0.40 if len(texto) < 26 else 0.30)
     return np.asarray(im, np.float32) / 255.0
