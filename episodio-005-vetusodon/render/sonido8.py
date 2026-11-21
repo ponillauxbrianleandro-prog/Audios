@@ -72,6 +72,10 @@ def procesar_voz():
         x = x.astype(np.float64)
         if x.ndim > 1:
             x = x.mean(1)
+        import parselmouth
+        from parselmouth.praat import call
+        # voz de narrador masculino: baja los formantes (tracto vocal más largo), tono mediano 110 Hz y entonación más viva; no cambia la duración
+        x = call(parselmouth.Sound(x, sr), "Change gender", 70, 300, 0.92, 110, 2.8, 1.0).values[0].astype(np.float64)
         if sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
         x = hp(x, 70)
@@ -87,8 +91,8 @@ def procesar_voz():
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
-        cadena = ("highpass=f=85,equalizer=f=220:t=q:w=0.9:g=1.5,equalizer=f=3200:t=q:w=1.1:g=2.2,equalizer=f=7500:t=q:w=1.5:g=-2.5,"
-                  "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89")
+        cadena = ("highpass=f=85,equalizer=f=180:t=q:w=1.0:g=2.5,equalizer=f=3200:t=q:w=1.1:g=2.2,equalizer=f=7500:t=q:w=1.5:g=-2.5,"
+                  "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89:level=disabled")
         if f.name.startswith("00_"):                                     # apertura: ritmo más ágil (+28 %), mismo tono
             cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
@@ -321,25 +325,30 @@ def plan_musica(TL):
     return [dict(clima=c["clima"], dur=round(c["dur"], 3), booms=[round(b, 2) for b in c["booms"] if b < c["dur"] - 0.5]) for c in TL]
 
 
-def mezclar():
+def mezclar(central=False):
+    """central=True: solo las escenas 1–11 (sin apertura ni cierre), con tiempos relativos al inicio de la escena 1 → video/audio/central.wav"""
     import episodio as E
     from cuaderno import _elementos
     TL, total = E.timeline()
+    base = 0.0
+    if central:
+        TL = [c for c in TL if c["esc"] not in (0, 15)]
+        base = TL[0]["t0"]
+        total = TL[-1]["t0"] + TL[-1]["dur"] - base
     n = int((total + 2.0) * SR)
     voz = np.zeros((n, 2))
     fx = np.zeros((n, 2))
     amb = np.zeros((n, 2))
     mus = np.zeros((n, 2))
-    plan = plan_musica(TL)
-    (AQUI.parent / "musica").mkdir(exist_ok=True)
-    (AQUI.parent / "musica" / "plan.json").write_text(json.dumps(plan))
     wavm = MUS / "musica_v9.wav"
-    if not wavm.exists():
+    if not wavm.exists() and not central:
+        plan = plan_musica(TL)
+        (AQUI.parent / "musica" / "plan.json").write_text(json.dumps(plan))
         subprocess.run([sys.executable, str(AQUI.parent / "musica" / "musica_real.py"), str(TANGO), str(wavm), str(AQUI.parent / "musica" / "plan.json")], check=True)
     mus_full = rw(wavm)
-    put(mus, mus_full[:n], 0.0, 1.0)
+    put(mus, (mus_full[int(12.0 * SR):] if central else mus_full)[:n], 0.0, 1.0)
     for c in TL:
-        t0 = c["t0"]
+        t0 = (c["t0"] - base)
         # voz: cada frase en su instante; nunca se solapa (el tiempo de escena ya las separa)
         for k, (t, d, tx) in enumerate(c["lineas"]):
             f = VOZ / "final" / f"{c['esc']:02d}_{k}.wav"
@@ -399,17 +408,17 @@ def mezclar():
         for tb in c["booms"]:
             if c["esc"] == 12:
                 continue
-            put(fx, subida(1.8), c["t0"] + tb - 1.8, 0.8)
-            put(fx, impacto(), c["t0"] + tb, 0.9)
+            put(fx, subida(1.8), (c["t0"] - base) + tb - 1.8, 0.8)
+            put(fx, impacto(), (c["t0"] - base) + tb, 0.9)
         for tc, key, dd in c.get("cards", []):                               # tarjeta de cita: golpe y cola
-            put(fx, impacto(), c["t0"] + tc, 0.8)
+            put(fx, impacto(), (c["t0"] - base) + tc, 0.8)
     # insectos que pasan volando y que salen de la tierra en escenas vivas
     for c in TL:
         if c["esc"] in (1, 2, 4, 11, 10, 13):
             for tt in np.arange(3.0, c["dur"] - 3, 5.5):
-                put(fx, zumbido(rng.uniform(1.4, 2.4)), c["t0"] + tt + rng.uniform(-0.8, 0.8), 0.8)
+                put(fx, zumbido(rng.uniform(1.4, 2.4)), (c["t0"] - base) + tt + rng.uniform(-0.8, 0.8), 0.8)
             for tt in np.arange(6.0, c["dur"] - 3, 13.0):
-                put(fx, tierra_que_cae(), c["t0"] + tt, 0.8)
+                put(fx, tierra_que_cae(), (c["t0"] - base) + tt, 0.8)
     # bajar la música y el ambiente bajo la voz
     from scipy.ndimage import uniform_filter1d
     env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
@@ -419,13 +428,13 @@ def mezclar():
     out = voz * 1.0 + mus * duck[:, None] * 0.95 + amb * (1 - 0.35 * env)[:, None] * 1.0 + fx * 0.9
     out *= 0.9 / (np.abs(out).max() + 1e-9)
     (VIDEO / "audio").mkdir(parents=True, exist_ok=True)
-    raw = VIDEO / "audio" / "vetusodon_crudo.wav"
+    raw = VIDEO / "audio" / ("central_crudo.wav" if central else "vetusodon_crudo.wav")
     with wave.open(str(raw), "wb") as w:
         w.setnchannels(2)
         w.setsampwidth(2)
         w.setframerate(SR)
         w.writeframes((np.clip(out, -1, 1) * 32767).astype("<i2").tobytes())
-    fin = VIDEO / "audio" / "vetusodon.wav"
+    fin = VIDEO / "audio" / ("central.wav" if central else "vetusodon.wav")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000", str(fin)], check=True)
     print("audio listo:", fin, f"{len(out) / SR:.1f} s")
 
@@ -433,6 +442,8 @@ def mezclar():
 if __name__ == "__main__":
     if "--voz" in sys.argv:
         procesar_voz()
+    elif "--central" in sys.argv:
+        mezclar(central=True)
     elif "--mezcla" in sys.argv:
         mezclar()
     else:

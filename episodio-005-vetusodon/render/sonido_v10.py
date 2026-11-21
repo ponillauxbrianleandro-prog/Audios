@@ -22,9 +22,9 @@ import world
 
 SR = S.SR
 V = S.VIDEO
-OLD = V / "v9-final" / "audio-v9.wav"
-OLD_S0 = 12.0                  # duración de la apertura vieja
-OLD_END = 613.0833333          # fin de la escena 11 en la v9
+OLD = V / "audio" / "central.wav"            # escenas 1–11 mezcladas con la voz nueva (sonido8.py --central)
+OLD_S0 = 0.0                   # el audio central ya empieza en la escena 1
+OLD_END = None                  # fin del audio central (se mide)
 
 
 def ding(vol=1.0):
@@ -123,9 +123,12 @@ def main():
     intro = parte(c0, "rafaga", [round(c0["shots"][0][2]["tB"], 2)], sfx_intro, "intro")
     cierre = parte(c15, "ternura", [], sfx_cierre, "cierre")
     viejo = S.rw(OLD, 2)
-    medio = viejo[int(OLD_S0 * SR):int(OLD_END * SR)].copy()          # tramo central de la v9, sin tocar
+    c1 = next(c for c in TL if c["esc"] == 1)
+    c11 = next(c for c in TL if c["esc"] == 11)
+    Lc = c11["t0"] + c11["dur"] - c1["t0"]                              # duración exacta del tramo central en el video
+    medio = viejo[:int(round(Lc * SR))].copy()                         # escenas 1–11 con la voz nueva
     D0, D15 = c0["dur"], c15["dur"]
-    T_c = D0 + (OLD_END - OLD_S0)                                      # inicio del cierre
+    T_c = D0 + Lc                                                      # inicio del cierre
     out = np.zeros((int((T_c + D15 + 0.6) * SR), 2))
     out[:len(intro)] += intro
     fi = int(0.05 * SR)
