@@ -89,6 +89,8 @@ def procesar_voz():
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
         cadena = ("highpass=f=85,equalizer=f=220:t=q:w=0.9:g=1.5,equalizer=f=3200:t=q:w=1.1:g=2.2,equalizer=f=7500:t=q:w=1.5:g=-2.5,"
                   "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89")
+        if f.name.startswith("00_"):                                     # apertura: ritmo más ágil (+28 %), mismo tono
+            cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
         y = rw(fin / f.name)[:, 0]
         x = y

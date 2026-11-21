@@ -8,14 +8,14 @@ Estado de cada afirmación en ../fuentes.md: [C] confirmado en la literatura, [I
 """
 import re
 
-ORDEN = [0, 1, 2, 3, 4, 12, 5, 6, 13, 7, 8, 9, 14, 10, 11]
-GAP_ESC = {0: 0.30, 5: 0.30}          # silencio entre frases (s); por defecto 0,85
+ORDEN = [0, 1, 2, 3, 4, 12, 5, 6, 13, 7, 8, 9, 14, 10, 11, 15]
+GAP_ESC = {0: 0.15, 5: 0.30, 15: 0.55}          # silencio entre frases (s); por defecto 0,85
 
 LINEAS = {
     # 0 · apertura: solo números y el nombre (ráfaga de fotos < 1 s por toma)
-    0: ["Doscientos cincuenta y dos millones de años antes de Cristo.",
-        "Dieciocho centímetros de cráneo. Cuatro fósiles.",
-        "Vetusodon elikhulu. Nuestro ancestro."],
+    0: ["Hace doscientos cincuenta y dos millones de años, en el Karoo, Sudáfrica,",
+        "vivió Vetusodon elikhulu: dieciocho centímetros de cráneo, cuatro fósiles.",
+        "Nuestro ancestro."],
     # 1 · el animal
     1: ["Vetusodon elikhulu: «el grande», en zulú.",
         "Con un cráneo de dieciocho centímetros, es el mayor cinodonte conocido del Pérmico tardío.",
@@ -77,6 +77,11 @@ LINEAS = {
     11: ["Doscientos cincuenta millones de años después, esos huesos de la mandíbula están dentro de tu oído.",
          "Charles Darwin, mil ochocientos cincuenta y nueve: «…a partir de un comienzo tan sencillo han evolucionado, y siguen evolucionando, infinidad de formas, las más bellas y las más maravillosas.»",
          "Vetusodon elikhulu. Tu ancestro."],
+    # 15 · cierre con carteles de calle
+    15: ["Si te gustan los videos así, suscribite y dale like.",
+         "Buscá más videos en el canal, o hacete miembro para ver más y votar los próximos proyectos.",
+         "Muchas gracias.",
+         "Nos vemos dentro de doscientos cincuenta y dos millones de años. Adiós."],
 }
 
 # citas con tarjeta épica sobre la acción: clave -> (autor, rol, texto original, español)

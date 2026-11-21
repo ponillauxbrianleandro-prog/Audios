@@ -27,6 +27,7 @@ import cine as K
 from cine import (actor, track, land, finalize, FPS, VET, GOR, PRO, DII, ANF, PAR, LYS, p_idle, p_sniff, p_stalk, p_walk, p_eat, p_lie, p_fight, p_alerta, bank_z,
                   FG_L, FG_R, FG_LR, FG_REED, FG_BRANCH, FG_BRANCH_R, FG_LOW, FG_FRAME_R, FG_FRAME_L, FG_DRY)
 import montaje
+import calles
 import cuaderno
 import guion_datos as GD
 import graficos as G
@@ -132,16 +133,19 @@ def build(vd):
         c["cards"] = [(ls[i][0] + dly, key, dd) for (e, i, dly, key, dd) in GD.CARDS if e == esc]
         out.append(c)
 
-    # ---------- 0 · APERTURA: ráfaga de fotos estilo carteles de calle
+    # ---------- 0 · APERTURA (v10): ráfaga de fotos en carteles de calle mientras la voz dice todo; luego placa de datos (≤ 4 s)
     def s0(ctx):
-        cortes = montaje.cortes_de(ctx["dur"], seed=3, lo=0.20, hi=0.45)
-        textos = [(t, tx) for t, tx in ctx["marcos"]]
-        sh = K.gfx(montaje.montaje, native=False, tomas=None, cortes=cortes, textos=textos, seed=3, variante=0)
-        sh["tomas_lazy"] = True
+        ls, dur = ctx["lineas"], ctx["dur"]
+        tB = max(dur - 3.8, ls[1][0] + 0.5)                  # la placa de datos dura ≤ 3,8 s
+        items = [(0.05, "252.000.000 a. C.", calles.ROJO), (0.95, "CUENCA DEL KAROO ≈ 700.000 km²", calles.NEGRO),
+                 (1.90, "CRÁNEO 18 cm · 4 FÓSILES", calles.NEGRO), (2.85, "VETUSODON ELIKHULU", calles.ROJO_D)]
+        cortes = calles.cortes_calle(tB, seed=4)
+        sh = dict(gfx=lambda t, W, H, d: calles.intro(t, W, H, d, tomas_calle(), tB, items, 4, cortes), native=False)
         sh["cortes"] = cortes
+        sh["tB"] = tB
+        sh["items_t"] = [ti for ti, _, _ in items]
         return [(1.0, sh)]
-    escena(0, "0 · Apertura", 12.0, s0, marcos=[(0, 0.05, "252.000.000 a. C."), (1, 0.05, "CRÁNEO 18 cm · 4 FÓSILES"), (2, 0.05, "VETUSODON ELIKHULU")], amb="calle",
-           sfx=["clic"], clima="rafaga")
+    escena(0, "0 · Apertura", 8.0, s0, marcos=[], amb="calle", sfx=["clic"], clima="rafaga", booms=[5.4])
 
     # ---------- 1 · EL NOMBRE (ámbar)
     def s1(ctx):
@@ -313,6 +317,17 @@ def build(vd):
                 (6, track("v_oxido", herd[4], cam=(2.2, -2.0, 0.5), f=2400, v=0.58, u=0.5, ap=0.004, extra=otros(herd[4]), fg=FG_FRAME_L, tnom=3.0))]
     escena(14, "14 · Lystrosaurus", 40.0, s14, amb="sequia", sfx=["pasos"], clima="boom", booms=[4.0, 16.0, 28.0])
 
+    # ---------- 15 · CIERRE (v10): carteles de calle sincronizados con la voz
+    def s15(ctx):
+        ls, dur = ctx["lineas"], ctx["dur"]
+        hitos = [(0.0, "suscribite", "SUSCRIBITE"), (ls[0][0] + ls[0][1] * 0.55, "like", "DALE LIKE"),
+                 (ls[1][0], "videos", "MÁS VIDEOS EN EL CANAL"), (ls[1][0] + ls[1][1] * 0.50, "miembros", "MIEMBROS: VOTÁ LOS PRÓXIMOS"),
+                 (ls[2][0], "gracias", ""), (ls[3][0], "chau", "")]
+        sh = dict(gfx=lambda t, W, H, d: calles.cierre(t, W, H, d, hitos), native=False)
+        sh["hitos_t"] = [h[0] for h in hitos]
+        return [(1.0, sh)]
+    escena(15, "15 · Cierre", 18.0, s15, amb="calle", sfx=["pop"], clima="ternura", booms=[])
+
     out.sort(key=lambda c: GD.ORDEN.index(c["esc"]))
     return out
 
@@ -320,6 +335,17 @@ def build(vd):
 # ---------------------------------------------------------------- línea de tiempo
 TL = None
 TOMAS = None
+TOMAS_C = None
+
+
+def tomas_calle():
+    """Fotos de la apertura: un fotograma por plano ya renderizado (ver tomas_calle.py)."""
+    global TOMAS_C
+    if TOMAS_C is None:
+        fs = sorted((Path(world.CACHE) / "tomas_calle").glob("*.png"))
+        TOMAS_C = [cv2.cvtColor(cv2.imread(str(f)), cv2.COLOR_BGR2RGB).astype(np.float32) / 255 for f in fs]
+        np.random.default_rng(11).shuffle(TOMAS_C)
+    return TOMAS_C
 
 
 def timeline():
