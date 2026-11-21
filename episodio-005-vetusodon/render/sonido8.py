@@ -65,6 +65,10 @@ def procesar_voz():
     raw, fin = VOZ / "raw", VOZ / "final"
     fin.mkdir(exist_ok=True)
     durs = {}
+    import voz_proceso as VP
+    TIEMPOS = json.loads((VOZ / "tiempos_lineas.json").read_text())
+    DURS11 = json.loads((VOZ / "durs_v11.json").read_text())
+    DER = VP.Derivas()
     for f in sorted(raw.glob("*.wav")):
         if f.name.endswith(".tmp.wav"):
             continue
@@ -72,12 +76,14 @@ def procesar_voz():
         x = x.astype(np.float64)
         if x.ndim > 1:
             x = x.mean(1)
-        import parselmouth
-        from parselmouth.praat import call
-        # voz de narrador masculino: baja los formantes (tracto vocal más largo), tono mediano 110 Hz y entonación más viva; no cambia la duración
-        x = call(parselmouth.Sound(x, sr), "Change gender", 70, 300, 0.92, 110, 2.8, 1.0).values[0].astype(np.float64)
+        import voz_proceso as VP
+        T0 = TIEMPOS.get(f.stem, 0.0)
+        x = VP.gender(x, sr)                                            # v12: formantes x0,95, mediana 124 Hz, rango x1,6
         if sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
+        x = VP.deriva_tono(x, SR, T0, DER)                              # deriva de tono <= 1 % (sube de a poco, vuelve a neutral)
+        x = VP.eq_fir(x, SR)                                            # balance tonal de la grabación de referencia
+        x = VP.deriva_bandas(x, SR, T0, DER)
         x = hp(x, 70)
         e = np.abs(x) > 0.015
         if e.any():
@@ -91,12 +97,22 @@ def procesar_voz():
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
-        cadena = ("highpass=f=85,equalizer=f=180:t=q:w=1.0:g=2.5,equalizer=f=3200:t=q:w=1.1:g=2.2,equalizer=f=7500:t=q:w=1.5:g=-2.5,"
+        cadena = ("highpass=f=85,equalizer=f=250:t=q:w=1.2:g=-3,equalizer=f=2900:t=q:w=1.0:g=-2.5,"
                   "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89:level=disabled")
         if f.name.startswith("00_"):                                     # apertura: ritmo más ágil (+28 %), mismo tono
             cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
         y = rw(fin / f.name)[:, 0]
+        if f.stem in DURS11:                                            # congela la duración de la v11: subtítulos y tarjetas siguen alineados
+            n = int(round(DURS11[f.stem] * SR))
+            if len(y) > n:
+                y = y[:n].copy()
+                y[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
+            else:
+                y = np.pad(y, (0, n - len(y)))
+            with wave.open(str(fin / f.name), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+                w.writeframes((np.clip(y, -1, 1) * 32767).astype("<i2").tobytes())
         x = y
         durs[f.stem] = len(x) / SR
     (VOZ / "durs.json").write_text(json.dumps(durs))
