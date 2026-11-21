@@ -22,7 +22,7 @@ def perfil():
     return _P["p"]
 
 
-def gender(x, sr, ratio=0.95, med=124.0, rango=2.0):
+def gender(x, sr, ratio=0.86, med=108.0, rango=2.5):
     import parselmouth
     from parselmouth.praat import call
     return call(parselmouth.Sound(x, sr), "Change gender", 70, 300, ratio, med, rango, 1.0).values[0].astype(np.float64)
