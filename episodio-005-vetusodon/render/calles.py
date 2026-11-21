@@ -158,32 +158,32 @@ def fondo_calle(W, H, v):
     if v == 0:      # réplica de la referencia: ONE WAY arriba, poste, semáforo peatonal
         one_way(d, W * 0.03, H * 0.05, W * 0.37, H * 0.15)
         poste(d, W * 0.20, H * 0.20, H, W * 0.035)
-        semaforo(d, W * 0.76, H * 0.60, W * 0.17, H * 0.36)
+        semaforo(d, W * 0.76, H * 0.54, W * 0.17, H * 0.32)
         slot = (W * 0.43, H * 0.10, W * 0.46, H * 0.46)
     elif v == 1:
         disco_prohibido(d, W * 0.15, H * 0.30, H * 0.20)
         poste(d, W * 0.15 - W * 0.0175, H * 0.50, H, W * 0.035)
-        one_way(d, W * 0.04, H * 0.76, W * 0.30, H * 0.14, dir=1)
+        one_way(d, W * 0.04, H * 0.66, W * 0.30, H * 0.14, dir=1)
         slot = (W * 0.40, H * 0.14, W * 0.50, H * 0.50)
     elif v == 2:
         pare(d, W * 0.14, H * 0.22, H * 0.17)
         poste(d, W * 0.14 - W * 0.0175, H * 0.38, H, W * 0.035)
-        semaforo(d, W * 0.07, H * 0.62, W * 0.14, H * 0.32)
+        semaforo(d, W * 0.07, H * 0.56, W * 0.14, H * 0.30)
         slot = (W * 0.34, H * 0.12, W * 0.55, H * 0.52)
     elif v == 3:
         rombo(d, W * 0.86, H * 0.24, H * 0.20)
         poste(d, W * 0.86 - W * 0.0175, H * 0.44, H, W * 0.035)
-        one_way(d, W * 0.05, H * 0.78, W * 0.32, H * 0.13)
+        one_way(d, W * 0.05, H * 0.68, W * 0.32, H * 0.13)
         slot = (W * 0.08, H * 0.10, W * 0.62, H * 0.58)
     elif v == 4:
         limite(d, W * 0.14, H * 0.24, H * 0.17, "252")
         poste(d, W * 0.14 - W * 0.0175, H * 0.41, H, W * 0.035)
-        cartel_azul(d, W * 0.34, H * 0.78, W * 0.40, H * 0.14, "KAROO")
+        cartel_azul(d, W * 0.34, H * 0.70, W * 0.40, H * 0.14, "KAROO")
         slot = (W * 0.36, H * 0.10, W * 0.56, H * 0.52)
     else:
         one_way(d, W * 0.30, H * 0.04, W * 0.40, H * 0.14, dir=1)
         poste(d, W * 0.50 - W * 0.0175, H * 0.18, H, W * 0.035)
-        semaforo(d, W * 0.78, H * 0.58, W * 0.16, H * 0.34)
+        semaforo(d, W * 0.78, H * 0.52, W * 0.16, H * 0.32)
         slot = (W * 0.05, H * 0.22, W * 0.40, H * 0.50)
     arr = np.asarray(im, np.float32) / 255.0
     _BG[key] = (arr, tuple(int(x) for x in slot))
@@ -252,9 +252,9 @@ def placa_datos(t, W, H, items):
     im = Image.fromarray((img * 255).astype(np.uint8))
     d = ImageDraw.Draw(im)
     n = len(items)
-    ph = H * 0.17
-    gap = H * 0.035
-    y0 = (H - (n * ph + (n - 1) * gap)) / 2
+    ph = H * 0.15
+    gap = H * 0.03
+    y0 = H * 0.10
     for i, (ti, texto, col) in enumerate(items):
         u = ease((t - ti) / 0.22)
         if u <= 0:
@@ -265,7 +265,7 @@ def placa_datos(t, W, H, items):
         d.rounded_rectangle([x + 6, y + 8, x + w + 6, y + ph + 8], radius=int(ph * 0.12), fill=(8, 6, 8))
         d.rounded_rectangle([x, y, x + w, y + ph], radius=int(ph * 0.12), fill=col, outline=BLANCO, width=max(3, int(ph * 0.05)))
         d.text((x + w / 2, y + ph / 2), texto, font=F(ph * (0.42 if len(texto) < 22 else 0.33)), fill=BLANCO, anchor="mm")
-    semaforo(d, W * 0.76, H * 0.30, W * 0.17, H * 0.40, paso=int(t * 4) % 2)
+    semaforo(d, W * 0.76, H * 0.26, W * 0.17, H * 0.38, paso=int(t * 4) % 2)
     return np.asarray(im, np.float32) / 255.0
 
 
@@ -329,8 +329,8 @@ def cartel_cierre(t_in, W, H, tipo, texto):
     im = Image.fromarray((fondo * 0.70 * 255).astype(np.uint8))
     d = ImageDraw.Draw(im)
     s = float(np.clip(0.80 + 0.20 * pop(t_in / 0.22), 0.5, 1.05))
-    cx, cy = W / 2, H * 0.40
-    R = H * 0.27 * s
+    cx, cy = W / 2, H * 0.34
+    R = H * 0.24 * s
     if tipo == "suscribite":
         d.ellipse([cx - R * 1.06, cy - R * 1.06, cx + R * 1.06, cy + R * 1.06], fill=BLANCO)
         d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=ROJO)
@@ -348,16 +348,16 @@ def cartel_cierre(t_in, W, H, tipo, texto):
         rombo(d, cx, cy, R * 1.12, 0)
         icono(d, "estrella", cx, cy + R * 0.02, R * 1.0, NEGRO)
     elif tipo == "gracias":
-        d.rounded_rectangle([W * 0.08, H * 0.22, W * 0.92, H * 0.60], radius=int(H * 0.04), fill=ROJO, outline=BLANCO, width=8)
-        d.text((W / 2, H * 0.41), "¡MUCHAS GRACIAS!", font=F(H * 0.105 * s), fill=BLANCO, anchor="mm")
+        d.rounded_rectangle([W * 0.08, H * 0.18, W * 0.92, H * 0.56], radius=int(H * 0.04), fill=ROJO, outline=BLANCO, width=8)
+        d.text((W / 2, H * 0.37), "¡MUCHAS GRACIAS!", font=F(H * 0.105 * s), fill=BLANCO, anchor="mm")
     elif tipo == "chau":
-        semaforo(d, cx - W * 0.085, H * 0.06, W * 0.17, H * 0.42, paso=int(t_in * 4) % 2)
+        semaforo(d, cx - W * 0.075, H * 0.04, W * 0.15, H * 0.44, paso=int(t_in * 4) % 2)
     if tipo == "chau":
-        placa(d, W / 2, H * 0.62, W * 0.70, H * 0.12, "NOS VEMOS DENTRO DE", NEGRO, 0.46)
-        placa(d, W / 2, H * 0.76, W * 0.78, H * 0.14, "252.000.000 DE AÑOS", ROJO, 0.52)
-        placa(d, W / 2, H * 0.90, W * 0.30, H * 0.10, "ADIÓS", NEGRO, 0.55)
+        placa(d, W / 2, H * 0.57, W * 0.70, H * 0.11, "NOS VEMOS DENTRO DE", NEGRO, 0.46)
+        placa(d, W / 2, H * 0.70, W * 0.78, H * 0.12, "252.000.000 DE AÑOS", ROJO, 0.52)
+        placa(d, W / 2, H * 0.82, W * 0.30, H * 0.09, "ADIÓS", NEGRO, 0.55)
     elif tipo != "gracias":
-        placa(d, W / 2, H * 0.80, W * 0.80, H * 0.17, texto, NEGRO if tipo != "suscribite" else ROJO_D, 0.40 if len(texto) < 26 else 0.30)
+        placa(d, W / 2, H * 0.70, W * 0.80, H * 0.15, texto, NEGRO if tipo != "suscribite" else ROJO_D, 0.40 if len(texto) < 26 else 0.30)
     return np.asarray(im, np.float32) / 255.0
 
 
