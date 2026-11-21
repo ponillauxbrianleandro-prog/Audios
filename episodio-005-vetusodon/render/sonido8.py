@@ -41,9 +41,9 @@ def noise(n):
     return rng.standard_normal(n)
 
 
-def rw(path):
+def rw(path, ch=None):
     """Lee un WAV (también float32) como float64 [n, canales] a 48 kHz, vía ffmpeg."""
-    ch = 2 if "musica" in str(path) else 1
+    ch = ch or (2 if "musica" in str(path) else 1)
     r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "s16le", "-ac", str(ch), "-ar", str(SR), "-"], capture_output=True, check=True)
     x = np.frombuffer(r.stdout, np.int16).astype(np.float64) / 32768
     return x.reshape(-1, ch)

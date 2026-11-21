@@ -22,6 +22,8 @@ def main():
             t_esc = ts + off
             if any(tc <= t_esc < tc + dur + 0.3 for tc, _k, dur in c.get("cards", [])):
                 continue
+            if c["esc"] not in (0, 5, 11) and any(tm - 0.2 <= t_esc < tm + 5.7 for tm, _tx in c["marcos"]):
+                continue                                  # sin marcos rojos ni textos de otras escenas
             out = d / f"c{c['esc']:02d}_{j}.png"
             if not out.exists():
                 subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{off:.2f}", "-i", str(p), "-frames:v", "1", "-vf", "scale=960:540", str(out)], check=True)

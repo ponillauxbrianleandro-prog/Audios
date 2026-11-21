@@ -61,7 +61,7 @@ def _normaliza(x, nombre):
         w.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
     out = V / "audio" / f"_{nombre}_n.wav"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(SR), str(out)], check=True)
-    return S.rw(out)
+    return S.rw(out, 2)
 
 
 def parte(c, plan_clima, booms, sfx_fn, nombre):
@@ -122,7 +122,7 @@ def main():
     assert c0["esc"] == 0 and c15["esc"] == 15
     intro = parte(c0, "rafaga", [round(c0["shots"][0][2]["tB"], 2)], sfx_intro, "intro")
     cierre = parte(c15, "ternura", [], sfx_cierre, "cierre")
-    viejo = S.rw(OLD)
+    viejo = S.rw(OLD, 2)
     medio = viejo[int(OLD_S0 * SR):int(OLD_END * SR)].copy()          # tramo central de la v9, sin tocar
     D0, D15 = c0["dur"], c15["dur"]
     T_c = D0 + (OLD_END - OLD_S0)                                      # inicio del cierre

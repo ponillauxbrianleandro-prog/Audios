@@ -1,419 +1,453 @@
 1
-00:00:00,250 --> 00:00:03,491
-Doscientos cincuenta y dos
-millones de años antes de Cristo.
+00:00:00,250 --> 00:00:03,837
+Hace doscientos cincuenta y dos
+millones de años, en el Karoo,
 
 2
-00:00:03,841 --> 00:00:07,393
-Dieciocho centímetros de cráneo.
-Cuatro fósiles.
+00:00:03,887 --> 00:00:04,423
+Sudáfrica,
 
 3
-00:00:07,743 --> 00:00:10,709
-Vetusodon elikhulu. Nuestro
-ancestro.
+00:00:04,623 --> 00:00:08,020
+vivió Vetusodon elikhulu:
+dieciocho centímetros de cráneo,
 
 4
-00:00:13,000 --> 00:00:16,757
+00:00:08,070 --> 00:00:08,911
+cuatro fósiles.
+
+5
+00:00:09,111 --> 00:00:09,905
+Nuestro ancestro.
+
+6
+00:00:11,542 --> 00:00:15,298
 Vetusodon elikhulu: «el grande»,
 en zulú.
 
-5
-00:00:17,657 --> 00:00:21,791
+7
+00:00:16,198 --> 00:00:20,333
 Con un cráneo de dieciocho
 centímetros, es el mayor cinodonte
 
-6
-00:00:21,841 --> 00:00:23,712
+8
+00:00:20,383 --> 00:00:22,254
 conocido del Pérmico tardío.
 
-7
-00:00:24,612 --> 00:00:28,284
+9
+00:00:23,154 --> 00:00:26,826
 Se lo conoce por cuatro
 ejemplares, todos de la cuenca del
 
-8
-00:00:28,334 --> 00:00:29,568
+10
+00:00:26,876 --> 00:00:28,110
 Karoo, en Sudáfrica.
 
-9
-00:00:30,468 --> 00:00:34,335
+11
+00:00:29,010 --> 00:00:32,877
 Fue descrito en dos mil
 diecinueve. Es el grupo hermano de
 
-10
-00:00:34,385 --> 00:00:37,983
+12
+00:00:32,927 --> 00:00:36,524
 los eucinodontes, el linaje que
 lleva a los mamíferos.
 
-11
-00:00:43,000 --> 00:00:49,142
+13
+00:00:41,542 --> 00:00:47,683
 Karoo, Sudáfrica, Pérmico tardío.
 Un valle de ríos estacionales, sin
 
-12
-00:00:49,192 --> 00:00:50,689
+14
+00:00:47,733 --> 00:00:49,231
 hierba ni flores.
 
-13
-00:00:51,589 --> 00:00:55,980
+15
+00:00:50,131 --> 00:00:54,521
 Crecen helechos con semillas,
 colas de caballo y glossopteris,
 
-14
-00:00:56,030 --> 00:00:58,558
+16
+00:00:54,571 --> 00:00:57,099
 árboles de hojas en forma de
 lengua.
 
-15
-00:00:59,458 --> 00:01:03,958
+17
+00:00:57,999 --> 00:01:02,499
 Dominan los dicinodontes:
 Diictodon, Dicynodon,
 
-16
-00:01:04,008 --> 00:01:05,313
+18
+00:01:02,549 --> 00:01:03,855
 Daptocephalus.
 
-17
-00:01:06,213 --> 00:01:09,998
+19
+00:01:04,755 --> 00:01:08,540
 Entre los insectos hay libélulas
 primitivas, escarabajos y
 
-18
-00:01:10,048 --> 00:01:10,726
+20
+00:01:08,590 --> 00:01:09,267
 cucarachas.
 
-19
-00:01:11,626 --> 00:01:15,357
+21
+00:01:10,167 --> 00:01:13,899
 Y en lo más alto de la cadena
 alimentaria, los gorgonopsios.
 
-20
-00:01:31,000 --> 00:01:35,764
+22
+00:01:29,542 --> 00:01:34,306
 Los paleontólogos miden, dibujan y
 comparan: hocico corto y ancho, y
 
-21
-00:01:35,814 --> 00:01:40,225
+23
+00:01:34,356 --> 00:01:38,766
 una región temporal que ocupa el
 sesenta por ciento del cráneo.
 
-22
-00:01:41,125 --> 00:01:45,518
+24
+00:01:39,666 --> 00:01:44,059
 Christian Kammerer, paleontólogo,
 dice: «Entre los sinápsidos del
 
-23
-00:01:45,568 --> 00:01:50,029
+25
+00:01:44,109 --> 00:01:48,570
 Pérmico estaban nuestros propios
 antepasados, y no hay ni de lejos
 
-24
-00:01:50,079 --> 00:01:52,079
+26
+00:01:48,620 --> 00:01:50,621
 suficiente gente que lo sepa.»
 
-25
-00:01:52,979 --> 00:01:57,184
+27
+00:01:51,521 --> 00:01:55,725
 Y Ken Angielczyk, del Field
 Museum: «Antes de la época de los
 
-26
-00:01:57,234 --> 00:02:00,880
+28
+00:01:55,775 --> 00:01:59,422
 dinosaurios hubo una era de
 antiguos parientes de los
 
-27
-00:02:00,930 --> 00:02:01,647
+29
+00:01:59,472 --> 00:02:00,189
 mamíferos.»
 
-28
-00:02:11,000 --> 00:02:15,799
+30
+00:02:09,542 --> 00:02:14,340
 Amanecer en el Karoo. El Vetusodon
 rastrea el suelo con el hocico.
 
-29
-00:02:16,699 --> 00:02:22,269
+31
+00:02:15,240 --> 00:02:20,811
 Come lo que hay: raíces, semillas,
 larvas e insectos. Es una
 
-30
-00:02:22,319 --> 00:02:27,796
+32
+00:02:20,861 --> 00:02:26,338
 inferencia a partir de su
 dentadura, con incisivos, caninos
 
-31
-00:02:27,846 --> 00:02:29,107
+33
+00:02:26,388 --> 00:02:27,649
 y postcaninos.
 
-32
-00:02:30,007 --> 00:02:34,053
+34
+00:02:28,549 --> 00:02:32,595
 Patas abiertas y garras largas:
 según la reconstrucción, un cuerpo
 
-33
-00:02:34,103 --> 00:02:35,108
+35
+00:02:32,645 --> 00:02:33,650
 hecho para cavar.
 
-34
-00:02:36,008 --> 00:02:40,705
+36
+00:02:34,550 --> 00:02:39,247
 Ningún fósil conserva su piel. El
 pelaje es una inferencia, por su
 
-35
-00:02:40,755 --> 00:02:42,647
+37
+00:02:39,297 --> 00:02:41,189
 cercanía con los mamíferos.
 
-36
-00:02:43,547 --> 00:02:48,744
+38
+00:02:42,089 --> 00:02:47,286
 El agua manda: el río sube y baja
 con las estaciones, y cada charco
 
-37
-00:02:48,794 --> 00:02:49,684
+39
+00:02:47,336 --> 00:02:48,225
 se defiende.
 
-38
-00:03:11,000 --> 00:03:15,367
+40
+00:03:09,542 --> 00:03:13,909
 Reconstrucción, no registro fósil:
 dos adultos se disputan un
 
-39
-00:03:15,417 --> 00:03:20,074
+41
+00:03:13,959 --> 00:03:18,615
 Diictodon muerto, un dicinodonte
 de cuarenta y cinco centímetros.
 
-40
-00:03:20,974 --> 00:03:25,022
+42
+00:03:19,516 --> 00:03:23,564
 Dieciocho centímetros de cráneo y
 dientes de tres tipos: cada
 
-41
-00:03:25,072 --> 00:03:26,298
+43
+00:03:23,614 --> 00:03:24,840
 mordida es un arma.
 
-42
-00:03:27,198 --> 00:03:31,437
+44
+00:03:25,740 --> 00:03:29,979
 En este valle, una carroña puede
 decidir quién llega a la estación
 
-43
-00:03:31,487 --> 00:03:31,762
+45
+00:03:30,029 --> 00:03:30,304
 seca.
 
-44
-00:03:42,250 --> 00:03:46,940
+46
+00:03:40,792 --> 00:03:45,482
 Sinápsidos: más de trescientos
 millones de años de historia.
 
-45
-00:03:46,990 --> 00:03:50,416
+47
+00:03:45,532 --> 00:03:48,957
 Cinodontes: mandíbula y dientes de
 mamífero.
 
-46
-00:03:52,083 --> 00:03:55,300
+48
+00:03:50,625 --> 00:03:53,842
 Los gorgonopsios son los
 depredadores más grandes del
 
-47
-00:03:55,350 --> 00:03:58,998
+49
+00:03:53,892 --> 00:03:57,540
 valle: caninos de sable y una
 mandíbula que se abre como una
 
-48
-00:03:59,048 --> 00:03:59,430
+50
+00:03:57,590 --> 00:03:57,971
 tijera.
 
-49
-00:04:00,330 --> 00:04:04,385
+51
+00:03:58,871 --> 00:04:02,926
 Cazan por emboscada, y un
 cinodonte es presa posible.
 
-50
-00:04:05,285 --> 00:04:08,548
+52
+00:04:03,827 --> 00:04:07,090
 Hasta dos metros de largo y un
 cráneo de treinta y cinco
 
-51
-00:04:08,598 --> 00:04:11,388
+53
+00:04:07,140 --> 00:04:09,930
 centímetros: casi el doble que el
 del Vetusodon.
 
-52
-00:04:12,288 --> 00:04:16,888
+54
+00:04:10,830 --> 00:04:15,430
 El Vetusodon no tiene colmillos de
 sable ni garras de cazador. Su
 
-53
-00:04:16,938 --> 00:04:19,464
+55
+00:04:15,480 --> 00:04:18,005
 defensa es la fuga, y la
 madriguera.
 
-54
-00:05:04,083 --> 00:05:08,296
+56
+00:05:02,625 --> 00:05:06,837
 Reconstrucción: un grupo de
 Vetusodon cierra filas ante el
 
-55
-00:05:08,346 --> 00:05:10,794
+57
+00:05:06,887 --> 00:05:09,336
 gorgonopsio, y el depredador duda.
 
-56
-00:05:38,083 --> 00:05:42,269
+58
+00:05:36,625 --> 00:05:40,810
 Un detalle anatómico cambió la
 ciencia. En los cinodontes, la
 
-57
-00:05:42,319 --> 00:05:44,977
+59
+00:05:40,860 --> 00:05:43,518
 mandíbula inferior tiene varios
 huesos.
 
-58
-00:05:45,877 --> 00:05:49,868
+60
+00:05:44,418 --> 00:05:48,410
 Dos de ellos, el articular y el
 cuadrado, forman la articulación
 
-59
-00:05:49,918 --> 00:05:50,878
+61
+00:05:48,460 --> 00:05:49,420
 de la mandíbula.
 
-60
-00:05:51,778 --> 00:05:56,364
+62
+00:05:50,320 --> 00:05:54,906
 En los mamíferos, esos mismos
 huesos son el martillo y el yunque
 
-61
-00:05:56,414 --> 00:06:00,348
+63
+00:05:54,956 --> 00:05:58,890
 del oído medio. Es una de las
 pruebas más sólidas de la
 
-62
-00:06:00,398 --> 00:06:01,073
+64
+00:05:58,940 --> 00:05:59,614
 evolución.
 
-63
-00:06:22,083 --> 00:06:25,788
+65
+00:06:20,625 --> 00:06:24,329
 Hace unos doscientos cincuenta y
 dos millones de años, en lo que
 
-64
-00:06:25,838 --> 00:06:28,955
+66
+00:06:24,379 --> 00:06:27,497
 hoy es Siberia, empiezan las
 erupciones de las Trampas
 
-65
-00:06:29,005 --> 00:06:29,600
+67
+00:06:27,547 --> 00:06:28,142
 Siberianas.
 
-66
-00:06:30,500 --> 00:06:34,554
+68
+00:06:29,042 --> 00:06:33,095
 Lava durante cientos de miles de
 años, y una cantidad enorme de
 
-67
-00:06:34,604 --> 00:06:35,791
+69
+00:06:33,145 --> 00:06:34,333
 dióxido de carbono.
 
-68
-00:06:36,691 --> 00:06:41,681
+70
+00:06:35,233 --> 00:06:40,222
 El planeta se calienta. En el
 Karoo, el río se achica y las
 
-69
-00:06:41,731 --> 00:06:43,133
+71
+00:06:40,272 --> 00:06:41,675
 plantas se secan.
 
-70
-00:07:08,083 --> 00:07:12,247
+72
+00:07:06,625 --> 00:07:10,789
 Llegan las cenizas y los gases
 ácidos, y empieza a caer la lluvia
 
-71
-00:07:12,297 --> 00:07:12,895
+73
+00:07:10,839 --> 00:07:11,437
 que quema.
 
-72
-00:07:25,602 --> 00:07:30,173
+74
+00:07:24,144 --> 00:07:28,715
 Los gorgonopsios no llegan al peor
 momento. Desaparecen primero.
 
-73
-00:07:31,073 --> 00:07:35,406
+75
+00:07:29,615 --> 00:07:33,948
 Después, el final del Pérmico:
 desaparece alrededor del ochenta y
 
-74
-00:07:35,456 --> 00:07:39,789
+76
+00:07:33,998 --> 00:07:38,331
 uno por ciento de las especies
 marinas y el setenta por ciento de
 
-75
-00:07:39,839 --> 00:07:41,610
+77
+00:07:38,381 --> 00:07:40,152
 los vertebrados terrestres.
 
-76
-00:07:42,510 --> 00:07:45,231
+78
+00:07:41,052 --> 00:07:43,773
 Es la mayor extinción de la
 historia de la Tierra.
 
-77
-00:08:04,083 --> 00:08:08,532
+79
+00:08:02,625 --> 00:08:07,074
 Entre los sobrevivientes aparece
 un dicinodonte: Lystrosaurus.
 
-78
-00:08:09,432 --> 00:08:12,965
+80
+00:08:07,974 --> 00:08:11,507
 En el Karoo pasa de representar el
 cincuenta y cuatro por ciento de
 
-79
-00:08:13,015 --> 00:08:16,334
+81
+00:08:11,557 --> 00:08:14,876
 los fósiles de vertebrados a
 representar el setenta por ciento.
 
-80
-00:08:17,234 --> 00:08:21,367
+82
+00:08:15,776 --> 00:08:19,909
 Sus restos aparecen también en la
 Antártida y en la India: coloniza
 
-81
-00:08:21,417 --> 00:08:22,554
+83
+00:08:19,959 --> 00:08:21,095
 un supercontinente.
 
-82
-00:08:44,083 --> 00:08:48,821
+84
+00:08:42,625 --> 00:08:47,362
 Los cinodontes sobreviven. Entre
 los pequeños, Thrinaxodon cava
 
-83
-00:08:48,871 --> 00:08:53,304
+85
+00:08:47,412 --> 00:08:51,846
 madrigueras: sus fósiles aparecen
 enroscados dentro de una.
 
-84
-00:08:54,204 --> 00:08:58,423
+86
+00:08:52,746 --> 00:08:56,965
 El Vetusodon no llega al Triásico.
 Su linaje, sí.
 
-85
-00:08:59,323 --> 00:09:03,451
+87
+00:08:57,865 --> 00:09:01,993
 Los eucinodontes aparecen pocos
 millones de años después, y de
 
-86
-00:09:03,501 --> 00:09:05,203
+88
+00:09:02,043 --> 00:09:03,745
 ellos salen los mamíferos.
 
-87
-00:09:34,083 --> 00:09:37,986
+89
+00:09:32,625 --> 00:09:36,528
 Doscientos cincuenta millones de
 años después, esos huesos de la
 
-88
-00:09:38,036 --> 00:09:40,086
+90
+00:09:36,578 --> 00:09:38,628
 mandíbula están dentro de tu oído.
 
-89
-00:09:54,616 --> 00:09:57,649
+91
+00:09:53,157 --> 00:09:56,190
 Vetusodon elikhulu. Tu ancestro.
+
+92
+00:10:11,875 --> 00:10:15,451
+Si te gustan los videos así,
+suscribite y dale like.
+
+93
+00:10:16,051 --> 00:10:19,980
+Buscá más videos en el canal, o
+hacete miembro para ver más y
+
+94
+00:10:20,030 --> 00:10:21,872
+votar los próximos proyectos.
+
+95
+00:10:22,472 --> 00:10:23,480
+Muchas gracias.
+
+96
+00:10:24,080 --> 00:10:28,521
+Nos vemos dentro de doscientos
+cincuenta y dos millones de años.
+
+97
+00:10:28,571 --> 00:10:28,942
+Adiós.
 
