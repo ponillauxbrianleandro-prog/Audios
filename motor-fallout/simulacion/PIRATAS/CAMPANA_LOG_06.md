@@ -1,0 +1,128 @@
+<!-- CAMPAÑA parte 6/21 -->
+# Registro de la campaña (simulación), parte 6
+
+- d28 06:27 | Q-018 | MISIÓN COMPLETADA QA-036-3 «Todo lo que se junta» +88 XP
+- d28 07:19 | Q-039 | MISIÓN ACEPTADA QA-038-1 «Aprender con la protección» (secundaria)
+- d28 08:24 | Q-039 | SUBE A NIVEL 25 (PV máx 275, daño nominal 40)
+- d28 08:24 | Q-039 | MISIÓN COMPLETADA QA-038-1 «Aprender con la protección» +88 XP
+- d28 09:50 | L-041 | COMBATE vs 4× Mosca mutante (nv14, var V2, PV c/u 64) [sorpresa]
+- d28 09:54 | L-041 | VICTORIA en 4 rondas (PV 275→248/275)
+- d28 10:30 | L-042 | COMBATE vs 3× Coyote (nv15, var V1, PV c/u 48) 
+- d28 10:32 | L-042 | VICTORIA en 2 rondas (PV 251→242/275)
+- d28 10:56 | L-048 | LLEGA por primera vez a Selva Alta [normal]
+- d28 11:48 | L-047 | LLEGA por primera vez a Fuerte del Norte [segura]
+- d28 11:53 | L-047 | MISIÓN ACEPTADA MP-14 «La decisión final» (principal)
+- d28 11:58 | L-047 | ELIGE BANDO en MP-14: un bando (el grupo «el otro» pasa a ser hostil)
+- d28 13:53 | L-049 | LLEGA por primera vez a Meseta de Niebla [normal]
+- d28 14:39 | L-051 | LLEGA por primera vez a Aserradero [normal]
+- d28 15:26 | L-054 | LLEGA por primera vez a Cima de las Nubes [hostil]
+- d28 15:26 | L-054 | COMBATE vs 4× Saqueador (nv30, var V2, PV c/u 348) [sorpresa]
+- d28 16:05 | L-054 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d28 16:05 | L-054 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d28 16:05 | L-053 | COMBATE vs 3× Avispón gigante erguido (nv26, var V3, PV c/u 292) [emboscada enemiga]
+- d28 16:06 | L-053 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d28 19:42 | L-014 | LLEGA por primera vez a Embarcadero del Norte [segura]
+- d29 05:35 | L-054 | COMBATE vs 3× Saqueador (nv30, var V2, PV c/u 348) [sorpresa]
+- d29 05:47 | L-054 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d29 05:47 | L-054 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d29 05:47 | L-053 | COMBATE vs 3× Antílope (nv26, var V1, PV c/u 280) [emboscada enemiga]
+- d29 05:49 | L-053 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d29 18:36 | L-054 | COMBATE vs 3× Saqueador (nv30, var V2, PV c/u 348) 
+- d29 18:41 | L-054 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d30 06:01 | L-054 | COMBATE vs 4× Hormiga mutante (nv30, var V1, PV c/u 78) 
+- d30 06:07 | L-054 | VICTORIA en 6 rondas (PV 275→206/275)
+- d30 06:07 | L-054 | SUBE A NIVEL 26 (PV máx 280, daño nominal 41)
+- d30 06:07 | L-054 | MISIÓN COMPLETADA MP-14 «La decisión final» +3930 XP
+- d30 06:07 | L-054 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d30 06:24 | Q-025 | MISIÓN ACEPTADA QA-040-3 «Provisión del pozo» (secundaria)
+- d30 08:54 | L-038 | COMBATE vs 6× Rata (nv23, var V2, PV c/u 89) 
+- d30 09:02 | L-038 | VICTORIA en 8 rondas (PV 280→136/280)
+- d30 11:34 | Q-025 | MISIÓN COMPLETADA QA-040-3 «Provisión del pozo» +88 XP
+- d30 16:17 | Q-035 | MISIÓN ACEPTADA QA-042-1 «Una mesa para el cansancio» (secundaria)
+- d30 18:45 | Q-035 | MISIÓN COMPLETADA QA-042-1 «Una mesa para el cansancio» +88 XP
+- d30 19:03 | Q-032 | MISIÓN ACEPTADA QA-050-2 «El misterio del viejo túnel» (secundaria)
+- d30 19:22 | Q-032 | MISIÓN COMPLETADA QA-050-2 «El misterio del viejo túnel» +88 XP
+- d30 20:58 | L-026 | MISIÓN ACEPTADA QA-055-1 «Rastro de la reliquia» (secundaria)
+- d30 23:44 | L-034 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d31 00:49 | L-026 | MISIÓN COMPLETADA QA-055-1 «Rastro de la reliquia» +88 XP
+- d31 01:43 | Q-029 | MISIÓN ACEPTADA QA-062-1 «Ronda por el granero» (secundaria)
+- d31 04:21 | L-038 | COMBATE vs 4× Perro callejero (nv24, var V2, PV c/u 92) [sorpresa]
+- d31 04:25 | L-038 | VICTORIA en 4 rondas (PV 280→217/280)
+- d31 04:25 | L-038 | MISIÓN COMPLETADA QA-062-1 «Ronda por el granero» +88 XP
+- d31 06:19 | Q-036 | MISIÓN ACEPTADA QA-069-2 «Reiniciar el viejo túnel» (secundaria)
+- d31 07:00 | Z-043 | LLEGA por primera vez a Taller de nudos de Barrio de las Velas [segura]
+- d31 07:10 | Z-043 | HACKEO de terminal en Taller de nudos de Barrio de las Velas ÉXITO (87%)
+- d31 07:10 | Z-043 | MISIÓN COMPLETADA QA-069-2 «Reiniciar el viejo túnel» +88 XP
+- d31 07:20 | Z-043 | REGISTRA C-0209 (alacena): ['recurso_bio', 'piezas']
+- d31 09:16 | Q-036 | MISIÓN ACEPTADA QA-071-2 «Rastro del cuaderno» (secundaria)
+- d31 09:54 | Q-036 | MISIÓN COMPLETADA QA-071-2 «Rastro del cuaderno» +88 XP
+- d31 10:21 | Q-026 | MISIÓN ACEPTADA QA-072-1 «En busca del cuaderno» (secundaria)
+- d31 10:57 | Z-030 | LLEGA por primera vez a Casa del farero de Puerto Viejo [segura]
+- d31 10:59 | Z-030 | REGISTRA C-0180 (barril): ['recurso_bio', 'cuerda', 'obj_61']
+- d31 11:26 | Q-026 | MISIÓN COMPLETADA QA-072-1 «En busca del cuaderno» +88 XP
+- d31 11:31 | Q-026 | MISIÓN ACEPTADA QA-072-3 «Escolta hasta el camino» (secundaria)
+- d31 13:58 | L-038 | COMBATE vs 2× Persona con rasgos de Cucaracha mutante (nv24, var V3, PV c/u 551) [sorpresa]
+- d31 14:08 | L-038 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d32 00:18 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d32 01:16 | L-038 | COMBATE vs 2× Persona con rasgos de Cucaracha mutante (nv24, var V3, PV c/u 551) [sorpresa]
+- d32 01:26 | L-038 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d32 01:26 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d32 11:50 | L-038 | COMBATE vs 2× Persona con rasgos de Cucaracha mutante (nv24, var V3, PV c/u 551) [sorpresa]
+- d32 12:00 | L-038 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d33 00:04 | L-038 | COMBATE vs 2× Persona con rasgos de Cucaracha mutante (nv24, var V3, PV c/u 551) 
+- d33 00:17 | L-038 | ESCAPÓ del combate (los enemigos quedan: 1 persistentes)
+- d33 00:17 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d33 10:22 | L-038 | COMBATE vs 1× Persona con rasgos de Cucaracha mutante (nv24, var V3, PV c/u 551) [sorpresa]
+- d33 10:29 | L-038 | VICTORIA en 7 rondas (PV 280→154/280)
+- d33 10:29 | L-038 | MISIÓN COMPLETADA QA-072-3 «Escolta hasta el camino» +88 XP
+- d33 12:44 | Q-035 | MISIÓN ACEPTADA QA-073-3 «Cruzar con cuidado» (secundaria)
+- d33 14:33 | L-038 | COMBATE vs 4× Termita mutante erguido (nv24, var V1, PV c/u 72) [sorpresa]
+- d33 14:40 | L-038 | VICTORIA en 7 rondas (PV 175→101/280)
+- d33 14:40 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d34 01:11 | L-038 | MISIÓN COMPLETADA QA-073-3 «Cruzar con cuidado» +88 XP
+- d34 03:03 | Q-019 | MISIÓN ACEPTADA QA-077-2 «Cuando no alcanza el silencio» (secundaria)
+- d34 04:17 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d34 04:30 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d34 17:05 | L-038 | COMBATE vs 5× Slime verde humanoide (nv24, var V1, PV c/u 158) 
+- d34 17:19 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d34 17:19 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d35 04:54 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d35 05:04 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d35 15:14 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d35 16:14 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d35 16:55 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d36 03:35 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d36 04:33 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d36 04:52 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d36 04:52 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d36 13:47 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d36 14:22 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d36 14:25 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d36 14:25 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d37 01:28 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d37 01:32 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d37 13:43 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d37 13:54 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d37 23:31 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d37 23:55 | L-038 | COMBATE vs 6× Slime verde (nv24, var V2, PV c/u 92) [sorpresa]
+- d38 00:04 | L-038 | VICTORIA en 9 rondas (PV 280→117/280)
+- d38 01:58 | Q-019 | MISIÓN COMPLETADA QA-077-2 «Cuando no alcanza el silencio» +88 XP
+- d38 06:28 | Q-015 | MISIÓN ACEPTADA QA-078-3 «Cruzar con cuidado» (secundaria)
+- d38 07:50 | L-038 | COMBATE vs 4× Cucaracha mutante (nv24, var V2, PV c/u 92) [sorpresa]
+- d38 07:53 | L-038 | VICTORIA en 3 rondas (PV 280→216/280)
+- d38 07:53 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d38 08:24 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d38 08:24 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d38 19:22 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d38 19:36 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d39 05:23 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d39 06:06 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d39 06:10 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d39 18:31 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d39 18:35 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d40 06:01 | L-038 | COMBATE vs 5× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d40 06:26 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d40 19:23 | L-038 | COMBATE vs 4× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d40 19:36 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d40 19:36 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d41 06:07 | L-038 | COMBATE vs 4× Slime verde erguido (nv24, var V2, PV c/u 101) 

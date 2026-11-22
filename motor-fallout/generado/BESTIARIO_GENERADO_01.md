@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 1/34 -->
+<!-- BESTIARIO GENERADO parte 1/35 -->
 # BESTIARIO GENERADO (semilla 2026)
 Formato: `ID.Ffase | nombre en esa fase | talla | slot | n variantes | variantes@nivel de activacion`. Cada criatura y fase tiene 1 a 3 variantes (1d3). V1 siempre es la Comun. @jefe = reservada a jefe/evento.
 

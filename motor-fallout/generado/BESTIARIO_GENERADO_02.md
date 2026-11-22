@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 2/34 -->
+<!-- BESTIARIO GENERADO parte 2/35 -->
 - H-08.F9 | Furry de Rata topo | T3 | s2 | n=2 | Común@4 · Excavadora (sale del suelo)@10
 - H-08.F10 | Persona con accesorios de Rata topo | T3 | s2 | n=1 | Común@4
 - H-08.F11 | Trabajador/a de espectáculo con accesorios de Rata topo | T3 | s2 | n=1 | Común@4

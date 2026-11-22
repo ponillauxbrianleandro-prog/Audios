@@ -4,135 +4,134 @@
 - d1 08:00 | L-001 | RECLUTA a Rastro (+10% impacto en corta; avisa de emboscadas)
 - d1 08:02 | L-001 | REGISTRA C-001 (baúl del hogar): ['venda']
 - d1 08:04 | L-001 | REGISTRA C-002 (alacena): ['lata', 'agua']
-- d1 09:40 | L-001 | MISIÓN ACEPTADA M-01 «Chispa en el Faro» (principal)
-- d1 09:45 | L-001 | sale por la ventana sin atascarse (umbral 40%)
-- d1 10:45 | L-002 | COMBATE vs 5× Conejo (nv2, var V1, PV c/u 22) 
-- d1 10:54 | L-002 | VICTORIA en 9 rondas (PV 155→102/155)
-- d1 10:54 | L-002 | LLEGA por primera vez a Camino de Cardos [normal]
-- d1 11:17 | L-004 | LLEGA por primera vez a Casas del Eco [normal]
-- d1 11:57 | L-007 | LLEGA por primera vez a Ciudad Horno [segura]
-- d1 12:27 | L-007 | FABRICA radio (29≤67)
-- d1 12:27 | L-007 | SUBE A NIVEL 2 (PV máx 160, daño nominal 11)
-- d1 12:27 | L-007 | MISIÓN COMPLETADA M-01 «Chispa en el Faro» +150 XP
-- d1 12:29 | L-007 | REGISTRA C-012 (cajón de la posada): ['lata']
-- d1 15:35 | L-001 | LLEGA por primera vez a El Faro Seco [segura]
-- d1 15:40 | L-001 | MISIÓN ACEPTADA M-02 «La señal bajo el pozo» (principal)
-- d1 16:34 | L-003 | LLEGA por primera vez a Pozo Viejo [normal]
-- d1 18:14 | L-006 | LLEGA por primera vez a Sótano de la Radio [normal]
-- d1 18:25 | L-006 | REGISTRA C-010 (gabinete de radio): ['holocinta_mentor', 'circuito']
-- d1 18:25 | L-006 | SUBE A NIVEL 3 (PV máx 165, daño nominal 12)
-- d1 18:25 | L-006 | MISIÓN COMPLETADA M-02 «La señal bajo el pozo» +250 XP
-- d1 18:31 | L-006 | REGISTRA C-011 (taquilla): vacío
-- d1 20:05 | L-003 | COMBATE vs 5× Abeja mutante (nv2, var V1, PV c/u 22) 
-- d1 20:12 | L-003 | VICTORIA en 7 rondas (PV 165→152/165)
-- d1 20:56 | L-002 | COMBATE vs 2× Oveja (nv2, var V1, PV c/u 44) 
-- d1 21:02 | L-002 | VICTORIA en 6 rondas (PV 156→145/165)
-- d1 21:40 | L-004 | COMBATE vs 2× Cabra (nv3, var V1, PV c/u 48) 
-- d1 21:49 | L-004 | VICTORIA en 9 rondas (PV 148→126/165)
-- d1 22:48 | L-007 | MISIÓN ACEPTADA M-03 «Ciudad Horno» (principal)
-- d1 23:34 | L-008 | LLEGA por primera vez a Puesto del Cantil [segura]
-- d2 00:15 | L-005 | LLEGA por primera vez a Cantera Chica [hostil]
-- d2 00:15 | L-005 | COMBATE vs 6× Escarabajo mutante (nv2, var V1, PV c/u 22) 
-- d2 00:28 | L-005 | VICTORIA en 13 rondas (PV 135→110/165)
-- d2 01:53 | L-007 | SUBE A NIVEL 4 (PV máx 170, daño nominal 14)
-- d2 01:53 | L-007 | MISIÓN COMPLETADA M-03 «Ciudad Horno» +300 XP
-- d2 05:54 | L-006 | MISIÓN ACEPTADA M-04 «Las tres piezas» (principal)
-- d2 06:46 | L-009 | LLEGA por primera vez a Depósito 9 [hostil]
-- d2 06:46 | L-009 | COMBATE vs 4× Robot doméstico (nv5, var V1, PV c/u 112) [sorpresa]
-- d2 08:34 | L-001 | DERROTADO en Depósito 9: arrastre a El Faro Seco (80 min), robo ninguno
-- d2 19:13 | L-009 | COMBATE vs 3× Robot doméstico (nv5, var V1, PV c/u 112) 
-- d2 19:27 | L-009 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d2 19:29 | L-009 | REGISTRA C-014 (estantería de piezas): ['piezas', 'chatarra']
-- d2 20:01 | L-009 | REGISTRA C-015 (caja fuerte de la oficina): ['pieza_nucleo_1', 'cuñas120']
-- d3 00:29 | L-010 | LLEGA por primera vez a Ruta de Sal [normal]
-- d3 01:14 | L-013 | LLEGA por primera vez a Cuevas del Zumbido [hostil]
-- d3 01:14 | L-013 | JEFE: Reina de la Colmena aparece
-- d3 12:33 | L-013 | COMBATE vs 4× Mosca mutante (nv8, var V1, PV c/u 34) [sorpresa]
-- d3 12:40 | L-013 | VICTORIA en 7 rondas (PV 170→149/170)
-- d3 12:40 | L-013 | COMBATE vs 5× Termita mutante (nv8, var V1, PV c/u 34) [sorpresa]
-- d3 12:55 | L-013 | VICTORIA en 15 rondas (PV 149→109/170)
-- d3 12:55 | L-013 | COMBATE vs 1× Reina de la Colmena (nv8, var V1, PV c/u 330) 
-- d3 13:36 | L-013 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
-- d3 13:36 | L-013 | SUBE A NIVEL 5 (PV máx 175, daño nominal 15)
-- d3 13:36 | L-013 | COMBATE vs 4× Reina de la Colmena (nv8, var V1, PV c/u 330) 
-- d3 14:16 | L-013 | SUBE A NIVEL 6 (PV máx 180, daño nominal 16)
-- d3 14:16 | L-013 | VICTORIA en 40 rondas (PV 175→180/180)
-- d3 14:16 | L-013 | JEFE DERROTADO: Reina de la Colmena
-- d3 14:38 | L-016 | LLEGA por primera vez a Túneles del Metro Viejo [hostil]
-- d3 15:10 | L-017 | LLEGA por primera vez a Hipermercado Ruina [hostil]
-- d3 15:10 | L-017 | COMBATE vs 4× Cazador (nv9, var V1, PV c/u 93) 
-- d3 15:32 | L-017 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
-- d3 15:34 | L-017 | REGISTRA C-026 (góndola de farmacia): ['medicina', 'venda_reforzada']
-- d3 15:43 | L-017 | REGISTRA C-027 (caja fuerte de gerencia): ['pieza_nucleo_3', 'cuñas200']
-- d3 15:43 | L-017 | SUBE A NIVEL 7 (PV máx 185, daño nominal 18)
-- d3 15:43 | L-017 | MISIÓN COMPLETADA M-04 «Las tres piezas» +600 XP
-- d3 15:43 | L-017 | COMBATE vs 3× Cazador (nv9, var V1, PV c/u 93) [sorpresa]
-- d3 15:55 | L-017 | VICTORIA en 12 rondas (PV 185→109/185)
-- d3 16:12 | L-017 | REGISTRA C-028 (mostrador): ['lata', 'chatarra']
-- d3 16:47 | L-017 | COMBATE vs 4× Cazador (nv9, var V1, PV c/u 93) 
-- d3 16:58 | L-017 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
-- d3 18:40 | L-014 | LLEGA por primera vez a Barrio Ceniza [hostil]
-- d3 20:45 | L-004 | MISIÓN ACEPTADA S-10 «El recuerdo de Mercedes» (secundaria)
-- d3 20:52 | L-004 | REGISTRA C-005 (cajón de cocina): ['lata', 'cubiertos']
-- d3 21:03 | L-004 | REGISTRA C-006 (ropero): ['ropa_e1', 'memento']
-- d3 21:08 | L-004 | MISIÓN COMPLETADA S-10 «El recuerdo de Mercedes» +60 XP
-- d3 21:10 | L-004 | REGISTRA C-007 (cajón de dormitorio): ['circuito', 'venda']
-- d3 21:17 | L-004 | REGISTRA C-008 (caja fuerte pequeña): ['llave_silo', 'cuñas40']
-- d4 00:49 | L-011 | LLEGA por primera vez a Mercado del Silo [segura]
-- d4 00:54 | L-011 | MISIÓN ACEPTADA S-17 «Cartas para los tres pueblos» (secundaria)
-- d4 03:28 | L-012 | LLEGA por primera vez a Granja Quebracho [normal]
-- d4 03:33 | L-012 | MISIÓN COMPLETADA S-17 «Cartas para los tres pueblos» +100 XP
-- d4 03:35 | L-012 | REGISTRA C-019 (arcón del granero): ['lata', 'agua']
-- d4 05:48 | L-008 | MISIÓN ACEPTADA S-04 «Nido en la cantera» (secundaria)
-- d4 07:00 | L-005 | REGISTRA C-009 (caja de herramientas): ['herramientas', 'ganzua']
-- d4 17:21 | L-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
-- d4 17:21 | L-014 | COMBATE vs 4× Mercenario (nv7, var V1, PV c/u 70) [emboscada enemiga]
-- d4 17:39 | L-014 | SUBE A NIVEL 8 (PV máx 190, daño nominal 19)
-- d4 17:39 | L-014 | VICTORIA en 18 rondas (PV 185→190/190)
-- d4 18:01 | L-017 | COMBATE vs 4× Cazador (nv9, var V1, PV c/u 93) 
-- d4 19:34 | L-007 | DERROTADO en Hipermercado Ruina: arrastre a Ciudad Horno (80 min), robo ninguno
-- d5 03:34 | L-007 | compra Machete de Horno (tier 2)
-- d5 03:34 | L-007 | compra Armadura militar (tier 4)
-- d5 04:31 | L-005 | COMBATE vs 3× Escarabajo rinoceronte (nv5, var V1, PV c/u 56) 
-- d5 04:36 | L-005 | VICTORIA en 5 rondas (PV 190→188/190)
-- d5 04:36 | L-005 | COMBATE vs 3× Escarabajo rinoceronte (nv5, var V1, PV c/u 56) [sorpresa]
-- d5 04:40 | L-005 | VICTORIA en 4 rondas (PV 188→184/190)
-- d5 05:14 | L-008 | MISIÓN COMPLETADA S-04 «Nido en la cantera» +100 XP
-- d5 05:14 | L-008 | RECLUTA a Perla Ónix (+20% impacto a distancia)
-- d5 05:25 | L-008 | REGISTRA C-013 (arsenal): ['arma_t3']
-- d5 07:29 | L-007 | MISIÓN ACEPTADA S-05 «Circuitos para el mecánico» (secundaria)
-- d5 08:08 | L-004 | COMBATE vs 3× Oveja humanoide (nv3, var V1, PV c/u 57) 
-- d5 08:13 | L-004 | VICTORIA en 5 rondas (PV 190→190/190)
-- d5 08:52 | L-007 | MISIÓN COMPLETADA S-05 «Circuitos para el mecánico» +90 XP
-- d5 09:35 | L-011 | MISIÓN ACEPTADA S-14 «Las bombas del silo» (secundaria)
-- d5 10:10 | L-011 | HACKEO de terminal en Mercado del Silo ÉXITO (78%)
-- d5 10:10 | L-011 | MISIÓN COMPLETADA S-14 «Las bombas del silo» +90 XP
-- d5 10:21 | L-011 | REGISTRA C-018 (bodega del capataz): ['lata', 'agua', 'kit_reparacion']
-- d5 11:57 | L-011 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
-- d5 12:24 | L-012 | MISIÓN ACEPTADA S-01 «Perros en el corral» (secundaria)
-- d5 13:30 | L-012 | COMBATE vs 4× Perro salvaje (nv4, var V2, PV c/u 36) [sorpresa]
-- d5 13:34 | L-012 | VICTORIA en 4 rondas (PV 190→188/190)
-- d5 13:39 | L-012 | MISIÓN COMPLETADA S-01 «Perros en el corral» +120 XP
-- d5 13:39 | L-012 | RECLUTA a Tano Granito (+carga 40; aguanta 1 golpe por combate)
-- d5 15:49 | L-002 | COMBATE vs 4× Zorro rojo (nv2, var V1, PV c/u 22) [sorpresa]
-- d5 15:52 | L-002 | VICTORIA en 3 rondas (PV 190→188/190)
-- d5 18:12 | L-006 | MISIÓN ACEPTADA S-06 «Piezas de radio» (secundaria)
-- d5 18:22 | L-006 | MISIÓN COMPLETADA S-06 «Piezas de radio» +100 XP
-- d5 18:22 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
-- d5 18:22 | L-002 | COMBATE vs 4× Rata (nv2, var V1, PV c/u 22) [emboscada enemiga]
-- d5 18:28 | L-002 | VICTORIA en 6 rondas (PV 190→186/190)
-- d5 19:51 | L-007 | MISIÓN ACEPTADA S-15 «El invento» (secundaria)
-- d5 20:26 | L-007 | FABRICAR artefacto: falla (93>74), pierde la mitad de los componentes
-- d5 20:56 | L-007 | FABRICA artefacto (15≤74)
-- d5 21:01 | L-007 | MISIÓN COMPLETADA S-15 «El invento» +110 XP
-- d5 21:06 | L-007 | MISIÓN ACEPTADA S-18 «Ingredientes para el guiso» (secundaria)
-- d5 22:56 | L-012 | COMBATE vs 3× Conejo (nv4, var V1, PV c/u 26) 
-- d5 22:59 | L-012 | VICTORIA en 3 rondas (PV 190→190/190)
-- d5 22:59 | L-012 | COMBATE vs 2× Poni (nv4, var V1, PV c/u 52) 
-- d5 23:01 | L-012 | VICTORIA en 2 rondas (PV 190→190/190)
-- d6 00:13 | L-007 | MISIÓN COMPLETADA S-18 «Ingredientes para el guiso» +90 XP
-- d6 01:02 | L-010 | MISIÓN ACEPTADA S-02 «Carga perdida» (secundaria)
-- d6 01:07 | L-010 | COMBATE vs 3× Poni erguido (nv5, var V1, PV c/u 61) 
-- d6 01:12 | L-010 | VICTORIA en 5 rondas (PV 190→185/190)
-- d6 01:20 | L-010 | REGISTRA C-017 (carga volcada): ['lata', 'carga_perdida', 'cuñas30']
-- d6 01:25 | L-010 | SUBE A NIVEL 9 (PV máx 195, daño nominal 25)
+- d1 09:42 | L-001 | MISIÓN ACEPTADA M-01 «Chispa en el Faro» (principal)
+- d1 10:37 | L-002 | LLEGA por primera vez a Camino de Cardos [normal]
+- d1 11:04 | L-004 | COMBATE vs 4× Conejo (nv2, var V1, PV c/u 22) 
+- d1 11:12 | L-004 | VICTORIA en 8 rondas (PV 155→119/155)
+- d1 11:12 | L-004 | LLEGA por primera vez a Casas del Eco [normal]
+- d1 11:43 | L-007 | LLEGA por primera vez a Ciudad Horno [segura]
+- d1 12:13 | L-007 | FABRICAR radio: falla (87>67), pierde la mitad de los componentes
+- d1 12:15 | L-007 | REGISTRA C-012 (cajón de la posada): ['lata']
+- d1 14:03 | L-007 | FABRICA radio (19≤67)
+- d1 14:03 | L-007 | SUBE A NIVEL 2 (PV máx 160, daño nominal 11)
+- d1 14:03 | L-007 | MISIÓN COMPLETADA M-01 «Chispa en el Faro» +150 XP
+- d1 15:20 | L-002 | COMBATE vs 3× Wallaby (nv2, var V1, PV c/u 22) 
+- d1 15:24 | L-002 | VICTORIA en 4 rondas (PV 160→155/160)
+- d1 15:50 | L-001 | LLEGA por primera vez a El Faro Seco [segura]
+- d1 15:55 | L-001 | MISIÓN ACEPTADA M-02 «La señal bajo el pozo» (principal)
+- d1 17:11 | L-003 | LLEGA por primera vez a Pozo Viejo [normal]
+- d1 18:41 | L-006 | LLEGA por primera vez a Sótano de la Radio [normal]
+- d1 18:41 | L-006 | COMBATE vs 3× Slime tóxico (nv3, var V1, PV c/u 24) [sorpresa]
+- d1 18:44 | L-006 | VICTORIA en 3 rondas (PV 160→144/160)
+- d1 18:51 | L-006 | REGISTRA C-010 (gabinete de radio): ['holocinta_mentor', 'circuito']
+- d1 18:51 | L-006 | SUBE A NIVEL 3 (PV máx 165, daño nominal 12)
+- d1 18:51 | L-006 | MISIÓN COMPLETADA M-02 «La señal bajo el pozo» +250 XP
+- d1 19:03 | L-006 | REGISTRA C-011 (taquilla): vacío
+- d1 20:27 | L-006 | COMBATE vs 4× Rata topo (nv4, var V1, PV c/u 26) 
+- d1 20:32 | L-006 | VICTORIA en 5 rondas (PV 165→150/165)
+- d1 22:49 | L-004 | COMBATE vs 2× Cabra (nv3, var V1, PV c/u 48) 
+- d1 22:53 | L-004 | VICTORIA en 4 rondas (PV 159→159/165)
+- d1 23:25 | L-007 | MISIÓN ACEPTADA M-03 «Ciudad Horno» (principal)
+- d2 00:04 | L-008 | LLEGA por primera vez a Puesto del Cantil [segura]
+- d2 00:56 | L-005 | COMBATE vs 6× Hormiga mutante (nv2, var V1, PV c/u 22) [sorpresa]
+- d2 01:03 | L-005 | VICTORIA en 7 rondas (PV 165→151/165)
+- d2 01:03 | L-005 | LLEGA por primera vez a Cantera Chica [hostil]
+- d2 01:03 | L-005 | COMBATE vs 5× Escarabajo mutante (nv2, var V1, PV c/u 22) [sorpresa]
+- d2 01:18 | L-005 | VICTORIA en 15 rondas (PV 151→135/165)
+- d2 02:09 | L-007 | SUBE A NIVEL 4 (PV máx 170, daño nominal 14)
+- d2 02:09 | L-007 | MISIÓN COMPLETADA M-03 «Ciudad Horno» +300 XP
+- d2 02:09 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d2 04:02 | L-006 | MISIÓN ACEPTADA M-04 «Las tres piezas» (principal)
+- d2 04:36 | L-009 | LLEGA por primera vez a Depósito 9 [hostil]
+- d2 04:36 | L-009 | COMBATE vs 6× Dron de reparación (nv5, var V1, PV c/u 28) [sorpresa]
+- d2 04:47 | L-009 | VICTORIA en 11 rondas (PV 170→125/170)
+- d2 04:48 | L-009 | COMBATE vs 5× Perro mecánico (nv5, var V1, PV c/u 28) [sorpresa]
+- d2 05:03 | L-009 | VICTORIA en 15 rondas (PV 135→98/170)
+- d2 05:05 | L-009 | REGISTRA C-014 (estantería de piezas): ['piezas', 'chatarra']
+- d2 05:31 | L-009 | REGISTRA C-015 (caja fuerte de la oficina): ['pieza_nucleo_1', 'cuñas120']
+- d2 07:35 | L-002 | COMBATE vs 4× Oveja (nv2, var V1, PV c/u 44) [sorpresa]
+- d2 07:50 | L-002 | VICTORIA en 15 rondas (PV 108→68/170)
+- d2 09:32 | L-010 | LLEGA por primera vez a Ruta de Sal [normal]
+- d2 09:57 | L-013 | LLEGA por primera vez a Cuevas del Zumbido [hostil]
+- d2 09:57 | L-013 | JEFE: Reina de la Colmena aparece
+- d2 19:46 | L-010 | COMBATE vs 2× Cerdo (nv5, var V1, PV c/u 56) [sorpresa]
+- d2 19:51 | L-010 | VICTORIA en 5 rondas (PV 170→152/170)
+- d2 20:16 | L-013 | COMBATE vs 5× Hormiga de fuego mutante erguido (nv8, var V1, PV c/u 37) 
+- d2 20:31 | L-013 | SUBE A NIVEL 5 (PV máx 175, daño nominal 15)
+- d2 20:31 | L-013 | VICTORIA en 15 rondas (PV 153→175/175)
+- d2 20:31 | L-013 | COMBATE vs 6× Escarabajo mutante (nv8, var V1, PV c/u 34) [sorpresa]
+- d2 20:42 | L-013 | VICTORIA en 11 rondas (PV 175→140/175)
+- d2 20:42 | L-013 | COMBATE vs 6× Mantis mutante (nv8, var V1, PV c/u 34) [sorpresa]
+- d2 20:54 | L-013 | VICTORIA en 12 rondas (PV 140→106/175)
+- d2 20:57 | L-013 | COMBATE vs 1× Reina de la Colmena (nv8, var V1, PV c/u 330) [sorpresa]
+- d2 21:47 | L-013 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d3 08:31 | L-013 | COMBATE vs 4× Cucaracha mutante (nv8, var V1, PV c/u 34) 
+- d3 08:39 | L-013 | VICTORIA en 8 rondas (PV 175→151/175)
+- d3 08:39 | L-013 | COMBATE vs 3× Reina de la Colmena (nv8, var V1, PV c/u 330) 
+- d3 09:09 | L-013 | SUBE A NIVEL 6 (PV máx 180, daño nominal 16)
+- d3 09:09 | L-013 | VICTORIA en 30 rondas (PV 151→180/180)
+- d3 09:09 | L-013 | JEFE DERROTADO: Reina de la Colmena
+- d3 10:03 | L-016 | LLEGA por primera vez a Túneles del Metro Viejo [hostil]
+- d3 10:48 | L-017 | LLEGA por primera vez a Hipermercado Ruina [hostil]
+- d3 10:48 | L-017 | COMBATE vs 3× Bandido (nv9, var V1, PV c/u 93) 
+- d3 11:17 | L-017 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d3 11:17 | L-017 | SUBE A NIVEL 7 (PV máx 185, daño nominal 18)
+- d3 11:17 | L-017 | COMBATE vs 2× Bandido (nv9, var V1, PV c/u 115) [sorpresa]
+- d3 11:23 | L-017 | VICTORIA en 6 rondas (PV 185→150/185)
+- d3 11:23 | L-017 | COMBATE vs 4× Mercenario humanoide (nv9, var V1, PV c/u 94) [sorpresa]
+- d3 11:42 | L-017 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d3 11:44 | L-017 | REGISTRA C-026 (góndola de farmacia): ['medicina', 'venda_reforzada']
+- d3 11:47 | L-017 | COMBATE vs 2× Mercenario humanoide (nv9, var V1, PV c/u 137) [sorpresa]
+- d3 11:56 | L-017 | VICTORIA en 9 rondas (PV 93→80/185)
+- d3 12:20 | L-017 | REGISTRA C-027 (caja fuerte de gerencia): ['pieza_nucleo_3', 'cuñas200']
+- d3 12:20 | L-017 | SUBE A NIVEL 8 (PV máx 190, daño nominal 19)
+- d3 12:20 | L-017 | MISIÓN COMPLETADA M-04 «Las tres piezas» +600 XP
+- d3 12:20 | L-017 | RECLUTA a Tuerca (repara armas 1/día; abre cerraduras bajas)
+- d3 12:49 | L-017 | REGISTRA C-028 (mostrador): ['lata', 'chatarra']
+- d3 14:12 | L-017 | COMBATE vs 5× Perro de presa (bulldog) (nv9, var V1, PV c/u 72) 
+- d3 14:27 | L-017 | VICTORIA en 15 rondas (PV 190→70/190)
+- d3 14:27 | L-017 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d3 15:18 | L-004 | MISIÓN ACEPTADA S-10 «El recuerdo de Mercedes» (secundaria)
+- d3 15:26 | L-004 | REGISTRA C-005 (cajón de cocina): ['lata', 'cubiertos']
+- d3 15:34 | L-004 | REGISTRA C-006 (ropero): ['ropa_e1', 'memento']
+- d3 15:39 | L-004 | MISIÓN COMPLETADA S-10 «El recuerdo de Mercedes» +60 XP
+- d3 15:41 | L-004 | REGISTRA C-007 (cajón de dormitorio): ['circuito', 'venda']
+- d3 15:53 | L-004 | REGISTRA C-008 (caja fuerte pequeña): ['llave_silo', 'cuñas40']
+- d3 18:18 | L-011 | LLEGA por primera vez a Mercado del Silo [segura]
+- d3 18:23 | L-011 | MISIÓN ACEPTADA S-17 «Cartas para los tres pueblos» (secundaria)
+- d3 20:02 | L-012 | LLEGA por primera vez a Granja Quebracho [normal]
+- d3 20:07 | L-012 | MISIÓN COMPLETADA S-17 «Cartas para los tres pueblos» +100 XP
+- d3 20:09 | L-012 | REGISTRA C-019 (arcón del granero): ['lata', 'agua']
+- d3 22:45 | L-008 | MISIÓN ACEPTADA S-04 «Nido en la cantera» (secundaria)
+- d4 00:17 | L-005 | COMBATE vs 5× Hormiga gigante guerrera erguido (nv6, var V1, PV c/u 66) [sorpresa]
+- d4 00:33 | L-005 | VICTORIA en 16 rondas (PV 140→73/190)
+- d4 10:54 | L-008 | MISIÓN COMPLETADA S-04 «Nido en la cantera» +100 XP
+- d4 10:54 | L-008 | RECLUTA a Perla Ónix (+20% impacto a distancia)
+- d4 11:15 | L-008 | REGISTRA C-013 (arsenal): ['arma_t3']
+- d4 13:15 | L-007 | MISIÓN ACEPTADA S-05 «Circuitos para el mecánico» (secundaria)
+- d4 13:59 | L-004 | COMBATE vs 3× Lobo (nv3, var V1, PV c/u 48) 
+- d4 14:03 | L-004 | VICTORIA en 4 rondas (PV 190→181/190)
+- d4 14:35 | L-007 | MISIÓN COMPLETADA S-05 «Circuitos para el mecánico» +90 XP
+- d4 14:35 | L-007 | compra Armadura militar (tier 4)
+- d4 15:24 | L-011 | MISIÓN ACEPTADA S-14 «Las bombas del silo» (secundaria)
+- d4 15:38 | L-011 | HACKEO de terminal en Mercado del Silo ÉXITO (78%)
+- d4 15:38 | L-011 | MISIÓN COMPLETADA S-14 «Las bombas del silo» +90 XP
+- d4 15:48 | L-011 | REGISTRA C-018 (bodega del capataz): ['lata', 'agua', 'kit_reparacion']
+- d4 19:08 | L-012 | MISIÓN ACEPTADA S-01 «Perros en el corral» (secundaria)
+- d4 20:42 | L-012 | COMBATE vs 4× Perro callejero (nv4, var V1, PV c/u 26) 
+- d4 20:46 | L-012 | VICTORIA en 4 rondas (PV 190→185/190)
+- d4 20:51 | L-012 | MISIÓN COMPLETADA S-01 «Perros en el corral» +120 XP
+- d4 20:51 | L-012 | RECLUTA a Tano Granito (+carga 40; aguanta 1 golpe por combate)
+- d5 00:46 | L-006 | COMBATE vs 4× Parásito de roca (nv4, var V1, PV c/u 26) [sorpresa]
+- d5 00:50 | L-006 | VICTORIA en 4 rondas (PV 190→189/190)
+- d5 00:55 | L-006 | MISIÓN ACEPTADA S-06 «Piezas de radio» (secundaria)
+- d5 01:05 | L-006 | SUBE A NIVEL 9 (PV máx 195, daño nominal 25)
+- d5 01:05 | L-006 | MISIÓN COMPLETADA S-06 «Piezas de radio» +100 XP
+- d5 05:00 | L-007 | MISIÓN ACEPTADA M-05 «Elegir bando» (principal)
+- d5 05:05 | L-007 | ELIGE BANDO en M-05: Guardia (el grupo «Hornos» pasa a ser hostil)
+- d5 05:05 | L-007 | MISIÓN COMPLETADA M-05 «Elegir bando» +400 XP
+- d5 05:10 | L-007 | MISIÓN ACEPTADA S-15 «El invento» (secundaria)
+- d5 05:45 | L-007 | FABRICA artefacto (19≤75)
+- d5 05:50 | L-007 | MISIÓN COMPLETADA S-15 «El invento» +110 XP
+- d5 05:55 | L-007 | MISIÓN ACEPTADA S-18 «Ingredientes para el guiso» (secundaria)
+- d5 06:54 | L-012 | COMBATE vs 3× Perro callejero (nv4, var V2, PV c/u 36) [sorpresa]

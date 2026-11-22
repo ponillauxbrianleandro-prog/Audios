@@ -1,0 +1,136 @@
+<!-- CAMPAÑA parte 10/21 -->
+# Registro de la campaña (simulación), parte 10
+
+- d37 16:35 | L-020 | COMBATE vs 5× Perro callejero quimera (mitad humano) (nv28, var V1, PV c/u 222) 
+- d37 16:44 | L-020 | VICTORIA en 9 rondas (PV 300→243/300)
+- d37 17:36 | L-020 | COMBATE vs 5× Rata (nv28, var V1, PV c/u 74) [sorpresa]
+- d37 17:40 | L-020 | VICTORIA en 4 rondas (PV 250→228/300)
+- d37 17:40 | L-020 | MISIÓN COMPLETADA QA-021-2 «Compañía para el miedo» +130 XP
+- d37 19:48 | Q-014 | MISIÓN ACEPTADA QA-023-1 «Libros que faltan» (secundaria)
+- d37 20:08 | Z-019 | LLEGA por primera vez a Cabaña de exploradores de Barrio del Mercado [segura]
+- d37 20:20 | Z-019 | REGISTRA C-0102 (barril): ['piezas', 'obj_27', 'cuñas37']
+- d37 20:39 | Q-014 | MISIÓN COMPLETADA QA-023-1 «Libros que faltan» +130 XP
+- d37 21:01 | Q-019 | MISIÓN ACEPTADA QA-025-1 «Construir juntos» (secundaria)
+- d38 01:04 | Q-001 | FABRICA artefacto (35≤100)
+- d38 01:14 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d38 01:39 | Q-019 | MISIÓN COMPLETADA QA-025-1 «Construir juntos» +130 XP
+- d38 01:46 | Q-019 | REGISTRA C-0139 (estantería): ['kit_reparacion', 'circuito', 'obj_216', 'cuñas31']
+- d38 03:36 | Q-027 | MISIÓN ACEPTADA QA-027-4 «Rastro de la herramienta» (secundaria)
+- d38 04:28 | Z-016 | LLEGA por primera vez a Kiosco de Plaza Mayor [segura]
+- d38 04:36 | Z-016 | REGISTRA C-0092 (barril): ['dulce', 'medicina', 'obj_251', 'cuñas37']
+- d38 04:44 | Z-016 | REGISTRA C-0093 (escritorio): ['dulce', 'piezas']
+- d38 04:46 | Z-016 | REGISTRA C-0094 (ropero): ['venda_reforzada', 'obj_32']
+- d38 05:34 | Q-027 | MISIÓN COMPLETADA QA-027-4 «Rastro de la herramienta» +130 XP
+- d38 06:10 | Q-018 | MISIÓN ACEPTADA QA-036-1 «Cartas sin dueño» (secundaria)
+- d38 06:15 | Q-018 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d38 09:22 | L-001 | COMBATE vs 2× Zorro rojo humanoide (nv2, var V2, PV c/u 73) 
+- d38 09:24 | L-001 | VICTORIA en 2 rondas (PV 296→296/300)
+- d38 10:24 | L-002 | COMBATE vs 5× Conejo (nv3, var V1, PV c/u 24) [sorpresa]
+- d38 10:26 | L-002 | VICTORIA en 2 rondas (PV 300→300/300)
+- d38 12:43 | Q-018 | MISIÓN COMPLETADA QA-036-1 «Cartas sin dueño» +130 XP
+- d38 14:03 | Q-018 | MISIÓN ACEPTADA QA-036-2 «El concurso de la esperanza» (secundaria)
+- d38 15:08 | Q-018 | MISIÓN COMPLETADA QA-036-2 «El concurso de la esperanza» +130 XP
+- d38 15:25 | Q-014 | MISIÓN ACEPTADA QA-037-2 «Lo que no se dijo a tiempo» (secundaria)
+- d38 16:11 | Q-014 | MISIÓN COMPLETADA QA-037-2 «Lo que no se dijo a tiempo» +130 XP
+- d38 16:16 | Q-014 | MISIÓN ACEPTADA QA-037-3 «Mercancía para el cansancio» (secundaria)
+- d38 17:01 | L-022 | LLEGA por primera vez a Biblioteca Vieja [normal]
+- d38 17:48 | L-021 | LLEGA por primera vez a Parque de los Faroles [normal]
+- d38 17:48 | L-021 | COMBATE vs 4× Cucaracha mutante (nv11, var V2, PV c/u 56) 
+- d38 17:50 | L-021 | VICTORIA en 2 rondas (PV 300→295/300)
+- d38 17:52 | L-021 | REGISTRA C-0192 (caja): ['cuerda']
+- d38 17:54 | L-021 | REGISTRA C-0193 (ropero): ['venda_reforzada', 'kit_reparacion', 'medicina']
+- d38 18:06 | L-021 | REGISTRA C-0194 (cofre): ['ganzua', 'piezas', 'obj_38', 'obj_241']
+- d38 19:58 | Q-014 | MISIÓN COMPLETADA QA-037-3 «Mercancía para el cansancio» +130 XP
+- d38 19:58 | Q-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d38 19:58 | L-001 | COMBATE vs 1× Mantis gigante erguido (nv2, var V1, PV c/u 96) [emboscada enemiga]
+- d38 20:00 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d38 21:27 | Q-008 | MISIÓN ACEPTADA QA-038-1 «Aprender con la protección» (secundaria)
+- d38 21:58 | Q-008 | MISIÓN COMPLETADA QA-038-1 «Aprender con la protección» +130 XP
+- d38 22:03 | Q-008 | MISIÓN ACEPTADA QA-038-2 «Puertas que no abren» (secundaria)
+- d39 00:47 | Q-007 | HACKEO de terminal en Palafitos del Cañaveral, cuadra 2 ÉXITO (91%)
+- d39 00:47 | Q-007 | MISIÓN COMPLETADA QA-038-2 «Puertas que no abren» +130 XP
+- d39 05:24 | Q-019 | MISIÓN ACEPTADA QA-040-1 «El misterio del refugio» (secundaria)
+- d39 07:00 | L-023 | LLEGA por primera vez a Taller de los Inventores [segura]
+- d39 07:02 | L-023 | REGISTRA C-0199 (cofre): ['venda_reforzada', 'recurso_bio']
+- d39 07:13 | L-023 | REGISTRA C-0200 (ropero): ['lata']
+- d39 07:15 | L-023 | REGISTRA C-0201 (estantería): ['venda', 'venda_reforzada', 'agua', 'obj_43', 'cuñas25']
+- d39 09:05 | Q-019 | MISIÓN COMPLETADA QA-040-1 «El misterio del refugio» +130 XP
+- d39 09:20 | Q-011 | MISIÓN ACEPTADA QA-043-1 «Mediación» (secundaria)
+- d39 12:09 | Q-011 | MISIÓN COMPLETADA QA-043-1 «Mediación» +130 XP
+- d39 13:10 | Q-011 | MISIÓN ACEPTADA QA-043-3 «Lo que no se dijo a tiempo» (secundaria)
+- d39 14:42 | Q-011 | MISIÓN COMPLETADA QA-043-3 «Lo que no se dijo a tiempo» +130 XP
+- d39 14:47 | Q-011 | MISIÓN ACEPTADA QA-045-1 «Un mensaje para la soledad» (secundaria)
+- d39 15:28 | Q-011 | MISIÓN COMPLETADA QA-045-1 «Un mensaje para la soledad» +130 XP
+- d39 15:43 | Q-018 | MISIÓN ACEPTADA QA-046-2 «Letras y cuentas» (secundaria)
+- d39 15:51 | Z-035 | LLEGA por primera vez a Enfermería de Barrio de las Escuelas [segura]
+- d39 15:53 | Z-035 | REGISTRA C-0138 (alacena): ['dulce', 'ganzua', 'obj_52', 'obj_203', 'obj_276', 'cuñas29']
+- d39 16:00 | Q-018 | MISIÓN COMPLETADA QA-046-2 «Letras y cuentas» +130 XP
+- d39 16:28 | Q-009 | MISIÓN ACEPTADA QA-047-2 «Más allá del refugio» (secundaria)
+- d39 16:38 | Q-009 | MISIÓN COMPLETADA QA-047-2 «Más allá del refugio» +130 XP
+- d39 20:27 | Q-007 | MISIÓN ACEPTADA QA-050-2 «El misterio del viejo túnel» (secundaria)
+- d39 21:06 | L-011 | COMBATE vs 4× Parásito de pantano (nv6, var V3, PV c/u 57) 
+- d39 21:09 | L-011 | VICTORIA en 3 rondas (PV 300→298/300)
+- d39 22:24 | L-013 | LLEGA por primera vez a Isla de los Juncos [normal]
+- d39 22:26 | L-013 | REGISTRA C-0069 (barril): ['lata', 'piezas']
+- d39 22:28 | L-013 | REGISTRA C-0070 (escritorio): ['medicina', 'chatarra', 'agua', 'obj_58', 'cuñas25']
+- d39 22:56 | L-012 | COMBATE vs 5× Slime verde (nv7, var V1, PV c/u 32) 
+- d39 22:59 | L-012 | VICTORIA en 3 rondas (PV 300→299/300)
+- d40 00:20 | Q-007 | MISIÓN COMPLETADA QA-050-2 «El misterio del viejo túnel» +130 XP
+- d40 00:25 | Q-007 | MISIÓN ACEPTADA QA-050-3 «Material para la esperanza» (secundaria)
+- d40 03:04 | L-014 | COMBATE vs 5× Slime de pantano erguido (nv28, var V1, PV c/u 81) [sorpresa]
+- d40 03:07 | L-014 | VICTORIA en 3 rondas (PV 300→295/300)
+- d40 04:38 | Q-007 | MISIÓN COMPLETADA QA-050-3 «Material para la esperanza» +130 XP
+- d40 09:32 | Q-022 | MISIÓN ACEPTADA QA-056-1 «El misterio del granero» (secundaria)
+- d40 09:44 | Z-043 | LLEGA por primera vez a Biblioteca de Barrio de los Talleres [segura]
+- d40 09:55 | Z-043 | REGISTRA C-0156 (heladera): ['circuito', 'ganzua', 'obj_64']
+- d40 10:02 | Q-022 | MISIÓN COMPLETADA QA-056-1 «El misterio del granero» +130 XP
+- d40 10:07 | Q-022 | MISIÓN ACEPTADA QA-056-3 «Pruebas del mercado» (secundaria)
+- d40 14:11 | L-010 | MISIÓN COMPLETADA QA-056-3 «Pruebas del mercado» +130 XP
+- d40 16:12 | L-005 | MISIÓN ACEPTADA QA-077-3 «La muralla del silencio» (secundaria)
+- d40 16:17 | L-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d40 16:17 | L-002 | COMBATE vs 3× Corzo erguido (nv3, var V1, PV c/u 52) [emboscada enemiga]
+- d40 16:19 | L-002 | VICTORIA en 2 rondas (PV 300→300/300)
+- d40 17:15 | L-001 | COMBATE vs 4× Mantis mutante (nv2, var V2, PV c/u 30) [sorpresa]
+- d40 17:18 | L-001 | VICTORIA en 3 rondas (PV 300→299/300)
+- d40 17:18 | L-001 | COMBATE vs 5× Perro salvaje (nv2, var V1, PV c/u 22) [sorpresa]
+- d40 17:21 | L-001 | VICTORIA en 3 rondas (PV 299→297/300)
+- d40 17:21 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d40 17:47 | L-005 | MISIÓN COMPLETADA QA-077-3 «La muralla del silencio» +130 XP
+- d40 17:52 | L-005 | MISIÓN ACEPTADA QA-110-4 «Paz para el pueblo» (secundaria)
+- d40 18:43 | L-006 | COMBATE vs 3× Mantis gigante (nv6, var V1, PV c/u 120) 
+- d40 18:46 | L-006 | VICTORIA en 3 rondas (PV 300→298/300)
+- d40 20:13 | L-008 | COMBATE vs 3× Jabalí erguido (nv7, var V3, PV c/u 267) 
+- d40 20:20 | L-008 | VICTORIA en 7 rondas (PV 300→213/300)
+- d40 22:49 | L-005 | MISIÓN COMPLETADA QA-110-4 «Paz para el pueblo» +130 XP
+- d40 23:39 | L-004 | MISIÓN ACEPTADA QA-112-2 «La salida del bosque» (secundaria)
+- d40 23:44 | L-004 | COMBATE vs 3× Mantis gigante humanoide (nv5, var V1, PV c/u 134) [sorpresa]
+- d40 23:48 | L-004 | VICTORIA en 4 rondas (PV 235→209/300)
+- d40 23:50 | L-004 | COMBATE vs 4× Mantis mutante erguido (nv5, var V2, PV c/u 43) [sorpresa]
+- d40 23:53 | L-004 | VICTORIA en 3 rondas (PV 229→228/300)
+- d40 23:58 | L-004 | MISIÓN COMPLETADA QA-112-2 «La salida del bosque» +130 XP
+- d41 02:56 | Q-024 | MISIÓN ACEPTADA QA-127-1 «La presa del puesto» (secundaria)
+- d41 06:46 | L-020 | COMBATE vs 6× Perro callejero (nv28, var V2, PV c/u 103) 
+- d41 06:51 | L-020 | VICTORIA en 5 rondas (PV 267→258/300)
+- d41 06:51 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d41 07:17 | Q-024 | MISIÓN COMPLETADA QA-127-1 «La presa del puesto» +130 XP
+- d41 07:19 | Q-024 | REGISTRA C-0155 (ropero): ['cuerda', 'obj_49', 'cuñas9']
+- d41 09:01 | Q-021 | MISIÓN ACEPTADA QA-129-3 «Carga hasta el viejo túnel» (secundaria)
+- d41 10:18 | L-022 | COMBATE vs 3× Termita mutante (nv12, var V1, PV c/u 42) [sorpresa]
+- d41 10:21 | L-022 | VICTORIA en 3 rondas (PV 275→273/300)
+- d41 10:21 | L-022 | COMBATE vs 3× Termita mutante erguido (nv12, var V2, PV c/u 64) [sorpresa]
+- d41 10:24 | L-022 | VICTORIA en 3 rondas (PV 273→273/300)
+- d41 10:26 | L-022 | REGISTRA C-0196 (baúl): ['ganzua', 'chatarra', 'circuito']
+- d41 10:38 | L-022 | REGISTRA C-0197 (mostrador): ['circuito']
+- d41 10:40 | L-022 | REGISTRA C-0198 (cofre): ['lata', 'herramientas', 'venda', 'obj_44', 'obj_119', 'cuñas34']
+- d41 14:50 | Q-003 | MISIÓN COMPLETADA QA-129-3 «Carga hasta el viejo túnel» +130 XP
+- d41 18:23 | Q-018 | MISIÓN ACEPTADA QA-130-2 «Una mano para el puesto» (secundaria)
+- d41 22:38 | Q-001 | FABRICA artefacto (43≤100)
+- d42 00:23 | L-002 | COMBATE vs 2× Escarabajo mutante humanoide (nv3, var V1, PV c/u 57) 
+- d42 00:25 | L-002 | VICTORIA en 2 rondas (PV 300→299/300)
+- d42 03:08 | Q-018 | MISIÓN COMPLETADA QA-130-2 «Una mano para el puesto» +130 XP
+- d42 03:34 | Q-025 | MISIÓN ACEPTADA QA-135-2 «Lo que se llevó la autoridad» (secundaria)
+- d42 04:20 | Z-025 | LLEGA por primera vez a Sala de mapas de Barrio del Mercado [segura]
+- d42 04:31 | Z-025 | REGISTRA C-0113 (heladera): ['venda', 'agua', 'piezas', 'obj_61', 'obj_118', 'obj_123', 'cuñas11']
+- d42 05:12 | Q-025 | MISIÓN COMPLETADA QA-135-2 «Lo que se llevó la autoridad» +130 XP
+- d42 05:14 | Q-025 | REGISTRA C-0169 (cofre): ['cuerda', 'piezas', 'obj_273']
+- d42 06:40 | Q-025 | MISIÓN ACEPTADA QA-135-4 «La muralla de la autoridad» (secundaria)

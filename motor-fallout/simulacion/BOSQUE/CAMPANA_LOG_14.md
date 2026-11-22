@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 14/21 -->
+# Registro de la campaña (simulación), parte 14
+
+- d56 22:16 | L-012 | COMBATE vs 3× Slime verde (nv7, var V1, PV c/u 32) 
+- d56 22:18 | L-012 | VICTORIA en 2 rondas (PV 241→241/300)
+- d56 23:40 | L-012 | MISIÓN ACEPTADA QA-111-3 «El misterio del viejo túnel» (secundaria)
+- d56 23:50 | L-012 | MISIÓN COMPLETADA QA-111-3 «El misterio del viejo túnel» +144 XP
+- d56 23:55 | L-012 | MISIÓN ACEPTADA QA-111-4 «Mapa del viejo túnel» (secundaria)
+- d57 00:05 | L-012 | MISIÓN COMPLETADA QA-111-4 «Mapa del viejo túnel» +144 XP
+- d57 00:10 | L-012 | MISIÓN ACEPTADA QA-111-5 «Devolver el cuaderno» (secundaria)
+- d57 02:53 | L-011 | COMBATE vs 5× Parásito de pantano (nv6, var V1, PV c/u 30) [sorpresa]
+- d57 02:57 | L-011 | VICTORIA en 4 rondas (PV 264→260/300)
+- d57 03:27 | L-012 | MISIÓN COMPLETADA QA-111-5 «Devolver el cuaderno» +144 XP
+- d57 03:27 | L-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d57 04:34 | L-004 | COMBATE vs 3× Cerdo (nv5, var V2, PV c/u 78) 
+- d57 04:38 | L-004 | VICTORIA en 4 rondas (PV 271→270/300)
+- d57 04:43 | L-004 | MISIÓN ACEPTADA QA-112-1 «El camino seguro» (secundaria)
+- d57 06:20 | L-006 | COMBATE vs 2× Mantis gigante (nv6, var V1, PV c/u 120) [sorpresa]
+- d57 06:22 | L-006 | VICTORIA en 2 rondas (PV 279→279/300)
+- d57 06:22 | L-006 | MISIÓN COMPLETADA QA-112-1 «El camino seguro» +144 XP
+- d57 07:10 | L-005 | COMBATE vs 4× Oveja (nv5, var V2, PV c/u 78) [sorpresa]
+- d57 07:13 | L-005 | VICTORIA en 3 rondas (PV 282→280/300)
+- d57 07:59 | L-004 | MISIÓN ACEPTADA QA-112-3 «Cartas sin dueño» (secundaria)
+- d57 13:52 | L-028 | LLEGA por primera vez a Colinas del Trigo [normal]
+- d57 17:53 | L-004 | MISIÓN COMPLETADA QA-112-3 «Cartas sin dueño» +144 XP
+- d57 18:53 | L-006 | COMBATE vs 4× Escarabajo mutante (nv6, var V2, PV c/u 42) 
+- d57 18:55 | L-006 | VICTORIA en 2 rondas (PV 300→297/300)
+- d57 19:00 | L-006 | MISIÓN ACEPTADA QA-122-2 «Artefacto de la ambición» (secundaria)
+- d57 22:40 | Z-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d57 22:40 | L-002 | COMBATE vs 3× Moho viscoso (nv3, var V1, PV c/u 24) [emboscada enemiga]
+- d57 22:42 | L-002 | VICTORIA en 2 rondas (PV 300→300/300)
+- d58 00:36 | L-006 | MISIÓN COMPLETADA QA-122-2 «Artefacto de la ambición» +144 XP
+- d58 00:36 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d58 00:55 | Q-021 | MISIÓN ACEPTADA QA-129-2 «Lo que brilla en el taller» (secundaria)
+- d58 01:49 | Q-021 | MISIÓN COMPLETADA QA-129-2 «Lo que brilla en el taller» +144 XP
+- d58 02:06 | Q-018 | MISIÓN ACEPTADA QA-130-3 «Defender lo propio» (secundaria)
+- d58 02:11 | Q-018 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d58 04:28 | L-020 | COMBATE vs 4× Rata quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d58 04:48 | L-020 | VICTORIA en 20 rondas (PV 300→105/300)
+- d58 04:48 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d58 14:34 | L-020 | COMBATE vs 4× Rata (nv28, var V1, PV c/u 74) 
+- d58 14:39 | L-020 | VICTORIA en 5 rondas (PV 300→288/300)
+- d58 17:03 | Q-018 | MISIÓN COMPLETADA QA-130-3 «Defender lo propio» +144 XP
+- d58 17:08 | Q-018 | MISIÓN ACEPTADA QA-130-4 «Carga hasta el granero» (secundaria)
+- d58 17:34 | Q-016 | REGISTRA C-0118 (cajón): ['cuerda', 'obj_90', 'obj_120']
+- d58 18:30 | Q-031 | MISIÓN COMPLETADA QA-130-4 «Carga hasta el granero» +144 XP
+- d58 20:04 | Q-017 | MISIÓN ACEPTADA QA-131-1 «Limpiar el mercado» (secundaria)
+- d58 23:20 | L-020 | COMBATE vs 4× Perro callejero erguido (nv28, var V1, PV c/u 81) 
+- d58 23:24 | L-020 | VICTORIA en 4 rondas (PV 300→294/300)
+- d58 23:24 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d58 23:36 | Q-017 | MISIÓN COMPLETADA QA-131-1 «Limpiar el mercado» +144 XP
+- d58 23:41 | Q-017 | MISIÓN ACEPTADA QA-131-2 «Confianza en el puente» (secundaria)
+- d59 01:58 | L-020 | COMBATE vs 6× Conejo (nv28, var V2, PV c/u 103) [sorpresa]
+- d59 02:04 | L-020 | VICTORIA en 6 rondas (PV 300→283/300)
+- d59 02:04 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d59 02:21 | Q-017 | MISIÓN COMPLETADA QA-131-2 «Confianza en el puente» +144 XP
+- d59 02:45 | Q-023 | MISIÓN ACEPTADA QA-132-1 «Una mano para el mercado» (secundaria)
+- d59 02:50 | Q-023 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d59 05:58 | Q-001 | FABRICA artefacto (4≤100)
+- d59 05:58 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d59 06:26 | Q-023 | MISIÓN COMPLETADA QA-132-1 «Una mano para el mercado» +144 XP
+- d59 06:41 | Q-025 | MISIÓN ACEPTADA QA-135-1 «Voz del camino» (secundaria)
+- d59 08:07 | L-018 | HACKEO de terminal en Muralla y Puertas ÉXITO (91%)
+- d59 08:07 | L-018 | MISIÓN COMPLETADA QA-135-1 «Voz del camino» +144 XP
+- d59 09:05 | Q-013 | MISIÓN ACEPTADA QA-146-1 «Antena y cable» (secundaria)
+- d59 13:39 | Q-001 | FABRICA artefacto (37≤100)
+- d59 14:45 | L-001 | COMBATE vs 3× Zorro rojo (nv2, var V1, PV c/u 22) 
+- d59 14:47 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d59 17:25 | Q-013 | MISIÓN COMPLETADA QA-146-1 «Antena y cable» +144 XP
+- d59 17:41 | Q-015 | MISIÓN ACEPTADA QA-147-2 «Faltan provisiones» (secundaria)
+- d59 17:46 | Q-015 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d59 18:06 | L-020 | COMBATE vs 4× Terrier (nv28, var V1, PV c/u 74) 
+- d59 18:09 | L-020 | VICTORIA en 3 rondas (PV 300→299/300)
+- d59 21:13 | Q-015 | MISIÓN COMPLETADA QA-147-2 «Faltan provisiones» +144 XP
+- d59 21:39 | Q-019 | MISIÓN ACEPTADA QA-149-3 «Ruido en la noche» (secundaria)
+- d59 22:05 | Q-019 | MISIÓN COMPLETADA QA-149-3 «Ruido en la noche» +144 XP
+- d59 22:33 | Q-027 | MISIÓN ACEPTADA QA-150-3 «El acertijo del puesto» (secundaria)
+- d59 22:59 | Z-042 | LLEGA por primera vez a Taller de bicicletas de Barrio Viejo [segura]
+- d59 23:08 | Z-042 | REGISTRA C-0152 (baúl): ['recurso_bio', 'lata', 'obj_137', 'obj_154', 'obj_269']
+- d59 23:38 | Z-035 | HACKEO de terminal en Enfermería de Barrio de las Escuelas ÉXITO (91%)
+- d59 23:38 | Z-035 | MISIÓN COMPLETADA QA-150-3 «El acertijo del puesto» +144 XP
+- d60 02:17 | L-018 | MISIÓN ACEPTADA QA-160-1 «Tras la presa de la lealtad» (secundaria)
+- d60 05:21 | L-020 | COMBATE vs 6× Perro callejero (nv28, var V2, PV c/u 103) [sorpresa]
+- d60 05:27 | L-020 | VICTORIA en 6 rondas (PV 300→229/300)
+- d60 07:13 | L-018 | MISIÓN COMPLETADA QA-160-1 «Tras la presa de la lealtad» +144 XP
+- d60 08:33 | Q-023 | MISIÓN ACEPTADA QA-162-3 «Sobre ruedas» (secundaria)
+- d60 09:01 | Z-028 | LLEGA por primera vez a Casa de familia de Barrio de las Escuelas [segura]
+- d60 09:08 | Z-028 | REGISTRA C-0121 (baúl): ['ganzua', 'lata']
+- d60 09:17 | Z-028 | REGISTRA C-0122 (caja): ['chatarra', 'obj_145', 'obj_231', 'cuñas21']
+- d60 09:31 | Q-017 | MISIÓN COMPLETADA QA-162-3 «Sobre ruedas» +144 XP
+- d60 09:55 | Q-022 | MISIÓN ACEPTADA QA-163-2 «Libros que faltan» (secundaria)
+- d60 11:12 | Q-022 | MISIÓN COMPLETADA QA-163-2 «Libros que faltan» +144 XP
+- d60 11:17 | Q-022 | MISIÓN ACEPTADA QA-163-3 «Todo lo que se junta» (secundaria)
+- d60 11:22 | Q-022 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d60 13:12 | L-020 | COMBATE vs 5× Slime verde (nv28, var V2, PV c/u 103) 
+- d60 13:16 | L-020 | VICTORIA en 4 rondas (PV 255→235/300)
+- d60 15:08 | Q-022 | MISIÓN COMPLETADA QA-163-3 «Todo lo que se junta» +144 XP
+- d60 15:28 | Q-018 | MISIÓN ACEPTADA QA-168-1 «Lo que no se dijo a tiempo» (secundaria)
+- d60 22:03 | Q-018 | MISIÓN COMPLETADA QA-168-1 «Lo que no se dijo a tiempo» +144 XP
+- d60 22:08 | Q-018 | MISIÓN ACEPTADA QA-168-2 «Premio inesperado» (secundaria)
+- d60 22:33 | Z-050 | LLEGA por primera vez a Heladería de Barrio de los Talleres [segura]
+- d60 22:40 | Z-050 | REGISTRA C-0168 (alacena): ['kit_reparacion', 'cuerda', 'venda', 'obj_134', 'obj_153', 'obj_156', 'cuñas40']
+- d60 22:53 | Q-018 | MISIÓN COMPLETADA QA-168-2 «Premio inesperado» +144 XP
+- d60 22:58 | Q-018 | MISIÓN ACEPTADA QA-168-3 «Material para la esperanza» (secundaria)
+- d60 23:03 | Q-018 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d61 00:50 | L-020 | COMBATE vs 5× Perro callejero humanoide (nv28, var V1, PV c/u 177) [sorpresa]
+- d61 00:59 | L-020 | VICTORIA en 9 rondas (PV 283→154/300)
+- d61 01:16 | L-020 | COMBATE vs 4× Termita mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d61 01:21 | L-020 | VICTORIA en 5 rondas (PV 226→186/300)
+- d61 01:21 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d61 01:39 | Q-018 | MISIÓN COMPLETADA QA-168-3 «Material para la esperanza» +144 XP
+- d61 01:41 | Z-033 | LLEGA por primera vez a Posada de Barrio de las Escuelas [segura]
+- d61 05:43 | Z-033 | REGISTRA C-0133 (mochila): ['chatarra', 'circuito']
+- d61 05:50 | Z-033 | REGISTRA C-0134 (heladera): ['circuito', 'obj_136', 'obj_187']
+- d61 07:03 | Q-012 | MISIÓN ACEPTADA QA-169-2 «Caso sin cerrar» (secundaria)
+- d61 08:42 | L-018 | MISIÓN COMPLETADA QA-169-2 «Caso sin cerrar» +144 XP
+- d61 10:03 | Q-022 | MISIÓN ACEPTADA QA-170-1 «Ronda por el granero» (secundaria)
+- d61 13:12 | L-020 | COMBATE vs 4× Cucaracha mutante quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d61 13:32 | L-020 | VICTORIA en 20 rondas (PV 300→130/300)
+- d61 13:32 | L-020 | MISIÓN COMPLETADA QA-170-1 «Ronda por el granero» +144 XP
+- d61 13:32 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d61 13:50 | Q-013 | MISIÓN ACEPTADA QA-174-1 «Buscando a alguien» (secundaria)
+- d61 13:55 | Q-013 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d61 15:58 | L-020 | COMBATE vs 5× Conejo quimera (mitad humano) (nv28, var V2, PV c/u 310) [sorpresa]
+- d61 16:21 | L-020 | VICTORIA en 23 rondas (PV 233→139/300)
+- d61 16:21 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d61 16:36 | Q-013 | MISIÓN COMPLETADA QA-174-1 «Buscando a alguien» +144 XP
+- d61 20:45 | Q-013 | MISIÓN ACEPTADA QA-174-3 «Premio inesperado» (secundaria)
+- d61 21:23 | Q-013 | MISIÓN COMPLETADA QA-174-3 «Premio inesperado» +144 XP
+- d62 01:51 | L-011 | MISIÓN ACEPTADA QA-186-1 «Rutas nuevas» (secundaria)
+- d62 02:01 | L-011 | MISIÓN COMPLETADA QA-186-1 «Rutas nuevas» +144 XP
+- d62 02:01 | L-011 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d62 02:43 | Q-020 | MISIÓN ACEPTADA QA-188-1 «Un buen trato» (secundaria)
+- d62 03:24 | Q-020 | MISIÓN COMPLETADA QA-188-1 «Un buen trato» +144 XP
+- d62 03:49 | Q-017 | MISIÓN ACEPTADA QA-189-1 «Todo lo que se junta» (secundaria)
+- d62 03:54 | Q-017 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d62 05:45 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d62 06:01 | Q-017 | MISIÓN COMPLETADA QA-189-1 «Todo lo que se junta» +144 XP

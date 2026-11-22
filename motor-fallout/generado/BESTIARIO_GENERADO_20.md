@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 20/34 -->
+<!-- BESTIARIO GENERADO parte 20/35 -->
 - U-05.F13 | Bandido | T3 | s1 | n=2 | Común@2 · Veterano@8
 - U-05.F14 | Bandido purista | T3 | s1 | n=1 | Común@2
 - U-06.F13 | Cazador | T3 | s2 | n=1 | Común@4

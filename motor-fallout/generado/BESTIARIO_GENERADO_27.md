@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 27/34 -->
+<!-- BESTIARIO GENERADO parte 27/35 -->
 - FA-45.F4 | Chispa eléctrica humanoide | T2 | s1 | n=3 | Común@2 · Rayo@8 · Tormenta@14
 - FA-45.F5 | Chispa eléctrica quimera (mitad humano) | T2 | s2 | n=1 | Común@4
 - FA-45.F6 | Humano-Chispa eléctrica | T3 | s2 | n=2 | Común@4 · Rayo@10

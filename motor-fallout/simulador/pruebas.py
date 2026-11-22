@@ -124,15 +124,23 @@ def t_regeneracion():
 
 
 def t_choque():
-    s, b = nuevo(9, 5)
-    lid = "L-002"
-    s.p["loc"] = "L-001"
-    s.generar_grupo(lid, forzar_especies=["C-03"])
-    s.generar_grupo(lid, forzar_especies=["H-12"])
-    n0 = len(s.vivos(lid))
-    s.avanzar(60 * 40)
-    n1 = len(s.vivos(lid))
-    return s.contadores.get("choques_entre_especies", 0) > 0 and n1 < n0, f"{n0} criaturas de 2 especies → {n1} tras 40 h (choques {s.contadores.get('choques_entre_especies', 0)}, muertes por otra criatura {s.contadores.get('muertes_por_otra_criatura', 0)})"
+    muertes_ok = 0
+    total_choques = 0
+    n_ini = n_fin = 0
+    for sd in range(12):
+        s, b = nuevo(9 + sd, 5)
+        lid = "L-002"
+        s.p["loc"] = "L-001"
+        s.generar_grupo(lid, forzar_especies=["C-03"])
+        s.generar_grupo(lid, forzar_especies=["H-12"])
+        n0 = len(s.vivos(lid))
+        s.avanzar(60 * 40)
+        n1 = len(s.vivos(lid))
+        total_choques += s.contadores.get("choques_entre_especies", 0)
+        n_ini += n0
+        n_fin += n1
+        muertes_ok += 1 if n1 < n0 else 0
+    return total_choques > 0 and muertes_ok >= 8, f"12 corridas con 2 especies distintas, 40 h sin el jugador: {n_ini} criaturas → {n_fin}; hubo bajas por choque en {muertes_ok}/12 corridas ({total_choques} choques)"
 
 
 def t_misma_especie_no_pelea():

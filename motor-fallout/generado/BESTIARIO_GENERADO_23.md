@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 23/34 -->
+<!-- BESTIARIO GENERADO parte 23/35 -->
 - FA-18.F6 | Humano-Duende | T3 | s2 | n=3 | Común@4 · Travieso (trampa)@10 · Rey de duendes (invoca +2)@16
 - FA-18.F7 | Persona con rasgos de Duende | T3 | s2 | n=3 | Común@4 · Travieso (trampa)@10 · Rey de duendes (invoca +2)@16
 - FA-18.F8 | Persona-Duende (se considera Duende) | T3 | s2 | n=1 | Común@4

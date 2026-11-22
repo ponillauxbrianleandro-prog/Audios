@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 16/21 -->
+# Registro de la campaña (simulación), parte 16
+
+- d69 04:45 | L-004 | MISIÓN ACEPTADA QN-071-3 «Más allá del puesto» (secundaria)
+- d69 04:55 | L-004 | MISIÓN COMPLETADA QN-071-3 «Más allá del puesto» +144 XP
+- d69 04:55 | L-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d69 05:26 | Q-027 | MISIÓN ACEPTADA QN-075-1 «Faltan recursos» (secundaria)
+- d69 08:58 | L-020 | COMBATE vs 4× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d69 09:00 | L-020 | VICTORIA en 2 rondas (PV 300→300/300)
+- d69 09:20 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d69 09:45 | Q-027 | MISIÓN COMPLETADA QN-075-1 «Faltan recursos» +144 XP
+- d69 09:50 | Q-027 | MISIÓN ACEPTADA QN-075-3 «Entrega pesada» (secundaria)
+- d69 10:50 | Q-025 | MISIÓN COMPLETADA QN-075-3 «Entrega pesada» +144 XP
+- d69 13:13 | L-003 | MISIÓN ACEPTADA MJ-01 «Cuidado con Reina Mantis» (secundaria)
+- d69 14:17 | L-009 | JEFE: Reina Mantis aparece
+- d69 14:17 | L-009 | COMBATE vs 3× Jabalí (nv10, var V1, PV c/u 152) [sorpresa]
+- d69 14:21 | L-009 | VICTORIA en 4 rondas (PV 300→257/300)
+- d69 14:21 | L-009 | COMBATE vs 1× Reina Mantis (nv7, var V1, PV c/u 300) 
+- d69 14:24 | L-009 | VICTORIA en 3 rondas (PV 257→250/300)
+- d69 14:24 | L-009 | JEFE DERROTADO: Reina Mantis
+- d69 15:39 | L-003 | MISIÓN COMPLETADA MJ-01 «Cuidado con Reina Mantis» +340 XP
+- d69 19:30 | L-015 | COMBATE vs 3× Hidra pequeña erguido (nv10, var V1, PV c/u 41) 
+- d69 19:32 | L-015 | VICTORIA en 2 rondas (PV 273→273/300)
+- d69 20:42 | L-013 | COMBATE vs 3× Pulpo humanoide (nv8, var V1, PV c/u 81) 
+- d69 20:45 | L-013 | VICTORIA en 3 rondas (PV 279→275/300)
+- d69 20:50 | L-013 | MISIÓN ACEPTADA MS-22 «El vecino que no sale» (secundaria)
+- d69 21:45 | L-014 | COMBATE vs 4× Hidra pequeña (nv28, var V1, PV c/u 74) [sorpresa]
+- d69 21:48 | L-014 | VICTORIA en 3 rondas (PV 279→273/300)
+- d69 22:43 | L-013 | MISIÓN COMPLETADA MS-22 «El vecino que no sale» +158 XP
+- d69 22:57 | L-013 | COMBATE vs 3× Pulpo humanoide (nv8, var V2, PV c/u 114) 
+- d69 23:01 | L-013 | VICTORIA en 4 rondas (PV 279→256/300)
+- d69 23:59 | L-013 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d70 01:49 | Q-011 | MISIÓN ACEPTADA QA-014-1 «La muralla de la esperanza» (secundaria)
+- d70 04:39 | L-020 | COMBATE vs 5× Termita mutante humanoide (nv28, var V1, PV c/u 177) [sorpresa]
+- d70 04:46 | L-020 | VICTORIA en 7 rondas (PV 282→249/300)
+- d70 04:46 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d70 05:05 | Q-011 | MISIÓN COMPLETADA QA-014-1 «La muralla de la esperanza» +158 XP
+- d70 05:36 | Q-016 | MISIÓN ACEPTADA QA-017-1 «Lo que se llevó la palabra» (secundaria)
+- d70 06:13 | Q-016 | MISIÓN COMPLETADA QA-017-1 «Lo que se llevó la palabra» +158 XP
+- d70 07:40 | Q-016 | MISIÓN ACEPTADA QA-017-3 «Carga callada» (secundaria)
+- d70 08:15 | Q-022 | MISIÓN COMPLETADA QA-017-3 «Carga callada» +158 XP
+- d70 08:38 | Q-017 | MISIÓN ACEPTADA QA-020-1 «Manos que sanan» (secundaria)
+- d70 11:35 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d70 11:55 | Q-017 | MISIÓN COMPLETADA QA-020-1 «Manos que sanan» +158 XP
+- d70 12:09 | Q-019 | MISIÓN ACEPTADA QA-022-1 «El invento de la creatividad» (secundaria)
+- d70 12:14 | Q-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d70 15:13 | Q-001 | FABRICA artefacto (40≤100)
+- d70 15:13 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d70 15:40 | Q-019 | MISIÓN COMPLETADA QA-022-1 «El invento de la creatividad» +158 XP
+- d70 15:58 | Q-014 | MISIÓN ACEPTADA QA-023-2 «En busca de la reliquia» (secundaria)
+- d70 17:04 | Q-014 | MISIÓN COMPLETADA QA-023-2 «En busca de la reliquia» +158 XP
+- d70 17:15 | Q-015 | MISIÓN ACEPTADA QA-026-1 «Rastro del cuaderno» (secundaria)
+- d70 17:59 | Q-015 | MISIÓN COMPLETADA QA-026-1 «Rastro del cuaderno» +158 XP
+- d70 18:20 | Q-027 | MISIÓN ACEPTADA QA-027-1 «Todo lo que se junta» (secundaria)
+- d70 21:02 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d70 21:23 | Q-027 | MISIÓN COMPLETADA QA-027-1 «Todo lo que se junta» +158 XP
+- d70 21:28 | Q-027 | MISIÓN ACEPTADA QA-027-3 «El trofeo del silencio» (secundaria)
+- d71 00:23 | L-020 | COMBATE vs 6× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d71 00:27 | L-020 | VICTORIA en 4 rondas (PV 300→291/300)
+- d71 00:27 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d71 00:48 | Q-027 | MISIÓN COMPLETADA QA-027-3 «El trofeo del silencio» +158 XP
+- d71 01:07 | Q-019 | MISIÓN ACEPTADA QA-040-2 «Código de la distracción» (secundaria)
+- d71 01:51 | Q-009 | HACKEO de terminal en Plaza Mayor, cuadra 1 ÉXITO (91%)
+- d71 01:51 | Q-009 | MISIÓN COMPLETADA QA-040-2 «Código de la distracción» +158 XP
+- d71 02:21 | Q-019 | MISIÓN ACEPTADA QA-040-3 «Provisión del pozo» (secundaria)
+- d71 05:10 | L-020 | COMBATE vs 4× Termita mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d71 05:14 | L-020 | VICTORIA en 4 rondas (PV 300→293/300)
+- d71 05:34 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d71 05:58 | Q-019 | MISIÓN COMPLETADA QA-040-3 «Provisión del pozo» +158 XP
+- d71 06:22 | Q-011 | MISIÓN ACEPTADA QA-043-2 «¿quién fue?» (secundaria)
+- d71 09:36 | Q-038 | MISIÓN COMPLETADA QA-043-2 «¿quién fue?» +158 XP
+- d71 11:25 | Q-009 | MISIÓN ACEPTADA QA-047-1 «Cruzar con cuidado» (secundaria)
+- d71 13:25 | L-020 | COMBATE vs 6× Termita mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d71 13:30 | L-020 | VICTORIA en 5 rondas (PV 300→286/300)
+- d71 13:30 | L-020 | MISIÓN COMPLETADA QA-047-1 «Cruzar con cuidado» +158 XP
+- d71 17:40 | L-007 | MISIÓN ACEPTADA QA-048-1 «Qué pasó en el granero» (secundaria)
+- d71 17:45 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d71 20:23 | L-007 | MISIÓN COMPLETADA QA-048-1 «Qué pasó en el granero» +158 XP
+- d71 20:23 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d71 20:47 | Q-022 | MISIÓN ACEPTADA QA-049-1 «El camino de vuelta» (secundaria)
+- d71 22:49 | L-020 | COMBATE vs 4× Cucaracha mutante erguido (nv28, var V2, PV c/u 113) 
+- d71 22:52 | L-020 | VICTORIA en 3 rondas (PV 300→284/300)
+- d71 23:59 | L-020 | COMBATE vs 4× Slime verde (nv28, var V1, PV c/u 74) 
+- d72 00:02 | L-020 | VICTORIA en 3 rondas (PV 292→265/300)
+- d72 00:02 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d72 00:22 | Q-022 | MISIÓN COMPLETADA QA-049-1 «El camino de vuelta» +158 XP
+- d72 00:34 | Q-021 | MISIÓN ACEPTADA QA-051-1 «Puesto del orden» (secundaria)
+- d72 03:15 | L-020 | COMBATE vs 4× Rata (nv28, var V2, PV c/u 103) [sorpresa]
+- d72 03:19 | L-020 | VICTORIA en 4 rondas (PV 277→249/300)
+- d72 03:19 | L-020 | MISIÓN COMPLETADA QA-051-1 «Puesto del orden» +158 XP
+- d72 06:00 | Q-026 | MISIÓN ACEPTADA QA-054-1 «Mercancía para la creatividad» (secundaria)
+- d72 07:20 | Q-026 | MISIÓN COMPLETADA QA-054-1 «Mercancía para la creatividad» +158 XP
+- d72 07:37 | Q-022 | MISIÓN ACEPTADA QA-056-2 «Letras en la pared» (secundaria)
+- d72 08:33 | Q-010 | HACKEO de terminal en Plaza Mayor, cuadra 2 ÉXITO (91%)
+- d72 08:33 | Q-010 | MISIÓN COMPLETADA QA-056-2 «Letras en la pared» +158 XP
+- d72 09:31 | L-018 | MISIÓN ACEPTADA QA-074-1 «Palabras en el puente» (secundaria)
+- d72 12:01 | L-018 | MISIÓN COMPLETADA QA-074-1 «Palabras en el puente» +158 XP
+- d72 12:06 | L-018 | MISIÓN ACEPTADA QA-074-2 «Atrapado por los intrusos» (secundaria)
+- d72 13:50 | L-020 | COMBATE vs 2× Persona con rasgos de Rata (nv28, var V3, PV c/u 618) [sorpresa]
+- d72 13:58 | L-020 | VICTORIA en 8 rondas (PV 280→190/300)
+- d72 15:48 | L-018 | MISIÓN COMPLETADA QA-074-2 «Atrapado por los intrusos» +158 XP
+- d72 22:34 | L-018 | MISIÓN ACEPTADA QA-074-4 «Turno de noche» (secundaria)
+- d73 01:09 | L-020 | COMBATE vs 4× Cucaracha mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d73 01:13 | L-020 | VICTORIA en 4 rondas (PV 300→300/300)
+- d73 01:13 | L-020 | MISIÓN COMPLETADA QA-074-4 «Turno de noche» +158 XP
+- d73 02:38 | L-018 | MISIÓN ACEPTADA QA-078-2 «Letras y cuentas» (secundaria)
+- d73 05:09 | L-018 | MISIÓN COMPLETADA QA-078-2 «Letras y cuentas» +158 XP
+- d73 05:14 | L-018 | MISIÓN ACEPTADA QA-078-4 «Defender lo propio» (secundaria)
+- d73 07:16 | L-020 | COMBATE vs 2× Persona con rasgos de Cucaracha mutante (nv28, var V2, PV c/u 455) [sorpresa]
+- d73 07:26 | L-020 | VICTORIA en 10 rondas (PV 300→92/300)
+- d73 07:26 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d73 16:47 | L-020 | COMBATE vs 4× Rata erguido (nv28, var V2, PV c/u 113) [sorpresa]
+- d73 16:50 | L-020 | VICTORIA en 3 rondas (PV 300→291/300)
+- d73 18:31 | L-018 | MISIÓN COMPLETADA QA-078-4 «Defender lo propio» +158 XP
+- d73 18:36 | L-018 | MISIÓN ACEPTADA QA-082-1 «Devolver el mapa» (secundaria)
+- d73 19:34 | Z-058 | LLEGA por primera vez a Heladería de Barrio del Parque [segura]
+- d73 19:41 | Z-058 | REGISTRA C-0181 (escritorio): ['venda']
+- d73 19:48 | Z-058 | REGISTRA C-0182 (barril): ['dulce', 'herramientas', 'recurso_bio', 'obj_77']
+- d73 21:13 | L-018 | MISIÓN COMPLETADA QA-082-1 «Devolver el mapa» +158 XP
+- d73 21:18 | L-018 | MISIÓN ACEPTADA QA-082-3 «Cuando no alcanza el silencio» (secundaria)
+- d73 23:07 | L-020 | COMBATE vs 6× Termita mutante (nv28, var V2, PV c/u 103) 
+- d73 23:12 | L-020 | VICTORIA en 5 rondas (PV 300→267/300)
+- d74 00:47 | L-018 | MISIÓN COMPLETADA QA-082-3 «Cuando no alcanza el silencio» +158 XP
+- d74 01:32 | L-019 | MISIÓN ACEPTADA QA-083-1 «A quién creerle» (secundaria)
+- d74 01:37 | L-019 | ELIGE BANDO en QA-083-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d74 02:07 | L-020 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 331) [sorpresa]
+- d74 02:32 | L-020 | VICTORIA en 25 rondas (PV 283→98/300)
+- d74 12:36 | Z-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d74 12:59 | L-020 | MISIÓN COMPLETADA QA-083-1 «A quién creerle» +158 XP
+- d74 13:55 | L-019 | MISIÓN ACEPTADA QA-088-2 «Pedido especial» (secundaria)
+- d74 18:35 | L-019 | MISIÓN COMPLETADA QA-088-2 «Pedido especial» +158 XP
+- d74 18:40 | L-019 | MISIÓN ACEPTADA QA-090-1 «Con unos o con otros» (secundaria)
+- d74 18:45 | L-019 | ELIGE BANDO en QA-090-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d74 19:21 | L-020 | COMBATE vs 2× Saqueador (nv28, var V2, PV c/u 496) [sorpresa]
+- d74 19:29 | L-020 | VICTORIA en 8 rondas (PV 300→221/300)
+- d74 19:29 | L-020 | MISIÓN COMPLETADA QA-090-1 «Con unos o con otros» +158 XP
+- d74 20:08 | L-019 | MISIÓN ACEPTADA QA-090-3 «En busca del cuaderno» (secundaria)
+- d75 00:08 | L-019 | MISIÓN COMPLETADA QA-090-3 «En busca del cuaderno» +158 XP

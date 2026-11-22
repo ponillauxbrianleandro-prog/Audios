@@ -1,0 +1,131 @@
+<!-- CAMPAÑA parte 1/21 -->
+# Registro de la campaña (simulación), parte 1
+
+- d1 08:00 | L-035 | RECLUTA a Nicolás (+bonificación de compañero (41))
+- d1 08:02 | L-035 | REGISTRA C-0313 (escritorio): ['lata', 'obj_29', 'obj_191']
+- d1 08:04 | L-035 | REGISTRA C-0314 (baúl): ['venda_reforzada', 'dulce', 'cuñas33']
+- d1 08:06 | L-035 | REGISTRA C-0315 (estantería): ['herramientas', 'circuito', 'cuñas17']
+- d1 10:29 | Q-015 | LLEGA por primera vez a Puerto Viejo, cuadra 1 [segura]
+- d1 10:34 | Q-022 | LLEGA por primera vez a Barrio de los Mercaderes, cuadra 4 [segura]
+- d1 10:37 | Q-023 | LLEGA por primera vez a Barrio de las Velas, cuadra 1 [segura]
+- d1 10:44 | Q-024 | LLEGA por primera vez a Barrio de las Velas, cuadra 2 [segura]
+- d1 10:49 | Q-025 | LLEGA por primera vez a Barrio de las Velas, cuadra 3 [segura]
+- d1 10:54 | Q-025 | MISIÓN ACEPTADA MP-01 «Salir del hogar» (principal)
+- d1 11:54 | L-037 | LLEGA por primera vez a Biblioteca de las Bitácoras [segura]
+- d1 12:45 | L-038 | LLEGA por primera vez a Alcantarillas del Puerto [hostil]
+- d1 12:45 | L-038 | COMBATE vs 5× Cucaracha mutante (nv9, var V1, PV c/u 36) [sorpresa]
+- d1 13:09 | L-038 | VICTORIA en 24 rondas (PV 155→55/155)
+- d1 13:13 | L-038 | COMBATE vs 6× Cucaracha mutante (nv9, var V1, PV c/u 36) 
+- d1 14:43 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo ninguno
+- d1 14:43 | L-035 | LLEGA por primera vez a Casa del Farero [segura]
+- d2 01:19 | L-038 | SUBE A NIVEL 2 (PV máx 160, daño nominal 10)
+- d2 01:19 | L-038 | SUBE A NIVEL 3 (PV máx 165, daño nominal 11)
+- d2 01:19 | L-038 | MISIÓN COMPLETADA MP-01 «Salir del hogar» +290 XP
+- d2 03:17 | Q-028 | LLEGA por primera vez a Barrio Alto, cuadra 3 [segura]
+- d2 03:25 | Q-029 | LLEGA por primera vez a Barrio de los Astilleros, cuadra 1 [segura]
+- d2 03:29 | Q-034 | LLEGA por primera vez a Barrio de las Sombras, cuadra 3 [segura]
+- d2 03:36 | Q-035 | LLEGA por primera vez a Barrio del Río, cuadra 1 [segura]
+- d2 03:41 | Q-035 | MISIÓN ACEPTADA MP-02 «Tras el rastro de un familiar» (principal)
+- d2 05:36 | L-038 | COMBATE vs 5× Perro callejero (nv9, var V1, PV c/u 36) 
+- d2 06:10 | L-038 | VICTORIA en 34 rondas (PV 165→76/165)
+- d2 06:40 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d2 06:40 | L-036 | LLEGA por primera vez a Muralla y Puertas [segura]
+- d2 16:00 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d2 16:34 | L-038 | COMBATE vs 4× Perro callejero (nv9, var V1, PV c/u 36) 
+- d2 16:42 | L-038 | VICTORIA en 8 rondas (PV 165→116/165)
+- d2 16:42 | L-038 | COMBATE vs 6× Cucaracha mutante (nv9, var V1, PV c/u 36) 
+- d2 17:32 | L-038 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d2 20:02 | Q-035 | SUBE A NIVEL 4 (PV máx 170, daño nominal 13)
+- d2 20:02 | Q-035 | MISIÓN COMPLETADA MP-02 «Tras el rastro de un familiar» +570 XP
+- d2 20:02 | Q-035 | RECLUTA a Gloria (+bonificación de compañero (41))
+- d2 20:02 | Q-035 | RECLUTA a Brisa (+bonificación de compañero (41))
+- d2 20:13 | Q-035 | REGISTRA C-0284 (heladera): ['recurso_bio', 'herramientas', 'obj_92']
+- d2 22:28 | Q-016 | LLEGA por primera vez a Puerto Viejo, cuadra 2 [segura]
+- d2 22:33 | Q-016 | MISIÓN ACEPTADA MP-03 «La voz de la radio» (principal)
+- d2 22:57 | Q-022 | HACKEO de terminal en Barrio de los Mercaderes, cuadra 4 ÉXITO (65%)
+- d2 22:57 | Q-022 | SUBE A NIVEL 5 (PV máx 175, daño nominal 14)
+- d2 22:57 | Q-022 | SUBE A NIVEL 6 (PV máx 180, daño nominal 15)
+- d2 22:57 | Q-022 | MISIÓN COMPLETADA MP-03 «La voz de la radio» +850 XP
+- d2 23:11 | Q-022 | REGISTRA C-0190 (mostrador): ['herramientas', 'agua', 'venda', 'obj_42', 'obj_172', 'cuñas11']
+- d3 01:27 | L-027 | LLEGA por primera vez a Selva de Lianas [normal]
+- d3 02:10 | L-028 | LLEGA por primera vez a Claro del Venado [normal]
+- d3 02:15 | L-028 | MISIÓN ACEPTADA MP-04 «El conocimiento perdido» (principal)
+- d3 03:39 | L-026 | COMBATE vs 2× Escarabajo rinoceronte (nv2, var V1, PV c/u 44) [sorpresa]
+- d3 03:42 | L-026 | VICTORIA en 3 rondas (PV 180→163/180)
+- d3 03:42 | L-026 | LLEGA por primera vez a Mirador de los Tucanes [normal]
+- d3 04:42 | L-031 | LLEGA por primera vez a Choza del Curandero [segura]
+- d3 05:06 | L-032 | LLEGA por primera vez a Manglar de Entrada [normal]
+- d3 05:30 | L-033 | COMBATE vs 3× Escarabajo rinoceronte erguido (nv8, var V1, PV c/u 74) 
+- d3 05:39 | L-033 | VICTORIA en 9 rondas (PV 166→116/180)
+- d3 05:39 | L-033 | LLEGA por primera vez a Selva Cerrada [hostil]
+- d3 06:19 | L-034 | LLEGA por primera vez a Campamento de los Recolectores [segura]
+- d3 06:30 | L-034 | REGISTRA C-0161 (estantería): ['kit_reparacion']
+- d3 06:32 | L-034 | REGISTRA C-0162 (escritorio): ['recurso_bio', 'medicina', 'venda_reforzada']
+- d3 06:43 | L-034 | REGISTRA C-0163 (ropero): ['chatarra', 'venda', 'cuerda', 'obj_47', 'obj_275']
+- d3 09:01 | L-030 | LLEGA por primera vez a Cañón Verde [normal]
+- d3 09:28 | L-029 | LLEGA por primera vez a Sendero de los Helechos [normal]
+- d3 10:02 | L-028 | SUBE A NIVEL 7 (PV máx 185, daño nominal 17)
+- d3 10:02 | L-028 | MISIÓN COMPLETADA MP-04 «El conocimiento perdido» +1130 XP
+- d3 10:14 | L-028 | REGISTRA C-0145 (alacena): ['circuito']
+- d3 10:16 | L-028 | REGISTRA C-0146 (heladera): ['kit_reparacion', 'venda_reforzada', 'cuñas6']
+- d3 12:15 | L-027 | MISIÓN ACEPTADA MP-05 «Un lugar dentro de la máquina» (principal)
+- d3 13:23 | L-031 | REGISTRA C-0153 (estantería): ['lata']
+- d3 13:25 | L-031 | REGISTRA C-0154 (cajón): ['kit_reparacion', 'obj_237', 'obj_276', 'cuñas30']
+- d3 14:10 | L-030 | HACKEO de terminal en Cañón Verde ÉXITO (68%)
+- d3 14:10 | L-030 | SUBE A NIVEL 8 (PV máx 190, daño nominal 18)
+- d3 14:10 | L-030 | SUBE A NIVEL 9 (PV máx 195, daño nominal 19)
+- d3 14:10 | L-030 | MISIÓN COMPLETADA MP-05 «Un lugar dentro de la máquina» +1410 XP
+- d3 14:19 | L-030 | REGISTRA C-0150 (baúl): ['herramientas', 'venda', 'dulce', 'obj_48']
+- d3 14:21 | L-030 | REGISTRA C-0151 (alacena): ['dulce', 'ganzua', 'cuñas29']
+- d3 14:33 | L-030 | REGISTRA C-0152 (estantería): ['kit_reparacion', 'circuito', 'cuñas31']
+- d3 17:26 | L-032 | COMBATE vs 5× Conejo (nv8, var V2, PV c/u 47) 
+- d3 17:33 | L-032 | VICTORIA en 7 rondas (PV 195→130/195)
+- d3 18:26 | Q-001 | LLEGA por primera vez a Puerto de las Gaviotas, cuadra 1 [segura]
+- d3 18:55 | L-001 | LLEGA por primera vez a Barco Insignia La Estrella Fugaz [segura]
+- d3 19:39 | L-002 | LLEGA por primera vez a Faro del Cabo [segura]
+- d3 19:44 | L-002 | MISIÓN ACEPTADA MP-06 «Las aguas de la vida» (principal)
+- d3 21:35 | Q-002 | LLEGA por primera vez a Puerto de las Gaviotas, cuadra 2 [segura]
+- d3 21:42 | Z-004 | LLEGA por primera vez a Sala de cartas de Puerto de las Gaviotas [segura]
+- d3 21:47 | Z-004 | REGISTRA C-0011 (escritorio): ['circuito', 'venda_reforzada', 'herramientas', 'obj_277']
+- d3 23:41 | L-002 | SUBE A NIVEL 10 (PV máx 200, daño nominal 21)
+- d3 23:41 | L-002 | MISIÓN COMPLETADA MP-06 «Las aguas de la vida» +1690 XP
+- d3 23:43 | L-002 | REGISTRA C-0022 (heladera): ['cuerda', 'recurso_bio', 'agua', 'obj_185']
+- d3 23:48 | L-002 | REGISTRA C-0023 (mochila): ['lata']
+- d4 03:15 | L-032 | COMBATE vs 2× Persona con rasgos de Mosca mutante (nv8, var V2, PV c/u 209) 
+- d4 03:29 | L-032 | VICTORIA en 14 rondas (PV 200→70/200)
+- d4 05:41 | Q-029 | MISIÓN ACEPTADA MS-07 «El culto del artefacto» (secundaria)
+- d4 05:50 | Q-030 | LLEGA por primera vez a Barrio de los Astilleros, cuadra 2 [segura]
+- d4 06:00 | Q-030 | REGISTRA C-0248 (alacena): ['herramientas', 'obj_256', 'cuñas22']
+- d4 06:13 | Q-029 | MISIÓN COMPLETADA MS-07 «El culto del artefacto» +74 XP
+- d4 06:15 | Z-059 | LLEGA por primera vez a Fonda de Barrio de los Astilleros [segura]
+- d4 14:17 | Z-059 | REGISTRA C-0252 (heladera): ['ganzua', 'obj_117', 'obj_171']
+- d4 16:45 | L-026 | MISIÓN ACEPTADA MS-08 «La cura prometida» (secundaria)
+- d4 18:48 | L-033 | COMBATE vs 5× Zorro rojo (nv8, var V1, PV c/u 34) 
+- d4 18:53 | L-033 | VICTORIA en 5 rondas (PV 200→159/200)
+- d4 19:23 | L-033 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d4 19:48 | L-026 | COMBATE vs 2× Escarabajo rinoceronte humanoide (nv2, var V1, PV c/u 52) 
+- d4 19:51 | L-026 | VICTORIA en 3 rondas (PV 163→147/200)
+- d4 19:56 | L-026 | SUBE A NIVEL 11 (PV máx 205, daño nominal 22)
+- d4 19:56 | L-026 | MISIÓN COMPLETADA MS-08 «La cura prometida» +74 XP
+- d4 19:56 | L-026 | COMBATE vs 2× Mosca mutante quimera (mitad humano) (nv2, var V2, PV c/u 92) 
+- d4 20:00 | L-026 | VICTORIA en 4 rondas (PV 205→196/205)
+- d4 20:00 | L-026 | COMBATE vs 3× Mantis mutante quimera (mitad humano) (nv2, var V1, PV c/u 66) 
+- d4 20:06 | L-026 | VICTORIA en 6 rondas (PV 196→186/205)
+- d4 20:08 | L-026 | REGISTRA C-0139 (escritorio): ['ganzua', 'piezas', 'cuerda', 'cuñas15']
+- d4 20:10 | L-026 | REGISTRA C-0140 (mostrador): ['piezas', 'obj_72', 'obj_261', 'cuñas13']
+- d4 23:34 | Q-003 | LLEGA por primera vez a Puerto de las Gaviotas, cuadra 3 [segura]
+- d4 23:38 | Q-004 | LLEGA por primera vez a Puerto de las Gaviotas, cuadra 4 [segura]
+- d4 23:43 | Q-004 | MISIÓN ACEPTADA MP-07 «Retomar el rastro» (principal)
+- d4 23:56 | Z-005 | LLEGA por primera vez a Tienda de velas de Puerto de las Gaviotas [segura]
+- d4 23:58 | Z-005 | REGISTRA C-0013 (mostrador): ['circuito']
+- d5 00:16 | Z-005 | REGISTRA C-0014 (mostrador): ['ganzua', 'cuerda', 'obj_207', 'obj_278']
+- d5 00:27 | Q-004 | SUBE A NIVEL 12 (PV máx 210, daño nominal 23)
+- d5 00:27 | Q-004 | MISIÓN COMPLETADA MP-07 «Retomar el rastro» +1970 XP
+- d5 00:29 | Q-004 | REGISTRA C-0004 (alacena): ['dulce', 'cuñas36']
+- d5 03:02 | L-018 | LLEGA por primera vez a Muelle del Cañizal [segura]
+- d5 03:56 | Q-011 | LLEGA por primera vez a Palafitos de la Gente del Pantano, cuadra 1 [segura]
+- d5 04:03 | Q-012 | LLEGA por primera vez a Palafitos de la Gente del Pantano, cuadra 2 [segura]
+- d5 04:08 | Q-012 | MISIÓN ACEPTADA MP-08 «Rescate del familiar» (principal)
+- d5 05:55 | L-019 | LLEGA por primera vez a Islote de los Corsarios del Fango [hostil]
+- d5 05:55 | L-019 | COMBATE vs 5× Cucaracha mutante (nv10, var V2, PV c/u 53) 
+- d5 06:00 | L-019 | VICTORIA en 5 rondas (PV 210→178/210)

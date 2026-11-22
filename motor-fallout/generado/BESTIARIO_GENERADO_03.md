@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 3/34 -->
+<!-- BESTIARIO GENERADO parte 3/35 -->
 - H-16.F11 | Trabajador/a de espectáculo con accesorios de Ciervo | T3 | s7 | n=3 | Común@14 · Astado (+daño)@20 · Rey del bosque@26
 - H-16.F12 | Persona instintiva-Ciervo | T3 | s7 | n=1 | Común@14
 - H-17.F1 | Reno | T3 | s6 | n=2 | Común@12 · Astado de escarcha@18

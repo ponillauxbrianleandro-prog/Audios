@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 13/34 -->
+<!-- BESTIARIO GENERADO parte 13/35 -->
 - M-01.F1 | Pulpo | T1 | s0 | n=1 | Común@1
 - M-01.F2 | Pulpo de cuerpo semihumano | T1 | s0 | n=2 | Común@1 · Pulpo de anillos (veneno)@7
 - M-01.F3 | Pulpo erguido | T1 | s0 | n=1 | Común@1

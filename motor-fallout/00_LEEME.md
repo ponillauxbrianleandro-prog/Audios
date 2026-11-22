@@ -54,10 +54,32 @@ Bloques de texto modulares para "información principal" de una IA (Haiku). Cada
 | 46 | ECONOMIA_Y_CRAFTING | Regla permanente | Siempre |
 | — | `generado/BESTIARIO_GENERADO_01..34.md` | Resultado del generador | Opcional (ver abajo) |
 
-Con `python3 ensamblar.py` se arma `MOTOR_COMPLETO.md` (bloques 01-46 juntos, sin este LÉEME) y se avisa si algún bloque pasa del límite de palabras (`--limite N` para cambiarlo, `--sin-17`, `--sin-fantasia`, `--sin-scifi` para omitir bloques).
+Con `python3 ensamblar.py` se arma `MOTOR_COMPLETO.md` (bloques 01-99 juntos, sin este LÉEME) y se avisa si algún bloque pasa del límite de palabras (`--limite N` para cambiarlo, `--sin-17`, `--sin-fantasia`, `--sin-scifi` para omitir bloques).
 
 ## El bestiario generado
 `python3 generar_bestiario.py --semilla 2026` asigna **1 a 3 variantes** (1d3) a cada criatura de cada fase y escribe archivos partidos de ≤1800 palabras en `generado/`, más `TABLA_DESBLOQUEO.md` (qué enemigos se suman en cada nivel). Ya dejé uno generado con semilla 2026. Opciones: `--fases 1-12`, `--apagar H-45,H-46`, `--temas animales`, `--max-palabras N`. Si no querés pegar ese resultado, la IA hace lo mismo sola siguiendo el procedimiento en texto del bloque 27.
+
+## AMPLIACIÓN V4: mecánicas completas y dos lores (bloques 47-99 y carpeta `lores/`)
+| Bloques | Contenido |
+|---|---|
+| 47 | Cuadras y ubicaciones (territorio › ubicación › cuadra › edificio), mapa de muñeca y mapa grande |
+| 48 | Libertad total: entrar a casi cualquier edificio y registrar casi todo (lista completa de interacciones) |
+| 49 | Pasos estrechos: ventanas, agujeros, conductos, atasco 40-60% y ataque mientras estás atascado |
+| 50 | Menores, seguridad (ningún menor en contenido sexual/romántico/desnudez, ni con el interruptor +18), no morir y reparto por lore |
+| 51 | Territorios, biomas y formaciones vegetales (bosque, selva, sabana… × clima × relieve × agua) |
+| 52 | Criatura alfa (tema T14) con sus 14 fases |
+| 53-58 | Cuadros de las 14 fases por tema (14 temas) y matriz de variantes |
+| 59-62 | NPC con nombre (225 arquetipos, de 1 a 5 misiones cada uno) |
+| 63 | NPC respawneables (81 plantillas con facción o grupo + número) |
+| 64-65 | NPC niños (90, clasificación aparte, un solo nombre) |
+| 66 | Compañeros (32, solo femeninos o niños) |
+| 67-68 | Misiones base (15 principales + 45 secundarias + 34 tipos) |
+| 69-71 | Catálogo de ubicaciones (117) y de sucesos/acciones (86) |
+| 72-75 | Armas: cuerpo a cuerpo, distancia, energía/pesadas/explosivos y únicas |
+| 76-80 | Munición, armaduras y ropa, comida/bebida/alcohol, medicinas/químicos/ambientales, objetos generales y mejoras |
+| 99 | Dependencia del lore: qué manda el lore y plantilla CONFIG_LORE final |
+**Lores** (cada uno en bloques de ≤2000 palabras): `lores/BOSQUE/LORE_BOSQUE_01..08.md` (El Bosque de los Mil Senderos) y `lores/PIRATAS/LORE_PIRATAS_01..07.md` (El Mar de las Mil Velas). Se pegan **después** de las mecánicas.
+Scripts: `generar_catalogos.py` (bloques 53-80), `generar_lores.py` (lores), `validar_lore.py` (36 validaciones de reglas y seguridad), `catalogos/` y `lores/` (datos de una sola fuente). Simulador de lores: `MUNDO=mundo_lore LORE=bosque python3 -I simulador/ejecutar.py` (o `piratas`), `pruebas_lore.py` y `varias_semillas.py`.
 
 ## La simulación (carpeta `simulador/` y `simulacion/`)
 Código que aplica las reglas de los bloques con un jugador automático para **probar que todo cierra** (no es el juego para la IA):

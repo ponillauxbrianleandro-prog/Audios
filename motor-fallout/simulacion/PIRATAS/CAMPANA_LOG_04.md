@@ -1,0 +1,137 @@
+<!-- CAMPAÑA parte 4/21 -->
+# Registro de la campaña (simulación), parte 4
+
+- d16 08:51 | Q-028 | MISIÓN COMPLETADA QA-135-3 «Paz para el puente» +74 XP
+- d16 13:35 | Q-017 | MISIÓN ACEPTADA QA-159-1 «Puesto del cansancio» (secundaria)
+- d16 14:54 | L-038 | COMBATE vs 4× Perro callejero quimera (mitad humano) (nv16, var V1, PV c/u 150) 
+- d16 15:04 | L-038 | VICTORIA en 10 rondas (PV 240→116/240)
+- d16 15:24 | L-038 | COMBATE vs 5× Perro callejero erguido (nv16, var V1, PV c/u 55) [sorpresa]
+- d16 15:31 | L-038 | VICTORIA en 7 rondas (PV 176→135/240)
+- d16 15:31 | L-038 | MISIÓN COMPLETADA QA-159-1 «Puesto del cansancio» +74 XP
+- d16 17:38 | Q-017 | MISIÓN ACEPTADA QA-159-2 «Defender lo propio» (secundaria)
+- d16 20:00 | L-038 | COMBATE vs 6× Slime verde (nv16, var V1, PV c/u 50) 
+- d16 20:09 | L-038 | SUBE A NIVEL 19 (PV máx 245, daño nominal 32)
+- d16 20:09 | L-038 | VICTORIA en 9 rondas (PV 149→245/245)
+- d16 21:48 | Q-017 | MISIÓN COMPLETADA QA-159-2 «Defender lo propio» +74 XP
+- d16 21:50 | Q-017 | REGISTRA C-0167 (alacena): ['lata', 'dulce', 'obj_224']
+- d16 23:48 | Q-008 | LLEGA por primera vez a Mercado Flotante, cuadra 1 [segura]
+- d16 23:53 | Q-008 | MISIÓN ACEPTADA MP-11 «Hasta la instalación» (principal)
+- d17 00:18 | L-017 | LLEGA por primera vez a Cueva detrás de la Cascada [hostil]
+- d17 00:39 | L-016 | LLEGA por primera vez a Vado de las Piedras [normal]
+- d17 00:39 | L-016 | COMBATE vs 4× Mosquito mutante (nv20, var V2, PV c/u 81) [sorpresa]
+- d17 00:43 | L-016 | VICTORIA en 4 rondas (PV 245→187/245)
+- d17 02:01 | Q-009 | LLEGA por primera vez a Mercado Flotante, cuadra 2 [segura]
+- d17 02:10 | Z-016 | LLEGA por primera vez a Cabaña de pescadores de Mercado Flotante [segura]
+- d17 02:12 | Z-016 | REGISTRA C-0090 (mostrador): ['piezas', 'circuito', 'obj_38', 'cuñas36']
+- d17 02:14 | Z-016 | REGISTRA C-0091 (baúl): ['ganzua', 'piezas', 'obj_150', 'cuñas34']
+- d17 02:16 | Z-016 | REGISTRA C-0092 (mochila): ['venda_reforzada', 'kit_reparacion', 'obj_280']
+- d17 02:16 | Z-016 | SUBE A NIVEL 20 (PV máx 250, daño nominal 34)
+- d17 02:16 | Z-016 | MISIÓN COMPLETADA MP-11 «Hasta la instalación» +3090 XP
+- d17 05:55 | L-041 | LLEGA por primera vez a Cañón de las Orquídeas [normal]
+- d17 06:30 | L-042 | COMBATE vs 3× Abeja mutante (nv15, var V3, PV c/u 91) 
+- d17 06:33 | L-042 | VICTORIA en 3 rondas (PV 250→233/250)
+- d17 06:33 | L-042 | LLEGA por primera vez a Cascada Alta [normal]
+- d17 07:17 | Q-040 | LLEGA por primera vez a Poblado de las Lianas, cuadra 1 [segura]
+- d17 08:17 | L-044 | LLEGA por primera vez a Mirador Este [normal]
+- d17 08:22 | L-044 | MISIÓN ACEPTADA MP-12 «El camino a la fuente» (principal)
+- d17 09:27 | L-044 | COMBATE vs 3× Hormiga mutante (nv20, var V3, PV c/u 110) [sorpresa]
+- d17 09:35 | L-044 | VICTORIA en 8 rondas (PV 246→135/250)
+- d17 09:35 | L-044 | SUBE A NIVEL 21 (PV máx 255, daño nominal 35)
+- d17 09:35 | L-044 | MISIÓN COMPLETADA MP-12 «El camino a la fuente» +3230 XP
+- d17 09:45 | L-044 | REGISTRA C-0351 (mochila): ['lata', 'agua']
+- d17 09:47 | L-044 | REGISTRA C-0352 (heladera): ['dulce', 'piezas']
+- d17 09:49 | L-044 | REGISTRA C-0353 (mostrador): ['kit_reparacion', 'dulce', 'chatarra', 'cuñas5']
+- d17 09:51 | L-044 | REGISTRA C-0354 (heladera): ['cuerda', 'agua', 'dulce']
+- d17 11:34 | L-042 | COMBATE vs 4× Escarabajo rinoceronte erguido (nv15, var V1, PV c/u 105) 
+- d17 11:41 | L-042 | VICTORIA en 7 rondas (PV 255→149/255)
+- d17 12:36 | L-041 | MISIÓN ACEPTADA MP-13 «Tres tareas para encenderla» (principal)
+- d17 15:34 | L-045 | LLEGA por primera vez a Campamento Maderero [segura]
+- d17 15:41 | L-045 | HACKEO de terminal en Campamento Maderero ÉXITO (82%)
+- d17 15:41 | L-045 | SUBE A NIVEL 22 (PV máx 260, daño nominal 36)
+- d17 15:41 | L-045 | MISIÓN COMPLETADA MP-13 «Tres tareas para encenderla» +3230 XP
+- d17 15:43 | L-045 | REGISTRA C-0355 (caja): ['piezas', 'agua', 'obj_199']
+- d17 15:49 | L-045 | REGISTRA C-0356 (mochila): ['venda_reforzada', 'ganzua', 'venda', 'obj_177', 'obj_255', 'cuñas12']
+- d17 21:27 | Q-039 | MISIÓN ACEPTADA QA-160-1 «Tras la presa de la lealtad» (secundaria)
+- d17 23:19 | L-038 | COMBATE vs 4× Perro callejero (nv20, var V2, PV c/u 81) [sorpresa]
+- d17 23:24 | L-038 | SUBE A NIVEL 23 (PV máx 265, daño nominal 37)
+- d17 23:24 | L-038 | VICTORIA en 5 rondas (PV 260→265/265)
+- d18 00:06 | L-038 | COMBATE vs 5× Perro callejero (nv21, var V2, PV c/u 84) [sorpresa]
+- d18 00:13 | L-038 | VICTORIA en 7 rondas (PV 265→145/265)
+- d18 02:09 | Q-039 | MISIÓN COMPLETADA QA-160-1 «Tras la presa de la lealtad» +74 XP
+- d18 07:55 | Q-039 | MISIÓN ACEPTADA QA-160-3 «Puesto de la lealtad» (secundaria)
+- d18 09:39 | L-038 | COMBATE vs 6× Cucaracha mutante (nv21, var V2, PV c/u 84) 
+- d18 09:47 | L-038 | VICTORIA en 8 rondas (PV 265→147/265)
+- d18 09:51 | L-038 | COMBATE vs 5× Cucaracha mutante (nv21, var V2, PV c/u 84) [sorpresa]
+- d18 09:56 | L-038 | VICTORIA en 5 rondas (PV 207→162/265)
+- d18 09:56 | L-038 | MISIÓN COMPLETADA QA-160-3 «Puesto de la lealtad» +74 XP
+- d18 11:53 | Q-021 | MISIÓN ACEPTADA QA-161-1 «Fiebre en el muelle» (secundaria)
+- d18 16:28 | Q-021 | MISIÓN COMPLETADA QA-161-1 «Fiebre en el muelle» +74 XP
+- d18 16:30 | Q-021 | REGISTRA C-0189 (estantería): ['cuerda', 'kit_reparacion', 'venda', 'cuñas31']
+- d18 17:49 | Q-021 | MISIÓN ACEPTADA QA-161-3 «Qué pasó en el camino» (secundaria)
+- d18 18:10 | Z-044 | REGISTRA C-0211 (baúl): ['agua', 'chatarra']
+- d18 18:12 | Z-044 | REGISTRA C-0212 (mochila): ['cuerda', 'dulce', 'ganzua', 'obj_99', 'cuñas22']
+- d18 18:25 | Q-021 | MISIÓN COMPLETADA QA-161-3 «Qué pasó en el camino» +74 XP
+- d18 19:01 | Q-034 | MISIÓN ACEPTADA QA-163-1 «Día de feria» (secundaria)
+- d18 19:41 | Q-034 | MISIÓN COMPLETADA QA-163-1 «Día de feria» +74 XP
+- d18 19:43 | Q-034 | REGISTRA C-0267 (escritorio): ['venda_reforzada', 'recurso_bio', 'obj_244', 'cuñas20']
+- d18 21:34 | Q-016 | MISIÓN ACEPTADA QA-179-3 «En busca de la llave» (secundaria)
+- d18 23:07 | Q-016 | MISIÓN COMPLETADA QA-179-3 «En busca de la llave» +74 XP
+- d18 23:36 | Q-025 | MISIÓN ACEPTADA QA-183-1 «Aprender con la paciencia» (secundaria)
+- d19 00:03 | Z-041 | LLEGA por primera vez a Panadería de Barrio de los Mercaderes [segura]
+- d19 00:13 | Z-041 | REGISTRA C-0202 (ropero): ['recurso_bio', 'ganzua', 'lata', 'obj_211']
+- d19 00:22 | Z-041 | REGISTRA C-0203 (cajón): ['herramientas', 'venda', 'obj_128']
+- d19 00:46 | Q-025 | MISIÓN COMPLETADA QA-183-1 «Aprender con la paciencia» +74 XP
+- d19 00:48 | Q-025 | REGISTRA C-0208 (barril): ['kit_reparacion']
+- d19 02:47 | Q-036 | MISIÓN ACEPTADA QA-191-1 «Resistir en el pueblo» (secundaria)
+- d19 04:29 | L-038 | COMBATE vs 4× Termita mutante (nv21, var V2, PV c/u 84) [sorpresa]
+- d19 04:34 | L-038 | VICTORIA en 5 rondas (PV 224→164/265)
+- d19 05:00 | L-038 | COMBATE vs 4× Termita mutante humanoide (nv21, var V1, PV c/u 144) [sorpresa]
+- d19 05:11 | L-038 | VICTORIA en 11 rondas (PV 206→121/265)
+- d19 07:04 | Q-036 | MISIÓN COMPLETADA QA-191-1 «Resistir en el pueblo» +74 XP
+- d19 11:27 | Q-036 | MISIÓN ACEPTADA QA-191-2 «Construir juntos» (secundaria)
+- d19 13:33 | L-035 | FABRICA artefacto (11≤93)
+- d19 15:12 | Q-036 | MISIÓN COMPLETADA QA-191-2 «Construir juntos» +74 XP
+- d19 15:20 | Q-035 | MISIÓN ACEPTADA QA-192-4 «Pruebas del bosque» (secundaria)
+- d19 16:03 | Z-045 | REGISTRA C-0215 (escritorio): ['piezas', 'obj_138']
+- d19 16:28 | Q-020 | MISIÓN COMPLETADA QA-192-4 «Pruebas del bosque» +74 XP
+- d19 16:30 | Q-020 | REGISTRA C-0188 (mostrador): ['cuerda', 'obj_101', 'obj_180', 'obj_181']
+- d19 18:15 | Q-020 | MISIÓN ACEPTADA QA-197-2 «Lección en el pueblo» (secundaria)
+- d19 18:30 | Z-038 | LLEGA por primera vez a Tienda de velas de Barrio de los Mercaderes [segura]
+- d19 18:32 | Z-038 | REGISTRA C-0196 (cajón): ['circuito', 'obj_143']
+- d19 18:45 | Q-020 | MISIÓN COMPLETADA QA-197-2 «Lección en el pueblo» +74 XP
+- d19 19:04 | Q-024 | MISIÓN ACEPTADA QA-201-1 «Mediación» (secundaria)
+- d19 20:12 | L-053 | LLEGA por primera vez a Camino del Norte [normal]
+- d19 20:37 | Q-043 | LLEGA por primera vez a Aldea de los Cartógrafos, cuadra 1 [segura]
+- d19 23:03 | Q-024 | MISIÓN COMPLETADA QA-201-1 «Mediación» +74 XP
+- d19 23:08 | Q-024 | MISIÓN ACEPTADA QA-201-4 «La sombra de la ambición» (secundaria)
+- d19 23:43 | Z-069 | LLEGA por primera vez a Posada de Barrio de las Sombras [segura]
+- d19 23:45 | Z-069 | REGISTRA C-0273 (mochila): ['kit_reparacion', 'dulce', 'obj_148']
+- d20 02:47 | Q-003 | MISIÓN COMPLETADA QA-201-4 «La sombra de la ambición» +74 XP
+- d20 02:57 | Q-003 | REGISTRA C-0003 (heladera): ['venda', 'obj_7', 'obj_44', 'obj_201']
+- d20 04:34 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d20 05:04 | Q-030 | MISIÓN ACEPTADA QA-202-1 «Palabras en el pozo» (secundaria)
+- d20 05:50 | Q-030 | MISIÓN COMPLETADA QA-202-1 «Palabras en el pozo» +74 XP
+- d20 07:08 | Q-030 | MISIÓN ACEPTADA QA-202-2 «Entrega urgente» (secundaria)
+- d20 07:34 | Q-030 | MISIÓN COMPLETADA QA-202-2 «Entrega urgente» +74 XP
+- d20 08:03 | Q-015 | MISIÓN ACEPTADA QA-204-1 «Resistir en el granero» (secundaria)
+- d20 09:12 | L-038 | COMBATE vs 4× Cucaracha mutante erguido (nv21, var V1, PV c/u 66) 
+- d20 09:19 | L-038 | VICTORIA en 7 rondas (PV 265→171/265)
+- d20 10:03 | L-038 | COMBATE vs 4× Termita mutante (nv21, var V2, PV c/u 84) 
+- d20 10:09 | L-038 | VICTORIA en 6 rondas (PV 205→140/265)
+- d20 11:41 | Q-015 | MISIÓN COMPLETADA QA-204-1 «Resistir en el granero» +74 XP
+- d20 17:26 | Q-023 | MISIÓN ACEPTADA QA-222-3 «Compañía para la esperanza» (secundaria)
+- d20 18:45 | L-038 | COMBATE vs 3× Termita mutante quimera (mitad humano) (nv21, var V2, PV c/u 252) [sorpresa]
+- d20 18:56 | L-038 | VICTORIA en 11 rondas (PV 265→90/265)
+- d20 18:56 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d21 03:24 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d21 03:47 | L-038 | MISIÓN COMPLETADA QA-222-3 «Compañía para la esperanza» +74 XP
+- d21 05:10 | Q-023 | MISIÓN ACEPTADA QA-222-4 «Provisión del taller» (secundaria)
+- d21 06:41 | L-038 | COMBATE vs 4× Termita mutante (nv21, var V2, PV c/u 84) 
+- d21 06:46 | L-038 | VICTORIA en 5 rondas (PV 265→207/265)
+- d21 09:28 | Q-023 | MISIÓN COMPLETADA QA-222-4 «Provisión del taller» +74 XP
+- d21 09:44 | Q-021 | MISIÓN ACEPTADA QA-223-2 «El cofre del puesto» (secundaria)
+- d21 10:22 | Z-071 | LLEGA por primera vez a Cabaña de pescadores de Barrio de las Sombras [segura]
+- d21 10:34 | Z-071 | REGISTRA C-0279 (cofre): ['piezas', 'obj_170']
+- d21 11:15 | Q-021 | MISIÓN COMPLETADA QA-223-2 «El cofre del puesto» +74 XP
+- d21 11:20 | Q-021 | MISIÓN ACEPTADA QA-223-3 «Lo que no se declara» (secundaria)
+- d21 13:15 | Q-008 | MISIÓN COMPLETADA QA-223-3 «Lo que no se declara» +74 XP

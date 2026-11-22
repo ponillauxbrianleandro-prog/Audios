@@ -1,51 +1,52 @@
 # Informe de prueba (semilla 1)
 
-Simulación en código de las reglas de los bloques 03-39 sobre el mundo «El Salar». Prueba las reglas, no cómo las interpreta una IA concreta.
+Simulación en código de las reglas de los bloques 03-50 sobre el mundo «El Salar». Prueba las reglas, no cómo las interpreta una IA concreta.
 
 ## Resultado
-- Campaña completa: **sí, día 142** · día final 292 · nivel final 25 · nivel al completar la campaña: 19
+- Campaña completa: **sí, día 131** · día final 281 · nivel final 26 · nivel al completar la campaña: 19
 - Misiones principales: 8/8 · secundarias: 20/20 · pendientes: ninguna
 - Ubicaciones descubiertas: 21/21 · visitadas: 21
-- Contenedores registrados: 30 · búsquedas generales: 370 · conexiones ocultas: 1
-- Combates ganados: 220 (rondas promedio 9.6) · perdidos: 2 · escapes: 33
-- Enemigos derrotados: 745 · jefes: 4/4 · invocaciones de jefe: 9
-- Precisión en combate: 2830/4624 = 61% de aciertos · críticos 231
-- Derrotas (sin muerte): 2 · robos sufridos 0 · robos recuperados 0 · robos en arrastre 0
-- Atascos en ventana: 1 de 2 intentos · robos por atasco 0
-- Viajes rápidos: 20 · emboscadas por mapa abierto: 6 · tramos recorridos 401
-- Choques entre especies: 4098 · enemigos muertos por otra criatura: 16 · regeneraciones de población: 57
-- Comercio: compras 37 · ventas 3 · armas compradas 1 · reparaciones 0 · fabricaciones 2
-- Conversaciones: 70 · compañeros reclutados: 4 · bandos elegidos: 2
+- Contenedores registrados: 29 · búsquedas generales: 368 · conexiones ocultas: 1
+- Combates ganados: 236 (rondas promedio 10.3) · perdidos: 0 · escapes: 31
+- Enemigos derrotados: 828 · jefes: 4/4 · invocaciones de jefe: 10
+- Precisión en combate: 3192/5146 = 62% de aciertos · críticos 330
+- Derrotas (sin muerte): 0 · robos sufridos 0 · robos recuperados 0 · robos en arrastre 0
+- Atascos en ventana: 1 de 1 intentos · robos por atasco 0
+- Viajes rápidos: 18 · emboscadas por mapa abierto: 7 · tramos recorridos 420
+- Choques entre especies: 232 · enemigos muertos por otra criatura: 8 · regeneraciones de población: 59
+- Comercio: compras 34 · ventas 2 · armas compradas 0 · reparaciones 0 · fabricaciones 2
+- Conversaciones: 70 · compañeros reclutados: 5 · bandos elegidos: 2
 - Hackeos OK/fallidos: 3/0 · trampas activadas 1 · ganzúas rotas 1
-- **Persistencia de enemigos:** creados 813 = muertos por el jugador 745 + por otra criatura 16 + vivos 52 → OK, ninguno despawneó
+- **Persistencia de enemigos:** creados 892 = muertos por el jugador 828 + por otra criatura 8 + vivos 56 → OK, ninguno despawneó
 
 ## Nivel por día
 | Nivel | Día | Enemigos derrotados hasta ahí |
 |---|---|---|
-| 2 | 1 | 5 |
-| 3 | 1 | 5 |
-| 4 | 2 | 20 |
-| 5 | 3 | 35 |
-| 6 | 3 | 36 |
-| 7 | 3 | 41 |
-| 8 | 4 | 47 |
-| 9 | 6 | 77 |
-| 10 | 6 | 87 |
-| 11 | 6 | 96 |
-| 12 | 7 | 108 |
-| 13 | 8 | 152 |
-| 14 | 8 | 164 |
-| 15 | 26 | 198 |
-| 16 | 68 | 254 |
-| 17 | 108 | 317 |
-| 18 | 142 | 365 |
-| 19 | 142 | 379 |
-| 20 | 148 | 388 |
-| 21 | 178 | 445 |
-| 22 | 195 | 510 |
-| 23 | 219 | 573 |
-| 24 | 253 | 644 |
-| 25 | 283 | 721 |
+| 2 | 1 | 4 |
+| 3 | 1 | 10 |
+| 4 | 2 | 27 |
+| 5 | 2 | 47 |
+| 6 | 3 | 70 |
+| 7 | 3 | 73 |
+| 8 | 3 | 80 |
+| 9 | 5 | 101 |
+| 10 | 5 | 126 |
+| 11 | 5 | 143 |
+| 12 | 5 | 149 |
+| 13 | 6 | 174 |
+| 14 | 6 | 180 |
+| 15 | 17 | 225 |
+| 16 | 44 | 277 |
+| 17 | 79 | 322 |
+| 18 | 131 | 365 |
+| 19 | 131 | 383 |
+| 20 | 133 | 391 |
+| 21 | 147 | 444 |
+| 22 | 173 | 512 |
+| 23 | 199 | 573 |
+| 24 | 220 | 636 |
+| 25 | 251 | 706 |
+| 26 | 269 | 784 |
 
 ## Problemas de reglas detectados por el simulador
-- S-04 paso ('kill', 'L-005', 3) no se puede completar tras 60 intentos (×1)
+- Ninguno en esta corrida.

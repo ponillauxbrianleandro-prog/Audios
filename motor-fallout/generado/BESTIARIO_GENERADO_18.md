@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 18/34 -->
+<!-- BESTIARIO GENERADO parte 18/35 -->
 - S-03.F3 | Slime rojo erguido | T1 | s0 | n=2 | Común@1 · Brasa (quemadura)@7
 - S-03.F4 | Slime rojo humanoide | T2 | s1 | n=2 | Común@2 · Brasa (quemadura)@8
 - S-03.F5 | Slime rojo quimera (mitad humano) | T2 | s2 | n=3 | Común@4 · Brasa (quemadura)@10 · Gran slime@16

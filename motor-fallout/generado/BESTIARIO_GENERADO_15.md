@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 15/34 -->
+<!-- BESTIARIO GENERADO parte 15/35 -->
 - M-17.F11 | Trabajador/a de espectáculo con accesorios de Calamar gigante | T3 | s10 | n=3 | Común@20 · Tentáculos largos@26 · Kraken menor (T4)@jefe
 - M-17.F12 | Persona instintiva-Calamar gigante | T3 | s10 | n=1 | Común@20
 - M-18.F1 | Pulpo colosal | T4 | s11 | n=3 | Común@22 · Ocho brazos@28 · Titán@jefe

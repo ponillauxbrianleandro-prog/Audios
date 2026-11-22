@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 30/34 -->
+<!-- BESTIARIO GENERADO parte 30/35 -->
 - X-02.F9 | Furry de Dron de reparación | T3 | s2 | n=2 | Común@4 · Soldador (ataque)@10
 - X-02.F10 | Persona con accesorios de Dron de reparación | T3 | s2 | n=1 | Común@4
 - X-02.F11 | Trabajador/a de espectáculo con accesorios de Dron de reparación | T3 | s2 | n=3 | Común@4 · Soldador (ataque)@10 · Maestro@16

@@ -1,0 +1,134 @@
+<!-- CAMPAÑA parte 17/21 -->
+# Registro de la campaña (simulación), parte 17
+
+- d182 05:17 | L-033 | COMBATE vs 3× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d182 05:29 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d182 14:44 | L-033 | COMBATE vs 2× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d182 14:54 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d183 00:01 | L-033 | COMBATE vs 2× Jabalí (nv28, var V3, PV c/u 562) 
+- d183 00:07 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d183 08:49 | L-033 | COMBATE vs 4× Avispón gigante quimera (mitad humano) (nv28, var V1, PV c/u 222) [sorpresa]
+- d183 08:59 | L-033 | VICTORIA en 10 rondas (PV 300→141/300)
+- d183 12:32 | L-028 | COMBATE vs 4× Mosca mutante humanoide (nv4, var V3, PV c/u 118) 
+- d183 12:40 | L-028 | VICTORIA en 8 rondas (PV 156→80/300)
+- d183 12:45 | L-028 | MISIÓN COMPLETADA QA-206-3 «Limpiar el muelle» +116 XP
+- d183 14:09 | L-026 | COMBATE vs 4× Coyote (nv2, var V1, PV c/u 22) 
+- d183 14:12 | L-026 | VICTORIA en 3 rondas (PV 87→139/300)
+- d183 15:16 | L-032 | COMBATE vs 3× Mantis mutante erguido (nv8, var V2, PV c/u 52) [sorpresa]
+- d183 15:19 | L-032 | VICTORIA en 3 rondas (PV 144→125/300)
+- d183 16:58 | Q-012 | MISIÓN ACEPTADA QN-014-1 «Confianza en el muelle» (secundaria)
+- d183 20:07 | Q-012 | MISIÓN COMPLETADA QN-014-1 «Confianza en el muelle» +116 XP
+- d184 03:29 | L-027 | MISIÓN ACEPTADA QN-074-2 «Más allá del bosque» (secundaria)
+- d184 03:39 | L-027 | MISIÓN COMPLETADA QN-074-2 «Más allá del bosque» +116 XP
+- d184 08:00 | Q-014 | MISIÓN ACEPTADA QA-016-1 «Material para el cansancio» (secundaria)
+- d184 09:38 | L-019 | COMBATE vs 3× Babosa marina humanoide (nv28, var V2, PV c/u 248) 
+- d184 09:48 | L-019 | VICTORIA en 10 rondas (PV 300→120/300)
+- d184 12:18 | Q-014 | MISIÓN COMPLETADA QA-016-1 «Material para el cansancio» +130 XP
+- d184 16:31 | Q-013 | MISIÓN ACEPTADA QA-024-2 «Antena y cable» (secundaria)
+- d184 16:36 | Q-013 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d184 19:28 | L-035 | FABRICA artefacto (89≤100)
+- d184 23:08 | Q-013 | MISIÓN COMPLETADA QA-024-2 «Antena y cable» +130 XP
+- d184 23:13 | Q-013 | MISIÓN ACEPTADA QA-037-1 «Sobre ruedas» (secundaria)
+- d185 00:51 | L-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d185 01:16 | Q-026 | MISIÓN COMPLETADA QA-037-1 «Sobre ruedas» +130 XP
+- d185 03:36 | L-032 | COMBATE vs 3× Hormiga gigante guerrera (nv8, var V2, PV c/u 95) 
+- d185 03:39 | L-032 | VICTORIA en 3 rondas (PV 300→271/300)
+- d185 05:31 | Q-013 | MISIÓN ACEPTADA QA-037-2 «Lo que no se dijo a tiempo» (secundaria)
+- d185 08:07 | L-026 | COMBATE vs 2× Escarabajo colosal humanoide (nv2, var V1, PV c/u 211) [sorpresa]
+- d185 08:12 | L-026 | VICTORIA en 5 rondas (PV 289→247/300)
+- d185 14:46 | Q-013 | MISIÓN COMPLETADA QA-037-2 «Lo que no se dijo a tiempo» +130 XP
+- d185 14:51 | Q-013 | MISIÓN ACEPTADA QA-037-3 «Mercancía para el cansancio» (secundaria)
+- d185 16:53 | L-024 | LLEGA por primera vez a Madriguera de la Reina del Fango [hostil]
+- d185 17:13 | L-025 | LLEGA por primera vez a Torre de Vigía de Juncos [segura]
+- d185 17:15 | L-025 | REGISTRA C-0137 (escritorio): ['recurso_bio', 'venda', 'obj_23']
+- d185 17:15 | L-025 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d185 17:29 | Q-013 | MISIÓN COMPLETADA QA-037-3 «Mercancía para el cansancio» +130 XP
+- d185 17:39 | Q-012 | MISIÓN ACEPTADA QA-039-2 «Aprender con la paciencia» (secundaria)
+- d185 18:03 | Q-012 | MISIÓN COMPLETADA QA-039-2 «Aprender con la paciencia» +130 XP
+- d185 18:08 | Q-012 | MISIÓN ACEPTADA QA-056-1 «El misterio del granero» (secundaria)
+- d185 18:31 | Q-012 | MISIÓN COMPLETADA QA-056-1 «El misterio del granero» +130 XP
+- d185 18:36 | Q-012 | MISIÓN ACEPTADA QA-056-2 «Letras en la pared» (secundaria)
+- d185 19:13 | Z-022 | HACKEO de terminal en Fonda de Palafitos de la Gente del Pantano ÉXITO (91%)
+- d185 19:13 | Z-022 | MISIÓN COMPLETADA QA-056-2 «Letras en la pared» +130 XP
+- d185 19:30 | Q-012 | MISIÓN ACEPTADA QA-056-4 «Entrega urgente» (secundaria)
+- d185 21:15 | L-032 | COMBATE vs 2× Avispón gigante humanoide (nv8, var V1, PV c/u 81) 
+- d185 21:17 | L-032 | VICTORIA en 2 rondas (PV 293→283/300)
+- d185 23:11 | Q-015 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d186 00:21 | Q-012 | MISIÓN COMPLETADA QA-056-4 «Entrega urgente» +130 XP
+- d186 02:30 | L-030 | MISIÓN ACEPTADA QA-117-1 «Cruzar con cuidado» (secundaria)
+- d186 02:35 | L-030 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d186 02:35 | L-032 | COMBATE vs 2× Mantis mutante humanoide (nv8, var V2, PV c/u 114) [emboscada enemiga]
+- d186 02:38 | L-032 | VICTORIA en 3 rondas (PV 300→300/300)
+- d186 03:11 | L-033 | COMBATE vs 3× Mantis gigante (nv28, var V1, PV c/u 296) 
+- d186 03:21 | L-033 | VICTORIA en 10 rondas (PV 300→123/300)
+- d186 14:11 | L-032 | COMBATE vs 2× Mantis gigante erguido (nv8, var V1, PV c/u 149) [sorpresa]
+- d186 14:14 | L-032 | VICTORIA en 3 rondas (PV 300→286/300)
+- d186 18:22 | L-054 | COMBATE vs 3× Saqueador (nv30, var V2, PV c/u 348) [sorpresa]
+- d186 18:41 | L-054 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d186 18:43 | L-054 | REGISTRA C-0394 (caja): ['agua', 'cuerda', 'kit_reparacion', 'obj_222', 'cuñas16']
+- d186 18:54 | L-054 | REGISTRA C-0395 (alacena): ['venda', 'dulce', 'venda_reforzada', 'obj_82']
+- d186 20:11 | L-054 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d186 20:11 | L-026 | COMBATE vs 2× Jabalí erguido (nv2, var V3, PV c/u 183) [emboscada enemiga]
+- d186 20:16 | L-026 | VICTORIA en 5 rondas (PV 61→61/300)
+- d186 22:27 | L-033 | COMBATE vs 3× Persona con rasgos de Hormiga gigante guerrera (nv28, var V1, PV c/u 325) [sorpresa]
+- d186 22:28 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d187 07:55 | L-033 | COMBATE vs 5× Mosca mutante (nv28, var V2, PV c/u 103) 
+- d187 08:01 | L-033 | VICTORIA en 6 rondas (PV 300→211/300)
+- d187 08:01 | L-033 | MISIÓN COMPLETADA QA-117-1 «Cruzar con cuidado» +130 XP
+- d187 08:01 | L-033 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d187 09:06 | L-030 | MISIÓN ACEPTADA QA-117-2 «Puertas que no abren» (secundaria)
+- d187 11:29 | L-028 | COMBATE vs 2× Jabalí erguido (nv4, var V3, PV c/u 217) [sorpresa]
+- d187 11:34 | L-028 | VICTORIA en 5 rondas (PV 225→154/300)
+- d187 11:35 | L-028 | COMBATE vs 1× Escarabajo colosal quimera (mitad humano) (nv4, var V1, PV c/u 312) 
+- d187 11:38 | L-028 | VICTORIA en 3 rondas (PV 164→164/300)
+- d187 11:38 | L-028 | COMBATE vs 4× Hormiga gigante guerrera (nv4, var V2, PV c/u 72) 
+- d187 11:43 | L-028 | VICTORIA en 5 rondas (PV 164→119/300)
+- d187 11:53 | L-028 | HACKEO de terminal en Claro del Venado ÉXITO (91%)
+- d187 11:53 | L-028 | MISIÓN COMPLETADA QA-117-2 «Puertas que no abren» +130 XP
+- d187 11:53 | L-028 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d187 11:53 | L-032 | COMBATE vs 1× Antílope (nv8, var V1, PV c/u 136) [emboscada enemiga]
+- d187 11:56 | L-032 | VICTORIA en 3 rondas (PV 121→121/300)
+- d187 13:10 | Q-011 | MISIÓN ACEPTADA QA-176-1 «La balanza de la esperanza» (secundaria)
+- d187 13:15 | Q-011 | ELIGE BANDO en QA-176-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d187 17:01 | L-024 | COMBATE vs 5× Moho viscoso (nv28, var V1, PV c/u 74) 
+- d187 17:07 | L-024 | VICTORIA en 6 rondas (PV 145→114/300)
+- d188 07:12 | L-054 | COMBATE vs 4× Hormiga gigante guerrera erguido (nv30, var V3, PV c/u 326) [sorpresa]
+- d188 07:18 | L-054 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d188 08:48 | L-054 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d188 11:06 | L-024 | COMBATE vs 5× Babosa marina humanoide (nv28, var V2, PV c/u 248) 
+- d188 11:15 | L-024 | ESCAPÓ del combate (los enemigos quedan: 5 persistentes)
+- d188 23:24 | L-019 | COMBATE vs 5× Slime verde (nv28, var V2, PV c/u 103) [sorpresa]
+- d188 23:32 | L-019 | VICTORIA en 8 rondas (PV 300→139/300)
+- d188 23:32 | L-019 | MISIÓN COMPLETADA QA-176-1 «La balanza de la esperanza» +130 XP
+- d188 23:33 | L-019 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 331) 
+- d188 23:39 | L-019 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d189 00:53 | Q-011 | MISIÓN ACEPTADA QA-176-3 «El concurso de la esperanza» (secundaria)
+- d189 00:58 | Q-011 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d189 00:58 | L-023 | COMBATE vs 3× Moho viscoso erguido (nv12, var V3, PV c/u 87) [emboscada enemiga]
+- d189 01:03 | L-023 | VICTORIA en 5 rondas (PV 16→1/300)
+- d189 01:56 | L-022 | COMBATE vs 3× Moho viscoso quimera (mitad humano) (nv11, var V2, PV c/u 168) 
+- d189 01:59 | L-022 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d189 01:59 | L-022 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d189 03:02 | Q-011 | MISIÓN COMPLETADA QA-176-3 «El concurso de la esperanza» +130 XP
+- d189 11:20 | Q-011 | MISIÓN ACEPTADA QA-189-1 «Todo lo que se junta» (secundaria)
+- d189 12:54 | L-019 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 331) [sorpresa]
+- d189 13:01 | L-019 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d189 15:21 | Q-011 | MISIÓN COMPLETADA QA-189-1 «Todo lo que se junta» +130 XP
+- d189 23:42 | Q-011 | MISIÓN ACEPTADA QA-189-2 «Reparación en el refugio» (secundaria)
+- d190 01:40 | L-026 | COMBATE vs 3× Jabalí erguido (nv2, var V1, PV c/u 96) 
+- d190 01:46 | L-026 | VICTORIA en 6 rondas (PV 300→234/300)
+- d190 03:04 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d190 04:41 | Q-001 | FABRICA artefacto (73≤100)
+- d190 06:40 | Q-011 | MISIÓN COMPLETADA QA-189-2 «Reparación en el refugio» +130 XP
+- d190 06:49 | Q-012 | MISIÓN ACEPTADA QA-193-1 «Ruido en la noche» (secundaria)
+- d190 07:25 | Q-012 | MISIÓN COMPLETADA QA-193-1 «Ruido en la noche» +130 XP
+- d190 07:25 | Q-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d190 07:55 | L-030 | COMBATE vs 2× Escarabajo colosal (nv6, var V2, PV c/u 336) 
+- d190 08:02 | L-030 | VICTORIA en 7 rondas (PV 264→170/300)
+- d190 08:30 | L-029 | MISIÓN ACEPTADA QA-203-2 «Entrega pesada» (secundaria)
+- d190 11:11 | L-033 | COMBATE vs 5× Conejo (nv28, var V2, PV c/u 103) [sorpresa]
+- d190 11:19 | L-033 | VICTORIA en 8 rondas (PV 192→110/300)
+- d190 11:41 | L-034 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d190 11:55 | Q-003 | MISIÓN COMPLETADA QA-203-2 «Entrega pesada» +130 XP
+- d190 20:35 | L-001 | REGISTRA C-0020 (escritorio): ['medicina', 'agua', 'obj_112', 'obj_125', 'obj_203']
+- d190 20:37 | L-001 | REGISTRA C-0021 (cofre): ['cuerda']

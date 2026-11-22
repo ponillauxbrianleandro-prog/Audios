@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 21/34 -->
+<!-- BESTIARIO GENERADO parte 21/35 -->
 - FA-07.F1 | Dragón joven | T4 | s10 | n=2 | Común@20 · Escamas gruesas (RD+4)@26
 - FA-07.F2 | Dragón joven de cuerpo semihumano | T4 | s10 | n=1 | Común@20
 - FA-07.F3 | Dragón joven erguido | T4 | s10 | n=3 | Común@20 · Escamas gruesas (RD+4)@26 · Dragón adulto@jefe

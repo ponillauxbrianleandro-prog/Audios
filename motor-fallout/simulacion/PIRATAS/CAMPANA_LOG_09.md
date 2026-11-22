@@ -1,0 +1,132 @@
+<!-- CAMPAÑA parte 9/21 -->
+# Registro de la campaña (simulación), parte 9
+
+- d55 04:41 | Q-035 | MISIÓN ACEPTADA QA-042-2 «La balanza del cansancio» (secundaria)
+- d55 04:46 | Q-035 | ELIGE BANDO en QA-042-2: un bando (el grupo «el otro» pasa a ser hostil)
+- d55 06:52 | L-038 | COMBATE vs 5× Termita mutante (nv28, var V1, PV c/u 74) [sorpresa]
+- d55 06:56 | L-038 | VICTORIA en 4 rondas (PV 300→228/300)
+- d55 06:56 | L-038 | COMBATE vs 4× Termita mutante (nv28, var V1, PV c/u 74) [sorpresa]
+- d55 07:01 | L-038 | VICTORIA en 5 rondas (PV 228→146/300)
+- d55 07:04 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d55 08:34 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo [('cuñas', 514), ('cuerda', 1), ('piezas', 1)]
+- d55 18:11 | L-038 | MISIÓN COMPLETADA QA-042-2 «La balanza del cansancio» +102 XP
+- d55 19:56 | Q-035 | MISIÓN ACEPTADA QA-042-3 «La sombra del cansancio» (secundaria)
+- d55 20:08 | Z-083 | LLEGA por primera vez a Carpintería de ribera de Plaza del Reloj [segura]
+- d55 20:10 | Z-083 | REGISTRA C-0307 (cajón): ['piezas', 'herramientas', 'dulce']
+- d55 20:22 | Z-083 | REGISTRA C-0308 (barril): ['lata', 'dulce', 'cuerda', 'obj_31']
+- d55 23:53 | L-048 | COMBATE vs 3× Mantis mutante (nv20, var V2, PV c/u 81) 
+- d55 23:57 | L-048 | VICTORIA en 4 rondas (PV 300→257/300)
+- d56 01:01 | L-047 | MISIÓN COMPLETADA QA-042-3 «La sombra del cansancio» +102 XP
+- d56 01:03 | L-047 | REGISTRA C-0359 (mostrador): ['ganzua', 'agua', 'cuerda', 'cuñas40']
+- d56 01:05 | L-047 | REGISTRA C-0360 (barril): ['venda_reforzada', 'kit_reparacion', 'piezas', 'obj_173']
+- d56 01:07 | L-047 | REGISTRA C-0361 (heladera): ['chatarra', 'agua', 'medicina', 'obj_230']
+- d56 05:13 | L-040 | COMBATE vs 2× Hormiga gigante guerrera (nv13, var V1, PV c/u 88) 
+- d56 05:16 | L-040 | VICTORIA en 3 rondas (PV 280→267/300)
+- d56 06:37 | Q-020 | MISIÓN ACEPTADA QA-047-2 «Más allá del refugio» (secundaria)
+- d56 06:47 | Q-020 | MISIÓN COMPLETADA QA-047-2 «Más allá del refugio» +102 XP
+- d56 07:20 | Q-032 | MISIÓN ACEPTADA QA-050-1 «Entrega urgente» (secundaria)
+- d56 08:36 | Q-032 | MISIÓN COMPLETADA QA-050-1 «Entrega urgente» +102 XP
+- d56 08:50 | Q-030 | MISIÓN ACEPTADA QA-051-1 «Puesto del orden» (secundaria)
+- d56 11:19 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d56 11:24 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d56 11:24 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d56 22:03 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d56 22:14 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d56 22:14 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d57 08:16 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d57 08:31 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d57 20:22 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d57 20:32 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d58 08:25 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d58 08:31 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d58 18:27 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d58 19:03 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d58 19:10 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d58 19:10 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d59 06:27 | L-038 | COMBATE vs 5× Perro callejero (nv28, var V1, PV c/u 74) [sorpresa]
+- d59 06:32 | L-038 | VICTORIA en 5 rondas (PV 300→226/300)
+- d59 06:32 | L-038 | MISIÓN COMPLETADA QA-051-1 «Puesto del orden» +102 XP
+- d59 08:30 | Q-031 | MISIÓN ACEPTADA QA-054-1 «Mercancía para la creatividad» (secundaria)
+- d59 08:57 | Z-047 | LLEGA por primera vez a Carpintería de ribera de Barrio de las Velas [segura]
+- d59 08:59 | Z-047 | REGISTRA C-0218 (cofre): ['venda_reforzada', 'venda', 'lata', 'cuñas6']
+- d59 09:01 | Z-047 | REGISTRA C-0219 (cofre): ['piezas', 'herramientas', 'agua', 'obj_46', 'cuñas36']
+- d59 09:29 | Q-031 | MISIÓN COMPLETADA QA-054-1 «Mercancía para la creatividad» +102 XP
+- d59 09:51 | Q-023 | MISIÓN ACEPTADA QA-063-2 «Entrar por la ventana» (secundaria)
+- d59 10:59 | Q-023 | MISIÓN COMPLETADA QA-063-2 «Entrar por la ventana» +102 XP
+- d59 11:34 | Q-036 | MISIÓN ACEPTADA QA-069-1 «Qué pasó en el taller» (secundaria)
+- d59 12:22 | Q-036 | MISIÓN COMPLETADA QA-069-1 «Qué pasó en el taller» +102 XP
+- d59 12:30 | Q-035 | MISIÓN ACEPTADA QA-073-2 «Rutas nuevas» (secundaria)
+- d59 12:40 | Q-035 | MISIÓN COMPLETADA QA-073-2 «Rutas nuevas» +102 XP
+- d59 12:56 | Q-038 | MISIÓN ACEPTADA QA-076-2 «Noche de guardia» (secundaria)
+- d59 15:09 | L-038 | COMBATE vs 3× Rata quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d59 16:36 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo ninguno
+- d60 02:29 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d60 02:37 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d60 15:01 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d60 15:13 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d61 03:21 | L-038 | COMBATE vs 4× Perro callejero erguido (nv28, var V1, PV c/u 81) 
+- d61 03:25 | L-038 | VICTORIA en 4 rondas (PV 300→261/300)
+- d61 05:11 | Q-038 | MISIÓN COMPLETADA QA-076-2 «Noche de guardia» +102 XP
+- d61 05:16 | Q-038 | MISIÓN ACEPTADA QA-076-3 «Ronda por el puente» (secundaria)
+- d61 08:05 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d61 09:31 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo ninguno
+- d61 18:59 | L-038 | COMBATE vs 6× Perro callejero (nv28, var V1, PV c/u 74) 
+- d61 19:05 | L-038 | VICTORIA en 6 rondas (PV 300→245/300)
+- d61 19:05 | L-038 | MISIÓN COMPLETADA QA-076-3 «Ronda por el puente» +102 XP
+- d61 21:29 | Q-038 | MISIÓN ACEPTADA QA-076-4 «Qué pasó en el viejo túnel» (secundaria)
+- d61 22:03 | Q-038 | MISIÓN COMPLETADA QA-076-4 «Qué pasó en el viejo túnel» +102 XP
+- d61 22:08 | Q-038 | MISIÓN ACEPTADA QA-076-5 «El camino seguro» (secundaria)
+- d62 00:42 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d62 00:51 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d62 00:51 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d62 11:55 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d62 12:03 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d62 12:03 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d62 22:38 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d62 22:50 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d63 09:18 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d63 10:17 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d63 10:22 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d63 22:07 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d63 22:11 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d64 09:29 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d64 09:38 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d64 09:38 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d64 18:11 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d64 18:48 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d64 18:59 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d65 06:00 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d65 06:12 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d65 06:12 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d65 17:01 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d65 17:06 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d65 17:06 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d66 04:01 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d66 04:10 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d66 04:10 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d66 12:56 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d66 13:37 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d66 13:54 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d66 13:54 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d67 00:05 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d67 00:31 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d67 10:34 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d67 10:54 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d67 11:00 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d67 21:38 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d67 21:58 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d67 22:04 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d67 22:04 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d68 09:09 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d68 09:17 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d68 09:17 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d68 17:49 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d68 18:36 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d68 18:43 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d68 18:43 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d69 05:13 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d69 05:30 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d69 17:43 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d69 18:00 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d69 18:00 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d70 02:59 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)

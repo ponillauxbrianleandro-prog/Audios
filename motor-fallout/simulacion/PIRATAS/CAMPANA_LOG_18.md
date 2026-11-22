@@ -1,0 +1,131 @@
+<!-- CAMPAÑA parte 18/21 -->
+# Registro de la campaña (simulación), parte 18
+
+- d191 00:50 | Q-012 | MISIÓN ACEPTADA QN-014-3 «Negocio en el taller» (secundaria)
+- d191 01:28 | L-018 | REGISTRA C-0116 (heladera): ['venda_reforzada', 'obj_130']
+- d191 01:30 | L-018 | REGISTRA C-0117 (heladera): ['ganzua', 'herramientas', 'obj_193', 'obj_262']
+- d191 02:35 | Q-012 | MISIÓN COMPLETADA QN-014-3 «Negocio en el taller» +130 XP
+- d191 02:40 | Q-012 | MISIÓN ACEPTADA QN-048-1 «La balanza de la bravuconería» (secundaria)
+- d191 02:45 | Q-012 | ELIGE BANDO en QN-048-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d191 04:01 | L-019 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 331) [sorpresa]
+- d191 04:36 | L-019 | VICTORIA en 35 rondas (PV 300→99/300)
+- d191 04:42 | L-019 | COMBATE vs 4× Saqueador (nv28, var V1, PV c/u 296) [sorpresa]
+- d191 04:45 | L-019 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d191 05:07 | L-024 | COMBATE vs 4× Termita mutante quimera (mitad humano) (nv28, var V2, PV c/u 310) 
+- d191 05:50 | L-025 | DERROTADO en Madriguera de la Reina del Fango: arrastre a Torre de Vigía de Juncos (40 min), robo ninguno
+- d191 07:06 | L-019 | MISIÓN COMPLETADA QN-048-1 «La balanza de la bravuconería» +130 XP
+- d191 07:06 | L-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d191 07:23 | Q-003 | MISIÓN ACEPTADA MS-02 «Los de las jaulas» (secundaria)
+- d191 08:18 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d191 09:20 | L-001 | DERROTADO en Isla de la Calavera: arrastre a Barco Insignia La Estrella Fugaz (60 min), robo ninguno
+- d191 18:19 | L-004 | LLEGA por primera vez a Isla de la Calavera [hostil]
+- d191 18:19 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d191 19:27 | L-001 | DERROTADO en Isla de la Calavera: arrastre a Barco Insignia La Estrella Fugaz (60 min), robo ninguno
+- d192 05:14 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V1, PV c/u 592) 
+- d192 05:33 | L-004 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d192 16:33 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d192 16:40 | L-004 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d193 03:47 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d193 03:58 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d193 14:52 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d193 14:58 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d194 01:41 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d194 01:50 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d194 18:12 | L-054 | COMBATE vs 2× Saqueador (nv30, var V2, PV c/u 654) [sorpresa]
+- d194 18:20 | L-054 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d195 10:45 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) 
+- d195 10:55 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d195 22:08 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d195 22:14 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d196 08:55 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d196 09:00 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d196 19:18 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) 
+- d196 19:23 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d197 06:08 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d197 06:17 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d197 16:38 | L-004 | COMBATE vs 3× Carabela (medusa velero) humanoide (nv28, var V2, PV c/u 248) 
+- d197 16:45 | L-004 | VICTORIA en 7 rondas (PV 300→157/300)
+- d197 17:48 | Q-003 | MISIÓN COMPLETADA MS-02 «Los de las jaulas» +144 XP
+- d197 22:45 | Q-001 | MISIÓN ACEPTADA MS-16 «Una voz sin cuerpo» (secundaria)
+- d198 00:10 | L-005 | COMBATE vs 2× Pulpo colosal (nv12, var V1, PV c/u 336) [sorpresa]
+- d198 00:16 | L-005 | VICTORIA en 6 rondas (PV 300→267/300)
+- d198 00:16 | L-005 | LLEGA por primera vez a Bahía de la Tormenta [normal]
+- d198 00:50 | L-006 | COMBATE vs 5× Hidra pequeña erguido (nv13, var V1, PV c/u 48) 
+- d198 00:54 | L-006 | VICTORIA en 4 rondas (PV 270→255/300)
+- d198 00:54 | L-006 | LLEGA por primera vez a Barco Hundido [normal]
+- d198 01:00 | L-006 | HACKEO de terminal en Barco Hundido ÉXITO (91%)
+- d198 01:00 | L-006 | MISIÓN COMPLETADA MS-16 «Una voz sin cuerpo» +144 XP
+- d198 01:02 | L-006 | REGISTRA C-0031 (baúl): ['recurso_bio', 'agua', 'cuerda', 'cuñas39']
+- d198 01:04 | L-006 | REGISTRA C-0032 (caja): ['circuito', 'agua', 'obj_111']
+- d198 01:11 | L-006 | REGISTRA C-0033 (estantería): ['ganzua', 'cuerda', 'obj_35', 'cuñas16']
+- d198 01:27 | L-006 | REGISTRA C-0034 (ropero): ['lata', 'venda_reforzada']
+- d198 04:06 | L-004 | COMBATE vs 6× Sepia (nv28, var V2, PV c/u 103) 
+- d198 04:14 | L-004 | VICTORIA en 8 rondas (PV 274→190/300)
+- d198 04:49 | Q-001 | MISIÓN ACEPTADA MS-23 «El taller del inventor» (secundaria)
+- d198 09:11 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d198 10:30 | Q-001 | FABRICA artefacto (86≤100)
+- d198 10:35 | Q-001 | MISIÓN COMPLETADA MS-23 «El taller del inventor» +144 XP
+- d198 10:35 | Q-001 | compra Sable del Capitán (tier 5)
+- d198 10:35 | Q-001 | compra Armadura ligera de explorador (tier 4)
+- d198 10:37 | Q-001 | REGISTRA C-0001 (alacena): ['venda_reforzada', 'herramientas', 'lata', 'obj_8', 'obj_204', 'obj_227', 'obj_231']
+- d198 12:14 | Q-004 | MISIÓN ACEPTADA MS-30 «El campamento sin agua» (secundaria)
+- d198 12:37 | Z-002 | LLEGA por primera vez a Taller de nudos de Puerto de las Gaviotas [segura]
+- d198 12:47 | Z-002 | REGISTRA C-0007 (caja): ['dulce', 'lata', 'cuerda', 'obj_186', 'obj_216', 'obj_268']
+- d198 12:47 | Z-002 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d198 13:47 | L-052 | COMBATE vs 3× Escarabajo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d198 15:11 | L-014 | DERROTADO en Templo Hundido: arrastre a Embarcadero del Norte (60 min), robo ninguno
+- d198 23:19 | L-014 | REGISTRA C-0072 (ropero): ['piezas', 'lata', 'ganzua', 'obj_1']
+- d198 23:27 | L-014 | REGISTRA C-0073 (alacena): ['circuito', 'ganzua']
+- d199 02:45 | L-052 | LLEGA por primera vez a Templo Hundido [hostil]
+- d199 03:40 | L-049 | MISIÓN COMPLETADA MS-30 «El campamento sin agua» +144 XP
+- d199 03:48 | L-049 | REGISTRA C-0364 (caja): ['circuito', 'recurso_bio']
+- d199 04:00 | L-049 | REGISTRA C-0365 (heladera): ['chatarra', 'dulce', 'cuerda']
+- d199 04:02 | L-049 | REGISTRA C-0366 (barril): ['kit_reparacion', 'dulce', 'obj_223']
+- d199 04:04 | L-049 | REGISTRA C-0367 (cofre): ['circuito', 'obj_107']
+- d199 06:16 | L-051 | COMBATE vs 4× Avispón gigante erguido (nv25, var V3, PV c/u 284) [sorpresa]
+- d199 06:24 | L-051 | VICTORIA en 8 rondas (PV 300→195/300)
+- d199 11:06 | Q-001 | MISIÓN ACEPTADA MS-44 «El inventario del almacén» (secundaria)
+- d199 11:19 | Z-001 | LLEGA por primera vez a Tienda de mapas de Puerto de las Gaviotas [segura]
+- d199 11:25 | Z-001 | REGISTRA C-0005 (cofre): ['lata', 'kit_reparacion', 'piezas', 'obj_78', 'obj_110', 'obj_113', 'obj_147', 'obj_274', 'cuñas39']
+- d199 11:32 | Q-001 | MISIÓN COMPLETADA MS-44 «El inventario del almacén» +144 XP
+- d199 11:41 | Q-002 | MISIÓN ACEPTADA QA-013-1 «A quién creerle» (secundaria)
+- d199 11:46 | Q-002 | ELIGE BANDO en QA-013-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d199 12:44 | L-004 | COMBATE vs 4× Calamar gigante humanoide (nv28, var V1, PV c/u 355) 
+- d199 13:02 | L-004 | VICTORIA en 18 rondas (PV 229→96/300)
+- d199 13:10 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d199 13:19 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d199 23:37 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d199 23:47 | L-004 | VICTORIA en 10 rondas (PV 300→190/300)
+- d199 23:47 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d199 23:51 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d200 11:15 | L-004 | MISIÓN COMPLETADA QA-013-1 «A quién creerle» +144 XP
+- d200 11:15 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d200 11:23 | L-004 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d200 11:25 | L-004 | REGISTRA C-0026 (heladera): ['medicina', 'obj_242']
+- d200 11:28 | L-004 | REGISTRA C-0027 (caja): ['medicina', 'chatarra']
+- d200 11:29 | L-004 | COMBATE vs 2× Pulpo colosal (nv28, var V1, PV c/u 592) [sorpresa]
+- d200 11:34 | L-004 | VICTORIA en 5 rondas (PV 172→123/300)
+- d200 11:42 | L-004 | REGISTRA C-0028 (alacena): ['chatarra', 'obj_217']
+- d200 13:58 | Q-004 | MISIÓN ACEPTADA QA-019-1 «Pedido especial» (secundaria)
+- d200 14:20 | Q-004 | MISIÓN COMPLETADA QA-019-1 «Pedido especial» +144 XP
+- d200 20:29 | Q-004 | MISIÓN ACEPTADA QA-019-4 «Carga hasta el puente» (secundaria)
+- d200 22:32 | L-009 | LLEGA por primera vez a Gruta del Gran Pulpo [hostil]
+- d200 22:32 | L-009 | COMBATE vs 5× Pepino de mar (nv28, var V1, PV c/u 74) [sorpresa]
+- d200 22:35 | L-009 | VICTORIA en 3 rondas (PV 300→295/300)
+- d200 22:37 | L-009 | REGISTRA C-0041 (cofre): ['herramientas', 'lata', 'venda_reforzada']
+- d200 22:39 | L-009 | REGISTRA C-0042 (heladera): ['piezas', 'agua', 'cuñas9']
+- d200 22:48 | L-009 | REGISTRA C-0043 (cajón): ['cuerda', 'venda', 'obj_9', 'obj_30', 'cuñas20']
+- d200 22:48 | L-009 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d200 22:48 | L-026 | COMBATE vs 2× Persona con rasgos de Hormiga mutante (nv2, var V3, PV c/u 183) [emboscada enemiga]
+- d200 22:51 | L-026 | VICTORIA en 3 rondas (PV 295→295/300)
+- d201 00:01 | Q-028 | MISIÓN COMPLETADA QA-019-4 «Carga hasta el puente» +144 XP
+- d201 03:44 | Q-012 | MISIÓN ACEPTADA QA-039-1 «Fiesta del camino» (secundaria)
+- d201 07:06 | Q-012 | MISIÓN COMPLETADA QA-039-1 «Fiesta del camino» +144 XP
+- d201 07:11 | Q-012 | MISIÓN ACEPTADA QA-056-3 «Pruebas del mercado» (secundaria)
+- d201 07:24 | Q-011 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d201 07:24 | L-026 | COMBATE vs 3× Avispón gigante (nv2, var V1, PV c/u 44) [emboscada enemiga]
+- d201 07:26 | L-026 | VICTORIA en 2 rondas (PV 300→300/300)
+- d201 09:32 | Q-043 | MISIÓN COMPLETADA QA-056-3 «Pruebas del mercado» +144 XP
+- d201 09:34 | Q-043 | REGISTRA C-0380 (barril): ['piezas', 'herramientas', 'obj_68', 'obj_174']
+- d201 15:41 | Q-014 | MISIÓN ACEPTADA QA-133-1 «Entrega pesada» (secundaria)
+- d201 17:51 | L-019 | COMBATE vs 5× Cucaracha mutante (nv28, var V2, PV c/u 103) 

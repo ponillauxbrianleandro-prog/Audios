@@ -1,0 +1,141 @@
+<!-- CAMPAÑA parte 5/21 -->
+# Registro de la campaña (simulación), parte 5
+
+- d21 13:17 | Q-008 | REGISTRA C-0080 (mochila): ['venda_reforzada', 'obj_53']
+- d21 15:31 | Q-025 | MISIÓN ACEPTADA QN-008-2 «Camino largo» (secundaria)
+- d21 16:38 | L-037 | MISIÓN COMPLETADA QN-008-2 «Camino largo» +74 XP
+- d21 16:40 | L-037 | REGISTRA C-0318 (cajón): ['venda', 'dulce', 'ganzua']
+- d21 16:42 | L-037 | REGISTRA C-0319 (ropero): ['dulce', 'medicina', 'cuñas12']
+- d21 16:44 | L-037 | REGISTRA C-0320 (caja): ['chatarra', 'kit_reparacion', 'ganzua']
+- d21 18:46 | Q-025 | MISIÓN ACEPTADA QN-008-4 «Provisión del pozo» (secundaria)
+- d21 22:35 | Q-025 | MISIÓN COMPLETADA QN-008-4 «Provisión del pozo» +74 XP
+- d21 23:20 | Q-035 | MISIÓN ACEPTADA QN-009-1 «Pistas de la esperanza» (secundaria)
+- d21 23:50 | Z-065 | REGISTRA C-0264 (cajón): ['venda_reforzada', 'chatarra', 'obj_182']
+- d22 00:20 | Q-035 | MISIÓN COMPLETADA QN-009-1 «Pistas de la esperanza» +74 XP
+- d22 00:36 | Q-037 | MISIÓN ACEPTADA QN-011-3 «Mediación» (secundaria)
+- d22 05:03 | Q-037 | MISIÓN COMPLETADA QN-011-3 «Mediación» +74 XP
+- d22 05:50 | Q-016 | MISIÓN ACEPTADA QN-012-3 «¿quién fue?» (secundaria)
+- d22 07:45 | L-039 | COMBATE vs 3× Slime verde (nv13, var V2, PV c/u 61) 
+- d22 07:48 | L-039 | VICTORIA en 3 rondas (PV 265→227/265)
+- d22 07:48 | L-039 | LLEGA por primera vez a Jardín de las Estatuas [normal]
+- d22 07:50 | L-039 | REGISTRA C-0323 (alacena): ['chatarra', 'dulce', 'herramientas', 'obj_190']
+- d22 10:35 | Q-029 | MISIÓN COMPLETADA QN-012-3 «¿quién fue?» +74 XP
+- d22 10:48 | Q-035 | MISIÓN ACEPTADA QN-017-1 «Mapa del camino» (secundaria)
+- d22 10:58 | Q-035 | MISIÓN COMPLETADA QN-017-1 «Mapa del camino» +74 XP
+- d22 11:03 | Q-035 | MISIÓN ACEPTADA QN-017-2 «Cartas sin dueño» (secundaria)
+- d22 13:55 | Q-035 | MISIÓN COMPLETADA QN-017-2 «Cartas sin dueño» +74 XP
+- d22 14:00 | Q-035 | MISIÓN ACEPTADA QN-017-3 «Faltan recursos» (secundaria)
+- d22 18:04 | Q-035 | MISIÓN COMPLETADA QN-017-3 «Faltan recursos» +74 XP
+- d22 18:09 | Q-035 | MISIÓN ACEPTADA QN-031-1 «Día de feria» (secundaria)
+- d22 18:21 | Z-084 | LLEGA por primera vez a Biblioteca de bitácoras de Plaza del Reloj [segura]
+- d22 18:23 | Z-084 | REGISTRA C-0310 (ropero): ['piezas', 'cuerda']
+- d22 18:25 | Z-084 | REGISTRA C-0311 (cofre): ['ganzua', 'circuito']
+- d22 18:36 | Z-084 | REGISTRA C-0312 (mochila): ['venda', 'venda_reforzada', 'obj_205']
+- d22 18:45 | Q-035 | MISIÓN COMPLETADA QN-031-1 «Día de feria» +74 XP
+- d22 19:30 | Q-020 | MISIÓN ACEPTADA QN-040-1 «Cuando no alcanza la lealtad» (secundaria)
+- d22 21:05 | L-038 | COMBATE vs 6× Slime verde (nv21, var V1, PV c/u 60) 
+- d22 21:12 | L-038 | VICTORIA en 7 rondas (PV 263→184/265)
+- d22 21:14 | L-038 | COMBATE vs 6× Termita mutante (nv21, var V2, PV c/u 84) 
+- d22 21:24 | L-038 | VICTORIA en 10 rondas (PV 204→82/265)
+- d22 21:24 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d23 10:04 | Q-020 | SUBE A NIVEL 24 (PV máx 270, daño nominal 39)
+- d23 10:04 | Q-020 | MISIÓN COMPLETADA QN-040-1 «Cuando no alcanza la lealtad» +74 XP
+- d23 10:46 | Q-038 | MISIÓN ACEPTADA QN-042-1 «El concurso de la esperanza» (secundaria)
+- d23 11:49 | Z-026 | LLEGA por primera vez a Cabaña de pescadores de Puerto Viejo [segura]
+- d23 11:59 | Z-026 | REGISTRA C-0174 (heladera): ['circuito', 'ganzua', 'obj_20', 'obj_209']
+- d23 12:55 | Q-038 | MISIÓN COMPLETADA QN-042-1 «El concurso de la esperanza» +74 XP
+- d23 13:02 | Q-038 | REGISTRA C-0302 (escritorio): ['medicina', 'lata', 'venda_reforzada', 'obj_11', 'cuñas22']
+- d23 14:43 | Q-020 | MISIÓN ACEPTADA QN-043-1 «Confianza en el puesto» (secundaria)
+- d23 17:27 | Q-020 | MISIÓN COMPLETADA QN-043-1 «Confianza en el puesto» +74 XP
+- d23 17:32 | Q-020 | MISIÓN ACEPTADA QN-043-2 «El camino de vuelta» (secundaria)
+- d23 20:33 | L-038 | COMBATE vs 3× Cucaracha mutante humanoide (nv22, var V1, PV c/u 148) [sorpresa]
+- d23 20:41 | L-038 | VICTORIA en 8 rondas (PV 270→151/270)
+- d23 22:47 | Q-020 | MISIÓN COMPLETADA QN-043-2 «El camino de vuelta» +74 XP
+- d24 03:08 | Q-025 | MISIÓN ACEPTADA QN-044-1 «Una mano para el taller» (secundaria)
+- d24 04:49 | L-035 | FABRICA artefacto (36≤94)
+- d24 05:42 | Q-025 | MISIÓN COMPLETADA QN-044-1 «Una mano para el taller» +74 XP
+- d24 05:47 | Q-025 | MISIÓN ACEPTADA QN-044-2 «Reparación en el bosque» (secundaria)
+- d24 07:11 | L-035 | FABRICA artefacto (91≤94)
+- d24 08:30 | Q-025 | MISIÓN COMPLETADA QN-044-2 «Reparación en el bosque» +74 XP
+- d24 09:15 | Q-039 | MISIÓN ACEPTADA QN-045-3 «Un mensaje para el orgullo» (secundaria)
+- d24 09:38 | Q-039 | MISIÓN COMPLETADA QN-045-3 «Un mensaje para el orgullo» +74 XP
+- d24 10:00 | Q-029 | MISIÓN ACEPTADA QN-047-1 «Tinta y senderos» (secundaria)
+- d24 10:10 | Q-029 | MISIÓN COMPLETADA QN-047-1 «Tinta y senderos» +74 XP
+- d24 10:38 | Q-037 | MISIÓN ACEPTADA QN-052-1 «Rastro de la carta» (secundaria)
+- d24 11:15 | Q-037 | MISIÓN COMPLETADA QN-052-1 «Rastro de la carta» +74 XP
+- d24 11:54 | Q-022 | MISIÓN ACEPTADA QN-053-2 «Aprender con la curiosidad» (secundaria)
+- d24 12:21 | Z-061 | LLEGA por primera vez a Casa del farero de Barrio de los Astilleros [segura]
+- d24 12:30 | Z-061 | REGISTRA C-0254 (barril): ['dulce']
+- d24 12:36 | Z-061 | REGISTRA C-0255 (escritorio): ['cuerda', 'venda', 'obj_152', 'obj_221', 'cuñas5']
+- d24 13:04 | Q-022 | MISIÓN COMPLETADA QN-053-2 «Aprender con la curiosidad» +74 XP
+- d24 13:49 | Q-032 | MISIÓN ACEPTADA QN-056-1 «Respirar de nuevo» (secundaria)
+- d24 18:48 | Q-032 | MISIÓN COMPLETADA QN-056-1 «Respirar de nuevo» +74 XP
+- d24 18:59 | Q-037 | MISIÓN ACEPTADA QN-058-2 «Todo lo que se junta» (secundaria)
+- d25 00:21 | Q-037 | MISIÓN COMPLETADA QN-058-2 «Todo lo que se junta» +74 XP
+- d25 00:26 | Q-037 | MISIÓN ACEPTADA QN-058-3 «Palabras en el bosque» (secundaria)
+- d25 04:51 | L-011 | COMBATE vs 3× Libélula mutante (nv13, var V1, PV c/u 44) [sorpresa]
+- d25 04:53 | L-011 | VICTORIA en 2 rondas (PV 270→258/270)
+- d25 07:57 | Q-037 | MISIÓN COMPLETADA QN-058-3 «Palabras en el bosque» +74 XP
+- d25 08:19 | Q-030 | MISIÓN ACEPTADA QN-075-1 «Faltan recursos» (secundaria)
+- d25 10:09 | L-038 | COMBATE vs 6× Rata (nv22, var V2, PV c/u 86) [sorpresa]
+- d25 10:15 | L-038 | VICTORIA en 6 rondas (PV 270→233/270)
+- d25 12:35 | Q-030 | MISIÓN COMPLETADA QN-075-1 «Faltan recursos» +74 XP
+- d25 12:40 | Q-030 | MISIÓN ACEPTADA QN-075-2 «Paz para el pozo» (secundaria)
+- d25 14:40 | L-038 | COMBATE vs 4× Cucaracha mutante (nv22, var V2, PV c/u 86) 
+- d25 14:46 | L-038 | VICTORIA en 6 rondas (PV 246→169/270)
+- d25 15:59 | L-038 | COMBATE vs 5× Slime verde (nv22, var V1, PV c/u 62) [sorpresa]
+- d25 16:06 | L-038 | VICTORIA en 7 rondas (PV 205→104/270)
+- d26 05:52 | Q-030 | MISIÓN COMPLETADA QN-075-2 «Paz para el pozo» +74 XP
+- d26 06:04 | Q-029 | MISIÓN ACEPTADA QN-082-4 «Caso sin cerrar» (secundaria)
+- d26 06:15 | Z-061 | REGISTRA C-0256 (ropero): ['circuito', 'obj_245']
+- d26 06:39 | Q-037 | MISIÓN COMPLETADA QN-082-4 «Caso sin cerrar» +74 XP
+- d26 07:04 | Q-029 | MISIÓN ACEPTADA QN-082-5 «En busca del mapa» (secundaria)
+- d26 07:52 | Q-029 | MISIÓN COMPLETADA QN-082-5 «En busca del mapa» +74 XP
+- d26 08:21 | Q-037 | MISIÓN ACEPTADA QN-083-1 «Premio inesperado» (secundaria)
+- d26 08:43 | Z-074 | LLEGA por primera vez a Casa del farero de Barrio del Río [segura]
+- d26 08:45 | Z-074 | REGISTRA C-0287 (cajón): ['venda', 'venda_reforzada', 'kit_reparacion', 'obj_247']
+- d26 09:05 | Q-037 | MISIÓN COMPLETADA QN-083-1 «Premio inesperado» +74 XP
+- d26 09:38 | Q-023 | MISIÓN ACEPTADA QN-089-1 «A quién creerle» (secundaria)
+- d26 09:43 | Q-023 | ELIGE BANDO en QN-089-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d26 10:47 | L-038 | COMBATE vs 2× Saqueador (nv22, var V2, PV c/u 416) 
+- d26 11:03 | L-038 | VICTORIA en 16 rondas (PV 270→105/270)
+- d26 11:03 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d26 19:47 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d26 20:27 | L-038 | MISIÓN COMPLETADA QN-089-1 «A quién creerle» +74 XP
+- d26 22:15 | Q-023 | MISIÓN ACEPTADA QN-089-4 «Palabras en el muelle» (secundaria)
+- d26 22:53 | Q-023 | MISIÓN COMPLETADA QN-089-4 «Palabras en el muelle» +74 XP
+- d26 22:58 | Q-023 | MISIÓN ACEPTADA QN-089-5 «Premio inesperado» (secundaria)
+- d26 23:30 | Z-063 | LLEGA por primera vez a Biblioteca de bitácoras de Barrio de los Astilleros [segura]
+- d26 23:42 | Z-063 | REGISTRA C-0259 (mochila): ['cuerda', 'obj_137', 'obj_188', 'obj_220', 'obj_253']
+- d27 00:07 | Q-023 | MISIÓN COMPLETADA QN-089-5 «Premio inesperado» +74 XP
+- d27 01:28 | L-027 | MISIÓN ACEPTADA MS-36 «El duelo de cazadores» (secundaria)
+- d27 01:35 | L-027 | REGISTRA C-0141 (escritorio): ['recurso_bio', 'kit_reparacion', 'obj_77', 'cuñas25']
+- d27 01:45 | L-027 | REGISTRA C-0142 (baúl): ['lata', 'agua', 'venda']
+- d27 01:53 | L-027 | REGISTRA C-0143 (alacena): ['cuerda', 'herramientas', 'medicina', 'obj_269']
+- d27 01:58 | L-027 | MISIÓN COMPLETADA MS-36 «El duelo de cazadores» +88 XP
+- d27 02:00 | L-027 | REGISTRA C-0144 (ropero): ['herramientas', 'medicina', 'venda']
+- d27 04:05 | Q-016 | MISIÓN ACEPTADA QA-018-1 «Lo que se llevó la curiosidad» (secundaria)
+- d27 05:31 | Q-016 | MISIÓN COMPLETADA QA-018-1 «Lo que se llevó la curiosidad» +88 XP
+- d27 05:36 | Q-016 | MISIÓN ACEPTADA QA-018-2 «Negocio en el refugio» (secundaria)
+- d27 07:07 | Q-016 | MISIÓN COMPLETADA QA-018-2 «Negocio en el refugio» +88 XP
+- d27 07:37 | Q-029 | MISIÓN ACEPTADA QA-020-1 «Manos que sanan» (secundaria)
+- d27 11:56 | Q-029 | MISIÓN COMPLETADA QA-020-1 «Manos que sanan» +88 XP
+- d27 12:01 | Q-029 | MISIÓN ACEPTADA QA-021-2 «Compañía para el miedo» (secundaria)
+- d27 13:45 | L-038 | COMBATE vs 5× Perro callejero erguido (nv22, var V1, PV c/u 68) 
+- d27 13:49 | L-038 | VICTORIA en 4 rondas (PV 270→256/270)
+- d27 13:49 | L-038 | MISIÓN COMPLETADA QA-021-2 «Compañía para el miedo» +88 XP
+- d27 15:29 | Q-032 | MISIÓN ACEPTADA QA-022-1 «El invento de la creatividad» (secundaria)
+- d27 17:33 | L-035 | FABRICA artefacto (68≤94)
+- d27 19:10 | Q-032 | MISIÓN COMPLETADA QA-022-1 «El invento de la creatividad» +88 XP
+- d27 19:37 | Q-024 | MISIÓN ACEPTADA QA-027-2 «Un buen trato» (secundaria)
+- d27 20:05 | Z-053 | LLEGA por primera vez a Enfermería de Barrio Alto [segura]
+- d27 20:12 | Z-053 | REGISTRA C-0236 (barril): ['venda', 'obj_16', 'obj_24']
+- d27 20:32 | Q-024 | MISIÓN COMPLETADA QA-027-2 «Un buen trato» +88 XP
+- d27 20:44 | Q-025 | MISIÓN ACEPTADA QA-029-1 «Negocio en el bosque» (secundaria)
+- d27 21:15 | Z-071 | REGISTRA C-0280 (barril): ['kit_reparacion', 'ganzua', 'medicina', 'obj_18']
+- d27 21:50 | Q-025 | MISIÓN COMPLETADA QA-029-1 «Negocio en el bosque» +88 XP
+- d27 21:55 | Q-025 | MISIÓN ACEPTADA QA-029-2 «Volver a casa» (secundaria)
+- d28 00:24 | L-038 | COMBATE vs 3× Slime verde quimera (mitad humano) (nv22, var V1, PV c/u 186) [sorpresa]
+- d28 00:31 | L-038 | VICTORIA en 7 rondas (PV 270→215/270)
+- d28 01:50 | Q-025 | MISIÓN COMPLETADA QA-029-2 «Volver a casa» +88 XP
+- d28 02:08 | Q-018 | MISIÓN ACEPTADA QA-036-3 «Todo lo que se junta» (secundaria)

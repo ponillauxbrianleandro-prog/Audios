@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 24/34 -->
+<!-- BESTIARIO GENERADO parte 24/35 -->
 - U-17.F13 | Comerciante | T3 | s0 | n=1 | Común@1
 - U-17.F14 | Comerciante purista | T3 | s0 | n=1 | Común@1
 - U-18.F13 | Mensajero | T3 | s0 | n=2 | Común@1 · Veterano@7

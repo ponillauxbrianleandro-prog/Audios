@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 14/34 -->
+<!-- BESTIARIO GENERADO parte 14/35 -->
 - M-09.F8 | Persona-Carabela (medusa velero) (se considera Carabela (medusa velero)) | T3 | s3 | n=1 | Común@6
 - M-09.F9 | Furry de Carabela (medusa velero) | T3 | s3 | n=1 | Común@6
 - M-09.F10 | Persona con accesorios de Carabela (medusa velero) | T3 | s3 | n=1 | Común@6

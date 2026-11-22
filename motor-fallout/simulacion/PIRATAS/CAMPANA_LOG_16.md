@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 16/21 -->
+# Registro de la campaña (simulación), parte 16
+
+- d171 11:57 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d171 11:57 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d171 20:20 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d171 21:07 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d171 21:18 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d171 21:18 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d172 07:34 | L-038 | COMBATE vs 5× Cucaracha mutante (nv28, var V2, PV c/u 103) 
+- d172 07:41 | L-038 | VICTORIA en 7 rondas (PV 300→182/300)
+- d172 09:57 | Q-029 | MISIÓN COMPLETADA QN-082-2 «La muralla de la protección» +102 XP
+- d172 13:58 | Z-059 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d172 13:58 | L-026 | COMBATE vs 2× Antílope quimera (mitad humano) (nv2, var V2, PV c/u 184) [emboscada enemiga]
+- d172 14:03 | L-026 | VICTORIA en 5 rondas (PV 300→241/300)
+- d172 15:08 | L-032 | COMBATE vs 4× Conejo quimera (mitad humano) (nv8, var V3, PV c/u 193) 
+- d172 15:17 | L-032 | VICTORIA en 9 rondas (PV 246→141/300)
+- d172 16:49 | Q-012 | MISIÓN ACEPTADA MS-10 «El pozo envenenado» (secundaria)
+- d172 18:10 | L-019 | COMBATE vs 6× Babosa marina (nv13, var V2, PV c/u 61) 
+- d172 18:17 | L-019 | VICTORIA en 7 rondas (PV 154→118/300)
+- d172 18:25 | L-019 | REGISTRA C-0118 (heladera): ['venda', 'agua', 'piezas', 'cuñas11']
+- d172 18:27 | L-019 | REGISTRA C-0119 (caja): ['venda_reforzada', 'obj_93', 'obj_214']
+- d172 18:29 | L-019 | REGISTRA C-0120 (cajón): ['lata', 'ganzua', 'medicina', 'obj_22', 'obj_257']
+- d172 19:46 | Q-012 | MISIÓN COMPLETADA MS-10 «El pozo envenenado» +116 XP
+- d172 19:57 | Z-019 | LLEGA por primera vez a Enfermería de Palafitos de la Gente del Pantano [segura]
+- d173 00:03 | Z-019 | REGISTRA C-0103 (ropero): ['dulce']
+- d173 00:05 | Z-019 | REGISTRA C-0104 (caja): ['agua', 'kit_reparacion']
+- d173 00:07 | Z-019 | REGISTRA C-0105 (mostrador): ['lata', 'obj_96']
+- d173 05:26 | L-029 | MISIÓN ACEPTADA MS-15 «El fantasma del edificio» (secundaria)
+- d173 07:25 | L-030 | COMBATE vs 4× Abeja mutante (nv6, var V1, PV c/u 30) [sorpresa]
+- d173 07:27 | L-030 | VICTORIA en 2 rondas (PV 300→287/300)
+- d173 07:27 | L-030 | COMBATE vs 2× Mantis mutante (nv6, var V1, PV c/u 30) [sorpresa]
+- d173 07:29 | L-030 | VICTORIA en 2 rondas (PV 287→287/300)
+- d173 07:29 | L-030 | COMBATE vs 5× Hormiga mutante (nv6, var V1, PV c/u 30) [sorpresa]
+- d173 07:32 | L-030 | VICTORIA en 3 rondas (PV 287→259/300)
+- d173 07:32 | L-030 | MISIÓN COMPLETADA MS-15 «El fantasma del edificio» +116 XP
+- d173 08:27 | L-029 | COMBATE vs 2× Jabalí erguido (nv5, var V3, PV c/u 234) [sorpresa]
+- d173 08:35 | L-029 | VICTORIA en 8 rondas (PV 265→205/300)
+- d173 08:40 | L-029 | MISIÓN ACEPTADA MS-22 «El vecino que no sale» (secundaria)
+- d173 11:22 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d173 12:11 | L-034 | DERROTADO en Selva Cerrada: arrastre a Campamento de los Recolectores (40 min), robo ninguno
+- d173 20:13 | L-034 | REGISTRA C-0164 (caja): ['venda_reforzada', 'obj_149']
+- d173 22:37 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d173 22:49 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d174 08:02 | L-033 | COMBATE vs 2× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d174 08:12 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d174 17:14 | L-033 | COMBATE vs 2× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d174 17:20 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d175 02:39 | L-033 | COMBATE vs 2× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d175 02:48 | L-033 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d175 11:50 | L-033 | COMBATE vs 4× Coyote (nv28, var V1, PV c/u 74) [sorpresa]
+- d175 11:54 | L-033 | VICTORIA en 4 rondas (PV 300→274/300)
+- d175 11:54 | L-033 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d175 11:54 | L-030 | COMBATE vs 3× Escarabajo rinoceronte erguido (nv6, var V1, PV c/u 66) [emboscada enemiga]
+- d175 11:57 | L-030 | VICTORIA en 3 rondas (PV 274→263/300)
+- d175 12:45 | L-029 | MISIÓN COMPLETADA MS-22 «El vecino que no sale» +116 XP
+- d175 12:47 | L-029 | REGISTRA C-0147 (cofre): ['dulce', 'medicina', 'lata', 'cuñas35']
+- d175 12:59 | L-029 | REGISTRA C-0148 (baúl): ['lata', 'cuñas38']
+- d175 13:01 | L-029 | REGISTRA C-0149 (estantería): ['circuito', 'venda']
+- d175 17:53 | Q-012 | MISIÓN ACEPTADA MS-24 «La torreta rebelde» (secundaria)
+- d175 19:06 | L-019 | COMBATE vs 4× Mosquito mutante (nv28, var V2, PV c/u 103) 
+- d175 19:11 | L-019 | VICTORIA en 5 rondas (PV 300→258/300)
+- d175 19:34 | L-019 | HACKEO de terminal en Islote de los Corsarios del Fango ÉXITO (91%)
+- d175 21:23 | Z-023 | LLEGA por primera vez a Cabaña de pescadores de Palafitos de la Gente del Pantano [segura]
+- d175 21:31 | Z-023 | REGISTRA C-0113 (barril): ['ganzua', 'circuito', 'obj_86', 'obj_87', 'obj_264']
+- d175 21:31 | Z-023 | MISIÓN COMPLETADA MS-24 «La torreta rebelde» +116 XP
+- d175 21:37 | Z-023 | REGISTRA C-0114 (alacena): ['piezas', 'venda_reforzada']
+- d175 21:42 | Z-023 | REGISTRA C-0115 (escritorio): ['recurso_bio', 'obj_139', 'cuñas7']
+- d175 23:04 | Q-012 | MISIÓN ACEPTADA MS-38 «El regalo imposible» (secundaria)
+- d175 23:25 | Q-013 | REGISTRA C-0098 (cofre): ['venda_reforzada', 'obj_27', 'obj_49', 'obj_271']
+- d175 23:36 | Q-012 | MISIÓN COMPLETADA MS-38 «El regalo imposible» +116 XP
+- d175 23:44 | Q-013 | MISIÓN ACEPTADA MS-45 «Fuego en el barrio» (secundaria)
+- d176 01:29 | L-019 | COMBATE vs 3× Babosa marina quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d176 01:37 | L-019 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d176 03:10 | L-032 | COMBATE vs 3× Hormiga gigante guerrera (nv8, var V1, PV c/u 68) 
+- d176 03:14 | L-032 | ESCAPÓ del combate (los enemigos quedan: 1 persistentes)
+- d176 04:38 | L-019 | COMBATE vs 5× Slime verde (nv28, var V2, PV c/u 103) 
+- d176 05:59 | L-031 | DERROTADO en Islote de los Corsarios del Fango: arrastre a Choza del Curandero (80 min), robo ninguno
+- d176 14:01 | L-031 | REGISTRA C-0155 (mochila): ['ganzua', 'cuñas29']
+- d176 15:21 | L-031 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d176 15:54 | L-019 | COMBATE vs 6× Babosa marina (nv28, var V1, PV c/u 74) 
+- d176 16:04 | L-019 | VICTORIA en 10 rondas (PV 300→123/300)
+- d176 17:36 | Q-013 | MISIÓN COMPLETADA MS-45 «Fuego en el barrio» +116 XP
+- d176 21:41 | Z-021 | REGISTRA C-0110 (alacena): ['herramientas']
+- d176 23:09 | Q-013 | MISIÓN ACEPTADA QA-024-1 «Rastro de la llave» (secundaria)
+- d176 23:30 | Q-013 | MISIÓN COMPLETADA QA-024-1 «Rastro de la llave» +116 XP
+- d177 01:05 | Q-012 | MISIÓN ACEPTADA QA-053-1 «Cartas sin dueño» (secundaria)
+- d177 01:10 | Q-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d177 05:31 | Q-012 | MISIÓN COMPLETADA QA-053-1 «Cartas sin dueño» +116 XP
+- d177 05:39 | Q-013 | MISIÓN ACEPTADA QA-132-1 «Una mano para el mercado» (secundaria)
+- d177 08:47 | L-026 | COMBATE vs 2× Hormiga gigante guerrera (nv2, var V1, PV c/u 44) 
+- d177 08:49 | L-026 | VICTORIA en 2 rondas (PV 300→300/300)
+- d177 10:29 | L-035 | FABRICA artefacto (57≤100)
+- d177 15:42 | Q-013 | MISIÓN COMPLETADA QA-132-1 «Una mano para el mercado» +116 XP
+- d177 15:54 | Q-014 | MISIÓN ACEPTADA QA-133-2 «Contra el veneno» (secundaria)
+- d177 17:27 | L-019 | COMBATE vs 3× Babosa marina quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d177 17:40 | L-019 | VICTORIA en 13 rondas (PV 300→104/300)
+- d177 20:10 | Q-014 | MISIÓN COMPLETADA QA-133-2 «Contra el veneno» +116 XP
+- d177 20:12 | Z-022 | LLEGA por primera vez a Fonda de Palafitos de la Gente del Pantano [segura]
+- d178 00:14 | Z-022 | REGISTRA C-0111 (cofre): ['venda', 'dulce']
+- d178 00:16 | Z-022 | REGISTRA C-0112 (estantería): ['agua', 'lata']
+- d178 02:10 | Q-011 | MISIÓN ACEPTADA QA-176-2 «Palabras en el muelle» (secundaria)
+- d178 02:15 | Q-011 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d178 05:03 | L-017 | COMBATE vs 6× Libélula mutante (nv28, var V1, PV c/u 74) 
+- d178 05:09 | L-017 | VICTORIA en 6 rondas (PV 300→185/300)
+- d178 07:29 | L-026 | COMBATE vs 3× Persona con rasgos de Coyote (nv2, var V3, PV c/u 183) 
+- d178 07:34 | L-026 | VICTORIA en 5 rondas (PV 195→117/300)
+- d178 08:50 | L-032 | COMBATE vs 3× Hormiga gigante guerrera (nv8, var V2, PV c/u 95) [sorpresa]
+- d178 08:54 | L-032 | VICTORIA en 4 rondas (PV 122→122/300)
+- d178 10:15 | Q-011 | MISIÓN COMPLETADA QA-176-2 «Palabras en el muelle» +116 XP
+- d178 18:30 | L-028 | MISIÓN ACEPTADA QA-206-2 «El camino seguro» (secundaria)
+- d178 18:35 | L-028 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d178 19:50 | L-033 | COMBATE vs 2× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d178 20:02 | L-033 | VICTORIA en 12 rondas (PV 300→134/300)
+- d178 20:03 | L-033 | MISIÓN COMPLETADA QA-206-2 «El camino seguro» +116 XP
+- d178 22:00 | L-030 | COMBATE vs 2× Persona con rasgos de Zorro rojo (nv6, var V1, PV c/u 132) 
+- d178 22:05 | L-030 | VICTORIA en 5 rondas (PV 153→78/300)
+- d178 23:07 | L-028 | COMBATE vs 1× Escarabajo colosal (nv4, var V2, PV c/u 291) 
+- d178 23:11 | L-028 | VICTORIA en 4 rondas (PV 83→83/300)
+- d178 23:16 | L-028 | MISIÓN ACEPTADA QA-206-3 «Limpiar el muelle» (secundaria)
+- d178 23:21 | L-028 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d179 10:03 | L-033 | COMBATE vs 4× Jabalí (nv28, var V3, PV c/u 562) 
+- d179 10:15 | L-033 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d179 20:03 | L-033 | COMBATE vs 4× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d179 20:13 | L-033 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d180 05:41 | L-033 | COMBATE vs 4× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d180 05:51 | L-033 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d180 15:15 | L-033 | COMBATE vs 4× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d180 15:26 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d181 00:53 | L-033 | COMBATE vs 3× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d181 01:05 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d181 10:23 | L-033 | COMBATE vs 3× Jabalí (nv28, var V3, PV c/u 562) [sorpresa]
+- d181 10:41 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d181 20:04 | L-033 | COMBATE vs 3× Jabalí (nv28, var V3, PV c/u 562) 
+- d181 20:13 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)

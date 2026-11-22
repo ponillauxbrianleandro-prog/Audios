@@ -27,6 +27,7 @@
 | T11 | alienígena | Seres no terrestres, "variante alienígena" de cualquier otro tema | 36 |
 | T12 | mutante | Humanos mutados tipo "súper mutante", experimentos de laboratorio | 36 |
 | T13 | amorfa | Slimes, gelatinas, masas vivas | 23 |
+| T14 | alfa | Criaturas alfa: especie propia emparentada con los lobos, hipermusculada, con sus 14 fases | 52 |
 Nota: "con cuernos y cuerpo robusto" reemplaza nombres literales (dragón, demonio, garra letal) para que sirva a cualquier lore: son la misma clase con rasgos mínimos distintos. "Con halo" reemplaza solo "ángel" para cubrir cualquier ser con aro luminoso.
 
 ## QUÉ DECIDE EL LORE Y QUÉ NO (resumen; detalle en 34)

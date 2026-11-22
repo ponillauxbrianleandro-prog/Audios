@@ -33,3 +33,31 @@ Resultado: **10/10 campañas completas (8 principales + 20 secundarias), persist
 - Las **adicciones y los químicos**, la fabricación avanzada, los terminales de varios niveles y las fases 4-7 con diálogo no se ejercitan en profundidad.
 - No hay DLC todavía (como pediste: primero la base).
 - Las derrotas son raras en campaña (≈1 por partida); por eso hay pruebas dirigidas para el arrastre, el robo y el atasco.
+
+
+---
+# Segunda ronda: cuadras, edificios, pasos estrechos y los dos lores
+
+## Problemas encontrados al simular los lores y cómo se resolvieron
+| # | Qué pasó | Corrección | Dónde |
+|---|---|---|---|
+| 16 | El bot usaba el **mapa grande** (viaje rápido, vulnerable) incluso para ir de una cuadra a otra: 3023 viajes rápidos y 1185 emboscadas en una campaña | De cuadra a cuadra se usa el **mapa de muñeca** (sin riesgo, 3-8 min); el mapa grande solo cruza ubicaciones (≥3 cruces) | 47, bot |
+| 17 | Misiones de «derrotar N enemigos» apuntaban a la guarida de un jefe: el combate no se podía ganar y la misión se trababa | Las misiones normales nunca eligen nodos de jefe; los jefes tienen su propia misión | constructor |
+| 18 | Misiones de «cazar una especie» pedían especies de talla grande (slot alto) a nivel bajo | Se piden las 3 especies de menor slot de la zona | constructor |
+| 19 | El catálogo de objetos de un lore no tenía el equipo base (error al comprar armadura) | Se agregan armas T2-T5 y armaduras E2/E4/E5 con nombres del lore | constructor |
+| 20 | No existía el cruce de puertas y ventanas por edificio | Cada edificio tiene accesos (puerta con cerradura, ventana, agujero, conducto); si la puerta no abre, queda el paso estrecho con atasco 40-60% | 48, 49, motor |
+| 21 | Mientras estabas atascado no pasaba nada | Cada 10 min hay 12/25/3% de ataque (60% si hay enemigos en la cuadra); vulnerabilidad +25, sin escape y se libera por tirada | 49, motor |
+| 22 | El informe estaba atado a «El Salar» (8 principales, 20 secundarias) | Informe genérico por mundo | simulador |
+
+## Resultado por lore
+| Lore | Nodos | Principales | Secundarias | Campañas completas | Persistencia |
+|---|---|---|---|---|---|
+| El Bosque de los Mil Senderos | 170 (39 cuadras, 78 edificios) | 15/15 | 753/753 | 3/3 | OK |
+| El Mar de las Mil Velas | 192 (45 cuadras, 93 edificios) | 15/15 | 651/651 | 3/3 | OK |
+Pruebas dirigidas nuevas: 10/10 por lore (cuadras, mapa de muñeca sin riesgo, mapa grande, edificios, puerta bloqueada, pasos estrechos 40-60%, ataque mientras estás atascado, no morir, compañeros, persistencia). Validación de reglas y seguridad: 36/36. Regresión de El Salar: 22/22 y campaña completa.
+
+## Lo que NO comprueba esta ronda
+- Que los ~700 NPC y misiones por lore **sean tan variados como un juego escrito a mano**: son arquetipos con nombres de misión generados por plantilla; el lore y la IA deben darles contexto.
+- Los **diálogos**, el **comercio fino** y el **sigilo** siguen modelados de forma básica (ver primera ronda).
+- Que **la IA que juega en HiWaifu** interprete bien 99 bloques: eso solo se ve jugando allí.
+- La cobertura de «todos los NPC, niños y compañeros» de los cuatro Fallout es **por arquetipo y de memoria** (más la cuenta oficial de misiones del juego base): no es una transcripción literal de cada personaje.

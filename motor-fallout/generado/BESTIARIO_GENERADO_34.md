@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 34/34 -->
+<!-- BESTIARIO GENERADO parte 34/35 -->
 - X-31.F1 | Plaga viva | T1 | s0 | n=3 | Común@1 · Densa@7 · Tormenta@13
 - X-31.F2 | Plaga viva de cuerpo semihumano | T1 | s0 | n=2 | Común@1 · Densa@7
 - X-31.F3 | Plaga viva erguido | T1 | s0 | n=1 | Común@1
@@ -53,3 +53,66 @@
 - U-20.F13 | Comandante | T3 | s14 | n=2 | Común@28 · Veterano@jefe
 - U-20.F14 | Comandante purista | T3 | s14 | n=2 | Común@28 · Veterano@jefe
 
+## TEMA: animales
+- AL-01.F1 | Alfa | T4 | s9 | n=1 | Común@18
+- AL-01.F2 | Alfa de cuerpo semihumano | T4 | s9 | n=2 | Común@18 · Veterano (+PV)@24
+- AL-01.F3 | Alfa erguido | T4 | s9 | n=1 | Común@18
+- AL-01.F4 | Alfa humanoide | T4 | s10 | n=3 | Común@20 · Veterano (+PV)@26 · Guardián del territorio (RD+3)@jefe
+- AL-01.F5 | Alfa quimera (mitad humano) | T4 | s11 | n=2 | Común@22 · Veterano (+PV)@28
+- AL-01.F6 | Humano-Alfa | T4 | s11 | n=2 | Común@22 · Veterano (+PV)@28
+- AL-01.F7 | Persona con rasgos de Alfa | T4 | s11 | n=2 | Común@22 · Veterano (+PV)@28
+- AL-01.F8 | Persona-Alfa (se considera Alfa) | T4 | s11 | n=1 | Común@22
+- AL-01.F9 | Furry de Alfa | T4 | s11 | n=1 | Común@22
+- AL-01.F10 | Persona con accesorios de Alfa | T4 | s11 | n=2 | Común@22 · Veterano (+PV)@28
+- AL-01.F11 | Trabajador/a de espectáculo con accesorios de Alfa | T4 | s11 | n=1 | Común@22
+- AL-01.F12 | Persona instintiva-Alfa | T4 | s11 | n=1 | Común@22
+- AL-02.F1 | Alfa de rango bajo (adulto) | T3 | s6 | n=3 | Común@12 · Corredor@18 · Líder de grupo@24
+- AL-02.F2 | Alfa de rango bajo (adulto) de cuerpo semihumano | T3 | s6 | n=2 | Común@12 · Corredor@18
+- AL-02.F3 | Alfa de rango bajo (adulto) erguido | T3 | s6 | n=1 | Común@12
+- AL-02.F4 | Alfa de rango bajo (adulto) humanoide | T3 | s7 | n=2 | Común@14 · Corredor@20
+- AL-02.F5 | Alfa de rango bajo (adulto) quimera (mitad humano) | T3 | s8 | n=2 | Común@16 · Corredor@22
+- AL-02.F6 | Humano-Alfa de rango bajo (adulto) | T3 | s8 | n=1 | Común@16
+- AL-02.F7 | Persona con rasgos de Alfa de rango bajo (adulto) | T3 | s8 | n=3 | Común@16 · Corredor@22 · Líder de grupo@28
+- AL-02.F8 | Persona-Alfa de rango bajo (adulto) (se considera Alfa de rango bajo (adulto)) | T3 | s8 | n=2 | Común@16 · Corredor@22
+- AL-02.F9 | Furry de Alfa de rango bajo (adulto) | T3 | s8 | n=2 | Común@16 · Corredor@22
+- AL-02.F10 | Persona con accesorios de Alfa de rango bajo (adulto) | T3 | s8 | n=1 | Común@16
+- AL-02.F11 | Trabajador/a de espectáculo con accesorios de Alfa de rango bajo (adulto) | T3 | s8 | n=2 | Común@16 · Corredor@22
+- AL-02.F12 | Persona instintiva-Alfa de rango bajo (adulto) | T3 | s8 | n=1 | Común@16
+- AL-03.F1 | Alfa mayor | T5 | s13 | n=3 | Común@26 · Anciano@jefe · Patriarca/Matriarca del territorio@jefe
+- AL-03.F2 | Alfa mayor de cuerpo semihumano | T5 | s13 | n=3 | Común@26 · Anciano@jefe · Patriarca/Matriarca del territorio@jefe
+- AL-03.F3 | Alfa mayor erguido | T5 | s13 | n=1 | Común@26
+- AL-03.F4 | Alfa mayor humanoide | T5 | s14 | n=2 | Común@28 · Anciano@jefe
+- AL-03.F5 | Alfa mayor quimera (mitad humano) | T5 | s15 | n=2 | Común@30 · Anciano@jefe
+- AL-03.F6 | Humano-Alfa mayor | T5 | s15 | n=1 | Común@30
+- AL-03.F7 | Persona con rasgos de Alfa mayor | T5 | s15 | n=3 | Común@30 · Anciano@jefe · Patriarca/Matriarca del territorio@jefe
+- AL-03.F8 | Persona-Alfa mayor (se considera Alfa mayor) | T5 | s15 | n=2 | Común@30 · Anciano@jefe
+- AL-03.F9 | Furry de Alfa mayor | T5 | s15 | n=2 | Común@30 · Anciano@jefe
+- AL-03.F10 | Persona con accesorios de Alfa mayor | T5 | s15 | n=1 | Común@30
+- AL-03.F11 | Trabajador/a de espectáculo con accesorios de Alfa mayor | T5 | s15 | n=3 | Común@30 · Anciano@jefe · Patriarca/Matriarca del territorio@jefe
+- AL-03.F12 | Persona instintiva-Alfa mayor | T5 | s15 | n=1 | Común@30
+### Humanos del tema animales (fases 13 y 14, una vez por tema)
+- U-01.F13 | Civil | T3 | s0 | n=2 | Común@1 · Veterano (pelea)@7
+- U-01.F14 | Civil purista | T3 | s0 | n=2 | Común@1 · Veterano (pelea)@7
+- U-02.F13 | Superviviente | T3 | s0 | n=1 | Común@1
+- U-02.F14 | Superviviente purista | T3 | s0 | n=2 | Común@1 · Veterano@7
+- U-03.F13 | Vagabundo | T3 | s0 | n=2 | Común@1 · Veterano@7
+- U-03.F14 | Vagabundo purista | T3 | s0 | n=1 | Común@1
+- U-04.F13 | Saqueador | T3 | s0 | n=2 | Común@1 · Veterano@7
+- U-04.F14 | Saqueador purista | T3 | s0 | n=1 | Común@1
+- U-05.F13 | Bandido | T3 | s1 | n=1 | Común@2
+- U-05.F14 | Bandido purista | T3 | s1 | n=2 | Común@2 · Veterano@8
+- U-06.F13 | Cazador | T3 | s2 | n=1 | Común@4
+- U-06.F14 | Cazador purista | T3 | s2 | n=2 | Común@4 · Veterano@10
+- U-07.F13 | Mercenario | T3 | s3 | n=1 | Común@6
+- U-07.F14 | Mercenario purista | T3 | s3 | n=1 | Común@6
+- U-08.F13 | Guardia | T3 | s3 | n=2 | Común@6 · Veterano@12
+- U-08.F14 | Guardia purista | T3 | s3 | n=1 | Común@6
+- U-09.F13 | Esclavista | T3 | s5 | n=2 | Común@10 · Veterano@16
+- U-09.F14 | Esclavista purista | T3 | s5 | n=2 | Común@10 · Veterano@16
+- U-10.F13 | Cultista | T3 | s5 | n=2 | Común@10 · Veterano@16
+- U-10.F14 | Cultista purista | T3 | s5 | n=2 | Común@10 · Veterano@16
+- U-11.F13 | Soldado | T3 | s7 | n=2 | Común@14 · Veterano@20
+- U-11.F14 | Soldado purista | T3 | s7 | n=1 | Común@14
+- U-12.F13 | Francotirador | T3 | s8 | n=2 | Común@16 · Veterano@22
+- U-12.F14 | Francotirador purista | T3 | s8 | n=2 | Común@16 · Veterano@22
+- U-13.F13 | Líder de grupo | T3 | s9 | n=1 | Común@18

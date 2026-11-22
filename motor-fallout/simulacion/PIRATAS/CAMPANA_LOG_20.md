@@ -1,0 +1,134 @@
+<!-- CAMPAÑA parte 20/21 -->
+# Registro de la campaña (simulación), parte 20
+
+- d208 13:38 | L-032 | MISIÓN COMPLETADA QA-110-3 «Rastro de la brújula» +158 XP
+- d208 14:39 | L-030 | COMBATE vs 1× Antílope (nv6, var V1, PV c/u 120) 
+- d208 14:41 | L-030 | VICTORIA en 2 rondas (PV 300→300/300)
+- d208 14:46 | L-030 | MISIÓN ACEPTADA QA-117-3 «Paz para el bosque» (secundaria)
+- d208 17:03 | L-033 | COMBATE vs 6× Coyote erguido (nv28, var V1, PV c/u 81) [sorpresa]
+- d208 17:10 | L-033 | VICTORIA en 7 rondas (PV 300→247/300)
+- d208 19:19 | L-030 | MISIÓN COMPLETADA QA-117-3 «Paz para el bosque» +158 XP
+- d208 19:19 | L-030 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d208 20:16 | L-037 | MISIÓN ACEPTADA QA-119-1 «Sin noticias» (secundaria)
+- d208 20:48 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d208 22:45 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo ninguno
+- d209 08:43 | L-038 | COMBATE vs 2× Persona con rasgos de Perro callejero (nv28, var V3, PV c/u 618) [sorpresa]
+- d209 08:54 | L-038 | VICTORIA en 11 rondas (PV 300→169/300)
+- d209 09:58 | L-037 | MISIÓN COMPLETADA QA-119-1 «Sin noticias» +158 XP
+- d209 17:06 | L-037 | MISIÓN ACEPTADA QA-119-2 «Letras en la pared» (secundaria)
+- d209 18:54 | Z-036 | HACKEO de terminal en Astillero chico de Barrio de los Mercaderes ÉXITO (91%)
+- d209 18:54 | Z-036 | MISIÓN COMPLETADA QA-119-2 «Letras en la pared» +158 XP
+- d209 22:54 | Q-001 | MISIÓN ACEPTADA QA-168-2 «Premio inesperado» (secundaria)
+- d210 00:02 | Q-001 | MISIÓN COMPLETADA QA-168-2 «Premio inesperado» +158 XP
+- d210 00:07 | Q-001 | MISIÓN ACEPTADA QA-168-3 «Material para la esperanza» (secundaria)
+- d210 01:10 | L-004 | COMBATE vs 4× Pulpo (nv28, var V2, PV c/u 103) [sorpresa]
+- d210 01:13 | L-004 | VICTORIA en 3 rondas (PV 300→300/300)
+- d210 01:50 | Q-001 | MISIÓN COMPLETADA QA-168-3 «Material para la esperanza» +158 XP
+- d210 05:31 | L-037 | MISIÓN ACEPTADA QA-172-1 «Fiesta del muelle» (secundaria)
+- d210 08:01 | L-037 | MISIÓN COMPLETADA QA-172-1 «Fiesta del muelle» +158 XP
+- d210 08:06 | L-037 | MISIÓN ACEPTADA QA-172-2 «Provisión del taller» (secundaria)
+- d210 09:14 | L-038 | COMBATE vs 2× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d210 09:28 | L-038 | RECUPERA lo robado: [('cuñas', 585), ('cuñas', 229)]
+- d210 09:28 | L-038 | VICTORIA en 14 rondas (PV 300→172/300)
+- d210 09:34 | L-038 | COMBATE vs 4× Persona con rasgos de Cucaracha mutante (nv28, var V2, PV c/u 455) [sorpresa]
+- d210 11:09 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo ninguno
+- d210 19:09 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d210 20:13 | L-038 | COMBATE vs 3× Persona con rasgos de Cucaracha mutante (nv28, var V2, PV c/u 455) [sorpresa]
+- d210 20:29 | L-038 | VICTORIA en 16 rondas (PV 300→98/300)
+- d210 20:57 | L-037 | MISIÓN COMPLETADA QA-172-2 «Provisión del taller» +158 XP
+- d211 07:24 | L-026 | COMBATE vs 3× Antílope erguido (nv2, var V3, PV c/u 183) [sorpresa]
+- d211 07:27 | L-026 | VICTORIA en 3 rondas (PV 300→285/300)
+- d211 09:28 | Q-004 | MISIÓN ACEPTADA QA-180-1 «Ruido en la noche» (secundaria)
+- d211 11:09 | Q-004 | MISIÓN COMPLETADA QA-180-1 «Ruido en la noche» +158 XP
+- d211 11:14 | Q-004 | MISIÓN ACEPTADA QA-180-2 «Premio inesperado» (secundaria)
+- d211 11:50 | Z-001 | REGISTRA C-0006 (estantería): ['agua', 'herramientas', 'obj_126']
+- d211 12:16 | Q-004 | MISIÓN COMPLETADA QA-180-2 «Premio inesperado» +158 XP
+- d211 12:16 | Q-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d211 12:43 | L-026 | COMBATE vs 4× Mantis mutante (nv2, var V1, PV c/u 22) [sorpresa]
+- d211 12:45 | L-026 | VICTORIA en 2 rondas (PV 300→300/300)
+- d211 13:51 | L-037 | MISIÓN ACEPTADA QA-216-2 «El misterio del pozo» (secundaria)
+- d211 16:05 | L-037 | MISIÓN COMPLETADA QA-216-2 «El misterio del pozo» +158 XP
+- d211 16:05 | L-037 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d211 17:43 | Q-001 | MISIÓN ACEPTADA QN-030-3 «Caso sin cerrar» (secundaria)
+- d211 18:47 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d211 18:47 | L-026 | COMBATE vs 3× Persona con rasgos de Abeja mutante (nv2, var V1, PV c/u 96) [emboscada enemiga]
+- d211 18:51 | L-026 | VICTORIA en 4 rondas (PV 300→300/300)
+- d211 20:01 | L-040 | MISIÓN COMPLETADA QN-030-3 «Caso sin cerrar» +158 XP
+- d211 20:01 | L-040 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d211 22:05 | Q-001 | MISIÓN ACEPTADA QN-030-4 «En busca del cuaderno» (secundaria)
+- d211 22:15 | Q-001 | MISIÓN COMPLETADA QN-030-4 «En busca del cuaderno» +158 XP
+- d211 22:23 | Q-002 | MISIÓN ACEPTADA QN-059-2 «Ruido en la noche» (secundaria)
+- d211 22:45 | Q-002 | MISIÓN COMPLETADA QN-059-2 «Ruido en la noche» +158 XP
+- d211 22:55 | Q-003 | MISIÓN ACEPTADA QN-065-1 «El camino seguro» (secundaria)
+- d212 01:32 | L-004 | COMBATE vs 3× Pulpo colosal (nv28, var V2, PV c/u 828) [sorpresa]
+- d212 01:52 | L-004 | VICTORIA en 20 rondas (PV 300→110/300)
+- d212 12:43 | L-004 | MISIÓN COMPLETADA QN-065-1 «El camino seguro» +158 XP
+- d212 12:43 | L-004 | COMBATE vs 5× Estrella de mar (nv28, var V2, PV c/u 103) 
+- d212 12:48 | L-004 | VICTORIA en 5 rondas (PV 300→255/300)
+- d212 13:47 | Q-003 | MISIÓN ACEPTADA QN-065-2 «Buscando a alguien» (secundaria)
+- d212 14:25 | L-004 | COMBATE vs 5× Sepia quimera (mitad humano) (nv28, var V1, PV c/u 222) 
+- d212 14:42 | L-004 | VICTORIA en 17 rondas (PV 263→119/300)
+- d212 15:10 | L-004 | COMBATE vs 5× Hidra pequeña quimera (mitad humano) (nv28, var V1, PV c/u 222) [sorpresa]
+- d212 15:21 | L-004 | VICTORIA en 11 rondas (PV 182→105/300)
+- d213 03:23 | Q-003 | MISIÓN COMPLETADA QN-065-2 «Buscando a alguien» +158 XP
+- d213 03:28 | Q-003 | MISIÓN ACEPTADA QN-078-1 «Lección en el taller» (secundaria)
+- d213 05:23 | Q-003 | MISIÓN COMPLETADA QN-078-1 «Lección en el taller» +158 XP
+- d213 05:28 | Q-003 | MISIÓN ACEPTADA QN-090-3 «En busca de la reliquia» (secundaria)
+- d213 05:39 | Z-006 | LLEGA por primera vez a Sala de cartas de Puerto de las Gaviotas [segura]
+- d213 05:41 | Z-006 | REGISTRA C-0016 (barril): ['piezas', 'lata', 'obj_254', 'cuñas31']
+- d213 05:52 | Q-003 | MISIÓN COMPLETADA QN-090-3 «En busca de la reliquia» +158 XP
+- d213 06:05 | Q-004 | MISIÓN ACEPTADA QA-019-3 «Todo lo que se junta» (secundaria)
+- d213 08:24 | Q-004 | MISIÓN COMPLETADA QA-019-3 «Todo lo que se junta» +172 XP
+- d213 11:51 | L-037 | MISIÓN ACEPTADA QA-031-1 «Entrega urgente» (secundaria)
+- d213 11:56 | L-037 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d213 11:56 | L-032 | COMBATE vs 2× Escarabajo rinoceronte (nv8, var V2, PV c/u 95) [emboscada enemiga]
+- d213 11:59 | L-032 | VICTORIA en 3 rondas (PV 300→298/300)
+- d213 18:18 | L-037 | MISIÓN COMPLETADA QA-031-1 «Entrega urgente» +172 XP
+- d213 18:23 | L-037 | MISIÓN ACEPTADA QA-031-3 «En busca de la brújula» (secundaria)
+- d213 20:23 | L-037 | MISIÓN COMPLETADA QA-031-3 «En busca de la brújula» +172 XP
+- d214 00:04 | Q-002 | MISIÓN ACEPTADA QA-041-1 «Pieza única» (secundaria)
+- d214 02:52 | Q-002 | MISIÓN COMPLETADA QA-041-1 «Pieza única» +172 XP
+- d214 03:06 | Q-004 | MISIÓN ACEPTADA QA-044-1 «El misterio del granero» (secundaria)
+- d214 07:19 | Q-004 | MISIÓN COMPLETADA QA-044-1 «El misterio del granero» +172 XP
+- d214 11:25 | L-037 | MISIÓN ACEPTADA QA-048-1 «Qué pasó en el granero» (secundaria)
+- d214 12:48 | Z-081 | LLEGA por primera vez a Enfermería de Plaza del Reloj [segura]
+- d214 12:50 | Z-081 | REGISTRA C-0304 (heladera): ['kit_reparacion', 'cuerda', 'obj_40']
+- d214 14:17 | L-037 | MISIÓN COMPLETADA QA-048-1 «Qué pasó en el granero» +172 XP
+- d214 14:22 | L-037 | MISIÓN ACEPTADA QA-058-1 «Pedido especial» (secundaria)
+- d214 15:32 | Z-033 | LLEGA por primera vez a Casa del farero de Puerto Viejo [segura]
+- d214 15:39 | Z-033 | REGISTRA C-0186 (alacena): ['kit_reparacion', 'cuerda', 'venda', 'obj_52', 'cuñas40']
+- d214 16:42 | L-037 | MISIÓN COMPLETADA QA-058-1 «Pedido especial» +172 XP
+- d214 19:47 | L-032 | MISIÓN ACEPTADA QA-110-5 «Más allá del muelle» (secundaria)
+- d214 19:57 | L-032 | MISIÓN COMPLETADA QA-110-5 «Más allá del muelle» +172 XP
+- d214 20:42 | Q-001 | MISIÓN ACEPTADA QA-168-1 «Lo que no se dijo a tiempo» (secundaria)
+- d214 21:43 | L-032 | COMBATE vs 3× Antílope (nv8, var V1, PV c/u 136) 
+- d214 21:47 | L-032 | VICTORIA en 4 rondas (PV 300→294/300)
+- d214 23:45 | L-023 | COMBATE vs 3× Parásito de agua dulce quimera (mitad humano) (nv12, var V2, PV c/u 176) 
+- d214 23:50 | L-023 | VICTORIA en 5 rondas (PV 300→248/300)
+- d215 00:34 | L-022 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d215 00:34 | L-032 | COMBATE vs 3× Avispón gigante erguido (nv8, var V1, PV c/u 74) [emboscada enemiga]
+- d215 00:38 | L-032 | VICTORIA en 4 rondas (PV 252→252/300)
+- d215 01:22 | Q-001 | MISIÓN COMPLETADA QA-168-1 «Lo que no se dijo a tiempo» +172 XP
+- d215 01:27 | Q-001 | MISIÓN ACEPTADA QA-168-4 «En busca de la carta» (secundaria)
+- d215 01:42 | Q-001 | MISIÓN COMPLETADA QA-168-4 «En busca de la carta» +172 XP
+- d215 01:42 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d215 01:42 | L-019 | COMBATE vs 4× Slime verde erguido (nv28, var V3, PV c/u 154) [emboscada enemiga]
+- d215 01:47 | L-019 | VICTORIA en 5 rondas (PV 256→224/300)
+- d215 02:08 | L-020 | LLEGA por primera vez a Botes de la Niebla [normal]
+- d215 02:13 | L-020 | MISIÓN ACEPTADA QA-218-2 «Material para la alegría» (secundaria)
+- d215 03:01 | L-019 | COMBATE vs 3× Rata topo humanoide (nv28, var V2, PV c/u 248) [sorpresa]
+- d215 03:10 | L-019 | VICTORIA en 9 rondas (PV 233→113/300)
+- d215 04:25 | L-020 | MISIÓN COMPLETADA QA-218-2 «Material para la alegría» +172 XP
+- d215 04:27 | L-020 | REGISTRA C-0121 (ropero): ['dulce', 'chatarra']
+- d215 04:29 | L-020 | REGISTRA C-0122 (mostrador): ['chatarra', 'venda_reforzada']
+- d215 04:37 | L-020 | REGISTRA C-0123 (ropero): ['dulce', 'obj_142', 'cuñas16']
+- d215 04:39 | L-020 | REGISTRA C-0124 (mostrador): ['medicina']
+- d215 08:33 | Q-004 | MISIÓN ACEPTADA QN-010-1 «Rastro del mapa» (secundaria)
+- d215 12:01 | Q-004 | MISIÓN COMPLETADA QN-010-1 «Rastro del mapa» +172 XP
+- d215 17:33 | Q-001 | MISIÓN ACEPTADA QN-030-2 «El concurso de la esperanza» (secundaria)
+- d215 17:54 | Q-001 | MISIÓN COMPLETADA QN-030-2 «El concurso de la esperanza» +172 XP
+- d215 19:25 | L-002 | MISIÓN ACEPTADA QN-032-1 «Confianza en el bosque» (secundaria)
+- d215 20:02 | L-003 | COMBATE vs 4× Medusa (nv10, var V3, PV c/u 72) 
+- d215 20:05 | L-003 | VICTORIA en 3 rondas (PV 300→298/300)
+- d215 22:08 | L-002 | MISIÓN COMPLETADA QN-032-1 «Confianza en el bosque» +172 XP
+- d215 22:13 | L-002 | MISIÓN ACEPTADA QN-032-2 «La presa del pozo» (secundaria)

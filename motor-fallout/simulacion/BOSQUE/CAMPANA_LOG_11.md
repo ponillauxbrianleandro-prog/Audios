@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 11/21 -->
+# Registro de la campaña (simulación), parte 11
+
+- d42 08:57 | L-020 | COMBATE vs 6× Termita mutante (nv28, var V2, PV c/u 103) 
+- d42 09:01 | L-020 | VICTORIA en 4 rondas (PV 300→282/300)
+- d42 09:01 | L-020 | COMBATE vs 6× Slime verde (nv28, var V2, PV c/u 103) 
+- d42 09:06 | L-020 | VICTORIA en 5 rondas (PV 282→274/300)
+- d42 09:06 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d42 09:31 | Q-025 | MISIÓN COMPLETADA QA-135-4 «La muralla de la autoridad» +130 XP
+- d42 09:36 | Q-025 | MISIÓN ACEPTADA QA-135-5 «Provisión del granero» (secundaria)
+- d42 12:27 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d42 12:53 | Q-025 | MISIÓN COMPLETADA QA-135-5 «Provisión del granero» +130 XP
+- d42 16:05 | L-003 | COMBATE vs 2× Mantis gigante (nv4, var V1, PV c/u 104) [sorpresa]
+- d42 16:08 | L-003 | VICTORIA en 3 rondas (PV 300→300/300)
+- d42 16:13 | L-003 | MISIÓN ACEPTADA QA-139-1 «Palabras en el puente» (secundaria)
+- d42 22:08 | L-003 | MISIÓN COMPLETADA QA-139-1 «Palabras en el puente» +130 XP
+- d42 22:13 | L-003 | MISIÓN ACEPTADA QA-142-1 «Resistir en el taller» (secundaria)
+- d42 22:18 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d42 22:18 | L-009 | COMBATE vs 5× Cerdo (nv28, var V2, PV c/u 207) [emboscada enemiga]
+- d42 22:27 | L-009 | VICTORIA en 9 rondas (PV 300→267/300)
+- d43 00:42 | L-008 | COMBATE vs 2× Persona con rasgos de Ciervo (nv7, var V1, PV c/u 140) [sorpresa]
+- d43 00:44 | L-008 | VICTORIA en 2 rondas (PV 283→283/300)
+- d43 02:20 | L-008 | COMBATE vs 5× Conejo (nv7, var V2, PV c/u 44) [sorpresa]
+- d43 02:23 | L-008 | VICTORIA en 3 rondas (PV 295→293/300)
+- d43 02:23 | L-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d43 03:03 | L-003 | MISIÓN COMPLETADA QA-142-1 «Resistir en el taller» +130 XP
+- d43 03:08 | L-003 | MISIÓN ACEPTADA QA-143-2 «Lo que se llevó el orden» (secundaria)
+- d43 04:50 | L-003 | MISIÓN COMPLETADA QA-143-2 «Lo que se llevó el orden» +130 XP
+- d43 07:38 | Q-018 | MISIÓN ACEPTADA QA-145-2 «Voz del refugio» (secundaria)
+- d43 08:05 | Q-013 | HACKEO de terminal en Barrio del Mercado, cuadra 2 ÉXITO (91%)
+- d43 08:05 | Q-013 | MISIÓN COMPLETADA QA-145-2 «Voz del refugio» +130 XP
+- d43 08:20 | Q-018 | MISIÓN ACEPTADA QA-145-3 «Lo que se llevó la soledad» (secundaria)
+- d43 08:55 | Q-018 | MISIÓN COMPLETADA QA-145-3 «Lo que se llevó la soledad» +130 XP
+- d43 09:17 | Q-015 | MISIÓN ACEPTADA QA-147-1 «Qué pasó en el puesto» (secundaria)
+- d43 09:32 | Z-025 | REGISTRA C-0114 (caja): ['venda_reforzada', 'obj_132']
+- d43 09:46 | Q-015 | MISIÓN COMPLETADA QA-147-1 «Qué pasó en el puesto» +130 XP
+- d43 10:04 | Q-021 | MISIÓN ACEPTADA QA-148-2 «Pistas del silencio» (secundaria)
+- d43 10:09 | Q-021 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d43 14:12 | Q-021 | MISIÓN COMPLETADA QA-148-2 «Pistas del silencio» +130 XP
+- d43 14:14 | Q-021 | REGISTRA C-0141 (cajón): ['kit_reparacion', 'obj_215', 'cuñas30']
+- d43 15:36 | Q-027 | MISIÓN ACEPTADA QA-150-4 «En busca de la carta» (secundaria)
+- d43 15:46 | Q-027 | MISIÓN COMPLETADA QA-150-4 «En busca de la carta» +130 XP
+- d43 15:56 | Q-022 | MISIÓN ACEPTADA QA-151-1 «Reiniciar el puente» (secundaria)
+- d43 18:34 | L-020 | HACKEO de terminal en Alcantarillas ÉXITO (91%)
+- d43 18:34 | L-020 | MISIÓN COMPLETADA QA-151-1 «Reiniciar el puente» +130 XP
+- d43 18:34 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d43 18:46 | Q-010 | MISIÓN ACEPTADA QA-154-1 «Negocio en el viejo túnel» (secundaria)
+- d43 19:42 | Q-010 | MISIÓN COMPLETADA QA-154-1 «Negocio en el viejo túnel» +130 XP
+- d43 19:44 | Q-010 | REGISTRA C-0082 (caja): ['kit_reparacion', 'piezas', 'herramientas', 'obj_130']
+- d43 21:22 | Q-014 | MISIÓN ACEPTADA QA-157-1 «Día de feria» (secundaria)
+- d43 21:49 | Z-040 | LLEGA por primera vez a Estanco de Barrio Viejo [segura]
+- d43 21:51 | Z-040 | REGISTRA C-0150 (alacena): ['cuerda', 'obj_19', 'obj_135', 'obj_141', 'cuñas27']
+- d43 22:20 | Q-014 | MISIÓN COMPLETADA QA-157-1 «Día de feria» +130 XP
+- d43 23:00 | Q-023 | MISIÓN ACEPTADA QA-162-2 «Negocio en el puente» (secundaria)
+- d43 23:41 | Q-023 | MISIÓN COMPLETADA QA-162-2 «Negocio en el puente» +130 XP
+- d44 00:08 | Q-012 | MISIÓN ACEPTADA QA-169-1 «Mercancía para la esperanza» (secundaria)
+- d44 04:03 | Q-012 | MISIÓN COMPLETADA QA-169-1 «Mercancía para la esperanza» +130 XP
+- d44 04:08 | Q-012 | REGISTRA C-0097 (cofre): ['venda_reforzada']
+- d44 05:27 | Q-019 | MISIÓN ACEPTADA QA-171-1 «Qué pasó en el bosque» (secundaria)
+- d44 05:46 | Z-051 | LLEGA por primera vez a Sala de mapas de Barrio del Parque [segura]
+- d44 05:48 | Z-051 | REGISTRA C-0172 (caja): ['kit_reparacion', 'dulce', 'obj_86', 'obj_157']
+- d44 06:09 | Q-019 | MISIÓN COMPLETADA QA-171-1 «Qué pasó en el bosque» +130 XP
+- d44 06:35 | Q-014 | MISIÓN ACEPTADA QA-175-1 «Manos a la obra» (secundaria)
+- d44 06:40 | Q-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d44 09:21 | Q-001 | FABRICA artefacto (54≤100)
+- d44 09:48 | L-001 | COMBATE vs 3× Perro salvaje (nv2, var V2, PV c/u 30) 
+- d44 09:50 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d44 12:50 | Q-014 | MISIÓN COMPLETADA QA-175-1 «Manos a la obra» +130 XP
+- d44 13:03 | Q-013 | MISIÓN ACEPTADA QA-177-1 «Guardia contra los intrusos» (secundaria)
+- d44 13:08 | Q-013 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d44 14:01 | L-020 | COMBATE vs 5× Perro callejero (nv28, var V2, PV c/u 103) [sorpresa]
+- d44 14:05 | L-020 | VICTORIA en 4 rondas (PV 300→283/300)
+- d44 14:05 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d44 14:21 | Q-013 | MISIÓN COMPLETADA QA-177-1 «Guardia contra los intrusos» +130 XP
+- d44 14:44 | Q-019 | MISIÓN ACEPTADA QA-179-1 «Algo que funcione» (secundaria)
+- d44 17:25 | L-002 | COMBATE vs 2× Oveja humanoide (nv3, var V2, PV c/u 80) 
+- d44 17:27 | L-002 | VICTORIA en 2 rondas (PV 292→292/300)
+- d44 19:50 | Q-001 | FABRICA artefacto (53≤100)
+- d44 23:25 | Q-019 | MISIÓN COMPLETADA QA-179-1 «Algo que funcione» +130 XP
+- d44 23:30 | Q-019 | MISIÓN ACEPTADA QA-179-2 «Pieza única» (secundaria)
+- d44 23:45 | Z-046 | LLEGA por primera vez a Escuela de oficios de Barrio de los Talleres [segura]
+- d45 00:07 | Z-046 | REGISTRA C-0161 (heladera): ['kit_reparacion', 'piezas', 'obj_16', 'obj_164', 'obj_268', 'obj_281']
+- d45 00:23 | Q-019 | MISIÓN COMPLETADA QA-179-2 «Pieza única» +130 XP
+- d45 00:28 | Q-019 | MISIÓN ACEPTADA QA-179-4 «Provisión del granero» (secundaria)
+- d45 03:19 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d45 03:42 | Q-019 | MISIÓN COMPLETADA QA-179-4 «Provisión del granero» +130 XP
+- d45 04:06 | Q-015 | MISIÓN ACEPTADA QA-180-1 «Ruido en la noche» (secundaria)
+- d45 04:32 | Z-021 | LLEGA por primera vez a Enfermería de Barrio del Mercado [segura]
+- d45 04:34 | Z-021 | REGISTRA C-0107 (cofre): ['ganzua', 'obj_166', 'cuñas15']
+- d45 04:50 | Q-015 | MISIÓN COMPLETADA QA-180-1 «Ruido en la noche» +130 XP
+- d45 04:55 | Q-015 | MISIÓN ACEPTADA QA-180-2 «Premio inesperado» (secundaria)
+- d45 05:33 | Z-048 | LLEGA por primera vez a Mercado cubierto de Barrio de los Talleres [segura]
+- d45 05:45 | Z-048 | REGISTRA C-0164 (ropero): ['venda', 'medicina', 'obj_167', 'cuñas23']
+- d45 06:20 | Q-015 | MISIÓN COMPLETADA QA-180-2 «Premio inesperado» +130 XP
+- d45 06:42 | Q-020 | MISIÓN ACEPTADA QA-188-2 «Reparación en el puesto» (secundaria)
+- d45 10:52 | Q-001 | FABRICA artefacto (89≤100)
+- d45 10:52 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d45 11:16 | Q-020 | MISIÓN COMPLETADA QA-188-2 «Reparación en el puesto» +130 XP
+- d45 13:12 | Q-014 | MISIÓN ACEPTADA QA-197-2 «Lección en el pueblo» (secundaria)
+- d45 13:52 | Z-056 | LLEGA por primera vez a Kiosco de Barrio del Parque [segura]
+- d45 13:54 | Z-056 | REGISTRA C-0177 (cajón): ['circuito']
+- d45 13:56 | Z-056 | REGISTRA C-0178 (cofre): ['circuito', 'cuñas31']
+- d45 14:08 | Z-056 | REGISTRA C-0179 (alacena): ['circuito', 'recurso_bio', 'obj_184', 'cuñas8']
+- d45 14:44 | Q-014 | MISIÓN COMPLETADA QA-197-2 «Lección en el pueblo» +130 XP
+- d45 14:49 | Q-014 | MISIÓN ACEPTADA QA-197-3 «Día de feria» (secundaria)
+- d45 16:06 | L-018 | REGISTRA C-0183 (barril): ['chatarra', 'venda_reforzada', 'obj_245']
+- d45 16:08 | L-018 | REGISTRA C-0184 (escritorio): ['venda_reforzada', 'ganzua', 'obj_185', 'cuñas6']
+- d45 16:53 | Q-014 | MISIÓN COMPLETADA QA-197-3 «Día de feria» +130 XP
+- d45 19:46 | L-006 | MISIÓN ACEPTADA QA-198-1 «Paz para el camino» (secundaria)
+- d45 19:51 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d45 19:51 | L-002 | COMBATE vs 2× Hormiga mutante humanoide (nv3, var V2, PV c/u 80) [emboscada enemiga]
+- d45 19:54 | L-002 | VICTORIA en 3 rondas (PV 300→296/300)
+- d45 20:29 | L-001 | COMBATE vs 1× Ciervo erguido (nv2, var V1, PV c/u 96) [sorpresa]
+- d45 20:30 | L-001 | VICTORIA en 1 rondas (PV 300→300/300)
+- d45 21:47 | L-001 | COMBATE vs 2× Jabalí (nv2, var V2, PV c/u 123) [sorpresa]
+- d45 21:50 | L-001 | VICTORIA en 3 rondas (PV 300→300/300)
+- d45 22:34 | L-002 | COMBATE vs 5× Conejo erguido (nv3, var V3, PV c/u 50) 
+- d45 22:37 | L-002 | VICTORIA en 3 rondas (PV 300→296/300)
+- d45 23:33 | L-005 | COMBATE vs 3× Oveja quimera (mitad humano) (nv5, var V1, PV c/u 84) 
+- d45 23:35 | L-005 | VICTORIA en 2 rondas (PV 300→299/300)
+- d46 00:08 | L-006 | MISIÓN COMPLETADA QA-198-1 «Paz para el camino» +130 XP
+- d46 02:57 | Q-024 | MISIÓN ACEPTADA QA-199-4 «Lo que se llevó el genio» (secundaria)
+- d46 04:05 | Q-024 | MISIÓN COMPLETADA QA-199-4 «Lo que se llevó el genio» +130 XP
+- d46 04:24 | Q-020 | MISIÓN ACEPTADA QA-204-1 «Resistir en el granero» (secundaria)
+- d46 08:45 | L-020 | COMBATE vs 3× Conejo quimera (mitad humano) (nv28, var V2, PV c/u 310) [sorpresa]
+- d46 08:52 | L-020 | VICTORIA en 7 rondas (PV 300→233/300)
+- d46 10:01 | L-020 | COMBATE vs 4× Rata erguido (nv28, var V1, PV c/u 81) 
+- d46 10:06 | L-020 | VICTORIA en 5 rondas (PV 241→218/300)
+- d46 10:06 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d46 10:32 | Q-020 | MISIÓN COMPLETADA QA-204-1 «Resistir en el granero» +130 XP
+- d46 10:37 | Q-020 | MISIÓN ACEPTADA QA-209-1 «Libros que faltan» (secundaria)
+- d46 11:24 | Q-020 | MISIÓN COMPLETADA QA-209-1 «Libros que faltan» +130 XP
+- d46 11:24 | Q-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d46 11:24 | L-002 | COMBATE vs 4× Mosca mutante erguido (nv3, var V1, PV c/u 26) [emboscada enemiga]
+- d46 11:27 | L-002 | VICTORIA en 3 rondas (PV 218→218/300)
+- d46 13:59 | Q-008 | MISIÓN ACEPTADA QA-211-1 «Antes del amanecer» (secundaria)
+- d46 16:13 | L-014 | COMBATE vs 5× Libélula mutante (nv28, var V1, PV c/u 74) [sorpresa]
+- d46 16:16 | L-014 | VICTORIA en 3 rondas (PV 246→242/300)

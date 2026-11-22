@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 32/34 -->
+<!-- BESTIARIO GENERADO parte 32/35 -->
 - X-16.F12 | Persona instintiva-Criatura de otro mundo menor | T3 | s2 | n=1 | Común@4
 - X-17.F1 | Alienígena cazador pequeño | T1 | s1 | n=3 | Común@2 · Veloz@8 · Alfa@14
 - X-17.F2 | Alienígena cazador pequeño de cuerpo semihumano | T1 | s1 | n=1 | Común@2

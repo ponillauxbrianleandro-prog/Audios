@@ -1,0 +1,136 @@
+<!-- CAMPAÑA parte 3/21 -->
+# Registro de la campaña (simulación), parte 3
+
+- d10 04:53 | L-033 | VICTORIA en 11 rondas (PV 230→108/230)
+- d10 04:53 | L-033 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d10 05:51 | L-026 | MISIÓN COMPLETADA QA-055-3 «Todo lo que se junta» +74 XP
+- d10 06:45 | Q-020 | MISIÓN ACEPTADA QA-057-1 «Antes del amanecer» (secundaria)
+- d10 10:57 | Q-020 | MISIÓN COMPLETADA QA-057-1 «Antes del amanecer» +74 XP
+- d10 15:34 | Q-030 | MISIÓN ACEPTADA QA-061-1 «Escolta hasta el pueblo» (secundaria)
+- d10 17:40 | L-038 | COMBATE vs 4× Slime verde erguido (nv14, var V3, PV c/u 96) [sorpresa]
+- d10 17:46 | L-038 | VICTORIA en 6 rondas (PV 230→158/230)
+- d10 17:46 | L-038 | MISIÓN COMPLETADA QA-061-1 «Escolta hasta el pueblo» +74 XP
+- d10 19:34 | Q-023 | MISIÓN ACEPTADA QA-063-1 «Lo que no se declara» (secundaria)
+- d10 19:59 | Z-075 | LLEGA por primera vez a Enfermería de Barrio del Río [segura]
+- d10 20:01 | Z-075 | REGISTRA C-0289 (cofre): ['circuito', 'recurso_bio', 'ganzua']
+- d10 20:03 | Z-075 | REGISTRA C-0290 (ropero): ['dulce', 'piezas']
+- d10 20:19 | Z-075 | REGISTRA C-0291 (mochila): ['herramientas', 'agua', 'lata', 'obj_6', 'obj_54', 'obj_162', 'cuñas15']
+- d10 20:31 | Q-039 | MISIÓN COMPLETADA QA-063-1 «Lo que no se declara» +74 XP
+- d10 22:16 | Q-036 | MISIÓN ACEPTADA QA-071-1 «Un buen trato» (secundaria)
+- d10 22:34 | Z-082 | LLEGA por primera vez a Casa del farero de Plaza del Reloj [segura]
+- d10 22:36 | Z-082 | REGISTRA C-0305 (escritorio): ['agua', 'kit_reparacion', 'obj_60', 'cuñas29']
+- d10 22:38 | Z-082 | REGISTRA C-0306 (caja): ['agua', 'obj_59', 'obj_225']
+- d10 22:52 | Q-036 | MISIÓN COMPLETADA QA-071-1 «Un buen trato» +74 XP
+- d10 22:54 | Q-036 | REGISTRA C-0285 (ropero): ['dulce']
+- d11 00:50 | Q-026 | MISIÓN ACEPTADA QA-072-2 «Algo que funcione» (secundaria)
+- d11 02:33 | L-035 | FABRICA artefacto (84≤86)
+- d11 03:30 | Q-026 | MISIÓN COMPLETADA QA-072-2 «Algo que funcione» +74 XP
+- d11 03:38 | Q-026 | REGISTRA C-0227 (baúl): ['venda', 'piezas', 'obj_218']
+- d11 04:33 | Q-026 | MISIÓN ACEPTADA QA-072-4 «Noche de guardia» (secundaria)
+- d11 07:12 | L-038 | COMBATE vs 3× Termita mutante humanoide (nv14, var V1, PV c/u 110) 
+- d11 07:18 | L-038 | VICTORIA en 6 rondas (PV 206→137/230)
+- d11 07:44 | L-038 | COMBATE vs 5× Rata (nv14, var V2, PV c/u 64) [sorpresa]
+- d11 07:51 | L-038 | VICTORIA en 7 rondas (PV 179→117/230)
+- d11 09:41 | Q-026 | MISIÓN COMPLETADA QA-072-4 «Noche de guardia» +74 XP
+- d11 09:43 | Z-052 | LLEGA por primera vez a Cabaña de pescadores de Barrio Alto [segura]
+- d11 13:45 | Z-052 | REGISTRA C-0233 (baúl): ['dulce', 'chatarra', 'circuito', 'obj_246']
+- d11 13:47 | Z-052 | REGISTRA C-0234 (alacena): ['lata', 'dulce']
+- d11 13:49 | Z-052 | REGISTRA C-0235 (barril): ['circuito', 'chatarra']
+- d11 15:20 | Q-035 | MISIÓN ACEPTADA QA-073-1 «Puesto de la esperanza» (secundaria)
+- d11 17:17 | L-038 | COMBATE vs 3× Slime verde humanoide (nv14, var V3, PV c/u 209) [sorpresa]
+- d11 17:30 | L-038 | VICTORIA en 13 rondas (PV 230→88/230)
+- d12 03:36 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d12 03:57 | L-038 | MISIÓN COMPLETADA QA-073-1 «Puesto de la esperanza» +74 XP
+- d12 06:12 | Q-038 | MISIÓN ACEPTADA QA-076-1 «La balanza de la frialdad» (secundaria)
+- d12 06:17 | Q-038 | ELIGE BANDO en QA-076-1: un bando (el grupo «el otro» pasa a ser hostil)
+- d12 08:15 | L-038 | COMBATE vs 3× Termita mutante quimera (mitad humano) (nv14, var V1, PV c/u 138) 
+- d12 08:26 | L-038 | VICTORIA en 11 rondas (PV 230→99/230)
+- d12 08:34 | L-038 | COMBATE vs 3× Saqueador (nv14, var V2, PV c/u 205) [sorpresa]
+- d12 09:23 | L-038 | VICTORIA en 49 rondas (PV 179→106/230)
+- d12 09:23 | L-038 | MISIÓN COMPLETADA QA-076-1 «La balanza de la frialdad» +74 XP
+- d12 11:36 | Q-019 | MISIÓN ACEPTADA QA-077-1 «Puesto del silencio» (secundaria)
+- d12 13:04 | L-038 | COMBATE vs 5× Termita mutante (nv14, var V2, PV c/u 64) 
+- d12 13:13 | L-038 | VICTORIA en 9 rondas (PV 114→72/230)
+- d12 13:44 | L-038 | COMBATE vs 6× Perro callejero (nv14, var V2, PV c/u 64) [sorpresa]
+- d12 13:51 | L-038 | VICTORIA en 7 rondas (PV 209→132/230)
+- d12 13:51 | L-038 | MISIÓN COMPLETADA QA-077-1 «Puesto del silencio» +74 XP
+- d12 14:56 | Q-015 | MISIÓN ACEPTADA QA-078-1 «Puesto de la esperanza» (secundaria)
+- d12 17:15 | L-038 | COMBATE vs 5× Rata (nv14, var V2, PV c/u 64) [sorpresa]
+- d12 17:22 | L-038 | VICTORIA en 7 rondas (PV 195→132/230)
+- d12 17:22 | L-038 | MISIÓN COMPLETADA QA-078-1 «Puesto de la esperanza» +74 XP
+- d12 18:13 | Q-015 | MISIÓN ACEPTADA QA-078-2 «Letras y cuentas» (secundaria)
+- d12 18:44 | Z-060 | LLEGA por primera vez a Tienda de mapas de Barrio de los Astilleros [segura]
+- d12 18:51 | Z-060 | REGISTRA C-0253 (escritorio): ['herramientas', 'lata', 'chatarra', 'obj_63', 'obj_119']
+- d12 19:27 | Q-015 | MISIÓN COMPLETADA QA-078-2 «Letras y cuentas» +74 XP
+- d13 00:46 | Q-020 | MISIÓN ACEPTADA QA-079-2 «Voz del mercado» (secundaria)
+- d13 01:24 | Z-057 | LLEGA por primera vez a Tienda de mapas de Barrio Alto [segura]
+- d13 01:52 | Z-057 | HACKEO de terminal en Tienda de mapas de Barrio Alto ÉXITO (77%)
+- d13 01:52 | Z-057 | MISIÓN COMPLETADA QA-079-2 «Voz del mercado» +74 XP
+- d13 01:54 | Z-057 | REGISTRA C-0245 (ropero): ['chatarra']
+- d13 01:56 | Z-057 | REGISTRA C-0246 (cofre): ['venda']
+- d13 03:28 | Q-019 | MISIÓN ACEPTADA QA-080-3 «El misterio del refugio» (secundaria)
+- d13 03:58 | Q-019 | SUBE A NIVEL 17 (PV máx 235, daño nominal 30)
+- d13 03:58 | Q-019 | MISIÓN COMPLETADA QA-080-3 «El misterio del refugio» +74 XP
+- d13 04:00 | Q-019 | REGISTRA C-0187 (cofre): ['cuerda', 'piezas', 'obj_123', 'obj_155']
+- d13 06:31 | Q-005 | LLEGA por primera vez a Muelle de la Corriente, cuadra 1 [segura]
+- d13 06:35 | Q-006 | LLEGA por primera vez a Muelle de la Corriente, cuadra 2 [segura]
+- d13 06:41 | Q-007 | LLEGA por primera vez a Muelle de la Corriente, cuadra 3 [segura]
+- d13 06:46 | Q-007 | MISIÓN ACEPTADA MP-10 «La orden y la elección» (principal)
+- d13 06:51 | Q-007 | ELIGE BANDO en MP-10: un bando (el grupo «el otro» pasa a ser hostil)
+- d13 07:55 | L-010 | LLEGA por primera vez a Remanso de las Balsas [normal]
+- d13 08:41 | L-011 | COMBATE vs 4× Slime azul (nv13, var V2, PV c/u 61) 
+- d13 08:47 | L-011 | VICTORIA en 6 rondas (PV 235→189/235)
+- d13 08:47 | L-011 | LLEGA por primera vez a Cascada Brava [normal]
+- d13 09:41 | L-012 | LLEGA por primera vez a Puente de Lianas [normal]
+- d13 09:41 | L-012 | COMBATE vs 1× Saqueador (nv15, var V2, PV c/u 268) [sorpresa]
+- d13 09:48 | L-012 | VICTORIA en 7 rondas (PV 192→130/235)
+- d13 10:45 | L-012 | COMBATE vs 3× Medusa peine erguido (nv15, var V2, PV c/u 73) [sorpresa]
+- d13 10:50 | L-012 | VICTORIA en 5 rondas (PV 211→201/235)
+- d13 10:50 | L-012 | SUBE A NIVEL 18 (PV máx 240, daño nominal 31)
+- d13 10:50 | L-012 | MISIÓN COMPLETADA MP-10 «La orden y la elección» +2810 XP
+- d13 10:52 | L-012 | REGISTRA C-0065 (mochila): ['herramientas', 'dulce', 'cuerda', 'obj_135']
+- d13 10:54 | L-012 | REGISTRA C-0066 (escritorio): ['venda_reforzada', 'venda', 'agua', 'obj_97']
+- d13 10:56 | L-012 | REGISTRA C-0067 (baúl): ['lata']
+- d13 11:08 | L-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d13 11:38 | Q-039 | MISIÓN ACEPTADA QA-081-4 «La muralla del silencio» (secundaria)
+- d13 15:07 | L-038 | COMBATE vs 5× Cucaracha mutante humanoide (nv16, var V3, PV c/u 228) [sorpresa]
+- d13 15:26 | L-038 | VICTORIA en 19 rondas (PV 240→93/240)
+- d14 01:24 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d14 04:06 | Q-039 | MISIÓN COMPLETADA QA-081-4 «La muralla del silencio» +74 XP
+- d14 04:40 | Q-024 | MISIÓN ACEPTADA QA-082-2 «Ruido en la noche» (secundaria)
+- d14 04:55 | Z-044 | LLEGA por primera vez a Herrería de Barrio de las Velas [segura]
+- d14 05:09 | Z-044 | REGISTRA C-0210 (ropero): ['recurso_bio', 'obj_66', 'cuñas22']
+- d14 05:19 | Q-024 | MISIÓN COMPLETADA QA-082-2 «Ruido en la noche» +74 XP
+- d14 05:24 | Q-024 | MISIÓN ACEPTADA QA-082-3 «Cuando no alcanza el silencio» (secundaria)
+- d14 06:33 | L-038 | COMBATE vs 5× Termita mutante erguido (nv16, var V1, PV c/u 55) [sorpresa]
+- d14 06:37 | L-038 | VICTORIA en 4 rondas (PV 240→173/240)
+- d14 08:23 | Q-024 | MISIÓN COMPLETADA QA-082-3 «Cuando no alcanza el silencio» +74 XP
+- d14 08:44 | Q-029 | MISIÓN ACEPTADA QA-114-1 «Volver a casa» (secundaria)
+- d14 10:20 | L-038 | COMBATE vs 6× Cucaracha mutante (nv16, var V2, PV c/u 70) [sorpresa]
+- d14 10:28 | L-038 | VICTORIA en 8 rondas (PV 188→108/240)
+- d14 10:47 | L-038 | COMBATE vs 5× Perro callejero erguido (nv16, var V1, PV c/u 55) 
+- d14 10:52 | L-038 | VICTORIA en 5 rondas (PV 226→188/240)
+- d14 12:46 | Q-029 | MISIÓN COMPLETADA QA-114-1 «Volver a casa» +74 XP
+- d14 12:51 | Q-029 | REGISTRA C-0247 (cajón): ['kit_reparacion', 'obj_129', 'obj_154']
+- d14 13:49 | Q-029 | MISIÓN ACEPTADA QA-114-2 «La salida del muelle» (secundaria)
+- d14 17:05 | L-038 | COMBATE vs 5× Slime verde humanoide (nv16, var V3, PV c/u 228) [sorpresa]
+- d14 17:16 | L-038 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d14 17:16 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d15 05:34 | Q-029 | MISIÓN COMPLETADA QA-114-2 «La salida del muelle» +74 XP
+- d15 05:50 | Q-031 | MISIÓN ACEPTADA QA-130-3 «Defender lo propio» (secundaria)
+- d15 08:19 | L-038 | COMBATE vs 2× Slime verde humanoide (nv16, var V3, PV c/u 228) [sorpresa]
+- d15 08:27 | L-038 | VICTORIA en 8 rondas (PV 240→95/240)
+- d15 08:27 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d15 19:48 | L-038 | COMBATE vs 4× Perro callejero (nv16, var V2, PV c/u 70) 
+- d15 19:54 | L-038 | VICTORIA en 6 rondas (PV 240→149/240)
+- d15 21:47 | Q-031 | MISIÓN COMPLETADA QA-130-3 «Defender lo propio» +74 XP
+- d16 02:10 | Q-028 | MISIÓN ACEPTADA QA-135-1 «Voz del camino» (secundaria)
+- d16 02:43 | Z-080 | LLEGA por primera vez a Taller de nudos de Barrio del Río [segura]
+- d16 02:50 | Z-080 | HACKEO de terminal en Taller de nudos de Barrio del Río ÉXITO (79%)
+- d16 02:50 | Z-080 | MISIÓN COMPLETADA QA-135-1 «Voz del camino» +74 XP
+- d16 02:52 | Z-080 | REGISTRA C-0299 (alacena): ['chatarra', 'recurso_bio', 'lata']
+- d16 02:54 | Z-080 | REGISTRA C-0300 (alacena): ['kit_reparacion', 'cuñas22']
+- d16 03:01 | Z-080 | REGISTRA C-0301 (mostrador): ['cuerda', 'chatarra']
+- d16 05:00 | Q-028 | MISIÓN ACEPTADA QA-135-3 «Paz para el puente» (secundaria)
+- d16 06:58 | L-038 | COMBATE vs 6× Perro callejero erguido (nv16, var V1, PV c/u 55) 
+- d16 07:06 | L-038 | VICTORIA en 8 rondas (PV 240→124/240)

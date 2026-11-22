@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 33/34 -->
+<!-- BESTIARIO GENERADO parte 33/35 -->
 - U-03.F13 | Vagabundo | T3 | s0 | n=2 | Común@1 · Veterano@7
 - U-03.F14 | Vagabundo purista | T3 | s0 | n=2 | Común@1 · Veterano@7
 - U-04.F13 | Saqueador | T3 | s0 | n=1 | Común@1

@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 26/34 -->
+<!-- BESTIARIO GENERADO parte 26/35 -->
 - FA-39.F7 | Persona con rasgos de Liche | T4 | s14 | n=2 | Común@28 · Archi-liche@jefe
 - FA-39.F8 | Persona-Liche (se considera Liche) | T4 | s14 | n=1 | Común@28
 - FA-39.F9 | Furry de Liche | T4 | s14 | n=3 | Común@28 · Archi-liche@jefe · Rey@jefe

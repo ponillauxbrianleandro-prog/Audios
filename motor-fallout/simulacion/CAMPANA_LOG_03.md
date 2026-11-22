@@ -1,126 +1,129 @@
 <!-- CAMPAÑA parte 3/6 -->
 # Registro de la campaña (simulación), parte 3
 
-- d23 11:30 | L-019 | COMBATE vs 2× Robot guardián (nv15, var V2, PV c/u 268) 
-- d23 11:41 | L-019 | VICTORIA en 11 rondas (PV 110→110/220)
-- d26 12:48 | L-019 | COMBATE vs 3× Robot guardián (nv15, var V2, PV c/u 268) [sorpresa]
-- d26 12:57 | L-019 | SUBE A NIVEL 15 (PV máx 225, daño nominal 35)
-- d26 12:57 | L-019 | VICTORIA en 9 rondas (PV 218→225/225)
-- d27 13:50 | L-019 | COMBATE vs 3× Robot guardián (nv15, var V2, PV c/u 268) [sorpresa]
-- d27 14:06 | L-019 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d28 09:06 | L-019 | COMBATE vs 2× Robot guardián (nv15, var V2, PV c/u 268) [sorpresa]
-- d28 09:16 | L-019 | VICTORIA en 10 rondas (PV 113→53/225)
-- d29 00:05 | L-019 | COMBATE vs 3× Robot de combate (nv15, var V1, PV c/u 192) [sorpresa]
-- d29 00:16 | L-019 | VICTORIA en 11 rondas (PV 113→100/225)
-- d30 00:46 | L-019 | COMBATE vs 2× Robot de laboratorio quimera (mitad humano) (nv15, var V1, PV c/u 288) [sorpresa]
-- d30 00:58 | L-019 | VICTORIA en 12 rondas (PV 139→75/225)
-- d30 10:25 | L-019 | COMBATE vs 2× Robot de combate (nv15, var V1, PV c/u 192) [sorpresa]
-- d30 10:32 | L-019 | VICTORIA en 7 rondas (PV 113→49/225)
-- d35 12:18 | L-019 | COMBATE vs 4× Robot guardián humanoide (nv15, var V1, PV c/u 230) 
-- d35 12:34 | L-019 | ESCAPÓ del combate (los enemigos quedan: 1 persistentes)
-- d36 07:04 | L-019 | COMBATE vs 1× Robot guardián humanoide (nv15, var V1, PV c/u 230) [sorpresa]
-- d36 07:08 | L-019 | VICTORIA en 4 rondas (PV 114→92/225)
-- d36 12:20 | L-019 | COMBATE vs 2× Robot de laboratorio quimera (mitad humano) (nv15, var V1, PV c/u 288) [sorpresa]
-- d36 12:33 | L-019 | VICTORIA en 13 rondas (PV 113→59/225)
-- d37 01:49 | L-019 | COMBATE vs 2× Androide (nv15, var V1, PV c/u 192) 
-- d37 01:57 | L-019 | VICTORIA en 8 rondas (PV 113→93/225)
-- d42 03:48 | L-019 | COMBATE vs 6× Dron ojo erguido (nv15, var V3, PV c/u 100) 
-- d42 03:58 | L-019 | VICTORIA en 10 rondas (PV 225→198/225)
-- d43 04:43 | L-019 | COMBATE vs 3× Persona con rasgos de Robot guardián (nv15, var V1, PV c/u 211) [sorpresa]
-- d43 04:58 | L-019 | VICTORIA en 15 rondas (PV 225→120/225)
-- d45 05:57 | L-019 | COMBATE vs 2× Persona con rasgos de Robot de laboratorio (nv15, var V1, PV c/u 211) [sorpresa]
-- d45 06:06 | L-019 | VICTORIA en 9 rondas (PV 198→165/225)
-- d48 07:10 | L-019 | COMBATE vs 3× Roedor mecánico humanoide (nv15, var V2, PV c/u 161) [sorpresa]
-- d48 07:18 | L-019 | VICTORIA en 8 rondas (PV 225→208/225)
-- d50 08:17 | L-019 | COMBATE vs 4× Androide (nv15, var V1, PV c/u 192) [sorpresa]
-- d50 08:35 | L-019 | VICTORIA en 18 rondas (PV 225→56/225)
-- d54 10:45 | L-019 | COMBATE vs 3× Robot doméstico (nv15, var V1, PV c/u 192) [sorpresa]
-- d54 10:58 | L-019 | VICTORIA en 13 rondas (PV 225→105/225)
-- d55 11:30 | L-019 | COMBATE vs 4× Dron de reparación (nv15, var V2, PV c/u 67) [sorpresa]
-- d55 11:35 | L-019 | VICTORIA en 5 rondas (PV 144→144/225)
-- d61 14:08 | L-019 | COMBATE vs 2× Robot de laboratorio (nv15, var V1, PV c/u 192) 
-- d61 14:14 | L-019 | VICTORIA en 6 rondas (PV 225→173/225)
-- d62 14:40 | L-019 | COMBATE vs 6× Insecto mecánico (nv15, var V2, PV c/u 67) [sorpresa]
-- d62 14:49 | L-019 | VICTORIA en 9 rondas (PV 213→193/225)
-- d68 17:26 | L-019 | COMBATE vs 4× Robot guardián humanoide (nv15, var V1, PV c/u 230) 
-- d68 17:50 | L-019 | SUBE A NIVEL 16 (PV máx 230, daño nominal 36)
-- d68 17:50 | L-019 | VICTORIA en 24 rondas (PV 225→230/230)
-- d68 18:20 | L-020 | COMBATE vs 3× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) 
-- d68 18:34 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d69 23:04 | L-020 | COMBATE vs 2× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
-- d69 23:14 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d71 03:44 | L-020 | COMBATE vs 2× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
-- d71 03:56 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d72 08:26 | L-020 | COMBATE vs 2× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
-- d72 08:35 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d73 04:35 | L-020 | COMBATE vs 2× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) 
-- d73 04:46 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d74 09:16 | L-020 | COMBATE vs 2× Robot guardián quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
-- d74 09:30 | L-020 | VICTORIA en 14 rondas (PV 116→54/230)
-- d74 10:02 | L-020 | REGISTRA C-033 (caja fuerte del Regente): ['arma_t5', 'armadura_e5', 'cuñas500']
-- d75 11:02 | L-020 | COMBATE vs 4× Roedor mecánico (nv20, var V1, PV c/u 58) 
-- d75 11:07 | L-020 | VICTORIA en 5 rondas (PV 116→116/230)
-- d78 12:31 | L-020 | COMBATE vs 6× Dron de reparación (nv20, var V2, PV c/u 81) 
-- d78 12:37 | L-020 | VICTORIA en 6 rondas (PV 230→228/230)
-- d78 12:52 | L-020 | COMBATE vs 6× Dron de reparación (nv20, var V1, PV c/u 58) [sorpresa]
-- d78 12:58 | L-020 | VICTORIA en 6 rondas (PV 230→227/230)
-- d78 13:17 | L-020 | COMBATE vs 4× Dron de reparación (nv20, var V2, PV c/u 81) 
-- d78 13:21 | L-020 | VICTORIA en 4 rondas (PV 229→227/230)
-- d80 14:18 | L-020 | COMBATE vs 4× Androide (nv20, var V1, PV c/u 232) 
-- d80 14:29 | L-020 | VICTORIA en 11 rondas (PV 230→220/230)
-- d81 15:22 | L-020 | COMBATE vs 2× Robot de laboratorio quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
-- d81 15:29 | L-020 | VICTORIA en 7 rondas (PV 230→206/230)
-- d88 18:03 | L-020 | COMBATE vs 4× Robot de laboratorio (nv20, var V1, PV c/u 232) [sorpresa]
-- d88 18:13 | L-020 | VICTORIA en 10 rondas (PV 230→175/230)
-- d88 18:32 | L-020 | COMBATE vs 5× Insecto mecánico (nv20, var V1, PV c/u 58) [sorpresa]
-- d88 18:36 | L-020 | VICTORIA en 4 rondas (PV 177→176/230)
-- d89 19:12 | L-020 | COMBATE vs 6× Dron de reparación (nv20, var V2, PV c/u 81) [sorpresa]
-- d89 19:17 | L-020 | VICTORIA en 5 rondas (PV 217→217/230)
-- d92 20:47 | L-020 | COMBATE vs 3× Androide (nv20, var V1, PV c/u 232) [sorpresa]
-- d92 20:57 | L-020 | VICTORIA en 10 rondas (PV 230→198/230)
-- d92 21:15 | L-020 | COMBATE vs 4× Robot de combate (nv20, var V1, PV c/u 232) [sorpresa]
-- d92 21:27 | L-020 | VICTORIA en 12 rondas (PV 200→150/230)
-- d92 21:40 | L-020 | COMBATE vs 5× Roedor mecánico erguido (nv20, var V1, PV c/u 63) 
-- d92 21:47 | L-020 | VICTORIA en 7 rondas (PV 151→149/230)
-- d92 22:17 | L-020 | COMBATE vs 2× Robot de combate (nv20, var V1, PV c/u 232) [sorpresa]
-- d92 22:23 | L-020 | VICTORIA en 6 rondas (PV 151→151/230)
-- d95 23:43 | L-020 | COMBATE vs 3× Robot guardián (nv20, var V2, PV c/u 324) 
-- d95 23:52 | L-020 | VICTORIA en 9 rondas (PV 230→182/230)
-- d108 04:25 | L-020 | COMBATE vs 2× Robot de combate erguido (nv20, var V1, PV c/u 255) [sorpresa]
-- d108 04:31 | L-020 | SUBE A NIVEL 17 (PV máx 235, daño nominal 44)
-- d108 04:31 | L-020 | VICTORIA en 6 rondas (PV 230→235/235)
-- d109 05:03 | L-020 | COMBATE vs 4× Roedor mecánico (nv20, var V1, PV c/u 58) 
-- d109 05:06 | L-020 | VICTORIA en 3 rondas (PV 235→234/235)
-- d110 05:35 | L-020 | COMBATE vs 2× Robot doméstico (nv20, var V1, PV c/u 232) [sorpresa]
-- d110 05:42 | L-020 | VICTORIA en 7 rondas (PV 235→169/235)
-- d110 05:59 | L-020 | COMBATE vs 2× Robot guardián (nv20, var V2, PV c/u 324) [sorpresa]
-- d110 06:05 | L-020 | VICTORIA en 6 rondas (PV 181→181/235)
-- d111 06:47 | L-020 | COMBATE vs 3× Robot doméstico humanoide (nv20, var V3, PV c/u 528) 
-- d111 07:18 | L-020 | VICTORIA en 31 rondas (PV 226→88/235)
-- d118 10:10 | L-020 | COMBATE vs 3× Robot guardián (nv20, var V2, PV c/u 324) 
-- d118 10:21 | L-020 | VICTORIA en 11 rondas (PV 235→149/235)
-- d118 10:33 | L-020 | COMBATE vs 3× Robot de combate erguido (nv20, var V1, PV c/u 255) [sorpresa]
-- d118 10:46 | L-020 | VICTORIA en 13 rondas (PV 150→106/235)
-- d118 13:44 | L-020 | COMBATE vs 4× Robot de combate humanoide (nv20, var V1, PV c/u 278) 
-- d118 14:01 | L-020 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
-- d119 19:01 | L-020 | COMBATE vs 3× Robot de combate humanoide (nv20, var V1, PV c/u 278) 
-- d119 19:16 | L-020 | VICTORIA en 15 rondas (PV 118→56/235)
-- d120 20:47 | L-020 | COMBATE vs 4× Androide (nv20, var V1, PV c/u 232) [sorpresa]
-- d120 21:08 | L-020 | VICTORIA en 21 rondas (PV 119→76/235)
-- d121 21:49 | L-020 | COMBATE vs 6× Roedor mecánico (nv20, var V1, PV c/u 58) [sorpresa]
-- d121 21:56 | L-020 | VICTORIA en 7 rondas (PV 121→118/235)
-- d121 22:22 | L-020 | COMBATE vs 2× Torreta (nv20, var V1, PV c/u 232) [sorpresa]
-- d121 22:30 | L-020 | VICTORIA en 8 rondas (PV 120→91/235)
-- d122 23:15 | L-020 | COMBATE vs 2× Androide (nv20, var V1, PV c/u 232) [sorpresa]
-- d122 23:22 | L-020 | VICTORIA en 7 rondas (PV 134→114/235)
-- d132 02:54 | L-020 | COMBATE vs 5× Roedor mecánico (nv20, var V1, PV c/u 58) 
-- d132 02:59 | L-020 | VICTORIA en 5 rondas (PV 235→232/235)
-- d132 03:18 | L-020 | COMBATE vs 4× Torreta quimera (mitad humano) (nv20, var V2, PV c/u 487) 
-- d132 03:43 | L-020 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
-- d133 08:43 | L-020 | COMBATE vs 3× Torreta quimera (mitad humano) (nv20, var V2, PV c/u 487) 
-- d133 09:06 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d134 14:06 | L-020 | COMBATE vs 2× Torreta quimera (mitad humano) (nv20, var V2, PV c/u 487) [sorpresa]
-- d134 14:10 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d135 10:10 | L-020 | COMBATE vs 2× Torreta quimera (mitad humano) (nv20, var V2, PV c/u 487) [sorpresa]
-- d135 10:20 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
-- d136 09:20 | L-020 | COMBATE vs 2× Torreta quimera (mitad humano) (nv20, var V2, PV c/u 487) 
+- d17 13:36 | L-019 | SUBE A NIVEL 15 (PV máx 225, daño nominal 35)
+- d17 13:36 | L-019 | VICTORIA en 19 rondas (PV 110→225/225)
+- d18 14:14 | L-019 | COMBATE vs 4× Androide (nv15, var V1, PV c/u 192) [sorpresa]
+- d18 14:28 | L-019 | VICTORIA en 14 rondas (PV 225→98/225)
+- d19 14:54 | L-019 | COMBATE vs 5× Roedor mecánico (nv15, var V1, PV c/u 48) 
+- d19 15:00 | L-019 | VICTORIA en 6 rondas (PV 137→135/225)
+- d24 17:10 | L-019 | COMBATE vs 2× Robot de laboratorio humanoide (nv15, var V1, PV c/u 230) [sorpresa]
+- d24 17:17 | L-019 | VICTORIA en 7 rondas (PV 225→177/225)
+- d25 17:54 | L-019 | COMBATE vs 2× Robot doméstico (nv15, var V1, PV c/u 192) [sorpresa]
+- d25 18:00 | L-019 | VICTORIA en 6 rondas (PV 217→217/225)
+- d25 18:25 | L-019 | COMBATE vs 4× Torreta (nv15, var V1, PV c/u 192) 
+- d25 18:41 | L-019 | VICTORIA en 16 rondas (PV 218→101/225)
+- d30 20:33 | L-019 | COMBATE vs 4× Perro mecánico humanoide (nv15, var V2, PV c/u 161) 
+- d30 20:44 | L-019 | VICTORIA en 11 rondas (PV 225→122/225)
+- d30 21:02 | L-019 | COMBATE vs 3× Robot doméstico (nv15, var V1, PV c/u 192) [sorpresa]
+- d30 21:12 | L-019 | VICTORIA en 10 rondas (PV 124→124/225)
+- d30 21:40 | L-019 | COMBATE vs 4× Robot doméstico humanoide (nv15, var V2, PV c/u 322) [sorpresa]
+- d30 21:56 | L-019 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d32 01:56 | L-019 | COMBATE vs 3× Robot doméstico humanoide (nv15, var V2, PV c/u 322) [sorpresa]
+- d32 02:15 | L-019 | ESCAPÓ del combate (los enemigos quedan: 1 persistentes)
+- d33 06:15 | L-019 | COMBATE vs 1× Robot doméstico humanoide (nv15, var V2, PV c/u 322) [sorpresa]
+- d33 06:20 | L-019 | VICTORIA en 5 rondas (PV 114→114/225)
+- d37 07:45 | L-019 | COMBATE vs 3× Robot guardián (nv15, var V1, PV c/u 192) [sorpresa]
+- d37 07:58 | L-019 | VICTORIA en 13 rondas (PV 225→162/225)
+- d37 08:26 | L-019 | COMBATE vs 5× Perro mecánico (nv15, var V3, PV c/u 91) 
+- d37 08:34 | L-019 | VICTORIA en 8 rondas (PV 164→135/225)
+- d37 08:49 | L-019 | COMBATE vs 3× Dron ojo humanoide (nv15, var V3, PV c/u 218) [sorpresa]
+- d37 08:57 | L-019 | VICTORIA en 8 rondas (PV 137→137/225)
+- d38 09:35 | L-019 | COMBATE vs 4× Robot doméstico (nv15, var V1, PV c/u 192) [sorpresa]
+- d38 09:52 | L-019 | VICTORIA en 17 rondas (PV 177→62/225)
+- d39 11:20 | L-019 | COMBATE vs 4× Robot doméstico (nv15, var V1, PV c/u 192) [sorpresa]
+- d39 11:32 | L-019 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d40 06:02 | L-019 | COMBATE vs 3× Robot doméstico (nv15, var V1, PV c/u 192) 
+- d40 06:15 | L-019 | VICTORIA en 13 rondas (PV 113→44/225)
+- d40 23:42 | L-019 | COMBATE vs 3× Persona con rasgos de Dron de reparación (nv15, var V1, PV c/u 211) [sorpresa]
+- d40 23:56 | L-019 | VICTORIA en 14 rondas (PV 114→76/225)
+- d44 01:41 | L-019 | COMBATE vs 3× Robot de combate (nv15, var V1, PV c/u 192) 
+- d44 01:54 | L-019 | SUBE A NIVEL 16 (PV máx 230, daño nominal 36)
+- d44 01:54 | L-019 | VICTORIA en 13 rondas (PV 193→230/230)
+- d44 02:21 | L-020 | COMBATE vs 2× Persona con rasgos de Dron de reparación (nv20, var V1, PV c/u 255) [sorpresa]
+- d44 02:30 | L-020 | VICTORIA en 9 rondas (PV 230→154/230)
+- d44 02:45 | L-020 | COMBATE vs 3× Androide (nv20, var V1, PV c/u 232) [sorpresa]
+- d44 02:59 | L-020 | VICTORIA en 14 rondas (PV 156→83/230)
+- d44 11:09 | L-020 | COMBATE vs 4× Robot doméstico (nv20, var V1, PV c/u 232) 
+- d44 11:17 | L-020 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d45 09:17 | L-020 | COMBATE vs 4× Robot doméstico (nv20, var V1, PV c/u 232) [sorpresa]
+- d45 09:36 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d46 14:06 | L-020 | COMBATE vs 2× Robot doméstico (nv20, var V1, PV c/u 232) [sorpresa]
+- d46 14:16 | L-020 | VICTORIA en 10 rondas (PV 116→86/230)
+- d46 21:38 | L-020 | COMBATE vs 2× Robot doméstico (nv20, var V1, PV c/u 232) [sorpresa]
+- d46 21:47 | L-020 | VICTORIA en 9 rondas (PV 115→43/230)
+- d46 22:22 | L-020 | REGISTRA C-033 (caja fuerte del Regente): ['arma_t5', 'armadura_e5', 'cuñas500']
+- d49 23:19 | L-020 | COMBATE vs 4× Robot de laboratorio quimera (mitad humano) (nv20, var V1, PV c/u 348) 
+- d49 23:36 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d50 23:36 | L-020 | COMBATE vs 2× Robot de laboratorio quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
+- d50 23:45 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d51 21:15 | L-020 | COMBATE vs 2× Robot de laboratorio quimera (mitad humano) (nv20, var V1, PV c/u 348) [sorpresa]
+- d51 21:25 | L-020 | VICTORIA en 10 rondas (PV 115→62/230)
+- d58 23:49 | L-020 | COMBATE vs 3× Androide (nv20, var V1, PV c/u 232) [sorpresa]
+- d58 23:57 | L-020 | VICTORIA en 8 rondas (PV 230→204/230)
+- d63 01:32 | L-020 | COMBATE vs 3× Persona con rasgos de Robot de laboratorio (nv20, var V1, PV c/u 255) [sorpresa]
+- d63 01:40 | L-020 | VICTORIA en 8 rondas (PV 230→183/230)
+- d63 02:09 | L-020 | COMBATE vs 2× Robot de combate humanoide (nv20, var V1, PV c/u 278) 
+- d63 02:15 | L-020 | VICTORIA en 6 rondas (PV 185→185/230)
+- d63 02:43 | L-020 | COMBATE vs 5× Roedor mecánico (nv20, var V1, PV c/u 58) 
+- d63 02:47 | L-020 | VICTORIA en 4 rondas (PV 187→186/230)
+- d68 04:51 | L-020 | COMBATE vs 5× Perro mecánico humanoide (nv20, var V2, PV c/u 194) [sorpresa]
+- d68 05:02 | L-020 | VICTORIA en 11 rondas (PV 230→207/230)
+- d71 06:30 | L-020 | COMBATE vs 4× Dron ojo (nv20, var V1, PV c/u 58) 
+- d71 06:35 | L-020 | VICTORIA en 5 rondas (PV 230→229/230)
+- d71 06:53 | L-020 | COMBATE vs 2× Robot de combate quimera (mitad humano) (nv20, var V1, PV c/u 348) 
+- d71 07:03 | L-020 | VICTORIA en 10 rondas (PV 230→172/230)
+- d76 09:23 | L-020 | COMBATE vs 3× Robot de laboratorio (nv20, var V2, PV c/u 324) [sorpresa]
+- d76 09:36 | L-020 | VICTORIA en 13 rondas (PV 230→135/230)
+- d79 11:17 | L-020 | COMBATE vs 4× Robot de laboratorio (nv20, var V2, PV c/u 324) [sorpresa]
+- d79 11:36 | L-020 | SUBE A NIVEL 17 (PV máx 235, daño nominal 44)
+- d79 11:36 | L-020 | VICTORIA en 19 rondas (PV 230→235/235)
+- d81 12:39 | L-020 | COMBATE vs 2× Androide (nv20, var V1, PV c/u 232) [sorpresa]
+- d81 12:45 | L-020 | VICTORIA en 6 rondas (PV 235→207/235)
+- d86 14:18 | L-020 | COMBATE vs 3× Torreta (nv20, var V1, PV c/u 232) [sorpresa]
+- d86 14:25 | L-020 | VICTORIA en 7 rondas (PV 235→199/235)
+- d102 20:04 | L-020 | COMBATE vs 4× Robot guardián erguido (nv20, var V2, PV c/u 357) 
+- d102 20:23 | L-020 | VICTORIA en 19 rondas (PV 235→73/235)
+- d105 21:33 | L-020 | COMBATE vs 3× Robot doméstico (nv20, var V1, PV c/u 232) [sorpresa]
+- d105 21:44 | L-020 | VICTORIA en 11 rondas (PV 202→124/235)
+- d105 22:05 | L-020 | COMBATE vs 2× Robot de combate (nv20, var V1, PV c/u 232) [sorpresa]
+- d105 22:12 | L-020 | VICTORIA en 7 rondas (PV 146→146/235)
+- d114 01:19 | L-020 | COMBATE vs 4× Torreta (nv20, var V1, PV c/u 232) 
+- d114 01:29 | L-020 | VICTORIA en 10 rondas (PV 235→225/235)
+- d118 02:43 | L-020 | COMBATE vs 3× Robot de combate (nv20, var V1, PV c/u 232) 
+- d118 02:52 | L-020 | VICTORIA en 9 rondas (PV 235→192/235)
+- d120 03:58 | L-020 | COMBATE vs 3× Robot guardián (nv20, var V2, PV c/u 324) [sorpresa]
+- d120 04:09 | L-020 | VICTORIA en 11 rondas (PV 235→212/235)
+- d121 05:02 | L-020 | COMBATE vs 5× Roedor mecánico humanoide (nv20, var V2, PV c/u 194) 
+- d121 05:11 | L-020 | VICTORIA en 9 rondas (PV 235→203/235)
+- d123 06:18 | L-020 | COMBATE vs 4× Robot de combate (nv20, var V1, PV c/u 232) 
+- d123 06:34 | L-020 | VICTORIA en 16 rondas (PV 235→135/235)
+- d126 07:59 | L-020 | COMBATE vs 2× Androide (nv20, var V1, PV c/u 232) [sorpresa]
+- d126 08:05 | L-020 | VICTORIA en 6 rondas (PV 235→219/235)
+- d127 08:40 | L-020 | COMBATE vs 2× Robot de combate (nv20, var V1, PV c/u 232) 
+- d127 08:48 | L-020 | VICTORIA en 8 rondas (PV 235→202/235)
+- d131 10:20 | L-020 | COMBATE vs 4× Androide erguido (nv20, var V1, PV c/u 255) [sorpresa]
+- d131 10:31 | L-020 | SUBE A NIVEL 18 (PV máx 240, daño nominal 45)
+- d131 10:31 | L-020 | VICTORIA en 11 rondas (PV 235→240/240)
+- d131 11:32 | L-018 | MISIÓN ACEPTADA M-08 «La Torre» (principal)
+- d131 12:09 | L-020 | COMBATE vs 6× Dron ojo erguido (nv20, var V3, PV c/u 121) 
+- d131 12:17 | L-020 | VICTORIA en 8 rondas (PV 240→216/240)
+- d131 12:17 | L-020 | JEFE: Elías Sal aparece
+- d131 12:17 | L-020 | COMBATE vs 2× Robot guardián erguido (nv20, var V1, PV c/u 255) 
+- d131 12:26 | L-020 | VICTORIA en 9 rondas (PV 216→175/240)
+- d131 12:26 | L-020 | COMBATE vs 1× Elías Sal (nv20, var V1, PV c/u 900) [sorpresa]
+- d131 12:44 | L-020 | VICTORIA en 18 rondas (PV 175→158/240)
+- d131 12:44 | L-020 | JEFE DERROTADO: Elías Sal
+- d131 12:52 | L-020 | HACKEO de terminal en Torre de la Concesión ÉXITO (52%)
+- d131 12:52 | L-020 | SUBE A NIVEL 19 (PV máx 245, daño nominal 46)
+- d131 12:52 | L-020 | MISIÓN COMPLETADA M-08 «La Torre» +2500 XP
+- d131 12:52 | L-020 | EL PURIFICADOR VUELVE A FUNCIONAR: aparece el Oasis Verde
+- d131 13:22 | L-020 | CAMPAÑA COMPLETA al día 131, nivel 19
+- d131 13:42 | L-021 | LLEGA por primera vez a Oasis Verde [segura]
+- d131 13:44 | L-021 | REGISTRA C-034 (alacena del oasis): ['lata', 'agua', 'medicina']
+- d131 13:44 | L-021 | visita el lugar nuevo que aparece al terminar la campaña (cama y alacena)
+- d131 14:43 | L-020 | COMBATE vs 4× Robot guardián erguido (nv20, var V2, PV c/u 357) 
+- d131 15:02 | L-020 | VICTORIA en 19 rondas (PV 245→128/245)
+- d132 00:51 | L-020 | COMBATE vs 2× Torreta (nv20, var V1, PV c/u 232) [sorpresa]
+- d132 00:57 | L-020 | VICTORIA en 6 rondas (PV 245→245/245)
+- d133 11:27 | L-020 | COMBATE vs 4× Robot de combate erguido (nv20, var V1, PV c/u 255) 

@@ -1,0 +1,139 @@
+<!-- CAMPAÑA parte 15/21 -->
+# Registro de la campaña (simulación), parte 15
+
+- d62 06:06 | Q-017 | MISIÓN ACEPTADA QA-189-2 «Reparación en el refugio» (secundaria)
+- d62 08:48 | L-001 | COMBATE vs 4× Coyote (nv2, var V1, PV c/u 22) 
+- d62 08:50 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d62 09:49 | Q-001 | FABRICA artefacto (98≤100)
+- d62 13:32 | Q-017 | MISIÓN COMPLETADA QA-189-2 «Reparación en el refugio» +144 XP
+- d62 14:04 | Q-026 | MISIÓN ACEPTADA QA-190-2 «Algo que funcione» (secundaria)
+- d62 19:01 | Q-001 | FABRICA artefacto (80≤100)
+- d62 19:01 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d62 19:35 | Q-026 | MISIÓN COMPLETADA QA-190-2 «Algo que funcione» +144 XP
+- d62 23:41 | Q-007 | MISIÓN ACEPTADA QA-191-2 «Construir juntos» (secundaria)
+- d63 01:10 | Q-001 | FABRICA artefacto (6≤100)
+- d63 02:12 | Q-007 | MISIÓN COMPLETADA QA-191-2 «Construir juntos» +144 XP
+- d63 06:06 | Q-014 | MISIÓN ACEPTADA QA-197-4 «Mercancía para el silencio» (secundaria)
+- d63 06:19 | Q-014 | MISIÓN COMPLETADA QA-197-4 «Mercancía para el silencio» +144 XP
+- d63 06:48 | Q-024 | MISIÓN ACEPTADA QA-199-1 «Secreto del genio» (secundaria)
+- d63 07:27 | Z-018 | HACKEO de terminal en Panadería de Barrio del Mercado ÉXITO (91%)
+- d63 07:27 | Z-018 | MISIÓN COMPLETADA QA-199-1 «Secreto del genio» +144 XP
+- d63 08:38 | Q-012 | MISIÓN ACEPTADA QA-201-2 «La balanza de la ambición» (secundaria)
+- d63 08:43 | Q-012 | ELIGE BANDO en QA-201-2: el otro (el grupo «un bando» pasa a ser hostil)
+- d63 08:43 | Q-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d63 10:17 | L-020 | COMBATE vs 6× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d63 10:21 | L-020 | VICTORIA en 4 rondas (PV 300→288/300)
+- d63 10:21 | L-020 | COMBATE vs 2× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d63 10:43 | L-020 | VICTORIA en 22 rondas (PV 288→170/300)
+- d63 10:43 | L-020 | MISIÓN COMPLETADA QA-201-2 «La balanza de la ambición» +144 XP
+- d63 10:43 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d63 11:00 | Q-012 | MISIÓN ACEPTADA QA-201-4 «La sombra de la ambición» (secundaria)
+- d63 14:08 | Q-038 | MISIÓN COMPLETADA QA-201-4 «La sombra de la ambición» +144 XP
+- d63 14:14 | Z-074 | LLEGA por primera vez a Enfermería de Aldea de las Casas Grandes [segura]
+- d63 18:22 | Z-074 | REGISTRA C-0289 (alacena): ['venda_reforzada', 'medicina', 'kit_reparacion', 'cuñas26']
+- d63 18:24 | Z-074 | REGISTRA C-0290 (mochila): ['agua', 'chatarra']
+- d63 18:26 | Z-074 | REGISTRA C-0291 (mochila): ['cuerda', 'herramientas', 'medicina']
+- d63 21:13 | Q-020 | MISIÓN ACEPTADA QA-209-2 «Devolver la llave» (secundaria)
+- d63 22:04 | Q-020 | MISIÓN COMPLETADA QA-209-2 «Devolver la llave» +144 XP
+- d63 22:04 | Q-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d63 22:04 | L-002 | COMBATE vs 4× Mantis mutante erguido (nv3, var V2, PV c/u 36) [emboscada enemiga]
+- d63 22:07 | L-002 | VICTORIA en 3 rondas (PV 300→300/300)
+- d63 23:49 | Q-008 | MISIÓN ACEPTADA QA-211-2 «Una dosis a tiempo» (secundaria)
+- d63 23:54 | Q-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d63 23:54 | L-011 | COMBATE vs 4× Mosquito mutante (nv6, var V2, PV c/u 42) [emboscada enemiga]
+- d63 23:57 | L-011 | VICTORIA en 3 rondas (PV 300→300/300)
+- d64 01:11 | L-014 | COMBATE vs 5× Hidra pequeña erguido (nv28, var V1, PV c/u 81) 
+- d64 01:15 | L-014 | VICTORIA en 4 rondas (PV 300→292/300)
+- d64 04:49 | Q-008 | MISIÓN COMPLETADA QA-211-2 «Una dosis a tiempo» +144 XP
+- d64 06:57 | L-002 | COMBATE vs 2× Coyote humanoide (nv3, var V3, PV c/u 109) 
+- d64 06:59 | L-002 | VICTORIA en 2 rondas (PV 300→292/300)
+- d64 10:10 | Q-020 | MISIÓN ACEPTADA QA-212-2 «Una mesa para la esperanza» (secundaria)
+- d64 12:16 | Q-020 | MISIÓN COMPLETADA QA-212-2 «Una mesa para la esperanza» +144 XP
+- d64 12:21 | Q-020 | MISIÓN ACEPTADA QA-212-4 «Entrega pesada» (secundaria)
+- d64 12:27 | Z-038 | LLEGA por primera vez a Kiosco de Barrio Viejo [segura]
+- d64 12:37 | Z-038 | REGISTRA C-0145 (estantería): ['kit_reparacion']
+- d64 12:52 | Z-038 | REGISTRA C-0146 (escritorio): ['ganzua', 'herramientas']
+- d64 13:00 | Z-038 | REGISTRA C-0147 (heladera): ['recurso_bio', 'piezas', 'obj_205']
+- d64 15:18 | Q-038 | MISIÓN COMPLETADA QA-212-4 «Entrega pesada» +144 XP
+- d64 15:20 | Q-038 | REGISTRA C-0283 (cofre): ['circuito', 'obj_33']
+- d64 18:57 | Q-023 | MISIÓN ACEPTADA QA-223-2 «El cofre del puesto» (secundaria)
+- d64 20:04 | Q-023 | MISIÓN COMPLETADA QA-223-2 «El cofre del puesto» +144 XP
+- d64 20:09 | Q-023 | MISIÓN ACEPTADA QA-223-3 «Lo que no se declara» (secundaria)
+- d64 20:45 | Q-018 | MISIÓN COMPLETADA QA-223-3 «Lo que no se declara» +144 XP
+- d65 01:45 | Q-006 | MISIÓN ACEPTADA QN-007-3 «Cartas sin dueño» (secundaria)
+- d65 01:50 | Q-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d65 06:41 | Q-006 | MISIÓN COMPLETADA QN-007-3 «Cartas sin dueño» +144 XP
+- d65 06:41 | Q-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d65 07:47 | Q-015 | MISIÓN ACEPTADA QN-009-2 «Lo que no se dijo a tiempo» (secundaria)
+- d65 10:49 | Q-015 | MISIÓN COMPLETADA QN-009-2 «Lo que no se dijo a tiempo» +144 XP
+- d65 10:54 | Q-015 | MISIÓN ACEPTADA QN-009-4 «Devolver el cuaderno» (secundaria)
+- d65 11:24 | Q-015 | MISIÓN COMPLETADA QN-009-4 «Devolver el cuaderno» +144 XP
+- d65 11:54 | Q-027 | MISIÓN ACEPTADA QN-010-1 «Rastro del mapa» (secundaria)
+- d65 12:53 | Q-027 | MISIÓN COMPLETADA QN-010-1 «Rastro del mapa» +144 XP
+- d65 12:58 | Q-027 | MISIÓN ACEPTADA QN-010-2 «Pruebas del puesto» (secundaria)
+- d65 18:08 | Q-003 | MISIÓN COMPLETADA QN-010-2 «Pruebas del puesto» +144 XP
+- d65 19:25 | Q-006 | MISIÓN ACEPTADA QN-013-1 «Faltan provisiones» (secundaria)
+- d66 00:45 | Q-006 | MISIÓN COMPLETADA QN-013-1 «Faltan provisiones» +144 XP
+- d66 00:50 | Q-006 | MISIÓN ACEPTADA QN-013-2 «Día de feria» (secundaria)
+- d66 01:11 | Q-006 | MISIÓN COMPLETADA QN-013-2 «Día de feria» +144 XP
+- d66 01:16 | Q-006 | MISIÓN ACEPTADA QN-013-3 «Pruebas del granero» (secundaria)
+- d66 01:44 | Z-009 | REGISTRA C-0058 (mostrador): ['chatarra', 'agua', 'obj_239']
+- d66 02:47 | Q-003 | MISIÓN COMPLETADA QN-013-3 «Pruebas del granero» +144 XP
+- d66 02:47 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d66 04:28 | Q-014 | MISIÓN ACEPTADA QN-015-2 «Resistir en el pozo» (secundaria)
+- d66 07:11 | L-020 | COMBATE vs 6× Slime verde (nv28, var V2, PV c/u 103) [sorpresa]
+- d66 07:18 | L-020 | VICTORIA en 7 rondas (PV 300→260/300)
+- d66 09:24 | Q-014 | MISIÓN COMPLETADA QN-015-2 «Resistir en el pozo» +144 XP
+- d66 11:40 | L-008 | MISIÓN ACEPTADA QN-021-2 «Tras la presa de la paciencia» (secundaria)
+- d66 15:34 | L-004 | COMBATE vs 4× Zorro rojo (nv5, var V1, PV c/u 28) [sorpresa]
+- d66 15:36 | L-004 | VICTORIA en 2 rondas (PV 300→300/300)
+- d66 18:50 | L-008 | COMBATE vs 2× Jabalí (nv7, var V2, PV c/u 179) 
+- d66 18:54 | L-008 | VICTORIA en 4 rondas (PV 300→272/300)
+- d66 18:59 | L-008 | MISIÓN COMPLETADA QN-021-2 «Tras la presa de la paciencia» +144 XP
+- d66 21:48 | Q-021 | MISIÓN ACEPTADA QN-028-1 «Reparación en el pueblo» (secundaria)
+- d66 21:53 | Q-021 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d67 00:24 | Q-001 | FABRICA artefacto (52≤100)
+- d67 04:15 | Q-021 | MISIÓN COMPLETADA QN-028-1 «Reparación en el pueblo» +144 XP
+- d67 04:20 | Q-021 | MISIÓN ACEPTADA QN-028-2 «Tesoro con condición» (secundaria)
+- d67 04:51 | Q-021 | MISIÓN COMPLETADA QN-028-2 «Tesoro con condición» +144 XP
+- d67 04:56 | Q-021 | MISIÓN ACEPTADA QN-028-3 «Construir juntos» (secundaria)
+- d67 08:15 | L-001 | COMBATE vs 3× Coyote (nv2, var V1, PV c/u 22) [sorpresa]
+- d67 08:17 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d67 09:12 | Q-001 | FABRICA artefacto (53≤100)
+- d67 10:09 | L-002 | COMBATE vs 3× Persona con rasgos de Escarabajo mutante (nv3, var V2, PV c/u 147) 
+- d67 10:13 | L-002 | VICTORIA en 4 rondas (PV 300→289/300)
+- d67 13:19 | Q-021 | MISIÓN COMPLETADA QN-028-3 «Construir juntos» +144 XP
+- d67 15:27 | L-002 | COMBATE vs 3× Persona con rasgos de Ciervo (nv3, var V1, PV c/u 105) [sorpresa]
+- d67 15:30 | L-002 | VICTORIA en 3 rondas (PV 300→300/300)
+- d67 17:43 | Q-008 | MISIÓN ACEPTADA QN-029-1 «Lección en el camino» (secundaria)
+- d67 18:05 | Z-008 | LLEGA por primera vez a Casa de familia de Palafitos del Cañaveral [segura]
+- d67 18:13 | Z-008 | REGISTRA C-0055 (ropero): ['piezas', 'venda', 'herramientas', 'obj_246']
+- d67 18:32 | Q-008 | MISIÓN COMPLETADA QN-029-1 «Lección en el camino» +144 XP
+- d67 18:37 | Q-008 | MISIÓN ACEPTADA QN-029-2 «Rastro de la carta» (secundaria)
+- d67 20:58 | L-013 | COMBATE vs 3× Slime azul (nv8, var V3, PV c/u 64) [sorpresa]
+- d67 21:00 | L-013 | VICTORIA en 2 rondas (PV 300→300/300)
+- d67 21:57 | L-012 | COMBATE vs 5× Babosa marina (nv7, var V2, PV c/u 44) 
+- d67 22:00 | L-012 | VICTORIA en 3 rondas (PV 300→298/300)
+- d68 00:03 | Q-008 | MISIÓN COMPLETADA QN-029-2 «Rastro de la carta» +144 XP
+- d68 05:11 | Q-020 | MISIÓN ACEPTADA QN-031-1 «Día de feria» (secundaria)
+- d68 05:38 | Z-011 | LLEGA por primera vez a Carpintería de Plaza Mayor [segura]
+- d68 05:40 | Z-011 | REGISTRA C-0084 (cajón): ['kit_reparacion', 'circuito', 'agua', 'obj_87', 'obj_252', 'obj_267']
+- d68 06:05 | Q-020 | MISIÓN COMPLETADA QN-031-1 «Día de feria» +144 XP
+- d68 06:25 | Q-012 | MISIÓN ACEPTADA QN-048-1 «La balanza de la bravuconería» (secundaria)
+- d68 06:30 | Q-012 | ELIGE BANDO en QN-048-1: un bando (el grupo «el otro» pasa a ser hostil)
+- d68 08:39 | L-020 | COMBATE vs 2× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d68 08:50 | L-020 | VICTORIA en 11 rondas (PV 300→205/300)
+- d68 08:50 | L-020 | MISIÓN COMPLETADA QN-048-1 «La balanza de la bravuconería» +144 XP
+- d68 08:50 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d68 09:09 | Q-012 | MISIÓN ACEPTADA QN-048-2 «En silencio» (secundaria)
+- d68 09:43 | Z-012 | LLEGA por primera vez a Carpintería de Plaza Mayor [segura]
+- d68 09:45 | Z-012 | REGISTRA C-0085 (barril): ['recurso_bio', 'circuito', 'piezas', 'obj_261', 'cuñas18']
+- d68 10:13 | Q-012 | MISIÓN COMPLETADA QN-048-2 «En silencio» +144 XP
+- d68 15:59 | Q-022 | MISIÓN ACEPTADA QN-060-1 «Entrega pesada» (secundaria)
+- d68 16:55 | L-018 | MISIÓN COMPLETADA QN-060-1 «Entrega pesada» +144 XP
+- d68 17:51 | Q-021 | MISIÓN ACEPTADA QN-066-1 «El misterio del camino» (secundaria)
+- d68 18:47 | Q-021 | MISIÓN COMPLETADA QN-066-1 «El misterio del camino» +144 XP
+- d68 19:15 | Q-013 | MISIÓN ACEPTADA QN-070-3 «La sombra de la creatividad» (secundaria)
+- d68 19:42 | Z-032 | LLEGA por primera vez a Estanco de Barrio de las Escuelas [segura]
+- d68 19:44 | Z-032 | REGISTRA C-0132 (baúl): ['lata', 'kit_reparacion', 'obj_188', 'obj_277']
+- d68 23:22 | L-046 | MISIÓN COMPLETADA QN-070-3 «La sombra de la creatividad» +144 XP

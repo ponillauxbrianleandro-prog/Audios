@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 5/34 -->
+<!-- BESTIARIO GENERADO parte 5/35 -->
 - H-34.F4 | Jabalí humanoide | T3 | s7 | n=2 | Común@14 · Colmillos largos@20
 - H-34.F5 | Jabalí quimera (mitad humano) | T3 | s8 | n=2 | Común@16 · Colmillos largos@22
 - H-34.F6 | Humano-Jabalí | T3 | s8 | n=2 | Común@16 · Colmillos largos@22

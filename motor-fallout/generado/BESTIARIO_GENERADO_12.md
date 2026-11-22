@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 12/34 -->
+<!-- BESTIARIO GENERADO parte 12/35 -->
 - I-20.F10 | Persona con accesorios de Cigarra mutante | T3 | s2 | n=3 | Común@4 · Aturdidora@10 · Gigante@16
 - I-20.F11 | Trabajador/a de espectáculo con accesorios de Cigarra mutante | T3 | s2 | n=2 | Común@4 · Aturdidora@10
 - I-20.F12 | Persona instintiva-Cigarra mutante | T3 | s2 | n=2 | Común@4 · Aturdidora@10

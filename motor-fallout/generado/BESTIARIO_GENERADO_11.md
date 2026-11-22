@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 11/34 -->
+<!-- BESTIARIO GENERADO parte 11/35 -->
 - I-12.F7 | Persona con rasgos de Mosquito mutante | T3 | s2 | n=3 | Común@4 · Succionador@10 · Gigante (T2)@16
 - I-12.F8 | Persona-Mosquito mutante (se considera Mosquito mutante) | T3 | s2 | n=2 | Común@4 · Succionador@10
 - I-12.F9 | Furry de Mosquito mutante | T3 | s2 | n=2 | Común@4 · Succionador@10

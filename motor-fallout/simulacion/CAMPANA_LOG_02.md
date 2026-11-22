@@ -1,136 +1,136 @@
 <!-- CAMPAÑA parte 2/6 -->
 # Registro de la campaña (simulación), parte 2
 
-- d6 01:25 | L-010 | MISIÓN COMPLETADA S-02 «Carga perdida» +130 XP
-- d6 03:25 | L-007 | MISIÓN ACEPTADA M-05 «Elegir bando» (principal)
-- d6 03:30 | L-007 | ELIGE BANDO en M-05: Guardia (el grupo «Hornos» pasa a ser hostil)
-- d6 03:30 | L-007 | MISIÓN COMPLETADA M-05 «Elegir bando» +400 XP
-- d6 04:02 | L-008 | MISIÓN ACEPTADA S-09 «El alfa del cardal» (secundaria)
-- d6 05:47 | L-002 | COMBATE vs 4× Oveja (nv2, var V2, PV c/u 61) 
-- d6 05:51 | L-002 | VICTORIA en 4 rondas (PV 195→192/195)
-- d6 05:51 | L-002 | JEFE: Alfa del Cardal aparece
-- d6 05:51 | L-002 | COMBATE vs 2× Cerdo (nv2, var V1, PV c/u 44) 
-- d6 05:53 | L-002 | VICTORIA en 2 rondas (PV 192→192/195)
-- d6 05:53 | L-002 | COMBATE vs 3× Cabra (nv2, var V1, PV c/u 44) 
-- d6 05:56 | L-002 | VICTORIA en 3 rondas (PV 192→189/195)
-- d6 05:56 | L-002 | COMBATE vs 1× Alfa del Cardal (nv4, var V1, PV c/u 200) [sorpresa]
-- d6 05:59 | L-002 | VICTORIA en 3 rondas (PV 189→187/195)
-- d6 05:59 | L-002 | JEFE DERROTADO: Alfa del Cardal
-- d6 07:04 | L-008 | MISIÓN COMPLETADA S-09 «El alfa del cardal» +200 XP
-- d6 07:29 | L-007 | MISIÓN ACEPTADA S-20 «Sondeo de la zona» (secundaria)
-- d6 07:39 | L-007 | SUBE A NIVEL 10 (PV máx 200, daño nominal 29)
-- d6 07:39 | L-007 | MISIÓN COMPLETADA S-20 «Sondeo de la zona» +120 XP
-- d6 08:26 | L-004 | COMBATE vs 2× Dingo erguido (nv3, var V2, PV c/u 73) 
-- d6 08:29 | L-004 | VICTORIA en 3 rondas (PV 200→200/200)
-- d6 09:48 | L-001 | MISIÓN ACEPTADA M-06 «El mentor» (principal)
-- d6 09:58 | L-001 | ATASCADO en la ventana (59%): logra salir tras 0 min
-- d6 10:34 | L-002 | COMBATE vs 3× Persona con rasgos de Perro callejero (nv2, var V2, PV c/u 135) 
-- d6 10:43 | L-002 | VICTORIA en 9 rondas (PV 200→138/200)
-- d6 12:31 | L-012 | COMBATE vs 1× Persona con rasgos de Oveja (nv4, var V1, PV c/u 114) 
-- d6 12:33 | L-012 | VICTORIA en 2 rondas (PV 146→146/200)
-- d6 12:54 | L-015 | LLEGA por primera vez a Laguna Turbia [normal]
-- d6 13:41 | L-018 | LLEGA por primera vez a Campamento Tasador [hostil]
-- d6 13:41 | L-018 | JEFE: Rufino Hierro aparece
-- d6 13:41 | L-018 | COMBATE vs 3× Mercenario erguido (nv12, var V1, PV c/u 119) 
-- d6 13:50 | L-018 | VICTORIA en 9 rondas (PV 152→139/200)
-- d6 13:52 | L-018 | COMBATE vs 1× Rufino Hierro (nv12, var V1, PV c/u 520) 
-- d6 14:50 | L-018 | SUBE A NIVEL 11 (PV máx 205, daño nominal 30)
-- d6 14:50 | L-018 | VICTORIA en 58 rondas (PV 159→205/205)
-- d6 14:50 | L-018 | JEFE DERROTADO: Rufino Hierro
-- d6 15:05 | L-018 | REGISTRA C-029 (jaula del mentor): ['llave_torre']
-- d6 15:10 | L-018 | MISIÓN COMPLETADA M-06 «El mentor» +900 XP
-- d6 15:22 | L-018 | REGISTRA C-030 (tienda del capataz): ['arma_t4', 'cuñas150']
-- d6 19:54 | L-007 | MISIÓN ACEPTADA S-03 «Veneno para la doctora» (secundaria)
-- d6 21:32 | L-012 | COMBATE vs 3× Cerdo (nv4, var V2, PV c/u 72) 
-- d6 21:36 | L-012 | VICTORIA en 4 rondas (PV 205→202/205)
-- d6 23:28 | L-012 | COMBATE vs 3× Cabra (nv4, var V2, PV c/u 72) 
-- d6 23:32 | L-012 | VICTORIA en 4 rondas (PV 205→200/205)
-- d7 00:54 | L-007 | SUBE A NIVEL 12 (PV máx 210, daño nominal 31)
-- d7 00:54 | L-007 | MISIÓN COMPLETADA S-03 «Veneno para la doctora» +140 XP
-- d7 02:28 | L-015 | MISIÓN ACEPTADA S-12 «La laguna infestada» (secundaria)
-- d7 03:35 | L-015 | COMBATE vs 4× Slime azul (nv6, var V1, PV c/u 30) [sorpresa]
-- d7 03:38 | L-015 | VICTORIA en 3 rondas (PV 210→208/210)
-- d7 03:43 | L-015 | MISIÓN COMPLETADA S-12 «La laguna infestada» +140 XP
-- d7 03:49 | L-015 | REGISTRA C-023 (bote hundido): ['recurso_bio', 'agua_turbia']
-- d7 04:01 | L-015 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
-- d7 04:27 | L-007 | MISIÓN ACEPTADA S-19 «Fuego en el hogar» (secundaria)
-- d7 05:37 | L-002 | COMBATE vs 2× Cerdo (nv2, var V2, PV c/u 61) [sorpresa]
-- d7 05:39 | L-002 | VICTORIA en 2 rondas (PV 210→210/210)
-- d7 05:39 | L-002 | COMBATE vs 3× Coyote erguido (nv2, var V2, PV c/u 33) [sorpresa]
-- d7 05:42 | L-002 | VICTORIA en 3 rondas (PV 210→209/210)
-- d7 07:21 | L-007 | MISIÓN COMPLETADA S-19 «Fuego en el hogar» +110 XP
-- d7 07:26 | L-007 | MISIÓN ACEPTADA S-07 «Deuda en Barrio Ceniza» (secundaria)
-- d7 07:31 | L-007 | ELIGE BANDO en S-07: Saqueadores (el grupo «Vecinos» pasa a ser hostil)
-- d7 08:55 | L-014 | COMBATE vs 4× Perro de presa (bulldog) (nv7, var V1, PV c/u 64) 
-- d7 08:59 | L-014 | VICTORIA en 4 rondas (PV 210→207/210)
-- d7 08:59 | L-014 | COMBATE vs 4× Saqueador (nv10, var V1, PV c/u 121) 
-- d7 09:10 | L-014 | VICTORIA en 11 rondas (PV 207→152/210)
-- d7 09:10 | L-014 | MISIÓN COMPLETADA S-07 «Deuda en Barrio Ceniza» +250 XP
-- d7 09:15 | L-014 | REGISTRA C-021 (cofre de saqueadores): ['arma_t3', 'cuñas60']
-- d7 09:17 | L-014 | REGISTRA C-022 (ropero quemado): ['ropa_e1']
-- d7 09:43 | L-014 | COMBATE vs 3× Cultista (nv10, var V1, PV c/u 121) [sorpresa]
-- d7 09:55 | L-014 | VICTORIA en 12 rondas (PV 164→123/210)
-- d7 10:40 | L-014 | MISIÓN ACEPTADA S-13 «Lo que robó Zoilo» (secundaria)
-- d7 11:13 | L-014 | COMBATE vs 3× Persona con rasgos de Saqueador (nv10, var V2, PV c/u 187) 
-- d7 11:42 | L-014 | VICTORIA en 29 rondas (PV 159→70/210)
-- d7 22:27 | L-014 | COMBATE vs 2× Cultista humanoide (nv10, var V1, PV c/u 145) [sorpresa]
-- d7 22:31 | L-014 | VICTORIA en 4 rondas (PV 210→194/210)
-- d7 22:31 | L-014 | RECLUTA a Zoilo Mármol (+15% daño; roba en combate 10%)
-- d7 22:31 | L-014 | MISIÓN COMPLETADA S-13 «Lo que robó Zoilo» +160 XP
-- d7 23:10 | L-010 | COMBATE vs 2× Cerdo humanoide (nv5, var V2, PV c/u 94) 
-- d7 23:13 | L-010 | VICTORIA en 3 rondas (PV 197→192/210)
-- d8 00:10 | L-004 | COMBATE vs 4× Oveja (nv3, var V2, PV c/u 67) 
-- d8 00:15 | L-004 | VICTORIA en 5 rondas (PV 197→190/210)
-- d8 02:29 | L-003 | COMBATE vs 3× Mosca mutante (nv2, var V2, PV c/u 30) 
-- d8 02:32 | L-003 | VICTORIA en 3 rondas (PV 201→201/210)
-- d8 03:17 | L-006 | MISIÓN ACEPTADA S-08 «Muestras de slime» (secundaria)
-- d8 07:44 | L-016 | COMBATE vs 5× Slime tóxico (nv10, var V1, PV c/u 38) 
-- d8 07:48 | L-016 | VICTORIA en 4 rondas (PV 210→208/210)
-- d8 07:48 | L-016 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
-- d8 07:48 | L-002 | COMBATE vs 5× Conejo (nv2, var V2, PV c/u 30) [emboscada enemiga]
-- d8 07:52 | L-002 | VICTORIA en 4 rondas (PV 208→208/210)
-- d8 10:12 | L-006 | SUBE A NIVEL 13 (PV máx 215, daño nominal 32)
-- d8 10:12 | L-006 | MISIÓN COMPLETADA S-08 «Muestras de slime» +180 XP
-- d8 10:12 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
-- d8 11:51 | L-015 | COMBATE vs 5× Slime azul (nv6, var V2, PV c/u 42) 
-- d8 11:55 | L-015 | VICTORIA en 4 rondas (PV 215→214/215)
-- d8 12:30 | L-018 | COMBATE vs 2× Bandido (nv12, var V2, PV c/u 188) 
-- d8 12:38 | L-018 | VICTORIA en 8 rondas (PV 215→204/215)
-- d8 12:43 | L-018 | MISIÓN ACEPTADA M-07 «Estación de bombeo» (principal)
-- d8 13:11 | L-020 | LLEGA por primera vez a Torre de la Concesión [hostil]
-- d8 13:54 | L-019 | LLEGA por primera vez a Estación de Bombeo [hostil]
-- d8 13:54 | L-019 | COMBATE vs 2× Robot de combate (nv15, var V1, PV c/u 192) 
-- d8 14:00 | L-019 | VICTORIA en 6 rondas (PV 211→164/215)
-- d8 14:27 | L-019 | COMBATE vs 3× Robot de laboratorio (nv15, var V1, PV c/u 192) 
-- d8 14:38 | L-019 | VICTORIA en 11 rondas (PV 166→110/215)
-- d8 14:45 | L-019 | HACKEO de terminal en Estación de Bombeo ÉXITO (59%)
-- d8 14:53 | L-019 | REGISTRA C-031 (tablero eléctrico): ['nucleo_energia']
-- d8 14:53 | L-019 | SUBE A NIVEL 14 (PV máx 220, daño nominal 34)
-- d8 14:53 | L-019 | MISIÓN COMPLETADA M-07 «Estación de bombeo» +1200 XP
-- d8 15:08 | L-019 | REGISTRA C-032 (armario de seguridad): vacío
-- d8 15:32 | L-019 | COMBATE vs 3× Insecto mecánico quimera (mitad humano) (nv15, var V2, PV c/u 201) [sorpresa]
-- d8 15:41 | L-019 | VICTORIA en 9 rondas (PV 220→152/220)
-- d8 16:40 | L-019 | COMBATE vs 4× Persona con rasgos de Robot guardián (nv15, var V1, PV c/u 211) [sorpresa]
-- d8 16:58 | L-019 | VICTORIA en 18 rondas (PV 168→94/220)
-- d8 17:30 | L-016 | COMBATE vs 5× Parásito de tierra humanoide (nv12, var V1, PV c/u 100) [sorpresa]
-- d8 17:42 | L-016 | VICTORIA en 12 rondas (PV 97→84/220)
-- d8 18:38 | L-017 | MISIÓN ACEPTADA S-11 «El amigo perdido» (secundaria)
-- d8 18:51 | L-017 | COMBATE vs 4× Cazador (nv9, var V1, PV c/u 93) [sorpresa]
-- d8 19:01 | L-017 | VICTORIA en 10 rondas (PV 168→126/220)
-- d8 19:01 | L-017 | MISIÓN COMPLETADA S-11 «El amigo perdido» +150 XP
-- d8 19:58 | L-016 | MISIÓN ACEPTADA S-16 «Atrapados en el metro» (secundaria)
-- d8 21:39 | L-016 | COMBATE vs 3× Parásito controlador (nv12, var V1, PV c/u 84) [sorpresa]
-- d8 21:44 | L-016 | VICTORIA en 5 rondas (PV 169→160/220)
-- d8 21:49 | L-016 | MISIÓN COMPLETADA S-16 «Atrapados en el metro» +200 XP
-- d8 21:59 | L-016 | REGISTRA C-024 (locker de vía): ['circuito', 'piezas']
-- d8 22:01 | L-016 | REGISTRA C-025 (maleta olvidada): ['quimico', 'venda']
-- d8 22:54 | L-019 | COMBATE vs 3× Robot doméstico erguido (nv15, var V3, PV c/u 401) [sorpresa]
-- d8 23:13 | L-019 | VICTORIA en 19 rondas (PV 165→74/220)
-- d12 00:50 | L-019 | COMBATE vs 5× Dron de reparación (nv15, var V2, PV c/u 67) 
-- d12 00:56 | L-019 | VICTORIA en 6 rondas (PV 182→162/220)
-- d21 04:02 | L-019 | COMBATE vs 2× Robot de combate (nv15, var V1, PV c/u 192) [sorpresa]
-- d21 04:08 | L-019 | VICTORIA en 6 rondas (PV 220→145/220)
-- d21 04:37 | L-019 | COMBATE vs 4× Robot guardián (nv15, var V2, PV c/u 268) 
-- d21 05:04 | L-019 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
-- d22 08:04 | L-019 | COMBATE vs 4× Robot guardián (nv15, var V2, PV c/u 268) 
-- d22 08:30 | L-019 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d5 06:58 | L-012 | VICTORIA en 4 rondas (PV 195→194/195)
+- d5 08:59 | L-007 | MISIÓN COMPLETADA S-18 «Ingredientes para el guiso» +90 XP
+- d5 09:53 | L-010 | MISIÓN ACEPTADA S-02 «Carga perdida» (secundaria)
+- d5 09:58 | L-010 | COMBATE vs 3× Soldado (nv5, var V1, PV c/u 61) [sorpresa]
+- d5 10:02 | L-010 | VICTORIA en 4 rondas (PV 195→189/195)
+- d5 10:14 | L-010 | REGISTRA C-017 (carga volcada): ['lata', 'carga_perdida', 'cuñas30']
+- d5 10:19 | L-010 | MISIÓN COMPLETADA S-02 «Carga perdida» +130 XP
+- d5 11:09 | L-010 | COMBATE vs 4× Cabra (nv5, var V2, PV c/u 78) [sorpresa]
+- d5 11:15 | L-010 | VICTORIA en 6 rondas (PV 194→177/195)
+- d5 13:08 | L-008 | MISIÓN ACEPTADA S-09 «El alfa del cardal» (secundaria)
+- d5 13:36 | L-005 | COMBATE vs 6× Cucaracha mutante (nv7, var V1, PV c/u 32) [sorpresa]
+- d5 13:41 | L-005 | VICTORIA en 5 rondas (PV 187→185/195)
+- d5 14:09 | L-002 | JEFE: Alfa del Cardal aparece
+- d5 14:09 | L-002 | COMBATE vs 5× Perro salvaje (nv2, var V2, PV c/u 30) [sorpresa]
+- d5 14:13 | L-002 | VICTORIA en 4 rondas (PV 187→186/195)
+- d5 14:13 | L-002 | COMBATE vs 4× Perro callejero (nv2, var V2, PV c/u 30) [sorpresa]
+- d5 14:16 | L-002 | VICTORIA en 3 rondas (PV 186→186/195)
+- d5 14:16 | L-002 | COMBATE vs 1× Alfa del Cardal (nv4, var V1, PV c/u 200) 
+- d5 14:21 | L-002 | SUBE A NIVEL 10 (PV máx 200, daño nominal 29)
+- d5 14:21 | L-002 | VICTORIA en 5 rondas (PV 186→200/200)
+- d5 14:21 | L-002 | JEFE DERROTADO: Alfa del Cardal
+- d5 15:27 | L-008 | MISIÓN COMPLETADA S-09 «El alfa del cardal» +200 XP
+- d5 17:06 | L-002 | COMBATE vs 4× Coyote erguido (nv2, var V2, PV c/u 33) 
+- d5 17:11 | L-002 | VICTORIA en 5 rondas (PV 200→197/200)
+- d5 18:00 | L-001 | MISIÓN ACEPTADA M-06 «El mentor» (principal)
+- d5 18:00 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d5 18:00 | L-012 | COMBATE vs 5× Perro salvaje (nv4, var V1, PV c/u 26) [emboscada enemiga]
+- d5 18:04 | L-012 | VICTORIA en 4 rondas (PV 200→198/200)
+- d5 18:44 | L-015 | LLEGA por primera vez a Laguna Turbia [normal]
+- d5 19:29 | L-018 | LLEGA por primera vez a Campamento Tasador [hostil]
+- d5 19:29 | L-018 | JEFE: Rufino Hierro aparece
+- d5 19:29 | L-018 | COMBATE vs 4× Bandido (nv12, var V1, PV c/u 134) [sorpresa]
+- d5 19:40 | L-018 | VICTORIA en 11 rondas (PV 200→137/200)
+- d5 19:42 | L-018 | COMBATE vs 1× Rufino Hierro (nv12, var V1, PV c/u 520) [sorpresa]
+- d5 20:29 | L-018 | SUBE A NIVEL 11 (PV máx 205, daño nominal 30)
+- d5 20:29 | L-018 | VICTORIA en 47 rondas (PV 157→205/205)
+- d5 20:29 | L-018 | JEFE DERROTADO: Rufino Hierro
+- d5 20:44 | L-018 | REGISTRA C-029 (jaula del mentor): ['llave_torre']
+- d5 20:49 | L-018 | SUBE A NIVEL 12 (PV máx 210, daño nominal 31)
+- d5 20:49 | L-018 | MISIÓN COMPLETADA M-06 «El mentor» +900 XP
+- d5 20:58 | L-018 | REGISTRA C-030 (tienda del capataz): ['arma_t4', 'cuñas150']
+- d5 21:41 | L-018 | COMBATE vs 4× Esclavista (nv12, var V1, PV c/u 134) [sorpresa]
+- d5 21:55 | L-018 | VICTORIA en 14 rondas (PV 210→153/210)
+- d5 22:11 | L-018 | COMBATE vs 5× Perro de presa (bulldog) (nv12, var V1, PV c/u 84) [sorpresa]
+- d5 22:22 | L-018 | VICTORIA en 11 rondas (PV 165→144/210)
+- d6 01:33 | L-007 | MISIÓN ACEPTADA S-20 «Sondeo de la zona» (secundaria)
+- d6 01:43 | L-007 | MISIÓN COMPLETADA S-20 «Sondeo de la zona» +120 XP
+- d6 01:48 | L-007 | MISIÓN ACEPTADA S-03 «Veneno para la doctora» (secundaria)
+- d6 01:53 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d6 01:53 | L-012 | COMBATE vs 2× Cabra quimera (mitad humano) (nv4, var V2, PV c/u 109) [emboscada enemiga]
+- d6 01:59 | L-012 | VICTORIA en 6 rondas (PV 158→147/210)
+- d6 05:27 | L-007 | MISIÓN COMPLETADA S-03 «Veneno para la doctora» +140 XP
+- d6 05:27 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d6 05:27 | L-012 | COMBATE vs 2× Cerdo (nv4, var V2, PV c/u 72) [emboscada enemiga]
+- d6 05:30 | L-012 | VICTORIA en 3 rondas (PV 164→160/210)
+- d6 05:59 | L-015 | MISIÓN ACEPTADA S-12 «La laguna infestada» (secundaria)
+- d6 07:32 | L-015 | COMBATE vs 5× Slime azul (nv6, var V2, PV c/u 42) 
+- d6 07:37 | L-015 | VICTORIA en 5 rondas (PV 171→168/210)
+- d6 07:42 | L-015 | MISIÓN COMPLETADA S-12 «La laguna infestada» +140 XP
+- d6 07:50 | L-015 | REGISTRA C-023 (bote hundido): ['recurso_bio', 'agua_turbia']
+- d6 07:50 | L-015 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d6 08:24 | L-007 | MISIÓN ACEPTADA S-19 «Fuego en el hogar» (secundaria)
+- d6 11:20 | L-002 | COMBATE vs 1× Jabalí (nv2, var V1, PV c/u 88) [sorpresa]
+- d6 11:22 | L-002 | VICTORIA en 2 rondas (PV 184→184/210)
+- d6 11:33 | L-002 | COMBATE vs 2× Wallaby quimera (mitad humano) (nv2, var V2, PV c/u 92) 
+- d6 11:36 | L-002 | VICTORIA en 3 rondas (PV 185→174/210)
+- d6 12:07 | L-004 | COMBATE vs 1× Jabalí erguido (nv3, var V1, PV c/u 105) 
+- d6 12:11 | L-004 | VICTORIA en 4 rondas (PV 177→175/210)
+- d6 12:52 | L-007 | MISIÓN COMPLETADA S-19 «Fuego en el hogar» +110 XP
+- d6 12:57 | L-007 | MISIÓN ACEPTADA S-07 «Deuda en Barrio Ceniza» (secundaria)
+- d6 13:02 | L-007 | ELIGE BANDO en S-07: Saqueadores (el grupo «Vecinos» pasa a ser hostil)
+- d6 14:40 | L-014 | LLEGA por primera vez a Barrio Ceniza [hostil]
+- d6 14:40 | L-014 | COMBATE vs 3× Saqueador (nv10, var V2, PV c/u 116) [sorpresa]
+- d6 14:48 | L-014 | VICTORIA en 8 rondas (PV 185→138/210)
+- d6 14:48 | L-014 | MISIÓN COMPLETADA S-07 «Deuda en Barrio Ceniza» +250 XP
+- d6 14:58 | L-014 | REGISTRA C-021 (cofre de saqueadores): ['arma_t3', 'cuñas60']
+- d6 15:00 | L-014 | REGISTRA C-022 (ropero quemado): ['ropa_e1']
+- d6 16:32 | L-014 | MISIÓN ACEPTADA S-13 «Lo que robó Zoilo» (secundaria)
+- d6 17:48 | L-014 | COMBATE vs 2× Bandido (nv10, var V1, PV c/u 152) [sorpresa]
+- d6 17:53 | L-014 | SUBE A NIVEL 13 (PV máx 215, daño nominal 32)
+- d6 17:53 | L-014 | VICTORIA en 5 rondas (PV 163→215/215)
+- d6 17:53 | L-014 | RECLUTA a Zoilo Mármol (+15% daño; roba en combate 10%)
+- d6 17:53 | L-014 | MISIÓN COMPLETADA S-13 «Lo que robó Zoilo» +160 XP
+- d6 19:20 | L-018 | MISIÓN ACEPTADA M-07 «Estación de bombeo» (principal)
+- d6 19:56 | L-020 | LLEGA por primera vez a Torre de la Concesión [hostil]
+- d6 20:23 | L-019 | LLEGA por primera vez a Estación de Bombeo [hostil]
+- d6 20:23 | L-019 | COMBATE vs 4× Robot guardián (nv15, var V1, PV c/u 192) [sorpresa]
+- d6 20:39 | L-019 | VICTORIA en 16 rondas (PV 215→85/215)
+- d6 20:48 | L-019 | HACKEO de terminal en Estación de Bombeo ÉXITO (59%)
+- d6 20:56 | L-019 | REGISTRA C-031 (tablero eléctrico): ['nucleo_energia']
+- d6 20:56 | L-019 | SUBE A NIVEL 14 (PV máx 220, daño nominal 34)
+- d6 20:56 | L-019 | MISIÓN COMPLETADA M-07 «Estación de bombeo» +1200 XP
+- d6 21:27 | L-019 | REGISTRA C-032 (armario de seguridad): vacío
+- d6 21:43 | L-019 | COMBATE vs 2× Androide (nv15, var V1, PV c/u 192) [sorpresa]
+- d6 21:49 | L-019 | VICTORIA en 6 rondas (PV 220→176/220)
+- d7 02:21 | L-004 | COMBATE vs 3× Oveja (nv3, var V2, PV c/u 67) 
+- d7 02:24 | L-004 | VICTORIA en 3 rondas (PV 200→200/220)
+- d7 05:54 | L-006 | MISIÓN ACEPTADA S-08 «Muestras de slime» (secundaria)
+- d7 06:46 | L-003 | COMBATE vs 3× Hormiga mutante erguido (nv2, var V1, PV c/u 24) 
+- d7 06:49 | L-003 | VICTORIA en 3 rondas (PV 220→219/220)
+- d7 10:38 | L-016 | COMBATE vs 4× Slime ácido humanoide (nv10, var V1, PV c/u 91) 
+- d7 10:44 | L-016 | VICTORIA en 6 rondas (PV 220→204/220)
+- d7 10:44 | L-016 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d7 10:44 | L-002 | COMBATE vs 3× Chacal erguido (nv2, var V2, PV c/u 33) [emboscada enemiga]
+- d7 10:47 | L-002 | VICTORIA en 3 rondas (PV 204→204/220)
+- d7 12:36 | L-006 | MISIÓN COMPLETADA S-08 «Muestras de slime» +180 XP
+- d7 18:26 | L-017 | MISIÓN ACEPTADA S-11 «El amigo perdido» (secundaria)
+- d7 18:31 | L-017 | COMBATE vs 4× Perro de presa (bulldog) (nv9, var V1, PV c/u 72) [sorpresa]
+- d7 18:35 | L-017 | VICTORIA en 4 rondas (PV 220→203/220)
+- d7 18:35 | L-017 | MISIÓN COMPLETADA S-11 «El amigo perdido» +150 XP
+- d7 19:06 | L-016 | COMBATE vs 3× Parásito de cadáver humanoide (nv12, var V1, PV c/u 100) [sorpresa]
+- d7 19:10 | L-016 | VICTORIA en 4 rondas (PV 206→189/220)
+- d7 19:15 | L-016 | MISIÓN ACEPTADA S-16 «Atrapados en el metro» (secundaria)
+- d7 20:30 | L-016 | COMBATE vs 3× Cubo gelatinoso (nv12, var V1, PV c/u 168) 
+- d7 20:40 | L-016 | VICTORIA en 10 rondas (PV 196→133/220)
+- d7 20:45 | L-016 | MISIÓN COMPLETADA S-16 «Atrapados en el metro» +200 XP
+- d7 21:04 | L-016 | REGISTRA C-024 (locker de vía): ['circuito', 'piezas']
+- d7 21:06 | L-016 | REGISTRA C-025 (maleta olvidada): ['quimico', 'venda']
+- d9 23:28 | L-019 | COMBATE vs 4× Insecto mecánico (nv15, var V2, PV c/u 67) [sorpresa]
+- d9 23:32 | L-019 | VICTORIA en 4 rondas (PV 214→212/220)
+- d11 00:15 | L-019 | COMBATE vs 4× Robot guardián (nv15, var V2, PV c/u 268) [sorpresa]
+- d11 00:36 | L-019 | VICTORIA en 21 rondas (PV 220→88/220)
+- d12 01:21 | L-019 | COMBATE vs 6× Dron de reparación (nv15, var V2, PV c/u 67) 
+- d12 01:31 | L-019 | VICTORIA en 10 rondas (PV 165→160/220)
+- d12 02:02 | L-019 | COMBATE vs 3× Persona con rasgos de Roedor mecánico (nv15, var V2, PV c/u 295) [sorpresa]
+- d12 02:19 | L-019 | VICTORIA en 17 rondas (PV 172→109/220)
+- d14 03:09 | L-019 | COMBATE vs 4× Torreta quimera (mitad humano) (nv15, var V2, PV c/u 403) [sorpresa]
+- d14 03:40 | L-019 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d15 06:40 | L-019 | COMBATE vs 3× Torreta quimera (mitad humano) (nv15, var V2, PV c/u 403) [sorpresa]
+- d15 06:56 | L-019 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d16 09:56 | L-019 | COMBATE vs 3× Torreta quimera (mitad humano) (nv15, var V2, PV c/u 403) 
+- d16 10:17 | L-019 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d17 13:17 | L-019 | COMBATE vs 2× Torreta quimera (mitad humano) (nv15, var V2, PV c/u 403) 

@@ -1,0 +1,93 @@
+"""LORE B: «El Mar de las Mil Velas» (piratas niños, gente del pantano y del río; mujeres adultas en grupos aparte)."""
+from lore_bosque import C, P, S
+
+LORE = dict(
+    id="piratas", nombre="El Mar de las Mil Velas", moneda="doblones",
+    tono="aventura marina colorida: barcos de madera, mapas del tesoro, mareas y banderas; peligro de criaturas de agua, sin crueldad ni muerte",
+    protagonista=dict(nombre="Gaspar", edad="niño", inicio="c08", stats={"FUE": 5, "PER": 6, "RES": 6, "CAR": 6, "INT": 5, "AGI": 6, "SUE": 5}),
+    armas={1: ("Remo de práctica", 6, 10), 2: ("Sable de madera", 7, 11), 3: ("Sable de abordaje (embotado)", 10, 16), 4: ("Arpón de pesca (punta roma)", 12, 18), 5: ("Sable del Capitán", 16, 26)},
+    reparto=dict(adultos="femenina", ninos="mixta", excepciones=[], grupos_separados=True, adultos_ok=True, ninos_ok=True),
+    temas={"T1 animales": [1]},
+    excluir_adultos=["REF", "SUB", "CIE", "HOS", "TOR"], excluir_ninos=["REF", "SUB", "CIE"],
+    excluir_roles=["esclavista", "cautivo", "cultista", "culto", "saqueador", "bandido", "mercenari", "francotirador", "prisionero", "capataz de campamento", "traficante", "pandilla",
+                   "alcohol", "apostador", "casino", "crupier", "cantinero", "tabernero", "prestamista", "cobrador", "orden armada", "paladín", "caballero"],
+    rival="U-04",
+    pools={
+        "mar": ["M-01", "M-03", "M-05", "M-07", "M-09", "M-14", "M-15", "M-16", "M-17", "M-18"],
+        "rio": ["M-02", "M-04", "M-08", "M-13", "P-04", "S-02", "S-18", "I-17", "I-12"],
+        "pantano": ["P-05", "P-04", "S-18", "S-01", "S-12", "M-11", "I-12", "I-16", "I-19", "H-08"],
+        "selva": ["I-01", "I-03", "I-05", "I-11", "I-15", "I-23", "I-24", "I-25", "I-26", "I-27", "C-05", "C-09", "H-12", "H-34", "H-43"],
+        "ciudad": ["C-02", "H-02", "I-16", "I-19", "S-01"],
+    },
+    edificios=[("Fonda", [], True), ("Tienda de velas", [], False), ("Astillero chico", [], False), ("Casa del farero", [], False), ("Almacén de víveres", [], False),
+               ("Carpintería de ribera", [], False), ("Tienda de mapas", [], False), ("Cabaña de pescadores", [], True), ("Posada", [], True), ("Taller de nudos", [], False),
+               ("Panadería", [], False), ("Casa de familia", [], False), ("Biblioteca de bitácoras", [], False), ("Enfermería", [], True), ("Sala de cartas", [], False), ("Herrería", [], False)],
+    orden_territorios=["T-CIU", "T-SUR", "T-OCE", "T-PAN", "T-RIO", "T-ESE", "T-NOR"],
+    territorios=[
+        dict(id="T-OCE", nombre="El Océano de las Mil Velas", pos="esquina inferior izquierda", formacion="selva de islas", clima="tropical húmedo", relieve="archipiélago", agua="mar salado", mod="costero", nivel=(6, 16), pool="mar",
+             ubicaciones=[
+                 P("a01", "Puerto de las Gaviotas", 4, lugares=["PUE", "ASE", "COM"], cama=True), S("a02", "Barco Insignia La Estrella Fugaz", clase="S", espacio="int", lugares=["PUE"], cama=True),
+                 S("a03", "Faro del Cabo", clase="S", espacio="int", lugares=["PUE", "ESP"], cama=True), S("a04", "Arrecife Hundido", lugares=["CAM"]), S("a05", "Isla de la Calavera", clase="H"),
+                 S("a06", "Bahía de la Tormenta", lugares=["PUE"]), S("a07", "Barco Hundido", espacio="int", lugares=["PUE"]), S("a08", "Isla Escondida", lugares=["CAM", "ESP"]),
+                 S("a09", "Ensenada de los Contrabandistas", clase="N", lugares=["PUE", "CAM"]), S("a10", "Gruta del Gran Pulpo", clase="H", espacio="int")]),
+        dict(id="T-RIO", nombre="El Río Media Luna", pos="franja delgada de la punta superior derecha a la izquierda, pasando por la ciudad", formacion="selva de galería", clima="tropical húmedo", relieve="valle", agua="río", mod="fértil", nivel=(10, 22), pool="rio",
+             ubicaciones=[
+                 P("b01", "Muelle de la Corriente", 3, lugares=["PUE", "ASE", "COM"], cama=True), S("b02", "Remanso de las Balsas", lugares=["PUE"]), S("b03", "Cascada Brava", lugares=["CAM"]),
+                 S("b04", "Puente de Lianas", lugares=["CAM"]), S("b05", "Islote del Arpón", lugares=["PUE", "CAM"]), S("b06", "Embarcadero del Norte", clase="S", lugares=["PUE"], cama=True),
+                 S("b07", "Campamento de los Balseros", clase="S", lugares=["PUE", "CAM"]), S("b08", "Vado de las Piedras", lugares=["CAM"]), S("b09", "Cueva detrás de la Cascada", clase="H", espacio="int"),
+                 P("b10", "Mercado Flotante", 3, lugares=["COM", "PUE"], cama=True)]),
+        dict(id="T-PAN", nombre="El Pantano de los Islotes", pos="esquina inferior derecha", formacion="humedal de islotes", clima="templado húmedo", relieve="islas", agua="pantano", mod="pantanoso", nivel=(4, 14), pool="pantano",
+             ubicaciones=[
+                 P("c01", "Palafitos de la Gente del Pantano", 4, lugares=["PUE", "ASE", "IND"], cama=True), S("c02", "Muelle del Cañizal", clase="S", lugares=["PUE"]), S("c03", "Islote de los Corsarios del Fango", clase="H"),
+                 S("c04", "Botes de la Niebla", lugares=["PUE", "CAM"]), S("c05", "Bosque Anegado", lugares=["CAM"]), S("c06", "Laguna Verde", lugares=["CAM", "ESP"]),
+                 S("c07", "Cueva de los Juncos", clase="N", espacio="int", lugares=["ESP"]), S("c08_x", "Madriguera de la Reina del Fango", clase="H", espacio="int"),
+                 S("c09", "Torre de Vigía de Juncos", clase="S", lugares=["PUE"], cama=True)]),
+        dict(id="T-SUR", nombre="La Selva del Sur", pos="parte inferior, entre el pantano, el mar y la ciudad", formacion="selva irregular", clima="tropical húmedo", relieve="colinas", agua="arroyos y manglares", mod="mixto", nivel=(1, 9), pool="selva",
+             ubicaciones=[
+                 S("d01", "Mirador de los Tucanes", lugares=["CAM", "MIL"]), S("d02", "Selva de Lianas", lugares=["CAM"]), S("d03", "Claro del Venado", lugares=["CAM", "ESP"]),
+                 S("d04", "Sendero de los Helechos", lugares=["CAM"]), S("d05", "Cañón Verde", lugares=["CAM"]), S("d06", "Choza del Curandero", clase="S", espacio="int", lugares=["ESP"], cama=True),
+                 S("d07", "Manglar de Entrada", lugares=["PUE", "CAM"]), S("d08", "Selva Cerrada", clase="H"), S("d09", "Campamento de los Recolectores", clase="S", lugares=["IND", "CAM"], cama=True)]),
+        dict(id="T-CIU", nombre="La Ciudad de los Siete Faroles", pos="centro", formacion="selva urbana", clima="tropical", relieve="llanura", agua="río y canales", mod="fértil", nivel=(1, 12), pool="ciudad",
+             ubicaciones=[
+                 C("c0x", "La Ciudad de los Siete Faroles", [("Puerto Viejo", 4), ("Barrio de los Mercaderes", 4), ("Barrio de las Velas", 3), ("Barrio Alto", 3), ("Barrio de los Astilleros", 3),
+                                                         ("Barrio de las Sombras", 3), ("Barrio del Río", 3), ("Plaza del Reloj", 2)], lugares=["ASE", "COM", "IND", "PUE", "MIL"]),
+                 S("c08", "Casa del Farero", clase="S", espacio="int", lugares=["PUE"], cama=True), S("c09x", "Muralla y Puertas", clase="S", lugares=["MIL"]), S("c10", "Biblioteca de las Bitácoras", clase="S", espacio="int", lugares=["ESP", "ASE"]),
+                 S("c11", "Alcantarillas del Puerto", clase="H", espacio="int"), S("c12", "Jardín de las Estatuas", lugares=["CAM", "ESP"])]),
+        dict(id="T-ESE", nombre="La Selva del Este", pos="este de la ciudad", formacion="selva de sabana y cañones", clima="tropical seco y húmedo", relieve="cañones y mesetas", agua="arroyos", mod="rocoso", nivel=(12, 22), pool="selva",
+             ubicaciones=[
+                 S("e01", "Selva de Sabana", lugares=["CAM"]), S("e02", "Cañón de las Orquídeas", lugares=["CAM", "ESP"]), S("e03", "Cascada Alta", lugares=["CAM"]),
+                 P("e04", "Poblado de las Lianas", 3, lugares=["ASE", "IND"], cama=True), S("e05", "Ruinas del Templo", clase="H", espacio="int"), S("e06", "Mirador Este", lugares=["CAM", "MIL"]),
+                 S("e07", "Campamento Maderero", clase="S", lugares=["IND"], cama=True), S("e08", "Gruta Verde", clase="N", espacio="int", lugares=["ESP"])]),
+        dict(id="T-NOR", nombre="La Selva del Norte", pos="parte superior", formacion="selva con grandes irregularidades", clima="tropical húmedo", relieve="montaña y mesetas", agua="lagunas y cascadas", mod="neblinoso", nivel=(18, 30), pool="selva",
+             ubicaciones=[
+                 S("g01", "Fuerte del Norte", clase="S", espacio="int", lugares=["MIL", "ASE"], cama=True), S("g02", "Selva Alta", lugares=["CAM"]), S("g03", "Meseta de Niebla", lugares=["CAM", "ESP"]),
+                 S("g04", "Laguna de las Garzas", lugares=["CAM"]), S("g05", "Aserradero", lugares=["IND"]), S("g06", "Templo Hundido", clase="H", espacio="int"),
+                 S("g07", "Camino del Norte", lugares=["CAM"]), P("g08", "Aldea de los Cartógrafos", 3, lugares=["ASE", "ESP"], cama=True), S("g09", "Cima de las Nubes", clase="H")]),
+    ],
+    enlaces=[("a01", "d07"), ("c02", "d07"), ("d01", "c0x"), ("d02", "c0x"), ("c0x", "b01"), ("c0x", "e01"), ("c0x", "g07"), ("b06", "g07"), ("b10", "c0x"), ("e03", "g02"), ("a09", "d09")],
+    jefes={
+        "gran_pulpo": dict(nombre="Gran Pulpo Anciano", ubic="a10", especie="M-18", sub="M-01"),
+        "reina_fango": dict(nombre="Reina del Fango", ubic="c08_x", especie="S-13", sub="S-01"),
+        "coloso_rio": dict(nombre="Coloso del Río", ubic="b09", especie="M-17", sub="M-07"),
+        "senora_colmena": dict(nombre="Señora de la Colmena", ubic="e05", especie="I-26", sub="I-23"),
+        "madre_avispa": dict(nombre="Madre Avispa", ubic="g06", especie="I-04", sub="I-03"),
+    },
+    nombres_ninos=["Gaspar", "Bartolo", "Cosme", "Tadeo", "Ismael", "Nereo", "Rafa", "Quico", "Mauro", "Olmo", "Pancho", "Remo", "Sixto", "Tano", "Urko", "Vasco", "Wilo", "Xavi", "Yago", "Zeno",
+                   "Marinela", "Brenda", "Corina", "Dora", "Estela", "Flor", "Greta", "Isa", "Jimena", "Kiara", "Luna", "Maia", "Nina", "Ofelia", "Perla", "Rita", "Sira", "Tina", "Uma", "Vera",
+                   "Yara", "Zoe", "Anselmo", "Bruno", "Cayetano", "Dionisio", "Eloy", "Fausto", "Glauco", "Hilario", "Ignacio", "Jacinto", "Lisandro", "Mariano", "Nicolás", "Orión", "Plácido",
+                   "Rómulo", "Salvador", "Telmo", "Ubaldo", "Valerio", "Xenón", "Yerai", "Abril", "Candela", "Dalila", "Eva", "Fiona", "Gala", "Hebe", "Iris", "Julieta", "Lola", "Mara",
+                   "Noa", "Olga", "Pía", "Romina", "Selene", "Tamara", "Violeta", "Wendy", "Ximena", "Yesica", "Zaira", "Aitor", "Beto", "Cirilo", "Darío", "Edgar"],
+    nombres_adultas=["Magdalena", "Remedios", "Soledad", "Candelaria", "Consuelo", "Trinidad", "Dolores", "Mercedes", "Amparo", "Pilar", "Esperanza", "Socorro", "Guadalupe", "Rosario",
+                     "Asunción", "Encarnación", "Purificación", "Visitación", "Natividad", "Piedad", "Caridad", "Gloria", "Paz", "Luz", "Aurora", "Marina", "Mar", "Coral", "Perla", "Brisa"],
+    facciones=[
+        ("Los Piratas de la Estrella Fugaz", "infantil (mar)", "carismáticos, aventureros; capitán bastante carismático", "El Océano de las Mil Velas"), ("Los Grumetes del Faro", "infantil (mar)", "obedientes y soñadores", "El Océano de las Mil Velas"),
+        ("Los Contrabandistas de la Ensenada", "infantil (mar, rival no letal)", "astutos y juguetones", "El Océano de las Mil Velas"), ("Los Balseros de la Corriente", "infantil (río)", "ágiles y alegres", "El Río Media Luna"),
+        ("La Hermandad del Remanso", "infantil (río, estilo corsarios de río)", "hábiles y leales", "El Río Media Luna"), ("Los Niños del Pantano", "infantil (pantano)", "callados y resistentes", "El Pantano de los Islotes"),
+        ("Los Corsarios del Fango", "infantil (pantano, estilo corsarios coloniales)", "bravucones y bromistas", "El Pantano de los Islotes"), ("Los Piratas de Tierra", "infantil (ciudad)", "ingeniosos y leales", "La Ciudad de los Siete Faroles"),
+        ("Los Aprendices del Puerto", "infantil (ciudad)", "curiosos y trabajadores", "La Ciudad de los Siete Faroles"), ("Los Recolectores de la Selva", "infantil (selva)", "ágiles y respetuosos", "La Selva del Sur"),
+        ("Las Mercaderas del Puerto", "mujeres adultas (ciudad)", "astutas y cordiales", "La Ciudad de los Siete Faroles"), ("Las Curanderas de la Marea", "mujeres adultas", "sabias y reservadas", "El Pantano de los Islotes"),
+        ("Las Patronas de los Astilleros", "mujeres adultas", "prácticas y estrictas", "La Ciudad de los Siete Faroles"), ("Las Guardianas del Muelle", "mujeres adultas", "justas y firmes", "Todo el mapa"),
+        ("Las Cartógrafas de la Selva", "mujeres adultas", "meticulosas y curiosas", "La Selva del Norte"),
+    ],
+)
+LORE["npcs_extra"] = []

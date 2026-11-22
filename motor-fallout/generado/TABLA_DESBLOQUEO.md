@@ -21,7 +21,7 @@ Alienígena cazador (X-18), Avispón gigante (I-24), Científico (U-14), Colonia
 Alienígena volador (X-20), Alpaca (H-41), Burro (H-25), Ciervo (H-16), Cultista (U-10), Esclavista (U-09), Hiena (C-22), Llama (H-40), Mastín (C-16), Mutante radiactivo (X-28), Orco (FA-26), Parásito controlador (P-17), Robot de laboratorio (X-10)
 
 ## Nivel 12
-Antílope (H-43), Cabra montés (H-29), Cubo gelatinoso (S-14), Espectro (FA-34), Gran duende (FA-24), Jabalí (H-34), Lobo ártico (C-19), Muflón (H-31), Orco chamán (FA-27), Pegaso (FA-56), Reno (H-17), Robot de combate (X-09), Sanador con halo (FA-15), Unicornio (FA-55)
+Alfa de rango bajo (adulto) (AL-02), Antílope (H-43), Cabra montés (H-29), Cubo gelatinoso (S-14), Espectro (FA-34), Gran duende (FA-24), Jabalí (H-34), Lobo ártico (C-19), Muflón (H-31), Orco chamán (FA-27), Pegaso (FA-56), Reno (H-17), Robot de combate (X-09), Sanador con halo (FA-15), Unicornio (FA-55)
 
 ## Nivel 14
 Alienígena de caparazón (X-19), Androide (X-11), Bestia de garra (FA-05), Canguro (H-37), Carnero (H-32), Experimento de laboratorio (X-29), Fantasma (FA-35), Guerrero con halo (FA-14), Hipogrifo (FA-60), Lobo de crin (C-23), Lobo negro (C-20), Mantis gigante (I-25), Soldado (U-11), Tapir (H-44)
@@ -30,7 +30,7 @@ Alienígena de caparazón (X-19), Androide (X-11), Bestia de garra (FA-05), Cang
 Alienígena guerrero (X-22), Banshee (FA-38), Calamar gigante (M-17), Cyborg (X-15), Demonio (FA-06), Francotirador (U-12), Libélula gigante (I-28), Momia (FA-37), Parásito gigante de tierra (P-19), Perro de guerra (C-24)
 
 ## Nivel 18
-Alce (H-18), Alienígena psíquico (X-21), Caballo (H-26), Líder de grupo (U-13), Mutante gigante (X-27), Ogro (FA-28), Parásito gigante de mar (P-20), Vaca (H-19), Vampiro (FA-36)
+Alce (H-18), Alfa (AL-01), Alienígena psíquico (X-21), Caballo (H-26), Líder de grupo (U-13), Mutante gigante (X-27), Ogro (FA-28), Parásito gigante de mar (P-20), Vaca (H-19), Vampiro (FA-36)
 
 ## Nivel 20
 Bisonte (H-21), Camello (H-42), Cebra (H-27), Dragón joven (FA-07), Quimera (FA-57), Robot pesado (X-12), Slime rey (S-15), Toro (H-20), Árbol viviente (FA-53)
@@ -42,7 +42,7 @@ Búfalo (H-22), Cerbero (FA-58), Elemental mayor (FA-48), Escarabajo colosal (I-
 Behemot (FA-08), Bestia de garra jefe (FA-09), Fénix (FA-59), Liche (FA-39), Robot centinela (jefe) (X-13), Élite (U-19)
 
 ## Nivel 26
-Jirafa (H-45)
+Alfa mayor (AL-03), Jirafa (H-45)
 
 ## Nivel 28
 Arcángel (FA-17), Colosal mecánico (X-14), Comandante (U-20), Gigante (FA-30), Hipopótamo (H-47), Rinoceronte (H-46)

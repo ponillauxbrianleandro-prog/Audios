@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 7/21 -->
+# Registro de la campaña (simulación), parte 7
+
+- d41 06:14 | L-038 | VICTORIA en 7 rondas (PV 280→190/280)
+- d41 06:14 | L-038 | MISIÓN COMPLETADA QA-078-3 «Cruzar con cuidado» +88 XP
+- d41 07:19 | Q-015 | MISIÓN ACEPTADA QA-078-4 «Defender lo propio» (secundaria)
+- d41 08:32 | L-038 | COMBATE vs 4× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d41 08:48 | L-038 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d41 08:48 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d41 19:08 | L-038 | COMBATE vs 3× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) [sorpresa]
+- d41 19:20 | L-038 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d42 07:52 | L-038 | COMBATE vs 2× Rata quimera (mitad humano) (nv24, var V3, PV c/u 376) 
+- d42 08:03 | L-038 | VICTORIA en 11 rondas (PV 280→120/280)
+- d42 09:09 | Q-015 | MISIÓN COMPLETADA QA-078-4 «Defender lo propio» +88 XP
+- d42 15:04 | Q-020 | MISIÓN ACEPTADA QA-079-1 «Construir juntos» (secundaria)
+- d42 16:33 | L-035 | FABRICA artefacto (2≤96)
+- d42 17:35 | Q-020 | MISIÓN COMPLETADA QA-079-1 «Construir juntos» +88 XP
+- d42 17:46 | Q-019 | MISIÓN ACEPTADA QA-080-1 «Tinta y senderos» (secundaria)
+- d42 17:56 | Q-019 | MISIÓN COMPLETADA QA-080-1 «Tinta y senderos» +88 XP
+- d42 18:01 | Q-019 | MISIÓN ACEPTADA QA-080-4 «Compañía para la valentía» (secundaria)
+- d42 19:25 | L-038 | COMBATE vs 3× Slime verde humanoide (nv24, var V2, PV c/u 221) [sorpresa]
+- d42 19:35 | L-038 | SUBE A NIVEL 27 (PV máx 285, daño nominal 43)
+- d42 19:35 | L-038 | VICTORIA en 10 rondas (PV 280→285/285)
+- d42 19:35 | L-038 | MISIÓN COMPLETADA QA-080-4 «Compañía para la valentía» +88 XP
+- d42 21:40 | Q-024 | MISIÓN ACEPTADA QA-082-1 «Devolver el mapa» (secundaria)
+- d42 21:50 | Q-024 | MISIÓN COMPLETADA QA-082-1 «Devolver el mapa» +88 XP
+- d42 21:55 | Q-024 | MISIÓN ACEPTADA QA-082-5 «Defender lo propio» (secundaria)
+- d42 23:22 | L-038 | COMBATE vs 4× Cucaracha mutante (nv25, var V2, PV c/u 95) [sorpresa]
+- d42 23:27 | L-038 | VICTORIA en 5 rondas (PV 285→242/285)
+- d43 01:08 | Q-024 | MISIÓN COMPLETADA QA-082-5 «Defender lo propio» +88 XP
+- d43 01:30 | Q-018 | MISIÓN ACEPTADA QA-127-1 «La presa del puesto» (secundaria)
+- d43 03:27 | L-038 | COMBATE vs 6× Rata (nv25, var V2, PV c/u 95) 
+- d43 03:36 | L-038 | VICTORIA en 9 rondas (PV 262→136/285)
+- d43 05:06 | Q-018 | MISIÓN COMPLETADA QA-127-1 «La presa del puesto» +88 XP
+- d43 05:11 | Z-029 | LLEGA por primera vez a Posada de Puerto Viejo [segura]
+- d43 09:23 | Z-029 | REGISTRA C-0179 (heladera): ['kit_reparacion', 'piezas', 'obj_80', 'obj_187']
+- d43 11:39 | Q-031 | MISIÓN ACEPTADA QA-130-1 «El invento del ingenio» (secundaria)
+- d43 13:21 | L-035 | FABRICA artefacto (31≤97)
+- d43 14:39 | Q-031 | MISIÓN COMPLETADA QA-130-1 «El invento del ingenio» +88 XP
+- d43 14:41 | Q-031 | REGISTRA C-0249 (mochila): ['piezas', 'lata', 'cuerda']
+- d43 16:19 | Q-031 | MISIÓN ACEPTADA QA-130-2 «Una mano para el puesto» (secundaria)
+- d43 18:19 | L-035 | FABRICA artefacto (72≤97)
+- d43 19:38 | Q-031 | MISIÓN COMPLETADA QA-130-2 «Una mano para el puesto» +88 XP
+- d43 20:13 | Q-016 | MISIÓN ACEPTADA QA-131-3 «Mercancía para el silencio» (secundaria)
+- d43 21:29 | Q-016 | MISIÓN COMPLETADA QA-131-3 «Mercancía para el silencio» +88 XP
+- d43 21:54 | Q-028 | MISIÓN ACEPTADA QA-135-4 «La muralla de la autoridad» (secundaria)
+- d43 23:36 | L-038 | COMBATE vs 5× Perro callejero (nv25, var V1, PV c/u 68) [sorpresa]
+- d43 23:41 | L-038 | VICTORIA en 5 rondas (PV 285→235/285)
+- d44 01:02 | L-038 | COMBATE vs 5× Termita mutante (nv25, var V1, PV c/u 68) [sorpresa]
+- d44 01:07 | L-038 | VICTORIA en 5 rondas (PV 240→131/285)
+- d44 02:29 | Q-028 | MISIÓN COMPLETADA QA-135-4 «La muralla de la autoridad» +88 XP
+- d44 06:51 | Q-028 | MISIÓN ACEPTADA QA-135-5 «Provisión del granero» (secundaria)
+- d44 11:00 | Q-028 | MISIÓN COMPLETADA QA-135-5 «Provisión del granero» +88 XP
+- d44 11:02 | Q-028 | REGISTRA C-0229 (alacena): ['dulce', 'obj_251', 'cuñas13']
+- d44 12:51 | Q-021 | MISIÓN ACEPTADA QA-136-1 «La muralla de la esperanza» (secundaria)
+- d44 14:01 | L-038 | COMBATE vs 6× Perro callejero (nv25, var V2, PV c/u 95) [sorpresa]
+- d44 14:09 | L-038 | VICTORIA en 8 rondas (PV 285→140/285)
+- d44 15:53 | L-038 | COMBATE vs 4× Cucaracha mutante (nv25, var V2, PV c/u 95) 
+- d44 15:57 | L-038 | VICTORIA en 4 rondas (PV 238→198/285)
+- d44 17:12 | Q-021 | MISIÓN COMPLETADA QA-136-1 «La muralla de la esperanza» +88 XP
+- d44 17:36 | Q-028 | MISIÓN ACEPTADA QA-137-1 «Día de feria» (secundaria)
+- d44 18:31 | Q-028 | MISIÓN COMPLETADA QA-137-1 «Día de feria» +88 XP
+- d44 18:59 | Q-039 | MISIÓN ACEPTADA QA-160-2 «Escolta hasta el refugio» (secundaria)
+- d44 21:27 | L-038 | COMBATE vs 5× Perro callejero (nv25, var V2, PV c/u 95) 
+- d44 21:34 | L-038 | VICTORIA en 7 rondas (PV 215→150/285)
+- d44 21:34 | L-038 | MISIÓN COMPLETADA QA-160-2 «Escolta hasta el refugio» +88 XP
+- d44 22:39 | Q-021 | MISIÓN ACEPTADA QA-161-2 «Manos que sanan» (secundaria)
+- d45 00:13 | L-038 | COMBATE vs 4× Termita mutante erguido (nv25, var V1, PV c/u 74) [sorpresa]
+- d45 00:19 | L-038 | VICTORIA en 6 rondas (PV 221→166/285)
+- d45 02:08 | Q-021 | MISIÓN COMPLETADA QA-161-2 «Manos que sanan» +88 XP
+- d45 06:39 | Q-025 | MISIÓN ACEPTADA QA-162-3 «Sobre ruedas» (secundaria)
+- d45 07:11 | Z-070 | LLEGA por primera vez a Biblioteca de bitácoras de Barrio de las Sombras [segura]
+- d45 07:17 | Z-070 | REGISTRA C-0276 (heladera): ['ganzua', 'obj_58', 'obj_102', 'cuñas15']
+- d45 12:16 | L-002 | MISIÓN COMPLETADA QA-162-3 «Sobre ruedas» +88 XP
+- d45 17:14 | Q-034 | MISIÓN ACEPTADA QA-163-2 «Libros que faltan» (secundaria)
+- d45 18:36 | Q-034 | MISIÓN COMPLETADA QA-163-2 «Libros que faltan» +88 XP
+- d45 18:41 | Q-034 | MISIÓN ACEPTADA QA-163-3 «Todo lo que se junta» (secundaria)
+- d45 23:03 | Q-034 | MISIÓN COMPLETADA QA-163-3 «Todo lo que se junta» +88 XP
+- d45 23:37 | Q-025 | MISIÓN ACEPTADA QA-169-1 «Mercancía para la esperanza» (secundaria)
+- d46 00:05 | Z-027 | LLEGA por primera vez a Casa del farero de Puerto Viejo [segura]
+- d46 00:12 | Z-027 | REGISTRA C-0175 (alacena): ['circuito', 'piezas', 'cuerda']
+- d46 00:14 | Z-027 | REGISTRA C-0176 (heladera): ['kit_reparacion']
+- d46 00:16 | Z-027 | REGISTRA C-0177 (escritorio): ['cuerda', 'circuito', 'venda', 'obj_114']
+- d46 00:46 | Q-025 | MISIÓN COMPLETADA QA-169-1 «Mercancía para la esperanza» +88 XP
+- d46 00:51 | Q-025 | MISIÓN ACEPTADA QA-169-2 «Caso sin cerrar» (secundaria)
+- d46 01:48 | Q-026 | MISIÓN COMPLETADA QA-169-2 «Caso sin cerrar» +88 XP
+- d46 01:57 | Q-025 | MISIÓN ACEPTADA QA-170-1 «Ronda por el granero» (secundaria)
+- d46 05:20 | L-038 | COMBATE vs 5× Rata erguido (nv25, var V2, PV c/u 104) [sorpresa]
+- d46 05:28 | L-038 | VICTORIA en 8 rondas (PV 285→165/285)
+- d46 05:28 | L-038 | MISIÓN COMPLETADA QA-170-1 «Ronda por el granero» +88 XP
+- d46 07:21 | Q-032 | MISIÓN ACEPTADA QA-171-1 «Qué pasó en el bosque» (secundaria)
+- d46 07:34 | Z-067 | LLEGA por primera vez a Herrería de Barrio de las Sombras [segura]
+- d46 07:36 | Z-067 | REGISTRA C-0270 (baúl): ['venda', 'lata', 'obj_116']
+- d46 07:44 | Q-032 | MISIÓN COMPLETADA QA-171-1 «Qué pasó en el bosque» +88 XP
+- d46 07:45 | Z-068 | LLEGA por primera vez a Enfermería de Barrio de las Sombras [segura]
+- d46 11:47 | Z-068 | REGISTRA C-0271 (escritorio): ['kit_reparacion']
+- d46 11:49 | Z-068 | REGISTRA C-0272 (baúl): ['chatarra', 'lata', 'obj_19']
+- d46 13:35 | Q-029 | MISIÓN ACEPTADA QA-175-1 «Manos a la obra» (secundaria)
+- d46 15:09 | L-035 | FABRICA artefacto (42≤97)
+- d46 16:14 | Q-029 | MISIÓN COMPLETADA QA-175-1 «Manos a la obra» +88 XP
+- d46 16:19 | Q-029 | MISIÓN ACEPTADA QA-175-2 «Libros que faltan» (secundaria)
+- d46 16:39 | Z-046 | LLEGA por primera vez a Panadería de Barrio de las Velas [segura]
+- d46 16:50 | Z-046 | REGISTRA C-0216 (baúl): ['ganzua', 'dulce', 'obj_121', 'cuñas38']
+- d46 17:12 | Q-029 | MISIÓN COMPLETADA QA-175-2 «Libros que faltan» +88 XP
+- d46 17:32 | Q-024 | MISIÓN ACEPTADA QA-178-1 «Una mano para el taller» (secundaria)
+- d46 19:25 | L-035 | FABRICAR artefacto: falla (100>97), pierde la mitad de los componentes
+- d46 19:55 | L-035 | FABRICA artefacto (55≤97)
+- d46 20:51 | Q-024 | MISIÓN COMPLETADA QA-178-1 «Una mano para el taller» +88 XP
+- d46 20:56 | Q-024 | MISIÓN ACEPTADA QA-178-2 «Defender lo propio» (secundaria)
+- d46 23:53 | L-038 | COMBATE vs 4× Slime verde humanoide (nv25, var V3, PV c/u 310) [sorpresa]
+- d47 00:05 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d47 09:57 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d47 10:52 | L-038 | COMBATE vs 4× Slime verde humanoide (nv25, var V3, PV c/u 310) 
+- d47 11:05 | L-038 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d47 21:00 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d47 21:31 | L-038 | COMBATE vs 3× Slime verde humanoide (nv25, var V3, PV c/u 310) [sorpresa]
+- d47 21:41 | L-038 | VICTORIA en 10 rondas (PV 285→76/285)
+- d48 11:26 | Q-024 | MISIÓN COMPLETADA QA-178-2 «Defender lo propio» +88 XP
+- d48 11:46 | Q-016 | MISIÓN ACEPTADA QA-179-2 «Pieza única» (secundaria)
+- d48 12:34 | Q-016 | MISIÓN COMPLETADA QA-179-2 «Pieza única» +88 XP
+- d48 13:01 | Q-025 | MISIÓN ACEPTADA QA-183-2 «Premio inesperado» (secundaria)
+- d48 13:59 | Q-025 | MISIÓN COMPLETADA QA-183-2 «Premio inesperado» +88 XP
+- d48 14:32 | Q-036 | MISIÓN ACEPTADA QA-191-3 «Palabras en el taller» (secundaria)
+- d48 16:04 | Q-036 | MISIÓN COMPLETADA QA-191-3 «Palabras en el taller» +88 XP
+- d48 16:12 | Q-035 | MISIÓN ACEPTADA QA-192-3 «Fiesta del mercado» (secundaria)
+- d48 17:20 | Q-035 | MISIÓN COMPLETADA QA-192-3 «Fiesta del mercado» +88 XP
+- d48 18:08 | Q-020 | MISIÓN ACEPTADA QA-197-3 «Día de feria» (secundaria)
+- d48 18:14 | Z-037 | LLEGA por primera vez a Biblioteca de bitácoras de Barrio de los Mercaderes [segura]
+- d48 18:25 | Z-037 | REGISTRA C-0195 (ropero): ['herramientas', 'obj_144']
+- d48 18:31 | Q-020 | MISIÓN COMPLETADA QA-197-3 «Día de feria» +88 XP
+- d48 18:52 | Q-024 | MISIÓN ACEPTADA QA-201-3 «Defender lo propio» (secundaria)
+- d48 20:23 | L-038 | COMBATE vs 5× Cucaracha mutante humanoide (nv25, var V3, PV c/u 310) [sorpresa]
+- d48 20:34 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d49 08:06 | L-038 | COMBATE vs 4× Rata (nv25, var V2, PV c/u 95) [sorpresa]
+- d49 08:10 | L-038 | SUBE A NIVEL 28 (PV máx 290, daño nominal 44)
+- d49 08:10 | L-038 | VICTORIA en 4 rondas (PV 285→290/290)
+- d49 09:32 | Q-024 | MISIÓN COMPLETADA QA-201-3 «Defender lo propio» +88 XP
+- d49 11:09 | Q-044 | LLEGA por primera vez a Aldea de los Cartógrafos, cuadra 2 [segura]

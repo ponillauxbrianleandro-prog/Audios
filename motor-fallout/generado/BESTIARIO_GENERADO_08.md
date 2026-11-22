@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 8/34 -->
+<!-- BESTIARIO GENERADO parte 8/35 -->
 - C-12.F5 | Perro de caza (sabueso) quimera (mitad humano) | T2 | s4 | n=3 | Común@8 · Rastreador@14 · Jauría@20
 - C-12.F6 | Humano-Perro de caza (sabueso) | T3 | s4 | n=3 | Común@8 · Rastreador@14 · Jauría@20
 - C-12.F7 | Persona con rasgos de Perro de caza (sabueso) | T3 | s4 | n=3 | Común@8 · Rastreador@14 · Jauría@20

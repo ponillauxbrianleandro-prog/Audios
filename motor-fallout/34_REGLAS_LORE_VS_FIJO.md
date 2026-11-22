@@ -31,7 +31,10 @@ Si un lore pide algo que rompa un número fijo, el motor lo ignora y avisa en el
 | **Interfaz** (15) | Estética | Orden y contenido de la pantalla |
 | **Módulo externo** (17) | Todo el contenido del módulo | Variables, puntos de disparo, contrato |
 
-## CONFIG_LORE (plantilla para completar; va al inicio del bloque 14)
+## CONFIG_LORE (versión final y completa: bloque 99)
+El bloque 99 amplía esta plantilla con reparto por edad y apariencia, territorios, NPC, misiones y facciones.
+
+## CONFIG_LORE (plantilla corta; va al inicio del bloque 14)
 ```
 TEMAS_ACTIVOS = [T1, T10]            # (genérico) elegir de la lista del 18
 FASES_ACTIVAS = [1,2,3,4,6,7,13,14]  # (genérico) subconjunto de 1-14

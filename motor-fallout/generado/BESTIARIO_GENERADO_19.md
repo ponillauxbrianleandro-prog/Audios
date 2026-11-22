@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 19/34 -->
+<!-- BESTIARIO GENERADO parte 19/35 -->
 - S-11.F6 | Humano-Gelatina de cueva | T3 | s4 | n=3 | Común@8 · Translúcida (+camuflaje)@14 · Rey@20
 - S-11.F7 | Persona con rasgos de Gelatina de cueva | T3 | s4 | n=2 | Común@8 · Translúcida (+camuflaje)@14
 - S-11.F8 | Persona-Gelatina de cueva (se considera Gelatina de cueva) | T3 | s4 | n=3 | Común@8 · Translúcida (+camuflaje)@14 · Rey@20

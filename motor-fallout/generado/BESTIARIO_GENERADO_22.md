@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 22/34 -->
+<!-- BESTIARIO GENERADO parte 22/35 -->
 - FA-12.F10 | Persona con accesorios de Guardián con halo menor | T3 | s5 | n=2 | Común@10 · Armado@16
 - FA-12.F11 | Trabajador/a de espectáculo con accesorios de Guardián con halo menor | T3 | s5 | n=2 | Común@10 · Armado@16
 - FA-12.F12 | Persona instintiva-Guardián con halo menor | T3 | s5 | n=1 | Común@10

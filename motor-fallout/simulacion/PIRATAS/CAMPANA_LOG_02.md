@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 2/21 -->
+# Registro de la campaña (simulación), parte 2
+
+- d5 07:54 | Q-012 | SUBE A NIVEL 13 (PV máx 215, daño nominal 24)
+- d5 07:54 | Q-012 | MISIÓN COMPLETADA MP-08 «Rescate del familiar» +2110 XP
+- d5 07:56 | Q-012 | REGISTRA C-0097 (escritorio): ['chatarra', 'ganzua', 'circuito', 'obj_14']
+- d5 10:21 | L-023 | LLEGA por primera vez a Cueva de los Juncos [normal]
+- d5 11:08 | L-022 | LLEGA por primera vez a Laguna Verde [normal]
+- d5 11:13 | L-022 | MISIÓN ACEPTADA MP-09 «La semilla del jardín» (principal)
+- d5 13:42 | Q-013 | LLEGA por primera vez a Palafitos de la Gente del Pantano, cuadra 3 [segura]
+- d5 13:51 | Z-021 | LLEGA por primera vez a Enfermería de Palafitos de la Gente del Pantano [segura]
+- d5 13:56 | Z-021 | REGISTRA C-0108 (cofre): ['medicina', 'dulce', 'lata', 'obj_133']
+- d5 13:58 | Z-021 | REGISTRA C-0109 (mochila): ['ganzua', 'obj_85', 'obj_279', 'cuñas15']
+- d5 13:58 | Z-021 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d5 15:35 | L-022 | SUBE A NIVEL 14 (PV máx 220, daño nominal 26)
+- d5 15:35 | L-022 | SUBE A NIVEL 15 (PV máx 225, daño nominal 27)
+- d5 15:35 | L-022 | MISIÓN COMPLETADA MP-09 «La semilla del jardín» +2110 XP
+- d5 15:37 | L-022 | REGISTRA C-0128 (heladera): ['lata', 'medicina', 'piezas', 'obj_108']
+- d5 15:39 | L-022 | REGISTRA C-0129 (heladera): ['agua', 'dulce', 'cuerda']
+- d5 15:50 | L-022 | REGISTRA C-0130 (alacena): ['venda', 'chatarra', 'obj_122', 'obj_132', 'cuñas21']
+- d5 21:17 | Q-021 | LLEGA por primera vez a Barrio de los Mercaderes, cuadra 3 [segura]
+- d5 21:21 | Q-020 | LLEGA por primera vez a Barrio de los Mercaderes, cuadra 2 [segura]
+- d5 21:26 | Q-020 | MISIÓN ACEPTADA MS-14 «El juicio» (secundaria)
+- d5 21:51 | Z-024 | LLEGA por primera vez a Casa del farero de Puerto Viejo [segura]
+- d5 21:53 | Z-024 | REGISTRA C-0169 (alacena): ['recurso_bio', 'obj_91']
+- d5 21:55 | Z-024 | REGISTRA C-0170 (mostrador): ['agua', 'lata', 'ganzua', 'obj_260']
+- d5 22:41 | L-026 | COMBATE vs 2× Avispón gigante (nv2, var V1, PV c/u 44) 
+- d5 22:43 | L-026 | VICTORIA en 2 rondas (PV 225→211/225)
+- d6 01:00 | L-023 | MISIÓN COMPLETADA MS-14 «El juicio» +74 XP
+- d6 01:02 | L-023 | REGISTRA C-0131 (escritorio): ['lata', 'circuito', 'obj_26', 'obj_88', 'cuñas7']
+- d6 01:04 | L-023 | REGISTRA C-0132 (mochila): ['venda_reforzada', 'herramientas', 'obj_109', 'obj_167', 'cuñas34']
+- d6 01:51 | L-023 | COMBATE vs 4× Slime verde (nv12, var V2, PV c/u 58) 
+- d6 01:56 | L-023 | VICTORIA en 5 rondas (PV 224→183/225)
+- d6 03:23 | L-032 | COMBATE vs 5× Abeja mutante (nv8, var V3, PV c/u 64) [sorpresa]
+- d6 03:28 | L-032 | VICTORIA en 5 rondas (PV 192→182/225)
+- d6 04:31 | L-026 | COMBATE vs 3× Hormiga mutante humanoide (nv2, var V2, PV c/u 73) 
+- d6 04:35 | L-026 | VICTORIA en 4 rondas (PV 188→160/225)
+- d6 05:13 | Q-017 | LLEGA por primera vez a Puerto Viejo, cuadra 3 [segura]
+- d6 05:18 | Q-017 | MISIÓN ACEPTADA MS-21 «Cuentas pendientes» (secundaria)
+- d6 07:14 | L-036 | REGISTRA C-0316 (cajón): ['lata', 'dulce', 'agua', 'obj_263']
+- d6 12:26 | Q-012 | MISIÓN COMPLETADA MS-21 «Cuentas pendientes» +74 XP
+- d6 13:59 | L-032 | COMBATE vs 3× Antílope (nv8, var V1, PV c/u 136) 
+- d6 14:13 | L-032 | VICTORIA en 14 rondas (PV 191→75/225)
+- d6 16:26 | Q-016 | MISIÓN ACEPTADA MS-28 «El rastro del ladrón» (secundaria)
+- d6 16:42 | Q-018 | LLEGA por primera vez a Puerto Viejo, cuadra 4 [segura]
+- d6 16:50 | Q-019 | LLEGA por primera vez a Barrio de los Mercaderes, cuadra 1 [segura]
+- d6 17:04 | Q-026 | LLEGA por primera vez a Barrio Alto, cuadra 1 [segura]
+- d6 17:35 | Z-051 | LLEGA por primera vez a Casa del farero de Barrio Alto [segura]
+- d6 17:44 | Z-051 | REGISTRA C-0230 (heladera): ['circuito']
+- d6 17:49 | Z-051 | REGISTRA C-0231 (cajón): ['recurso_bio', 'piezas', 'obj_267']
+- d6 18:06 | Q-027 | LLEGA por primera vez a Barrio Alto, cuadra 2 [segura]
+- d6 19:03 | L-040 | LLEGA por primera vez a Selva de Sabana [normal]
+- d6 19:08 | L-040 | MISIÓN COMPLETADA MS-28 «El rastro del ladrón» +74 XP
+- d6 19:10 | L-040 | REGISTRA C-0325 (mostrador): ['chatarra', 'cuñas22']
+- d6 19:12 | L-040 | REGISTRA C-0326 (ropero): ['dulce', 'recurso_bio', 'lata', 'cuñas33']
+- d6 19:14 | L-040 | REGISTRA C-0327 (estantería): ['circuito', 'cuñas7']
+- d6 22:07 | Q-031 | LLEGA por primera vez a Barrio de los Astilleros, cuadra 3 [segura]
+- d6 22:14 | Q-032 | LLEGA por primera vez a Barrio de las Sombras, cuadra 1 [segura]
+- d6 22:21 | Q-037 | LLEGA por primera vez a Barrio del Río, cuadra 3 [segura]
+- d6 22:26 | Q-037 | MISIÓN ACEPTADA MS-35 «El puente caído» (secundaria)
+- d6 22:39 | Q-036 | LLEGA por primera vez a Barrio del Río, cuadra 2 [segura]
+- d7 00:48 | L-035 | FABRICAR artefacto: falla (96>85), pierde la mitad de los componentes
+- d7 05:18 | L-035 | FABRICAR artefacto: falla (97>85), pierde la mitad de los componentes
+- d7 05:48 | L-035 | FABRICA artefacto (55≤85)
+- d7 07:17 | Q-037 | MISIÓN COMPLETADA MS-35 «El puente caído» +74 XP
+- d7 07:19 | Q-037 | REGISTRA C-0286 (cofre): ['circuito', 'obj_43', 'obj_252']
+- d7 09:06 | Q-035 | MISIÓN ACEPTADA MS-42 «El dormitorio de los ruidos» (secundaria)
+- d7 11:05 | L-038 | COMBATE vs 5× Cucaracha mutante (nv9, var V1, PV c/u 36) [sorpresa]
+- d7 11:09 | L-038 | VICTORIA en 4 rondas (PV 225→197/225)
+- d7 13:01 | Q-023 | REGISTRA C-0206 (estantería): ['herramientas', 'venda', 'obj_273', 'cuñas38']
+- d7 13:01 | Q-023 | MISIÓN COMPLETADA MS-42 «El dormitorio de los ruidos» +74 XP
+- d7 14:47 | Q-016 | MISIÓN ACEPTADA QA-018-3 «Todo lo que se junta» (secundaria)
+- d7 18:25 | Q-016 | MISIÓN COMPLETADA QA-018-3 «Todo lo que se junta» +74 XP
+- d7 18:27 | Q-016 | REGISTRA C-0166 (mochila): ['venda_reforzada', 'obj_212', 'cuñas11']
+- d7 19:51 | Q-024 | MISIÓN ACEPTADA QA-027-1 «Todo lo que se junta» (secundaria)
+- d7 22:02 | L-038 | COMBATE vs 6× Perro callejero erguido (nv13, var V1, PV c/u 48) [sorpresa]
+- d7 22:07 | L-038 | VICTORIA en 5 rondas (PV 225→164/225)
+- d8 00:29 | Q-024 | MISIÓN COMPLETADA QA-027-1 «Todo lo que se junta» +74 XP
+- d8 00:31 | Q-024 | REGISTRA C-0207 (mostrador): ['cuerda', 'obj_64', 'obj_65', 'obj_94', 'obj_238']
+- d8 01:52 | Q-024 | MISIÓN ACEPTADA QA-027-4 «Rastro de la herramienta» (secundaria)
+- d8 02:26 | Q-033 | LLEGA por primera vez a Barrio de las Sombras, cuadra 2 [segura]
+- d8 02:38 | Q-033 | REGISTRA C-0266 (caja): ['lata', 'cuerda', 'obj_17', 'obj_124']
+- d8 03:08 | Q-024 | MISIÓN COMPLETADA QA-027-4 «Rastro de la herramienta» +74 XP
+- d8 03:32 | Q-018 | MISIÓN ACEPTADA QA-036-1 «Cartas sin dueño» (secundaria)
+- d8 05:08 | Q-018 | MISIÓN COMPLETADA QA-036-1 «Cartas sin dueño» +74 XP
+- d8 05:10 | Q-018 | REGISTRA C-0168 (barril): ['chatarra', 'piezas', 'obj_169']
+- d8 06:23 | Q-018 | MISIÓN ACEPTADA QA-036-2 «El concurso de la esperanza» (secundaria)
+- d8 06:50 | Z-031 | LLEGA por primera vez a Casa de familia de Puerto Viejo [segura]
+- d8 06:57 | Z-031 | REGISTRA C-0182 (ropero): ['venda', 'medicina', 'obj_21', 'obj_115', 'obj_179', 'cuñas23']
+- d8 07:09 | Q-018 | MISIÓN COMPLETADA QA-036-2 «El concurso de la esperanza» +74 XP
+- d8 07:51 | Q-038 | LLEGA por primera vez a Plaza del Reloj, cuadra 1 [segura]
+- d8 07:57 | Q-039 | LLEGA por primera vez a Plaza del Reloj, cuadra 2 [segura]
+- d8 08:02 | Q-039 | MISIÓN ACEPTADA QA-038-2 «Puertas que no abren» (secundaria)
+- d8 08:46 | Z-045 | LLEGA por primera vez a Astillero chico de Barrio de las Velas [segura]
+- d8 08:56 | Z-045 | REGISTRA C-0213 (alacena): ['venda_reforzada', 'cuerda', 'kit_reparacion']
+- d8 08:58 | Z-045 | REGISTRA C-0214 (alacena): ['herramientas', 'circuito', 'lata', 'obj_25']
+- d8 11:07 | L-038 | HACKEO de terminal en Alcantarillas del Puerto ÉXITO (76%)
+- d8 11:07 | L-038 | MISIÓN COMPLETADA QA-038-2 «Puertas que no abren» +74 XP
+- d8 11:12 | L-038 | REGISTRA C-0321 (baúl): ['dulce', 'obj_145']
+- d8 11:14 | L-038 | REGISTRA C-0322 (estantería): ['kit_reparacion', 'cuñas25']
+- d8 12:02 | L-038 | COMBATE vs 4× Cucaracha mutante (nv13, var V2, PV c/u 61) 
+- d8 12:09 | L-038 | VICTORIA en 7 rondas (PV 197→135/225)
+- d8 14:50 | Q-025 | MISIÓN ACEPTADA QA-040-1 «El misterio del refugio» (secundaria)
+- d8 15:34 | Q-039 | REGISTRA C-0303 (alacena): ['recurso_bio', 'obj_28', 'cuñas21']
+- d8 16:20 | Q-025 | MISIÓN COMPLETADA QA-040-1 «El misterio del refugio» +74 XP
+- d8 16:23 | Z-049 | LLEGA por primera vez a Cabaña de pescadores de Barrio de las Velas [segura]
+- d8 20:25 | Z-049 | REGISTRA C-0223 (mochila): ['recurso_bio', 'obj_226']
+- d8 20:27 | Z-049 | REGISTRA C-0224 (barril): ['venda']
+- d8 20:29 | Z-049 | REGISTRA C-0225 (caja): ['lata', 'cuerda']
+- d8 22:09 | Q-035 | MISIÓN ACEPTADA QA-042-4 «Mercancía para el cansancio» (secundaria)
+- d8 22:42 | Z-065 | LLEGA por primera vez a Carpintería de ribera de Barrio de los Astilleros [segura]
+- d8 22:52 | Z-065 | REGISTRA C-0262 (heladera): ['circuito', 'recurso_bio']
+- d8 22:54 | Z-065 | REGISTRA C-0263 (heladera): ['chatarra', 'obj_32']
+- d8 23:24 | Q-035 | MISIÓN COMPLETADA QA-042-4 «Mercancía para el cansancio» +74 XP
+- d9 00:10 | Q-020 | MISIÓN ACEPTADA QA-047-1 «Cruzar con cuidado» (secundaria)
+- d9 02:12 | L-038 | COMBATE vs 6× Termita mutante erguido (nv13, var V1, PV c/u 48) 
+- d9 02:21 | L-038 | VICTORIA en 9 rondas (PV 225→117/225)
+- d9 02:21 | L-038 | MISIÓN COMPLETADA QA-047-1 «Cruzar con cuidado» +74 XP
+- d9 04:09 | Q-020 | MISIÓN ACEPTADA QA-047-3 «Los bordes del mapa» (secundaria)
+- d9 04:19 | Q-020 | MISIÓN COMPLETADA QA-047-3 «Los bordes del mapa» +74 XP
+- d9 04:24 | Z-034 | LLEGA por primera vez a Enfermería de Barrio de los Mercaderes [segura]
+- d9 08:26 | Z-034 | REGISTRA C-0191 (mochila): ['ganzua', 'obj_41', 'obj_104', 'obj_118', 'obj_168']
+- d9 10:25 | Q-027 | MISIÓN ACEPTADA QA-049-1 «El camino de vuelta» (secundaria)
+- d9 12:22 | L-038 | COMBATE vs 6× Slime verde (nv13, var V1, PV c/u 44) 
+- d9 12:31 | L-038 | VICTORIA en 9 rondas (PV 225→101/225)
+- d9 14:29 | Q-027 | SUBE A NIVEL 16 (PV máx 230, daño nominal 28)
+- d9 14:29 | Q-027 | MISIÓN COMPLETADA QA-049-1 «El camino de vuelta» +74 XP
+- d9 14:31 | Q-027 | REGISTRA C-0228 (heladera): ['kit_reparacion', 'medicina', 'agua', 'obj_103', 'cuñas37']
+- d9 15:53 | Q-032 | MISIÓN ACEPTADA QA-050-3 «Material para la esperanza» (secundaria)
+- d9 20:40 | Q-032 | MISIÓN COMPLETADA QA-050-3 «Material para la esperanza» +74 XP
+- d9 20:48 | Q-032 | REGISTRA C-0265 (baúl): ['herramientas', 'venda', 'obj_5', 'obj_55', 'obj_95']
+- d9 23:44 | L-026 | MISIÓN ACEPTADA QA-055-2 «Mercancía para el ingenio» (secundaria)
+- d10 02:21 | L-026 | MISIÓN COMPLETADA QA-055-2 «Mercancía para el ingenio» +74 XP
+- d10 02:26 | L-026 | MISIÓN ACEPTADA QA-055-3 «Todo lo que se junta» (secundaria)
+- d10 04:42 | L-033 | COMBATE vs 4× Hormiga gigante guerrera (nv13, var V2, PV c/u 123) [sorpresa]

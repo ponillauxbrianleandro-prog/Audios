@@ -6,7 +6,7 @@ apellido de mineral o terreno).
 """
 
 MONEDA = "cuñas"
-PROTAGONISTA = {"nombre": "Nico Cardal", "apodo": "Chispa", "hogar": "L-001",
+PROTAGONISTA = {"nombre": "Nico Cardal", "apodo": "Chispa", "hogar": "L-001", "edad": "niño",
                 # Stats fijos (1-10). El autor puede cambiarlos en el bloque 16; suma 35.
                 "stats": {"FUE": 6, "PER": 5, "RES": 6, "CAR": 5, "INT": 4, "AGI": 5, "SUE": 4}}
 
@@ -201,7 +201,7 @@ QUESTS = {
                  desc="El Núcleo del Faro se armó con tres piezas. Una en el Depósito 9, otra con la Reina del Zumbido, la tercera en el Hipermercado.",
                  steps=[("get", "L-009", "pieza_nucleo_1"), ("boss", "L-013", "reina"), ("get", "L-017", "pieza_nucleo_3")],
                  xp=600, rec=["quimico"]),
-    "M-05": dict(nombre="Elegir bando", tipo="principal", giver="N-02", nivel=9,
+    "M-05": dict(nombre="Elegir bando", tipo="principal", giver="N-02", nivel=9, nivel_min=9,
                  desc="Ciudad Horno y la Guardia del Cantil se disputan el Purificador. Hay que elegir con quién ir; el otro grupo pasa a ser hostil.",
                  steps=[("talk", "N-02"), ("choose", "Hornos", "Guardia")], xp=400, rec=["arma_t4"]),
     "M-06": dict(nombre="El mentor", tipo="principal", giver="N-01", nivel=12,

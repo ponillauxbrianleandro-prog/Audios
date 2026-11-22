@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 20/21 -->
+# Registro de la campaña (simulación), parte 20
+
+- d92 02:20 | Q-026 | MISIÓN COMPLETADA QA-207-2 «Pruebas del puesto» +172 XP
+- d92 02:20 | Q-026 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d92 04:30 | L-010 | MISIÓN ACEPTADA QA-213-2 «Una mano para el viejo túnel» (secundaria)
+- d92 04:35 | L-010 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d92 04:35 | L-001 | COMBATE vs 3× Abeja mutante humanoide (nv2, var V3, PV c/u 100) [emboscada enemiga]
+- d92 04:38 | L-001 | VICTORIA en 3 rondas (PV 300→300/300)
+- d92 05:57 | Q-001 | FABRICA artefacto (63≤100)
+- d92 07:52 | L-010 | MISIÓN COMPLETADA QA-213-2 «Una mano para el viejo túnel» +172 XP
+- d92 07:57 | L-010 | MISIÓN ACEPTADA QA-213-3 «Resistir en el puesto» (secundaria)
+- d92 09:26 | L-008 | COMBATE vs 2× Zorro rojo humanoide (nv7, var V2, PV c/u 107) 
+- d92 09:28 | L-008 | VICTORIA en 2 rondas (PV 300→294/300)
+- d92 10:10 | L-008 | COMBATE vs 5× Coyote (nv7, var V1, PV c/u 32) [sorpresa]
+- d92 10:12 | L-008 | VICTORIA en 2 rondas (PV 299→298/300)
+- d92 11:54 | L-010 | MISIÓN COMPLETADA QA-213-3 «Resistir en el puesto» +172 XP
+- d92 11:59 | L-010 | MISIÓN ACEPTADA QA-213-5 «Guardia contra las alimañas» (secundaria)
+- d92 14:33 | L-003 | COMBATE vs 2× Oveja humanoide (nv4, var V2, PV c/u 87) [sorpresa]
+- d92 14:35 | L-003 | VICTORIA en 2 rondas (PV 300→294/300)
+- d92 14:35 | L-003 | COMBATE vs 1× Mantis gigante quimera (mitad humano) (nv4, var V2, PV c/u 218) [sorpresa]
+- d92 14:37 | L-003 | VICTORIA en 2 rondas (PV 294→294/300)
+- d92 14:37 | L-003 | COMBATE vs 3× Hormiga mutante humanoide (nv4, var V2, PV c/u 87) [sorpresa]
+- d92 14:39 | L-003 | VICTORIA en 2 rondas (PV 294→293/300)
+- d92 14:39 | L-003 | COMBATE vs 1× Persona con rasgos de Corzo (nv4, var V1, PV c/u 114) [sorpresa]
+- d92 14:41 | L-003 | VICTORIA en 2 rondas (PV 293→290/300)
+- d92 14:41 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d92 14:41 | L-002 | COMBATE vs 3× Persona con rasgos de Slime verde (nv3, var V3, PV c/u 200) [emboscada enemiga]
+- d92 14:46 | L-002 | VICTORIA en 5 rondas (PV 290→271/300)
+- d92 15:48 | L-010 | MISIÓN COMPLETADA QA-213-5 «Guardia contra las alimañas» +172 XP
+- d92 15:48 | L-010 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d92 16:09 | Q-031 | MISIÓN ACEPTADA QA-224-2 «El invento de la timidez» (secundaria)
+- d92 16:14 | Q-031 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d92 19:27 | Q-001 | FABRICA artefacto (78≤100)
+- d92 19:27 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d92 20:18 | Q-031 | MISIÓN COMPLETADA QA-224-2 «El invento de la timidez» +172 XP
+- d92 20:23 | Q-031 | MISIÓN ACEPTADA QA-224-5 «¿quién fue?» (secundaria)
+- d93 01:14 | Q-036 | MISIÓN COMPLETADA QA-224-5 «¿quién fue?» +172 XP
+- d93 02:18 | Q-028 | MISIÓN ACEPTADA QN-008-1 «Cartas sin dueño» (secundaria)
+- d93 04:29 | Q-028 | MISIÓN COMPLETADA QN-008-1 «Cartas sin dueño» +172 XP
+- d93 04:34 | Q-028 | MISIÓN ACEPTADA QN-008-2 «Camino largo» (secundaria)
+- d93 04:53 | Z-063 | LLEGA por primera vez a Panadería de Aldea de la Cosecha [segura]
+- d93 05:05 | Z-063 | REGISTRA C-0218 (caja): ['piezas', 'circuito']
+- d93 05:07 | Z-063 | REGISTRA C-0219 (ropero): ['cuerda', 'chatarra', 'obj_234']
+- d93 05:17 | Z-063 | REGISTRA C-0220 (alacena): ['cuerda', 'ganzua', 'obj_226']
+- d93 05:17 | Z-063 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d93 07:37 | L-041 | MISIÓN COMPLETADA QN-008-2 «Camino largo» +172 XP
+- d93 07:37 | L-041 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d93 08:40 | Q-028 | MISIÓN ACEPTADA QN-008-3 «Pedido especial» (secundaria)
+- d93 08:50 | Q-028 | MISIÓN COMPLETADA QN-008-3 «Pedido especial» +172 XP
+- d93 08:55 | Q-028 | MISIÓN ACEPTADA QN-008-5 «Premio inesperado» (secundaria)
+- d93 12:22 | Q-028 | MISIÓN COMPLETADA QN-008-5 «Premio inesperado» +172 XP
+- d93 12:34 | Q-029 | MISIÓN ACEPTADA QN-011-1 «Rastro del cuaderno» (secundaria)
+- d93 13:11 | Q-029 | MISIÓN COMPLETADA QN-011-1 «Rastro del cuaderno» +172 XP
+- d93 13:16 | Q-029 | MISIÓN ACEPTADA QN-011-3 «Mediación» (secundaria)
+- d93 16:04 | Q-029 | MISIÓN COMPLETADA QN-011-3 «Mediación» +172 XP
+- d93 16:09 | Q-029 | MISIÓN ACEPTADA QN-085-1 «Libros que faltan» (secundaria)
+- d93 17:39 | L-030 | REGISTRA C-0236 (caja): ['piezas', 'chatarra', 'circuito', 'cuñas36']
+- d93 17:50 | L-030 | REGISTRA C-0237 (estantería): ['recurso_bio', 'piezas', 'obj_284', 'cuñas17']
+- d93 17:52 | L-030 | REGISTRA C-0238 (cofre): ['venda']
+- d93 17:59 | L-030 | REGISTRA C-0239 (cajón): ['kit_reparacion', 'obj_290']
+- d93 18:44 | L-029 | COMBATE vs 5× Cerdo erguido (nv28, var V1, PV c/u 162) [sorpresa]
+- d93 18:50 | L-029 | VICTORIA en 6 rondas (PV 300→239/300)
+- d93 19:52 | Q-029 | MISIÓN COMPLETADA QN-085-1 «Libros que faltan» +172 XP
+- d93 19:57 | Q-029 | MISIÓN ACEPTADA QA-057-1 «Antes del amanecer» (secundaria)
+- d93 20:51 | L-029 | COMBATE vs 6× Avispa mutante (nv28, var V1, PV c/u 74) 
+- d93 20:55 | L-029 | VICTORIA en 4 rondas (PV 251→231/300)
+- d93 21:59 | Q-029 | MISIÓN COMPLETADA QA-057-1 «Antes del amanecer» +186 XP
+- d94 02:55 | L-015 | MISIÓN ACEPTADA QA-068-2 «Cuando no alcanza el orgullo» (secundaria)
+- d94 03:58 | L-014 | COMBATE vs 4× Slime azul (nv28, var V3, PV c/u 140) [sorpresa]
+- d94 04:02 | L-014 | VICTORIA en 4 rondas (PV 262→246/300)
+- d94 04:02 | L-014 | COMBATE vs 5× Slime verde erguido (nv28, var V3, PV c/u 154) [sorpresa]
+- d94 04:08 | L-014 | VICTORIA en 6 rondas (PV 246→201/300)
+- d94 05:08 | L-015 | COMBATE vs 5× Libélula mutante erguido (nv10, var V3, PV c/u 79) 
+- d94 05:12 | L-015 | VICTORIA en 4 rondas (PV 205→196/300)
+- d94 05:17 | L-015 | MISIÓN COMPLETADA QA-068-2 «Cuando no alcanza el orgullo» +186 XP
+- d94 06:22 | L-010 | MISIÓN ACEPTADA QA-070-3 «Guardia contra los saqueadores» (secundaria)
+- d94 07:23 | L-005 | COMBATE vs 2× Oveja erguido (nv5, var V1, PV c/u 61) 
+- d94 07:25 | L-005 | VICTORIA en 2 rondas (PV 205→205/300)
+- d94 08:22 | L-006 | COMBATE vs 3× Oveja humanoide (nv6, var V2, PV c/u 100) 
+- d94 08:25 | L-006 | VICTORIA en 3 rondas (PV 229→229/300)
+- d94 09:29 | L-010 | MISIÓN COMPLETADA QA-070-3 «Guardia contra los saqueadores» +186 XP
+- d94 10:44 | L-015 | MISIÓN ACEPTADA QA-073-3 «Cruzar con cuidado» (secundaria)
+- d94 11:23 | L-014 | COMBATE vs 5× Pulpo (nv28, var V2, PV c/u 103) [sorpresa]
+- d94 11:27 | L-014 | VICTORIA en 4 rondas (PV 242→226/300)
+- d94 12:13 | L-014 | COMBATE vs 5× Pulpo erguido (nv28, var V3, PV c/u 154) 
+- d94 12:19 | L-014 | VICTORIA en 6 rondas (PV 230→202/300)
+- d94 12:19 | L-014 | MISIÓN COMPLETADA QA-073-3 «Cruzar con cuidado» +186 XP
+- d94 12:19 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d94 12:19 | L-009 | COMBATE vs 2× Jabalí humanoide (nv28, var V2, PV c/u 497) [emboscada enemiga]
+- d94 12:27 | L-009 | VICTORIA en 8 rondas (PV 202→202/300)
+- d94 14:23 | L-019 | MISIÓN ACEPTADA QA-085-1 «Pistas de la esperanza» (secundaria)
+- d94 18:16 | L-019 | MISIÓN COMPLETADA QA-085-1 «Pistas de la esperanza» +186 XP
+- d94 18:21 | L-019 | MISIÓN ACEPTADA QA-088-1 «Lo que brilla en el granero» (secundaria)
+- d94 20:34 | L-019 | MISIÓN COMPLETADA QA-088-1 «Lo que brilla en el granero» +186 XP
+- d94 20:39 | L-019 | MISIÓN ACEPTADA QA-088-4 «En busca del cuaderno» (secundaria)
+- d94 23:14 | L-019 | MISIÓN COMPLETADA QA-088-4 «En busca del cuaderno» +186 XP
+- d94 23:19 | L-019 | MISIÓN ACEPTADA QA-089-3 «La sombra de la valentía» (secundaria)
+- d95 03:28 | L-001 | COMBATE vs 3× Jabalí (nv2, var V2, PV c/u 123) 
+- d95 03:32 | L-001 | VICTORIA en 4 rondas (PV 296→296/300)
+- d95 04:46 | Q-003 | MISIÓN COMPLETADA QA-089-3 «La sombra de la valentía» +186 XP
+- d95 05:37 | L-001 | COMBATE vs 3× Mantis gigante (nv2, var V1, PV c/u 88) [sorpresa]
+- d95 05:39 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d95 07:07 | L-010 | MISIÓN ACEPTADA QA-161-1 «Fiebre en el muelle» (secundaria)
+- d95 11:05 | L-010 | MISIÓN COMPLETADA QA-161-1 «Fiebre en el muelle» +186 XP
+- d95 12:11 | L-015 | COMBATE vs 2× Medusa quimera (mitad humano) (nv10, var V3, PV c/u 216) 
+- d95 12:14 | L-015 | VICTORIA en 3 rondas (PV 300→278/300)
+- d95 12:38 | L-014 | COMBATE vs 5× Slime verde (nv28, var V1, PV c/u 74) 
+- d95 12:42 | L-014 | VICTORIA en 4 rondas (PV 281→281/300)
+- d95 13:30 | L-013 | MISIÓN ACEPTADA QA-164-1 «Provisión del puente» (secundaria)
+- d95 15:30 | L-013 | MISIÓN COMPLETADA QA-164-1 «Provisión del puente» +186 XP
+- d95 15:35 | L-013 | MISIÓN ACEPTADA QA-164-3 «El concurso de la alegría» (secundaria)
+- d95 17:47 | Z-010 | LLEGA por primera vez a Estanco de Palafitos del Cañaveral [segura]
+- d95 17:49 | Z-010 | REGISTRA C-0059 (caja): ['agua', 'lata', 'circuito', 'obj_149']
+- d95 19:55 | L-013 | MISIÓN COMPLETADA QA-164-3 «El concurso de la alegría» +186 XP
+- d96 02:32 | Q-030 | MISIÓN ACEPTADA QA-172-2 «Provisión del taller» (secundaria)
+- d96 03:37 | L-029 | COMBATE vs 4× Dingo (nv28, var V2, PV c/u 207) 
+- d96 03:44 | L-029 | VICTORIA en 7 rondas (PV 300→273/300)
+- d96 05:22 | Q-030 | MISIÓN COMPLETADA QA-172-2 «Provisión del taller» +186 XP
+- d96 05:34 | Q-029 | MISIÓN ACEPTADA QA-173-1 «Faltan materiales» (secundaria)
+- d96 06:23 | L-029 | COMBATE vs 5× Oveja (nv28, var V2, PV c/u 207) [sorpresa]
+- d96 06:31 | L-029 | VICTORIA en 8 rondas (PV 290→178/300)
+- d96 08:07 | Q-029 | MISIÓN COMPLETADA QA-173-1 «Faltan materiales» +186 XP
+- d96 12:24 | Q-031 | MISIÓN ACEPTADA QA-195-2 «Buscando a alguien» (secundaria)
+- d96 15:31 | L-029 | COMBATE vs 3× Bisonte quimera (mitad humano) (nv28, var V2, PV c/u 1243) [sorpresa]
+- d96 16:55 | L-024 | DERROTADO en Corral Roto: arrastre a Casa de las Hojas (80 min), robo ninguno
+- d97 03:06 | L-029 | COMBATE vs 3× Bisonte quimera (mitad humano) (nv28, var V2, PV c/u 1243) [sorpresa]
+- d97 04:14 | L-029 | VICTORIA en 68 rondas (PV 300→121/300)
+- d97 05:00 | Q-031 | MISIÓN COMPLETADA QA-195-2 «Buscando a alguien» +186 XP
+- d97 12:25 | L-010 | MISIÓN ACEPTADA QA-213-1 «Rutas nuevas» (secundaria)
+- d97 12:35 | L-010 | MISIÓN COMPLETADA QA-213-1 «Rutas nuevas» +186 XP
+- d97 12:40 | L-010 | MISIÓN ACEPTADA QA-213-4 «Puesto de la paciencia» (secundaria)
+- d97 14:45 | L-004 | COMBATE vs 2× Jabalí (nv5, var V2, PV c/u 156) 
+- d97 14:48 | L-004 | VICTORIA en 3 rondas (PV 300→282/300)
+- d97 14:48 | L-004 | COMBATE vs 4× Corzo (nv5, var V3, PV c/u 106) [sorpresa]
+- d97 14:51 | L-004 | VICTORIA en 3 rondas (PV 282→272/300)
+- d97 14:51 | L-004 | MISIÓN COMPLETADA QA-213-4 «Puesto de la paciencia» +186 XP
+- d97 16:19 | L-010 | MISIÓN ACEPTADA QA-214-1 «Cruzar con cuidado» (secundaria)

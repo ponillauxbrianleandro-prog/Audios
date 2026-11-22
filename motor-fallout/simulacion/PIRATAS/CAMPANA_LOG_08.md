@@ -1,0 +1,140 @@
+<!-- CAMPAÑA parte 8/21 -->
+# Registro de la campaña (simulación), parte 8
+
+- d49 11:14 | Q-044 | MISIÓN ACEPTADA MP-15 «Después de todo» (principal)
+- d49 11:24 | Q-044 | SUBE A NIVEL 29 (PV máx 295, daño nominal 45)
+- d49 11:24 | Q-044 | MISIÓN COMPLETADA MP-15 «Después de todo» +4350 XP
+- d49 11:35 | Q-044 | REGISTRA C-0381 (barril): ['lata', 'dulce', 'obj_74', 'obj_243']
+- d49 14:40 | Q-015 | MISIÓN ACEPTADA QA-209-2 «Devolver la llave» (secundaria)
+- d49 15:30 | Q-015 | MISIÓN COMPLETADA QA-209-2 «Devolver la llave» +88 XP
+- d49 15:42 | Q-015 | REGISTRA C-0165 (mostrador): ['recurso_bio', 'agua']
+- d49 17:32 | L-026 | MISIÓN ACEPTADA QA-220-1 «El camino seguro» (secundaria)
+- d49 19:01 | L-033 | COMBATE vs 4× Mosca mutante (nv14, var V2, PV c/u 64) [sorpresa]
+- d49 19:04 | L-033 | VICTORIA en 3 rondas (PV 295→259/295)
+- d49 19:04 | L-033 | MISIÓN COMPLETADA QA-220-1 «El camino seguro» +88 XP
+- d49 19:06 | L-033 | REGISTRA C-0158 (cajón): ['agua', 'cuerda']
+- d49 19:14 | L-033 | REGISTRA C-0159 (baúl): ['herramientas', 'dulce']
+- d49 19:16 | L-033 | REGISTRA C-0160 (heladera): ['venda', 'ganzua', 'medicina']
+- d49 20:36 | L-033 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d49 21:10 | L-026 | MISIÓN ACEPTADA QA-220-2 «Más allá del pueblo» (secundaria)
+- d49 21:20 | L-026 | MISIÓN COMPLETADA QA-220-2 «Más allá del pueblo» +88 XP
+- d49 22:03 | Q-021 | MISIÓN ACEPTADA QA-223-4 «Sobre ruedas» (secundaria)
+- d50 03:01 | L-008 | LLEGA por primera vez a Ensenada de los Contrabandistas [normal]
+- d50 03:53 | L-007 | LLEGA por primera vez a Isla Escondida [normal]
+- d50 03:58 | L-007 | MISIÓN COMPLETADA QA-223-4 «Sobre ruedas» +88 XP
+- d50 04:00 | L-007 | REGISTRA C-0035 (alacena): ['venda']
+- d50 04:02 | L-007 | REGISTRA C-0036 (mostrador): ['venda_reforzada', 'ganzua', 'obj_79']
+- d50 04:04 | L-007 | REGISTRA C-0037 (barril): ['piezas']
+- d50 04:41 | L-007 | COMBATE vs 5× Medusa (nv14, var V3, PV c/u 87) [sorpresa]
+- d50 04:46 | L-007 | VICTORIA en 5 rondas (PV 295→222/295)
+- d50 06:23 | L-008 | COMBATE vs 3× Persona con rasgos de Calamar (nv15, var V1, PV c/u 211) 
+- d50 06:33 | L-008 | VICTORIA en 10 rondas (PV 233→132/295)
+- d50 10:50 | Q-025 | MISIÓN ACEPTADA QN-008-1 «Cartas sin dueño» (secundaria)
+- d50 12:01 | Q-025 | MISIÓN COMPLETADA QN-008-1 «Cartas sin dueño» +88 XP
+- d50 16:43 | Q-035 | MISIÓN ACEPTADA QN-009-3 «Fiesta del refugio» (secundaria)
+- d50 16:57 | Z-074 | REGISTRA C-0288 (mostrador): ['lata', 'medicina', 'piezas', 'obj_62', 'obj_183']
+- d50 17:05 | Q-035 | MISIÓN COMPLETADA QN-009-3 «Fiesta del refugio» +88 XP
+- d50 17:22 | Q-037 | MISIÓN ACEPTADA QN-011-2 «En silencio» (secundaria)
+- d50 17:57 | Q-037 | MISIÓN COMPLETADA QN-011-2 «En silencio» +88 XP
+- d50 18:22 | Q-025 | MISIÓN ACEPTADA QN-018-1 «Más allá del viejo túnel» (secundaria)
+- d50 18:32 | Q-025 | MISIÓN COMPLETADA QN-018-1 «Más allá del viejo túnel» +88 XP
+- d50 18:44 | Q-023 | MISIÓN ACEPTADA QN-024-1 «La muralla de la lealtad» (secundaria)
+- d50 20:40 | L-038 | COMBATE vs 4× Cucaracha mutante humanoide (nv25, var V3, PV c/u 310) [sorpresa]
+- d50 20:55 | L-038 | VICTORIA en 15 rondas (PV 295→110/295)
+- d50 20:55 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d51 10:10 | Q-023 | MISIÓN COMPLETADA QN-024-1 «La muralla de la lealtad» +88 XP
+- d51 10:15 | Q-023 | MISIÓN ACEPTADA QN-024-3 «El camino seguro» (secundaria)
+- d51 11:23 | L-038 | COMBATE vs 5× Slime verde (nv27, var V2, PV c/u 100) 
+- d51 11:30 | L-038 | VICTORIA en 7 rondas (PV 295→191/295)
+- d51 12:28 | L-038 | COMBATE vs 6× Slime verde erguido (nv27, var V2, PV c/u 110) [sorpresa]
+- d51 12:36 | L-038 | VICTORIA en 8 rondas (PV 227→168/295)
+- d51 12:36 | L-038 | MISIÓN COMPLETADA QN-024-3 «El camino seguro» +88 XP
+- d51 14:45 | Q-034 | MISIÓN ACEPTADA QN-041-1 «Premio inesperado» (secundaria)
+- d51 15:05 | Z-077 | LLEGA por primera vez a Panadería de Barrio del Río [segura]
+- d51 15:15 | Z-077 | REGISTRA C-0295 (estantería): ['circuito', 'kit_reparacion', 'obj_208', 'obj_213']
+- d51 15:32 | Q-034 | MISIÓN COMPLETADA QN-041-1 «Premio inesperado» +88 XP
+- d51 20:06 | Q-025 | MISIÓN ACEPTADA QN-044-4 «Lo que se llevó la esperanza» (secundaria)
+- d51 20:29 | Z-062 | LLEGA por primera vez a Panadería de Barrio de los Astilleros [segura]
+- d51 20:31 | Z-062 | REGISTRA C-0257 (estantería): ['kit_reparacion', 'agua', 'medicina']
+- d51 20:41 | Z-062 | REGISTRA C-0258 (barril): ['circuito', 'kit_reparacion', 'obj_163', 'obj_210']
+- d51 21:02 | Q-025 | MISIÓN COMPLETADA QN-044-4 «Lo que se llevó la esperanza» +88 XP
+- d51 21:40 | Q-039 | MISIÓN ACEPTADA QN-045-1 «Cruzar con cuidado» (secundaria)
+- d51 23:33 | L-038 | COMBATE vs 3× Rata humanoide (nv27, var V2, PV c/u 241) 
+- d51 23:40 | L-038 | VICTORIA en 7 rondas (PV 295→210/295)
+- d51 23:52 | L-038 | COMBATE vs 6× Perro callejero erguido (nv27, var V1, PV c/u 79) [sorpresa]
+- d52 00:02 | L-038 | VICTORIA en 10 rondas (PV 222→144/295)
+- d52 00:02 | L-038 | MISIÓN COMPLETADA QN-045-1 «Cruzar con cuidado» +88 XP
+- d52 02:11 | Q-039 | MISIÓN ACEPTADA QN-045-2 «Mapa del refugio» (secundaria)
+- d52 02:21 | Q-039 | MISIÓN COMPLETADA QN-045-2 «Mapa del refugio» +88 XP
+- d52 06:39 | Q-039 | MISIÓN ACEPTADA QN-045-4 «Rastro del mapa» (secundaria)
+- d52 07:58 | Q-039 | MISIÓN COMPLETADA QN-045-4 «Rastro del mapa» +88 XP
+- d52 08:03 | Q-039 | MISIÓN ACEPTADA QN-045-5 «Entrega pesada» (secundaria)
+- d52 09:18 | Q-029 | MISIÓN COMPLETADA QN-045-5 «Entrega pesada» +88 XP
+- d52 09:44 | Q-037 | MISIÓN ACEPTADA QN-052-2 «Entrar por la ventana» (secundaria)
+- d52 10:24 | Z-058 | LLEGA por primera vez a Tienda de velas de Barrio de los Astilleros [segura]
+- d52 10:26 | Z-058 | REGISTRA C-0250 (mochila): ['lata', 'venda', 'cuñas6']
+- d52 10:28 | Z-058 | REGISTRA C-0251 (baúl): ['venda', 'agua', 'obj_219', 'cuñas15']
+- d52 10:54 | Q-037 | MISIÓN COMPLETADA QN-052-2 «Entrar por la ventana» +88 XP
+- d52 11:38 | Q-022 | MISIÓN ACEPTADA QN-053-1 «Manos a la obra» (secundaria)
+- d52 12:50 | L-035 | FABRICA artefacto (52≤99)
+- d52 14:03 | Q-022 | MISIÓN COMPLETADA QN-053-1 «Manos a la obra» +88 XP
+- d52 14:16 | Q-016 | MISIÓN ACEPTADA QN-057-1 «Pistas de la timidez» (secundaria)
+- d52 14:35 | Q-016 | MISIÓN COMPLETADA QN-057-1 «Pistas de la timidez» +88 XP
+- d52 15:26 | Q-037 | MISIÓN ACEPTADA QN-058-4 «Lo que se llevó la alegría» (secundaria)
+- d52 16:17 | Q-037 | MISIÓN COMPLETADA QN-058-4 «Lo que se llevó la alegría» +88 XP
+- d52 16:44 | Q-027 | MISIÓN ACEPTADA QN-060-1 «Entrega pesada» (secundaria)
+- d52 17:11 | Z-039 | LLEGA por primera vez a Astillero chico de Barrio de los Mercaderes [segura]
+- d52 17:13 | Z-039 | REGISTRA C-0199 (escritorio): ['piezas', 'obj_228', 'cuñas25']
+- d52 20:03 | L-032 | COMBATE vs 2× Escarabajo colosal (nv8, var V2, PV c/u 380) 
+- d52 20:13 | L-032 | VICTORIA en 10 rondas (PV 295→138/295)
+- d52 21:42 | L-022 | SUBE A NIVEL 30 (PV máx 300, daño nominal 47)
+- d52 21:42 | L-022 | MISIÓN COMPLETADA QN-060-1 «Entrega pesada» +88 XP
+- d53 01:03 | L-026 | COMBATE vs 1× Antílope (nv2, var V1, PV c/u 88) 
+- d53 01:05 | L-026 | VICTORIA en 2 rondas (PV 300→300/300)
+- d53 02:04 | L-027 | MISIÓN ACEPTADA QN-074-1 «El trofeo de la esperanza» (secundaria)
+- d53 02:09 | L-027 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d53 02:09 | L-032 | COMBATE vs 3× Mosca mutante (nv8, var V2, PV c/u 47) [emboscada enemiga]
+- d53 02:12 | L-032 | VICTORIA en 3 rondas (PV 300→294/300)
+- d53 04:10 | L-033 | COMBATE vs 5× Abeja mutante (nv28, var V3, PV c/u 140) 
+- d53 04:18 | L-033 | VICTORIA en 8 rondas (PV 300→170/300)
+- d53 05:05 | L-032 | COMBATE vs 4× Coyote (nv8, var V1, PV c/u 34) [sorpresa]
+- d53 05:08 | L-032 | VICTORIA en 3 rondas (PV 173→159/300)
+- d53 06:48 | L-027 | MISIÓN COMPLETADA QN-074-1 «El trofeo de la esperanza» +88 XP
+- d53 08:00 | Q-030 | MISIÓN ACEPTADA QN-075-5 «Noche de guardia» (secundaria)
+- d53 10:21 | L-038 | COMBATE vs 5× Slime verde (nv27, var V2, PV c/u 100) [sorpresa]
+- d53 10:28 | L-038 | VICTORIA en 7 rondas (PV 268→163/300)
+- d53 12:03 | Q-030 | MISIÓN COMPLETADA QN-075-5 «Noche de guardia» +88 XP
+- d53 16:15 | Q-029 | MISIÓN ACEPTADA QN-082-3 «Un buen trato» (secundaria)
+- d53 16:38 | Q-029 | MISIÓN COMPLETADA QN-082-3 «Un buen trato» +88 XP
+- d53 17:07 | Q-021 | MISIÓN ACEPTADA QN-085-1 «Libros que faltan» (secundaria)
+- d53 17:40 | Z-064 | LLEGA por primera vez a Casa de familia de Barrio de los Astilleros [segura]
+- d53 17:51 | Z-064 | REGISTRA C-0260 (cajón): ['venda', 'piezas']
+- d53 17:53 | Z-064 | REGISTRA C-0261 (cofre): ['chatarra', 'obj_248']
+- d53 18:25 | Q-021 | MISIÓN COMPLETADA QN-085-1 «Libros que faltan» +88 XP
+- d53 18:52 | Q-016 | MISIÓN ACEPTADA QN-088-1 «En silencio» (secundaria)
+- d53 19:48 | Q-016 | MISIÓN COMPLETADA QN-088-1 «En silencio» +88 XP
+- d53 20:10 | Q-023 | MISIÓN ACEPTADA QN-089-2 «Resistir en el pozo» (secundaria)
+- d53 23:04 | L-038 | COMBATE vs 4× Slime verde (nv28, var V2, PV c/u 103) [sorpresa]
+- d53 23:08 | L-038 | VICTORIA en 4 rondas (PV 300→270/300)
+- d54 01:02 | Q-023 | MISIÓN COMPLETADA QN-089-2 «Resistir en el pozo» +88 XP
+- d54 01:07 | Q-023 | MISIÓN ACEPTADA QN-089-3 «Caso sin cerrar» (secundaria)
+- d54 01:56 | Q-039 | MISIÓN COMPLETADA QN-089-3 «Caso sin cerrar» +88 XP
+- d54 02:16 | Q-029 | MISIÓN ACEPTADA QA-020-2 «Negocio en el viejo túnel» (secundaria)
+- d54 02:47 | Z-038 | REGISTRA C-0197 (cofre): ['circuito', 'obj_10', 'cuñas31']
+- d54 03:12 | Q-029 | MISIÓN COMPLETADA QA-020-2 «Negocio en el viejo túnel» +102 XP
+- d54 03:17 | Q-029 | MISIÓN ACEPTADA QA-021-1 «Negocio en el mercado» (secundaria)
+- d54 04:13 | Q-029 | MISIÓN COMPLETADA QA-021-1 «Negocio en el mercado» +102 XP
+- d54 04:35 | Q-024 | MISIÓN ACEPTADA QA-027-3 «El trofeo del silencio» (secundaria)
+- d54 06:23 | L-038 | COMBATE vs 4× Slime verde humanoide (nv28, var V3, PV c/u 337) [sorpresa]
+- d54 06:38 | L-038 | VICTORIA en 15 rondas (PV 285→95/300)
+- d54 17:23 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d54 17:54 | L-038 | COMBATE vs 6× Slime verde (nv28, var V1, PV c/u 74) 
+- d54 17:59 | L-038 | VICTORIA en 5 rondas (PV 300→244/300)
+- d54 18:53 | L-038 | COMBATE vs 5× Rata (nv28, var V2, PV c/u 103) [sorpresa]
+- d54 18:59 | L-038 | VICTORIA en 6 rondas (PV 250→185/300)
+- d54 20:31 | Q-024 | MISIÓN COMPLETADA QA-027-3 «El trofeo del silencio» +102 XP
+- d55 00:45 | Q-025 | MISIÓN ACEPTADA QA-040-2 «Código de la distracción» (secundaria)
+- d55 01:08 | Q-020 | HACKEO de terminal en Barrio de los Mercaderes, cuadra 2 ÉXITO (91%)
+- d55 01:08 | Q-020 | MISIÓN COMPLETADA QA-040-2 «Código de la distracción» +102 XP
+- d55 01:25 | Q-025 | MISIÓN ACEPTADA QA-040-4 «Pruebas del muelle» (secundaria)
+- d55 04:33 | Q-039 | MISIÓN COMPLETADA QA-040-4 «Pruebas del muelle» +102 XP

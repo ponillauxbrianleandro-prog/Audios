@@ -1,0 +1,134 @@
+<!-- CAMPAÑA parte 14/21 -->
+# Registro de la campaña (simulación), parte 14
+
+- d143 01:00 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d143 01:06 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d143 01:06 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d143 09:35 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d143 10:05 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d143 10:13 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d143 21:41 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d143 21:49 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d143 21:49 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d144 08:46 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d144 09:04 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d144 09:04 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d144 19:37 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d144 19:45 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d144 19:45 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d145 06:20 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d145 06:28 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d145 18:13 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d145 18:23 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d145 18:23 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d146 05:05 | L-038 | COMBATE vs 5× Perro callejero (nv28, var V1, PV c/u 74) 
+- d146 05:11 | L-038 | VICTORIA en 6 rondas (PV 300→222/300)
+- d146 06:50 | Q-017 | MISIÓN COMPLETADA QA-207-1 «Limpiar el puente» +102 XP
+- d146 06:55 | Q-017 | MISIÓN ACEPTADA QA-207-2 «Pruebas del puesto» (secundaria)
+- d146 08:07 | Q-035 | MISIÓN COMPLETADA QA-207-2 «Pruebas del puesto» +102 XP
+- d146 08:42 | Q-015 | MISIÓN ACEPTADA QA-209-1 «Libros que faltan» (secundaria)
+- d146 09:42 | Q-015 | MISIÓN COMPLETADA QA-209-1 «Libros que faltan» +102 XP
+- d146 10:45 | L-026 | MISIÓN ACEPTADA QA-220-3 «Guardia contra los intrusos» (secundaria)
+- d146 12:57 | L-033 | COMBATE vs 4× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d146 13:07 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d146 22:24 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d146 22:33 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d147 07:54 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d147 07:59 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d147 17:08 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d147 17:15 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d148 02:18 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d148 02:30 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d148 11:59 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d148 12:10 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d148 21:48 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d148 22:01 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d149 07:17 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d149 07:23 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d149 16:25 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) 
+- d149 16:31 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d150 01:18 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d150 01:23 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d150 10:37 | L-033 | COMBATE vs 4× Jabalí (nv28, var V3, PV c/u 562) 
+- d150 10:46 | L-033 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d150 20:16 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d150 20:28 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d151 05:39 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d151 05:44 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d151 14:47 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d151 14:53 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d152 00:14 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) 
+- d152 00:22 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d152 09:46 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d152 09:53 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d152 19:34 | L-033 | COMBATE vs 3× Jabalí (nv27, var V3, PV c/u 547) [sorpresa]
+- d152 19:46 | L-033 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d153 05:42 | L-033 | COMBATE vs 6× Mantis mutante (nv28, var V2, PV c/u 103) 
+- d153 05:50 | L-033 | VICTORIA en 8 rondas (PV 300→177/300)
+- d153 07:40 | L-026 | MISIÓN COMPLETADA QA-220-3 «Guardia contra los intrusos» +102 XP
+- d153 07:45 | L-026 | MISIÓN ACEPTADA QA-220-4 «Lo que no se dijo a tiempo» (secundaria)
+- d153 09:41 | L-026 | MISIÓN COMPLETADA QA-220-4 «Lo que no se dijo a tiempo» +102 XP
+- d153 10:38 | Q-023 | MISIÓN ACEPTADA QA-222-1 «Letras y cuentas» (secundaria)
+- d153 11:25 | Q-023 | MISIÓN COMPLETADA QA-222-1 «Letras y cuentas» +102 XP
+- d153 15:50 | Q-023 | MISIÓN ACEPTADA QA-222-2 «Dibujar el muelle» (secundaria)
+- d153 16:00 | Q-023 | MISIÓN COMPLETADA QA-222-2 «Dibujar el muelle» +102 XP
+- d153 16:20 | Q-021 | MISIÓN ACEPTADA QA-223-1 «La sombra de la astucia» (secundaria)
+- d153 17:23 | Q-034 | MISIÓN COMPLETADA QA-223-1 «La sombra de la astucia» +102 XP
+- d153 17:57 | Q-025 | MISIÓN ACEPTADA QN-008-3 «Pedido especial» (secundaria)
+- d153 18:31 | Q-025 | MISIÓN COMPLETADA QN-008-3 «Pedido especial» +102 XP
+- d153 18:36 | Q-025 | MISIÓN ACEPTADA QN-008-5 «Premio inesperado» (secundaria)
+- d153 19:01 | Q-025 | MISIÓN COMPLETADA QN-008-5 «Premio inesperado» +102 XP
+- d153 19:38 | Q-035 | MISIÓN ACEPTADA QN-009-2 «Lo que no se dijo a tiempo» (secundaria)
+- d153 20:51 | Q-035 | MISIÓN COMPLETADA QN-009-2 «Lo que no se dijo a tiempo» +102 XP
+- d153 20:56 | Q-035 | MISIÓN ACEPTADA QN-009-4 «Devolver el cuaderno» (secundaria)
+- d153 21:19 | Z-066 | LLEGA por primera vez a Carpintería de ribera de Barrio de las Sombras [segura]
+- d153 21:21 | Z-066 | REGISTRA C-0268 (heladera): ['kit_reparacion']
+- d153 21:31 | Z-066 | REGISTRA C-0269 (cofre): ['lata', 'recurso_bio', 'obj_184', 'cuñas38']
+- d153 21:57 | Q-035 | MISIÓN COMPLETADA QN-009-4 «Devolver el cuaderno» +102 XP
+- d153 22:13 | Q-037 | MISIÓN ACEPTADA QN-011-1 «Rastro del cuaderno» (secundaria)
+- d153 23:38 | Q-037 | MISIÓN COMPLETADA QN-011-1 «Rastro del cuaderno» +102 XP
+- d154 00:23 | Q-016 | MISIÓN ACEPTADA QN-012-1 «Buscando a alguien» (secundaria)
+- d154 01:32 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d154 02:58 | L-035 | DERROTADO en Alcantarillas del Puerto: arrastre a Casa del Farero (80 min), robo [('cuñas', 585)]
+- d154 13:15 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d154 13:24 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d154 13:24 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d154 21:48 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d154 22:26 | L-038 | COMBATE vs 5× Perro callejero (nv28, var V2, PV c/u 103) 
+- d154 22:32 | L-038 | VICTORIA en 6 rondas (PV 300→214/300)
+- d155 00:16 | Q-016 | MISIÓN COMPLETADA QN-012-1 «Buscando a alguien» +102 XP
+- d155 00:21 | Q-016 | MISIÓN ACEPTADA QN-012-2 «Devolver la reliquia» (secundaria)
+- d155 00:53 | Z-055 | LLEGA por primera vez a Casa del farero de Barrio Alto [segura]
+- d155 00:55 | Z-055 | REGISTRA C-0239 (cajón): ['chatarra', 'obj_189']
+- d155 01:36 | Q-016 | MISIÓN COMPLETADA QN-012-2 «Devolver la reliquia» +102 XP
+- d155 02:02 | Q-021 | MISIÓN ACEPTADA QN-013-1 «Faltan provisiones» (secundaria)
+- d155 03:57 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d155 04:04 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d155 06:22 | Q-021 | MISIÓN COMPLETADA QN-013-1 «Faltan provisiones» +102 XP
+- d155 14:53 | Q-021 | MISIÓN ACEPTADA QN-013-2 «Día de feria» (secundaria)
+- d155 16:09 | Q-021 | MISIÓN COMPLETADA QN-013-2 «Día de feria» +102 XP
+- d155 16:14 | Q-021 | MISIÓN ACEPTADA QN-013-3 «Pruebas del granero» (secundaria)
+- d155 16:29 | Z-036 | LLEGA por primera vez a Astillero chico de Barrio de los Mercaderes [segura]
+- d155 16:31 | Z-036 | REGISTRA C-0194 (baúl): ['venda_reforzada', 'obj_192', 'cuñas12']
+- d155 17:14 | L-026 | COMBATE vs 3× Mantis gigante (nv2, var V1, PV c/u 88) [sorpresa]
+- d155 17:17 | L-026 | VICTORIA en 3 rondas (PV 300→276/300)
+- d155 19:52 | Q-014 | LLEGA por primera vez a Palafitos de la Gente del Pantano, cuadra 4 [segura]
+- d155 19:57 | Q-014 | MISIÓN COMPLETADA QN-013-3 «Pruebas del granero» +102 XP
+- d155 19:59 | Q-014 | REGISTRA C-0099 (ropero): ['cuerda', 'venda_reforzada', 'medicina', 'obj_131']
+- d155 21:03 | Q-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d155 22:42 | Q-023 | MISIÓN ACEPTADA QN-024-2 «Puesto de la lealtad» (secundaria)
+- d155 23:52 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d156 00:02 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d156 00:02 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d156 11:17 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d156 11:22 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d156 23:42 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) 
+- d156 23:44 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d156 23:44 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d157 08:23 | L-035 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d157 09:10 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d157 09:21 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d157 09:21 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d157 20:13 | L-038 | COMBATE vs 4× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d157 20:16 | L-038 | ESCAPÓ del combate (los enemigos quedan: 4 persistentes)
+- d157 20:16 | L-038 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)

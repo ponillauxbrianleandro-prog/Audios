@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 28/34 -->
+<!-- BESTIARIO GENERADO parte 28/35 -->
 - FA-50.F11 | Trabajador/a de espectáculo con accesorios de Hongo gigante | T3 | s2 | n=2 | Común@4 · Alucinógeno (confunde)@10
 - FA-50.F12 | Persona instintiva-Hongo gigante | T3 | s2 | n=3 | Común@4 · Alucinógeno (confunde)@10 · Colonia@16
 - FA-51.F1 | Planta carnívora | T2 | s2 | n=2 | Común@4 · Mayor@10

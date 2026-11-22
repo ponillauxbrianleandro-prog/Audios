@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 6/34 -->
+<!-- BESTIARIO GENERADO parte 6/35 -->
 - H-43.F2 | Antílope de cuerpo semihumano | T3 | s6 | n=1 | Común@12
 - H-43.F3 | Antílope erguido | T3 | s6 | n=2 | Común@12 · Astado largo@18
 - H-43.F4 | Antílope humanoide | T3 | s7 | n=2 | Común@14 · Astado largo@20

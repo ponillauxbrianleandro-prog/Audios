@@ -12,7 +12,8 @@ sys.path.insert(0, str(AQUI))
 
 import bot as botmod  # noqa: E402
 import motor  # noqa: E402
-import mundo  # noqa: E402
+
+mundo = motor.mundo
 
 
 def partir_log(lineas, salida, max_palabras=1800):
@@ -36,8 +37,11 @@ def partir_log(lineas, salida, max_palabras=1800):
 
 def informe(s, b, dia_fin, args):
     c = s.contadores
-    q_p = [q for q, e in s.quests.items() if q.startswith("M") and e == "hecha"]
-    q_s = [q for q, e in s.quests.items() if q.startswith("S") and e == "hecha"]
+    tp = {q: mundo.QUESTS[q]["tipo"] for q in s.quests}
+    q_p = [q for q, e in s.quests.items() if tp[q] == "principal" and e == "hecha"]
+    q_s = [q for q, e in s.quests.items() if tp[q] == "secundaria" and e == "hecha"]
+    n_p = sum(1 for v in tp.values() if v == "principal")
+    n_s = sum(1 for v in tp.values() if v == "secundaria")
     pendientes = [q for q, e in s.quests.items() if e != "hecha"]
     vivos = sum(1 for L in s.locs.values() for g in L["grupos"] for e in g["miembros"] if e["hp"] > 0)
     # invariante de persistencia de enemigos
@@ -46,15 +50,15 @@ def informe(s, b, dia_fin, args):
     ok_pers = total == cuenta
     L = []
     L.append(f"# Informe de prueba (semilla {args.semilla})\n")
-    L.append("Simulación en código de las reglas de los bloques 03-39 sobre el mundo «El Salar». "
+    L.append(f"Simulación en código de las reglas de los bloques 03-50 sobre el mundo «{getattr(mundo, 'LORE', {}).get('nombre', 'El Salar')}». "
              "Prueba las reglas, no cómo las interpreta una IA concreta.\n")
     L.append("## Resultado")
     L.append(f"- Campaña completa: **{'sí, día ' + str(dia_fin) if dia_fin else 'NO'}** · día final {s.dia()} · nivel final {s.p['nivel']} · nivel al completar la campaña: {getattr(b, 'nivel_fin', '?')}")
-    L.append(f"- Misiones principales: {len(q_p)}/8 · secundarias: {len(q_s)}/20 · pendientes: {pendientes or 'ninguna'}")
+    L.append(f"- Misiones principales: {len(q_p)}/{n_p} · secundarias: {len(q_s)}/{n_s} · pendientes: {pendientes or 'ninguna'}")
     L.append(f"- Ubicaciones descubiertas: {sum(1 for x in s.locs.values() if x['descubierta'])}/{len(s.locs)} · visitadas: {sum(1 for x in s.locs.values() if x['visitada'])}")
     L.append(f"- Contenedores registrados: {c.get('contenedores_abiertos', 0)} · búsquedas generales: {c.get('busquedas', 0)} · conexiones ocultas: {c.get('conexiones_ocultas', 0)}")
     L.append(f"- Combates ganados: {c.get('combates_ganados', 0)} (rondas promedio {c.get('rondas_total', 0) / max(1, c.get('combates_ganados', 1)):.1f}) · perdidos: {c.get('combates_perdidos', 0)} · escapes: {c.get('escapes', 0)}")
-    L.append(f"- Enemigos derrotados: {c.get('kills', 0)} · jefes: {c.get('jefes_derrotados', 0)}/4 · invocaciones de jefe: {c.get('invocaciones', 0)}")
+    L.append(f"- Enemigos derrotados: {c.get('kills', 0)} · jefes: {c.get('jefes_derrotados', 0)}/{len(mundo.JEFES)} · invocaciones de jefe: {c.get('invocaciones', 0)}")
     L.append(f"- Precisión en combate: {c.get('aciertos', 0)}/{c.get('ataques', 0)} = {100 * c.get('aciertos', 0) / max(1, c.get('ataques', 1)):.0f}% de aciertos · críticos {c.get('criticos', 0)}")
     L.append(f"- Derrotas (sin muerte): {c.get('derrotas', 0)} · robos sufridos {c.get('robos_sufridos', 0)} · robos recuperados {c.get('robos_recuperados', 0)} · robos en arrastre {c.get('robos_en_arrastre', 0)}")
     L.append(f"- Atascos en ventana: {c.get('atascos', 0)} de {c.get('atascos_tiradas', 0)} intentos · robos por atasco {c.get('robos_por_atasco', 0)}")
@@ -89,6 +93,7 @@ def main():
     ap.add_argument("--max-dias", type=int, default=900)
     ap.add_argument("--post-dias", type=int, default=150)
     ap.add_argument("--sin-escribir", action="store_true")
+    ap.add_argument("--max-palabras-log", type=int, default=36000)
     args = ap.parse_args()
     s = motor.Sim(semilla=args.semilla, detalle=args.detalle)
     b = botmod.Bot(s)
@@ -98,7 +103,15 @@ def main():
     if not args.sin_escribir:
         salida = Path(args.salida)
         salida.mkdir(parents=True, exist_ok=True)
-        n = partir_log(s.log, salida)
+        lineas = []
+        pal = 0
+        for ln in s.log:
+            pal += len(ln.split())
+            lineas.append(ln)
+            if pal > args.max_palabras_log:
+                lineas.append(f"(registro truncado: {len(s.log) - len(lineas)} líneas más hasta el día {s.dia()}; el informe resume la partida completa)")
+                break
+        n = partir_log(lineas, salida)
         (salida / "INFORME_DE_PRUEBA.md").write_text(texto, encoding="utf-8")
         print(f"\nLog: {len(s.log)} líneas en {n} archivos -> {salida}")
     return 0 if (dia_fin and ok) else 1

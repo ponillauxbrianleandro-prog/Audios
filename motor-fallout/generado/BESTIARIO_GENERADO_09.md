@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 9/34 -->
+<!-- BESTIARIO GENERADO parte 9/35 -->
 - C-20.F8 | Persona-Lobo negro (se considera Lobo negro) | T3 | s9 | n=2 | Común@18 · Sombra@24
 - C-20.F9 | Furry de Lobo negro | T3 | s9 | n=2 | Común@18 · Sombra@24
 - C-20.F10 | Persona con accesorios de Lobo negro | T3 | s9 | n=1 | Común@18

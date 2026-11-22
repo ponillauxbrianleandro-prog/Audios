@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 12/21 -->
+# Registro de la campaña (simulación), parte 12
+
+- d46 18:33 | Q-008 | MISIÓN COMPLETADA QA-211-1 «Antes del amanecer» +130 XP
+- d46 20:54 | L-002 | COMBATE vs 1× Mantis gigante (nv3, var V1, PV c/u 96) 
+- d46 20:55 | L-002 | VICTORIA en 1 rondas (PV 262→262/300)
+- d46 23:16 | Q-020 | MISIÓN ACEPTADA QA-212-3 «Negocio en el puesto» (secundaria)
+- d46 23:35 | Z-044 | REGISTRA C-0158 (heladera): ['kit_reparacion']
+- d46 23:37 | Z-044 | REGISTRA C-0159 (escritorio): ['cuerda', 'circuito', 'venda', 'obj_204']
+- d46 23:54 | Q-020 | MISIÓN COMPLETADA QA-212-3 «Negocio en el puesto» +130 XP
+- d47 00:06 | Q-019 | MISIÓN ACEPTADA QA-225-2 «Provisión del puesto» (secundaria)
+- d47 00:11 | Q-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d47 03:01 | L-020 | COMBATE vs 4× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d47 03:04 | L-020 | VICTORIA en 3 rondas (PV 283→276/300)
+- d47 06:42 | Q-019 | MISIÓN COMPLETADA QA-225-2 «Provisión del puesto» +130 XP
+- d47 06:47 | Q-019 | MISIÓN ACEPTADA QA-225-4 «Cartas sin dueño» (secundaria)
+- d47 09:56 | Q-019 | MISIÓN COMPLETADA QA-225-4 «Cartas sin dueño» +130 XP
+- d47 10:01 | Q-019 | MISIÓN ACEPTADA QA-225-5 «Fiesta del mercado» (secundaria)
+- d47 10:21 | Q-019 | MISIÓN COMPLETADA QA-225-5 «Fiesta del mercado» +130 XP
+- d47 10:21 | Q-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d47 13:52 | Q-006 | MISIÓN ACEPTADA QN-007-4 «Día de feria» (secundaria)
+- d47 14:48 | L-011 | COMBATE vs 5× Babosa marina (nv6, var V1, PV c/u 30) 
+- d47 14:51 | L-011 | VICTORIA en 3 rondas (PV 300→299/300)
+- d47 15:19 | L-012 | COMBATE vs 4× Pulpo (nv7, var V1, PV c/u 32) 
+- d47 15:21 | L-012 | VICTORIA en 2 rondas (PV 300→299/300)
+- d47 17:00 | Q-006 | MISIÓN COMPLETADA QN-007-4 «Día de feria» +130 XP
+- d47 17:05 | Q-006 | MISIÓN ACEPTADA QN-007-5 «Caso sin cerrar» (secundaria)
+- d47 19:10 | L-013 | REGISTRA C-0071 (mostrador): ['lata', 'cuerda', 'circuito', 'obj_175', 'obj_247']
+- d47 19:12 | L-013 | REGISTRA C-0072 (barril): ['dulce', 'recurso_bio', 'obj_225', 'cuñas38']
+- d47 19:45 | L-014 | COMBATE vs 5× Libélula mutante (nv28, var V1, PV c/u 74) 
+- d47 19:50 | L-014 | VICTORIA en 5 rondas (PV 300→279/300)
+- d47 22:21 | L-009 | COMBATE vs 2× Jabalí (nv28, var V2, PV c/u 414) [sorpresa]
+- d47 22:33 | L-009 | VICTORIA en 12 rondas (PV 290→109/300)
+- d47 23:21 | L-008 | COMBATE vs 2× Conejo humanoide (nv7, var V1, PV c/u 76) [sorpresa]
+- d47 23:23 | L-008 | VICTORIA en 2 rondas (PV 112→112/300)
+- d47 23:51 | L-033 | COMBATE vs 4× Avispón gigante (nv14, var V1, PV c/u 92) [sorpresa]
+- d47 23:56 | L-033 | VICTORIA en 5 rondas (PV 114→101/300)
+- d48 01:58 | L-042 | LLEGA por primera vez a Bosque Alto [normal]
+- d48 02:03 | L-042 | MISIÓN COMPLETADA QN-007-5 «Caso sin cerrar» +130 XP
+- d48 02:09 | L-042 | REGISTRA C-0305 (alacena): ['kit_reparacion', 'obj_287', 'cuñas29']
+- d48 02:11 | L-042 | REGISTRA C-0306 (caja): ['agua']
+- d48 02:13 | L-042 | REGISTRA C-0307 (cajón): ['recurso_bio', 'circuito', 'venda_reforzada', 'obj_110', 'obj_197', 'obj_286']
+- d48 02:15 | L-042 | REGISTRA C-0308 (barril): ['venda', 'ganzua', 'agua']
+- d48 04:30 | L-043 | LLEGA por primera vez a Tótem de las Cumbres [normal]
+- d48 06:53 | Q-023 | MISIÓN ACEPTADA QN-012-3 «¿quién fue?» (secundaria)
+- d48 11:04 | Q-003 | MISIÓN COMPLETADA QN-012-3 «¿quién fue?» +130 XP
+- d48 15:16 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d48 16:19 | Q-014 | MISIÓN ACEPTADA QN-015-1 «Faltan recursos» (secundaria)
+- d48 18:51 | L-020 | COMBATE vs 5× Terrier quimera (mitad humano) (nv28, var V2, PV c/u 310) [sorpresa]
+- d48 19:06 | L-020 | VICTORIA en 15 rondas (PV 300→116/300)
+- d48 22:21 | Q-014 | MISIÓN COMPLETADA QN-015-1 «Faltan recursos» +130 XP
+- d48 22:27 | Z-020 | LLEGA por primera vez a Cabaña de exploradores de Barrio del Mercado [segura]
+- d49 02:29 | Z-020 | REGISTRA C-0104 (caja): ['chatarra', 'cuñas36']
+- d49 02:31 | Z-020 | REGISTRA C-0105 (mochila): ['venda_reforzada']
+- d49 02:36 | Z-020 | REGISTRA C-0106 (caja): ['recurso_bio', 'piezas']
+- d49 04:36 | Q-021 | MISIÓN ACEPTADA QN-028-4 «La sombra de la distracción» (secundaria)
+- d49 05:49 | L-018 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d49 05:49 | L-033 | COMBATE vs 3× Persona con rasgos de Antílope (nv14, var V3, PV c/u 384) [emboscada enemiga]
+- d49 06:01 | L-033 | VICTORIA en 12 rondas (PV 300→126/300)
+- d49 06:45 | L-034 | MISIÓN COMPLETADA QN-028-4 «La sombra de la distracción» +130 XP
+- d49 06:55 | L-034 | COMBATE vs 3× Hormiga gigante guerrera (nv15, var V2, PV c/u 134) [sorpresa]
+- d49 06:59 | L-034 | VICTORIA en 4 rondas (PV 229→226/300)
+- d49 07:05 | L-034 | REGISTRA C-0266 (estantería): ['circuito', 'chatarra', 'cuñas18']
+- d49 07:16 | L-034 | REGISTRA C-0267 (alacena): ['dulce', 'recurso_bio', 'ganzua']
+- d49 07:18 | L-034 | REGISTRA C-0268 (alacena): ['kit_reparacion']
+- d49 11:11 | L-003 | MISIÓN ACEPTADA QN-035-1 «A quién creerle» (secundaria)
+- d49 11:16 | L-003 | ELIGE BANDO en QN-035-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d49 11:16 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d49 11:16 | L-005 | COMBATE vs 4× Escarabajo mutante humanoide (nv5, var V1, PV c/u 67) [emboscada enemiga]
+- d49 11:20 | L-005 | VICTORIA en 4 rondas (PV 255→254/300)
+- d49 12:16 | L-006 | COMBATE vs 2× Ciervo (nv6, var V1, PV c/u 120) 
+- d49 12:18 | L-006 | VICTORIA en 2 rondas (PV 260→259/300)
+- d49 12:18 | L-006 | COMBATE vs 1× Ciervo (nv6, var V1, PV c/u 120) [sorpresa]
+- d49 12:19 | L-006 | VICTORIA en 1 rondas (PV 259→259/300)
+- d49 12:19 | L-006 | COMBATE vs 1× Saqueador (nv6, var V2, PV c/u 252) [sorpresa]
+- d49 12:22 | L-006 | VICTORIA en 3 rondas (PV 259→259/300)
+- d49 12:22 | L-006 | COMBATE vs 3× Slime verde humanoide (nv6, var V3, PV c/u 136) [sorpresa]
+- d49 12:25 | L-006 | VICTORIA en 3 rondas (PV 259→255/300)
+- d49 12:25 | L-006 | MISIÓN COMPLETADA QN-035-1 «A quién creerle» +130 XP
+- d49 13:44 | L-004 | COMBATE vs 3× Ciervo (nv5, var V1, PV c/u 112) 
+- d49 13:47 | L-004 | VICTORIA en 3 rondas (PV 264→264/300)
+- d49 14:35 | L-003 | MISIÓN ACEPTADA QN-035-4 «Curiosidad del ingenio» (secundaria)
+- d49 14:45 | L-003 | MISIÓN COMPLETADA QN-035-4 «Curiosidad del ingenio» +130 XP
+- d49 14:50 | L-003 | MISIÓN ACEPTADA QN-036-2 «Puesto del orden» (secundaria)
+- d49 14:55 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d49 14:55 | L-006 | COMBATE vs 3× Moho viscoso (nv6, var V1, PV c/u 30) [emboscada enemiga]
+- d49 14:58 | L-006 | VICTORIA en 3 rondas (PV 269→269/300)
+- d49 15:24 | L-007 | COMBATE vs 5× Moho viscoso (nv7, var V1, PV c/u 32) [sorpresa]
+- d49 15:26 | L-007 | VICTORIA en 2 rondas (PV 272→272/300)
+- d49 15:26 | L-007 | MISIÓN COMPLETADA QN-036-2 «Puesto del orden» +130 XP
+- d49 15:26 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d49 15:26 | L-004 | COMBATE vs 3× Mantis gigante (nv5, var V1, PV c/u 112) [emboscada enemiga]
+- d49 15:30 | L-004 | VICTORIA en 4 rondas (PV 272→264/300)
+- d49 16:10 | L-003 | MISIÓN ACEPTADA QN-037-2 «Cruzar con cuidado» (secundaria)
+- d49 16:15 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d49 16:15 | L-009 | COMBATE vs 4× Mantis mutante (nv28, var V2, PV c/u 103) [emboscada enemiga]
+- d49 16:20 | L-009 | VICTORIA en 5 rondas (PV 268→260/300)
+- d49 16:57 | L-008 | COMBATE vs 3× Mantis gigante erguido (nv7, var V1, PV c/u 140) [sorpresa]
+- d49 17:00 | L-008 | VICTORIA en 3 rondas (PV 264→250/300)
+- d49 17:00 | L-008 | MISIÓN COMPLETADA QN-037-2 «Cruzar con cuidado» +130 XP
+- d49 17:02 | L-008 | REGISTRA C-0047 (cajón): ['piezas', 'circuito', 'kit_reparacion']
+- d49 19:05 | L-003 | MISIÓN ACEPTADA QN-039-4 «Más allá del taller» (secundaria)
+- d49 19:15 | L-003 | MISIÓN COMPLETADA QN-039-4 «Más allá del taller» +130 XP
+- d49 21:31 | Q-025 | MISIÓN ACEPTADA QN-042-1 «El concurso de la esperanza» (secundaria)
+- d49 22:33 | Q-025 | MISIÓN COMPLETADA QN-042-1 «El concurso de la esperanza» +130 XP
+- d49 22:38 | Q-025 | MISIÓN ACEPTADA QN-043-2 «El camino de vuelta» (secundaria)
+- d50 01:00 | L-020 | COMBATE vs 5× Terrier humanoide (nv28, var V3, PV c/u 337) 
+- d50 01:15 | L-020 | VICTORIA en 15 rondas (PV 276→107/300)
+- d50 01:27 | L-020 | COMBATE vs 5× Rata quimera (mitad humano) (nv28, var V3, PV c/u 421) [sorpresa]
+- d50 01:56 | L-020 | VICTORIA en 29 rondas (PV 227→133/300)
+- d50 04:32 | Q-025 | MISIÓN COMPLETADA QN-043-2 «El camino de vuelta» +130 XP
+- d50 14:22 | L-011 | COMBATE vs 2× Persona con rasgos de Parásito de pantano (nv6, var V2, PV c/u 184) [sorpresa]
+- d50 14:25 | L-011 | VICTORIA en 3 rondas (PV 300→300/300)
+- d50 14:30 | L-011 | MISIÓN ACEPTADA QN-055-1 «Escolta hasta el pueblo» (secundaria)
+- d50 15:00 | L-012 | COMBATE vs 3× Persona con rasgos de Hidra pequeña (nv7, var V1, PV c/u 140) 
+- d50 15:04 | L-012 | VICTORIA en 4 rondas (PV 300→287/300)
+- d50 15:54 | L-014 | COMBATE vs 6× Mosquito mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d50 15:59 | L-014 | VICTORIA en 5 rondas (PV 291→249/300)
+- d50 15:59 | L-014 | MISIÓN COMPLETADA QN-055-1 «Escolta hasta el pueblo» +130 XP
+- d50 15:59 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d50 16:31 | Q-027 | MISIÓN ACEPTADA QN-067-1 «Entrega urgente» (secundaria)
+- d50 17:07 | Q-027 | MISIÓN COMPLETADA QN-067-1 «Entrega urgente» +130 XP
+- d50 17:12 | Q-027 | MISIÓN ACEPTADA QN-067-2 «Código de la esperanza» (secundaria)
+- d50 17:49 | Z-026 | HACKEO de terminal en Kiosco de Barrio del Mercado ÉXITO (91%)
+- d50 17:49 | Z-026 | MISIÓN COMPLETADA QN-067-2 «Código de la esperanza» +130 XP
+- d50 17:51 | Z-026 | REGISTRA C-0116 (mostrador): ['chatarra', 'venda_reforzada', 'obj_176']
+- d50 19:32 | Q-013 | MISIÓN ACEPTADA QN-070-1 «Mercancía para la creatividad» (secundaria)
+- d50 20:04 | Q-013 | MISIÓN COMPLETADA QN-070-1 «Mercancía para la creatividad» +130 XP
+- d50 20:09 | Q-013 | MISIÓN ACEPTADA QN-070-2 «Algo que funcione» (secundaria)
+- d51 00:27 | Q-001 | FABRICA artefacto (17≤100)
+- d51 01:14 | L-001 | COMBATE vs 1× Ciervo (nv2, var V1, PV c/u 88) [sorpresa]
+- d51 01:15 | L-001 | VICTORIA en 1 rondas (PV 287→287/300)
+- d51 04:21 | Q-013 | MISIÓN COMPLETADA QN-070-2 «Algo que funcione» +130 XP
+- d51 06:43 | L-004 | COMBATE vs 4× Perro salvaje (nv5, var V2, PV c/u 39) [sorpresa]
+- d51 06:45 | L-004 | VICTORIA en 2 rondas (PV 300→298/300)
+- d51 06:50 | L-004 | MISIÓN ACEPTADA QN-071-1 «Compañía para la valentía» (secundaria)
+- d51 09:05 | L-001 | COMBATE vs 5× Zorro rojo erguido (nv2, var V2, PV c/u 33) [sorpresa]
+- d51 09:08 | L-001 | VICTORIA en 3 rondas (PV 300→297/300)

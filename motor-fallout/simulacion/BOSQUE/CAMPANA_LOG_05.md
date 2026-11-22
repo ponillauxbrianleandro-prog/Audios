@@ -1,0 +1,136 @@
+<!-- CAMPAÑA parte 5/21 -->
+# Registro de la campaña (simulación), parte 5
+
+- d17 16:23 | Z-072 | MISIÓN COMPLETADA MP-13 «Tres tareas para encenderla» +3650 XP
+- d17 16:35 | Z-072 | REGISTRA C-0285 (mostrador): ['lata', 'medicina', 'piezas', 'obj_117', 'obj_163']
+- d17 18:16 | Z-072 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d17 18:16 | L-002 | COMBATE vs 3× Oveja (nv3, var V2, PV c/u 67) [emboscada enemiga]
+- d17 18:19 | L-002 | VICTORIA en 3 rondas (PV 270→269/270)
+- d17 19:36 | Q-003 | MISIÓN ACEPTADA QA-003-1 «Ronda por el mercado» (secundaria)
+- d17 20:20 | L-001 | COMBATE vs 3× Liebre quimera (mitad humano) (nv2, var V1, PV c/u 66) 
+- d17 20:24 | L-001 | VICTORIA en 4 rondas (PV 270→264/270)
+- d17 20:51 | L-002 | COMBATE vs 5× Coyote (nv3, var V1, PV c/u 24) 
+- d17 20:54 | L-002 | VICTORIA en 3 rondas (PV 267→266/270)
+- d17 20:54 | L-002 | COMBATE vs 2× Mantis gigante (nv3, var V1, PV c/u 96) 
+- d17 20:56 | L-002 | VICTORIA en 2 rondas (PV 266→260/270)
+- d17 20:56 | L-002 | MISIÓN COMPLETADA QA-003-1 «Ronda por el mercado» +102 XP
+- d17 21:49 | L-001 | COMBATE vs 3× Jabalí (nv2, var V1, PV c/u 88) 
+- d17 21:53 | L-001 | VICTORIA en 4 rondas (PV 265→256/270)
+- d17 22:27 | Q-002 | MISIÓN ACEPTADA QA-005-4 «En busca del mapa» (secundaria)
+- d17 22:32 | Q-002 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d17 22:32 | L-002 | COMBATE vs 4× Mosca mutante (nv3, var V2, PV c/u 33) [emboscada enemiga]
+- d17 22:35 | L-002 | VICTORIA en 3 rondas (PV 259→259/270)
+- d18 00:30 | L-001 | COMBATE vs 3× Perro salvaje (nv2, var V2, PV c/u 30) [sorpresa]
+- d18 00:32 | L-001 | VICTORIA en 2 rondas (PV 270→269/270)
+- d18 01:16 | Q-002 | MISIÓN COMPLETADA QA-005-4 «En busca del mapa» +102 XP
+- d18 01:26 | Q-001 | MISIÓN ACEPTADA QA-006-1 «Manos a la obra» (secundaria)
+- d18 02:01 | Q-001 | FABRICA artefacto (49≤94)
+- d18 02:06 | Q-001 | MISIÓN COMPLETADA QA-006-1 «Manos a la obra» +102 XP
+- d18 02:11 | Q-001 | MISIÓN ACEPTADA QA-006-2 «Antena y cable» (secundaria)
+- d18 02:46 | Q-001 | FABRICA artefacto (76≤94)
+- d18 02:51 | Q-001 | MISIÓN COMPLETADA QA-006-2 «Antena y cable» +102 XP
+- d18 02:56 | Q-001 | MISIÓN ACEPTADA QA-009-1 «Qué pasó en el puesto» (secundaria)
+- d18 05:08 | Z-006 | LLEGA por primera vez a Enfermería de Árbol Mayor [segura]
+- d18 05:10 | Z-006 | REGISTRA C-0024 (heladera): ['medicina']
+- d18 05:17 | Z-006 | REGISTRA C-0025 (caja): ['dulce', 'medicina', 'obj_97', 'obj_258', 'cuñas9']
+- d18 05:26 | Z-006 | REGISTRA C-0026 (escritorio): ['chatarra', 'obj_9']
+- d18 05:26 | Z-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d18 05:26 | L-002 | COMBATE vs 5× Moho viscoso erguido (nv3, var V3, PV c/u 50) [emboscada enemiga]
+- d18 05:30 | L-002 | VICTORIA en 4 rondas (PV 270→269/270)
+- d18 06:34 | Q-001 | MISIÓN COMPLETADA QA-009-1 «Qué pasó en el puesto» +102 XP
+- d18 06:39 | Q-001 | MISIÓN ACEPTADA QA-009-4 «Aprender con el silencio» (secundaria)
+- d18 07:13 | Q-001 | MISIÓN COMPLETADA QA-009-4 «Aprender con el silencio» +102 XP
+- d18 07:31 | Q-003 | MISIÓN ACEPTADA QA-012-2 «Sin noticias» (secundaria)
+- d18 11:21 | L-004 | COMBATE vs 4× Cerdo (nv5, var V2, PV c/u 78) [sorpresa]
+- d18 11:24 | L-004 | VICTORIA en 3 rondas (PV 270→270/270)
+- d18 12:36 | L-004 | COMBATE vs 3× Jabalí quimera (mitad humano) (nv5, var V2, PV c/u 235) [sorpresa]
+- d18 12:42 | L-004 | VICTORIA en 6 rondas (PV 270→221/270)
+- d18 12:42 | L-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d18 12:42 | L-001 | COMBATE vs 2× Corzo erguido (nv2, var V1, PV c/u 48) [emboscada enemiga]
+- d18 12:45 | L-001 | VICTORIA en 3 rondas (PV 221→221/270)
+- d18 13:26 | Q-003 | MISIÓN COMPLETADA QA-012-2 «Sin noticias» +102 XP
+- d18 15:35 | Q-004 | MISIÓN ACEPTADA QA-084-1 «Lo que se llevó los nervios» (secundaria)
+- d18 17:23 | Z-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d18 17:23 | L-002 | COMBATE vs 3× Mosca mutante (nv3, var V2, PV c/u 33) [emboscada enemiga]
+- d18 17:26 | L-002 | VICTORIA en 3 rondas (PV 246→245/270)
+- d18 18:04 | Q-004 | MISIÓN COMPLETADA QA-084-1 «Lo que se llevó los nervios» +102 XP
+- d18 18:09 | Q-004 | MISIÓN ACEPTADA QA-086-3 «Un mensaje para la creatividad» (secundaria)
+- d18 18:14 | Q-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d18 18:27 | Q-038 | LLEGA por primera vez a Aldea de las Casas Grandes, cuadra 3 [segura]
+- d18 21:29 | Q-004 | MISIÓN COMPLETADA QA-086-3 «Un mensaje para la creatividad» +102 XP
+- d18 21:34 | Q-004 | MISIÓN ACEPTADA QA-087-3 «Palabras en el mercado» (secundaria)
+- d19 00:52 | L-032 | COMBATE vs 3× Lobo (nv19, var V2, PV c/u 156) 
+- d19 00:56 | L-032 | VICTORIA en 4 rondas (PV 270→249/270)
+- d19 02:43 | L-048 | LLEGA por primera vez a Aserradero Nevado [normal]
+- d19 03:27 | L-052 | LLEGA por primera vez a Valle Escondido [segura]
+- d19 03:32 | L-052 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d19 05:29 | Q-004 | MISIÓN COMPLETADA QA-087-3 «Palabras en el mercado» +102 XP
+- d19 05:34 | Q-004 | MISIÓN ACEPTADA QA-087-4 «Cartas sin dueño» (secundaria)
+- d19 08:03 | Q-027 | LLEGA por primera vez a Barrio del Parque, cuadra 3 [segura]
+- d19 10:09 | Q-004 | MISIÓN COMPLETADA QA-087-4 «Cartas sin dueño» +102 XP
+- d19 10:17 | Q-005 | MISIÓN ACEPTADA QA-092-1 «La sombra de la esperanza» (secundaria)
+- d19 10:57 | L-003 | MISIÓN COMPLETADA QA-092-1 «La sombra de la esperanza» +102 XP
+- d19 11:53 | Q-005 | MISIÓN ACEPTADA QA-092-3 «En busca de la reliquia» (secundaria)
+- d19 12:17 | Q-005 | SUBE A NIVEL 25 (PV máx 275, daño nominal 53)
+- d19 12:17 | Q-005 | MISIÓN COMPLETADA QA-092-3 «En busca de la reliquia» +102 XP
+- d19 16:34 | L-046 | MISIÓN ACEPTADA MP-14 «La decisión final» (principal)
+- d19 16:39 | L-046 | ELIGE BANDO en MP-14: un bando (el grupo «el otro» pasa a ser hostil)
+- d19 16:39 | L-046 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d19 16:39 | L-050 | LLEGA por primera vez a Sendero del Cóndor [normal]
+- d19 16:39 | L-050 | COMBATE vs 4× Husky (nv26, var V2, PV c/u 196) [emboscada enemiga]
+- d19 16:45 | L-050 | VICTORIA en 6 rondas (PV 275→260/275)
+- d19 17:11 | L-051 | LLEGA por primera vez a Cueva de Hielo [hostil]
+- d19 17:11 | L-051 | COMBATE vs 4× Saqueador (nv27, var V2, PV c/u 403) [sorpresa]
+- d19 17:43 | L-051 | VICTORIA en 32 rondas (PV 263→135/275)
+- d19 17:43 | L-051 | SUBE A NIVEL 26 (PV máx 280, daño nominal 54)
+- d19 17:43 | L-051 | MISIÓN COMPLETADA MP-14 «La decisión final» +3930 XP
+- d19 17:45 | L-051 | REGISTRA C-0331 (caja): ['venda_reforzada', 'cuñas18']
+- d19 17:47 | L-051 | REGISTRA C-0332 (alacena): ['chatarra']
+- d19 17:49 | L-051 | REGISTRA C-0333 (alacena): ['lata', 'herramientas', 'circuito']
+- d19 17:54 | L-051 | REGISTRA C-0334 (ropero): ['recurso_bio', 'ganzua']
+- d19 19:24 | L-051 | COMBATE vs 4× Cabra montés quimera (mitad humano) (nv27, var V1, PV c/u 432) 
+- d19 19:51 | L-051 | VICTORIA en 27 rondas (PV 280→131/280)
+- d19 20:16 | L-050 | COMBATE vs 2× Persona con rasgos de Lobo ártico (nv26, var V1, PV c/u 308) 
+- d19 20:24 | L-050 | VICTORIA en 8 rondas (PV 134→118/280)
+- d20 03:04 | L-002 | MISIÓN ACEPTADA QA-105-4 «Limpiar el pozo» (secundaria)
+- d20 03:14 | L-002 | COMBATE vs 3× Zorro rojo erguido (nv3, var V3, PV c/u 50) [sorpresa]
+- d20 03:16 | L-002 | VICTORIA en 2 rondas (PV 210→210/280)
+- d20 03:16 | L-002 | COMBATE vs 2× Jabalí (nv3, var V1, PV c/u 96) [sorpresa]
+- d20 03:19 | L-002 | VICTORIA en 3 rondas (PV 210→210/280)
+- d20 03:19 | L-002 | COMBATE vs 5× Conejo (nv3, var V2, PV c/u 33) 
+- d20 03:22 | L-002 | VICTORIA en 3 rondas (PV 210→207/280)
+- d20 03:27 | L-002 | MISIÓN COMPLETADA QA-105-4 «Limpiar el pozo» +102 XP
+- d20 04:47 | L-003 | MISIÓN ACEPTADA QA-118-1 «El acertijo del puesto» (secundaria)
+- d20 06:37 | L-006 | COMBATE vs 4× Perro salvaje (nv6, var V2, PV c/u 42) 
+- d20 06:40 | L-006 | VICTORIA en 3 rondas (PV 226→225/280)
+- d20 07:41 | L-006 | COMBATE vs 2× Oveja (nv6, var V2, PV c/u 84) [sorpresa]
+- d20 07:43 | L-006 | VICTORIA en 2 rondas (PV 232→229/280)
+- d20 10:47 | L-001 | COMBATE vs 3× Oveja erguido (nv2, var V1, PV c/u 48) 
+- d20 10:49 | L-001 | VICTORIA en 2 rondas (PV 245→245/280)
+- d20 11:39 | Q-001 | MISIÓN COMPLETADA QA-118-1 «El acertijo del puesto» +102 XP
+- d20 11:39 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d20 12:35 | L-003 | MISIÓN ACEPTADA QA-138-1 «Una mesa para la protección» (secundaria)
+- d20 15:48 | L-016 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d20 16:27 | L-003 | MISIÓN COMPLETADA QA-138-1 «Una mesa para la protección» +102 XP
+- d20 16:32 | L-003 | MISIÓN ACEPTADA QA-138-3 «La balanza de la protección» (secundaria)
+- d20 16:37 | L-003 | ELIGE BANDO en QA-138-3: un bando (el grupo «el otro» pasa a ser hostil)
+- d20 18:25 | L-006 | COMBATE vs 2× Oveja quimera (mitad humano) (nv6, var V1, PV c/u 90) 
+- d20 18:28 | L-006 | VICTORIA en 3 rondas (PV 280→280/280)
+- d20 18:49 | L-007 | COMBATE vs 2× Ciervo (nv7, var V1, PV c/u 128) [sorpresa]
+- d20 18:51 | L-007 | VICTORIA en 2 rondas (PV 280→273/280)
+- d20 18:51 | L-007 | COMBATE vs 1× Saqueador (nv7, var V2, PV c/u 179) 
+- d20 18:53 | L-007 | VICTORIA en 2 rondas (PV 273→273/280)
+- d20 18:53 | L-007 | MISIÓN COMPLETADA QA-138-3 «La balanza de la protección» +102 XP
+- d20 21:40 | L-003 | MISIÓN ACEPTADA QA-139-2 «La muralla del ingenio» (secundaria)
+- d20 22:51 | L-002 | COMBATE vs 5× Escarabajo mutante (nv3, var V3, PV c/u 45) 
+- d20 22:54 | L-002 | VICTORIA en 3 rondas (PV 280→279/280)
+- d20 22:54 | L-002 | COMBATE vs 4× Coyote (nv3, var V1, PV c/u 24) [sorpresa]
+- d20 22:56 | L-002 | VICTORIA en 2 rondas (PV 279→278/280)
+- d21 00:26 | L-003 | COMBATE vs 5× Zorro rojo (nv4, var V1, PV c/u 26) [sorpresa]
+- d21 00:29 | L-003 | VICTORIA en 3 rondas (PV 280→278/280)
+- d21 00:34 | L-003 | MISIÓN COMPLETADA QA-139-2 «La muralla del ingenio» +102 XP
+- d21 00:39 | L-003 | MISIÓN ACEPTADA QA-139-3 «Rutas nuevas» (secundaria)
+- d21 00:49 | L-003 | MISIÓN COMPLETADA QA-139-3 «Rutas nuevas» +102 XP
+- d21 00:54 | L-003 | MISIÓN ACEPTADA QA-140-1 «Cura en el pueblo» (secundaria)
+- d21 01:44 | L-003 | MISIÓN COMPLETADA QA-140-1 «Cura en el pueblo» +102 XP
+- d21 01:49 | L-003 | MISIÓN ACEPTADA QA-140-2 «Fiebre en el camino» (secundaria)

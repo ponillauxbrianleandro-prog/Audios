@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 7/21 -->
+# Registro de la campaña (simulación), parte 7
+
+- d25 13:06 | Q-005 | MISIÓN ACEPTADA QN-065-2 «Buscando a alguien» (secundaria)
+- d25 14:53 | L-006 | COMBATE vs 4× Conejo humanoide (nv6, var V1, PV c/u 72) [sorpresa]
+- d25 14:57 | L-006 | VICTORIA en 4 rondas (PV 246→234/285)
+- d25 16:44 | Q-005 | MISIÓN COMPLETADA QN-065-2 «Buscando a alguien» +102 XP
+- d25 18:07 | L-001 | COMBATE vs 1× Persona con rasgos de Hormiga mutante (nv2, var V3, PV c/u 183) [sorpresa]
+- d25 18:09 | L-001 | VICTORIA en 2 rondas (PV 252→252/285)
+- d25 19:42 | Q-008 | MISIÓN ACEPTADA MS-01 «La bomba del pueblo» (secundaria)
+- d25 19:47 | Q-008 | ELIGE BANDO en MS-01: un bando (el grupo «el otro» pasa a ser hostil)
+- d25 19:47 | Q-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d25 19:47 | L-011 | COMBATE vs 3× Libélula mutante (nv6, var V1, PV c/u 30) [emboscada enemiga]
+- d25 19:49 | L-011 | VICTORIA en 2 rondas (PV 261→261/285)
+- d25 20:42 | L-012 | COMBATE vs 5× Slime verde (nv7, var V2, PV c/u 44) 
+- d25 20:45 | L-012 | SUBE A NIVEL 28 (PV máx 290, daño nominal 57)
+- d25 20:45 | L-012 | VICTORIA en 3 rondas (PV 267→290/290)
+- d25 21:19 | L-014 | COMBATE vs 6× Parásito de agua dulce (nv8, var V1, PV c/u 34) 
+- d25 21:22 | L-014 | VICTORIA en 3 rondas (PV 290→288/290)
+- d25 21:22 | L-014 | COMBATE vs 2× Saqueador (nv25, var V2, PV c/u 380) [sorpresa]
+- d25 21:37 | L-014 | VICTORIA en 15 rondas (PV 288→136/290)
+- d25 21:37 | L-014 | MISIÓN COMPLETADA MS-01 «La bomba del pueblo» +116 XP
+- d25 21:50 | L-014 | REGISTRA C-0073 (ropero): ['piezas', 'lata', 'ganzua', 'obj_72', 'obj_102']
+- d25 21:55 | L-014 | REGISTRA C-0074 (alacena): ['circuito', 'ganzua']
+- d25 22:59 | L-014 | COMBATE vs 4× Hidra pequeña (nv26, var V1, PV c/u 70) [sorpresa]
+- d25 23:02 | L-014 | VICTORIA en 3 rondas (PV 222→222/290)
+- d25 23:56 | L-014 | COMBATE vs 2× Persona con rasgos de Medusa (nv26, var V3, PV c/u 585) [sorpresa]
+- d26 00:09 | L-014 | VICTORIA en 13 rondas (PV 228→119/290)
+- d26 00:09 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d26 02:56 | L-047 | COMBATE vs 2× Slime de hielo (nv22, var V1, PV c/u 124) 
+- d26 03:01 | L-047 | VICTORIA en 5 rondas (PV 137→123/290)
+- d26 03:47 | L-046 | MISIÓN ACEPTADA MP-15 «Después de todo» (principal)
+- d26 03:57 | L-046 | SUBE A NIVEL 29 (PV máx 295, daño nominal 58)
+- d26 03:57 | L-046 | MISIÓN COMPLETADA MP-15 «Después de todo» +4350 XP
+- d26 03:59 | L-046 | REGISTRA C-0318 (mostrador): ['medicina', 'obj_109', 'cuñas25']
+- d26 04:01 | L-046 | REGISTRA C-0319 (mostrador): ['piezas']
+- d26 12:11 | Q-008 | MISIÓN ACEPTADA MS-08 «La cura prometida» (secundaria)
+- d26 12:16 | Q-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d26 12:16 | L-011 | COMBATE vs 3× Hidra pequeña erguido (nv6, var V1, PV c/u 33) [emboscada enemiga]
+- d26 12:19 | L-011 | VICTORIA en 3 rondas (PV 295→295/295)
+- d26 14:02 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d26 14:14 | Q-008 | MISIÓN COMPLETADA MS-08 «La cura prometida» +116 XP
+- d26 14:22 | Q-007 | MISIÓN ACEPTADA MS-15 «El fantasma del edificio» (secundaria)
+- d26 14:29 | Z-009 | LLEGA por primera vez a Herrería de Palafitos del Cañaveral [segura]
+- d26 14:31 | Z-009 | REGISTRA C-0057 (mochila): ['dulce', 'herramientas', 'obj_104', 'obj_180', 'obj_265', 'obj_301']
+- d26 17:48 | L-015 | COMBATE vs 3× Pulpo (nv10, var V2, PV c/u 53) [sorpresa]
+- d26 17:50 | L-015 | VICTORIA en 2 rondas (PV 295→294/295)
+- d26 18:00 | L-015 | HACKEO de terminal en Mirador del Cañaveral ÉXITO (90%)
+- d26 18:00 | L-015 | MISIÓN COMPLETADA MS-15 «El fantasma del edificio» +116 XP
+- d26 19:28 | L-011 | COMBATE vs 5× Libélula mutante erguido (nv6, var V2, PV c/u 46) 
+- d26 19:31 | L-011 | VICTORIA en 3 rondas (PV 295→293/295)
+- d26 20:37 | Q-008 | MISIÓN ACEPTADA MS-29 «La mascota perdida» (secundaria)
+- d26 22:41 | L-014 | COMBATE vs 3× Persona con rasgos de Hidra pequeña (nv27, var V1, PV c/u 316) [sorpresa]
+- d26 22:52 | L-014 | VICTORIA en 11 rondas (PV 295→131/295)
+- d26 22:52 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d26 23:06 | Q-008 | MISIÓN COMPLETADA MS-29 «La mascota perdida» +116 XP
+- d27 05:39 | Q-008 | MISIÓN ACEPTADA MS-36 «El duelo de cazadores» (secundaria)
+- d27 05:52 | Q-007 | REGISTRA C-0053 (estantería): ['venda', 'obj_238', 'obj_309', 'cuñas39']
+- d27 06:03 | Q-008 | MISIÓN COMPLETADA MS-36 «El duelo de cazadores» +116 XP
+- d27 06:08 | Q-008 | MISIÓN ACEPTADA MS-43 «Cruzar el desfiladero» (secundaria)
+- d27 09:47 | L-014 | COMBATE vs 5× Libélula mutante (nv27, var V1, PV c/u 72) 
+- d27 09:50 | L-014 | VICTORIA en 3 rondas (PV 295→283/295)
+- d27 09:50 | L-014 | MISIÓN COMPLETADA MS-43 «Cruzar el desfiladero» +116 XP
+- d27 12:22 | Q-007 | MISIÓN ACEPTADA QA-041-1 «Pieza única» (secundaria)
+- d27 13:25 | L-011 | COMBATE vs 3× Hidra pequeña (nv6, var V1, PV c/u 30) 
+- d27 13:27 | L-011 | VICTORIA en 2 rondas (PV 295→294/295)
+- d27 19:00 | Q-007 | MISIÓN COMPLETADA QA-041-1 «Pieza única» +116 XP
+- d27 20:33 | Q-007 | MISIÓN ACEPTADA QA-050-1 «Entrega urgente» (secundaria)
+- d27 22:10 | L-001 | COMBATE vs 3× Ciervo (nv2, var V1, PV c/u 88) 
+- d27 22:13 | L-001 | VICTORIA en 3 rondas (PV 295→290/295)
+- d28 00:32 | L-019 | LLEGA por primera vez a Torre de las Campanas [segura]
+- d28 00:37 | L-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d28 00:37 | L-001 | COMBATE vs 2× Perro salvaje quimera (mitad humano) (nv2, var V1, PV c/u 66) [emboscada enemiga]
+- d28 00:40 | L-001 | VICTORIA en 3 rondas (PV 295→294/295)
+- d28 02:26 | Q-007 | MISIÓN COMPLETADA QA-050-1 «Entrega urgente» +116 XP
+- d28 05:49 | L-005 | MISIÓN ACEPTADA QA-072-2 «Algo que funcione» (secundaria)
+- d28 09:24 | Q-001 | FABRICA artefacto (89≤99)
+- d28 12:32 | L-005 | COMBATE vs 3× Jabalí quimera (mitad humano) (nv5, var V2, PV c/u 235) 
+- d28 12:39 | L-005 | VICTORIA en 7 rondas (PV 295→272/295)
+- d28 12:44 | L-005 | MISIÓN COMPLETADA QA-072-2 «Algo que funcione» +116 XP
+- d28 12:49 | L-005 | MISIÓN ACEPTADA QA-072-3 «Escolta hasta el camino» (secundaria)
+- d28 13:19 | L-004 | COMBATE vs 4× Oveja (nv5, var V2, PV c/u 78) 
+- d28 13:22 | L-004 | VICTORIA en 3 rondas (PV 275→275/295)
+- d28 13:53 | L-003 | COMBATE vs 2× Zorro rojo humanoide (nv4, var V2, PV c/u 87) [sorpresa]
+- d28 13:55 | L-003 | VICTORIA en 2 rondas (PV 279→276/295)
+- d28 13:55 | L-003 | COMBATE vs 4× Conejo (nv4, var V2, PV c/u 36) [sorpresa]
+- d28 13:57 | L-003 | VICTORIA en 2 rondas (PV 276→276/295)
+- d28 13:57 | L-003 | COMBATE vs 2× Persona con rasgos de Abeja mutante (nv4, var V2, PV c/u 160) [sorpresa]
+- d28 14:00 | L-003 | VICTORIA en 3 rondas (PV 276→265/295)
+- d28 14:00 | L-003 | MISIÓN COMPLETADA QA-072-3 «Escolta hasta el camino» +116 XP
+- d28 15:26 | L-005 | MISIÓN ACEPTADA QA-072-4 «Noche de guardia» (secundaria)
+- d28 16:57 | L-003 | COMBATE vs 5× Mantis mutante erguido (nv4, var V2, PV c/u 40) 
+- d28 17:00 | L-003 | VICTORIA en 3 rondas (PV 283→283/295)
+- d28 18:26 | L-003 | COMBATE vs 1× Persona con rasgos de Liebre (nv4, var V2, PV c/u 160) [sorpresa]
+- d28 18:28 | L-003 | VICTORIA en 2 rondas (PV 292→292/295)
+- d28 19:56 | L-003 | COMBATE vs 1× Ciervo (nv4, var V1, PV c/u 104) [sorpresa]
+- d28 19:57 | L-003 | VICTORIA en 1 rondas (PV 295→295/295)
+- d28 21:05 | L-003 | COMBATE vs 1× Persona con rasgos de Escarabajo mutante (nv4, var V1, PV c/u 114) [sorpresa]
+- d28 21:06 | L-003 | VICTORIA en 1 rondas (PV 295→295/295)
+- d28 22:18 | L-003 | COMBATE vs 2× Persona con rasgos de Conejo (nv4, var V1, PV c/u 114) [sorpresa]
+- d28 22:20 | L-003 | VICTORIA en 2 rondas (PV 295→287/295)
+- d28 23:41 | L-005 | MISIÓN COMPLETADA QA-072-4 «Noche de guardia» +116 XP
+- d28 23:46 | L-005 | MISIÓN ACEPTADA QA-077-1 «Puesto del silencio» (secundaria)
+- d29 00:46 | L-007 | COMBATE vs 2× Slime verde humanoide (nv7, var V3, PV c/u 145) [sorpresa]
+- d29 00:49 | L-007 | VICTORIA en 3 rondas (PV 295→285/295)
+- d29 00:49 | L-007 | COMBATE vs 4× Perro salvaje erguido (nv7, var V2, PV c/u 49) [sorpresa]
+- d29 00:51 | L-007 | VICTORIA en 2 rondas (PV 285→285/295)
+- d29 00:51 | L-007 | SUBE A NIVEL 30 (PV máx 300, daño nominal 60)
+- d29 00:51 | L-007 | MISIÓN COMPLETADA QA-077-1 «Puesto del silencio» +116 XP
+- d29 03:03 | Q-004 | MISIÓN ACEPTADA QA-084-2 «Pruebas del puente» (secundaria)
+- d29 03:13 | Z-005 | REGISTRA C-0023 (barril): ['venda', 'obj_80', 'obj_126']
+- d29 03:13 | Z-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d29 04:37 | L-032 | MISIÓN COMPLETADA QA-084-2 «Pruebas del puente» +116 XP
+- d29 04:37 | L-032 | COMBATE vs 2× Lobo (nv19, var V2, PV c/u 156) 
+- d29 04:39 | L-032 | VICTORIA en 2 rondas (PV 300→300/300)
+- d29 04:39 | L-032 | COMBATE vs 2× Bisonte (nv19, var V1, PV c/u 448) [sorpresa]
+- d29 04:46 | L-032 | VICTORIA en 7 rondas (PV 300→219/300)
+- d29 04:47 | L-032 | COMBATE vs 4× Oveja (nv19, var V2, PV c/u 156) [sorpresa]
+- d29 04:52 | L-032 | VICTORIA en 5 rondas (PV 229→202/300)
+- d29 04:59 | L-032 | REGISTRA C-0242 (cajón): ['venda', 'ganzua', 'lata', 'obj_240']
+- d29 05:01 | L-032 | REGISTRA C-0243 (mochila): ['lata', 'venda', 'obj_218', 'cuñas6']
+- d29 05:03 | L-032 | REGISTRA C-0244 (baúl): ['venda', 'agua', 'obj_182', 'cuñas15']
+- d29 06:34 | L-032 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d29 07:41 | Q-004 | MISIÓN ACEPTADA QA-086-1 «Día de feria» (secundaria)
+- d29 07:51 | Q-004 | MISIÓN COMPLETADA QA-086-1 «Día de feria» +116 XP
+- d29 07:56 | Q-004 | MISIÓN ACEPTADA QA-086-4 «Rastro de la medalla» (secundaria)
+- d29 08:46 | L-002 | COMBATE vs 3× Moho viscoso (nv3, var V1, PV c/u 24) 
+- d29 08:48 | L-002 | VICTORIA en 2 rondas (PV 227→227/300)
+- d29 10:13 | Q-004 | MISIÓN COMPLETADA QA-086-4 «Rastro de la medalla» +116 XP
+- d29 10:18 | Q-004 | MISIÓN ACEPTADA QA-087-2 «Guardia contra los ladrones de camino» (secundaria)
+- d29 10:44 | L-002 | COMBATE vs 1× Perro salvaje (nv3, var V2, PV c/u 33) [sorpresa]
+- d29 10:45 | L-002 | VICTORIA en 1 rondas (PV 240→240/300)
+- d29 10:45 | L-002 | COMBATE vs 4× Liebre erguido (nv3, var V3, PV c/u 50) [sorpresa]
+- d29 10:48 | L-002 | VICTORIA en 3 rondas (PV 240→239/300)
+- d29 10:48 | L-002 | COMBATE vs 2× Jabalí (nv3, var V3, PV c/u 182) [sorpresa]

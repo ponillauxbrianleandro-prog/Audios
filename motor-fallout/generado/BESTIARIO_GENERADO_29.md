@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 29/34 -->
+<!-- BESTIARIO GENERADO parte 29/35 -->
 - FA-56.F8 | Persona-Pegaso (se considera Pegaso) | T3 | s8 | n=2 | Común@16 · Tormenta@22
 - FA-56.F9 | Furry de Pegaso | T3 | s8 | n=2 | Común@16 · Tormenta@22
 - FA-56.F10 | Persona con accesorios de Pegaso | T3 | s8 | n=2 | Común@16 · Tormenta@22

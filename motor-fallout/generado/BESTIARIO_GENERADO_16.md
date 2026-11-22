@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 16/34 -->
+<!-- BESTIARIO GENERADO parte 16/35 -->
 - P-07.F8 | Persona-Parásito del desierto (se considera Parásito del desierto) | T3 | s2 | n=1 | Común@4
 - P-07.F9 | Furry de Parásito del desierto | T3 | s2 | n=3 | Común@4 · Deshidratador (+sed)@10 · Madre de arena@16
 - P-07.F10 | Persona con accesorios de Parásito del desierto | T3 | s2 | n=2 | Común@4 · Deshidratador (+sed)@10

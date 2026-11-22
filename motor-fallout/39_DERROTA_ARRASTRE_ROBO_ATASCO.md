@@ -1,6 +1,7 @@
 # 39 · DERROTA, ARRASTRE, ROBO Y ATASCO (sin contenido sexual)
 
 ## NO SE MUERE (tal cual)
+(Los menores nunca mueren ni participan en contenido sexual, romántico o de desnudez: ver bloque 50. Los pasos estrechos y el atasco se detallan en el 49; las cuadras en el 47.)
 El protagonista **no muere**. Con PV 0 queda **Derrotado** y la partida continúa por este bloque. (El 06 menciona "Muerte permanente": en esta campaña está desactivada.) Los compañeros tampoco mueren: quedan Incapacitados hasta descansar.
 
 ## SECUENCIA DE DERROTA (tal cual)

@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 4/21 -->
+# Registro de la campaña (simulación), parte 4
+
+- d13 15:49 | Q-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d13 17:05 | L-047 | COMBATE vs 1× Lobo negro (nv21, var V2, PV c/u 336) 
+- d13 17:09 | L-047 | VICTORIA en 4 rondas (PV 250→188/250)
+- d13 22:16 | Q-005 | MISIÓN COMPLETADA QA-093-1 «Mediación» +88 XP
+- d13 22:21 | Q-005 | MISIÓN ACEPTADA QA-093-2 «La sombra de la frialdad» (secundaria)
+- d13 23:36 | L-008 | COMBATE vs 3× Mantis gigante (nv7, var V1, PV c/u 128) [sorpresa]
+- d13 23:41 | L-008 | VICTORIA en 5 rondas (PV 223→185/250)
+- d13 23:49 | L-008 | REGISTRA C-0044 (cajón): ['medicina', 'chatarra']
+- d13 23:51 | L-008 | REGISTRA C-0045 (caja): ['piezas', 'venda_reforzada', 'herramientas']
+- d13 23:57 | L-008 | REGISTRA C-0046 (estantería): ['recurso_bio', 'piezas', 'obj_94', 'cuñas32']
+- d14 02:27 | L-024 | LLEGA por primera vez a Casa de las Hojas [segura]
+- d14 02:32 | L-024 | MISIÓN COMPLETADA QA-093-2 «La sombra de la frialdad» +88 XP
+- d14 02:34 | L-024 | REGISTRA C-0202 (ropero): ['medicina', 'herramientas', 'cuñas23']
+- d14 02:36 | L-024 | REGISTRA C-0203 (baúl): ['circuito', 'dulce']
+- d14 02:38 | L-024 | REGISTRA C-0204 (cofre): ['agua', 'circuito', 'ganzua', 'obj_67']
+- d14 02:44 | L-024 | REGISTRA C-0205 (baúl): ['medicina', 'obj_81']
+- d14 04:01 | L-024 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d14 04:11 | Q-005 | MISIÓN ACEPTADA QA-093-3 «Lo que se llevó la frialdad» (secundaria)
+- d14 04:21 | Q-005 | MISIÓN COMPLETADA QA-093-3 «Lo que se llevó la frialdad» +88 XP
+- d14 04:56 | L-002 | COMBATE vs 3× Ciervo humanoide (nv3, var V2, PV c/u 161) 
+- d14 05:02 | L-002 | VICTORIA en 6 rondas (PV 211→196/250)
+- d14 05:07 | L-002 | MISIÓN ACEPTADA QA-105-1 «Pruebas del granero» (secundaria)
+- d14 06:58 | L-002 | COMBATE vs 2× Corzo humanoide (nv3, var V3, PV c/u 109) 
+- d14 07:00 | L-002 | VICTORIA en 2 rondas (PV 205→198/250)
+- d14 08:29 | Q-003 | MISIÓN COMPLETADA QA-105-1 «Pruebas del granero» +88 XP
+- d14 09:55 | L-002 | MISIÓN ACEPTADA QA-105-3 «Sin ser vistos» (secundaria)
+- d14 13:05 | L-002 | MISIÓN COMPLETADA QA-105-3 «Sin ser vistos» +88 XP
+- d14 13:05 | L-002 | COMBATE vs 2× Oveja (nv3, var V2, PV c/u 67) [sorpresa]
+- d14 13:07 | L-002 | VICTORIA en 2 rondas (PV 228→225/250)
+- d14 13:07 | L-002 | COMBATE vs 2× Persona con rasgos de Jabalí (nv3, var V1, PV c/u 105) [sorpresa]
+- d14 13:09 | L-002 | VICTORIA en 2 rondas (PV 225→223/250)
+- d14 13:11 | L-002 | REGISTRA C-0017 (mostrador): ['circuito', 'dulce', 'piezas', 'obj_57', 'cuñas31']
+- d14 13:32 | L-002 | COMBATE vs 3× Conejo (nv3, var V1, PV c/u 24) [sorpresa]
+- d14 13:34 | L-002 | SUBE A NIVEL 21 (PV máx 255, daño nominal 42)
+- d14 13:34 | L-002 | VICTORIA en 2 rondas (PV 225→255/255)
+- d14 17:42 | Q-036 | LLEGA por primera vez a Aldea de las Casas Grandes, cuadra 1 [segura]
+- d14 17:48 | Q-037 | LLEGA por primera vez a Aldea de las Casas Grandes, cuadra 2 [segura]
+- d14 17:53 | Q-037 | MISIÓN ACEPTADA MP-12 «El camino a la fuente» (principal)
+- d14 19:01 | L-040 | COMBATE vs 1× Ciervo (nv18, var V1, PV c/u 216) 
+- d14 19:05 | L-040 | VICTORIA en 4 rondas (PV 255→224/255)
+- d14 19:05 | L-040 | LLEGA por primera vez a Cañón de los Ecos [normal]
+- d14 19:55 | L-041 | LLEGA por primera vez a Meseta del Viento [normal]
+- d14 20:47 | L-041 | COMBATE vs 2× Lobo ártico erguido (nv20, var V2, PV c/u 357) [sorpresa]
+- d14 20:55 | L-041 | VICTORIA en 8 rondas (PV 235→142/255)
+- d14 20:55 | L-041 | SUBE A NIVEL 22 (PV máx 260, daño nominal 43)
+- d14 20:55 | L-041 | MISIÓN COMPLETADA MP-12 «El camino a la fuente» +3370 XP
+- d14 20:57 | L-041 | REGISTRA C-0303 (heladera): ['kit_reparacion', 'cuerda', 'obj_152']
+- d14 20:59 | L-041 | REGISTRA C-0304 (alacena): ['dulce', 'ganzua', 'piezas', 'obj_100', 'obj_172']
+- d15 01:06 | Q-004 | MISIÓN ACEPTADA QA-202-2 «Entrega urgente» (secundaria)
+- d15 04:34 | L-033 | COMBATE vs 4× Zorro rojo humanoide (nv14, var V2, PV c/u 154) 
+- d15 04:40 | L-033 | VICTORIA en 6 rondas (PV 260→219/260)
+- d15 06:11 | Q-004 | MISIÓN COMPLETADA QA-202-2 «Entrega urgente» +88 XP
+- d15 07:26 | L-001 | COMBATE vs 3× Hormiga mutante (nv2, var V1, PV c/u 22) 
+- d15 07:28 | L-001 | VICTORIA en 2 rondas (PV 235→234/260)
+- d15 07:59 | Q-001 | MISIÓN ACEPTADA QA-205-1 «Caso sin cerrar» (secundaria)
+- d15 10:33 | L-002 | COMBATE vs 2× Abeja mutante humanoide (nv3, var V3, PV c/u 109) 
+- d15 10:36 | L-002 | VICTORIA en 3 rondas (PV 251→247/260)
+- d15 12:20 | Q-023 | LLEGA por primera vez a Barrio de los Talleres, cuadra 2 [segura]
+- d15 12:25 | Q-023 | MISIÓN COMPLETADA QA-205-1 «Caso sin cerrar» +88 XP
+- d15 12:27 | Q-023 | REGISTRA C-0154 (caja): ['dulce', 'venda', 'obj_21', 'obj_28', 'obj_199', 'obj_244']
+- d15 17:30 | Q-001 | MISIÓN ACEPTADA QA-215-3 «La máquina que no responde» (secundaria)
+- d15 17:45 | Q-001 | HACKEO de terminal en Claro del Roble Partido, cuadra 1 ÉXITO (83%)
+- d15 17:45 | Q-001 | MISIÓN COMPLETADA QA-215-3 «La máquina que no responde» +88 XP
+- d15 17:45 | Q-001 | compra Cayado del Roble Mayor (tier 5)
+- d15 18:20 | L-001 | MISIÓN ACEPTADA QA-220-1 «El camino seguro» (secundaria)
+- d15 18:47 | L-002 | COMBATE vs 3× Zorro rojo (nv3, var V1, PV c/u 24) 
+- d15 18:49 | L-002 | VICTORIA en 2 rondas (PV 260→260/260)
+- d15 20:03 | L-002 | COMBATE vs 3× Mantis mutante (nv3, var V2, PV c/u 33) [sorpresa]
+- d15 20:05 | L-002 | VICTORIA en 2 rondas (PV 260→260/260)
+- d15 20:05 | L-002 | MISIÓN COMPLETADA QA-220-1 «El camino seguro» +88 XP
+- d15 20:44 | L-001 | COMBATE vs 1× Persona con rasgos de Mantis mutante (nv2, var V1, PV c/u 96) 
+- d15 20:46 | L-001 | VICTORIA en 2 rondas (PV 260→260/260)
+- d15 21:19 | Q-002 | MISIÓN ACEPTADA QN-001-1 «El camino de vuelta» (secundaria)
+- d16 00:26 | L-003 | COMBATE vs 3× Jabalí erguido (nv4, var V2, PV c/u 160) [sorpresa]
+- d16 00:30 | L-003 | VICTORIA en 4 rondas (PV 260→243/260)
+- d16 02:29 | L-004 | COMBATE vs 1× Jabalí (nv5, var V2, PV c/u 156) [sorpresa]
+- d16 02:32 | L-004 | VICTORIA en 3 rondas (PV 255→255/260)
+- d16 03:42 | L-004 | COMBATE vs 3× Conejo (nv5, var V2, PV c/u 39) 
+- d16 03:44 | L-004 | VICTORIA en 2 rondas (PV 260→258/260)
+- d16 03:44 | L-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d16 03:44 | L-001 | COMBATE vs 3× Ciervo humanoide (nv2, var V1, PV c/u 105) [emboscada enemiga]
+- d16 03:48 | L-001 | VICTORIA en 4 rondas (PV 258→256/260)
+- d16 04:41 | Q-002 | MISIÓN COMPLETADA QN-001-1 «El camino de vuelta» +88 XP
+- d16 04:54 | Q-003 | MISIÓN ACEPTADA QN-002-3 «Lo que se llevó la lealtad» (secundaria)
+- d16 05:18 | Q-003 | MISIÓN COMPLETADA QN-002-3 «Lo que se llevó la lealtad» +88 XP
+- d16 05:23 | Q-003 | MISIÓN ACEPTADA QN-003-1 «Resistir en el puente» (secundaria)
+- d16 06:32 | L-002 | COMBATE vs 2× Cerdo erguido (nv3, var V1, PV c/u 52) 
+- d16 06:34 | L-002 | VICTORIA en 2 rondas (PV 260→259/260)
+- d16 08:19 | L-003 | COMBATE vs 4× Mantis mutante humanoide (nv4, var V2, PV c/u 87) [sorpresa]
+- d16 08:23 | L-003 | VICTORIA en 4 rondas (PV 260→245/260)
+- d16 10:29 | Q-003 | MISIÓN COMPLETADA QN-003-1 «Resistir en el puente» +88 XP
+- d16 10:45 | Q-001 | MISIÓN ACEPTADA QN-004-1 «Escolta hasta el refugio» (secundaria)
+- d16 16:01 | L-004 | COMBATE vs 4× Oveja (nv5, var V1, PV c/u 56) 
+- d16 16:05 | L-004 | VICTORIA en 4 rondas (PV 260→254/260)
+- d16 16:05 | L-004 | MISIÓN COMPLETADA QN-004-1 «Escolta hasta el refugio» +88 XP
+- d16 16:05 | L-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d16 16:05 | L-001 | COMBATE vs 5× Mantis mutante (nv2, var V2, PV c/u 30) [emboscada enemiga]
+- d16 16:09 | L-001 | VICTORIA en 4 rondas (PV 254→254/260)
+- d16 17:26 | Q-003 | MISIÓN ACEPTADA QN-005-1 «Aprender con el genio» (secundaria)
+- d16 17:31 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d16 17:31 | L-002 | COMBATE vs 3× Coyote quimera (mitad humano) (nv3, var V1, PV c/u 72) [emboscada enemiga]
+- d16 17:34 | L-002 | VICTORIA en 3 rondas (PV 260→259/260)
+- d16 20:35 | Q-003 | MISIÓN COMPLETADA QN-005-1 «Aprender con el genio» +88 XP
+- d16 20:40 | Q-003 | MISIÓN ACEPTADA QN-006-1 «El invento del ingenio» (secundaria)
+- d16 21:27 | Q-001 | FABRICA artefacto (90≤92)
+- d16 21:56 | Q-003 | MISIÓN COMPLETADA QN-006-1 «El invento del ingenio» +88 XP
+- d16 21:56 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d16 21:56 | L-002 | COMBATE vs 4× Perro salvaje (nv3, var V2, PV c/u 33) [emboscada enemiga]
+- d16 21:58 | L-002 | VICTORIA en 2 rondas (PV 260→260/260)
+- d16 22:29 | Q-005 | MISIÓN ACEPTADA QN-065-1 «El camino seguro» (secundaria)
+- d17 00:44 | L-006 | COMBATE vs 2× Persona con rasgos de Escarabajo mutante (nv6, var V2, PV c/u 184) [sorpresa]
+- d17 00:47 | L-006 | VICTORIA en 3 rondas (PV 260→255/260)
+- d17 00:47 | L-006 | MISIÓN COMPLETADA QN-065-1 «El camino seguro» +88 XP
+- d17 00:49 | L-006 | REGISTRA C-0039 (cofre): ['herramientas', 'lata', 'venda_reforzada']
+- d17 00:51 | L-006 | REGISTRA C-0040 (heladera): ['piezas', 'agua', 'obj_278', 'cuñas9']
+- d17 00:58 | L-006 | REGISTRA C-0041 (cajón): ['cuerda', 'venda', 'cuñas20']
+- d17 01:47 | L-005 | COMBATE vs 4× Perro salvaje (nv5, var V2, PV c/u 39) 
+- d17 01:49 | L-005 | VICTORIA en 2 rondas (PV 260→260/260)
+- d17 03:14 | L-003 | MISIÓN ACEPTADA MS-21 «Cuentas pendientes» (secundaria)
+- d17 07:34 | L-016 | LLEGA por primera vez a Puesto de los Rastreadores [segura]
+- d17 07:57 | L-015 | COMBATE vs 5× Hidra pequeña (nv10, var V1, PV c/u 38) 
+- d17 08:00 | L-015 | VICTORIA en 3 rondas (PV 260→257/260)
+- d17 08:05 | L-015 | SUBE A NIVEL 23 (PV máx 265, daño nominal 50)
+- d17 08:05 | L-015 | MISIÓN COMPLETADA MS-21 «Cuentas pendientes» +102 XP
+- d17 08:52 | L-015 | COMBATE vs 5× Mosquito mutante (nv10, var V2, PV c/u 53) [sorpresa]
+- d17 08:55 | L-015 | VICTORIA en 3 rondas (PV 265→263/265)
+- d17 11:17 | L-009 | COMBATE vs 5× Oveja (nv21, var V2, PV c/u 168) 
+- d17 11:28 | L-009 | VICTORIA en 11 rondas (PV 265→141/265)
+- d17 14:26 | L-041 | MISIÓN ACEPTADA MP-13 «Tres tareas para encenderla» (principal)
+- d17 16:16 | Z-072 | LLEGA por primera vez a Kiosco de Aldea de las Casas Grandes [segura]
+- d17 16:23 | Z-072 | HACKEO de terminal en Kiosco de Aldea de las Casas Grandes ÉXITO (84%)
+- d17 16:23 | Z-072 | SUBE A NIVEL 24 (PV máx 270, daño nominal 52)

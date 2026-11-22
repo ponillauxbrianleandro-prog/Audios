@@ -1,0 +1,136 @@
+<!-- CAMPAÑA parte 8/21 -->
+# Registro de la campaña (simulación), parte 8
+
+- d29 10:51 | L-002 | VICTORIA en 3 rondas (PV 239→239/300)
+- d29 11:20 | Q-004 | MISIÓN COMPLETADA QA-087-2 «Guardia contra los ladrones de camino» +116 XP
+- d29 11:25 | Q-004 | MISIÓN ACEPTADA QA-091-2 «Antes del amanecer» (secundaria)
+- d29 14:07 | Q-004 | MISIÓN COMPLETADA QA-091-2 «Antes del amanecer» +116 XP
+- d29 14:18 | Q-005 | MISIÓN ACEPTADA QA-092-2 «Cartas sin dueño» (secundaria)
+- d29 18:35 | Q-005 | MISIÓN COMPLETADA QA-092-2 «Cartas sin dueño» +116 XP
+- d29 18:40 | Q-005 | MISIÓN ACEPTADA QA-092-4 «Paz a medias» (secundaria)
+- d29 22:40 | Q-005 | MISIÓN COMPLETADA QA-092-4 «Paz a medias» +116 XP
+- d29 23:38 | L-002 | MISIÓN ACEPTADA QA-105-2 «En busca de la herramienta» (secundaria)
+- d30 01:32 | L-002 | MISIÓN COMPLETADA QA-105-2 «En busca de la herramienta» +116 XP
+- d30 02:29 | L-005 | MISIÓN ACEPTADA QA-110-1 «Escolta hasta el camino» (secundaria)
+- d30 04:31 | L-007 | COMBATE vs 4× Moho viscoso (nv7, var V1, PV c/u 32) [sorpresa]
+- d30 04:34 | L-007 | VICTORIA en 3 rondas (PV 300→299/300)
+- d30 04:34 | L-007 | MISIÓN COMPLETADA QA-110-1 «Escolta hasta el camino» +116 XP
+- d30 06:29 | L-005 | MISIÓN ACEPTADA QA-110-2 «Defender lo propio» (secundaria)
+- d30 08:20 | L-004 | COMBATE vs 3× Slime verde erguido (nv5, var V1, PV c/u 30) [sorpresa]
+- d30 08:22 | L-004 | VICTORIA en 2 rondas (PV 300→299/300)
+- d30 08:50 | L-004 | COMBATE vs 5× Escarabajo mutante (nv5, var V2, PV c/u 39) [sorpresa]
+- d30 08:52 | L-004 | VICTORIA en 2 rondas (PV 300→300/300)
+- d30 09:44 | L-005 | MISIÓN COMPLETADA QA-110-2 «Defender lo propio» +116 XP
+- d30 09:49 | L-005 | MISIÓN ACEPTADA QA-110-5 «Más allá del muelle» (secundaria)
+- d30 09:59 | L-005 | MISIÓN COMPLETADA QA-110-5 «Más allá del muelle» +116 XP
+- d30 10:47 | L-004 | COMBATE vs 5× Coyote (nv5, var V1, PV c/u 28) 
+- d30 10:49 | L-004 | VICTORIA en 2 rondas (PV 300→299/300)
+- d30 11:36 | L-003 | MISIÓN ACEPTADA QA-118-2 «Ruido en la noche» (secundaria)
+- d30 16:16 | L-005 | COMBATE vs 3× Cerdo (nv5, var V1, PV c/u 56) 
+- d30 16:18 | L-005 | VICTORIA en 2 rondas (PV 300→300/300)
+- d30 16:54 | L-004 | COMBATE vs 4× Zorro rojo (nv5, var V1, PV c/u 28) 
+- d30 16:56 | L-004 | VICTORIA en 2 rondas (PV 300→299/300)
+- d30 17:41 | L-003 | MISIÓN COMPLETADA QA-118-2 «Ruido en la noche» +116 XP
+- d30 17:46 | L-003 | MISIÓN ACEPTADA QA-121-1 «Pieza única» (secundaria)
+- d30 20:46 | L-003 | MISIÓN COMPLETADA QA-121-1 «Pieza única» +116 XP
+- d30 20:51 | L-003 | MISIÓN ACEPTADA QA-138-2 «Defender lo propio» (secundaria)
+- d30 20:56 | L-003 | COMBATE vs 4× Corzo (nv4, var V2, PV c/u 72) [sorpresa]
+- d30 20:59 | L-003 | VICTORIA en 3 rondas (PV 300→300/300)
+- d30 20:59 | L-003 | COMBATE vs 5× Mantis mutante (nv4, var V2, PV c/u 36) 
+- d30 21:01 | L-003 | VICTORIA en 2 rondas (PV 300→300/300)
+- d30 21:06 | L-003 | MISIÓN COMPLETADA QA-138-2 «Defender lo propio» +116 XP
+- d30 21:11 | L-003 | MISIÓN ACEPTADA QA-138-4 «Curiosidad de la protección» (secundaria)
+- d30 21:21 | L-003 | MISIÓN COMPLETADA QA-138-4 «Curiosidad de la protección» +116 XP
+- d30 21:26 | L-003 | MISIÓN ACEPTADA QA-141-2 «Curiosidad del silencio» (secundaria)
+- d30 21:36 | L-003 | MISIÓN COMPLETADA QA-141-2 «Curiosidad del silencio» +116 XP
+- d30 21:41 | L-003 | MISIÓN ACEPTADA QA-142-3 «Paz a medias» (secundaria)
+- d30 21:56 | L-003 | MISIÓN COMPLETADA QA-142-3 «Paz a medias» +116 XP
+- d30 22:01 | L-003 | MISIÓN ACEPTADA QA-143-3 «Resistir en el granero» (secundaria)
+- d30 22:06 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d30 22:06 | L-009 | COMBATE vs 3× Ciervo erguido (nv28, var V1, PV c/u 325) [emboscada enemiga]
+- d30 22:13 | L-009 | VICTORIA en 7 rondas (PV 300→227/300)
+- d30 23:00 | L-008 | COMBATE vs 1× Jabalí (nv7, var V3, PV c/u 243) 
+- d30 23:03 | L-008 | VICTORIA en 3 rondas (PV 232→219/300)
+- d31 00:28 | L-008 | COMBATE vs 1× Ciervo erguido (nv7, var V1, PV c/u 140) [sorpresa]
+- d31 00:29 | L-008 | VICTORIA en 1 rondas (PV 230→230/300)
+- d31 01:18 | L-008 | COMBATE vs 2× Corzo (nv7, var V1, PV c/u 64) [sorpresa]
+- d31 01:20 | L-008 | VICTORIA en 2 rondas (PV 236→236/300)
+- d31 01:38 | L-008 | COMBATE vs 4× Abeja mutante (nv7, var V2, PV c/u 44) [sorpresa]
+- d31 01:41 | L-008 | VICTORIA en 3 rondas (PV 238→238/300)
+- d31 03:40 | L-003 | MISIÓN COMPLETADA QA-143-3 «Resistir en el granero» +116 XP
+- d31 03:45 | L-003 | MISIÓN ACEPTADA QA-144-2 «Aprender con la sabiduría» (secundaria)
+- d31 05:01 | L-002 | COMBATE vs 2× Moho viscoso quimera (mitad humano) (nv3, var V2, PV c/u 100) 
+- d31 05:03 | L-002 | VICTORIA en 2 rondas (PV 258→256/300)
+- d31 05:59 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d31 06:57 | L-003 | COMBATE vs 4× Escarabajo mutante erguido (nv4, var V1, PV c/u 28) [sorpresa]
+- d31 06:59 | L-003 | VICTORIA en 2 rondas (PV 269→268/300)
+- d31 07:04 | L-003 | MISIÓN COMPLETADA QA-144-2 «Aprender con la sabiduría» +116 XP
+- d31 08:26 | L-002 | COMBATE vs 4× Oveja (nv3, var V2, PV c/u 67) [sorpresa]
+- d31 08:29 | L-002 | VICTORIA en 3 rondas (PV 278→278/300)
+- d31 10:54 | Q-007 | MISIÓN ACEPTADA QA-191-1 «Resistir en el pueblo» (secundaria)
+- d31 13:10 | L-014 | COMBATE vs 4× Pulpo (nv27, var V2, PV c/u 100) [sorpresa]
+- d31 13:13 | L-014 | VICTORIA en 3 rondas (PV 300→300/300)
+- d31 13:13 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d31 13:25 | Q-007 | MISIÓN COMPLETADA QA-191-1 «Resistir en el pueblo» +116 XP
+- d31 13:30 | Q-007 | MISIÓN ACEPTADA QA-191-3 «Palabras en el taller» (secundaria)
+- d31 13:35 | Q-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d31 13:35 | L-002 | COMBATE vs 3× Zorro rojo erguido (nv3, var V3, PV c/u 50) [emboscada enemiga]
+- d31 13:38 | L-002 | VICTORIA en 3 rondas (PV 300→300/300)
+- d31 18:55 | L-001 | COMBATE vs 2× Coyote humanoide (nv2, var V1, PV c/u 52) [sorpresa]
+- d31 18:57 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d31 20:27 | Q-007 | MISIÓN COMPLETADA QA-191-3 «Palabras en el taller» +116 XP
+- d31 20:35 | Q-006 | MISIÓN ACEPTADA QA-193-1 «Ruido en la noche» (secundaria)
+- d31 20:56 | Q-006 | MISIÓN COMPLETADA QA-193-1 «Ruido en la noche» +116 XP
+- d31 20:58 | Q-006 | REGISTRA C-0052 (escritorio): ['kit_reparacion', 'venda_reforzada', 'herramientas', 'obj_39', 'obj_148', 'obj_150']
+- d31 22:48 | Q-008 | MISIÓN ACEPTADA QA-194-1 «Libros que faltan» (secundaria)
+- d31 23:45 | L-011 | COMBATE vs 4× Slime de pantano quimera (mitad humano) (nv6, var V2, PV c/u 126) 
+- d31 23:48 | L-011 | VICTORIA en 3 rondas (PV 300→282/300)
+- d32 00:12 | L-012 | COMBATE vs 4× Libélula mutante (nv7, var V1, PV c/u 32) 
+- d32 00:14 | L-012 | VICTORIA en 2 rondas (PV 285→284/300)
+- d32 00:16 | L-012 | REGISTRA C-0066 (mochila): ['herramientas', 'dulce', 'cuerda', 'obj_40']
+- d32 00:18 | L-012 | REGISTRA C-0067 (escritorio): ['venda_reforzada', 'venda', 'agua', 'obj_103']
+- d32 00:20 | L-012 | REGISTRA C-0068 (baúl): ['lata', 'obj_181', 'obj_224']
+- d32 01:41 | Q-008 | MISIÓN COMPLETADA QA-194-1 «Libros que faltan» +116 XP
+- d32 05:05 | Q-004 | MISIÓN ACEPTADA QA-202-1 «Palabras en el pozo» (secundaria)
+- d32 06:33 | Q-018 | LLEGA por primera vez a Barrio de las Escuelas, cuadra 3 [segura]
+- d32 06:37 | Q-019 | LLEGA por primera vez a Barrio Viejo, cuadra 1 [segura]
+- d32 08:22 | Q-004 | MISIÓN COMPLETADA QA-202-1 «Palabras en el pozo» +116 XP
+- d32 08:43 | L-002 | COMBATE vs 5× Liebre erguido (nv3, var V3, PV c/u 50) 
+- d32 08:46 | L-002 | VICTORIA en 3 rondas (PV 300→297/300)
+- d32 11:24 | Q-008 | MISIÓN ACEPTADA QA-211-3 «Pedido especial» (secundaria)
+- d32 11:29 | Q-008 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d32 11:29 | L-012 | COMBATE vs 5× Pulpo (nv7, var V1, PV c/u 32) [emboscada enemiga]
+- d32 11:32 | L-012 | VICTORIA en 3 rondas (PV 300→299/300)
+- d32 14:11 | L-016 | REGISTRA C-0077 (cofre): ['cuerda', 'ganzua', 'obj_202']
+- d32 14:11 | L-016 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d32 14:11 | L-011 | COMBATE vs 2× Persona con rasgos de Pulpo (nv6, var V2, PV c/u 184) [emboscada enemiga]
+- d32 14:15 | L-011 | VICTORIA en 4 rondas (PV 300→285/300)
+- d32 15:22 | Q-008 | MISIÓN COMPLETADA QA-211-3 «Pedido especial» +116 XP
+- d32 15:37 | Q-006 | MISIÓN ACEPTADA QN-007-1 «Antes del amanecer» (secundaria)
+- d32 19:32 | L-012 | COMBATE vs 3× Pulpo (nv7, var V2, PV c/u 44) 
+- d32 19:34 | L-012 | VICTORIA en 2 rondas (PV 300→300/300)
+- d32 20:03 | L-011 | COMBATE vs 4× Slime de pantano (nv6, var V1, PV c/u 30) [sorpresa]
+- d32 20:06 | L-011 | VICTORIA en 3 rondas (PV 300→299/300)
+- d32 20:43 | Q-006 | MISIÓN COMPLETADA QN-007-1 «Antes del amanecer» +116 XP
+- d32 20:48 | Q-006 | MISIÓN ACEPTADA QN-007-2 «Material para la valentía» (secundaria)
+- d32 23:12 | L-014 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d32 23:12 | L-011 | COMBATE vs 3× Parásito de agua dulce (nv6, var V1, PV c/u 30) [emboscada enemiga]
+- d32 23:14 | L-011 | VICTORIA en 2 rondas (PV 300→300/300)
+- d32 23:55 | Q-006 | MISIÓN COMPLETADA QN-007-2 «Material para la valentía» +116 XP
+- d33 03:48 | L-003 | MISIÓN ACEPTADA QN-035-2 «Una mesa para el ingenio» (secundaria)
+- d33 07:34 | Q-031 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d33 10:23 | L-003 | MISIÓN COMPLETADA QN-035-2 «Una mesa para el ingenio» +116 XP
+- d33 10:28 | L-003 | MISIÓN ACEPTADA QN-035-3 «Resistir en el granero» (secundaria)
+- d33 12:12 | L-005 | COMBATE vs 3× Mantis gigante (nv5, var V1, PV c/u 112) 
+- d33 12:15 | L-005 | VICTORIA en 3 rondas (PV 300→281/300)
+- d33 12:52 | L-006 | COMBATE vs 2× Corzo (nv6, var V3, PV c/u 114) [sorpresa]
+- d33 12:54 | L-006 | VICTORIA en 2 rondas (PV 285→280/300)
+- d33 13:57 | L-006 | COMBATE vs 1× Mantis gigante erguido (nv6, var V1, PV c/u 132) [sorpresa]
+- d33 13:59 | L-006 | VICTORIA en 2 rondas (PV 287→287/300)
+- d33 15:21 | L-006 | COMBATE vs 4× Escarabajo mutante erguido (nv6, var V1, PV c/u 33) 
+- d33 15:23 | L-006 | VICTORIA en 2 rondas (PV 297→296/300)
+- d33 17:05 | L-003 | COMBATE vs 4× Mantis mutante (nv4, var V2, PV c/u 36) 
+- d33 17:07 | L-003 | VICTORIA en 2 rondas (PV 300→300/300)
+- d33 17:12 | L-003 | MISIÓN COMPLETADA QN-035-3 «Resistir en el granero» +116 XP
+- d33 17:17 | L-003 | MISIÓN ACEPTADA QN-035-5 «Rastro de la llave» (secundaria)
+- d33 17:22 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)

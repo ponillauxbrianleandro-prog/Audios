@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 3/21 -->
+# Registro de la campaña (simulación), parte 3
+
+- d9 01:30 | L-001 | VICTORIA en 3 rondas (PV 230→228/230)
+- d9 02:19 | Q-003 | MISIÓN ACEPTADA QN-002-4 «El misterio del puente» (secundaria)
+- d9 02:35 | Q-003 | MISIÓN COMPLETADA QN-002-4 «El misterio del puente» +74 XP
+- d9 03:44 | L-001 | MISIÓN ACEPTADA QN-081-1 «Cartas sin dueño» (secundaria)
+- d9 03:49 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d9 06:07 | L-002 | COMBATE vs 4× Perro salvaje humanoide (nv3, var V3, PV c/u 109) 
+- d9 06:13 | L-002 | VICTORIA en 6 rondas (PV 230→206/230)
+- d9 07:16 | L-001 | MISIÓN COMPLETADA QN-081-1 «Cartas sin dueño» +74 XP
+- d9 07:59 | Q-001 | MISIÓN ACEPTADA QA-002-1 «Pistas de la esperanza» (secundaria)
+- d9 10:12 | Z-005 | LLEGA por primera vez a Enfermería de Árbol Mayor [segura]
+- d9 10:14 | Z-005 | REGISTRA C-0022 (cajón): ['lata', 'venda', 'obj_1']
+- d9 12:23 | Q-001 | MISIÓN COMPLETADA QA-002-1 «Pistas de la esperanza» +88 XP
+- d9 12:38 | Q-003 | MISIÓN ACEPTADA QA-003-2 «Noche de guardia» (secundaria)
+- d9 13:46 | L-001 | COMBATE vs 3× Mantis gigante (nv2, var V1, PV c/u 88) 
+- d9 13:50 | L-001 | SUBE A NIVEL 17 (PV máx 235, daño nominal 37)
+- d9 13:50 | L-001 | VICTORIA en 4 rondas (PV 230→235/235)
+- d9 13:50 | L-001 | COMBATE vs 3× Jabalí (nv2, var V1, PV c/u 88) 
+- d9 13:56 | L-001 | VICTORIA en 6 rondas (PV 235→233/235)
+- d9 13:56 | L-001 | COMBATE vs 3× Perro salvaje (nv2, var V2, PV c/u 30) [sorpresa]
+- d9 13:58 | L-001 | VICTORIA en 2 rondas (PV 233→233/235)
+- d9 14:53 | Q-003 | MISIÓN COMPLETADA QA-003-2 «Noche de guardia» +88 XP
+- d9 19:51 | L-033 | LLEGA por primera vez a Selva de los Mercaderes [normal]
+- d9 20:18 | L-034 | COMBATE vs 1× Tapir (nv15, var V1, PV c/u 192) 
+- d9 20:21 | L-034 | VICTORIA en 3 rondas (PV 235→235/235)
+- d9 20:21 | L-034 | LLEGA por primera vez a Sendero de las Carretas [normal]
+- d9 20:26 | L-034 | MISIÓN ACEPTADA MP-10 «La orden y la elección» (principal)
+- d9 20:31 | L-034 | ELIGE BANDO en MP-10: el otro (el grupo «un bando» pasa a ser hostil)
+- d9 21:16 | L-035 | LLEGA por primera vez a Posada de los Cuatro Vientos [segura]
+- d9 21:47 | L-036 | LLEGA por primera vez a Campamento de Caravanas [segura]
+- d9 22:12 | L-037 | LLEGA por primera vez a Selva Cerrada [hostil]
+- d9 22:12 | L-037 | COMBATE vs 2× Saqueador (nv19, var V2, PV c/u 375) [sorpresa]
+- d9 22:42 | L-037 | VICTORIA en 30 rondas (PV 235→76/235)
+- d10 09:12 | L-037 | SUBE A NIVEL 18 (PV máx 240, daño nominal 38)
+- d10 09:12 | L-037 | MISIÓN COMPLETADA MP-10 «La orden y la elección» +2810 XP
+- d10 09:24 | L-037 | REGISTRA C-0273 (baúl): ['chatarra']
+- d10 09:26 | L-037 | REGISTRA C-0274 (alacena): ['circuito', 'kit_reparacion', 'dulce', 'obj_279', 'cuñas6']
+- d10 11:32 | L-038 | COMBATE vs 3× Escarabajo rinoceronte (nv19, var V2, PV c/u 156) 
+- d10 11:37 | L-038 | VICTORIA en 5 rondas (PV 240→216/240)
+- d10 11:37 | L-038 | LLEGA por primera vez a Puente del Comercio [normal]
+- d10 14:58 | Q-003 | MISIÓN ACEPTADA QA-003-3 «Guardia contra la plaga» (secundaria)
+- d10 16:12 | L-001 | COMBATE vs 3× Cerdo (nv2, var V2, PV c/u 61) 
+- d10 16:14 | L-001 | VICTORIA en 2 rondas (PV 236→236/240)
+- d10 20:46 | L-006 | COMBATE vs 1× Jabalí erguido (nv6, var V1, PV c/u 132) [sorpresa]
+- d10 20:47 | L-006 | VICTORIA en 1 rondas (PV 240→240/240)
+- d10 22:13 | L-006 | COMBATE vs 5× Slime verde erguido (nv6, var V1, PV c/u 33) 
+- d10 22:18 | L-006 | VICTORIA en 5 rondas (PV 240→236/240)
+- d10 22:18 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d10 22:18 | L-001 | COMBATE vs 4× Zorro rojo erguido (nv2, var V3, PV c/u 45) [emboscada enemiga]
+- d10 22:22 | L-001 | VICTORIA en 4 rondas (PV 236→236/240)
+- d10 23:30 | Q-003 | MISIÓN COMPLETADA QA-003-3 «Guardia contra la plaga» +88 XP
+- d10 23:35 | Q-003 | MISIÓN ACEPTADA QA-004-2 «Volver a casa» (secundaria)
+- d11 01:31 | L-002 | COMBATE vs 2× Moho viscoso humanoide (nv3, var V1, PV c/u 57) [sorpresa]
+- d11 01:33 | L-002 | VICTORIA en 2 rondas (PV 240→240/240)
+- d11 01:33 | L-002 | COMBATE vs 4× Mantis mutante quimera (mitad humano) (nv3, var V2, PV c/u 100) [sorpresa]
+- d11 01:39 | L-002 | VICTORIA en 6 rondas (PV 240→233/240)
+- d11 01:39 | L-002 | COMBATE vs 2× Ciervo (nv3, var V1, PV c/u 96) 
+- d11 01:42 | L-002 | VICTORIA en 3 rondas (PV 233→226/240)
+- d11 03:16 | Q-003 | MISIÓN COMPLETADA QA-004-2 «Volver a casa» +88 XP
+- d11 03:27 | Q-002 | MISIÓN ACEPTADA QA-005-2 «Provisión del mercado» (secundaria)
+- d11 06:11 | L-003 | COMBATE vs 3× Mantis mutante (nv4, var V2, PV c/u 36) [sorpresa]
+- d11 06:13 | L-003 | VICTORIA en 2 rondas (PV 240→240/240)
+- d11 09:09 | Q-002 | MISIÓN COMPLETADA QA-005-2 «Provisión del mercado» +88 XP
+- d11 09:18 | Q-003 | MISIÓN ACEPTADA QA-008-1 «El camino seguro» (secundaria)
+- d11 09:23 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d11 09:23 | L-002 | COMBATE vs 2× Abeja mutante humanoide (nv3, var V3, PV c/u 109) [emboscada enemiga]
+- d11 09:26 | L-002 | VICTORIA en 3 rondas (PV 240→240/240)
+- d11 11:39 | L-004 | COMBATE vs 1× Ciervo erguido (nv5, var V1, PV c/u 123) [sorpresa]
+- d11 11:41 | L-004 | VICTORIA en 2 rondas (PV 240→240/240)
+- d11 12:43 | L-004 | COMBATE vs 2× Oveja (nv5, var V2, PV c/u 78) 
+- d11 12:46 | L-004 | VICTORIA en 3 rondas (PV 240→237/240)
+- d11 12:46 | L-004 | MISIÓN COMPLETADA QA-008-1 «El camino seguro» +88 XP
+- d11 12:48 | L-004 | REGISTRA C-0032 (mostrador): ['ganzua', 'venda_reforzada', 'circuito', 'obj_300']
+- d11 12:50 | L-004 | REGISTRA C-0033 (mochila): ['lata']
+- d11 12:52 | L-004 | REGISTRA C-0034 (barril): ['venda_reforzada', 'ganzua']
+- d11 13:10 | L-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d11 13:10 | L-002 | COMBATE vs 5× Slime verde (nv3, var V2, PV c/u 33) [emboscada enemiga]
+- d11 13:14 | L-002 | VICTORIA en 4 rondas (PV 239→236/240)
+- d11 14:13 | L-001 | COMBATE vs 5× Abeja mutante (nv2, var V3, PV c/u 41) 
+- d11 14:16 | L-001 | VICTORIA en 3 rondas (PV 240→239/240)
+- d11 15:06 | Q-001 | MISIÓN ACEPTADA QA-011-1 «Lo que se llevó el orden» (secundaria)
+- d11 15:24 | Z-003 | LLEGA por primera vez a Kiosco de Claro del Roble Partido [segura]
+- d11 15:29 | Z-003 | REGISTRA C-0010 (alacena): ['dulce', 'kit_reparacion', 'venda_reforzada', 'obj_11', 'obj_12', 'obj_113', 'cuñas30']
+- d11 15:44 | Q-001 | MISIÓN COMPLETADA QA-011-1 «Lo que se llevó el orden» +88 XP
+- d11 15:57 | Q-003 | MISIÓN ACEPTADA QA-012-3 «El misterio del bosque» (secundaria)
+- d11 16:18 | Q-003 | MISIÓN COMPLETADA QA-012-3 «El misterio del bosque» +88 XP
+- d11 16:33 | Q-001 | MISIÓN ACEPTADA QA-035-1 «Cartas sin dueño» (secundaria)
+- d11 17:25 | L-001 | COMBATE vs 2× Slime verde humanoide (nv2, var V3, PV c/u 100) [sorpresa]
+- d11 17:28 | L-001 | VICTORIA en 3 rondas (PV 240→240/240)
+- d11 21:58 | L-025 | LLEGA por primera vez a Granja de las Tres Acequias [segura]
+- d11 22:21 | L-032 | LLEGA por primera vez a Camino de las Carretas [normal]
+- d11 22:45 | L-047 | LLEGA por primera vez a Paso Blanco [normal]
+- d11 23:41 | L-046 | LLEGA por primera vez a Refugio de la Cumbre [segura]
+- d12 06:35 | Q-001 | SUBE A NIVEL 19 (PV máx 245, daño nominal 39)
+- d12 06:35 | Q-001 | MISIÓN COMPLETADA QA-035-1 «Cartas sin dueño» +88 XP
+- d12 11:01 | L-033 | COMBATE vs 3× Zorro rojo (nv14, var V1, PV c/u 46) 
+- d12 11:03 | L-033 | VICTORIA en 2 rondas (PV 245→245/245)
+- d12 11:50 | L-034 | MISIÓN ACEPTADA MP-11 «Hasta la instalación» (principal)
+- d12 13:24 | L-037 | COMBATE vs 3× Antílope (nv19, var V1, PV c/u 224) 
+- d12 13:33 | L-037 | VICTORIA en 9 rondas (PV 245→160/245)
+- d12 14:47 | Q-032 | LLEGA por primera vez a Mercado de las Lonas, cuadra 1 [segura]
+- d12 14:53 | Q-033 | LLEGA por primera vez a Mercado de las Lonas, cuadra 2 [segura]
+- d12 15:08 | Z-066 | LLEGA por primera vez a Herrería de Mercado de las Lonas [segura]
+- d12 15:10 | Z-066 | REGISTRA C-0252 (alacena): ['chatarra', 'cuerda', 'kit_reparacion', 'obj_264', 'cuñas28']
+- d12 15:12 | Z-066 | REGISTRA C-0253 (ropero): ['medicina', 'cuerda', 'obj_211', 'obj_320']
+- d12 15:12 | Z-066 | SUBE A NIVEL 20 (PV máx 250, daño nominal 41)
+- d12 15:12 | Z-066 | MISIÓN COMPLETADA MP-11 «Hasta la instalación» +3090 XP
+- d12 18:47 | L-002 | COMBATE vs 2× Oveja (nv3, var V2, PV c/u 67) 
+- d12 18:49 | L-002 | VICTORIA en 2 rondas (PV 250→250/250)
+- d12 19:57 | Q-003 | MISIÓN ACEPTADA QA-039-2 «Aprender con la paciencia» (secundaria)
+- d12 20:02 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d12 21:41 | L-006 | COMBATE vs 3× Perro salvaje (nv6, var V2, PV c/u 42) [sorpresa]
+- d12 21:44 | L-006 | VICTORIA en 3 rondas (PV 250→250/250)
+- d13 02:49 | Q-003 | MISIÓN COMPLETADA QA-039-2 «Aprender con la paciencia» +88 XP
+- d13 04:20 | L-002 | COMBATE vs 2× Hormiga mutante quimera (mitad humano) (nv3, var V1, PV c/u 72) [sorpresa]
+- d13 04:23 | L-002 | VICTORIA en 3 rondas (PV 250→250/250)
+- d13 05:07 | Q-005 | MISIÓN ACEPTADA QA-053-1 «Cartas sin dueño» (secundaria)
+- d13 05:12 | Q-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d13 06:30 | L-032 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d13 07:01 | Q-005 | MISIÓN COMPLETADA QA-053-1 «Cartas sin dueño» +88 XP
+- d13 07:10 | Q-004 | MISIÓN ACEPTADA QA-086-2 «Faltan materiales» (secundaria)
+- d13 09:10 | Q-004 | MISIÓN COMPLETADA QA-086-2 «Faltan materiales» +88 XP
+- d13 09:15 | Q-004 | MISIÓN ACEPTADA QA-087-1 «Turno de noche» (secundaria)
+- d13 09:46 | L-005 | COMBATE vs 3× Corzo erguido (nv5, var V1, PV c/u 61) 
+- d13 09:49 | L-005 | VICTORIA en 3 rondas (PV 250→248/250)
+- d13 09:49 | L-005 | MISIÓN COMPLETADA QA-087-1 «Turno de noche» +88 XP
+- d13 11:45 | Q-004 | MISIÓN ACEPTADA QA-087-5 «Lo que se llevó el orden» (secundaria)
+- d13 11:55 | Q-004 | MISIÓN COMPLETADA QA-087-5 «Lo que se llevó el orden» +88 XP
+- d13 12:00 | Q-004 | MISIÓN ACEPTADA QA-091-1 «Respirar de nuevo» (secundaria)
+- d13 13:58 | L-006 | COMBATE vs 4× Abeja mutante (nv6, var V2, PV c/u 42) [sorpresa]
+- d13 14:01 | L-006 | VICTORIA en 3 rondas (PV 250→248/250)
+- d13 15:35 | Q-004 | MISIÓN COMPLETADA QA-091-1 «Respirar de nuevo» +88 XP
+- d13 15:44 | Q-005 | MISIÓN ACEPTADA QA-093-1 «Mediación» (secundaria)

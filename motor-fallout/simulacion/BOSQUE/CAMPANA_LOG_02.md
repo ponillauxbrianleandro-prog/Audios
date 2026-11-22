@@ -1,0 +1,136 @@
+<!-- CAMPAÑA parte 2/21 -->
+# Registro de la campaña (simulación), parte 2
+
+- d4 15:32 | Q-003 | MISIÓN ACEPTADA QA-004-3 «Devolver el cuaderno» (secundaria)
+- d4 15:37 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d4 15:37 | L-002 | COMBATE vs 4× Conejo (nv3, var V2, PV c/u 33) [emboscada enemiga]
+- d4 15:40 | L-002 | VICTORIA en 3 rondas (PV 199→199/210)
+- d4 16:54 | L-005 | COMBATE vs 2× Jabalí (nv5, var V1, PV c/u 112) 
+- d4 17:01 | L-005 | VICTORIA en 7 rondas (PV 205→171/210)
+- d4 17:03 | L-005 | REGISTRA C-0035 (baúl): ['recurso_bio', 'agua', 'obj_13']
+- d4 17:05 | L-005 | REGISTRA C-0036 (barril): ['medicina']
+- d4 17:07 | L-005 | REGISTRA C-0037 (escritorio): ['circuito', 'medicina', 'recurso_bio', 'obj_125']
+- d4 17:09 | L-005 | REGISTRA C-0038 (baúl): ['lata', 'cuerda', 'obj_4', 'cuñas8']
+- d4 17:09 | L-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d4 17:28 | Q-003 | MISIÓN COMPLETADA QA-004-3 «Devolver el cuaderno» +74 XP
+- d4 17:33 | Q-003 | MISIÓN ACEPTADA QA-004-4 «Lo que no se dijo a tiempo» (secundaria)
+- d4 18:35 | L-002 | COMBATE vs 2× Hormiga mutante humanoide (nv3, var V2, PV c/u 80) 
+- d4 18:39 | L-002 | VICTORIA en 4 rondas (PV 175→131/210)
+- d4 20:55 | Q-028 | LLEGA por primera vez a Aldea de la Cosecha, cuadra 1 [segura]
+- d4 21:03 | Q-029 | LLEGA por primera vez a Aldea de la Cosecha, cuadra 2 [segura]
+- d4 21:08 | Q-030 | LLEGA por primera vez a Aldea de la Cosecha, cuadra 3 [segura]
+- d4 21:14 | Q-031 | LLEGA por primera vez a Aldea de la Cosecha, cuadra 4 [segura]
+- d5 00:15 | L-002 | COMBATE vs 4× Oveja (nv3, var V2, PV c/u 67) 
+- d5 00:23 | L-002 | VICTORIA en 8 rondas (PV 157→79/210)
+- d5 00:49 | L-001 | COMBATE vs 2× Cerdo erguido (nv2, var V1, PV c/u 48) 
+- d5 00:53 | L-001 | VICTORIA en 4 rondas (PV 81→71/210)
+- d5 02:09 | Q-003 | MISIÓN COMPLETADA QA-004-4 «Lo que no se dijo a tiempo» +74 XP
+- d5 10:22 | Q-001 | compra Bastón reforzado (tier 3)
+- d5 10:22 | Q-001 | compra Armadura ligera de explorador (tier 4)
+- d5 11:03 | Q-002 | MISIÓN ACEPTADA QA-005-1 «Negocio en el bosque» (secundaria)
+- d5 11:08 | Q-002 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d5 11:50 | L-005 | COMBATE vs 4× Hormiga mutante (nv5, var V2, PV c/u 39) 
+- d5 11:53 | L-005 | VICTORIA en 3 rondas (PV 210→209/210)
+- d5 12:58 | L-007 | REGISTRA C-0042 (estantería): ['herramientas', 'obj_42', 'obj_107', 'obj_108']
+- d5 13:00 | L-007 | REGISTRA C-0043 (ropero): ['medicina', 'herramientas', 'obj_5']
+- d5 13:00 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d5 13:00 | L-002 | COMBATE vs 4× Zorro rojo (nv3, var V1, PV c/u 24) [emboscada enemiga]
+- d5 13:05 | L-002 | VICTORIA en 5 rondas (PV 210→208/210)
+- d5 14:28 | Q-002 | MISIÓN COMPLETADA QA-005-1 «Negocio en el bosque» +74 XP
+- d5 14:33 | Q-002 | MISIÓN ACEPTADA QA-005-3 «Fiesta del granero» (secundaria)
+- d5 15:00 | Q-002 | SUBE A NIVEL 13 (PV máx 215, daño nominal 29)
+- d5 15:00 | Q-002 | MISIÓN COMPLETADA QA-005-3 «Fiesta del granero» +74 XP
+- d5 16:38 | L-002 | COMBATE vs 3× Persona con rasgos de Cerdo (nv3, var V1, PV c/u 105) 
+- d5 16:45 | L-002 | VICTORIA en 7 rondas (PV 215→213/215)
+- d5 20:08 | Q-030 | MISIÓN ACEPTADA MP-08 «Rescate del familiar» (principal)
+- d5 20:41 | L-029 | COMBATE vs 3× Persona con rasgos de Cabra (nv14, var V2, PV c/u 283) 
+- d5 20:59 | L-029 | VICTORIA en 18 rondas (PV 215→74/215)
+- d5 20:59 | L-029 | LLEGA por primera vez a Corral Roto [hostil]
+- d5 21:07 | L-029 | COMBATE vs 5× Dingo (nv14, var V2, PV c/u 128) [sorpresa]
+- d5 21:18 | L-029 | VICTORIA en 11 rondas (PV 174→131/215)
+- d5 22:29 | Q-030 | SUBE A NIVEL 14 (PV máx 220, daño nominal 31)
+- d5 22:29 | Q-030 | MISIÓN COMPLETADA MP-08 «Rescate del familiar» +2250 XP
+- d5 22:31 | Q-030 | REGISTRA C-0208 (mostrador): ['ganzua']
+- d6 04:04 | Q-001 | MISIÓN ACEPTADA QA-007-1 «Letras en la pared» (secundaria)
+- d6 06:58 | L-009 | COMBATE vs 5× Perro salvaje (nv12, var V1, PV c/u 42) [sorpresa]
+- d6 07:02 | L-009 | VICTORIA en 4 rondas (PV 220→220/220)
+- d6 07:27 | Z-004 | LLEGA por primera vez a Mercado cubierto de Árbol Mayor [segura]
+- d6 07:44 | Z-004 | HACKEO de terminal en Mercado cubierto de Árbol Mayor ÉXITO (75%)
+- d6 07:44 | Z-004 | MISIÓN COMPLETADA QA-007-1 «Letras en la pared» +74 XP
+- d6 07:46 | Z-004 | REGISTRA C-0020 (cofre): ['chatarra', 'dulce', 'medicina', 'cuñas37']
+- d6 07:48 | Z-004 | REGISTRA C-0021 (estantería): ['herramientas', 'agua', 'obj_73', 'obj_93']
+- d6 09:27 | Z-004 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d6 09:27 | L-001 | COMBATE vs 2× Ciervo erguido (nv2, var V1, PV c/u 96) [emboscada enemiga]
+- d6 09:31 | L-001 | VICTORIA en 4 rondas (PV 220→217/220)
+- d6 10:02 | Q-001 | MISIÓN ACEPTADA QA-007-2 «Código de la curiosidad» (secundaria)
+- d6 12:10 | Q-004 | HACKEO de terminal en Árbol Mayor, cuadra 1 ÉXITO (75%)
+- d6 12:10 | Q-004 | MISIÓN COMPLETADA QA-007-2 «Código de la curiosidad» +74 XP
+- d6 15:56 | Q-001 | MISIÓN ACEPTADA QA-009-2 «Código del silencio» (secundaria)
+- d6 18:09 | Z-007 | LLEGA por primera vez a Casa de familia de Árbol Mayor [segura]
+- d6 18:23 | Z-007 | HACKEO de terminal en Casa de familia de Árbol Mayor ÉXITO (75%)
+- d6 18:23 | Z-007 | MISIÓN COMPLETADA QA-009-2 «Código del silencio» +74 XP
+- d6 18:34 | Z-007 | REGISTRA C-0027 (mochila): ['herramientas', 'venda', 'agua', 'obj_112', 'obj_223']
+- d6 18:45 | Z-007 | REGISTRA C-0028 (mochila): ['agua', 'obj_55']
+- d6 18:55 | Z-007 | REGISTRA C-0029 (baúl): ['cuerda', 'venda_reforzada', 'obj_96', 'obj_257']
+- d6 22:25 | Q-001 | MISIÓN ACEPTADA QA-009-3 «Rastro del mapa» (secundaria)
+- d7 00:45 | L-002 | COMBATE vs 3× Ciervo (nv3, var V1, PV c/u 96) [sorpresa]
+- d7 00:49 | L-002 | VICTORIA en 4 rondas (PV 220→214/220)
+- d7 02:13 | Q-001 | MISIÓN COMPLETADA QA-009-3 «Rastro del mapa» +74 XP
+- d7 02:29 | Q-003 | MISIÓN ACEPTADA QA-010-1 «Lo que no se dijo a tiempo» (secundaria)
+- d7 06:39 | Q-017 | LLEGA por primera vez a Barrio de las Escuelas, cuadra 2 [segura]
+- d7 09:23 | L-002 | COMBATE vs 2× Jabalí (nv3, var V1, PV c/u 96) [sorpresa]
+- d7 09:26 | L-002 | VICTORIA en 3 rondas (PV 220→220/220)
+- d7 10:54 | Q-003 | MISIÓN COMPLETADA QA-010-1 «Lo que no se dijo a tiempo» +74 XP
+- d7 11:09 | Q-001 | MISIÓN ACEPTADA QA-011-2 «Un buen trato» (secundaria)
+- d7 11:14 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d7 11:34 | L-005 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d7 11:34 | L-001 | COMBATE vs 2× Cerdo (nv2, var V2, PV c/u 61) [emboscada enemiga]
+- d7 11:37 | L-001 | VICTORIA en 3 rondas (PV 220→220/220)
+- d7 12:09 | Q-001 | SUBE A NIVEL 15 (PV máx 225, daño nominal 32)
+- d7 12:09 | Q-001 | MISIÓN COMPLETADA QA-011-2 «Un buen trato» +74 XP
+- d7 12:09 | Q-001 | compra Lanza de exploradores (punta roma) (tier 4)
+- d7 12:09 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d7 13:26 | Q-031 | MISIÓN ACEPTADA MP-09 «La semilla del jardín» (principal)
+- d7 13:39 | Z-061 | LLEGA por primera vez a Mercado cubierto de Aldea de la Cosecha [segura]
+- d7 13:44 | Z-061 | REGISTRA C-0214 (caja): ['venda_reforzada', 'obj_319']
+- d7 13:59 | Q-031 | SUBE A NIVEL 16 (PV máx 230, daño nominal 35)
+- d7 13:59 | Q-031 | MISIÓN COMPLETADA MP-09 «La semilla del jardín» +2530 XP
+- d7 14:09 | Q-031 | REGISTRA C-0209 (baúl): ['chatarra', 'obj_29', 'cuñas33']
+- d7 18:39 | L-002 | COMBATE vs 3× Coyote quimera (mitad humano) (nv3, var V1, PV c/u 72) 
+- d7 18:42 | L-002 | VICTORIA en 3 rondas (PV 230→230/230)
+- d7 20:22 | Q-003 | MISIÓN ACEPTADA QA-012-1 «Rastro de la reliquia» (secundaria)
+- d7 20:54 | Q-003 | MISIÓN COMPLETADA QA-012-1 «Rastro de la reliquia» +74 XP
+- d7 20:59 | Q-003 | MISIÓN ACEPTADA QA-039-1 «Fiesta del camino» (secundaria)
+- d7 21:34 | Q-003 | MISIÓN COMPLETADA QA-039-1 «Fiesta del camino» +74 XP
+- d7 22:33 | L-001 | MISIÓN ACEPTADA QA-187-1 «Cuando no alcanza el silencio» (secundaria)
+- d7 22:38 | L-001 | COMBATE vs 2× Mantis gigante (nv2, var V1, PV c/u 88) [sorpresa]
+- d7 22:41 | L-001 | VICTORIA en 3 rondas (PV 230→225/230)
+- d7 22:41 | L-001 | COMBATE vs 2× Cerdo (nv2, var V2, PV c/u 61) 
+- d7 22:43 | L-001 | VICTORIA en 2 rondas (PV 225→225/230)
+- d7 22:43 | L-001 | COMBATE vs 5× Conejo erguido (nv2, var V1, PV c/u 24) 
+- d7 22:46 | L-001 | VICTORIA en 3 rondas (PV 225→224/230)
+- d7 22:51 | L-001 | MISIÓN COMPLETADA QA-187-1 «Cuando no alcanza el silencio» +74 XP
+- d7 22:56 | L-001 | REGISTRA C-0011 (estantería): ['cuerda', 'chatarra', 'cuñas22']
+- d7 22:58 | L-001 | REGISTRA C-0012 (cajón): ['herramientas', 'obj_59']
+- d7 23:08 | L-001 | REGISTRA C-0013 (mostrador): ['chatarra', 'circuito']
+- d7 23:19 | L-001 | REGISTRA C-0014 (mostrador): ['venda_reforzada', 'herramientas', 'obj_142']
+- d8 00:24 | Q-001 | MISIÓN ACEPTADA QA-205-2 «Pagar con tiempo» (secundaria)
+- d8 01:22 | L-001 | COMBATE vs 3× Ciervo (nv2, var V1, PV c/u 88) 
+- d8 01:26 | L-001 | VICTORIA en 4 rondas (PV 230→222/230)
+- d8 02:44 | L-010 | REGISTRA C-0050 (cajón): ['piezas', 'medicina', 'herramientas', 'obj_60']
+- d8 02:46 | L-010 | REGISTRA C-0051 (estantería): ['medicina', 'agua', 'obj_83', 'obj_195']
+- d8 05:25 | Q-009 | MISIÓN COMPLETADA QA-205-2 «Pagar con tiempo» +74 XP
+- d8 05:27 | Q-009 | REGISTRA C-0081 (alacena): ['medicina', 'dulce', 'obj_213', 'obj_229']
+- d8 10:25 | Q-001 | MISIÓN ACEPTADA QA-215-2 «Lo que se llevó el silencio» (secundaria)
+- d8 10:39 | Q-001 | MISIÓN COMPLETADA QA-215-2 «Lo que se llevó el silencio» +74 XP
+- d8 11:42 | L-001 | MISIÓN ACEPTADA QA-220-4 «Lo que no se dijo a tiempo» (secundaria)
+- d8 14:12 | L-001 | MISIÓN COMPLETADA QA-220-4 «Lo que no se dijo a tiempo» +74 XP
+- d8 15:00 | Q-003 | MISIÓN ACEPTADA QN-002-1 «Cruzar con cuidado» (secundaria)
+- d8 18:34 | L-005 | COMBATE vs 3× Mosca mutante humanoide (nv5, var V1, PV c/u 67) 
+- d8 18:38 | L-005 | VICTORIA en 4 rondas (PV 230→229/230)
+- d8 20:57 | L-007 | COMBATE vs 1× Ciervo (nv7, var V1, PV c/u 128) [sorpresa]
+- d8 20:59 | L-007 | VICTORIA en 2 rondas (PV 230→230/230)
+- d8 22:19 | L-007 | COMBATE vs 2× Mosca mutante humanoide (nv7, var V1, PV c/u 76) [sorpresa]
+- d8 22:23 | L-007 | VICTORIA en 4 rondas (PV 230→224/230)
+- d8 22:23 | L-007 | MISIÓN COMPLETADA QN-002-1 «Cruzar con cuidado» +74 XP
+- d9 01:27 | L-001 | COMBATE vs 4× Oveja (nv2, var V1, PV c/u 44) [sorpresa]

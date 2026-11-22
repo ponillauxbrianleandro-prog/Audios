@@ -1,0 +1,137 @@
+<!-- CAMPAÑA parte 19/21 -->
+# Registro de la campaña (simulación), parte 19
+
+- d86 06:01 | L-031 | VICTORIA en 7 rondas (PV 229→208/300)
+- d86 06:46 | L-030 | LLEGA por primera vez a Espantapájaros Viejo [normal]
+- d86 10:48 | L-002 | COMBATE vs 5× Slime verde (nv3, var V2, PV c/u 33) 
+- d86 10:51 | L-002 | VICTORIA en 3 rondas (PV 236→236/300)
+- d86 11:32 | L-010 | MISIÓN ACEPTADA MS-28 «El rastro del ladrón» (secundaria)
+- d86 14:01 | Z-002 | LLEGA por primera vez a Mercado cubierto de Claro del Roble Partido [segura]
+- d86 14:03 | Z-002 | REGISTRA C-0007 (mostrador): ['venda_reforzada', 'ganzua']
+- d86 14:09 | Z-002 | REGISTRA C-0008 (heladera): ['venda_reforzada', 'circuito', 'obj_56']
+- d86 14:17 | Z-002 | REGISTRA C-0009 (heladera): ['venda_reforzada', 'ganzua', 'venda', 'obj_70', 'obj_307']
+- d86 15:50 | L-002 | COMBATE vs 3× Jabalí (nv3, var V1, PV c/u 96) 
+- d86 15:54 | L-002 | VICTORIA en 4 rondas (PV 255→239/300)
+- d86 17:40 | Q-022 | MISIÓN COMPLETADA MS-28 «El rastro del ladrón» +172 XP
+- d86 18:53 | Q-030 | MISIÓN ACEPTADA MS-31 «La enfermera sola» (secundaria)
+- d86 22:19 | Q-030 | MISIÓN COMPLETADA MS-31 «La enfermera sola» +172 XP
+- d86 22:27 | Q-031 | MISIÓN ACEPTADA MS-38 «El regalo imposible» (secundaria)
+- d86 22:43 | Z-062 | LLEGA por primera vez a Panadería de Aldea de la Cosecha [segura]
+- d86 22:45 | Z-062 | REGISTRA C-0215 (cofre): ['kit_reparacion', 'medicina', 'agua', 'obj_297', 'obj_311', 'cuñas37']
+- d86 22:58 | Q-031 | MISIÓN COMPLETADA MS-38 «El regalo imposible» +172 XP
+- d86 23:07 | Q-030 | MISIÓN ACEPTADA MS-45 «Fuego en el barrio» (secundaria)
+- d87 00:54 | L-029 | COMBATE vs 5× Cabra humanoide (nv28, var V2, PV c/u 248) [sorpresa]
+- d87 01:06 | L-029 | VICTORIA en 12 rondas (PV 288→137/300)
+- d87 02:19 | Q-030 | MISIÓN COMPLETADA MS-45 «Fuego en el barrio» +172 XP
+- d87 02:24 | Z-060 | LLEGA por primera vez a Enfermería de Aldea de la Cosecha [segura]
+- d87 06:26 | Z-060 | REGISTRA C-0213 (caja): ['lata', 'cuerda', 'obj_196', 'obj_217']
+- d87 07:59 | Q-028 | MISIÓN ACEPTADA QA-016-1 «Material para el cansancio» (secundaria)
+- d87 08:47 | L-029 | COMBATE vs 5× Cerdo (nv28, var V2, PV c/u 207) 
+- d87 08:56 | L-029 | VICTORIA en 9 rondas (PV 300→239/300)
+- d87 10:01 | Q-028 | MISIÓN COMPLETADA QA-016-1 «Material para el cansancio» +172 XP
+- d87 10:03 | Q-028 | REGISTRA C-0206 (cajón): ['venda', 'herramientas', 'piezas', 'obj_227']
+- d87 11:37 | Q-030 | MISIÓN ACEPTADA QA-024-2 «Antena y cable» (secundaria)
+- d87 14:41 | L-002 | COMBATE vs 2× Perro salvaje humanoide (nv3, var V3, PV c/u 109) [sorpresa]
+- d87 14:44 | L-002 | VICTORIA en 3 rondas (PV 272→271/300)
+- d87 16:24 | Q-001 | FABRICA artefacto (59≤100)
+- d87 21:00 | Q-030 | MISIÓN COMPLETADA QA-024-2 «Antena y cable» +172 XP
+- d87 21:05 | Q-030 | MISIÓN ACEPTADA QA-042-1 «Una mesa para el cansancio» (secundaria)
+- d88 00:55 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d88 01:10 | Q-030 | MISIÓN COMPLETADA QA-042-1 «Una mesa para el cansancio» +172 XP
+- d88 01:15 | Q-030 | MISIÓN ACEPTADA QA-042-4 «Mercancía para el cansancio» (secundaria)
+- d88 02:40 | L-025 | REGISTRA C-0221 (ropero): ['circuito', 'obj_47']
+- d88 03:55 | Q-030 | MISIÓN COMPLETADA QA-042-4 «Mercancía para el cansancio» +172 XP
+- d88 07:32 | L-007 | COMBATE vs 3× Hormiga mutante (nv7, var V3, PV c/u 60) [sorpresa]
+- d88 07:35 | L-007 | VICTORIA en 3 rondas (PV 300→299/300)
+- d88 07:40 | L-007 | MISIÓN ACEPTADA QA-048-2 «Letras en la pared» (secundaria)
+- d88 07:45 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d88 07:45 | L-001 | COMBATE vs 2× Cerdo erguido (nv2, var V1, PV c/u 48) [emboscada enemiga]
+- d88 07:47 | L-001 | VICTORIA en 2 rondas (PV 299→299/300)
+- d88 09:09 | Q-003 | HACKEO de terminal en Claro del Roble Partido, cuadra 3 ÉXITO (91%)
+- d88 09:09 | Q-003 | MISIÓN COMPLETADA QA-048-2 «Letras en la pared» +172 XP
+- d88 14:08 | L-007 | MISIÓN ACEPTADA QA-048-3 «Lo que brilla en el mercado» (secundaria)
+- d88 14:13 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d88 17:49 | L-007 | MISIÓN COMPLETADA QA-048-3 «Lo que brilla en el mercado» +172 XP
+- d88 17:54 | L-007 | MISIÓN ACEPTADA QA-052-1 «Un favor por otro» (secundaria)
+- d88 21:50 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d88 22:19 | Q-027 | MISIÓN COMPLETADA QA-052-1 «Un favor por otro» +172 XP
+- d88 22:19 | Q-027 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d89 01:05 | L-010 | MISIÓN ACEPTADA QA-070-1 «Defender lo propio» (secundaria)
+- d89 02:25 | L-008 | COMBATE vs 5× Conejo (nv7, var V2, PV c/u 44) [sorpresa]
+- d89 02:28 | L-008 | VICTORIA en 3 rondas (PV 300→299/300)
+- d89 02:28 | L-008 | COMBATE vs 3× Escarabajo mutante (nv7, var V1, PV c/u 32) [sorpresa]
+- d89 02:30 | L-008 | VICTORIA en 2 rondas (PV 299→295/300)
+- d89 03:39 | L-010 | MISIÓN COMPLETADA QA-070-1 «Defender lo propio» +172 XP
+- d89 03:44 | L-010 | MISIÓN ACEPTADA QA-070-2 «El jefe del viejo túnel» (secundaria)
+- d89 04:29 | L-005 | COMBATE vs 4× Mosca mutante erguido (nv5, var V2, PV c/u 43) 
+- d89 04:31 | L-005 | VICTORIA en 2 rondas (PV 300→300/300)
+- d89 04:31 | L-005 | COMBATE vs 2× Persona con rasgos de Corzo (nv5, var V1, PV c/u 123) [sorpresa]
+- d89 04:33 | L-005 | VICTORIA en 2 rondas (PV 300→299/300)
+- d89 04:33 | L-005 | COMBATE vs 2× Escarabajo mutante quimera (mitad humano) (nv5, var V3, PV c/u 159) [sorpresa]
+- d89 04:36 | L-005 | VICTORIA en 3 rondas (PV 299→299/300)
+- d89 04:36 | L-005 | COMBATE vs 5× Conejo erguido (nv5, var V3, PV c/u 58) [sorpresa]
+- d89 04:40 | L-005 | VICTORIA en 4 rondas (PV 299→299/300)
+- d89 05:42 | L-010 | MISIÓN COMPLETADA QA-070-2 «El jefe del viejo túnel» +172 XP
+- d89 07:36 | L-018 | MISIÓN ACEPTADA QA-078-3 «Cruzar con cuidado» (secundaria)
+- d89 09:12 | L-020 | COMBATE vs 4× Slime verde (nv28, var V2, PV c/u 103) [sorpresa]
+- d89 09:15 | L-020 | VICTORIA en 3 rondas (PV 300→282/300)
+- d89 09:15 | L-020 | MISIÓN COMPLETADA QA-078-3 «Cruzar con cuidado» +172 XP
+- d89 11:03 | L-018 | MISIÓN ACEPTADA QA-079-2 «Voz del mercado» (secundaria)
+- d89 12:12 | Q-017 | HACKEO de terminal en Barrio de las Escuelas, cuadra 2 ÉXITO (91%)
+- d89 12:12 | Q-017 | MISIÓN COMPLETADA QA-079-2 «Voz del mercado» +172 XP
+- d89 13:27 | L-018 | MISIÓN ACEPTADA QA-082-2 «Ruido en la noche» (secundaria)
+- d89 15:19 | L-018 | MISIÓN COMPLETADA QA-082-2 «Ruido en la noche» +172 XP
+- d89 15:24 | L-018 | MISIÓN ACEPTADA QA-082-4 «Ojos abiertos» (secundaria)
+- d89 18:02 | L-020 | COMBATE vs 6× Cucaracha mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d89 18:07 | L-020 | VICTORIA en 5 rondas (PV 300→245/300)
+- d89 18:07 | L-020 | MISIÓN COMPLETADA QA-082-4 «Ojos abiertos» +172 XP
+- d89 19:04 | L-019 | MISIÓN ACEPTADA QA-088-3 «Entrega urgente» (secundaria)
+- d89 22:02 | L-019 | MISIÓN COMPLETADA QA-088-3 «Entrega urgente» +172 XP
+- d89 22:07 | L-019 | MISIÓN ACEPTADA QA-088-5 «Pruebas del puente» (secundaria)
+- d90 01:03 | Q-036 | MISIÓN COMPLETADA QA-088-5 «Pruebas del puente» +172 XP
+- d90 01:08 | Q-036 | REGISTRA C-0281 (heladera): ['recurso_bio', 'herramientas', 'obj_209', 'obj_270']
+- d90 02:43 | Q-036 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d90 03:20 | L-019 | MISIÓN ACEPTADA QA-089-1 «Con unos o con otros» (secundaria)
+- d90 03:25 | L-019 | ELIGE BANDO en QA-089-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d90 04:23 | L-020 | COMBATE vs 3× Saqueador (nv28, var V1, PV c/u 355) 
+- d90 04:34 | L-020 | VICTORIA en 11 rondas (PV 300→272/300)
+- d90 04:34 | L-020 | MISIÓN COMPLETADA QA-089-1 «Con unos o con otros» +172 XP
+- d90 05:23 | L-019 | MISIÓN ACEPTADA QA-089-2 «Mediación» (secundaria)
+- d90 05:38 | L-019 | MISIÓN COMPLETADA QA-089-2 «Mediación» +172 XP
+- d90 05:43 | L-019 | MISIÓN ACEPTADA QA-090-2 «Palabras en el refugio» (secundaria)
+- d90 09:37 | L-019 | MISIÓN COMPLETADA QA-090-2 «Palabras en el refugio» +172 XP
+- d90 09:42 | L-019 | MISIÓN ACEPTADA QA-090-4 «La sombra de la terquedad» (secundaria)
+- d90 11:50 | Z-057 | LLEGA por primera vez a Almacén de barrio de Barrio del Parque [segura]
+- d90 11:52 | Z-057 | REGISTRA C-0180 (escritorio): ['piezas', 'obj_91', 'obj_122', 'cuñas25']
+- d90 15:15 | L-003 | MISIÓN COMPLETADA QA-090-4 «La sombra de la terquedad» +172 XP
+- d90 16:35 | L-018 | MISIÓN ACEPTADA QA-160-2 «Escolta hasta el refugio» (secundaria)
+- d90 19:20 | L-020 | COMBATE vs 4× Rata (nv28, var V2, PV c/u 103) [sorpresa]
+- d90 19:23 | L-020 | VICTORIA en 3 rondas (PV 300→294/300)
+- d90 19:23 | L-020 | MISIÓN COMPLETADA QA-160-2 «Escolta hasta el refugio» +172 XP
+- d90 21:45 | L-002 | COMBATE vs 3× Mantis gigante (nv3, var V1, PV c/u 96) 
+- d90 21:48 | L-002 | VICTORIA en 3 rondas (PV 300→297/300)
+- d90 22:50 | L-010 | MISIÓN ACEPTADA QA-161-2 «Manos que sanan» (secundaria)
+- d91 00:26 | L-008 | COMBATE vs 1× Persona con rasgos de Coyote (nv7, var V1, PV c/u 140) 
+- d91 00:28 | L-008 | VICTORIA en 2 rondas (PV 300→300/300)
+- d91 01:09 | L-007 | COMBATE vs 2× Cerdo (nv7, var V2, PV c/u 89) 
+- d91 01:11 | L-007 | VICTORIA en 2 rondas (PV 300→289/300)
+- d91 01:11 | L-007 | COMBATE vs 3× Mantis mutante (nv7, var V1, PV c/u 32) [sorpresa]
+- d91 01:13 | L-007 | VICTORIA en 2 rondas (PV 289→289/300)
+- d91 03:24 | L-010 | MISIÓN COMPLETADA QA-161-2 «Manos que sanan» +172 XP
+- d91 07:49 | Q-030 | MISIÓN ACEPTADA QA-172-3 «¿quién fue?» (secundaria)
+- d91 08:02 | Q-029 | REGISTRA C-0207 (cajón): ['venda', 'ganzua', 'obj_159', 'obj_160', 'cuñas11']
+- d91 10:35 | L-003 | MISIÓN COMPLETADA QA-172-3 «¿quién fue?» +172 XP
+- d91 10:35 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d91 10:52 | Q-030 | MISIÓN ACEPTADA QA-172-4 «Devolver la reliquia» (secundaria)
+- d91 11:15 | Q-030 | MISIÓN COMPLETADA QA-172-4 «Devolver la reliquia» +172 XP
+- d91 11:24 | Q-029 | MISIÓN ACEPTADA QA-173-2 «La presa del muelle» (secundaria)
+- d91 12:00 | L-029 | COMBATE vs 6× Saltamontes mutante (nv28, var V1, PV c/u 74) [sorpresa]
+- d91 12:03 | L-029 | VICTORIA en 3 rondas (PV 300→291/300)
+- d91 12:51 | Q-029 | MISIÓN COMPLETADA QA-173-2 «La presa del muelle» +172 XP
+- d91 19:04 | L-011 | COMBATE vs 4× Slime verde (nv6, var V2, PV c/u 42) 
+- d91 19:06 | L-011 | VICTORIA en 2 rondas (PV 300→299/300)
+- d91 20:06 | L-012 | MISIÓN ACEPTADA QA-196-1 «Carga hasta el refugio» (secundaria)
+- d91 22:15 | L-016 | REGISTRA C-0078 (mochila): ['kit_reparacion', 'medicina', 'obj_183']
+- d91 22:15 | L-016 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d91 22:44 | Q-024 | MISIÓN COMPLETADA QA-196-1 «Carga hasta el refugio» +172 XP
+- d92 00:17 | Q-031 | MISIÓN ACEPTADA QA-207-2 «Pruebas del puesto» (secundaria)

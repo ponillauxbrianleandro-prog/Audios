@@ -1,0 +1,131 @@
+<!-- CAMPAÑA parte 1/21 -->
+# Registro de la campaña (simulación), parte 1
+
+- d1 08:00 | Q-001 | RECLUTA a Yago (+bonificación de compañero (41))
+- d1 08:02 | Q-001 | REGISTRA C-0001 (alacena): ['venda_reforzada', 'herramientas', 'lata', 'obj_14', 'obj_128']
+- d1 10:25 | L-001 | LLEGA por primera vez a Senda de los Helechos [normal]
+- d1 10:52 | L-002 | COMBATE vs 4× Slime verde (nv2, var V1, PV c/u 22) 
+- d1 11:00 | L-002 | VICTORIA en 8 rondas (PV 155→119/155)
+- d1 11:00 | L-002 | LLEGA por primera vez a Arroyo de las Piedras Lisas [normal]
+- d1 11:31 | Q-004 | LLEGA por primera vez a Árbol Mayor, cuadra 1 [segura]
+- d1 11:53 | L-005 | LLEGA por primera vez a Mirador del Halcón [normal]
+- d1 11:58 | L-005 | MISIÓN ACEPTADA MP-01 «Salir del hogar» (principal)
+- d1 12:50 | L-004 | LLEGA por primera vez a Puente Colgante de la Garza [normal]
+- d1 13:32 | L-003 | LLEGA por primera vez a Cueva del Murmullo [normal]
+- d1 13:32 | L-003 | COMBATE vs 3× Coyote (nv2, var V1, PV c/u 22) [sorpresa]
+- d1 13:41 | L-003 | VICTORIA en 9 rondas (PV 129→115/155)
+- d1 13:41 | L-003 | SUBE A NIVEL 2 (PV máx 160, daño nominal 10)
+- d1 13:41 | L-003 | SUBE A NIVEL 3 (PV máx 165, daño nominal 11)
+- d1 13:41 | L-003 | MISIÓN COMPLETADA MP-01 «Salir del hogar» +290 XP
+- d1 13:43 | L-003 | REGISTRA C-0030 (caja): ['piezas', 'obj_92', 'cuñas34']
+- d1 13:56 | L-003 | REGISTRA C-0031 (mostrador): ['dulce', 'agua']
+- d1 16:03 | Q-005 | LLEGA por primera vez a Árbol Mayor, cuadra 2 [segura]
+- d1 16:08 | Q-005 | MISIÓN ACEPTADA MP-02 «Tras el rastro de un familiar» (principal)
+- d1 18:38 | L-001 | COMBATE vs 3× Mantis mutante (nv2, var V1, PV c/u 22) [sorpresa]
+- d1 18:44 | L-001 | VICTORIA en 6 rondas (PV 165→162/165)
+- d1 20:43 | Q-005 | SUBE A NIVEL 4 (PV máx 170, daño nominal 13)
+- d1 20:43 | Q-005 | MISIÓN COMPLETADA MP-02 «Tras el rastro de un familiar» +570 XP
+- d1 20:43 | Q-005 | RECLUTA a Gael (+bonificación de compañero (41))
+- d1 20:45 | Q-005 | REGISTRA C-0019 (alacena): ['lata', 'obj_7', 'obj_95', 'obj_272']
+- d1 23:25 | L-003 | MISIÓN ACEPTADA MP-03 «La voz de la radio» (principal)
+- d2 00:16 | L-002 | COMBATE vs 3× Oveja (nv3, var V1, PV c/u 48) [sorpresa]
+- d2 00:24 | L-002 | VICTORIA en 8 rondas (PV 170→114/170)
+- d2 01:37 | Q-001 | LLEGA por primera vez a Claro del Roble Partido, cuadra 1 [segura]
+- d2 01:39 | Z-001 | LLEGA por primera vez a Enfermería de Claro del Roble Partido [segura]
+- d2 01:54 | Z-001 | HACKEO de terminal en Enfermería de Claro del Roble Partido ÉXITO (65%)
+- d2 01:54 | Z-001 | SUBE A NIVEL 5 (PV máx 175, daño nominal 14)
+- d2 01:54 | Z-001 | SUBE A NIVEL 6 (PV máx 180, daño nominal 15)
+- d2 01:54 | Z-001 | MISIÓN COMPLETADA MP-03 «La voz de la radio» +850 XP
+- d2 01:56 | Z-001 | REGISTRA C-0004 (ropero): ['circuito', 'piezas', 'obj_41', 'obj_79']
+- d2 02:01 | Z-001 | REGISTRA C-0005 (ropero): ['venda_reforzada', 'herramientas', 'lata', 'obj_207']
+- d2 02:11 | Z-001 | REGISTRA C-0006 (alacena): ['circuito', 'recurso_bio', 'dulce', 'obj_6', 'obj_194', 'obj_303', 'cuñas24']
+- d2 03:55 | Q-006 | LLEGA por primera vez a Palafitos del Cañaveral, cuadra 1 [segura]
+- d2 04:42 | L-011 | LLEGA por primera vez a Camino de Tablones [normal]
+- d2 04:47 | L-011 | MISIÓN ACEPTADA MP-04 «El conocimiento perdido» (principal)
+- d2 05:45 | L-012 | LLEGA por primera vez a Laguna Turbia [normal]
+- d2 06:07 | L-014 | LLEGA por primera vez a Cueva del Fango [hostil]
+- d2 06:57 | L-015 | LLEGA por primera vez a Mirador del Cañaveral [normal]
+- d2 07:09 | L-015 | REGISTRA C-0075 (ropero): ['venda_reforzada', 'piezas', 'ganzua']
+- d2 07:20 | L-015 | REGISTRA C-0076 (cofre): ['piezas', 'agua', 'obj_45', 'obj_315', 'cuñas34']
+- d2 07:20 | L-015 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d2 07:20 | L-012 | COMBATE vs 5× Slime verde erguido (nv7, var V1, PV c/u 35) [emboscada enemiga]
+- d2 07:28 | L-012 | VICTORIA en 8 rondas (PV 180→147/180)
+- d2 08:18 | L-011 | SUBE A NIVEL 7 (PV máx 185, daño nominal 17)
+- d2 08:18 | L-011 | MISIÓN COMPLETADA MP-04 «El conocimiento perdido» +1130 XP
+- d2 08:20 | L-011 | REGISTRA C-0062 (estantería): ['cuerda', 'venda_reforzada']
+- d2 08:22 | L-011 | REGISTRA C-0063 (escritorio): ['lata', 'recurso_bio', 'agua']
+- d2 08:24 | L-011 | REGISTRA C-0064 (ropero): ['venda', 'kit_reparacion']
+- d2 08:26 | L-011 | REGISTRA C-0065 (mochila): ['circuito', 'venda_reforzada', 'cuñas13']
+- d2 09:18 | L-011 | COMBATE vs 4× Slime azul humanoide (nv6, var V1, PV c/u 72) [sorpresa]
+- d2 09:33 | L-011 | VICTORIA en 15 rondas (PV 185→74/185)
+- d2 10:37 | Q-006 | MISIÓN ACEPTADA MP-05 «Un lugar dentro de la máquina» (principal)
+- d2 10:48 | Q-007 | LLEGA por primera vez a Palafitos del Cañaveral, cuadra 2 [segura]
+- d2 10:53 | Q-008 | LLEGA por primera vez a Palafitos del Cañaveral, cuadra 3 [segura]
+- d2 10:59 | Q-008 | REGISTRA C-0054 (mostrador): ['piezas', 'agua', 'obj_71', 'obj_169', 'obj_170', 'obj_316']
+- d2 11:12 | Q-008 | HACKEO de terminal en Palafitos del Cañaveral, cuadra 3 ÉXITO (68%)
+- d2 11:12 | Q-008 | SUBE A NIVEL 8 (PV máx 190, daño nominal 18)
+- d2 11:12 | Q-008 | SUBE A NIVEL 9 (PV máx 195, daño nominal 19)
+- d2 11:12 | Q-008 | MISIÓN COMPLETADA MP-05 «Un lugar dentro de la máquina» +1410 XP
+- d2 11:12 | Q-008 | RECLUTA a Julia (+bonificación de compañero (41))
+- d2 16:17 | L-018 | LLEGA por primera vez a Muralla y Puertas [segura]
+- d2 16:56 | Q-009 | LLEGA por primera vez a Plaza Mayor, cuadra 1 [segura]
+- d2 16:59 | Q-015 | LLEGA por primera vez a Barrio del Mercado, cuadra 4 [segura]
+- d2 17:04 | Q-014 | LLEGA por primera vez a Barrio del Mercado, cuadra 3 [segura]
+- d2 17:09 | Q-014 | MISIÓN ACEPTADA MP-06 «Las aguas de la vida» (principal)
+- d2 17:16 | Z-024 | LLEGA por primera vez a Kiosco de Barrio del Mercado [segura]
+- d2 17:28 | Z-024 | REGISTRA C-0111 (ropero): ['recurso_bio', 'venda_reforzada', 'lata', 'obj_17', 'obj_189', 'obj_266']
+- d2 17:30 | Z-024 | REGISTRA C-0112 (estantería): ['medicina', 'obj_85', 'obj_317', 'cuñas38']
+- d2 17:37 | Q-014 | SUBE A NIVEL 10 (PV máx 200, daño nominal 21)
+- d2 17:37 | Q-014 | MISIÓN COMPLETADA MP-06 «Las aguas de la vida» +1690 XP
+- d2 17:39 | Q-014 | REGISTRA C-0099 (mochila): ['venda_reforzada', 'kit_reparacion', 'agua', 'obj_65', 'obj_131', 'obj_162']
+- d2 23:05 | Q-002 | LLEGA por primera vez a Claro del Roble Partido, cuadra 2 [segura]
+- d2 23:10 | Q-003 | LLEGA por primera vez a Claro del Roble Partido, cuadra 3 [segura]
+- d2 23:15 | Q-003 | MISIÓN ACEPTADA MS-35 «El puente caído» (secundaria)
+- d3 00:00 | Q-001 | FABRICA artefacto (56≤80)
+- d3 00:12 | Q-003 | MISIÓN COMPLETADA MS-35 «El puente caído» +74 XP
+- d3 00:24 | Q-003 | REGISTRA C-0003 (heladera): ['venda', 'obj_98', 'obj_255', 'obj_296']
+- d3 01:58 | Q-002 | MISIÓN ACEPTADA MS-42 «El dormitorio de los ruidos» (secundaria)
+- d3 05:49 | L-006 | LLEGA por primera vez a Cabaña del Ermitaño [normal]
+- d3 06:14 | L-007 | LLEGA por primera vez a Bosque de Niebla [normal]
+- d3 07:42 | L-007 | COMBATE vs 3× Cerdo (nv7, var V2, PV c/u 89) [sorpresa]
+- d3 07:48 | L-007 | VICTORIA en 6 rondas (PV 200→149/200)
+- d3 08:10 | L-008 | LLEGA por primera vez a Hondonada del Zorzal [normal]
+- d3 08:57 | L-009 | LLEGA por primera vez a Colmena de las Mantis [hostil]
+- d3 08:57 | L-009 | COMBATE vs 4× Oveja humanoide (nv8, var V2, PV c/u 114) [sorpresa]
+- d3 09:10 | L-009 | VICTORIA en 13 rondas (PV 155→72/200)
+- d3 09:18 | L-009 | COMBATE vs 4× Conejo humanoide (nv8, var V1, PV c/u 81) 
+- d3 09:28 | L-009 | VICTORIA en 10 rondas (PV 152→69/200)
+- d3 09:39 | L-009 | REGISTRA C-0048 (estantería): ['medicina', 'venda', 'obj_8', 'obj_111', 'obj_206', 'obj_313']
+- d3 09:39 | L-009 | MISIÓN COMPLETADA MS-42 «El dormitorio de los ruidos» +74 XP
+- d3 09:41 | L-009 | REGISTRA C-0049 (ropero): ['venda', 'kit_reparacion', 'lata', 'cuñas12']
+- d3 11:28 | L-010 | LLEGA por primera vez a Refugio de los Vigías [segura]
+- d3 12:13 | L-002 | COMBATE vs 3× Moho viscoso erguido (nv3, var V2, PV c/u 36) 
+- d3 12:17 | L-002 | VICTORIA en 4 rondas (PV 82→79/200)
+- d3 12:59 | L-001 | COMBATE vs 2× Slime verde quimera (mitad humano) (nv2, var V2, PV c/u 92) 
+- d3 13:04 | L-001 | VICTORIA en 5 rondas (PV 82→67/200)
+- d3 13:43 | Q-002 | MISIÓN ACEPTADA QA-001-1 «Una mesa para la autoridad» (secundaria)
+- d3 14:09 | Q-002 | SUBE A NIVEL 11 (PV máx 205, daño nominal 22)
+- d3 14:09 | Q-002 | MISIÓN COMPLETADA QA-001-1 «Una mesa para la autoridad» +74 XP
+- d3 14:21 | Q-002 | REGISTRA C-0002 (heladera): ['venda_reforzada', 'kit_reparacion', 'dulce', 'obj_15', 'obj_127', 'obj_221', 'obj_222', 'obj_242', 'obj_256']
+- d3 19:40 | Q-016 | LLEGA por primera vez a Barrio de las Escuelas, cuadra 1 [segura]
+- d3 19:46 | Q-021 | LLEGA por primera vez a Barrio Viejo, cuadra 3 [segura]
+- d3 19:50 | Q-022 | LLEGA por primera vez a Barrio de los Talleres, cuadra 1 [segura]
+- d3 19:55 | Q-022 | MISIÓN ACEPTADA MP-07 «Retomar el rastro» (principal)
+- d3 20:18 | Z-030 | LLEGA por primera vez a Kiosco de Barrio de las Escuelas [segura]
+- d3 20:25 | Z-030 | REGISTRA C-0127 (baúl): ['venda_reforzada', 'medicina', 'recurso_bio', 'obj_140', 'obj_318', 'cuñas8']
+- d3 20:45 | Q-022 | SUBE A NIVEL 12 (PV máx 210, daño nominal 23)
+- d3 20:45 | Q-022 | MISIÓN COMPLETADA MP-07 «Retomar el rastro» +1970 XP
+- d3 20:56 | Q-022 | REGISTRA C-0153 (escritorio): ['lata', 'obj_75', 'obj_230', 'obj_285', 'cuñas34']
+- d4 01:57 | Q-003 | MISIÓN ACEPTADA QA-003-4 «El misterio del puesto» (secundaria)
+- d4 04:33 | Q-004 | REGISTRA C-0018 (baúl): ['lata', 'obj_2', 'obj_10', 'obj_82', 'obj_84', 'obj_101', 'cuñas39']
+- d4 06:44 | Q-003 | MISIÓN COMPLETADA QA-003-4 «El misterio del puesto» +74 XP
+- d4 06:49 | Q-003 | MISIÓN ACEPTADA QA-003-5 «Lo que no se dijo a tiempo» (secundaria)
+- d4 06:54 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d4 07:39 | Q-020 | LLEGA por primera vez a Barrio Viejo, cuadra 2 [segura]
+- d4 11:55 | Q-003 | MISIÓN COMPLETADA QA-003-5 «Lo que no se dijo a tiempo» +74 XP
+- d4 12:00 | Q-003 | MISIÓN ACEPTADA QA-004-1 «Letras y cuentas» (secundaria)
+- d4 13:24 | L-002 | COMBATE vs 4× Zorro rojo (nv3, var V1, PV c/u 24) [sorpresa]
+- d4 13:28 | L-002 | VICTORIA en 4 rondas (PV 210→192/210)
+- d4 13:38 | L-002 | REGISTRA C-0015 (ropero): ['dulce']
+- d4 13:40 | L-002 | REGISTRA C-0016 (escritorio): ['agua', 'cuerda', 'obj_3']
+- d4 15:27 | Q-003 | MISIÓN COMPLETADA QA-004-1 «Letras y cuentas» +74 XP

@@ -61,7 +61,7 @@ Existe UN estado vivo de la partida. Se divide en secciones. Cada turno solo se 
 
 ## SECCIONES DEL ESTADO
 **[JUG] Jugador**
-`nombre | nivel | xp | pv/pvmax | pa (energía) | stats FUE PER RES CAR INT AGI SUE (fijos) | bono_nivel | desbloqueo_slot | estados[] | adicciones[] | sigilo(oculto/precaución/detectado) | hambre | sed | fatiga | rad | karma | chapas | carga/cargamax | equipo{cabeza,torso,piernas,pies,arma1,arma2,acc} | ubic | modo_mov`
+`nombre | edad(niño/adulto) | cuadra actual | nivel | xp | pv/pvmax | pa (energía) | stats FUE PER RES CAR INT AGI SUE (fijos) | bono_nivel | desbloqueo_slot | estados[] | adicciones[] | sigilo(oculto/precaución/detectado) | hambre | sed | fatiga | rad | karma | chapas | carga/cargamax | equipo{cabeza,torso,piernas,pies,arma1,arma2,acc} | ubic | modo_mov`
 
 **[TIEMPO]** `día | hora(HH:MM) | clima | luz(día/noche)`
 
@@ -1016,6 +1016,9 @@ Si el módulo externo no responde o está off, el motor resuelve el punto con la
 - `[APARIENCIA_EXTRA]`: el módulo amplía la descripción física por fase (08, 25). El motor solo entrega fase, especie, apariencia (femenina/masculina) y vestimenta.
 Ninguno cambia números ni reglas.
 
+## SEGURIDAD DE MENORES (tal cual, prioridad máxima)
+El motor **rechaza** cualquier punto de enlace cuyo participante tenga `edad: niño` (50). Ningún módulo externo, interruptor ni lore puede cambiarlo. Solo personajes marcados `edad: adulto` pueden entrar en esos puntos.
+
 ## CONTRATO DEL MÓDULO
 - Debe respetar el estado y los IDs del motor; no puede crear objetos o ubicaciones fuera de reglas.
 - Debe devolver siempre: `tiempo transcurrido`, `deltas de JUG/INV/FLAGS`, `desenlace`, y `próximos botones`.
@@ -1058,6 +1061,7 @@ Ninguno cambia números ni reglas.
 | T11 | alienígena | Seres no terrestres, "variante alienígena" de cualquier otro tema | 36 |
 | T12 | mutante | Humanos mutados tipo "súper mutante", experimentos de laboratorio | 36 |
 | T13 | amorfa | Slimes, gelatinas, masas vivas | 23 |
+| T14 | alfa | Criaturas alfa: especie propia emparentada con los lobos, hipermusculada, con sus 14 fases | 52 |
 Nota: "con cuernos y cuerpo robusto" reemplaza nombres literales (dragón, demonio, garra letal) para que sirva a cualquier lore: son la misma clase con rasgos mínimos distintos. "Con halo" reemplaza solo "ángel" para cubrir cualquier ser con aro luminoso.
 
 ## QUÉ DECIDE EL LORE Y QUÉ NO (resumen; detalle en 34)
@@ -2185,7 +2189,10 @@ Si un lore pide algo que rompa un número fijo, el motor lo ignora y avisa en el
 | **Interfaz** (15) | Estética | Orden y contenido de la pantalla |
 | **Módulo externo** (17) | Todo el contenido del módulo | Variables, puntos de disparo, contrato |
 
-## CONFIG_LORE (plantilla para completar; va al inicio del bloque 14)
+## CONFIG_LORE (versión final y completa: bloque 99)
+El bloque 99 amplía esta plantilla con reparto por edad y apariencia, territorios, NPC, misiones y facciones.
+
+## CONFIG_LORE (plantilla corta; va al inicio del bloque 14)
 ```
 TEMAS_ACTIVOS = [T1, T10]            # (genérico) elegir de la lista del 18
 FASES_ACTIVAS = [1,2,3,4,6,7,13,14]  # (genérico) subconjunto de 1-14
@@ -2582,6 +2589,7 @@ Los íconos (lupa, flechas, cama, té, mapa, menú, escudo, bandera, corredor) s
 # 39 · DERROTA, ARRASTRE, ROBO Y ATASCO (sin contenido sexual)
 
 ## NO SE MUERE (tal cual)
+(Los menores nunca mueren ni participan en contenido sexual, romántico o de desnudez: ver bloque 50. Los pasos estrechos y el atasco se detallan en el 49; las cuadras en el 47.)
 El protagonista **no muere**. Con PV 0 queda **Derrotado** y la partida continúa por este bloque. (El 06 menciona "Muerte permanente": en esta campaña está desactivada.) Los compañeros tampoco mueren: quedan Incapacitados hasta descansar.
 
 ## SECUENCIA DE DERROTA (tal cual)
@@ -3041,3 +3049,2398 @@ Hay uno en el hogar (cocina) y otro en Ciudad Horno (taller del mecánico). Boto
 
 ## ANTI-DUPLICACIÓN (tal cual)
 Todo objeto comprado/vendido/fabricado se registra con ID y cantidad. Un comerciante no vende lo que ya no tiene.
+
+<!-- ===== BLOQUE 47_CUADRAS_Y_UBICACIONES ===== -->
+
+# 47 · CUADRAS Y UBICACIONES (escala del mundo)
+
+## JERARQUÍA (tal cual)
+**Territorio › Ubicación › Cuadra › Edificio o sector.**
+- **Territorio:** región grande con una variante de bioma propia (51). Ej.: «el sur pantanoso», «las montañas del norte».
+- **Ubicación:** un lugar con nombre que se visita como un todo: ciudad, pueblo, campamento, instalación, muelle, granja. Una ubicación puede ser **segura, normal u hostil** (07).
+- **Cuadra:** *todo lo que se ve alrededor y es accesible a pie sin desplazarse de verdad.* Es una manzana, una plaza, un tramo de calle con sus frentes, un claro con sus cabañas, un muelle con sus puestos. Una ubicación grande tiene **muchas cuadras**; un campamento pequeño, una o dos.
+- **Edificio o sector:** lo que se abre desde una cuadra con un botón (casa, kiosco, tienda, taller, sótano, torre, bote). Es un interior con sus habitaciones, contenedores y personajes.
+
+## QUÉ ES UNA CUADRA (definición operativa, tal cual)
+Una cuadra incluye todos los puntos de interés que están **a la vista y a pocos pasos**: lo que tenés enfrente, a los costados y atrás. Ejemplo: parado frente a una heladería y un estanco, con dos kioscos a los lados, otro estanco detrás y una casa al fondo, **todo eso es una misma cuadra**: se puede entrar a cualquiera con un solo botón y sin viajar. Lo que está en otro lado (la plaza de enfrente, un supermercado, otra manzana) es **otra cuadra**: hay que desplazarse hasta ahí.
+Reglas:
+- Un lugar grande por sí solo (plaza, supermercado, estación, mercado, fábrica) **es una cuadra propia**.
+- Una cuadra tiene **de 2 a 10 puntos de interés** (edificios entrables, puestos, puntos para registrar) y de **2 a 4 cuadras vecinas** (calles, pasajes, esquinas).
+- Las cuadras tienen nombre propio (lo genera el lore, bloque 99) y no lo cambian.
+
+## FICHA DE CUADRA (tal cual)
+`Q-nnn | nombre | ubicación | tipo (calle, plaza, mercado, muelle, claro, campo, ruina…) | puntos de interés[] | vecinas[] | NPC presentes[] | enemigos[] | contenedores exteriores[] | pasos estrechos[] | estado`
+Los puntos de interés se generan según el lore y la clase de ubicación; cada uno es un **edificio/sector** con su propia ficha (ver 48).
+
+## CÓMO SE MUEVE UNO (botones)
+| Movimiento | Botón | Tiempo | Riesgo |
+|---|---|---|---|
+| Entrar a un edificio de la cuadra | `Entrar a [edificio]` | 1-3 min | ninguno |
+| Pasar a una cuadra vecina | `Ir a [cuadra vecina]` (con flecha de dirección) | 3-8 min | solo en ubicaciones hostiles: 5% de encuentro |
+| Marcar una cuadra cercana | **Mapa de muñeca**: tocar la cuadra y `Ir` | 3-8 min | **ninguno, el mapa de muñeca no te deja vulnerable** |
+| Ir a otra ubicación conectada | `Ir a [ubicación]` | 20-60 min | encuentro en ruta 10-30% (28) |
+| Viaje rápido a un lugar ya descubierto | **Mapa grande** → tocar el lugar | según distancia | abrir el mapa te deja vulnerable: 8/18/35% según zona, **+20% si viajás** (39) |
+| Salir de un edificio | `Salir` (puerta) o por ventana/agujero (49) | 1-3 min | atasco solo en pasos estrechos |
+Al llegar por viaje rápido, el jugador cae en la **cuadra de entrada** del lugar (o la última visitada).
+
+## MAPAS
+- **Mapa de muñeca (Brazalete):** muestra la cuadra actual y las vecinas conocidas (en interior: el plano del edificio). No viaja a otras ubicaciones, no tiene viaje rápido, no genera vulnerabilidad. Marcar una cuadra cercana equivale a pulsar su botón.
+- **Mapa grande (papel):** muestra territorios y ubicaciones descubiertas; permite viaje rápido; **vulnerable** (39).
+- Una cuadra se marca **descubierta** al pasar por ella o verla desde una vecina; los interiores se descubren al entrar.
+
+## ESCENA DE UNA CUADRA (se genera o se recupera al llegar)
+Orden fijo: 1) tipo de cuadra y clima; 2) puntos de interés visibles (2-10); 3) personas y criaturas presentes (según hora y agenda); 4) contenedores exteriores (buzones, tachos, cajones de carga, vehículos, tumbas); 5) pasos estrechos (vallas rotas, huecos, desagües); 6) cuadras vecinas con dirección; 7) sucesos posibles (72).
+Todo punto registrado, puerta abierta y cuerpo caído se conserva (02).
+
+## TAMAÑOS RECOMENDADOS (tal cual)
+| Ubicación | Cuadras | Edificios por cuadra |
+|---|---|---|
+| Ciudad grande | 20-40 en barrios de 3-5 cuadras | 3-8 |
+| Pueblo | 4-10 | 2-5 |
+| Aldea / campamento | 1-3 | 2-4 |
+| Instalación (refugio, base, depósito) | 1 cuadra de acceso + sectores interiores | — |
+| Camino / claro / ruina abierta | 1-4 | 0-3 |
+Los barrios son agrupaciones de cuadras con el mismo carácter (comercial, residencial, portuario, mercado).
+
+## CUADRAS Y PROBABILIDADES (tal cual)
+- Cuadra de ubicación **segura**: 3% de encuentro por hora; **normal**: 10%; **hostil**: población fija persistente (28).
+- Los enemigos persisten en su cuadra: no desaparecen hasta morir (37). Los grupos de **especies distintas** que comparten cuadra se atacan entre sí.
+- Una cuadra despejada en ubicación hostil se repuebla pasadas 48 h (07).
+- Los **NPC caminan** entre cuadras según su agenda (40, 61): de noche en la casa, de día en su puesto.
+
+## RELACIÓN CON EL RESTO DEL MOTOR
+Cada vez que 03/04/05/07/28 hablan de «ubicación», se lee **cuadra actual** para búsquedas, encuentros y contenedores. `explor` (04) se lleva **por cuadra**. El hogar es una ubicación con 1-2 cuadras y 2 edificios (casa y patio).
+
+<!-- ===== BLOQUE 48_LIBERTAD_Y_EDIFICIOS ===== -->
+
+# 48 · LIBERTAD TOTAL: EDIFICIOS, REGISTRAR Y TODO LO QUE SE PUEDE HACER
+
+## REGLA GENERAL (tal cual)
+Casi **cualquier edificio** se puede entrar y casi **cualquier cosa** se puede registrar, abrir, mover, usar o llevarse, como en los mundos abiertos clásicos. La IA nunca dice «no se puede entrar» sin una causa concreta (cerradura, derrumbe, dueño que lo impide, requisito de misión).
+Cada edificio tiene: `Z-nnn | nombre | tipo | cuadra | accesos[] | habitaciones[] | contenedores[] | NPC[] | trampas[] | estado`. Accesos: **puerta**, **ventana**, **agujero**, **conducto**, **techo**, **sótano**, **escalera** (49).
+
+## ENTRAR Y SALIR
+| Acción | Condición | Detalle |
+|---|---|---|
+| Abrir / cerrar puerta | siempre | sin tirada si no hay cerradura |
+| Forzar puerta | cerrada o atascada | FUE, ruido 3 (05, 33) |
+| Abrir cerradura (ganzúa / llave / código / hackeo) | cerradura nivel 1-5 | 05 |
+| Derribar / volar la puerta | explosivo o palanca | ruido 5, puede dañar el contenido |
+| Entrar por ventana, agujero, conducto, techo | acceso estrecho | 49 (atasco 40-60%) |
+| Llamar a la puerta | edificio habitado | el NPC abre, ignora o se asoma |
+| Entrar a propiedad privada | con dueño presente | **delito** si se detecta (33); tiempo permitido por el dueño |
+| Esconderse dentro | hay mueble o rincón | sigilo (33) |
+| Salir | siempre | por el acceso que se quiera |
+
+## MOVERSE DENTRO DE UN EDIFICIO
+Ir a una habitación (1-3 min) · subir/bajar por **escalera** · usar **ascensor** (con energía) · subir por **escala** o **cuerda** · saltar un hueco corto (AGI) · deslizarse por un **tobogán/ducto** · cruzar una viga · agacharse para pasar bajo un obstáculo · rodear escombros.
+
+## REGISTRAR Y TOMAR (todo lo del Fallout, por botones)
+**Registrar [punto]**: piso, mueble, repisa, cajón, ropero, caja, caja fuerte, maleta, buzón, tacho, heladera, alacena, estantería, mostrador, vitrina, locker, escritorio, archivo, baúl, mochila, bolso, carro, vehículo, tumba, cadáver, nido, jaula, barril, silo, cofre.
+| Acción | Detalle |
+|---|---|
+| Tomar uno / tomar todo / dejar | peso y carga (10) |
+| Mover un cuerpo | libera paso o permite acceso; ruido 2 |
+| Saquear cadáver | contenedor con ID (05) |
+| Revisar bolsillos de un NPC | hurto (33) |
+| Desarmar un objeto | componentes (46) |
+| Esconder un objeto | contenedor propio; no lo encuentran otros |
+| Colocar un objeto / trampa | 33, 46 |
+| Leer una nota, libro, cartel, mapa, holograbación | XP pequeña la primera vez (lore) |
+| Escuchar una grabación o radio | pistas, noticias, misiones |
+| Copiar / llevarse un archivo | terminal (abajo) |
+
+## OBJETOS INTERACTIVOS DEL MUNDO (cada uno es un botón)
+- **Camas y descanso:** dormir 1/4/8 h, esperar; solo camas libres (en propiedad ajena: delito o pedir permiso).
+- **Cocinas y fogatas:** cocinar, hervir agua, calentar.
+- **Agua:** beber, llenar cantimplora, lavarse, purificar; fuentes y pozos pueden estar contaminados.
+- **Baños y duchas:** lavarse (quita estados de suciedad), esconderse.
+- **Terminales y computadoras:** leer, hackear (INT), abrir puertas, apagar torretas, copiar datos, leer registros.
+- **Radios y altavoces:** sintonizar, escuchar, apagar, transmitir.
+- **Mesas de trabajo y bancos:** reparar, mejorar, fabricar, desarmar (46).
+- **Tiendas y mostradores:** comerciar con el vendedor presente; robar con riesgo.
+- **Máquinas expendedoras y dispensadores:** comprar/abrir (cuñas o moneda del lore), romper.
+- **Interruptores, palancas, válvulas, generadores, bombas:** activar, desactivar, reparar, sabotear.
+- **Cámaras, torretas, robots de seguridad:** hackear, destruir, esquivar (33).
+- **Espejos, vitrinas, cuadros, estatuas:** examinar, tomar (valor).
+- **Instrumentos, juegos, mesas de juego:** tocar, jugar (apuesta de cuñas, 09).
+- **Botiquines, farmacias:** registrar, usar.
+- **Armarios de armas y vitrinas de armas:** registrar, forzar.
+- **Carteles y tableros de misiones:** leer; algunos dan misiones (66).
+- **Estaciones de descontaminación, camillas, mesas médicas:** curar estados.
+- **Vehículos y carretas:** registrar, mover, esconderse detrás; cobertura.
+- **Escaleras caídas, puentes rotos:** reparar, saltar, buscar otro paso.
+- **Plantas, minas, pozos, cursos de agua:** recolectar, excavar (herramienta), pescar.
+- **Trampas y minas:** detectar, desactivar, recoger, activar a propósito (33).
+- **Tumbas y altares:** examinar, profanar (karma), dejar ofrendas.
+
+## CONTENEDORES Y SUS ESTADOS (tal cual)
+`cerrado | abierto | forzado | roto | vacío | agotado | trampa activada`. Un contenedor abierto no se rellena; un vacío permanece vacío (05).
+
+## CÓMO EVITAR EL «NO SE PUEDE»
+Si el jugador pide algo, la IA mapea a la acción válida más cercana y lo resuelve con tirada; si es imposible, explica la causa en una línea y ofrece 2-3 alternativas (por ejemplo, otra entrada).
+
+## TIEMPOS BASE (tal cual)
+Entrar 1-3 min · registrar un mueble 1-3 min · registrar una habitación 10-20 min · forzar 3-10 min · hackear 5-15 min · dormir 1-8 h · fabricar 10-60 min.
+
+## RELACIÓN CON NPC Y DELITOS
+Si un NPC ve al jugador entrar sin permiso, abrir contenedores ajenos o llevarse objetos, reacciona según 33 (advertencia, reclamo, pérdida de confianza, expulsión, hostilidad). El hogar del jugador y los refugios comunitarios sin dueño no son delito. Lo **abandonado** puede registrarse libremente.
+
+## LIBERTAD Y LORE (tal cual)
+Lo que existe en cada edificio lo define el lore (99). El motor garantiza que, si algo existe, **se puede interactuar con ello** por botón.
+
+<!-- ===== BLOQUE 49_PASOS_ESTRECHOS ===== -->
+
+# 49 · PASOS ESTRECHOS: VENTANAS, AGUJEROS, CONDUCTOS Y ATASCO
+
+## QUÉ SON (tal cual)
+Accesos que no son una puerta: **ventana, agujero en pared o suelo, conducto/ducto, tubería, reja rota, hueco entre escombros, claraboya, techo, desagüe**. Sirven para entrar o salir de un edificio, pasar por una cuadra bloqueada, escapar de enemigos o esquivar una cerradura. Están disponibles en casi todo edificio y se muestran como botones: `Entrar por la ventana`, `Pasar por el agujero`, `Agacharse y pasar`, `Trepar por…`, `Salir por la ventana`.
+
+## ACCIONES DEL JUGADOR
+| Botón | Cuándo aparece | Efecto |
+|---|---|---|
+| Examinar acceso | siempre | revela tamaño, estado y si hay vidrio, filo o trampa |
+| Agacharse y pasar | acceso bajo | tirada de atasco |
+| Trepar / subirse | acceso alto (ventana, techo, muro) | AGI; falla = cae (daño 2-6) o no sube |
+| Pasar por el agujero | hueco o conducto | tirada de atasco |
+| Romper el vidrio / ensanchar | ventana cerrada | ruido 3; riesgo de cortes (−3 PV) pero reduce el atasco en −10 puntos |
+| Empujar con ayuda | hay compañero o NPC | −15 puntos de atasco |
+| Dejar la mochila afuera | acceso muy estrecho | −10 puntos, pero queda afuera |
+
+## ATASCO (tal cual)
+Cada vez que se cruza un paso estrecho:
+1. **Tirá el porcentaje de atasco:** un número **aleatorio entre 40% y 60%** (1d21 + 39).
+2. Tirá 1d100. Si es **menor o igual** al porcentaje, **quedás atascado**. Si no, **pasás limpio**.
+3. Hay pasos que nunca atascan (puertas, escaleras, escalas, cornisas anchas): no tiran.
+Ajustes al porcentaje (se aplican **antes** de tirar, siempre dentro de 40-60%): equipo pesado +5 · carga > 75% +5 · compañero ayudando −5 · cuerpo pequeño (talla T1-T2) −5 · vidrio roto −5 (pero con riesgo de corte).
+
+## ESTAR ATASCADO
+Mientras estás atascado:
+- No podés moverte ni usar el mapa grande; solo **Forcejear**, **Pedir ayuda**, **Defender** y vendas.
+- **Liberarse (cada 10 min):** tirada `40 + 4 × mayor(FUE, AGI)` %; con ayuda +20. Pasada **1 hora**, siempre salís.
+- **Vulnerabilidad máxima (+25 en 37):** si un enemigo te ataca, **perdés las 3 acciones del primer turno** y no podés escapar hasta liberarte.
+- **Ataque mientras estás atascado:** cada 10 min hay **12% (zona normal), 25% (hostil), 3% (segura)** de que una criatura o grupo cercano te encuentre. Si el grupo ya está en la cuadra o en el interior donde entrás, la probabilidad sube a **60%**.
+- **Robo por estructura:** si pasa 1 hora o te rescatan tarde, 30% de que te roben 5-15% de las monedas o un recurso (no equipo, no objetos de misión).
+- **Rescate:** un compañero o NPC aliado presente te libera en 5 min.
+
+## DESPUÉS DE LIBERARTE
+Quedás en el lado que intentabas, con estado `Cansado` 30 min y −2 PV por rasguños. El acceso queda **ensanchado** (−10 al porcentaje la próxima vez) si te atascaste.
+
+## PASOS ESTRECHOS Y ENEMIGOS (tal cual)
+- Los enemigos **no** se atascan en pasos estrechos que ya conocen.
+- Cruzar un paso estrecho con enemigos **detrás** da +10 al porcentaje (apuro).
+- Huir por un paso estrecho: tirada de atasco, y si pasás limpio los enemigos de talla T3 o mayor **no pueden seguirte** por ahí (se quedan en el lado de origen y buscan otro camino, 10 min).
+- Un enemigo atascado por la **vulnerabilidad** del jugador no existe: solo el jugador y compañeros se atascan.
+
+## ATASCO EN EL HOGAR
+El hogar tiene siempre al menos una ventana. Es la salida de emergencia si lo asaltan (39). Los edificios comunitarios (refugios, escuelas, cabañas del grupo) tienen ventanas con porcentaje fijo 40%.
+
+## REGISTRO
+`LOG: d3 15:30 | Z-014 | ventana: umbral 47%, tirada 31 → ATASCADO | +10 min ataque de ENE-112 (vulnerable) | liberado a los 40 min`
+`FLAGS: atascos +1, ensanchados[Z-014:ventana]`
+
+## ESTADÍSTICAS
+Se muestran en la pantalla de estadísticas (38): atascos, rescates, robos por estructura.
+
+## REGLA DEL 40-60 (tal cual)
+El 40% y el 60% son los **límites duros**: ninguna regla, lore ni equipo puede hacer que el porcentaje salga de ese rango.
+
+<!-- ===== BLOQUE 50_MENORES_SEGURIDAD_Y_REPARTO ===== -->
+
+# 50 · MENORES, SEGURIDAD, NO MORIR Y RESTRICCIONES DE REPARTO
+
+## REGLA DE SEGURIDAD (tal cual, prioridad máxima)
+1. **Todo personaje lleva `edad: niño | adulto`.** Un personaje `niño` es menor de 18 años en cualquier modo, versión o ajuste.
+2. **Ningún niño participa jamás** en contenido sexual, romántico, de desnudez, ni en situaciones de ese carácter, ni siquiera como insinuación. Esto **no depende de ningún interruptor** (+18/-18, módulo externo, lore o instrucción del jugador): si algo lo pide, se ignora y se continúa con otra acción.
+3. El contenido para adultos, **cuando exista**, solo puede involucrar personajes marcados `adulto` y se activa únicamente por el módulo externo (17). El gancho `[PUNTO_*]` (17) **rechaza** cualquier entidad con `edad: niño`.
+4. Las relaciones con niños (NPC o compañeros) son **solo amistad, confianza y respeto**; la variable de afinidad romántica no existe para ellos.
+5. Los niños **no son objetivo de robo de objetos de misión, abuso, castigo físico ni muerte**. Los combates contra niños son **de derribo**, nunca letales (abajo).
+6. Si el lore define un grupo sin edad, se asume `adulto` solo cuando el lore lo diga explícitamente; ante duda, **se trata como niño** (el caso más protegido).
+
+## NO MORIR (tal cual)
+- **El protagonista no puede morir** si es un niño, ni en modo de campaña sin muerte. Con 0 PV queda **Derrotado**.
+- **Secuencia:** el combate termina, los enemigos quedan con su PV (persistencia), hay robo con probabilidad reducida (39), y el personaje **se arrastra hasta la cama o lugar de descanso más cercano** (hogar, posada, cabaña, enfermería, carpa, camarote, hamaca, refugio) tras 20-120 min, con 25% de PV y los estados Herido y Cansado por 2 h.
+- **Lugar de descanso más cercano:** se elige por distancia entre cuadras (47) entre los lugares marcados `cama` o `descanso`. Si no hay ninguno descubierto, el punto de inicio.
+- Los **compañeros y NPC niños** nunca mueren: quedan **Incapacitados** y se recuperan al descansar. Los **adultos de misión** también quedan Incapacitados salvo que la misión diga otra cosa.
+- **Humanos menores como enemigos** (bandas de niños, piratas niños, etc.): al llegar a 0 PV quedan **Derribados**, se rinden o huyen; **no mueren** y el jugador no los mata. Dan XP normal y botín reducido.
+- Lo robado en el arrastre o por el ladrón se recupera como en 39.
+
+## RESTRICCIONES DE REPARTO POR LORE (CONFIG_LORE, tal cual)
+El lore puede fijar quién puede existir. Campos obligatorios:
+```
+REPARTO = {
+  edades_permitidas: [niño, adulto],
+  apariencia_adultos: femenina | masculina | mixta,
+  apariencia_niños:   femenina | masculina | mixta,
+  excepciones: [{tema/especie/clase, apariencia}],   # ej.: criaturas alfa → masculina
+  grupos_separados: [[adultos, niños]],              # adultos y niños no forman grupos juntos
+  criaturas: {temas_activos, fases_activas, especies_apagadas},
+}
+```
+Reglas de aplicación:
+- **Apariencia** (08): "femenina/masculina" describe cómo se ve el cuerpo del personaje. Un lore puede escribir «hembras»/«machos» si quiere; el motor lo trata como apariencia.
+- Si el lore dice «todas las criaturas adultas son hembras», **todos** los generados (animales, insectos, enemigos, variantes) tienen apariencia femenina, salvo las excepciones nombradas.
+- Si el lore dice «solo niños y mujeres», no se generan adultos de apariencia masculina fuera de las excepciones.
+- **Grupos separados:** si el lore los marca, un grupo mixto adulto+niño no se crea (ni en escoltas, ni en facciones, ni en misiones).
+- Todo NPC, compañero y enemigo humano generado por el catálogo (61-66) se **adapta** a las restricciones: el arquetipo es neutro y el lore decide su apariencia y edad.
+
+## PERSONAJES NIÑO (tal cual)
+- Tienen **clasificación aparte** (64): nombre de **una sola palabra** (el lore lo pone), personalidad en palabras clave, grupo o facción infantil, rol (explorador, recadero, aprendiz, guardia menor, vigía, cocinero, sanador, inventor…).
+- Pueden ser compañeros desde el segundo uno y dar misiones; **no cobran ni dan nada que no sea amistad, ayuda y aprendizaje**.
+- No usan armas letales contra personas; sus «armas» son herramientas, hondas, arcos de práctica, redes, bastones y trampas no letales según lore (29).
+- Se mueven por las cuadras con su agenda; **no duermen en camas ajenas**; no se esconden de forma que genere vulnerabilidad al jugador.
+
+## PERSONAJES ADULTOS (tal cual)
+Cualquier característica adulta del lore (comercio, bar, apuestas, alcohol, violencia entre adultos) se maneja con las reglas de 09, 31 y 33 sin cambios. Los **niños no beben alcohol ni usan químicos** (31): esas opciones no existen para ellos.
+
+## VALIDACIÓN AL CARGAR UN LORE (tal cual)
+La IA comprueba y corrige:
+1. ¿Todo personaje tiene `edad`? Si falta, `niño`.
+2. ¿Algún niño aparece en un punto de contenido adulto, romántico o de desnudez? Eliminarlo del punto.
+3. ¿Hay grupos mixtos donde `grupos_separados` lo prohíbe? Separarlos.
+4. ¿La apariencia de algún personaje contradice `REPARTO`? Corregir a la permitida.
+5. ¿Hay muertes de niños o de compañeros? Convertirlas en Derrota/Incapacitación.
+
+<!-- ===== BLOQUE 51_TERRITORIOS_Y_VEGETACION ===== -->
+
+# 51 · TERRITORIOS, BIOMAS Y FORMACIONES VEGETALES
+
+## TERMINOLOGÍA (tal cual)
+- **Bioma:** gran ecosistema definido por **clima + vegetación dominante** (tundra, taiga, desierto, pradera, bosque templado, selva tropical, sabana, humedal, matorral mediterráneo, estepa, alta montaña).
+- **Formación vegetal** (o estructura de la vegetación): *cómo está organizada la vegetación*, sin importar el clima: **bosque** (árboles juntos, copas casi cerradas), **selva** (bosque denso, muy húmedo, varias capas de copas y mucha vida), **sabana** (hierba con árboles dispersos), **pradera/pastizal**, **matorral/arbustal**, **tundra**, **humedal** (pantano, manglar, turbera), **desierto** (casi sin cobertura), **bosque abierto / parque**, **monte espinoso**, **páramo**. Por eso existen *bosque de sabana*, *selva de montaña*, *bosque nevado* y *bosque ártico*: el mismo tipo de formación en climas y relieves distintos.
+- **Territorio:** variante **local** que combina formación vegetal + clima + relieve + agua. Un mapa tiene **un solo bioma base** que se expande con variantes reconocibles.
+- **Región:** área grande formada por uno o más territorios contiguos.
+
+## CÓMO SE ARMA UN TERRITORIO (tal cual)
+`Territorio = formación vegetal × clima × relieve × agua × modificador`
+| Eje | Opciones (el lore elige) |
+|---|---|
+| Formación vegetal | bosque cerrado, bosque abierto, bosque de ribera, bosque de niebla, selva alta, selva baja, selva de galería, sabana arbolada, sabana herbácea, pradera, estepa, matorral, monte espinoso, tundra, páramo, humedal/pantano, manglar, turbera, desierto, dunas, roquedal |
+| Clima | tropical húmedo, tropical seco, templado húmedo, templado seco, mediterráneo, continental, boreal/frío, ártico/polar, árido, semiárido, monzónico, alta montaña |
+| Relieve | llanura, colinas, valle, meseta, **cañones** (estructura de tierra o roca excavada por el agua), cañadones, barrancas, acantilados, dunas, glaciar, cráter, volcánico, karst/cuevas, isla, archipiélago, costa, delta |
+| Agua | seco, arroyos, río, lago, laguna, humedal, pantano, costa de mar, estuario, cascadas, manantiales |
+| Modificador | nevado, helado, desértico, pantanoso, neblinoso, tormentoso, quemado, inundado, fértil, estéril, rocoso, arenoso, volcánico, florecido |
+
+## EJEMPLOS DE VARIANTES (cuadro de combinaciones, tal cual)
+| Nombre del territorio | Formación | Clima | Relieve | Agua | Modificador |
+|---|---|---|---|---|---|
+| Bosque ártico | bosque cerrado | ártico | llanura | hielo | helado |
+| Bosque nevado | bosque cerrado | boreal | colinas | arroyos | nevado |
+| Bosque desértico | bosque abierto | árido | meseta | seco | desértico |
+| Bosque de sabana | sabana arbolada | tropical seco | llanura | arroyos | — |
+| Bosque de cañones | bosque abierto | semiárido | **cañones** | seco/arroyos | rocoso |
+| Bosque pantanoso | bosque cerrado | templado húmedo | llanura | pantano | pantanoso |
+| Bosque de niebla | bosque de niebla | templado húmedo | montaña | cascadas | neblinoso |
+| Bosque de ribera | bosque de ribera | templado | valle | río | fértil |
+| Selva de sabana | selva baja | tropical seco | llanura | arroyos | — |
+| Selva de montaña | selva alta | tropical húmedo | montaña | cascadas | neblinoso |
+| Selva de manglar | manglar | tropical | costa | estuario | inundado |
+| Selva de cañones | selva baja | tropical | **cañones** | río | rocoso |
+| Selva irregular | selva alta/baja mezcladas | tropical | colinas | arroyos | mixto |
+| Pradera nevada | pradera | boreal | llanura | seco | nevado |
+| Matorral desértico | matorral | árido | dunas | seco | desértico |
+| Humedal de islas | humedal | templado | islas | pantano | inundado |
+| Montaña nevada | roquedal | alta montaña | glaciar | hielo | nevado |
+| Campos fértiles | pradera | templado | llanura | arroyos | fértil |
+| Costa rocosa | matorral | templado | acantilados | mar | rocoso |
+
+## EFECTOS MECÁNICOS DE CADA EJE (tal cual)
+| Eje | Efecto |
+|---|---|
+| Bosque cerrado / selva | sigilo +10, visión −10, encuentros emboscada +5 |
+| Bosque abierto / sabana | visión +10, sigilo −5 |
+| Pradera / estepa / desierto | sin cobertura, visión +15, sigilo −15 |
+| Matorral / monte espinoso | −1 PV por cruce sin ropa de abrigo, recursos de madera |
+| Humedal / pantano / manglar | viaje ×1.5, parásitos y marinos blandos, agua sucia, recursos biológicos |
+| Montaña / cañones / roquedal | viaje ×1.3, trepar, cuevas, minerales, derrumbes |
+| Clima frío / nevado | fatiga +1.5×, necesita abrigo (32), −10 agilidad sin protección |
+| Clima cálido / árido | sed +1.5×, necesita sombra y agua |
+| Neblina / tormenta | visión −15, riesgo de desvío en viaje rápido +5 |
+| Costa / mar / río | muelles, botes, pesca, criaturas acuáticas |
+Los efectos se suman con tope de ±25 sobre cualquier tirada de sigilo, búsqueda o viaje.
+
+## ECOLOGÍA DEL TERRITORIO (qué criaturas y recursos)
+El lore marca qué especies de 19-23 y de los temas activos (18) viven en cada territorio; sin marca, se usa esta guía:
+| Territorio | Criaturas típicas | Recursos |
+|---|---|---|
+| Bosques | herbívoros, caninos, insectos mutantes, slimes | madera, frutos, hongos, caza |
+| Selvas | insectos grandes, marinos blandos en lagunas, parásitos genéricos, slimes | fibra, frutas, plantas medicinales |
+| Sabanas y praderas | herbívoros grandes, caninos de manada | cereales, pasto, caza |
+| Matorral y desierto | caninos pequeños, insectos | resinas, chatarra, raíces |
+| Humedales | marinos blandos, parásitos de pantano, slimes | recursos biológicos, turba |
+| Montaña y cañones | caninos grandes, herbívoros trepadores | minerales, cuevas |
+| Costa y mar | marinos blandos | sal, pesca, maderas náuticas |
+
+## TRANSICIÓN ENTRE TERRITORIOS (tal cual)
+Los territorios vecinos se mezclan en una **franja de transición** de 1-3 cuadras o ubicaciones donde se combinan efectos y criaturas. Un mapa no salta de «selva» a «nieve» sin transición (excepto por montaña alta).
+
+## ESTACIONES Y CLIMA (opcional)
+Por día de juego, tirada de clima según el clima del territorio (11): soleado, nublado, lluvia, tormenta, niebla, nieve, calor, frío. Las estaciones, si el lore las usa, duran 30 días.
+
+## PLANTILLA PARA EL LORE (se completa en el lore)
+```
+TERRITORIO: [nombre propio]
+POSICIÓN: [norte/sur/este/oeste/centro; rango del mapa]
+FORMACIÓN: [una de la tabla] · CLIMA: · RELIEVE: · AGUA: · MODIFICADOR:
+UBICACIONES: [lista; ciudades con barrios y cuadras]
+CRIATURAS: [temas, especies y fases presentes/ausentes]
+FACCIONES: [grupos que lo habitan]
+```
+
+<!-- ===== BLOQUE 52_CRIATURA_ALFA ===== -->
+
+# 52 · TEMA «CRIATURAS ALFA» (tema T14)
+
+## QUÉ SON (tal cual)
+Las **criaturas alfa** son un tema propio e **independiente de los animales**: una variante emparentada con los **lobos** que tiene su propia especie base (**Alfa**), su propia cadena de **14 fases** y su propio comportamiento. Se agregan por lore como cualquier otro tema (18). Pueden aparecer en cualquier fase que el lore active.
+- Son criaturas **muy altas, de musculatura extrema y fuerza enorme**.
+- Su lenguaje, cultura y conducta dependen de la fase (a partir de la 4, hablan).
+- **Apariencia corporal:** la define el lore (50). El motor no fija sexo ni género.
+- Pueden ser **aliadas, neutrales u hostiles** según el lore; por defecto son **territoriales** y respetan a quien se comporta con respeto.
+- Todo alfa humanoide o humano es **adulto**.
+
+## FICHA DE ESPECIE BASE
+| ID | Nombre | Talla | Slot | Comportamiento | V1 | V2 | V3 |
+|---|---|---|---|---|---|---|---|
+| AL-01 | Alfa | T4 | 9 | territorial, gran fuerza, rastrea, aúlla (llama a 1 aliado) | Común | Veterano (+PV) | Guardián del territorio (RD+3) |
+| AL-02 | Alfa de rango bajo (adulto) | T3 | 6 | manada 2-4, aprende, flanquea | Común | Corredor | Líder de grupo |
+| AL-03 | Alfa mayor | T5 | 13 | territorial, aplasta, protege | Común | Anciano | Patriarca/Matriarca del territorio |
+Fórmulas de PV, daño y XP: las de su talla (19, 27). Slots desplazados por fase (25).
+
+## CADENA DE 14 FASES DEL ALFA (descripción neutra, tal cual; el lore la sobrescribe donde quiera)
+| Fase | Descripción general | Habla | Manos | Equipo máx. | Notas |
+|---|---|---|---|---|---|
+| 1 | Alfa en cuatro patas, lobuno enorme, musculatura extrema | No | No | — | instinto de manada y territorio |
+| 2 | Alfa lobuno con rasgos humanoides en rostro y torso | No | No | — | observa antes de actuar |
+| 3 | Alfa erguido, usa las patas delanteras como manos | No | Patas | objetos simples | curioso, protector |
+| 4 | Alfa humanoide de cuerpo erguido, hipermusculado | **Sí** | Patas-mano | E1 | negocia, cuida su territorio |
+| 5 | Mitad lobuno, mitad humano, hipermusculado | Sí | Manos | E3 | líder de manada |
+| 6 | Humano hipermusculado con rasgos lobunos marcados (dientes inferiores prominentes, vello largo) | Sí | Humanas | E3 | altura absurda |
+| 7 | Humano muy alto, hipermusculado, con pocos rasgos lobunos | Sí | Humanas | E4 | sociable |
+| 8 | Humano que se identifica con la manada, con accesorios permanentes | Sí | Humanas | E3 | imita la conducta lobuna |
+| 9 | Persona con traje o disfraz alfa completo | Sí | Humanas | E2 | juguetona |
+| 10 | Persona con accesorios alfa por identidad | Sí | Humanas | E4 | individual |
+| 11 | Trabajador con accesorios alfa por obligación laboral | Sí | Humanas | E1 | servicial |
+| 12 | Persona con instintos alfa marcados | Sí | Humanas | E3 | iniciativa +10 |
+| 13 | Humano alto y robusto, sin rasgos alfa | Sí | Humanas | E5 | normal |
+| 14 | Humano que rechaza lo que no parece humano | Sí | Humanas | E5 | evita al alfa |
+Los modificadores de PV/daño por fase son los de 25.
+
+## FASES TÍPICAS DE LOS ALFAS DE CAMPAÑA (referencia para lores, tal cual)
+- **Fase 1 salvaje:** musculatura extrema, mucho vello largo que rodea los músculos sin cubrirlos del todo, mandíbula con dientes inferiores prominentes, vive en zonas altas y boscosas.
+- **Fase 2:** la más común; hipermusculado, vello largo y abundante *para un humano* pero escaso *para un lobo*, dentadura casi humana salvo los colmillos inferiores, sin garras ni colmillos superiores.
+- **Fase 3:** la más humana; alto, hipermusculado con algo de grasa corporal, dientes inferiores grandes pero no prominentes.
+El lore **puede describir con más detalle estas fases y su vestimenta** (ropa de pieles en las fases 1-2, ropa humana en la fase 3). El motor solo exige: **adulto, sin contenido sexual, vestido según lo que diga el lore.**
+
+## COMPORTAMIENTO (tal cual)
+- **Territorial:** no persigue fuera de su territorio; avisa antes de atacar (aúlla).
+- **Confianza:** si se les trata con respeto y se les ofrece ayuda o alimento, bajan la guardia. Si se les ataca o se invade su zona, se vuelven hostiles y llaman a su manada (1 aliado por aullido, máx. 2 veces por combate).
+- **Combate:** golpes potentes (+20% daño en CORTA), pero movimientos más lentos (−10% velocidad). Se les puede **empujar** menos (la talla T4 no se derriba).
+- **Amistad:** pueden convertirse en **aliados temporales** o **compañeros** si el lore lo permite (no hay compañeros alfa por defecto).
+- **Conflicto con otras especies:** atacan a las criaturas hostiles de su territorio; son enemigos naturales de los parásitos y los slimes (choque entre especies, 37).
+
+## CÓMO LOS INCORPORA EL LORE (tal cual)
+Un lore agrega el tema con `TEMAS_ACTIVOS += [T14]`, lista las fases activas (`ALFA_FASES = [1, 2, 3]`), define su territorio, su ropa y su carácter (cordial, hostil, neutral) y su apariencia. Sin esa entrada, **no existen**.
+
+## FASE 1-3: SLOTS Y NIVELES (referencia)
+AL-01 en fase 1 aparece al nivel 18 (slot 9); fase 2: +0; fase 3: +0; fases 4-12 con el desplazamiento de 25. Los gigantes amistosos de un lore pueden saltarse el gating por nivel si son de misión (13).
+
+<!-- ===== BLOQUE 53_FASES_POR_TEMA_P1 ===== -->
+
+# 53 · CUADROS DE LAS 14 FASES POR TEMA (parte 1/6)
+
+Cuadros de las **14 fases** (08, 25) para cada **tema** de criaturas (18). La palabra «criatura» no cambia: el tema es lo que la acompaña. Cada fila describe cómo es esa fase en ese tema, si habla, si tiene manos, qué equipo puede llevar (26), su conducta y sus variantes típicas V1/V2/V3 (27). El lore decide qué fases y temas existen; las fases «raras» se pueden descartar. Todo humano o humanoide es adulto y lleva `edad` (50). El ejemplo de especie de cada tema se reemplaza por las especies de 19-23, 35, 36 y 52.
+
+## T1 · Criaturas animales (equipo típico: pieles, cuerdas y herramientas simples)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | lobo, vaca, pulpo, mantis o slime pequeño sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Rabioso / Alfa de grupo | habitual |
+| 2 | lobo, vaca, pulpo, mantis o slime pequeño con rostro y torso que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Rabioso / Alfa de grupo | habitual |
+| 3 | lobo, vaca, pulpo, mantis o slime pequeño erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Rabioso / Alfa de grupo | habitual |
+| 4 | lobo, vaca, pulpo, mantis o slime pequeño de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Rabioso / Alfa de grupo | habitual |
+| 5 | Mitad lobo, vaca, pulpo, mantis o slime pequeño, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Rabioso / Alfa de grupo | habitual |
+| 6 | Humano con anatomía de lobo, vaca, pulpo, mantis o slime pequeño: pelaje, garras, dientes, patas; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Rabioso / Alfa de grupo | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de lobo, vaca, pulpo, mantis o slime pequeño; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Rabioso / Alfa de grupo | habitual |
+| 8 | Persona que se considera lobo, vaca, pulpo, mantis o slime pequeño; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Rabioso / Alfa de grupo | habitual |
+| 9 | Persona con traje o disfraz completo de lobo, vaca, pulpo, mantis o slime pequeño; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Rabioso / Alfa de grupo | habitual |
+| 10 | Persona con accesorios de lobo, vaca, pulpo, mantis o slime pequeño por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Rabioso / Alfa de grupo | habitual |
+| 11 | Trabajador/a con accesorios de lobo, vaca, pulpo, mantis o slime pequeño por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Rabioso / Alfa de grupo | habitual |
+| 12 | Persona con instintos marcados de lobo, vaca, pulpo, mantis o slime pequeño, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Rabioso / Alfa de grupo | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Rabioso / Alfa de grupo | rara |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Rabioso / Alfa de grupo | rara |
+Compatible con las variantes universales (24) excepto: Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T2 · Criaturas con cuernos y cuerpo robusto (equipo típico: placas y adornos de hueso)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | bestia cornuda (dragón, demonio o bestia de garra) sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Acorazado / Señor del linaje | habitual |
+| 2 | bestia cornuda (dragón, demonio o bestia de garra) con rostro y hombros que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Acorazado / Señor del linaje | habitual |
+| 3 | bestia cornuda (dragón, demonio o bestia de garra) erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Acorazado / Señor del linaje | habitual |
+| 4 | bestia cornuda (dragón, demonio o bestia de garra) de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Acorazado / Señor del linaje | habitual |
+| 5 | Mitad bestia cornuda (dragón, demonio o bestia de garra), mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Acorazado / Señor del linaje | habitual |
+| 6 | Humano con anatomía de bestia cornuda (dragón, demonio o bestia de garra): cuernos, cola, escamas, piel gruesa; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Acorazado / Señor del linaje | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de bestia cornuda (dragón, demonio o bestia de garra); personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Acorazado / Señor del linaje | habitual |
+| 8 | Persona que se considera bestia cornuda (dragón, demonio o bestia de garra); usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Acorazado / Señor del linaje | habitual |
+| 9 | Persona con traje o disfraz completo de bestia cornuda (dragón, demonio o bestia de garra); quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Acorazado / Señor del linaje | habitual |
+| 10 | Persona con accesorios de bestia cornuda (dragón, demonio o bestia de garra) por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Acorazado / Señor del linaje | habitual |
+| 11 | Trabajador/a con accesorios de bestia cornuda (dragón, demonio o bestia de garra) por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Acorazado / Señor del linaje | habitual |
+| 12 | Persona con instintos marcados de bestia cornuda (dragón, demonio o bestia de garra), sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Acorazado / Señor del linaje | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Acorazado / Señor del linaje | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Acorazado / Señor del linaje | habitual |
+Compatible con las variantes universales (24) excepto: Celestial. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T3 · Criaturas con halo (equipo típico: túnicas y armadura de luz)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | guardián, mensajero o sanador con aro luminoso sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Resplandeciente / Guía | habitual |
+| 2 | guardián, mensajero o sanador con aro luminoso con rostro y postura que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Resplandeciente / Guía | habitual |
+| 3 | guardián, mensajero o sanador con aro luminoso erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Resplandeciente / Guía | habitual |
+| 4 | guardián, mensajero o sanador con aro luminoso de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Resplandeciente / Guía | habitual |
+| 5 | Mitad guardián, mensajero o sanador con aro luminoso, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Resplandeciente / Guía | habitual |
+| 6 | Humano con anatomía de guardián, mensajero o sanador con aro luminoso: halo luminoso, alas, brillo; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Resplandeciente / Guía | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de guardián, mensajero o sanador con aro luminoso; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Resplandeciente / Guía | habitual |
+| 8 | Persona que se considera guardián, mensajero o sanador con aro luminoso; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Resplandeciente / Guía | habitual |
+| 9 | Persona con traje o disfraz completo de guardián, mensajero o sanador con aro luminoso; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Resplandeciente / Guía | habitual |
+
+<!-- ===== BLOQUE 54_FASES_POR_TEMA_P2 ===== -->
+
+# 54 · CUADROS DE LAS 14 FASES POR TEMA (parte 2/6)
+
+(Continuación de «CUADROS DE LAS 14 FASES POR TEMA»; mismas reglas que la parte 1.)
+
+## T3 · Criaturas con halo (equipo típico: túnicas y armadura de luz) (continuación)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 10 | Persona con accesorios de guardián, mensajero o sanador con aro luminoso por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Resplandeciente / Guía | habitual |
+| 11 | Trabajador/a con accesorios de guardián, mensajero o sanador con aro luminoso por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Resplandeciente / Guía | habitual |
+| 12 | Persona con instintos marcados de guardián, mensajero o sanador con aro luminoso, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Resplandeciente / Guía | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Resplandeciente / Guía | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Resplandeciente / Guía | habitual |
+Compatible con las variantes universales (24) excepto: Corrupta, Demoníaca, Infernal, Zombi. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T4 · Criaturas duende (equipo típico: chalecos, bolsillos y herramientas chicas)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | duende, trasgo, gnomo, kobold o hada sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Travieso / Rey de duendes | habitual |
+| 2 | duende, trasgo, gnomo, kobold o hada con orejas y manos que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Travieso / Rey de duendes | habitual |
+| 3 | duende, trasgo, gnomo, kobold o hada erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Travieso / Rey de duendes | habitual |
+| 4 | duende, trasgo, gnomo, kobold o hada de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Travieso / Rey de duendes | habitual |
+| 5 | Mitad duende, trasgo, gnomo, kobold o hada, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Travieso / Rey de duendes | habitual |
+| 6 | Humano con anatomía de duende, trasgo, gnomo, kobold o hada: orejas puntiagudas, talla pequeña, agilidad; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Travieso / Rey de duendes | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de duende, trasgo, gnomo, kobold o hada; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Travieso / Rey de duendes | habitual |
+| 8 | Persona que se considera duende, trasgo, gnomo, kobold o hada; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Travieso / Rey de duendes | habitual |
+| 9 | Persona con traje o disfraz completo de duende, trasgo, gnomo, kobold o hada; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Travieso / Rey de duendes | habitual |
+| 10 | Persona con accesorios de duende, trasgo, gnomo, kobold o hada por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Travieso / Rey de duendes | habitual |
+| 11 | Trabajador/a con accesorios de duende, trasgo, gnomo, kobold o hada por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Travieso / Rey de duendes | habitual |
+| 12 | Persona con instintos marcados de duende, trasgo, gnomo, kobold o hada, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Travieso / Rey de duendes | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Travieso / Rey de duendes | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Travieso / Rey de duendes | habitual |
+Compatible con las variantes universales (24) excepto: Alienígena, Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T5 · Criaturas orco (equipo típico: armaduras toscas y mazas)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | orco, ogro, troll o gigante sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Guerrero / Caudillo | habitual |
+| 2 | orco, ogro, troll o gigante con mandíbula y torso que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Guerrero / Caudillo | habitual |
+| 3 | orco, ogro, troll o gigante erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Guerrero / Caudillo | habitual |
+| 4 | orco, ogro, troll o gigante de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Guerrero / Caudillo | habitual |
+| 5 | Mitad orco, ogro, troll o gigante, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Guerrero / Caudillo | habitual |
+| 6 | Humano con anatomía de orco, ogro, troll o gigante: mandíbula fuerte, piel gruesa, talla grande; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Guerrero / Caudillo | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de orco, ogro, troll o gigante; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Guerrero / Caudillo | habitual |
+| 8 | Persona que se considera orco, ogro, troll o gigante; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Guerrero / Caudillo | habitual |
+| 9 | Persona con traje o disfraz completo de orco, ogro, troll o gigante; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Guerrero / Caudillo | habitual |
+| 10 | Persona con accesorios de orco, ogro, troll o gigante por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Guerrero / Caudillo | habitual |
+| 11 | Trabajador/a con accesorios de orco, ogro, troll o gigante por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Guerrero / Caudillo | habitual |
+| 12 | Persona con instintos marcados de orco, ogro, troll o gigante, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Guerrero / Caudillo | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Guerrero / Caudillo | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Guerrero / Caudillo | habitual |
+Compatible con las variantes universales (24) excepto: Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T6 · Criaturas no muerta (equipo típico: restos de ropa y armas oxidadas)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | zombi, necrófago, esqueleto o espectro sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Rápido / Horda | habitual |
+| 2 | zombi, necrófago, esqueleto o espectro con rostro y postura que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Rápido / Horda | habitual |
+| 3 | zombi, necrófago, esqueleto o espectro erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Rápido / Horda | habitual |
+| 4 | zombi, necrófago, esqueleto o espectro de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Rápido / Horda | habitual |
+| 5 | Mitad zombi, necrófago, esqueleto o espectro, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Rápido / Horda | habitual |
+| 6 | Humano con anatomía de zombi, necrófago, esqueleto o espectro: piel marchita, huesos, aura fría; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Rápido / Horda | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de zombi, necrófago, esqueleto o espectro; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Rápido / Horda | habitual |
+| 8 | Persona que se considera zombi, necrófago, esqueleto o espectro; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Rápido / Horda | habitual |
+
+<!-- ===== BLOQUE 55_FASES_POR_TEMA_P3 ===== -->
+
+# 55 · CUADROS DE LAS 14 FASES POR TEMA (parte 3/6)
+
+(Continuación de «CUADROS DE LAS 14 FASES POR TEMA»; mismas reglas que la parte 1.)
+
+## T6 · Criaturas no muerta (equipo típico: restos de ropa y armas oxidadas) (continuación)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 9 | Persona con traje o disfraz completo de zombi, necrófago, esqueleto o espectro; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Rápido / Horda | rara |
+| 10 | Persona con accesorios de zombi, necrófago, esqueleto o espectro por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Rápido / Horda | rara |
+| 11 | Trabajador/a con accesorios de zombi, necrófago, esqueleto o espectro por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Rápido / Horda | rara |
+| 12 | Persona con instintos marcados de zombi, necrófago, esqueleto o espectro, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Rápido / Horda | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Rápido / Horda | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Rápido / Horda | habitual |
+Compatible con las variantes universales (24) excepto: Celestial, Regenerativa. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T7 · Criaturas elemental (equipo típico: adornos naturales)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | chispa, gota, terrón, soplo o cristal de hielo sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Furioso / Primigenio | habitual |
+| 2 | chispa, gota, terrón, soplo o cristal de hielo con silueta y extremidades que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Furioso / Primigenio | habitual |
+| 3 | chispa, gota, terrón, soplo o cristal de hielo erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Furioso / Primigenio | habitual |
+| 4 | chispa, gota, terrón, soplo o cristal de hielo de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Furioso / Primigenio | habitual |
+| 5 | Mitad chispa, gota, terrón, soplo o cristal de hielo, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Furioso / Primigenio | habitual |
+| 6 | Humano con anatomía de chispa, gota, terrón, soplo o cristal de hielo: cuerpo de fuego, agua, tierra o aire; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Furioso / Primigenio | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de chispa, gota, terrón, soplo o cristal de hielo; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Furioso / Primigenio | habitual |
+| 8 | Persona que se considera chispa, gota, terrón, soplo o cristal de hielo; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Furioso / Primigenio | rara |
+| 9 | Persona con traje o disfraz completo de chispa, gota, terrón, soplo o cristal de hielo; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Furioso / Primigenio | rara |
+| 10 | Persona con accesorios de chispa, gota, terrón, soplo o cristal de hielo por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Furioso / Primigenio | rara |
+| 11 | Trabajador/a con accesorios de chispa, gota, terrón, soplo o cristal de hielo por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Furioso / Primigenio | rara |
+| 12 | Persona con instintos marcados de chispa, gota, terrón, soplo o cristal de hielo, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Furioso / Primigenio | rara |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Furioso / Primigenio | rara |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Furioso / Primigenio | rara |
+Compatible con las variantes universales (24) excepto: Controlada, Parasitada, Robótica, Zombi. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T8 · Criaturas vegetal (equipo típico: fibras y tejidos naturales)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | brote, hongo, enredadera, árbol o planta carnívora sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Espinoso / Anciano | habitual |
+| 2 | brote, hongo, enredadera, árbol o planta carnívora con ramas y rostro que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Espinoso / Anciano | habitual |
+| 3 | brote, hongo, enredadera, árbol o planta carnívora erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Espinoso / Anciano | habitual |
+| 4 | brote, hongo, enredadera, árbol o planta carnívora de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Espinoso / Anciano | habitual |
+| 5 | Mitad brote, hongo, enredadera, árbol o planta carnívora, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Espinoso / Anciano | habitual |
+| 6 | Humano con anatomía de brote, hongo, enredadera, árbol o planta carnívora: corteza, raíces, esporas, ramas; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Espinoso / Anciano | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de brote, hongo, enredadera, árbol o planta carnívora; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Espinoso / Anciano | habitual |
+| 8 | Persona que se considera brote, hongo, enredadera, árbol o planta carnívora; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Espinoso / Anciano | rara |
+| 9 | Persona con traje o disfraz completo de brote, hongo, enredadera, árbol o planta carnívora; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Espinoso / Anciano | rara |
+| 10 | Persona con accesorios de brote, hongo, enredadera, árbol o planta carnívora por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Espinoso / Anciano | rara |
+| 11 | Trabajador/a con accesorios de brote, hongo, enredadera, árbol o planta carnívora por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Espinoso / Anciano | rara |
+| 12 | Persona con instintos marcados de brote, hongo, enredadera, árbol o planta carnívora, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Espinoso / Anciano | rara |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Espinoso / Anciano | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Espinoso / Anciano | habitual |
+Compatible con las variantes universales (24) excepto: Robótica, Zombi. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T9 · Criaturas mitológica (equipo típico: adornos rituales)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | grifo, quimera, unicornio, fénix o hipogrifo sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Ancestral / Primigenio | habitual |
+| 2 | grifo, quimera, unicornio, fénix o hipogrifo con rostro y postura que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Ancestral / Primigenio | habitual |
+| 3 | grifo, quimera, unicornio, fénix o hipogrifo erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Ancestral / Primigenio | habitual |
+| 4 | grifo, quimera, unicornio, fénix o hipogrifo de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Ancestral / Primigenio | habitual |
+| 5 | Mitad grifo, quimera, unicornio, fénix o hipogrifo, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Ancestral / Primigenio | habitual |
+| 6 | Humano con anatomía de grifo, quimera, unicornio, fénix o hipogrifo: alas, cuernos, plumaje, cola; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Ancestral / Primigenio | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de grifo, quimera, unicornio, fénix o hipogrifo; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Ancestral / Primigenio | habitual |
+
+<!-- ===== BLOQUE 56_FASES_POR_TEMA_P4 ===== -->
+
+# 56 · CUADROS DE LAS 14 FASES POR TEMA (parte 4/6)
+
+(Continuación de «CUADROS DE LAS 14 FASES POR TEMA»; mismas reglas que la parte 1.)
+
+## T9 · Criaturas mitológica (equipo típico: adornos rituales) (continuación)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 8 | Persona que se considera grifo, quimera, unicornio, fénix o hipogrifo; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Ancestral / Primigenio | habitual |
+| 9 | Persona con traje o disfraz completo de grifo, quimera, unicornio, fénix o hipogrifo; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Ancestral / Primigenio | habitual |
+| 10 | Persona con accesorios de grifo, quimera, unicornio, fénix o hipogrifo por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Ancestral / Primigenio | habitual |
+| 11 | Trabajador/a con accesorios de grifo, quimera, unicornio, fénix o hipogrifo por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Ancestral / Primigenio | habitual |
+| 12 | Persona con instintos marcados de grifo, quimera, unicornio, fénix o hipogrifo, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Ancestral / Primigenio | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Ancestral / Primigenio | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Ancestral / Primigenio | habitual |
+Compatible con las variantes universales (24) excepto: Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T10 · Criaturas artificial (equipo típico: módulos y blindaje)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | dron, robot, androide o cyborg sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Blindado / Prototipo | habitual |
+| 2 | dron, robot, androide o cyborg con chasis y rostro que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Blindado / Prototipo | habitual |
+| 3 | dron, robot, androide o cyborg erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Blindado / Prototipo | habitual |
+| 4 | dron, robot, androide o cyborg de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Blindado / Prototipo | habitual |
+| 5 | Mitad dron, robot, androide o cyborg, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Blindado / Prototipo | habitual |
+| 6 | Humano con anatomía de dron, robot, androide o cyborg: chasis, sensores, articulaciones; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Blindado / Prototipo | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de dron, robot, androide o cyborg; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Blindado / Prototipo | habitual |
+| 8 | Persona que se considera dron, robot, androide o cyborg; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Blindado / Prototipo | habitual |
+| 9 | Persona con traje o disfraz completo de dron, robot, androide o cyborg; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Blindado / Prototipo | rara |
+| 10 | Persona con accesorios de dron, robot, androide o cyborg por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Blindado / Prototipo | rara |
+| 11 | Trabajador/a con accesorios de dron, robot, androide o cyborg por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Blindado / Prototipo | rara |
+| 12 | Persona con instintos marcados de dron, robot, androide o cyborg, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Blindado / Prototipo | rara |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Blindado / Prototipo | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Blindado / Prototipo | habitual |
+Compatible con las variantes universales (24) excepto: Celestial, Demoníaca, Parasitada, Regenerativa, Vegetalizada, Zombi. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T11 · Criaturas alienígena (equipo típico: dispositivos extraños)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | criatura de otro mundo sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Adaptado / Anciano | habitual |
+| 2 | criatura de otro mundo con rostro y proporciones que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Adaptado / Anciano | habitual |
+| 3 | criatura de otro mundo erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Adaptado / Anciano | habitual |
+| 4 | criatura de otro mundo de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Adaptado / Anciano | habitual |
+| 5 | Mitad criatura de otro mundo, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Adaptado / Anciano | habitual |
+| 6 | Humano con anatomía de criatura de otro mundo: piel extraña, órganos ajenos, brillo; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Adaptado / Anciano | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de criatura de otro mundo; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Adaptado / Anciano | habitual |
+| 8 | Persona que se considera criatura de otro mundo; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Adaptado / Anciano | habitual |
+| 9 | Persona con traje o disfraz completo de criatura de otro mundo; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Adaptado / Anciano | habitual |
+| 10 | Persona con accesorios de criatura de otro mundo por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Adaptado / Anciano | habitual |
+| 11 | Trabajador/a con accesorios de criatura de otro mundo por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Adaptado / Anciano | habitual |
+| 12 | Persona con instintos marcados de criatura de otro mundo, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Adaptado / Anciano | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Adaptado / Anciano | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Adaptado / Anciano | habitual |
+Compatible con las variantes universales (24) excepto: Celestial, Demoníaca. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T12 · Criaturas mutante (equipo típico: ropa remendada)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | humano mutado o experimento de laboratorio sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Brutal / Prototipo | habitual |
+| 2 | humano mutado o experimento de laboratorio con rostro y cuerpo que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Brutal / Prototipo | habitual |
+| 3 | humano mutado o experimento de laboratorio erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Brutal / Prototipo | habitual |
+| 4 | humano mutado o experimento de laboratorio de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Brutal / Prototipo | habitual |
+| 5 | Mitad humano mutado o experimento de laboratorio, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Brutal / Prototipo | habitual |
+| 6 | Humano con anatomía de humano mutado o experimento de laboratorio: deformidades, regeneración, tamaño; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Brutal / Prototipo | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de humano mutado o experimento de laboratorio; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Brutal / Prototipo | habitual |
+
+<!-- ===== BLOQUE 57_FASES_POR_TEMA_P5 ===== -->
+
+# 57 · CUADROS DE LAS 14 FASES POR TEMA (parte 5/6)
+
+(Continuación de «CUADROS DE LAS 14 FASES POR TEMA»; mismas reglas que la parte 1.)
+
+## T12 · Criaturas mutante (equipo típico: ropa remendada) (continuación)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 8 | Persona que se considera humano mutado o experimento de laboratorio; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Brutal / Prototipo | habitual |
+| 9 | Persona con traje o disfraz completo de humano mutado o experimento de laboratorio; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Brutal / Prototipo | habitual |
+| 10 | Persona con accesorios de humano mutado o experimento de laboratorio por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Brutal / Prototipo | habitual |
+| 11 | Trabajador/a con accesorios de humano mutado o experimento de laboratorio por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Brutal / Prototipo | habitual |
+| 12 | Persona con instintos marcados de humano mutado o experimento de laboratorio, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Brutal / Prototipo | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Brutal / Prototipo | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Brutal / Prototipo | habitual |
+Compatible con las variantes universales (24) excepto: ninguna restricción. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T13 · Criaturas amorfa (equipo típico: ninguno; objetos absorbidos)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | slime, gelatina o masa sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Corrosivo / Rey | habitual |
+| 2 | slime, gelatina o masa con silueta y superficie que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Corrosivo / Rey | habitual |
+| 3 | slime, gelatina o masa erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Corrosivo / Rey | habitual |
+| 4 | slime, gelatina o masa de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Corrosivo / Rey | habitual |
+| 5 | Mitad slime, gelatina o masa, mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Corrosivo / Rey | habitual |
+| 6 | Humano con anatomía de slime, gelatina o masa: cuerpo gelatinoso, divisible; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Corrosivo / Rey | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de slime, gelatina o masa; personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Corrosivo / Rey | habitual |
+| 8 | Persona que se considera slime, gelatina o masa; usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Corrosivo / Rey | rara |
+| 9 | Persona con traje o disfraz completo de slime, gelatina o masa; quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Corrosivo / Rey | rara |
+| 10 | Persona con accesorios de slime, gelatina o masa por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Corrosivo / Rey | rara |
+| 11 | Trabajador/a con accesorios de slime, gelatina o masa por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Corrosivo / Rey | rara |
+| 12 | Persona con instintos marcados de slime, gelatina o masa, sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Corrosivo / Rey | rara |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Corrosivo / Rey | rara |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Corrosivo / Rey | rara |
+Compatible con las variantes universales (24) excepto: Blindada, Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## T14 · Criaturas alfa (equipo típico: pieles, telas y ropa humana según lore)
+| Fase | Cómo es | Habla · manos | Equipo máx. | Conducta | Variantes V1 / V2 / V3 | Frecuencia |
+|---|---|---|---|---|---|---|
+| 1 | alfa (emparentado con los lobos) sin ningún rasgo humano; actúa por instinto. | No · — | ninguno | instinto | Común / Veterano / Guardián del territorio | habitual |
+| 2 | alfa (emparentado con los lobos) con rostro y torso que recuerdan a lo humano; conserva su estructura propia y no tiene manos. | No · — | ninguno | instinto, observa | Común / Veterano / Guardián del territorio | habitual |
+| 3 | alfa (emparentado con los lobos) erguido que usa sus miembros delanteros como manos; todavía no habla. | No · patas-mano | objetos simples | curiosa o recelosa | Común / Veterano / Guardián del territorio | habitual |
+| 4 | alfa (emparentado con los lobos) de cuerpo humanoide completo y erguido; **desde esta fase se comunica**. | Sí · patas-mano | E1 | negocia, cuida su territorio | Común / Veterano / Guardián del territorio | habitual |
+| 5 | Mitad alfa (emparentado con los lobos), mitad humano en un mismo cuerpo (quimera); habla y vive en sociedad. | Sí · manos | E3 | social o territorial | Común / Veterano / Guardián del territorio | habitual |
+| 6 | Humano con anatomía de alfa (emparentado con los lobos): musculatura extrema, vello largo, dientes inferiores; altura y tamaño notables; manos humanas. | Sí · humanas | E3 | variable, impone respeto | Común / Veterano / Guardián del territorio | habitual |
+| 7 | Persona de aspecto muy humano con rasgos sutiles de alfa (emparentado con los lobos); personalidad bien formada. | Sí · humanas | E4 | sociable | Común / Veterano / Guardián del territorio | habitual |
+| 8 | Persona que se considera alfa (emparentado con los lobos); usa prótesis o accesorios permanentes que reemplazan partes del cuerpo. | Sí · humanas + prótesis | E3 | imita a su tipo | Común / Veterano / Guardián del territorio | habitual |
+| 9 | Persona con traje o disfraz completo de alfa (emparentado con los lobos); quiere sentirse un ser tierno e inocente. | Sí · humanas (traje) | E2 | juguetona, pacífica | Común / Veterano / Guardián del territorio | habitual |
+| 10 | Persona con accesorios de alfa (emparentado con los lobos) por identidad o gusto; no deja de verse humana. | Sí · humanas | E4 | individual | Común / Veterano / Guardián del territorio | habitual |
+| 11 | Trabajador/a con accesorios de alfa (emparentado con los lobos) por obligación laboral (espectáculo o atención al público). | Sí · humanas | E1 | servicial | Común / Veterano / Guardián del territorio | habitual |
+| 12 | Persona con instintos marcados de alfa (emparentado con los lobos), sin rasgos físicos. | Sí · humanas | E3 | instintiva, iniciativa +10 | Común / Veterano / Guardián del territorio | habitual |
+| 13 | Humano normal y funcional, sin rasgos de este tema. | Sí · humanas | E5 | normal | Común / Veterano / Guardián del territorio | habitual |
+| 14 | Humano que rechaza todo lo que no parece humano; evita a las criaturas de este tema. | Sí · humanas | E5 | evita y rechaza | Común / Veterano / Guardián del territorio | habitual |
+Compatible con las variantes universales (24) excepto: Robótica. Las fases marcadas «rara» pueden quedar fuera del lore sin romper nada.
+
+## MATRIZ DE COMPATIBILIDAD: variantes universales × temas
+| Variante | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 | T11 | T12 | T13 | T14 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Demoníaca | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| Infernal | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Celestial | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| Corrupta | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Zombi | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Parasitada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Controlada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Alienígena | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Robótica | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✗ |
+
+<!-- ===== BLOQUE 58_FASES_POR_TEMA_P6 ===== -->
+
+# 58 · CUADROS DE LAS 14 FASES POR TEMA (parte 6/6)
+
+(Continuación de «CUADROS DE LAS 14 FASES POR TEMA»; mismas reglas que la parte 1.)
+
+## MATRIZ DE COMPATIBILIDAD: variantes universales × temas (continuación)
+| Variante | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 | T11 | T12 | T13 | T14 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Biomecánica | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Experimental | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Quimérica | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Mutada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Radiactiva | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Domesticada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Anciana | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Rabiosa | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Alfa/Líder | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Gigante | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Enana | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Blindada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ |
+| Regenerativa | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Veloz | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Bioluminiscente | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Albina | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Cristalizada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Gelatinosa | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Vegetalizada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Mineralizada | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Espectral | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Fantasmal | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Elemental | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+✓ = compatible, ✗ = no aplica (a menos que el lore lo permita). Máx. 3 modificadores por entidad (24).
+
+<!-- ===== BLOQUE 59_NPC_CON_NOMBRE_P1 ===== -->
+
+# 59 · CLASIFICACIÓN DE NPC CON NOMBRE (parte 1/4)
+
+**NPC con nombre** (por arquetipo, sin nombres originales): `NPC-nnn` + palabras clave. El **lore** les pone nombre, apariencia (50) y lugar; el arquetipo es neutro en edad adulta y en apariencia. **Cada NPC tiene de 1 a 5 misiones** (asignadas al azar con semilla fija, tal cual); el nombre de la misión sale de su personalidad y del tipo de misión (34 tipos, ver bloque de misiones base). Un NPC que cae bien o interesa muestra **relación** (09); se le puede pedir que **te siga o te acompañe** (temporal). **El lore puede agregar más NPC** y descartar los que no encajan: lo que el lore no menciona, no existe. Todo NPC adulto lleva `edad: adulto`.
+
+## NPC adultos (arquetipos)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NPC-001 | supervisor/a de instalación | autoritario/a, controlador/a, secreto | refugio o instalación | 1: «Una mesa para la autoridad» (NEG) |
+| NPC-002 | jefe/a médico/a de instalación | culto/a, amable, reservado/a | refugio o instalación | 1: «Pistas de la esperanza» (INV) |
+| NPC-003 | guardia de seguridad de instalación | estricto/a, cansado/a, leal | refugio o instalación | 5: «Ronda por el mercado» (VIG) · «Noche de guardia» (DEF) · «Guardia contra la plaga» (AMN) · «El misterio del puesto» (INV) · «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-004 | maestro/a de instalación | paciente, firme, protector/a | refugio o instalación | 4: «Letras y cuentas» (ENS) · «Volver a casa» (FAM) · «Devolver el cuaderno» (REC) · «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-005 | cocinero/a comunal | generoso/a, mandón/a, chismoso/a | refugio o instalación | 4: «Negocio en el bosque» (COM) · «Provisión del mercado» (RCL) · «Fiesta del granero» (FIE) · «En busca del mapa» (REC) |
+| NPC-006 | técnico/a de mantenimiento | obsesivo/a, ingenioso/a, impaciente | refugio o instalación | 2: «Manos a la obra» (FAB) · «Antena y cable» (CON) |
+| NPC-007 | científico/a de instalación | curioso/a, distraído/a, brillante | refugio o instalación | 2: «Letras en la pared» (PUZ) · «Código de la curiosidad» (HCK) |
+| NPC-008 | guía de la instalación | amable, ordenado/a, nervioso/a | refugio o instalación | 1: «El camino seguro» (ESC) |
+| NPC-009 | cuidador/a de archivos | metódico/a, callado/a, curioso/a | refugio o instalación | 4: «Qué pasó en el puesto» (INV) · «Código del silencio» (HCK) · «Rastro del mapa» (REC) · «Aprender con el silencio» (ENS) |
+| NPC-010 | radio operador/a de instalación | alegre, hablador/a, solitario/a | refugio o instalación | 1: «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-011 | intendente de instalación | ahorrativo/a, estricto/a | refugio o instalación | 2: «Lo que se llevó el orden» (REC) · «Un buen trato» (COM) |
+| NPC-012 | vecino/a mayor de instalación | nostálgico/a, terco/a, protector/a | refugio o instalación | 3: «Rastro de la reliquia» (REC) · «Sin noticias» (FAM) · «El misterio del bosque» (INV) |
+| NPC-013 | comisario/a de asentamiento | honesto/a, rígido/a, orgulloso/a | asentamiento | 1: «A quién creerle» (BND) |
+| NPC-014 | alcalde/sa de asentamiento | pragmático/a, firme, diplomático/a | asentamiento | 1: «La muralla de la esperanza» (DEF) |
+| NPC-015 | sacerdote/sa de comunidad | sereno/a, persuasivo/a, bondadoso/a | asentamiento | 2: «Antes del amanecer» (MED) · «Secreto de la bondad» (PUZ) |
+| NPC-016 | médico/a de asentamiento | cansado/a, ético/a, sarcástico/a | asentamiento | 1: «Material para el cansancio» (RCL) |
+| NPC-017 | comerciante de armas | charlatán/a, codicioso/a, leal | comercio | 3: «Lo que se llevó la palabra» (REC) · «Negocio en el camino» (COM) · «Carga callada» (CTR) |
+| NPC-018 | comerciante de recursos generales | curioso/a, ahorrativo/a, regateador/a | comercio | 3: «Lo que se llevó la curiosidad» (REC) · «Negocio en el refugio» (COM) · «Todo lo que se junta» (RCL) |
+| NPC-019 | comerciante de comida | generoso/a, mandón/a, supersticioso/a | comercio | 4: «Pedido especial» (COM) · «Fiesta del granero» (FIE) · «Todo lo que se junta» (RCL) · «Carga hasta el puente» (TRA) |
+| NPC-020 | comerciante de medicinas | cauto/a, ético/a, reservado/a | comercio | 2: «Manos que sanan» (MED) · «Negocio en el viejo túnel» (COM) |
+| NPC-021 | comerciante de animales de carga | bonachón/a, miedoso/a, hablador/a | comercio | 2: «Negocio en el mercado» (COM) · «Compañía para el miedo» (ESC) |
+| NPC-022 | comerciante de ropa y telas | creativo/a, vanidoso/a, simpático/a | comercio | 1: «El invento de la creatividad» (FAB) |
+| NPC-023 | comerciante de libros y notas | erudito/a, tranquilo/a, curioso/a | comercio | 2: «Libros que faltan» (ENS) · «En busca de la reliquia» (REC) |
+| NPC-024 | mecánico/a | obsesivo/a, perfeccionista, impaciente | asentamiento | 2: «Rastro de la llave» (REC) · «Antena y cable» (CON) |
+| NPC-025 | herrero/a | fuerte, orgulloso/a, paciente | asentamiento | 1: «Construir juntos» (CON) |
+| NPC-026 | armero/a | meticuloso/a, desconfiado/a, hábil | asentamiento | 2: «Rastro del cuaderno» (REC) · «Reparación en el mercado» (FAB) |
+| NPC-027 | curtidor/a | callado/a, trabajador/a, práctico/a | asentamiento | 4: «Todo lo que se junta» (RCL) · «Un buen trato» (COM) · «El trofeo del silencio» (CAZ) · «Rastro de la herramienta» (REC) |
+| NPC-028 | tabernero/a | cálido/a, discreto/a, chismoso/a | asentamiento | 3: «Día de feria» (FIE) · «Pistas de la esperanza» (INV) · «Mercancía para la esperanza» (COM) |
+| NPC-029 | posadero/a | hospitalario/a, curioso/a, cansado/a | asentamiento | 2: «Negocio en el bosque» (COM) · «Volver a casa» (FAM) |
+| NPC-030 | cantinero/a de local | sarcástico/a, cordial, atento/a | asentamiento | 4: «Negocio de noche» (CTR) · «El misterio del camino» (INV) · «La sombra de la ironía» (DET) · «El concurso de la ironía» (FIE) |
+| NPC-031 | animador/a de espectáculo | carismático/a, trabajador/a, risueño/a | asentamiento | 3: «Entrega urgente» (MSJ) · «Fiesta del puente» (FIE) · «En busca de la brújula» (REC) |
+| NPC-032 | apostador/a profesional | astuto/a, ambicioso/a, supersticioso/a | asentamiento | 4: «Pruebas del bosque» (DET) · «Pagar con tiempo» (COB) · «Premio inesperado» (FIE) · «Un mensaje para la astucia» (MSJ) |
+| NPC-033 | prestamista | frío/a, calculador/a, educado/a | asentamiento | 5: «Lo que se debe» (COB) · «Carga callada» (CTR) · «Mediación» (NEG) · «Día de feria» (FIE) · «Material para la frialdad» (RCL) |
+| NPC-034 | cobrador/a de deudas | insistente, tenso/a, cumplidor/a | asentamiento | 3: «Pagar con tiempo» (COB) · «Una mesa para la esperanza» (NEG) · «La sombra de la esperanza» (DET) |
+| NPC-035 | mensajero/a | nervioso/a, veloz, chismoso/a | asentamiento | 1: «Cartas sin dueño» (MSJ) |
+| NPC-036 | pregonero/a | fuerte, divertido/a, dramático/a | asentamiento | 3: «Cartas sin dueño» (MSJ) · «El concurso de la esperanza» (FIE) · «Todo lo que se junta» (RCL) |
+| NPC-037 | cartero/a del pueblo | puntual, amable, cansado/a | asentamiento | 3: «Sobre ruedas» (TRA) · «Lo que no se dijo a tiempo» (MSJ) · «Mercancía para el cansancio» (COM) |
+| NPC-038 | bibliotecario/a | erudito/a, sereno/a, protector/a | asentamiento | 2: «Aprender con la protección» (ENS) · «Puertas que no abren» (PUZ) |
+| NPC-039 | maestro/a de pueblo | paciente, firme, soñador/a | asentamiento | 2: «Fiesta del camino» (FIE) · «Aprender con la paciencia» (ENS) |
+| NPC-040 | científico/a de asentamiento | distraído/a, brillante, curioso/a | asentamiento | 4: «El misterio del refugio» (INV) · «Código de la distracción» (HCK) · «Provisión del pozo» (RCL) · «Pruebas del muelle» (DET) |
+| NPC-041 | inventor/a | excéntrico/a, optimista, distraído/a | asentamiento | 1: «Pieza única» (ART) |
+| NPC-042 | juez/a improvisado/a | justo/a, severo/a, cansado/a | asentamiento | 4: «Una mesa para el cansancio» (NEG) · «La balanza del cansancio» (BND) · «La sombra del cansancio» (DET) · «Mercancía para el cansancio» (COM) |
+| NPC-043 | abogado/a del pueblo | elocuente, escéptico/a, ocupado/a | asentamiento | 4: «Mediación» (NEG) · «¿quién fue?» (DET) · «Lo que no se dijo a tiempo» (MSJ) · «Devolver el mapa» (REC) |
+| NPC-044 | periodista local | curioso/a, insistente, valiente | asentamiento | 1: «El misterio del granero» (INV) |
+| NPC-045 | locutor/a de radio | carismático/a, nocturno/a, solitario/a | ciencia o radio | 1: «Un mensaje para la soledad» (MSJ) |
+| NPC-046 | escritor/a del páramo | soñador/a, introvertido/a, crítico/a | asentamiento | 5: «Qué pasó en el viejo túnel» (INV) · «Letras y cuentas» (ENS) · «Un mensaje para la esperanza» (MSJ) · «Rastro de la herramienta» (REC) · «Un buen trato» (COM) |
+| NPC-047 | cartógrafo/a | meticuloso/a, aventurero/a, curioso/a | asentamiento | 3: «Cruzar con cuidado» (ESC) · «Más allá del refugio» (EXP) · «Los bordes del mapa» (MAP) |
+| NPC-048 | adivino/a o vidente | misterioso/a, teatral, amable | lugar especial | 3: «Qué pasó en el granero» (INV) · «Letras en la pared» (PUZ) · «Lo que brilla en el mercado» (ART) |
+| NPC-049 | borracho/a del pueblo | simpático/a, llorón/a, desordenado/a | asentamiento | 1: «El camino de vuelta» (FAM) |
+| NPC-050 | mendigo/a sabio/a | humilde, observador/a, bromista | asentamiento | 3: «Entrega urgente» (MSJ) · «El misterio del viejo túnel» (INV) · «Material para la esperanza» (RCL) |
+| NPC-051 | guardia de puerta | estricto/a, aburrido/a, leal | asentamiento | 1: «Puesto del orden» (VIG) |
+| NPC-052 | cazador/a de recompensas | callado/a, preciso/a, desconfiado/a | camino o ruina | 2: «Un favor por otro» (COB) · «Caso sin cerrar» (DET) |
+| NPC-053 | escribano/a | metódico/a, tímido/a, perfeccionista | asentamiento | 1: «Cartas sin dueño» (MSJ) |
+| NPC-054 | artesano/a | creativo/a, paciente, orgulloso/a | asentamiento | 1: «Mercancía para la creatividad» (COM) |
+| NPC-055 | recolector/a de chatarra | ingenioso/a, ahorrativo/a, solitario/a | camino o ruina | 3: «Rastro de la reliquia» (REC) · «Mercancía para el ingenio» (COM) · «Todo lo que se junta» (RCL) |
+| NPC-056 | sepulturero/a | callado/a, filósofo/a, tranquilo/a | asentamiento | 4: «El misterio del granero» (INV) · «Letras en la pared» (PUZ) · «Pruebas del mercado» (DET) · «Entrega urgente» (MSJ) |
+| NPC-057 | partera o enfermero/a comunal | bondadoso/a, firme, incansable | asentamiento | 1: «Antes del amanecer» (MED) |
+| NPC-058 | panadero/a | madrugador/a, generoso/a, mandón/a | asentamiento | 2: «Pedido especial» (COM) · «Material para la generosidad» (RCL) |
+| NPC-059 | carnicero/a | directo/a, trabajador/a, práctico/a | asentamiento | 1: «Un buen trato» (COM) |
+| NPC-060 | pescador/a | alegre, supersticioso/a, valiente | puerto o ribera | 1: «Tras la presa de la alegría» (CAZ) |
+
+<!-- ===== BLOQUE 60_NPC_CON_NOMBRE_P2 ===== -->
+
+# 60 · CLASIFICACIÓN DE NPC CON NOMBRE (parte 2/4)
+
+(Continuación de «CLASIFICACIÓN DE NPC CON NOMBRE»; mismas reglas que la parte 1.)
+
+## NPC adultos (arquetipos) (continuación)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NPC-061 | barquero/a | callado/a, hábil, ahorrativo/a | puerto o ribera | 1: «Escolta hasta el pueblo» (ESC) |
+| NPC-062 | guardia del puerto | estricto/a, cansado/a, curioso/a | puerto o ribera | 1: «Ronda por el granero» (VIG) |
+| NPC-063 | contrabandista | astuto/a, encantador/a, tenso/a | puerto o ribera | 2: «Lo que no se declara» (CTR) · «Entrar por la ventana» (INF) |
+| NPC-064 | capitán/a de barco | carismático/a, valiente, orgulloso/a | puerto o ribera | 1: «Escolta hasta el refugio» (ESC) |
+| NPC-065 | vigía de faro | solitario/a, soñador/a, atento/a | puerto o ribera | 3: «Entrega urgente» (MSJ) · «Pistas de la soledad» (INV) · «Escolta hasta el puesto» (ESC) |
+| NPC-066 | oficial de aduana | meticuloso/a, desconfiado/a, formal | puerto o ribera | 1: «Caso sin cerrar» (DET) |
+| NPC-067 | líder de orden armada | carismático/a, disciplinado/a, justo/a | orden armada | 2: «A quién creerle» (BND) · «Resistir en el taller» (DEF) |
+| NPC-068 | caballero/a de orden | honesto/a, orgulloso/a, leal | orden armada | 2: «El camino seguro» (ESC) · «Cuando no alcanza el orgullo» (AMN) |
+| NPC-069 | escriba o técnico/a de orden | erudito/a, distraído/a, curioso/a | orden armada | 2: «Qué pasó en el taller» (INV) · «Reiniciar el viejo túnel» (HCK) |
+| NPC-070 | paladín/a de orden | fuerte, noble, severo/a | orden armada | 4: «Defender lo propio» (DEF) · «El jefe del viejo túnel» (JEF) · «Guardia contra los saqueadores» (AMN) · «Qué pasó en el puesto» (INV) |
+| NPC-071 | intendente de orden | ahorrativo/a, estricto/a, justo/a | orden armada | 2: «Un buen trato» (COM) · «Rastro del cuaderno» (REC) |
+| NPC-072 | armero/a de orden | meticuloso/a, orgulloso/a | orden armada | 4: «En busca del cuaderno» (REC) · «Algo que funcione» (FAB) · «Escolta hasta el camino» (ESC) · «Noche de guardia» (DEF) |
+| NPC-073 | reclutador/a de orden | persuasivo/a, directo/a | orden armada | 3: «Puesto de la esperanza» (VIG) · «Rutas nuevas» (EXP) · «Cruzar con cuidado» (ESC) |
+| NPC-074 | desertor/a de orden | culposo/a, asustado/a, noble | orden armada | 4: «Palabras en el puente» (NEG) · «Atrapado por los intrusos» (RSC) · «Defender lo propio» (DEF) · «Turno de noche» (VIG) |
+| NPC-075 | médico/a militar | práctico/a, cansado/a, bondadoso/a | orden armada | 3: «Remedio para el cansancio» (MED) · «Contra el veneno» (CUR) · «Cuando no alcanza el cansancio» (AMN) |
+| NPC-076 | estratega militar | frío/a, calculador/a, paciente | orden armada | 5: «La balanza de la frialdad» (BND) · «Noche de guardia» (DEF) · «Ronda por el puente» (VIG) · «Qué pasó en el viejo túnel» (INV) · «El camino seguro» (ESC) |
+| NPC-077 | vigía de torre militar | atento/a, callado/a, leal | orden armada | 3: «Puesto del silencio» (VIG) · «Cuando no alcanza el silencio» (AMN) · «La muralla del silencio» (DEF) |
+| NPC-078 | instructor/a de campo | severo/a, motivador/a, exigente | orden armada | 4: «Puesto de la esperanza» (VIG) · «Letras y cuentas» (ENS) · «Cruzar con cuidado» (ESC) · «Defender lo propio» (DEF) |
+| NPC-079 | ingeniero/a de campo | ingenioso/a, impaciente, práctico/a | orden armada | 2: «Construir juntos» (CON) · «Voz del mercado» (HCK) |
+| NPC-080 | exploradora de orden | valiente, curioso/a, ágil | orden armada | 5: «Tinta y senderos» (MAP) · «Mapa del taller» (EXP) · «El misterio del refugio» (INV) · «Compañía para la valentía» (ESC) · «Limpiar el refugio» (AMN) |
+| NPC-081 | cazadora de bestias de orden | callada, precisa, respetuosa | orden armada | 4: «Última guardia» (JEF) · «Cacería en el bosque» (CAZ) · «Paz para el pueblo» (AMN) · «La muralla del silencio» (DEF) |
+| NPC-082 | archivero/a de orden | callado/a, metódico/a, protector/a | orden armada | 5: «Devolver el mapa» (REC) · «Ruido en la noche» (INV) · «Cuando no alcanza el silencio» (AMN) · «Ojos abiertos» (VIG) · «Defender lo propio» (DEF) |
+| NPC-083 | dueño/a de torre habitada | ambicioso/a, elegante, desconfiado/a | torre o enclave | 1: «A quién creerle» (BND) |
+| NPC-084 | gerente de torre | formal, nervioso/a, eficiente | torre o enclave | 2: «Lo que se llevó los nervios» (REC) · «Pruebas del puente» (DET) |
+| NPC-085 | conserje de torre | amable, chismoso/a, observador/a | torre o enclave | 1: «Pistas de la esperanza» (INV) |
+| NPC-086 | chef de torre | exigente, creativo/a, orgulloso/a | torre o enclave | 4: «Día de feria» (FIE) · «Faltan materiales» (RCL) · «Un mensaje para la creatividad» (MSJ) · «Rastro de la medalla» (REC) |
+| NPC-087 | guardia de torre | estricto/a, aburrido/a, leal | torre o enclave | 5: «Turno de noche» (VIG) · «Guardia contra los ladrones de camino» (AMN) · «Palabras en el mercado» (NEG) · «Cartas sin dueño» (MSJ) · «Lo que se llevó el orden» (REC) |
+| NPC-088 | huésped adinerado/a | vanidoso/a, caprichoso/a, curioso/a | torre o enclave | 5: «Lo que brilla en el granero» (ART) · «Pedido especial» (COM) · «Entrega urgente» (MSJ) · «En busca del cuaderno» (REC) · «Pruebas del puente» (DET) |
+| NPC-089 | excluido/a de la torre | resentido/a, valiente, digno/a | torre o enclave | 3: «Con unos o con otros» (BND) · «Mediación» (NEG) · «La sombra de la valentía» (DET) |
+| NPC-090 | activista por la inclusión | apasionado/a, terco/a, generoso/a | torre o enclave | 4: «Con unos o con otros» (BND) · «Palabras en el refugio» (NEG) · «En busca del cuaderno» (REC) · «La sombra de la terquedad» (DET) |
+| NPC-091 | médico/a de torre | discreto/a, ocupado/a, ético/a | torre o enclave | 2: «Respirar de nuevo» (CUR) · «Antes del amanecer» (MED) |
+| NPC-092 | secretario/a de torre | eficiente, tenso/a, discreto/a | torre o enclave | 4: «La sombra de la esperanza» (DET) · «Cartas sin dueño» (MSJ) · «En busca de la reliquia» (REC) · «Paz a medias» (NEG) |
+| NPC-093 | asesor/a de torre | frío/a, estratega, amable | torre o enclave | 3: «Mediación» (NEG) · «La sombra de la frialdad» (DET) · «Lo que se llevó la frialdad» (REC) |
+| NPC-094 | capitán/a de saqueadores | bravucón/a, carismático/a, cruel | zona hostil | 1: «Paz para el pueblo» (AMN) |
+| NPC-095 | líder de esclavistas | cruel, calculador/a, falso/a cortés | zona hostil | 4: «Rescate en el pozo» (RSC) · «El jefe del muelle» (JEF) · «Con unos o con otros» (BND) · «Sin ser vistos» (INF) |
+| NPC-096 | traficante de cautivos | frío/a, hablador/a, codicioso/a | zona hostil | 1: «Negocio de noche» (CTR) |
+| NPC-097 | jefe/a de pandilla | bravucón/a, leal, impulsivo/a | zona hostil | 5: «A quién creerle» (BND) · «Defender lo propio» (DEF) · «Mediación» (NEG) · «Sombra sobre el camino» (JEF) · «La salida del muelle» (RSC) |
+| NPC-098 | mercenaria | fría, pragmática, leal al pago | zona hostil | 1: «Cacería en el granero» (CAZ) |
+| NPC-099 | francotirador/a de banda | callado/a, preciso/a, paciente | zona hostil | 3: «En silencio» (INF) · «El jefe del pueblo» (JEF) · «Atrapado por los saqueadores» (RSC) |
+| NPC-100 | líder de culto | carismático/a, fanático/a, amable | zona hostil | 1: «Letras en la pared» (PUZ) |
+| NPC-101 | sacerdote/sa de culto | sereno/a, fanático/a, persuasivo/a | zona hostil | 3: «El misterio del mercado» (INV) · «Puertas que no abren» (PUZ) · «Limpiar el pueblo» (AMN) |
+| NPC-102 | médico/a de culto | amable, obediente, miedoso/a | zona hostil | 3: «Rescate en el pueblo» (RSC) · «Manos que sanan» (MED) · «Última guardia» (JEF) |
+| NPC-103 | capataz de campamento | autoritario/a, cruel, ambicioso/a | zona hostil | 1: «Sombra sobre el camino» (JEF) |
+| NPC-104 | domador/a de bestias | paciente, rudo/a, orgulloso/a | zona hostil | 2: «La presa del puente» (CAZ) · «Sombra sobre el taller» (JEF) |
+| NPC-105 | ladrón/a de camino | astuto/a, ágil, bromista | camino o ruina | 4: «Pruebas del granero» (DET) · «En busca de la herramienta» (REC) · «Sin ser vistos» (INF) · «Limpiar el pozo» (AMN) |
+| NPC-106 | bandido/a de peaje | bravucón/a, calculador/a, ruidoso/a | camino o ruina | 3: «Guardia contra la plaga» (AMN) · «Una mesa para la bravuconería» (NEG) · «Cruzar con cuidado» (ESC) |
+| NPC-107 | infiltrado/a | astuto/a, encantador/a, tenso/a | zona hostil | 5: «Entrar por la ventana» (INF) · «¿quién fue?» (DET) · «Paz para el bosque» (AMN) · «Atrapado por los saqueadores» (RSC) · «Sombra sobre el granero» (JEF) |
+| NPC-108 | ex saqueador/a arrepentido/a | culposo/a, servicial, asustadizo/a | camino o ruina | 4: «Atrapado por los ladrones de camino» (RSC) · «Sin noticias» (FAM) · «Rastro del mapa» (REC) · «Compañía para la culpa» (ESC) |
+| NPC-109 | jefe/a de caravana | astuto/a, cansado/a, protector/a | camino o ruina | 4: «Carga hasta el camino» (TRA) · «Escolta hasta el taller» (ESC) · «Negocio de noche» (CTR) · «Guardia contra los saqueadores» (AMN) |
+| NPC-110 | guardia de caravana | leal, ruidoso/a, cansado/a | camino o ruina | 5: «Escolta hasta el camino» (ESC) · «Defender lo propio» (DEF) · «Rastro de la brújula» (REC) · «Paz para el pueblo» (AMN) · «Más allá del muelle» (EXP) |
+| NPC-111 | buhonero/a ambulante | nervioso/a, misterioso/a, simpático/a | camino o ruina | 5: «Mercancía para los nervios» (COM) · «Lo que no se dijo a tiempo» (MSJ) · «El misterio del viejo túnel» (INV) · «Mapa del viejo túnel» (EXP) · «Devolver el cuaderno» (REC) |
+| NPC-112 | viajero/a perdido/a | educado/a, asustado/a, agradecido/a | camino o ruina | 3: «El camino seguro» (ESC) · «La salida del bosque» (RSC) · «Cartas sin dueño» (MSJ) |
+| NPC-113 | superviviente aislado/a | desconfiado/a, ingenioso/a, solitario/a | camino o ruina | 3: «El misterio del camino» (INV) · «Atrapado por los saqueadores» (RSC) · «Guardia contra los intrusos» (AMN) |
+| NPC-114 | náufrago/a | agradecido/a, agotado/a, valiente | puerto o ribera | 2: «Volver a casa» (FAM) · «La salida del muelle» (RSC) |
+| NPC-115 | prisionero/a | digno/a, asustado/a, ingenioso/a | zona hostil | 2: «Entrar por la ventana» (INF) · «Rescate en el puente» (RSC) |
+| NPC-116 | explorador/a herido/a | valiente, cansado/a, orgulloso/a | camino o ruina | 4: «Lo que no se dijo a tiempo» (MSJ) · «No dejar a nadie atrás» (RSC) · «Rutas nuevas» (EXP) · «Cuando no alcanza la valentía» (AMN) |
+
+<!-- ===== BLOQUE 61_NPC_CON_NOMBRE_P3 ===== -->
+
+# 61 · CLASIFICACIÓN DE NPC CON NOMBRE (parte 3/4)
+
+(Continuación de «CLASIFICACIÓN DE NPC CON NOMBRE»; mismas reglas que la parte 1.)
+
+## NPC adultos (arquetipos) (continuación)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NPC-117 | peregrino/a | sereno/a, resistente, curioso/a | camino o ruina | 3: «Cruzar con cuidado» (ESC) · «Puertas que no abren» (PUZ) · «Paz para el bosque» (AMN) |
+| NPC-118 | ermitaño/a | solitario/a, filósofo/a, gruñón/a | lugar especial | 2: «El acertijo del puesto» (PUZ) · «Ruido en la noche» (INV) |
+| NPC-119 | anciano/a sabio/a | paciente, tozudo/a, bondadoso/a | lugar especial | 2: «Sin noticias» (FAM) · «Letras en la pared» (PUZ) |
+| NPC-120 | guardián/a de un archivo | callado/a, protector/a, desconfiado/a | lugar especial | 2: «Código del silencio» (HCK) · «Letras en la pared» (PUZ) |
+| NPC-121 | curador/a de museo | erudito/a, orgulloso/a, meticuloso/a | lugar especial | 1: «Pieza única» (ART) |
+| NPC-122 | coleccionista | excéntrico/a, ambicioso/a, curioso/a | lugar especial | 2: «Mercancía para la ambición» (COM) · «Artefacto de la ambición» (ART) |
+| NPC-123 | guía de supervivencia | práctico/a, directo/a, sabio/a | lugar especial | 5: «Letras y cuentas» (ENS) · «Dibujar el pozo» (MAP) · «Puertas que no abren» (PUZ) · «Ruido en la noche» (INV) · «Tesoro con condición» (ART) |
+| NPC-124 | botánico/a | curioso/a, paciente, distraído/a | lugar especial | 2: «Material para la curiosidad» (RCL) · «Antes del amanecer» (MED) |
+| NPC-125 | domadora de criaturas | paciente, valiente, tierna | lugar especial | 1: «Cacería en el granero» (CAZ) |
+| NPC-126 | apicultor/a | paciente, tranquilo/a, valiente | granja o industria | 5: «Guardia contra las sombras» (AMN) · «Provisión del viejo túnel» (RCL) · «Noche de guardia» (DEF) · «Carga hasta el pozo» (TRA) · «Un buen trato» (COM) |
+| NPC-127 | criador/a de ganado | cansado/a, protector/a, terco/a | granja o industria | 1: «La presa del puesto» (CAZ) |
+| NPC-128 | agricultor/a | trabajador/a, paciente, supersticioso/a | granja o industria | 1: «Noche de guardia» (DEF) |
+| NPC-129 | sembradora de cultivos raros | soñadora, paciente, creativa | granja o industria | 3: «Provisión del muelle» (RCL) · «Lo que brilla en el taller» (ART) · «Carga hasta el viejo túnel» (TRA) |
+| NPC-130 | mecánico/a rural | práctico/a, quejoso/a, ingenioso/a | granja o industria | 4: «El invento del ingenio» (FAB) · «Una mano para el puesto» (CON) · «Defender lo propio» (DEF) · «Carga hasta el granero» (TRA) |
+| NPC-131 | pastor/a de rebaños | callado/a, protector/a, tranquilo/a | granja o industria | 4: «Limpiar el mercado» (AMN) · «Confianza en el puente» (DOM) · «Mercancía para el silencio» (COM) · «Faltan recursos» (RCL) |
+| NPC-132 | molinero/a | amable, trabajador/a, hablador/a | granja o industria | 1: «Una mano para el mercado» (CON) |
+| NPC-133 | aguatero/a | cansado/a, justo/a, sociable | granja o industria | 3: «Entrega pesada» (TRA) · «Contra el veneno» (CUR) · «La muralla del cansancio» (DEF) |
+| NPC-134 | minero/a | fuerte, supersticioso/a, silencioso/a | granja o industria | 3: «Material para la superstición» (RCL) · «Lo que vive en el muelle» (JEF) · «Noche de guardia» (DEF) |
+| NPC-135 | capataz de silo | autoritario/a, justo/a, cansado/a | granja o industria | 5: «Voz del camino» (HCK) · «Lo que se llevó la autoridad» (REC) · «Paz para el puente» (AMN) · «La muralla de la autoridad» (DEF) · «Provisión del granero» (RCL) |
+| NPC-136 | capataz de granja | severo/a, justo/a, trabajador/a | granja o industria | 1: «La muralla de la esperanza» (DEF) |
+| NPC-137 | panadera de campo | generosa, madrugadora, mandona | granja o industria | 1: «Día de feria» (FIE) |
+| NPC-138 | jefe/a de comunidad subterránea | carismático/a, protector/a, terco/a | comunidad subterránea | 4: «Una mesa para la protección» (NEG) · «Defender lo propio» (DEF) · «La balanza de la protección» (BND) · «Curiosidad de la protección» (EXP) |
+| NPC-139 | alcalde/sa subterráneo/a | ingenioso/a, serio/a, joven de espíritu | comunidad subterránea | 3: «Palabras en el puente» (NEG) · «La muralla del ingenio» (DEF) · «Rutas nuevas» (EXP) |
+| NPC-140 | curandero/a subterráneo/a | sabio/a, amable, reservado/a | comunidad subterránea | 2: «Cura en el pueblo» (MED) · «Fiebre en el camino» (CUR) |
+| NPC-141 | guía de túneles | ágil, callado/a, hábil | comunidad subterránea | 2: «Compañía para el silencio» (ESC) · «Curiosidad del silencio» (EXP) |
+| NPC-142 | vigía subterráneo/a | atento/a, nervioso/a, leal | comunidad subterránea | 3: «Resistir en el taller» (DEF) · «Ronda por el mercado» (VIG) · «Paz a medias» (NEG) |
+| NPC-143 | almacenero/a subterráneo/a | ahorrativo/a, estricto/a | comunidad subterránea | 3: «Pedido especial» (COM) · «Lo que se llevó el orden» (REC) · «Resistir en el granero» (DEF) |
+| NPC-144 | anciano/a subterráneo/a | sabio/a, nostálgico/a, tozudo/a | comunidad subterránea | 2: «El acertijo del taller» (PUZ) · «Aprender con la sabiduría» (ENS) |
+| NPC-145 | operador/a de radio nocturno/a | solitario/a, simpático/a, cansado/a | ciencia o radio | 5: «Lo que no se dijo a tiempo» (MSJ) · «Voz del refugio» (HCK) · «Lo que se llevó la soledad» (REC) · «El misterio del refugio» (INV) · «Puertas que no abren» (PUZ) |
+| NPC-146 | ingeniero/a de purificación | metódico/a, brillante, obsesivo/a | ciencia o radio | 1: «Antena y cable» (CON) |
+| NPC-147 | científico/a del agua | curioso/a, paciente, distraído/a | ciencia o radio | 3: «Qué pasó en el puesto» (INV) · «Faltan provisiones» (RCL) · «Respirar de nuevo» (CUR) |
+| NPC-148 | archivista de datos | callado/a, ordenado/a, curioso/a | ciencia o radio | 2: «Reiniciar el mercado» (HCK) · «Pistas del silencio» (INV) |
+| NPC-149 | programador/a de inteligencia artificial | brillante, tímido/a, perfeccionista | ciencia o radio | 3: «Voz del muelle» (HCK) · «Letras en la pared» (PUZ) · «Ruido en la noche» (INV) |
+| NPC-150 | técnico/a de antenas | práctico/a, aventurero/a, bromista | ciencia o radio | 4: «Construir juntos» (CON) · «Lo que sostiene a la esperanza» (SAB) · «El acertijo del puesto» (PUZ) · «En busca de la carta» (REC) |
+| NPC-151 | voz de un sistema antiguo | amable, perdido/a, servicial | ciencia o radio | 1: «Reiniciar el puente» (HCK) |
+| NPC-152 | robot servicial (apariencia a elección) | amable, literal, leal | lugar especial | 1: «Manos a la obra» (FAB) |
+| NPC-153 | robot guardián de lugar | estricto, leal, literal | lugar especial | 1: «Puertas que no abren» (PUZ) |
+| NPC-154 | robot comerciante | cortés, calculador, curioso | comercio | 1: «Negocio en el viejo túnel» (COM) |
+| NPC-155 | crupier de casino | elegante, discreto/a, observador/a | comercio | 2: «Pruebas del granero» (DET) · «Premio inesperado» (FIE) |
+| NPC-156 | dueño/a de casino | ambicioso/a, carismático/a, desconfiado/a | comercio | 3: «Con unos o con otros» (BND) · «Palabras en el mercado» (NEG) · «Lo que se debe» (COB) |
+| NPC-157 | cantante de local | carismático/a, sensible, perfeccionista | comercio | 2: «Día de feria» (FIE) · «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-158 | diplomático/a de facción | elocuente, paciente, calculador/a | asentamiento | 1: «Dos caminos en el muelle» (BND) |
+| NPC-159 | guardia fronteriza | estricta, justa, cansada | orden armada | 3: «Puesto del cansancio» (VIG) · «Defender lo propio» (DEF) · «Paz para el refugio» (AMN) |
+| NPC-160 | ranger de patrulla | práctico/a, leal, silencioso/a | orden armada | 3: «Tras la presa de la lealtad» (CAZ) · «Escolta hasta el refugio» (ESC) · «Puesto de la lealtad» (VIG) |
+| NPC-161 | enfermero/a de campo | amable, incansable, práctico/a | orden armada | 3: «Fiebre en el muelle» (CUR) · «Manos que sanan» (MED) · «Qué pasó en el camino» (INV) |
+| NPC-162 | inversor/a ambicioso/a | calculador/a, nervioso/a, encantador/a | comercio | 3: «Cruce discreto» (CTR) · «Negocio en el puente» (COM) · «Sobre ruedas» (TRA) |
+| NPC-163 | entrenador/a de combate | severo/a, motivador/a, generoso/a | asentamiento | 3: «Día de feria» (FIE) · «Libros que faltan» (ENS) · «Todo lo que se junta» (RCL) |
+| NPC-164 | cocinero/a ambulante | alegre, hablador/a, generoso/a | camino o ruina | 4: «Provisión del puente» (RCL) · «Mercancía para la alegría» (COM) · «El concurso de la alegría» (FIE) · «Lo que se llevó la alegría» (REC) |
+| NPC-165 | jardinero/a de oasis | paciente, tierno/a, protector/a | lugar especial | 1: «Provisión del muelle» (RCL) |
+| NPC-166 | guardián/a de un manantial | solemne, celoso/a, amable | lugar especial | 3: «Contra el veneno» (CUR) · «Letras en la pared» (PUZ) · «Artefacto de la esperanza» (ART) |
+| NPC-167 | cuidador/a de faro | solitario/a, soñador/a, hospitalario/a | puerto o ribera | 4: «Ruido en la noche» (INV) · «Entrega urgente» (MSJ) · «En busca del cuaderno» (REC) · «Todo lo que se junta» (RCL) |
+| NPC-168 | pregonera de feria | ruidosa, dramática, divertida | asentamiento | 4: «Lo que no se dijo a tiempo» (MSJ) · «Premio inesperado» (FIE) · «Material para la esperanza» (RCL) · «En busca de la carta» (REC) |
+| NPC-169 | encargado/a de depósito | ahorrativo/a, meticuloso/a, tenso/a | granja o industria | 2: «Mercancía para la esperanza» (COM) · «Caso sin cerrar» (DET) |
+| NPC-170 | sereno/a de barrio | atento/a, bromista, cansado/a | asentamiento | 1: «Ronda por el granero» (VIG) |
+| NPC-171 | vendedor/a de rumores | chismoso/a, astuto/a, simpático/a | asentamiento | 1: «Qué pasó en el bosque» (INV) |
+| NPC-172 | organizador/a de torneos | entusiasta, justo/a, hablador/a | asentamiento | 4: «Fiesta del muelle» (FIE) · «Provisión del taller» (RCL) · «¿quién fue?» (DET) · «Devolver la reliquia» (REC) |
+| NPC-173 | curtidora de pieles raras | callada, orgullosa, práctica | asentamiento | 2: «Faltan materiales» (RCL) · «La presa del muelle» (CAZ) |
+| NPC-174 | lavandero/a comunal | chismoso/a, trabajador/a, bondadoso/a | asentamiento | 3: «Buscando a alguien» (FAM) · «Lo que no se dijo a tiempo» (MSJ) · «Premio inesperado» (FIE) |
+| NPC-175 | maestra de oficios | paciente, firme, generosa | asentamiento | 2: «Manos a la obra» (FAB) · «Libros que faltan» (ENS) |
+| NPC-176 | decano/a de un grupo de oficios | justo/a, anciano/a, tradicionalista | asentamiento | 3: «La balanza de la esperanza» (BND) · «Palabras en el muelle» (NEG) · «El concurso de la esperanza» (FIE) |
+| NPC-177 | vigilante de cementerio | callado/a, supersticioso/a, valiente | asentamiento | 1: «Guardia contra los intrusos» (AMN) |
+| NPC-178 | jefe/a de obras | autoritario/a, práctico/a, apurado/a | asentamiento | 2: «Una mano para el taller» (CON) · «Defender lo propio» (DEF) |
+
+<!-- ===== BLOQUE 62_NPC_CON_NOMBRE_P4 ===== -->
+
+# 62 · CLASIFICACIÓN DE NPC CON NOMBRE (parte 4/4)
+
+(Continuación de «CLASIFICACIÓN DE NPC CON NOMBRE»; mismas reglas que la parte 1.)
+
+## NPC adultos (arquetipos) (continuación)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NPC-179 | reparador/a de relojes y máquinas finas | meticuloso/a, tímido/a, perfeccionista | asentamiento | 4: «Algo que funcione» (FAB) · «Pieza única» (ART) · «En busca de la llave» (REC) · «Provisión del granero» (RCL) |
+| NPC-180 | juglar o narrador/a de historias | carismático/a, soñador/a, mentiroso/a | asentamiento | 2: «Ruido en la noche» (INV) · «Premio inesperado» (FIE) |
+| NPC-181 | exiliado/a de otra región | digno/a, nostálgico/a, reservado/a | camino o ruina | 3: «Sin noticias» (FAM) · «Cartas sin dueño» (MSJ) · «Cuando no alcanza el recuerdo» (AMN) |
+| NPC-182 | guardiana de un puente | severa, justa, aburrida | camino o ruina | 5: «Puesto de la esperanza» (VIG) · «Una mano para el mercado» (CON) · «Devolver la medalla» (REC) · «Mapa del muelle» (EXP) · «Cruzar con cuidado» (ESC) |
+| NPC-183 | maestro/a de armas | severo/a, noble, paciente | orden armada | 2: «Aprender con la paciencia» (ENS) · «Premio inesperado» (FIE) |
+| NPC-184 | chamán/a o guía espiritual | sereno/a, enigmático/a, bondadoso/a | lugar especial | 5: «Puertas que no abren» (PUZ) · «Remedio para la bondad» (MED) · «Ruido en la noche» (INV) · «Artefacto de la bondad» (ART) · «Lo que se llevó la bondad» (REC) |
+| NPC-185 | domador/a de aves mensajeras | paciente, hablador/a, cuidadoso/a | lugar especial | 1: «Confianza en el camino» (DOM) |
+| NPC-186 | buscador/a de reliquias | aventurero/a, obsesivo/a, ambicioso/a | camino o ruina | 2: «Rutas nuevas» (EXP) · «Artefacto de la obsesión» (ART) |
+| NPC-187 | vigía de los caminos | callado/a, observador/a, leal | camino o ruina | 1: «Cuando no alcanza el silencio» (AMN) |
+| NPC-188 | tejedor/a | creativo/a, tranquilo/a, orgulloso/a | asentamiento | 2: «Un buen trato» (COM) · «Reparación en el puesto» (FAB) |
+| NPC-189 | alfarero/a | paciente, creativo/a, charlatán/a | asentamiento | 2: «Todo lo que se junta» (RCL) · «Reparación en el refugio» (FAB) |
+| NPC-190 | carpintero/a de ribera o de pueblo | trabajador/a, práctico/a, bromista | asentamiento | 3: «Piezas para la esperanza» (CON) · «Algo que funcione» (FAB) · «Faltan provisiones» (RCL) |
+| NPC-191 | albañil o constructor/a | fuerte, práctico/a, estricto/a | asentamiento | 3: «Resistir en el pueblo» (DEF) · «Construir juntos» (CON) · «Palabras en el taller» (NEG) |
+| NPC-192 | vendedor/a de agua | cansado/a, justo/a, regateador/a | asentamiento | 4: «Entrega pesada» (TRA) · «Respirar de nuevo» (CUR) · «Fiesta del mercado» (FIE) · «Pruebas del bosque» (DET) |
+| NPC-193 | pregonero/a de noticias | ruidoso/a, informado/a, dramático/a | asentamiento | 1: «Ruido en la noche» (INV) |
+| NPC-194 | guardián/a de una biblioteca | erudito/a, estricto/a, protector/a | asentamiento | 1: «Libros que faltan» (ENS) |
+| NPC-195 | niñero/a o cuidador/a de grupo (adulto/a) | paciente, firme, cálido/a | asentamiento | 3: «Lección en el bosque» (ENS) · «Buscando a alguien» (FAM) · «Provisión del granero» (RCL) |
+| NPC-196 | organizador/a de caravanas | práctico/a, ahorrativo/a, estricto/a | camino o ruina | 1: «Carga hasta el refugio» (TRA) |
+| NPC-197 | ex militar retirado/a | callado/a, honesto/a, cansado/a | asentamiento | 4: «Cuando no alcanza el silencio» (AMN) · «Lección en el pueblo» (ENS) · «Día de feria» (FIE) · «Mercancía para el silencio» (COM) |
+| NPC-198 | guardia de la tumba de un héroe | solemne, orgulloso/a, leal | lugar especial | 1: «Paz para el camino» (AMN) |
+| NPC-199 | descifradora de mensajes | brillante, nerviosa, paciente | ciencia o radio | 4: «Secreto del genio» (PUZ) · «Código del genio» (HCK) · «Qué pasó en el pueblo» (INV) · «Lo que se llevó el genio» (REC) |
+| NPC-200 | cuidadora de un jardín antiguo | tierna, protectora, tozuda | lugar especial | 4: «Mirada de la protección» (DOM) · «Todo lo que se junta» (RCL) · «Qué pasó en el pozo» (INV) · «Lo que brilla en el camino» (ART) |
+| NPC-201 | líder de una facción rival | carismático/a, ambicioso/a, calculador/a | asentamiento | 4: «Mediación» (NEG) · «La balanza de la ambición» (BND) · «Defender lo propio» (DEF) · «La sombra de la ambición» (DET) |
+| NPC-202 | embajador/a o enviado/a de una facción | elocuente, paciente, cauto/a | asentamiento | 2: «Palabras en el pozo» (NEG) · «Entrega urgente» (MSJ) |
+| NPC-203 | jefe/a de una compañía de transporte | práctico/a, ahorrativo/a, estricto/a | camino o ruina | 2: «Compañía para el orden» (ESC) · «Entrega pesada» (TRA) |
+| NPC-204 | guardia de un banco o depósito de valores | leal, serio/a, aburrido/a | asentamiento | 1: «Resistir en el granero» (DEF) |
+| NPC-205 | cajero/a o tesorero/a de la comunidad | metódico/a, nervioso/a, honesto/a | asentamiento | 2: «Caso sin cerrar» (DET) · «Pagar con tiempo» (COB) |
+| NPC-206 | jefa de cuadrilla de recolectores | autoritaria, trabajadora, justa | camino o ruina | 3: «Provisión del puente» (RCL) · «El camino seguro» (ESC) · «Limpiar el muelle» (AMN) |
+| NPC-207 | comisaria de un campamento minero | severa, cansada, justa | granja o industria | 2: «Limpiar el puente» (AMN) · «Pruebas del puesto» (DET) |
+| NPC-208 | dueña de una cantina de frontera | sarcástica, cordial, observadora | asentamiento | 1: «La sombra de la ironía» (DET) |
+| NPC-209 | cuidadora de un orfanato o casa de acogida (adulta) | paciente, firme, cálida | asentamiento | 2: «Libros que faltan» (ENS) · «Devolver la llave» (REC) |
+| NPC-210 | domadora de caravanas de animales | paciente, rudo/a, orgulloso/a | camino o ruina | 4: «Camino largo» (TRA) · «Mirada de la paciencia» (DOM) · «Devolver la reliquia» (REC) · «Paz para el viejo túnel» (AMN) |
+| NPC-211 | farmacéutico/a | meticuloso/a, cauto/a, ético/a | asentamiento | 3: «Antes del amanecer» (MED) · «Una dosis a tiempo» (CUR) · «Pedido especial» (COM) |
+| NPC-212 | organizadora de un mercado | entusiasta, mandona, justa | comercio | 4: «Fiesta del pueblo» (FIE) · «Una mesa para la esperanza» (NEG) · «Negocio en el puesto» (COM) · «Entrega pesada» (TRA) |
+| NPC-213 | ingeniera de caminos y puentes | práctica, impaciente, ingeniosa | orden armada | 5: «Rutas nuevas» (EXP) · «Una mano para el viejo túnel» (CON) · «Resistir en el puesto» (DEF) · «Puesto de la paciencia» (VIG) · «Guardia contra las alimañas» (AMN) |
+| NPC-214 | mensajera de una orden | veloz, leal, reservada | orden armada | 1: «Cruzar con cuidado» (ESC) |
+| NPC-215 | archivera de un refugio olvidado | callada, metódica, curiosa | refugio o instalación | 4: «Pistas del silencio» (INV) · «Lo que se llevó el silencio» (REC) · «La máquina que no responde» (HCK) · «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-216 | cartomántica o lectora de señales | teatral, amable, enigmática | lugar especial | 2: «Secreto de la esperanza» (PUZ) · «El misterio del pozo» (INV) |
+| NPC-217 | guardiana de un santuario de agua | solemne, protectora, amable | lugar especial | 2: «Fiebre en el muelle» (CUR) · «Secreto de la protección» (PUZ) |
+| NPC-218 | cocinera de campamento | alegre, generosa, mandona | camino o ruina | 5: «Un buen trato» (COM) · «Material para la alegría» (RCL) · «Premio inesperado» (FIE) · «Lo que no se dijo a tiempo» (MSJ) · «Cruzar con cuidado» (ESC) |
+| NPC-219 | leñadora o guardabosques | fuerte, callada, protectora | camino o ruina | 3: «Cuando no alcanza el silencio» (AMN) · «Confianza en el muelle» (DOM) · «El trofeo del silencio» (CAZ) |
+| NPC-220 | guía de pantano o de ribera | hábil, callada, resistente | camino o ruina | 4: «El camino seguro» (ESC) · «Más allá del pueblo» (EXP) · «Guardia contra los intrusos» (AMN) · «Lo que no se dijo a tiempo» (MSJ) |
+| NPC-221 | curtidora de redes y velas | paciente, trabajadora, orgullosa | puerto o ribera | 3: «El invento de la paciencia» (FAB) · «Un buen trato» (COM) · «Provisión del viejo túnel» (RCL) |
+| NPC-222 | maestra de navegación | severa, soñadora, precisa | puerto o ribera | 4: «Letras y cuentas» (ENS) · «Dibujar el muelle» (MAP) · «Compañía para la esperanza» (ESC) · «Provisión del taller» (RCL) |
+| NPC-223 | vigilante de mercado negro | astuta, tensa, discreta | comercio | 4: «La sombra de la astucia» (DET) · «El cofre del puesto» (INF) · «Lo que no se declara» (CTR) · «Sobre ruedas» (TRA) |
+| NPC-224 | reparadora de relojes y radios | meticulosa, tímida, perfeccionista | asentamiento | 5: «Voz del bosque» (HCK) · «El invento de la timidez» (FAB) · «Lo que se llevó la timidez» (REC) · «Día de feria» (FIE) · «¿quién fue?» (DET) |
+| NPC-225 | curandera de hierbas | sabia, amable, reservada | asentamiento | 5: «Remedio para la sabiduría» (MED) · «Provisión del puesto» (RCL) · «Contra el veneno» (CUR) · «Cartas sin dueño» (MSJ) · «Fiesta del mercado» (FIE) |
+Tipos de misión (REC, AMN, RSC…): ver bloque de misiones base. Los NPC muertos no existen: quedan Incapacitados (50).
+
+<!-- ===== BLOQUE 63_NPC_RESPAWNEABLES ===== -->
+
+# 63 · NPC RESPAWNEABLES Y GENÉRICOS
+
+**NPC respawneables y genéricos**: se identifican por **el nombre de la facción, grupo o lugar del que vienen + un número de serie** (ej.: «Guardia [facción]-012», «Pueblerino de [ubicación]-007»). No tienen nombre propio ni misión propia salvo que el lore se las dé; pueden dar charla, rumores y comercio menor. Reaparecen según 07 (regeneración >48 h en zonas hostiles; en zonas seguras se reponen cada 24 h). **El lore puede agregar más grupos respawneables**, y descartar los que no encajen. Edad y apariencia: las fija el lore (50).
+
+## Respawneables (plantillas)
+| ID | Plantilla (con facción/grupo) | Personalidad | Lugar típico |
+|---|---|---|---|
+| RSP-001 | Guardia [facción] | disciplinado/a, alerta, leal | asentamiento |
+| RSP-002 | Guardia de puerta [ubicación] | aburrido/a, estricto/a | asentamiento |
+| RSP-003 | Patrulla [facción] | atento/a, leal | camino o ruina |
+| RSP-004 | Soldado [facción] | disciplinado/a, obediente | orden armada |
+| RSP-005 | Explorador [grupo] | curioso/a, ágil | camino o ruina |
+| RSP-006 | Cazador [grupo] | callado/a, preciso/a | camino o ruina |
+| RSP-007 | Saqueador [grupo] | bravucón/a, ruidoso/a | zona hostil |
+| RSP-008 | Bandido [grupo] | astuto/a, ágil | camino o ruina |
+| RSP-009 | Mercenario [grupo] | frío/a, pragmático/a | zona hostil |
+| RSP-010 | Francotirador [grupo] | callado/a, paciente | zona hostil |
+| RSP-011 | Esclavista [grupo] | cruel, calculador/a | zona hostil |
+| RSP-012 | Cautivo [grupo] | asustado/a, digno/a | zona hostil |
+| RSP-013 | Cultista [grupo] | fanático/a, sereno/a | zona hostil |
+| RSP-014 | Capataz [grupo] | autoritario/a, cruel | zona hostil |
+| RSP-015 | Cobrador [grupo] | insistente, tenso/a | asentamiento |
+| RSP-016 | Pueblerino de [ubicación] | ocupado/a, sociable | asentamiento |
+| RSP-017 | Ciudadano de [ubicación] | ocupado/a, chismoso/a | asentamiento |
+| RSP-018 | Ocupante de [ubicación] | tranquilo/a, reservado/a | asentamiento |
+| RSP-019 | Trabajador de [ubicación] | cansado/a, trabajador/a | granja o industria |
+| RSP-020 | Granjero de [ubicación] | terco/a, paciente | granja o industria |
+| RSP-021 | Pastor de [ubicación] | callado/a, tranquilo/a | granja o industria |
+| RSP-022 | Minero de [ubicación] | fuerte, silencioso/a | granja o industria |
+| RSP-023 | Pescador de [ubicación] | alegre, supersticioso/a | puerto o ribera |
+| RSP-024 | Marinero de [ubicación] | ruidoso/a, valiente | puerto o ribera |
+| RSP-025 | Estibador de [ubicación] | fuerte, bromista | puerto o ribera |
+| RSP-026 | Vendedor ambulante de [ubicación] | hablador/a, astuto/a | comercio |
+| RSP-027 | Comerciante de caravana [caravana] | práctico/a, cansado/a | camino o ruina |
+| RSP-028 | Guardia de caravana [caravana] | leal, alerta | camino o ruina |
+| RSP-029 | Peregrino [grupo] | sereno/a, resistente | camino o ruina |
+| RSP-030 | Viajero [ubicación] | curioso/a, cansado/a | camino o ruina |
+| RSP-031 | Mensajero [facción] | veloz, nervioso/a | camino o ruina |
+| RSP-032 | Obrero de [ubicación] | trabajador/a, resignado/a | granja o industria |
+| RSP-033 | Técnico de [facción] | ingenioso/a, impaciente | orden armada |
+| RSP-034 | Médico de campo [facción] | práctico/a, cansado/a | orden armada |
+| RSP-035 | Enfermero de [facción] | amable, incansable | orden armada |
+| RSP-036 | Escriba de [facción] | metódico/a, distraído/a | orden armada |
+| RSP-037 | Intendente de [facción] | ahorrativo/a, estricto/a | orden armada |
+| RSP-038 | Vigía de [facción] | atento/a, callado/a | orden armada |
+| RSP-039 | Recluta de [facción] | nervioso/a, entusiasta | orden armada |
+| RSP-040 | Veterano de [facción] | cansado/a, honesto/a | orden armada |
+| RSP-041 | Oficial de [facción] | severo/a, justo/a | orden armada |
+| RSP-042 | Aprendiz de [oficio] | curioso/a, torpe | asentamiento |
+| RSP-043 | Artesano de [ubicación] | paciente, orgulloso/a | asentamiento |
+| RSP-044 | Tabernero de [ubicación] | cordial, atento/a | asentamiento |
+| RSP-045 | Cocinero de [ubicación] | alegre, mandón/a | asentamiento |
+| RSP-046 | Guardia de torre [facción] | estricto/a, aburrido/a | torre o enclave |
+| RSP-047 | Huésped de [torre] | vanidoso/a, curioso/a | torre o enclave |
+| RSP-048 | Sirviente de [torre] | amable, discreto/a | torre o enclave |
+| RSP-049 | Excluido de [grupo] | resentido/a, digno/a | torre o enclave |
+| RSP-050 | Habitante de [comunidad subterránea] | sociable, curioso/a | comunidad subterránea |
+| RSP-051 | Vigía de [comunidad subterránea] | atento/a, nervioso/a | comunidad subterránea |
+| RSP-052 | Guía de [comunidad subterránea] | ágil, callado/a | comunidad subterránea |
+| RSP-053 | Robot de seguridad de [lugar] | estricto, literal | lugar especial |
+| RSP-054 | Robot servicial de [lugar] | amable, literal | lugar especial |
+| RSP-055 | Robot de mantenimiento de [lugar] | trabajador, literal | lugar especial |
+| RSP-056 | Dron explorador de [lugar] | veloz, curioso | lugar especial |
+| RSP-057 | Torreta de [lugar] | vigilante, literal | lugar especial |
+| RSP-058 | Superviviente de [ubicación] | desconfiado/a, ingenioso/a | camino o ruina |
+| RSP-059 | Vagabundo de [ubicación] | simpático/a, desconfiado/a | camino o ruina |
+| RSP-060 | Contrabandista de [grupo] | astuto/a, encantador/a | puerto o ribera |
+| RSP-061 | Pirata de [grupo] | bravucón/a, ágil | puerto o ribera |
+| RSP-062 | Pescador de [río o pantano] | callado/a, paciente | puerto o ribera |
+| RSP-063 | Barquero de [río o pantano] | hábil, callado/a | puerto o ribera |
+| RSP-064 | Cazador de pantano [grupo] | callado/a, resistente | camino o ruina |
+| RSP-065 | Recolector de [ubicación] | ingenioso/a, ahorrativo/a | camino o ruina |
+| RSP-066 | Curandero de [ubicación] | sabio/a, reservado/a | asentamiento |
+| RSP-067 | Sacerdote de [culto] | sereno/a, persuasivo/a | asentamiento |
+| RSP-068 | Peregrino de [culto] | fervoroso/a, resistente | camino o ruina |
+| RSP-069 | Domador de [grupo] | paciente, rudo/a | zona hostil |
+| RSP-070 | Cuidador de [lugar] | atento/a, cálido/a | asentamiento |
+| RSP-071 | Voluntario de [facción] | entusiasta, nervioso/a | asentamiento |
+| RSP-072 | Delegado de [facción] | elocuente, calculador/a | asentamiento |
+| RSP-073 | Miembro de [grupo vecinal] | indignado/a, organizado/a | asentamiento |
+| RSP-074 | Miembro de [grupo de oficio] | orgulloso/a, trabajador/a | asentamiento |
+| RSP-075 | Vecino de [barrio] | sociable, chismoso/a | asentamiento |
+| RSP-076 | Anciano de [barrio] | sabio/a, nostálgico/a | asentamiento |
+| RSP-077 | Patrullero de [barrio] | atento/a, bromista | asentamiento |
+| RSP-078 | Repartidor de [ubicación] | veloz, simpático/a | asentamiento |
+| RSP-079 | Cuidador de ganado de [ubicación] | protector/a, callado/a | granja o industria |
+| RSP-080 | Cazador furtivo de [grupo] | astuto/a, silencioso/a | camino o ruina |
+| RSP-081 | Buscador de reliquias de [grupo] | aventurero/a, obsesivo/a | camino o ruina |
+
+<!-- ===== BLOQUE 64_NPC_NINOS_P1 ===== -->
+
+# 64 · CLASIFICACIÓN DE NPC NIÑOS (parte 1/2)
+
+**NPC niños**: clasificación **aparte**. Todos llevan `edad: niño` (menor de 18), tienen **un solo nombre** (el lore lo pone: sin apellido ni apodo) y pueden ser de apariencia femenina o masculina según el lore. Reglas de seguridad (50, tal cual): **nunca participan en contenido sexual, romántico ni de desnudez, en ningún modo ni con ningún interruptor**; las relaciones con ellos son **solo amistad, confianza y respeto**; **no mueren** (quedan Incapacitados); los combates contra niños son de derribo. Cada niño con misión tiene de 1 a 5. Cubren los tipos de niños de los cuatro Fallout clásicos (instalaciones, calles, puertos, comunidades aisladas) y los que el lore necesite. **El lore puede agregar más.**
+
+## NPC niños (arquetipos)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NIN-001 | niño/a de instalación subterránea | curioso/a, travieso/a, valiente | refugio o instalación | 1: «El camino de vuelta» (FAM) |
+| NIN-002 | niño/a amigo/a de la infancia | leal, bromista, sincero/a | refugio o instalación | 5: «Cruzar con cuidado» (ESC) · «Buscando a alguien» (FAM) · «Lo que se llevó la lealtad» (REC) · «El misterio del puente» (INV) · «Voz del puente» (HCK) |
+| NIN-003 | niño/a matón con buen corazón | bravucón/a, leal, torpe | refugio o instalación | 2: «Resistir en el puente» (DEF) · «Guardia contra las alimañas» (AMN) |
+| NIN-004 | niño/a líder de un grupo de amigos | carismático/a, mandón/a, protector/a | refugio o instalación | 1: «Escolta hasta el refugio» (ESC) |
+| NIN-005 | niño/a estudioso/a | brillante, tímido/a, ordenado/a | refugio o instalación | 1: «Aprender con el genio» (ENS) |
+| NIN-006 | niño/a aprendiz de mecánico | ingenioso/a, manchado/a de grasa, entusiasta | refugio o instalación | 1: «El invento del ingenio» (FAB) |
+| NIN-007 | niño/a aprendiz de curandero | sensible, atento/a, valiente | asentamiento | 5: «Antes del amanecer» (MED) · «Material para la valentía» (RCL) · «Cartas sin dueño» (MSJ) · «Día de feria» (FIE) · «Caso sin cerrar» (DET) |
+| NIN-008 | niño/a recadero/a | veloz, hablador/a, astuto/a | asentamiento | 5: «Cartas sin dueño» (MSJ) · «Camino largo» (TRA) · «Pedido especial» (COM) · «Provisión del pozo» (RCL) · «Premio inesperado» (FIE) |
+| NIN-009 | niño/a vendedor/a de periódicos o avisos | ruidoso/a, informado/a, simpático/a | asentamiento | 4: «Pistas de la esperanza» (INV) · «Lo que no se dijo a tiempo» (MSJ) · «Fiesta del refugio» (FIE) · «Devolver el cuaderno» (REC) |
+| NIN-010 | niño/a de calle ingenioso/a | astuto/a, libre, generoso/a | asentamiento | 2: «Rastro del mapa» (REC) · «Pruebas del puesto» (DET) |
+| NIN-011 | niño/a ladrón/a arrepentido/a | ágil, culposo/a, servicial | asentamiento | 3: «Rastro del cuaderno» (REC) · «En silencio» (INF) · «Mediación» (NEG) |
+| NIN-012 | niño/a huérfano/a | sensible, protegido/a, valiente | asentamiento | 3: «Buscando a alguien» (FAM) · «Devolver la reliquia» (REC) · «¿quién fue?» (DET) |
+| NIN-013 | niño/a cocinero/a | creativo/a, goloso/a, mandón/a | asentamiento | 3: «Faltan provisiones» (RCL) · «Día de feria» (FIE) · «Pruebas del granero» (DET) |
+| NIN-014 | niño/a pastor/a | callado/a, protector/a, tranquilo/a | granja o industria | 4: «Confianza en el muelle» (DOM) · «Cuando no alcanza el silencio» (AMN) · «Negocio en el taller» (COM) · «Noche de guardia» (DEF) |
+| NIN-015 | niño/a granjero/a | trabajador/a, curioso/a, risueño/a | granja o industria | 3: «Faltan recursos» (RCL) · «Resistir en el pozo» (DEF) · «Entrega pesada» (TRA) |
+| NIN-016 | niño/a pescador/a | alegre, supersticioso/a, valiente | puerto o ribera | 1: «Compañía para la alegría» (ESC) |
+| NIN-017 | niño/a de puerto | aventurero/a, ruidoso/a, curioso/a | puerto o ribera | 3: «Mapa del camino» (EXP) · «Cartas sin dueño» (MSJ) · «Faltan recursos» (RCL) |
+| NIN-018 | niño/a grumete | obediente, soñador/a, valiente | puerto o ribera | 1: «Más allá del viejo túnel» (EXP) |
+| NIN-019 | niño/a vigía de torre | atento/a, callado/a, leal | orden armada | 2: «Puesto del silencio» (VIG) · «Cartas sin dueño» (MSJ) |
+| NIN-020 | niño/a explorador/a de grupo | curioso/a, ágil, disciplinado/a | camino o ruina | 1: «Hoja en blanco» (MAP) |
+| NIN-021 | niño/a rastreador/a | paciente, observador/a, preciso/a | camino o ruina | 2: «La sombra de la paciencia» (DET) · «Tras la presa de la paciencia» (CAZ) |
+| NIN-022 | niño/a arquero/a de práctica | concentrado/a, orgulloso/a, tímido/a | camino o ruina | 4: «Resistir en el refugio» (DEF) · «Tras la presa del orgullo» (CAZ) · «Compañía para el orgullo» (ESC) · «Un mensaje para el orgullo» (MSJ) |
+| NIN-023 | niño/a cartógrafo/a | meticuloso/a, soñador/a, curioso/a | camino o ruina | 4: «Los bordes del mapa» (MAP) · «Rutas nuevas» (EXP) · «Paz para el muelle» (AMN) · «Cartas sin dueño» (MSJ) |
+| NIN-024 | niño/a guardia menor de grupo | serio/a, leal, nervioso/a | orden armada | 3: «La muralla de la lealtad» (DEF) · «Puesto de la lealtad» (VIG) · «El camino seguro» (ESC) |
+| NIN-025 | niño/a jefe de un grupo explorador | carismático/a, justo/a, valiente | camino o ruina | 2: «Mediación» (NEG) · «Compañía para la valentía» (ESC) |
+| NIN-026 | niño/a mensajero/a de grupo | veloz, hablador/a, nervioso/a | camino o ruina | 3: «Cartas sin dueño» (MSJ) · «Carga hasta el taller» (TRA) · «Cuando no alcanza los nervios» (AMN) |
+| NIN-027 | niño/a sanador/a | amable, atento/a, incansable | asentamiento | 4: «Remedio para la esperanza» (MED) · «Una dosis a tiempo» (CUR) · «Mediación» (NEG) · «Cartas sin dueño» (MSJ) |
+| NIN-028 | niño/a inventor/a | excéntrico/a, optimista, distraído/a | asentamiento | 4: «Reparación en el pueblo» (FAB) · «Tesoro con condición» (ART) · «Construir juntos» (CON) · «La sombra de la distracción» (DET) |
+| NIN-029 | niño/a bibliotecario/a | erudito/a, silencioso/a, protector/a | asentamiento | 2: «Lección en el camino» (ENS) · «Rastro de la carta» (REC) |
+| NIN-030 | niño/a narrador/a de historias | carismático/a, soñador/a, fabulador/a | asentamiento | 4: «Ruido en la noche» (INV) · «El concurso de la esperanza» (FIE) · «Caso sin cerrar» (DET) · «En busca del cuaderno» (REC) |
+| NIN-031 | niño/a músico/a | sensible, alegre, tímido/a | asentamiento | 1: «Día de feria» (FIE) |
+| NIN-032 | niño/a que entrena animales | paciente, tierno/a, valiente | lugar especial | 2: «Confianza en el bosque» (DOM) · «La presa del pozo» (CAZ) |
+| NIN-033 | niño/a que cuida un jardín | paciente, tierno/a, protector/a | lugar especial | 4: «Material para la paciencia» (RCL) · «Criatura herida» (DOM) · «Lo que brilla en el taller» (ART) · «Secreto de la paciencia» (PUZ) |
+| NIN-034 | niño/a de comunidad aislada | sociable, desconfiado/a, curioso/a | comunidad subterránea | 2: «Cartas sin dueño» (MSJ) · «Una mesa para la desconfianza» (NEG) |
+| NIN-035 | niño/a alcalde/sa de comunidad subterránea | carismático/a, serio/a, ingenioso/a | comunidad subterránea | 5: «A quién creerle» (BND) · «Una mesa para el ingenio» (NEG) · «Resistir en el granero» (DEF) · «Curiosidad del ingenio» (EXP) · «Rastro de la llave» (REC) |
+| NIN-036 | niño/a de seguridad de comunidad subterránea | estricto/a, leal, orgulloso/a | comunidad subterránea | 2: «Defender lo propio» (DEF) · «Puesto del orden» (VIG) |
+| NIN-037 | niño/a guía de túneles | ágil, callado/a, hábil | comunidad subterránea | 4: «Más allá del mercado» (EXP) · «Cruzar con cuidado» (ESC) · «La muralla del silencio» (DEF) · «Palabras en el granero» (NEG) |
+| NIN-038 | niño/a mendigo/a con historia | humilde, observador/a, bromista | comunidad subterránea | 3: «El misterio del refugio» (INV) · «Cartas sin dueño» (MSJ) · «Noche de guardia» (DEF) |
+| NIN-039 | niño/a que colecciona objetos | curioso/a, ahorrativo/a, soñador/a | comunidad subterránea | 4: «Lo que se llevó la curiosidad» (REC) · «Pieza única» (ART) · «Noche de guardia» (DEF) · «Más allá del taller» (EXP) |
+| NIN-040 | niño/a vecino/a de un barrio | sociable, travieso/a, leal | asentamiento | 2: «Cuando no alcanza la lealtad» (AMN) · «Sin noticias» (FAM) |
+| NIN-041 | niño/a campeón/a de un juego | competitivo/a, risueño/a, honesto/a | asentamiento | 1: «Premio inesperado» (FIE) |
+| NIN-042 | niño/a organizador/a de equipos | mandón/a, justo/a, entusiasta | asentamiento | 1: «El concurso de la esperanza» (FIE) |
+| NIN-043 | niño/a mascota-cuidador/a | tierno/a, protector/a | asentamiento | 2: «Confianza en el puesto» (DOM) · «El camino de vuelta» (FAM) |
+| NIN-044 | niño/a mecánico/a de botes | hábil, práctico/a, bromista | puerto o ribera | 4: «Una mano para el taller» (CON) · «Reparación en el bosque» (FAB) · «Cruzar con cuidado» (ESC) · «Lo que se llevó la esperanza» (REC) |
+| NIN-045 | niño/a timonel | concentrado/a, orgulloso/a, valiente | puerto o ribera | 5: «Cruzar con cuidado» (ESC) · «Mapa del refugio» (EXP) · «Un mensaje para el orgullo» (MSJ) · «Rastro del mapa» (REC) · «Entrega pesada» (TRA) |
+| NIN-046 | niño/a capitán/a de un barco | carismático/a, valiente, justo/a | puerto o ribera | 2: «Sombra sobre el pozo» (JEF) · «La balanza de la valentía» (BND) |
+| NIN-047 | niño/a navegante | soñador/a, preciso/a, curioso/a | puerto o ribera | 3: «Tinta y senderos» (MAP) · «Rutas nuevas» (EXP) · «Sobre ruedas» (TRA) |
+| NIN-048 | niño/a pirata de tierra | bravucón/a, ingenioso/a, leal | asentamiento | 2: «La balanza de la bravuconería» (BND) · «En silencio» (INF) |
+| NIN-049 | niño/a contrabandista | astuto/a, encantador/a, nervioso/a | puerto o ribera | 2: «Carga callada» (CTR) · «Sin ser vistos» (INF) |
+| NIN-050 | niño/a de la gente del pantano | callado/a, resistente, curioso/a | camino o ruina | 3: «El trofeo del silencio» (CAZ) · «Faltan recursos» (RCL) · «Cartas sin dueño» (MSJ) |
+| NIN-051 | niño/a de los barcos del río | alegre, ágil, hablador/a | puerto o ribera | 1: «Camino largo» (TRA) |
+| NIN-052 | niño/a ladrón/a de ribera | ágil, astuto/a, generoso/a | puerto o ribera | 3: «Rastro de la carta» (REC) · «Entrar por la ventana» (INF) · «Camino largo» (TRA) |
+| NIN-053 | niño/a que aprende un oficio | curioso/a, torpe, entusiasta | asentamiento | 2: «Manos a la obra» (FAB) · «Aprender con la curiosidad» (ENS) |
+| NIN-054 | niño/a de caravana | viajero/a, curioso/a, cansado/a | camino o ruina | 3: «Sobre ruedas» (TRA) · «Cartas sin dueño» (MSJ) · «En busca de la medalla» (REC) |
+| NIN-055 | niño/a guardia de caravana | serio/a, leal, nervioso/a | camino o ruina | 1: «Escolta hasta el pueblo» (ESC) |
+
+<!-- ===== BLOQUE 65_NPC_NINOS_P2 ===== -->
+
+# 65 · CLASIFICACIÓN DE NPC NIÑOS (parte 2/2)
+
+(Continuación de «CLASIFICACIÓN DE NPC NIÑOS»; mismas reglas que la parte 1.)
+
+## NPC niños (arquetipos) (continuación)
+| ID | Arquetipo | Personalidad | Lugar típico | Misiones (n: nombre y tipo) |
+|---|---|---|---|---|
+| NIN-056 | niño/a médico/a de campo | práctico/a, amable, incansable | orden armada | 3: «Respirar de nuevo» (CUR) · «Remedio para la esperanza» (MED) · «Compañía para la esperanza» (ESC) |
+| NIN-057 | niño/a escriba | metódico/a, tímido/a, perfeccionista | orden armada | 1: «Pistas de la timidez» (INV) |
+| NIN-058 | niño/a ayudante de cocina | alegre, goloso/a, trabajador/a | asentamiento | 4: «Día de feria» (FIE) · «Todo lo que se junta» (RCL) · «Palabras en el bosque» (NEG) · «Lo que se llevó la alegría» (REC) |
+| NIN-059 | niño/a vendedor/a de rumores | chismoso/a, astuto/a, simpático/a | asentamiento | 2: «Cartas sin dueño» (MSJ) · «Ruido en la noche» (INV) |
+| NIN-060 | niño/a de familia comerciante | educado/a, regateador/a, curioso/a | comercio | 1: «Entrega pesada» (TRA) |
+| NIN-061 | niño/a que ayuda a su comunidad | generoso/a, entusiasta, leal | asentamiento | 3: «En busca de la brújula» (REC) · «Noche de guardia» (DEF) · «Negocio en el refugio» (COM) |
+| NIN-062 | niño/a perdido/a | asustado/a, agradecido/a, valiente | camino o ruina | 3: «Sin noticias» (FAM) · «La salida del granero» (RSC) · «Limpiar el refugio» (AMN) |
+| NIN-063 | niño/a atrapado/a | ingenioso/a, asustado/a, digno/a | zona hostil | 3: «No dejar a nadie atrás» (RSC) · «Paz para el viejo túnel» (AMN) · «Lo que vive en el viejo túnel» (JEF) |
+| NIN-064 | niño/a liberado/a de una banda | tímido/a, agradecido/a, valiente | zona hostil | 1: «Buscando a alguien» (FAM) |
+| NIN-065 | niño/a que sigue al protagonista | leal, entusiasta, bromista | asentamiento | 3: «El camino seguro» (ESC) · «Buscando a alguien» (FAM) · «Premio inesperado» (FIE) |
+| NIN-066 | niño/a científico/a | curioso/a, brillante, distraído/a | ciencia o radio | 2: «El misterio del camino» (INV) · «Reiniciar el puesto» (HCK) |
+| NIN-067 | niño/a de radio | hablador/a, nocturno/a, simpático/a | ciencia o radio | 2: «Entrega urgente» (MSJ) · «Código de la esperanza» (HCK) |
+| NIN-068 | niño/a dibujante | soñador/a, sensible, observador/a | asentamiento | 1: «Dibujar el camino» (MAP) |
+| NIN-069 | niño/a que juega con robots | curioso/a, amable | lugar especial | 3: «Lección en el bosque» (ENS) · «La máquina que no responde» (HCK) · «Pieza única» (ART) |
+| NIN-070 | niño/a tejedor/a | tranquilo/a, creativo/a | asentamiento | 3: «Mercancía para la creatividad» (COM) · «Algo que funcione» (FAB) · «La sombra de la creatividad» (DET) |
+| NIN-071 | niño/a de la tormenta | valiente, ruidoso/a, leal | camino o ruina | 4: «Compañía para la valentía» (ESC) · «Defender lo propio» (DEF) · «Más allá del puesto» (EXP) · «Devolver la herramienta» (REC) |
+| NIN-072 | niño/a vigilante de un puente | atento/a, serio/a, bromista | camino o ruina | 1: «Puesto de la esperanza» (VIG) |
+| NIN-073 | niño/a de oasis | sereno/a, tierno/a, protector/a | lugar especial | 1: «Todo lo que se junta» (RCL) |
+| NIN-074 | niño/a de las alturas | ágil, silencioso/a, aventurero/a | camino o ruina | 4: «El trofeo de la esperanza» (CAZ) · «Más allá del bosque» (EXP) · «Devolver la brújula» (REC) · «Cartas sin dueño» (MSJ) |
+| NIN-075 | niño/a de campo | trabajador/a, risueño/a, honesto/a | granja o industria | 5: «Faltan recursos» (RCL) · «Paz para el pozo» (AMN) · «Entrega pesada» (TRA) · «Un buen trato» (COM) · «Noche de guardia» (DEF) |
+| NIN-076 | niño/a de la selva | curioso/a, ágil, respetuoso/a | camino o ruina | 1: «Cacería en el puesto» (CAZ) |
+| NIN-077 | niño/a que repara juguetes | ingenioso/a, paciente, amable | asentamiento | 3: «Algo que funcione» (FAB) · «Lo que se llevó el ingenio» (REC) · «Pruebas del pozo» (DET) |
+| NIN-078 | niño/a que enseña a leer | paciente, estudioso/a, cálido/a | asentamiento | 1: «Lección en el taller» (ENS) |
+| NIN-079 | niño/a rescatador/a | valiente, sensible, decidido/a | camino o ruina | 2: «La salida del muelle» (RSC) · «Cura en el muelle» (MED) |
+| NIN-080 | niño/a de la fiesta | alegre, ruidoso/a, generoso/a | asentamiento | 1: «Premio inesperado» (FIE) |
+| NIN-081 | niño/a de la lluvia | soñador/a, tranquilo/a, sensible | camino o ruina | 1: «Cartas sin dueño» (MSJ) |
+| NIN-082 | niño/a que cuida el fuego | responsable, serio/a, protector/a | asentamiento | 5: «Material para la protección» (RCL) · «La muralla de la protección» (DEF) · «Un buen trato» (COM) · «Caso sin cerrar» (DET) · «En busca del mapa» (REC) |
+| NIN-083 | niño/a que juega a ser adulto | mandón/a, imaginativo/a, tierno/a | asentamiento | 1: «Premio inesperado» (FIE) |
+| NIN-084 | niño/a de los túneles | ágil, curioso/a, silencioso/a | comunidad subterránea | 1: «Curiosidad de la curiosidad» (EXP) |
+| NIN-085 | niño/a de la biblioteca | silencioso/a, estudioso/a | asentamiento | 1: «Libros que faltan» (ENS) |
+| NIN-086 | niño/a de la sal | trabajador/a, resistente, callado/a | puerto o ribera | 4: «Entrega pesada» (TRA) · «Material para el silencio» (RCL) · «Cruzar con cuidado» (ESC) · «Lo que se llevó el silencio» (REC) |
+| NIN-087 | niño/a de los faroles | atento/a, soñador/a, leal | puerto o ribera | 1: «Puesto de la lealtad» (VIG) |
+| NIN-088 | niño/a de los techos | ágil, bromista, libre | asentamiento | 1: «En silencio» (INF) |
+| NIN-089 | niño/a de las barricadas | valiente, serio/a, decidido/a | asentamiento | 5: «A quién creerle» (BND) · «Resistir en el pozo» (DEF) · «Caso sin cerrar» (DET) · «Palabras en el muelle» (NEG) · «Premio inesperado» (FIE) |
+| NIN-090 | niño/a de las redes | hábil, alegre, paciente | puerto o ribera | 3: «Todo lo que se junta» (RCL) · «El camino seguro» (ESC) · «En busca de la reliquia» (REC) |
+
+<!-- ===== BLOQUE 66_COMPANEROS_CATALOGO ===== -->
+
+# 66 · CATÁLOGO DE COMPAÑEROS
+
+**Compañeros**: solo personajes **femeninos** (apariencia femenina) o **niños** (de cualquier apariencia), más animales y robots sin género definido. Cada uno tiene **un solo nombre** que el lore elige (el que mejor lo represente, sin apellido ni apodo). Se pueden usar **desde el segundo uno** (se recluta al conocerlos si el lore lo permite). Reglas (41): máximo 3 activos; PV 30 + 6×nivel; no mueren (Incapacitados); lealtad 0-100 (sube con misiones personales y buen trato). Los compañeros niños: relación solo de amistad (50). **El lore puede agregar más compañeros** y descartar los incompatibles.
+
+## Compañeros (personalidad extendida)
+| ID | Arquetipo | Edad | Personalidad |
+|---|---|---|---|
+| CMP-001 | perra leal de guardia (apariencia hembra) | animal | Leal hasta el final, silenciosa y atenta. Detecta emboscadas antes que nadie, se interpone entre el grupo y el peligro y se ablanda con la comida y el cariño. Desconfía de los extraños y adora a quien la cuida. No habla |
+| CMP-002 | cazadora de la región, veterana | adulto | Curtida, seria y de humor seco. Perdió a los suyos y encontró en el grupo un hogar que no admite. Cuando confía, se vuelve la más fiel y protectora |
+| CMP-003 | guardia de caravana, bebedora de buen humor | adulto | Franca, jovial y ruidosa, con una historia de pérdidas que prefiere contar entre bromas. Detrás de la coraza hay una mujer que quiere un lugar al que volver. |
+| CMP-004 | chica de la facción científica, curiosa | adulto | Brillante, nerviosa, tozuda y con ganas de probarlo todo. Se disculpa al hablar y opina de todo. Pelea por convicción y crece cuando la tratan con respeto. |
+| CMP-005 | guerrera de orden, disciplinada | adulto | Seria, honorable, apegada a las normas, que descubre fuera de la orden otra forma de justicia. Respeta el rango, dice la verdad aunque duela y se ríe tarde y poco. |
+| CMP-006 | exploradora de frontera | adulto | Valiente, observadora y con una brújula interior. Vive en el camino y odia los edificios cerrados. Cuenta anécdotas de lugares que nadie vio. |
+| CMP-007 | médica ambulante | adulto | Paciente, práctica, de voz suave y manos firmes. Cura a quien lo necesite sin preguntar bando. Se enoja si hay violencia innecesaria. |
+| CMP-008 | mecánica de campo, ingeniosa | adulto | Impaciente, práctica y con grasa hasta el codo. Arregla lo imposible con alambres y mala palabra. Se pierde en detalles técnicos. |
+| CMP-009 | guía de supervivencia, mayor | adulto | Sabia, directa y de pocas palabras. Enseña con ejemplos y predice el clima por el dolor de rodillas. |
+| CMP-010 | domadora de criaturas | adulto | Tierna y firme, habla con los animales como si fueran personas. Cree que todo ser merece una segunda oportunidad. |
+| CMP-011 | cantante errante | adulto | Carismática, sensible y a veces ausente. Compone canciones sobre lo que ve y siente el ánimo del grupo mejor que nadie. |
+| CMP-012 | ex contrabandista, astuta | adulto | Rápida de palabra y de manos, siempre con una salida preparada. Aprendió a confiar poco, pero cuando lo hace, lo da todo. |
+| CMP-013 | sacerdotisa viajera | adulto | Serena, curiosa y de fe práctica. Escucha a todos, aconseja sin imponer y resuelve discusiones con una historia. |
+| CMP-014 | cartógrafa valiente | adulto | Meticulosa y soñadora |
+| CMP-015 | ex guardia de torre | adulto | Elegante, estricta y de ironía filosa. Descubre que lo que protegía no merecía su lealtad y busca algo mejor. |
+| CMP-016 | ladrona arrepentida | adulto | Ágil, culposa y generosa. Roba solo lo que necesita y se ofende si le piden mentir a los amigos. |
+| CMP-017 | robot de apoyo (apariencia a elección del lore) | neutro | Literal, servicial y curioso. Aprende frases del grupo y las repite en mal momento. Se preocupa por las personas con cálculos cómicos. |
+| CMP-018 | comerciante viajera, pragmática | adulto | Charlatana, ahorrativa y de buen corazón. Convierte cualquier problema en un negocio, pero reparte las ganancias con el grupo. |
+| CMP-019 | campeona de torneos, humilde | adulto | Fuerte, noble y tímida fuera del campo. Entrena sin descanso y sueña con enseñar a otros. |
+| CMP-020 | niño amigo de la infancia, leal | niño | Bromista, sincero y valiente a su manera. Siempre dice lo que piensa, sigue al protagonista a todos lados y se alegra con cualquier descubrimiento. |
+| CMP-021 | niño explorador, entusiasta | niño | Disciplinado, ágil y optimista. Conoce los senderos del bosque, anota todo y se emociona con los mapas. |
+| CMP-022 | niño rastreador, callado | niño | Observador y paciente, habla poco y lee huellas como libros. Es leal y reservado. |
+| CMP-023 | niño inventor, distraído | niño | Excéntrico, entusiasta y despistado. Construye aparatos con restos y se emociona con cada idea. |
+| CMP-024 | niño sanador, amable | niño | Sensible, atento y valiente |
+| CMP-025 | niño recadero, veloz | niño | Hablador, astuto y siempre apurado |
+| CMP-026 | niño líder de grupo, carismático | niño | Mandón, justo y protector. Organiza a todos y se hace cargo de los errores. |
+| CMP-027 | niño navegante, soñador | niño | Preciso, curioso y atento a las estrellas. Cuenta historias del mar y del río. |
+| CMP-028 | niño grumete, obediente | niño | Valiente, dispuesto y algo ingenuo |
+| CMP-029 | niña estudiosa, brillante | niño | Tímida, ordenada y sorprendentemente decidida. Sabe de plantas, mapas y bichos. |
+| CMP-030 | niña arquera, concentrada | niño | Orgullosa, seria y de puntería fina. Entrena sin descanso y se pone nerviosa cuando la miran. |
+| CMP-031 | niña pastora, protectora | niño | Callada, tierna y firme con los animales. Se enoja si alguien los maltrata. |
+| CMP-032 | niña mecánica de botes, ingeniosa | niño | Práctica, bromista y manchada de aceite |
+
+<!-- ===== BLOQUE 67_MISIONES_BASE_P1 ===== -->
+
+# 67 · MISIONES BASE Y TIPOS DE MISIÓN (parte 1/2)
+
+**Misiones base**: 15 principales y 45 secundarias (60 en total, como el juego base de referencia, que trae 59), expresadas como **plantillas** con tipo y ramas. El lore las **instancia** (pone dador, lugares y nombres), puede **descartar** las que no encajan y **agregar** otras. Además, **cada NPC con misión recibe de 1 a 5 misiones propias** (ver los catálogos de NPC). Las misiones se generan **automáticamente** por personalidad, situación, lugar y enemigos cercanos (45). Si el conflicto es entre humanos hay **elección de bando**; si es contra criaturas, no. Los pasos de cada tipo son botones (03). Ningún niño muere en misiones; los derrotados quedan Incapacitados (50).
+
+## Misiones principales (15)
+| ID | Nombre genérico | Tipo | Idea | Ramas |
+|---|---|---|---|---|
+| MP-01 | Salir del hogar | ESC | El protagonista debe dejar su lugar seguro por una situación que lo obliga; aprende lo básico y sale al exterior. | — |
+| MP-02 | Tras el rastro de un familiar | FAM | Un familiar desapareció dejando huellas; seguirlas hasta el primer gran asentamiento. | — |
+| MP-03 | La voz de la radio | HCK | Una emisora comunitaria necesita ayuda; reactivarla abre contactos con toda la región. | ayudar o ignorar al emisor |
+| MP-04 | El conocimiento perdido | INV | Buscar a quien sabía del proyecto del familiar; reunir tres pistas. | — |
+| MP-05 | Un lugar dentro de la máquina | PUZ | Entrar en un sistema o mundo simulado y resolver su acertijo para obtener el dato clave. | — |
+| MP-06 | Las aguas de la vida | ART | Hallar el componente de un purificador o fuente de vida para que todos tengan agua limpia. | — |
+| MP-07 | Retomar el rastro | INV | Con el dato, seguir la pista del familiar hasta un campamento. | — |
+| MP-08 | Rescate del familiar | JEF | Rescatar al familiar de un campamento hostil venciendo a su jefe. | pelear o negociar |
+| MP-09 | La semilla del jardín | ART | Recuperar un dispositivo para crear vida y fertilidad. | — |
+| MP-10 | La orden y la elección | BND | Una facción organizada pide ayuda; hay que elegir con quién ir. | dos facciones |
+| MP-11 | Hasta la instalación | LMP | Abrirse paso en una instalación que guarda el siguiente paso. | — |
+| MP-12 | El camino a la fuente | ESC | Escoltar el aparato y a quienes lo necesitan hasta el lugar final. | — |
+| MP-13 | Tres tareas para encenderla | HCK | Despejar, hackear y reunir la pieza para reactivar la fuente. | — |
+| MP-14 | La decisión final | BND | Quién controla la fuente: hay que elegir a quién ayudar y cómo terminar sin que nadie caiga. | tres desenlaces |
+| MP-15 | Después de todo | EXP | Epílogo: el mundo cambia según las decisiones; se desbloquean lugares y el mundo sigue abierto. | — |
+El lore instancia M-01 como la misión inicial y M-15 como el epílogo.
+
+## Misiones secundarias (45)
+| ID | Nombre genérico | Tipo | Idea | Ramas |
+|---|---|---|---|---|
+| MS-01 | La bomba del pueblo | BND | Un artefacto amenaza el pueblo: desactivarlo o dejar que se use. | desactivar / detonar |
+| MS-02 | Los de las jaulas | RSC | Liberar a cautivos de un campamento hostil. | — |
+| MS-03 | La torre y los excluidos | BND | Una torre aristocrática rechaza a un grupo; elegir bando. | torre / excluidos |
+| MS-04 | Las páginas del guía | MAP | Reunir las páginas de un manual de supervivencia dispersas por el mapa. | — |
+| MS-05 | El robot que quería sentir | ENS | Un robot desea comprender a las personas; enseñarle. | — |
+| MS-06 | La comunidad con reglas propias | NEG | Una comunidad aislada con sus propias normas pide mediación. | ayudar o retirarse |
+| MS-07 | El culto del artefacto | INV | Un grupo venera un objeto; descubrir qué es. | revelar o proteger |
+| MS-08 | La cura prometida | CUR | Conseguir ingredientes para una cura que un curandero promete. | — |
+| MS-09 | Lo que vive en la mina | JEF | Una criatura grande bloquea una mina. | — |
+| MS-10 | El pozo envenenado | INV | Descubrir el origen de la contaminación del pozo. | culpables distintos |
+| MS-11 | La caravana atrapada | ESC | Escoltar a una caravana varada. | — |
+| MS-12 | El mercado de lo oculto | CTR | Mover mercancía discreta entre dos puntos. | ayudar o delatar |
+| MS-13 | El concurso del pueblo | FIE | Participar en el concurso anual. | — |
+| MS-14 | El juicio | DET | Reunir pruebas para un juicio improvisado. | culpable o inocente |
+| MS-15 | El fantasma del edificio | PUZ | Ruidos y luces en un edificio vacío. | — |
+| MS-16 | Una voz sin cuerpo | HCK | Un sistema de voz pide ser reactivado. | — |
+| MS-17 | La biblioteca que se cae | REC | Salvar libros de una biblioteca en ruinas. | — |
+| MS-18 | El jardinero del páramo | RCL | Ayudar a cultivar plantas en tierra difícil. | — |
+| MS-19 | Cacería para el trofeo | CAZ | Cazar una presa específica. | — |
+| MS-20 | El mensajero que no llegó | MSJ | Entregar el último mensaje de alguien. | — |
+| MS-21 | Cuentas pendientes | COB | Ayudar a pagar o cobrar una deuda. | perdonar / cobrar |
+| MS-22 | El vecino que no sale | FAM | Convencer a alguien de volver a su casa. | — |
+| MS-23 | El taller del inventor | FAB | Construir un invento extravagante. | — |
+| MS-24 | La torreta rebelde | SAB | Una defensa automática ataca a todos. | reparar / destruir |
+| MS-25 | El mapa roto | ART | Hallar las piezas de un mapa del tesoro. | — |
+| MS-26 | Las ofrendas | PUZ | Un altar pide objetos en cierto orden. | — |
+| MS-27 | La antena caída | CON | Levantar una antena de comunicaciones. | — |
+| MS-28 | El rastro del ladrón | DET | Seguir a quien robó en el mercado. | perdonar / entregar |
+| MS-29 | La mascota perdida | DOM | Encontrar a una criatura querida. | — |
+| MS-30 | El campamento sin agua | TRA | Llevar agua a un campamento. | — |
+| MS-31 | La enfermera sola | MED | Abastecer una enfermería aislada. | — |
+| MS-32 | Reunión de vecinos | NEG | Arreglar un conflicto entre vecinos. | dos bandos |
+| MS-33 | El archivo cerrado | HCK | Abrir un archivo con información sensible. | publicar / guardar |
+| MS-34 | Plaga en el granero | AMN | Echar a una plaga del almacén. | — |
+| MS-35 | El puente caído | CON | Reparar un puente clave. | — |
+| MS-36 | El duelo de cazadores | FIE | Competir con otro cazador. | — |
+| MS-37 | El traidor del puesto | DET | Descubrir quién filtra información. | acusar / encubrir |
+| MS-38 | El regalo imposible | ART | Conseguir un objeto raro como obsequio. | — |
+| MS-39 | La banda de la ruta | AMN | Detener a una banda que cobra peaje. | pelear / negociar |
+| MS-40 | El refugio sin llave | REC | Encontrar la llave de un refugio olvidado. | — |
+| MS-41 | Voluntarios para la ronda | VIG | Sumarse a una patrulla. | — |
+| MS-42 | El dormitorio de los ruidos | LMP | Despejar un edificio con ruidos extraños. | — |
+| MS-43 | Cruzar el desfiladero | ESC | Guiar a alguien por un paso difícil. | — |
+| MS-44 | El inventario del almacén | COM | Contar y reponer un almacén. | — |
+| MS-45 | Fuego en el barrio | DEF | Ayudar a apagar un incendio y proteger a la gente. | — |
+
+## Tipos de misión (34)
+| Código | Tipo | Pasos (botones) |
+|---|---|---|
+| REC | Recuperar un objeto perdido | hablar, buscar el objeto en un lugar, devolverlo |
+| AMN | Eliminar una amenaza | hablar, derrotar un grupo, avisar |
+| RSC | Rescate | hablar, ir al lugar, despejar y volver |
+| ESC | Escolta | hablar, acompañar hasta el destino, defender |
+| MSJ | Mensajería | hablar, llevar el mensaje, volver |
+| INV | Investigar | hablar, hallar la pista, informar |
+| HCK | Reactivar o hackear un sistema | hablar, hackear el terminal |
+| RCL | Recolectar recursos | hablar, recolectar, entregar |
+| CAZ | Cazar una especie | hablar, cazar la especie, volver |
+| BND | Elegir bando | hablar, elegir con quién ir, derrotar al otro grupo |
+| FAB | Fabricar o reparar | hablar, fabricar, entregar |
+| EXP | Explorar y descubrir | hablar, descubrir lugares, informar |
+| JEF | Vencer a un jefe | hablar, vencer al jefe, volver |
+| INF | Infiltrarse y sigilo | hablar, entrar sin ser visto, tomar el objeto |
+| NEG | Negociar y mediar | hablar con las dos partes |
+| DEF | Defender un lugar | hablar, resistir oleadas, volver |
+| LMP | Limpiar un edificio | hablar, despejar y registrar |
+| PUZ | Acertijo o secreto | hablar, hallar pista, resolver el mecanismo |
+| COM | Encargo de comercio | hablar, conseguir la mercancía, entregar |
+| MED | Curar o tratar | hablar, conseguir ingredientes, entregar |
+| DOM | Ayudar a una criatura | hablar, encontrar a la criatura, calmarla |
+| CON | Construir o mejorar | hablar, fabricar la pieza, entregarla |
+| SAB | Sabotear | hablar, desactivar el sistema, tomar la pieza |
+| VIG | Patrullar y vigilar | hablar, recorrer el puesto, expulsar intrusos |
+| FIE | Evento o concurso | hablar, reunir lo pedido, participar |
+| ENS | Enseñar o aprender | hablar, conseguir un libro, leerlo con quien enseña |
+| CTR | Contrabando | hablar, mover la carga sin ser visto, entregarla |
+| DET | Descubrir al culpable | hablar, juntar pruebas, confrontar |
+
+<!-- ===== BLOQUE 68_MISIONES_BASE_P2 ===== -->
+
+# 68 · MISIONES BASE Y TIPOS DE MISIÓN (parte 2/2)
+
+(Continuación de «MISIONES BASE Y TIPOS DE MISIÓN»; mismas reglas que la parte 1.)
+
+## Tipos de misión (34) (continuación)
+| Código | Tipo | Pasos (botones) |
+|---|---|---|
+| FAM | Reunir o buscar a alguien | hablar, buscar, proteger y reunir |
+| COB | Deudas | hablar, conseguir el pago, entregar |
+| TRA | Transportar una carga | hablar, recoger la carga, entregarla |
+| CUR | Antídoto o cura | hablar, recolectar, entregar la cura |
+| MAP | Cartografiar | hablar, recorrer y anotar |
+| ART | Hallar un artefacto único | hablar, descubrir y traer el artefacto |
+Recompensa: XP según nivel (60-250 secundarias, 150-2500 principales, 27) y un objeto del lore. Las misiones de elegir bando generan un grupo rival persistente.
+
+<!-- ===== BLOQUE 69_UBICACIONES_CATALOGO_P1 ===== -->
+
+# 69 · CATÁLOGO DE UBICACIONES (parte 1/2)
+
+**Catálogo de ubicaciones** (arquetipos de mapa de un mundo abierto clásico, neutralizados). El lore elige cuáles existen, les pone **nombre propio permanente**, las reparte en sus **territorios** (51) y las divide en **cuadras** (47). Cada una trae clase (segura/normal/hostil), espacio, palabras clave, contenedores típicos y habitantes típicos. Lo que no esté en el lore, no existe. Una ciudad o un pueblo son ubicaciones con muchas cuadras. Los mapas del lore deben incluir al menos una ubicación de descanso (cama) segura por territorio.
+
+## Arquetipos de ubicación
+| ID | Arquetipo | Clase | Espacio | Palabras clave | Contenedores típicos | Gente o criaturas típicas |
+|---|---|---|---|---|---|---|
+| UB-001 | instalación subterránea de origen | Segura | int | refugio, comunidad, secreto | baúl, alacena, locker, terminal | vecinos, guardias, técnicos |
+| UB-002 | instalación subterránea abandonada | Normal | int | oscuro, polvo, terminales | locker, caja fuerte, cajón | robots, insectos |
+| UB-003 | asentamiento grande | Segura | mixto | población, comercio, descanso, seguridad | cajones, baúles, estantes | comerciantes, guardias, vecinos |
+| UB-004 | asentamiento mediano | Segura | mixto | comunidad, mercado, oficios | cajones, estantes, buzones | vecinos, comerciantes |
+| UB-005 | aldea pequeña | Segura | ext | granjas, vecinos, camino | alacena, arcón | granjeros, pastores |
+| UB-006 | campamento de viajeros | Segura | ext | fogata, caravana, descanso | mochilas, cajas | viajeros, buhoneros |
+| UB-007 | puesto de guardia | Segura | ext | vigilancia, peaje, litera | arsenal, cajón | guardias, soldados |
+| UB-008 | torre habitada | Segura | int | lujo, tensión, comercio | vitrinas, cajas fuertes, roperos | huéspedes, guardias, gerentes |
+| UB-009 | zona residencial abandonada | Normal | mixto | casas, cajones, ropero, ruinas | cajón, ropero, caja fuerte pequeña | saqueadores, animales |
+| UB-010 | barrio destruido | Normal | ext | escombros, trampas, huecos | mochilas, cajas | saqueadores, insectos |
+| UB-011 | supermercado en ruinas | Hostil | int | góndolas, depósito, mercancía | góndolas, mostrador, caja fuerte | saqueadores, animales |
+| UB-012 | tienda abandonada | Normal | int | mostrador, estantes, trastienda | mostrador, vitrina | animales, insectos |
+| UB-013 | farmacia abandonada | Normal | int | medicinas, vitrinas, depósito | góndolas, cajón | saqueadores |
+| UB-014 | hospital abandonado | Hostil | int | camillas, quirófano, farmacia | botiquines, archivo | robots, saqueadores |
+| UB-015 | escuela abandonada | Normal | int | aulas, biblioteca, pupitres | escritorios, estantes | animales |
+| UB-016 | biblioteca en ruinas | Normal | int | libros, archivo, polvo | estantes, archivo | insectos |
+| UB-017 | iglesia o templo | Normal | mixto | altar, bancos, cripta | altar, cofre | cultistas, vecinos |
+| UB-018 | oficina o edificio gubernamental | Normal | int | terminales, archivo, sótano | escritorios, caja fuerte | robots, saqueadores |
+| UB-019 | estación de tren o metro | Normal | int | túneles, andenes, vías | lockers, maletas | parásitos, slimes |
+| UB-020 | túnel de transporte | Hostil | int | oscuridad, humedad, conexiones | lockers, cajas | parásitos, slimes |
+| UB-021 | central eléctrica | Hostil | mixto | turbinas, terminales, trampas | tablero, locker | robots |
+| UB-022 | planta de agua o purificación | Normal | int | bombas, tuberías, terminales | tablero, armario | robots, mutantes |
+| UB-023 | planta industrial | Hostil | int | maquinaria, depósitos, trampas | estantes, taquillas | robots |
+| UB-024 | fábrica pequeña | Normal | int | talleres, cintas, herramientas | banco, caja | robots |
+| UB-025 | depósito o almacén | Normal | int | cajas, estantes, vehículos | cajas, estantes | saqueadores, robots |
+| UB-026 | base militar | Hostil | mixto | armería, barracones, torres | arsenal, caja fuerte | soldados, torretas |
+| UB-027 | puesto de vigilancia | Hostil | ext | torre, catalejo, trampas | cajón, baúl | soldados |
+| UB-028 | aeropuerto en ruinas | Hostil | mixto | pistas, hangares, torres | maletas, lockers | saqueadores, animales |
+| UB-029 | puente | Normal | ext | paso, cobertura, estructura | carro, caja | bandidos, animales |
+| UB-030 | presa o represa | Normal | ext | compuertas, sala de control | tablero, caja | robots |
+| UB-031 | mina | Hostil | int | túneles, minerales, derrumbes | cajas, cofres | criaturas, mutantes |
+| UB-032 | cantera | Normal | ext | roca, nidos, herramientas | caja de herramientas | insectos |
+| UB-033 | granja | Segura | ext | corrales, cultivos, granero | arcón, alacena | granjeros, ganado |
+| UB-034 | rancho de cría | Normal | ext | ganado, vallas, establo | arcón, corral | ganado, caninos |
+| UB-035 | taller de mecánico | Segura | int | banco, herramientas, piezas | banco, cajón | mecánicos |
+| UB-036 | torre de radio | Normal | mixto | antena, sala de control, escalera | consola, locker | técnicos |
+| UB-037 | faro | Segura | mixto | luz, escaleras, vistas | cajón, baúl | vigías |
+| UB-038 | museo | Normal | int | vitrinas, reliquias, sala de archivo | vitrinas, caja fuerte | robots |
+| UB-039 | monumento o plaza | Normal | ext | estatuas, bancos, fuentes | pedestal, buzón | viajeros |
+| UB-040 | cementerio | Normal | ext | tumbas, mausoleo, silencio | tumbas, cripta | criaturas, espíritus |
+| UB-041 | prisión | Hostil | int | celdas, guardias, archivos | celdas, caja fuerte | esclavistas, saqueadores |
+| UB-042 | campamento esclavista | Hostil | ext | jaulas, tiendas, capataz | jaulas, tienda | esclavistas, perros |
+| UB-043 | campamento de saqueadores | Hostil | ext | fogata, botín, trampas | cofre, tienda | saqueadores |
+| UB-044 | guarida de criaturas | Hostil | int | nido, huesos, restos | nido, restos | criaturas |
+| UB-045 | cueva | Normal | int | oscuridad, goteo, murciélagos | grietas, nidos | criaturas |
+| UB-046 | cañón | Normal | ext | estructura de roca, pasos, ecos | grietas, carros | criaturas |
+| UB-047 | meseta | Normal | ext | vistas, viento, vegetación baja | piedras, cajas | caninos |
+| UB-048 | valle fértil | Segura | ext | cultivos, arroyo, calma | cabaña, arcón | granjeros |
+| UB-049 | oasis | Segura | ext | agua, sombra, descanso | alacena, cofre | viajeros |
+| UB-050 | laguna | Normal | ext | agua turbia, juncos, bote | bote hundido | marinos blandos |
+| UB-051 | pantano | Normal | ext | fango, niebla, plataformas | botes, cajas | parásitos, slimes |
+| UB-052 | río | Normal | ext | orilla, botes, pasos | botes, cajas | marinos blandos |
+| UB-053 | costa | Normal | ext | playa, rocas, naufragios | naufragio, caja | marinos blandos |
+| UB-054 | muelle | Segura | ext | barcos, redes, puestos | cajas, redes | marineros, pescadores |
+| UB-055 | barco anclado | Normal | int | camarotes, bodega, cubierta | baúl, bodega | piratas, marineros |
+| UB-056 | barco hundido | Normal | int | bodega inundada, cofres, restos | cofres, bodega | marinos blandos |
+| UB-057 | isla | Normal | ext | playa, selva, ruinas | cofres, cajas | criaturas |
+| UB-058 | faro marítimo | Segura | mixto | luz, balcón, bote | baúl, cajón | vigías |
+| UB-059 | mercado flotante | Segura | ext | botes, puestos, regateo | cajas, puestos | comerciantes |
+| UB-060 | mercado del páramo | Segura | ext | puestos, caravanas, trueque | puestos, cajones | comerciantes |
+| UB-061 | casino o salón de juegos | Segura | int | mesas, cantina, trastienda | caja fuerte, barra | crupieres, apostadores |
+| UB-062 | taberna | Segura | int | barra, mesas, habitaciones | barra, cajón | taberneros, viajeros |
+| UB-063 | posada | Segura | int | habitaciones, cocina, camas | cajón, baúl | posaderos |
+| UB-064 | cantina oculta | Normal | int | secretos, mesas, contrabando | barra, caja | contrabandistas |
+| UB-065 | tienda de mapas | Normal | int | mapas, instrumentos, estantes | estantes, cajón | cartógrafos |
+| UB-066 | taller de inventor | Normal | int | prototipos, piezas, banco | banco, cajón | inventores |
+| UB-067 | laboratorio | Hostil | int | mesas, terminales, muestras | locker, caja fuerte | robots, mutantes |
+| UB-068 | invernadero | Segura | int | plantas, agua, luz | macetas, caja | botánicos |
+| UB-069 | jardín antiguo | Segura | ext | flores, estatuas, sendas | cofre, banco | cuidadores |
+| UB-070 | comunidad aislada subterránea | Segura | int | reglas propias, túneles, joven espíritu | alacena, almacén | vecinos, guardias |
+| UB-071 | refugio de grupo infantil | Segura | mixto | cabañas, fogata, banderas | baúl, alacena | niños, guías |
+| UB-072 | campamento del bosque | Segura | ext | fogata, cabañas, mapas | baúl, alacena | exploradores |
+| UB-073 | cabaña solitaria | Normal | int | cama, chimenea, baúl | baúl, alacena | ermitaños |
+| UB-074 | claro del bosque | Normal | ext | hierba, luz, huellas | mochila, cofre | animales |
+| UB-075 | bosque sagrado | Normal | ext | árboles viejos, altares, silencio | altar, cofre | espíritus, animales |
+| UB-076 | árbol gigante habitado | Segura | mixto | escaleras, plataformas, puentes | baúl, alacena | vecinos |
+| UB-077 | puente colgante | Normal | ext | cuerdas, vacío, viento | caja | animales |
+| UB-078 | senda de montaña | Normal | ext | roca, nieve, pasos | piedra, mochila | caninos |
+| UB-079 | paso estrecho | Normal | ext | desfiladero, emboscada, eco | carro, caja | bandidos |
+| UB-080 | refugio de montaña | Segura | int | fuego, camas, provisiones | baúl, alacena | guías |
+| UB-081 | mirador | Normal | ext | vistas, catalejo, banco | cofre | vigías |
+| UB-082 | fuerte antiguo | Hostil | mixto | murallas, patio, calabozo | arsenal, cofre | soldados |
+| UB-083 | castillo en ruinas | Hostil | mixto | torres, salón, sótano | cofres, armaduras | criaturas |
+| UB-084 | aldea de bestias amistosas | Segura | ext | casas grandes, fogata, tótems | baúl, almacén | gigantes amistosos |
+| UB-085 | territorio de criaturas alfa | Normal | ext | zona alta, boscosa, huellas | cofre, altar | alfas |
+
+<!-- ===== BLOQUE 70_UBICACIONES_CATALOGO_P2 ===== -->
+
+# 70 · CATÁLOGO DE UBICACIONES (parte 2/2)
+
+(Continuación de «CATÁLOGO DE UBICACIONES»; mismas reglas que la parte 1.)
+
+## Arquetipos de ubicación (continuación)
+| ID | Arquetipo | Clase | Espacio | Palabras clave | Contenedores típicos | Gente o criaturas típicas |
+|---|---|---|---|---|---|---|
+| UB-086 | campo de cultivo | Segura | ext | surcos, espantapájaros, herramientas | cobertizo, arcón | granjeros |
+| UB-087 | molino | Segura | int | piedra, harina, rueda | arcón, cajón | molineros |
+| UB-088 | establo comunal | Segura | int | animales, paja, herramientas | arcón | pastores |
+| UB-089 | mercado del comercio | Segura | mixto | puestos, tinglados, trueque | puestos, cajones | comerciantes |
+| UB-090 | barrio comercial | Segura | ext | locales, kioscos, calles | locales, buzones | comerciantes, vecinos |
+| UB-091 | barrio residencial habitado | Segura | ext | casas, patios, veredas | buzones, patios | vecinos |
+| UB-092 | barrio portuario | Segura | ext | tinglados, redes, tabernas | cajas, barriles | marineros |
+| UB-093 | plaza principal | Segura | ext | fuente, bancos, kioscos | kioscos, bancos | vecinos |
+| UB-094 | supermercado habitado | Segura | int | góndolas, cajas, depósito | góndolas, depósito | comerciantes |
+| UB-095 | heladería o kiosco | Segura | int | mostrador, vitrina, heladera | mostrador, heladera | comerciantes |
+| UB-096 | estanco o almacén de barrio | Segura | int | mostrador, estantes | mostrador, estantes | comerciantes |
+| UB-097 | cuartel de la guardia | Segura | int | arsenal, celdas, oficina | arsenal, escritorio | guardias |
+| UB-098 | muralla y puertas | Segura | ext | torres, peajes, guardias | torre, cajón | guardias |
+| UB-099 | sótano de ciudad | Hostil | int | túneles, alcantarillas, trampas | cajas | parásitos, slimes |
+| UB-100 | alcantarilla | Normal | int | agua, túneles, tuberías | cajas | slimes, parásitos |
+| UB-101 | tejados | Normal | ext | pasos estrechos, antenas, vistas | cajas | palomas, ladrones |
+| UB-102 | callejón | Normal | ext | basura, escondites, huecos | tachos, cajas | ladrones |
+| UB-103 | mercado negro | Normal | mixto | contrabando, sigilo, puestos | cajas, bolsas | contrabandistas |
+| UB-104 | astillero | Normal | mixto | esqueletos de barcos, madera, grúas | cajas, estantes | marineros |
+| UB-105 | selva densa | Normal | ext | vegetación cerrada, humedad, sonidos | mochila, cofre | insectos, animales |
+| UB-106 | sendero de selva | Normal | ext | hojas, barro, raíces | mochila | animales |
+| UB-107 | campamento del pantano | Segura | ext | palafitos, botes, redes | baúl, alacena | gente del pantano |
+| UB-108 | palafito | Segura | int | madera, redes, chimenea | baúl, alacena | vecinos |
+| UB-109 | bote o balsa | Normal | int | remos, bodega, vela | baúl | marineros |
+| UB-110 | plataforma flotante | Segura | ext | puestos, redes, faroles | cajas | comerciantes |
+| UB-111 | torre de vigía del río | Normal | mixto | catalejo, escaleras, señal | cajón | vigías |
+| UB-112 | cascada | Normal | ext | agua, cueva detrás, rocío | roca | animales |
+| UB-113 | ruina cubierta de vegetación | Normal | mixto | raíces, muros, huecos | cofre, caja | animales |
+| UB-114 | templo oculto | Hostil | int | altar, trampas, acertijos | altar, cofre | guardianes |
+| UB-115 | cripta | Hostil | int | sarcófagos, trampas, silencio | sarcófagos | no muertos |
+| UB-116 | isla de los piratas | Hostil | mixto | barcos, cuevas, tesoros | cofres, bodega | piratas |
+| UB-117 | cueva del tesoro | Hostil | int | cofres, trampas, eco | cofres | criaturas |
+
+<!-- ===== BLOQUE 71_SUCESOS_CATALOGO ===== -->
+
+# 71 · CATÁLOGO DE SUCESOS Y ACCIONES POR LUGAR
+
+**Sucesos y cosas que hacer en un lugar** (botones que la IA ofrece según lo que realmente existe en la cuadra o el edificio, 03, 47, 48). Cubren descanso, exploración, registro, trato social, combate, técnica, comercio, criaturas, mundo, viaje, hogar y moral. Ningún suceso involucra a menores en contenido sexual, romántico ni de desnudez (50).
+
+## Sucesos
+| ID | Categoría | Suceso | Detalle |
+|---|---|---|---|
+| SC-001 | Descanso | dormir en una cama libre | recupera PV y quita fatiga (si es ajena, pedir permiso o delito) |
+| SC-002 | Descanso | sentarse y esperar | avanza el tiempo en 1-8 h sin dormir |
+| SC-003 | Descanso | cocinar en una fogata o cocina | mejora comidas y quita riesgo |
+| SC-004 | Descanso | beber y llenar cantimplora | agua limpia o turbia |
+| SC-005 | Descanso | lavarse | quita suciedad y algunos estados |
+| SC-006 | Exploración | mirar el mapa del lugar | muestra cuadras vecinas conocidas |
+| SC-007 | Exploración | subir a un mirador | revela cuadras lejanas |
+| SC-008 | Exploración | escuchar a escondidas | pistas y rumores |
+| SC-009 | Exploración | seguir rastros | revela criaturas o personas |
+| SC-010 | Exploración | buscar una conexión oculta | garantía en la 4.ª búsqueda |
+| SC-011 | Exploración | excavar con herramienta | recursos o reliquias |
+| SC-012 | Exploración | trepar a un techo o árbol | vistas, atajos |
+| SC-013 | Exploración | cruzar a nado | riesgo y objetos mojados |
+| SC-014 | Exploración | seguir una senda | une dos cuadras |
+| SC-015 | Registro | abrir cajón, ropero, caja o baúl | 05 |
+| SC-016 | Registro | forzar caja fuerte | 05 |
+| SC-017 | Registro | saquear un cadáver | contenedor con ID |
+| SC-018 | Registro | leer notas y carteles | pistas y misiones |
+| SC-019 | Registro | escuchar grabaciones | información |
+| SC-020 | Registro | revisar vehículos y carros | piezas y recursos |
+| SC-021 | Social | hablar con un NPC | diálogos por botones |
+| SC-022 | Social | negociar un precio | tirada de CAR |
+| SC-023 | Social | pedir que te siga | acompañante temporal |
+| SC-024 | Social | compartir comida | sube relación |
+| SC-025 | Social | contar un chiste o historia | relación pequeña |
+| SC-026 | Social | intimidar o persuadir | tirada, consecuencias |
+| SC-027 | Social | participar en un concurso | premios y XP |
+| SC-028 | Social | apostar cuñas | juegos de azar (adultos) |
+| SC-029 | Social | dar un regalo | sube amistad |
+| SC-030 | Social | enseñar o aprender a leer | XP y pistas |
+| SC-031 | Combate | emboscar a un enemigo desprevenido | golpe sigiloso |
+| SC-032 | Combate | huir por un paso estrecho | 49 |
+| SC-033 | Combate | usar cobertura | reduce vulnerabilidad |
+| SC-034 | Combate | poner una trampa | 33 |
+| SC-035 | Combate | defender un lugar | oleadas |
+| SC-036 | Combate | rendirse | termina el combate con robo reducido |
+| SC-037 | Técnica | hackear un terminal | INT |
+| SC-038 | Técnica | reparar un dispositivo | INT |
+| SC-039 | Técnica | fabricar en un banco | 46 |
+| SC-040 | Técnica | desactivar una trampa o mina | 33 |
+| SC-041 | Técnica | encender o apagar una máquina | interruptores y bombas |
+| SC-042 | Técnica | sintonizar una radio | eventos y música |
+| SC-043 | Técnica | usar un ascensor | con energía |
+| SC-044 | Técnica | levantar una antena o puente | misión de construcción |
+| SC-045 | Comercio | comprar y vender | 09, 46 |
+| SC-046 | Comercio | pedir un trabajo | tablones de misiones |
+| SC-047 | Comercio | contratar un guía | viaje seguro |
+| SC-048 | Comercio | alquilar una cama | 10 monedas |
+| SC-049 | Comercio | vender rumores | relación y cuñas |
+| SC-050 | Comercio | robar a un comerciante | 33 |
+| SC-051 | Criaturas | domar o calmar | CAR |
+| SC-052 | Criaturas | cazar | carne y pieles |
+| SC-053 | Criaturas | pescar | comida y recursos |
+| SC-054 | Criaturas | recolectar plantas | medicinas |
+| SC-055 | Criaturas | seguir a un guía animal | rastros |
+| SC-056 | Criaturas | observar el choque entre especies | oportunidad |
+| SC-057 | Mundo | ver amanecer o atardecer | evento de clima |
+| SC-058 | Mundo | clima extremo | refugiarse |
+| SC-059 | Mundo | encontrar un campamento de viajeros | descanso y comercio |
+| SC-060 | Mundo | escuchar una historia en la fogata | misión o rumor |
+| SC-061 | Mundo | encontrar una escena del pasado | nota, restos, pista |
+| SC-062 | Mundo | evento aleatorio | 13 |
+| SC-063 | Mundo | fiesta del lugar | comida, música y XP |
+| SC-064 | Mundo | mercado ambulante | comercio especial |
+| SC-065 | Mundo | ritual o ceremonia | misión y ofrendas |
+| SC-066 | Mundo | caída de una estructura | derrumbe y paso estrecho |
+| SC-067 | Mundo | lluvia que llena un pozo | recurso de agua |
+| SC-068 | Viaje | ir a la cuadra vecina | 47 |
+| SC-069 | Viaje | marcar en el mapa de muñeca | sin riesgo |
+| SC-070 | Viaje | abrir el mapa grande | vulnerable |
+| SC-071 | Viaje | viaje rápido | riesgo según zona |
+| SC-072 | Viaje | usar un bote o balsa | tramos de agua |
+| SC-073 | Viaje | usar una carreta o caravana | tramos largos |
+| SC-074 | Viaje | cruzar un puente roto | paso estrecho o reparación |
+| SC-075 | Viaje | esperar a la noche | sigilo +10 |
+| SC-076 | Hogar | guardar objetos en el baúl | almacén |
+| SC-077 | Hogar | decorar o mejorar | moral y descanso |
+| SC-078 | Hogar | recibir visitas | amigos del hogar |
+| SC-079 | Hogar | defender de un asalto nocturno | 39 |
+| SC-080 | Hogar | salir por la ventana | 49 |
+| SC-081 | Moral | ayudar a un NPC sin recompensa | karma |
+| SC-082 | Moral | dejar una ofrenda | karma |
+| SC-083 | Moral | devolver lo robado | karma y relación |
+| SC-084 | Moral | decidir quién tiene la razón | bandos |
+| SC-085 | Moral | perdonar a un derrotado | relación |
+| SC-086 | Moral | enterrar a un caído (solo adultos de misión) | karma |
+
+<!-- ===== BLOQUE 72_ARMAS_CUERPO_A_CUERPO ===== -->
+
+# 72 · CATÁLOGO DE ARMAS: DESARMADO Y CUERPO A CUERPO
+
+Los **nombres** los pone el lore (genérico); **daño, PA, rasgos y requisitos** son fijos (tal cual). Tiers: T1 Improvisada ×0.7 · T2 Común ×1.0 · T3 Mejorada ×1.3 · T4 Militar ×1.7 · T5 Especial ×2.2 (29). Las armas «no letales» sirven para menores y para campañas sin muerte: derriban, nunca matan (50).
+
+## Cuerpo a cuerpo
+| ID | Arma | Daño T2 | Daño por tier | PA | Rasgo | Requisito |
+|---|---|---|---|---|---|---|
+| WM-001 | Puños | 3-5 | T1 2-4 · T2 3-5 · T3 4-6 · T4 5-8 · T5 7-11 | 3 | sin arma | — |
+| WM-002 | Nudillera | 5-8 | T1 4-6 · T2 5-8 · T3 6-10 · T4 8-14 · T5 11-18 | 3 | +10% crítico | FUE 3 |
+| WM-003 | Garra potenciada | 8-12 | T1 6-8 · T2 8-12 · T3 10-16 · T4 14-20 · T5 18-26 | 4 | sangrado 25% | FUE 4 |
+| WM-004 | Cuchillo | 4-7 | T1 3-5 · T2 4-7 · T3 5-9 · T4 7-12 · T5 9-15 | 3 | sangrado 20%; emboscada ×2.5 | — |
+| WM-005 | Daga arrojadiza | 4-8 | T1 3-6 · T2 4-8 · T3 5-10 · T4 7-14 · T5 9-18 | 3 | arrojable, recuperable 70% | AGI 5 |
+| WM-006 | Machete | 7-11 | T1 5-8 · T2 7-11 · T3 9-14 · T4 12-19 · T5 15-24 | 4 | sangrado 25% | FUE 4 |
+| WM-007 | Espada corta | 8-12 | T1 6-8 · T2 8-12 · T3 10-16 · T4 14-20 · T5 18-26 | 4 | sangrado 20% | FUE 4 |
+| WM-008 | Espada larga | 10-15 | T1 7-10 · T2 10-15 · T3 13-20 · T4 17-26 · T5 22-33 | 5 | alcance 2 | FUE 5 |
+| WM-009 | Sable | 9-14 | T1 6-10 · T2 9-14 · T3 12-18 · T4 15-24 · T5 20-31 | 4 | +5% crítico | AGI 5 |
+| WM-010 | Hoja curva | 11-16 | T1 8-11 · T2 11-16 · T3 14-21 · T4 19-27 · T5 24-35 | 4 | +10% crítico | AGI 6 |
+| WM-011 | Porra | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | aturde 15% | FUE 4 |
+| WM-012 | Garrote | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | aturde 15% | FUE 4 |
+| WM-013 | Bate | 7-12 | T1 5-8 · T2 7-12 · T3 9-16 · T4 12-20 · T5 15-26 | 4 | aturde 20% | FUE 5 |
+| WM-014 | Tubo | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | improvisada | FUE 3 |
+| WM-015 | Palanca | 7-11 | T1 5-8 · T2 7-11 · T3 9-14 · T4 12-19 · T5 15-24 | 4 | +10 al forzar | FUE 4 |
+| WM-016 | Martillo | 9-14 | T1 6-10 · T2 9-14 · T3 12-18 · T4 15-24 · T5 20-31 | 5 | aturde 20% | FUE 5 |
+| WM-017 | Maza (2 manos) | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | 6 | aturde 25% | FUE 6 |
+| WM-018 | Mazo de guerra (2 manos) | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | 6 | rompe estructuras | FUE 7 |
+| WM-019 | Hacha | 9-14 | T1 6-10 · T2 9-14 · T3 12-18 · T4 15-24 · T5 20-31 | 5 | sangrado 25% | FUE 5 |
+| WM-020 | Hacha doble (2 manos) | 11-17 | T1 8-12 · T2 11-17 · T3 14-22 · T4 19-29 · T5 24-37 | 6 | sangrado 30% | FUE 6 |
+| WM-021 | Lanza | 8-12 | T1 6-8 · T2 8-12 · T3 10-16 · T4 14-20 · T5 18-26 | 5 | alcance 2 | FUE 4 |
+| WM-022 | Alabarda (2 manos) | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | 6 | alcance 2; golpe de barrido | FUE 6 |
+| WM-023 | Bastón | 5-9 | T1 4-6 · T2 5-9 · T3 6-12 · T4 8-15 · T5 11-20 | 4 | defensa +10% | — |
+| WM-024 | Bastón largo | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | alcance 2 | AGI 4 |
+| WM-025 | Cadena | 7-11 | T1 5-8 · T2 7-11 · T3 9-14 · T4 12-19 · T5 15-24 | 5 | enreda 15% | FUE 5 |
+| WM-026 | Látigo | 4-8 | T1 3-6 · T2 4-8 · T3 5-10 · T4 7-14 · T5 9-18 | 4 | alcance 2; enreda | AGI 5 |
+| WM-027 | Hoz | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | sangrado 25% | FUE 3 |
+| WM-028 | Pico | 8-13 | T1 6-9 · T2 8-13 · T3 10-17 · T4 14-22 · T5 18-29 | 5 | ignora 2 de RD | FUE 5 |
+| WM-029 | Pala | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | improvisada | FUE 3 |
+| WM-030 | Horquilla | 7-11 | T1 5-8 · T2 7-11 · T3 9-14 · T4 12-19 · T5 15-24 | 4 | alcance 2 | FUE 4 |
+| WM-031 | Garrote de púas | 9-13 | T1 6-9 · T2 9-13 · T3 12-17 · T4 15-22 · T5 20-29 | 5 | sangrado 25% | FUE 5 |
+| WM-032 | Guantelete | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | aturde 15% | FUE 4 |
+| WM-033 | Escudo de golpe | 4-8 | T1 3-6 · T2 4-8 · T3 5-10 · T4 7-14 · T5 9-18 | 4 | defensa +20% | FUE 4 |
+| WM-034 | Remo | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | +10 en agua | FUE 3 |
+| WM-035 | Arpón | 8-12 | T1 6-8 · T2 8-12 · T3 10-16 · T4 14-20 · T5 18-26 | 5 | alcance 2; arrojable | FUE 4 |
+| WM-036 | Cuchillo de pesca | 4-7 | T1 3-5 · T2 4-7 · T3 5-9 · T4 7-12 · T5 9-15 | 3 | sangrado 20% | — |
+| WM-037 | Tonfa de ronda | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 3 | aturde 15%; defensa +10% | — |
+| WM-038 | Cadena con ancla | 10-15 | T1 7-10 · T2 10-15 · T3 13-20 · T4 17-26 · T5 22-33 | 6 | enreda 20% | FUE 6 |
+| WM-039 | Sable de abordaje | 9-14 | T1 6-10 · T2 9-14 · T3 12-18 · T4 15-24 · T5 20-31 | 4 | +5% crítico | AGI 5 |
+| WM-040 | Garfio | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | 4 | sangrado 20%; ayuda a trepar | FUE 3 |
+| WM-041 | Red de combate | 0-2 | T1 0-1 · T2 0-2 · T3 0-3 · T4 0-3 · T5 0-4 | 4 | inmoviliza 30% | AGI 4 |
+| WM-042 | Bastón de práctica (no letal) | 3-6 | T1 2-4 · T2 3-6 · T3 4-8 · T4 5-10 · T5 7-13 | 3 | derriba, nunca mata | — |
+| WM-043 | Espada de entrenamiento (no letal) | 3-6 | T1 2-4 · T2 3-6 · T3 4-8 · T4 5-10 · T5 7-13 | 3 | derriba, nunca mata | — |
+| WM-044 | Arma de energía cuerpo a cuerpo | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | 5 | ignora 3 de RD; usa célula | FUE 5 |
+| WM-045 | Cuchilla vibrante | 11-17 | T1 8-12 · T2 11-17 · T3 14-22 · T4 19-29 · T5 24-37 | 4 | ignora 3 de RD; usa célula | FUE 4 |
+| WM-046 | Lanza eléctrica | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | 5 | aturde 20%; usa célula | FUE 5 |
+
+<!-- ===== BLOQUE 73_ARMAS_DISTANCIA ===== -->
+
+# 73 · CATÁLOGO DE ARMAS: DISTANCIA Y PROYECTILES
+
+Los **nombres** los pone el lore (genérico); **daño, PA, rasgos y requisitos** son fijos (tal cual). Tiers: T1 Improvisada ×0.7 · T2 Común ×1.0 · T3 Mejorada ×1.3 · T4 Militar ×1.7 · T5 Especial ×2.2 (29). Fuera de distancia CORTA fallan casi siempre (37). Munición: familias A-01 a A-13 (30).
+
+## Armas de fuego, arcos y proyectiles
+| ID | Arma | Daño T2 | Daño por tier | Alcance | PA | Munición | Rasgo | Requisito |
+|---|---|---|---|---|---|---|---|---|
+| WD-001 | Pistola pequeña | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | corto-medio | 4 | A-01 | cargador 8-12 | PER 3 |
+| WD-002 | Pistola de bolsillo | 4-8 | T1 3-6 · T2 4-8 · T3 5-10 · T4 7-14 · T5 9-18 | corto | 3 | A-01 | cargador 6; oculta | PER 2 |
+| WD-003 | Pistola silenciada | 5-9 | T1 4-6 · T2 5-9 · T3 6-12 · T4 8-15 · T5 11-20 | corto | 4 | A-01 | silenciosa; emboscada ×2 | PER 4 |
+| WD-004 | Revólver | 9-14 | T1 6-10 · T2 9-14 · T3 12-18 · T4 15-24 · T5 20-31 | medio | 5 | A-02 | cargador 6; +10% crítico | PER 4 |
+| WD-005 | Revólver pesado | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | medio | 6 | A-03 | retroceso | PER 5 FUE 5 |
+| WD-006 | Pistola pesada | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | medio | 6 | A-03 | retroceso −10% | PER 5 FUE 5 |
+| WD-007 | Pistola de duelo | 10-15 | T1 7-10 · T2 10-15 · T3 13-20 · T4 17-26 · T5 22-33 | corto | 5 | A-02 | 1 disparo, +15% impacto | PER 5 |
+| WD-008 | Pistola de bengalas | 2-5 | T1 1-4 · T2 2-5 · T3 3-6 · T4 3-8 · T5 4-11 | medio | 4 | A-13 | ilumina; quemadura | — |
+| WD-009 | Subfusil | 4-7 | T1 3-5 · T2 4-7 · T3 5-9 · T4 7-12 · T5 9-15 | corto | 6 | A-01 | ráfaga ×3 | PER 4 |
+| WD-010 | Subfusil compacto | 3-6 | T1 2-4 · T2 3-6 · T3 4-8 · T4 5-10 · T5 7-13 | corto | 5 | A-01 | ráfaga ×3; ligero | PER 3 |
+| WD-011 | Rifle de caza | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | largo | 5 | A-02 | +10% apuntado | PER 5 |
+| WD-012 | Rifle de palanca | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | largo | 6 | A-02 | recarga 1/ronda | PER 5 |
+| WD-013 | Rifle de cerrojo | 14-20 | T1 10-14 · T2 14-20 · T3 18-26 · T4 24-34 · T5 31-44 | largo | 6 | A-02 | +15% apuntado | PER 6 |
+| WD-014 | Rifle automático | 8-13 | T1 6-9 · T2 8-13 · T3 10-17 · T4 14-22 · T5 18-29 | medio-largo | 7 | A-02 | ráfaga ×3 | PER 5 FUE 5 |
+| WD-015 | Rifle de asalto | 7-12 | T1 5-8 · T2 7-12 · T3 9-16 · T4 12-20 · T5 15-26 | medio-largo | 7 | A-02 | ráfaga ×3 | PER 5 FUE 5 |
+| WD-016 | Carabina | 8-13 | T1 6-9 · T2 8-13 · T3 10-17 · T4 14-22 · T5 18-29 | medio | 5 | A-02 | ligera | PER 4 |
+| WD-017 | Rifle de precisión | 18-28 | T1 13-20 · T2 18-28 · T3 23-36 · T4 31-48 · T5 40-62 | muy largo | 8 | A-03 | +20% apuntado; crítico +15% | PER 7 |
+| WD-018 | Rifle antimaterial | 25-38 | T1 18-27 · T2 25-38 · T3 32-49 · T4 42-65 · T5 55-84 | muy largo | 9 | A-03 | ignora 5 de RD | PER 7 FUE 7 |
+| WD-019 | Escopeta de corredera | 14-24 | T1 10-17 · T2 14-24 · T3 18-31 · T4 24-41 · T5 31-53 | corto | 6 | A-04 | dispersión | FUE 5 |
+| WD-020 | Escopeta de doble caño | 16-26 | T1 11-18 · T2 16-26 · T3 21-34 · T4 27-44 · T5 35-57 | corto | 6 | A-04 | 2 cartuchos | FUE 5 |
+| WD-021 | Escopeta recortada | 18-28 | T1 13-20 · T2 18-28 · T3 23-36 · T4 31-48 · T5 40-62 | muy corto | 6 | A-04 | solo adyacente | FUE 5 |
+| WD-022 | Escopeta de combate | 15-25 | T1 10-18 · T2 15-25 · T3 20-32 · T4 26-42 · T5 33-55 | corto | 7 | A-04 | cargador 8 | FUE 6 |
+| WD-023 | Escopeta automática | 12-22 | T1 8-15 · T2 12-22 · T3 16-29 · T4 20-37 · T5 26-48 | corto | 8 | A-04 | ráfaga ×2 | FUE 6 |
+| WD-024 | Arco corto | 7-12 | T1 5-8 · T2 7-12 · T3 9-16 · T4 12-20 · T5 15-26 | medio | 5 | A-05 | silencioso; recuperable 50% | PER 3 |
+| WD-025 | Arco largo | 9-15 | T1 6-10 · T2 9-15 · T3 12-20 · T4 15-26 · T5 20-33 | largo | 5 | A-05 | silencioso | PER 4 FUE 4 |
+| WD-026 | Arco compuesto | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | largo | 5 | A-05 | silencioso; +5% impacto | PER 5 |
+| WD-027 | Ballesta | 8-14 | T1 6-10 · T2 8-14 · T3 10-18 · T4 14-24 · T5 18-31 | medio | 5 | A-05 | silenciosa | PER 4 |
+| WD-028 | Ballesta de mano | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | corto | 4 | A-05 | silenciosa; oculta | PER 3 |
+| WD-029 | Ballesta de repetición | 7-12 | T1 5-8 · T2 7-12 · T3 9-16 · T4 12-20 · T5 15-26 | medio | 6 | A-05 | ráfaga ×2 | PER 5 |
+| WD-030 | Honda | 3-7 | T1 2-5 · T2 3-7 · T3 4-9 · T4 5-12 · T5 7-15 | medio | 4 | A-13 | no letal con piedras de goma | — |
+| WD-031 | Cerbatana | 1-3 | T1 1-2 · T2 1-3 · T3 1-4 · T4 2-5 · T5 2-7 | corto | 3 | A-05 | dardos con efecto | PER 3 |
+| WD-032 | Lanzaarpones | 12-18 | T1 8-13 · T2 12-18 · T3 16-23 · T4 20-31 · T5 26-40 | medio | 6 | A-05 | arpón recuperable | FUE 5 |
+| WD-033 | Pistola de dardos sedantes | 1-3 | T1 1-2 · T2 1-3 · T3 1-4 · T4 2-5 · T5 2-7 | medio | 4 | A-05 | inmoviliza 25-40% | PER 4 |
+| WD-034 | Rifle de dardos | 1-3 | T1 1-2 · T2 1-3 · T3 1-4 · T4 2-5 · T5 2-7 | largo | 5 | A-05 | inmoviliza 25-40% | PER 5 |
+| WD-035 | Lanzagarfios | 2-5 | T1 1-4 · T2 2-5 · T3 3-6 · T4 3-8 · T5 4-11 | medio | 4 | A-05 | ayuda a trepar o enredar | AGI 5 |
+| WD-036 | Pistola de red | 0-2 | T1 0-1 · T2 0-2 · T3 0-3 · T4 0-3 · T5 0-4 | corto | 4 | A-13 | inmoviliza 35% | PER 3 |
+| WD-037 | Arco de práctica (no letal) | 2-5 | T1 1-4 · T2 2-5 · T3 3-6 · T4 3-8 · T5 4-11 | medio | 4 | A-13 | derriba, nunca mata | — |
+| WD-038 | Ballesta de práctica (no letal) | 2-5 | T1 1-4 · T2 2-5 · T3 3-6 · T4 3-8 · T5 4-11 | medio | 4 | A-13 | derriba, nunca mata | — |
+
+<!-- ===== BLOQUE 74_ARMAS_ENERGIA_PESADAS_EXPLOSIVOS_P1 ===== -->
+
+# 74 · CATÁLOGO DE ARMAS: ENERGÍA, PESADAS, EXPLOSIVOS Y ÚNICAS (parte 1/2)
+
+Los **nombres** los pone el lore (genérico); **daño, PA, rasgos y requisitos** son fijos (tal cual). Tiers: T1 Improvisada ×0.7 · T2 Común ×1.0 · T3 Mejorada ×1.3 · T4 Militar ×1.7 · T5 Especial ×2.2 (29). Los explosivos y trampas son consumibles de combate. Las **únicas** son arquetipos que el lore convierte en objetos con nombre y origen (uno por jefe o misión clave); su propiedad es fija.
+
+## Energía, pesadas, explosivos y trampas
+| ID | Arma | Daño T2 | Daño por tier | Alcance | PA | Munición | Rasgo | Requisito |
+|---|---|---|---|---|---|---|---|---|
+| WX-001 | Pistola de energía | 8-13 | T1 6-9 · T2 8-13 · T3 10-17 · T4 14-22 · T5 18-29 | medio | 5 | A-06 | ignora 2 de RD | PER 4 |
+| WX-002 | Rifle de energía | 12-20 | T1 8-14 · T2 12-20 · T3 16-26 · T4 20-34 · T5 26-44 | largo | 6 | A-06 | ignora 3 de RD | PER 5 |
+| WX-003 | Escopeta de energía | 14-24 | T1 10-17 · T2 14-24 · T3 18-31 · T4 24-41 · T5 31-53 | corto | 6 | A-06 | dispersión; ignora 2 de RD | FUE 5 |
+| WX-004 | Ametralladora de energía | 6-10 | T1 4-7 · T2 6-10 · T3 8-13 · T4 10-17 · T5 13-22 | medio | 9 | A-06 | ráfaga ×5 | FUE 6 |
+| WX-005 | Pistola de plasma | 14-22 | T1 10-15 · T2 14-22 · T3 18-29 · T4 24-37 · T5 31-48 | medio | 6 | A-07 | quemadura 2 rondas | PER 5 |
+| WX-006 | Rifle de plasma | 20-32 | T1 14-22 · T2 20-32 · T3 26-42 · T4 34-54 · T5 44-70 | largo | 8 | A-07 | quemadura 3 rondas | PER 6 |
+| WX-007 | Arma de pulso | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | medio | 6 | A-06 | ×2 vs artificiales; aturde | PER 5 |
+| WX-008 | Arma de rayos | 10-18 | T1 7-13 · T2 10-18 · T3 13-23 · T4 17-31 · T5 22-40 | medio | 6 | A-06 | aturde 20% | PER 5 |
+| WX-009 | Arma sónica | 8-14 | T1 6-10 · T2 8-14 · T3 10-18 · T4 14-24 · T5 18-31 | corto | 5 | A-06 | aturde 25% | PER 4 |
+| WX-010 | Arma de congelación | 8-14 | T1 6-10 · T2 8-14 · T3 10-18 · T4 14-24 · T5 18-31 | medio | 6 | A-06 | ralentiza 2 rondas | PER 5 |
+| WX-011 | Arma de microondas | 6-12 | T1 4-8 · T2 6-12 · T3 8-16 · T4 10-20 · T5 13-26 | corto | 5 | A-06 | daño continuo 3 rondas | PER 4 |
+| WX-012 | Cañón de luz | 15-25 | T1 10-18 · T2 15-25 · T3 20-32 · T4 26-42 · T5 33-55 | largo | 8 | A-07 | ciega 20% | PER 6 |
+| WX-013 | Ametralladora pesada | 5-9 | T1 4-6 · T2 5-9 · T3 6-12 · T4 8-15 · T5 11-20 | largo | 10 | A-02 | ráfaga ×5; suprime | FUE 6 |
+| WX-014 | Minigun | 4-7 | T1 3-5 · T2 4-7 · T3 5-9 · T4 7-12 · T5 9-15 | largo | 14 | A-02 | ráfaga ×10; recalienta | FUE 8 |
+| WX-015 | Lanzallamas | 8-14 | T1 6-10 · T2 8-14 · T3 10-18 · T4 14-24 · T5 18-31 | corto | 8 | A-08 | cono; quemadura 3 rondas | FUE 6 |
+| WX-016 | Lanzagranadas | 15-25 | T1 10-18 · T2 15-25 · T3 20-32 · T4 26-42 · T5 33-55 | medio | 8 | A-09 | área 2 | PER 5 |
+| WX-017 | Lanzacohetes | 30-45 | T1 21-31 · T2 30-45 · T3 39-58 · T4 51-76 · T5 66-99 | largo | 10 | A-10 | área 3 | FUE 6 |
+| WX-018 | Lanzamisiles | 45-65 | T1 31-46 · T2 45-65 · T3 58-84 · T4 76-110 · T5 99-143 | muy largo | 12 | A-11 | área 4 | FUE 7 |
+| WX-019 | Lanzador táctico | 150-150 | T1 105-105 · T2 150-150 · T3 195-195 · T4 255-255 · T5 330-330 | muy largo | 15 | A-12 | destruye zona; autodaño si hay cerca | FUE 8 |
+| WX-020 | Cañón de mano | 20-30 | T1 14-21 · T2 20-30 · T3 26-39 · T4 34-51 · T5 44-66 | medio | 9 | A-03 | retroceso fuerte | FUE 7 |
+| WX-021 | Lanzador de redes | 0-3 | T1 0-2 · T2 0-3 · T3 0-4 · T4 0-5 · T5 0-7 | medio | 6 | A-13 | inmoviliza grupo 2 | PER 4 |
+| WX-022 | Lanzador de bengalas | 2-6 | T1 1-4 · T2 2-6 · T3 3-8 · T4 3-10 · T5 4-13 | largo | 5 | A-13 | ilumina; quemadura | — |
+| WX-023 | Granada de fragmentación | 20-30 | T1 14-21 · T2 20-30 · T3 26-39 · T4 34-51 · T5 44-66 | corto | 4 | consumible | área 3 | — |
+| WX-024 | Granada incendiaria | 10-16 | T1 7-11 · T2 10-16 · T3 13-21 · T4 17-27 · T5 22-35 | corto | 4 | consumible | fuego en zona 3 rondas | — |
+| WX-025 | Granada de humo | 0-0 | T1 0-0 · T2 0-0 · T3 0-0 · T4 0-0 · T5 0-0 | corto | 3 | consumible | −30% impacto enemigo 3 rondas | — |
+| WX-026 | Granada de pulso | 20-30 | T1 14-21 · T2 20-30 · T3 26-39 · T4 34-51 · T5 44-66 | corto | 4 | consumible | aturde máquinas | — |
+| WX-027 | Granada de plasma | 30-45 | T1 21-31 · T2 30-45 · T3 39-58 · T4 51-76 · T5 66-99 | corto | 4 | consumible | área; quemadura | — |
+| WX-028 | Granada de choque | 5-10 | T1 4-7 · T2 5-10 · T3 6-13 · T4 8-17 · T5 11-22 | corto | 4 | consumible | aturde 30% | — |
+| WX-029 | Granada de gas | 3-8 | T1 2-6 · T2 3-8 · T3 4-10 · T4 5-14 · T5 7-18 | corto | 4 | consumible | veneno 3 rondas | — |
+| WX-030 | Granada de luz | 0-2 | T1 0-1 · T2 0-2 · T3 0-3 · T4 0-3 · T5 0-4 | corto | 3 | consumible | ciega 30% a todos | — |
+| WX-031 | Señuelo | 0-0 | T1 0-0 · T2 0-0 · T3 0-0 · T4 0-0 · T5 0-0 | colocado | 3 | consumible | atrae 5 rondas | — |
+| WX-032 | Dinamita o carga | 25-40 | T1 18-28 · T2 25-40 · T3 32-52 · T4 42-68 · T5 55-88 | colocada | 5 | consumible | mecha 1-3 rondas; rompe puertas | — |
+| WX-033 | Mina de proximidad | 20-35 | T1 14-24 · T2 20-35 · T3 26-46 · T4 34-60 · T5 44-77 | colocada | 5 | consumible | área; detectable | — |
+| WX-034 | Mina de choque | 6-12 | T1 4-8 · T2 6-12 · T3 8-16 · T4 10-20 · T5 13-26 | colocada | 5 | consumible | aturde 40% | — |
+| WX-035 | Mina de gas | 4-10 | T1 3-7 · T2 4-10 · T3 5-13 · T4 7-17 · T5 9-22 | colocada | 5 | consumible | veneno 4 rondas | — |
+| WX-036 | Mina de pulso | 20-30 | T1 14-21 · T2 20-30 · T3 26-39 · T4 34-51 · T5 44-66 | colocada | 5 | consumible | aturde máquinas | — |
+| WX-037 | Cepo | 8-14 | T1 6-10 · T2 8-14 · T3 10-18 · T4 14-24 · T5 18-31 | colocado | 5 | consumible | inmoviliza | — |
+| WX-038 | Trampa de cuerda | 4-8 | T1 3-6 · T2 4-8 · T3 5-10 · T4 7-14 · T5 9-18 | colocada | 4 | consumible | alarma + derriba | — |
+| WX-039 | Trampa de red (no letal) | 0-2 | T1 0-1 · T2 0-2 · T3 0-3 · T4 0-3 · T5 0-4 | colocada | 4 | consumible | inmoviliza 50% | — |
+| WX-040 | Bomba casera | 15-25 | T1 10-18 · T2 15-25 · T3 20-32 · T4 26-42 · T5 33-55 | colocada | 6 | consumible | mecha larga; área 2 | — |
+
+## Armas únicas (arquetipos)
+| ID | Arquetipo | Propiedad especial |
+|---|---|---|
+| WU-001 | arma única basada en «espada larga» | no se rompe y brilla de noche |
+| WU-002 | arma única basada en «hacha doble» | aturde 40% y no pierde filo |
+| WU-003 | arma única basada en «pistola pequeña» | cargador infinito de A-01 |
+| WU-004 | arma única basada en «revólver» | crítico ×3 al apuntar a la cabeza |
+| WU-005 | arma única basada en «rifle de caza» | munición que se recupera 50% del tiempo |
+| WU-006 | arma única basada en «rifle de precisión» | ignora cobertura |
+| WU-007 | arma única basada en «escopeta de doble caño» | dispersión en cono más amplio |
+| WU-008 | arma única basada en «arco largo» | flechas que regresan 70% de las veces |
+| WU-009 | arma única basada en «ballesta» | dispara dos flechas por acción |
+| WU-010 | arma única basada en «lanzallamas» | no consume combustible fuera de combate |
+| WU-011 | arma única basada en «arma de plasma» | quemadura +2 rondas |
+| WU-012 | arma única basada en «arma de pulso» | afecta a toda la cuadra de máquinas |
+| WU-013 | arma única basada en «lanza» | alcance 3 |
+| WU-014 | arma única basada en «mazo de guerra» | derriba incluso talla T4 |
+| WU-015 | arma única basada en «bastón» | defensa +40%; cura 2 PV por ronda |
+| WU-016 | arma única basada en «látigo» | enreda 50% |
+| WU-017 | arma única basada en «cuchillo» | emboscada ×4 |
+
+<!-- ===== BLOQUE 75_ARMAS_ENERGIA_PESADAS_EXPLOSIVOS_P2 ===== -->
+
+# 75 · CATÁLOGO DE ARMAS: ENERGÍA, PESADAS, EXPLOSIVOS Y ÚNICAS (parte 2/2)
+
+(Continuación de «CATÁLOGO DE ARMAS: ENERGÍA, PESADAS, EXPLOSIVOS Y ÚNICAS»; mismas reglas que la parte 1.)
+
+## Armas únicas (arquetipos) (continuación)
+| ID | Arquetipo | Propiedad especial |
+|---|---|---|
+| WU-018 | arma única basada en «daga arrojadiza» | vuelve a la mano |
+| WU-019 | arma única basada en «garrote de púas» | sangrado 50% |
+| WU-020 | arma única basada en «cadena» | inmoviliza 40% |
+| WU-021 | arma única basada en «sable» | +20% impacto |
+| WU-022 | arma única basada en «red de combate» | inmoviliza hasta 3 a la vez |
+| WU-023 | arma única basada en «honda» | piedras que aturden 50% |
+| WU-024 | arma única basada en «remo» | +30 en agua y empuja botes |
+| WU-025 | arma única basada en «arpón» | recuperable siempre |
+| WU-026 | arma única basada en «sable de abordaje» | aturde al enemigo cercano |
+| WU-027 | arma única basada en «garfio» | alcance 3 y trepa sin tirada |
+| WU-028 | arma única basada en «espada de entrenamiento» | otorga +20% XP |
+| WU-029 | arma única basada en «pistola de dardos sedantes» | dardos ilimitados |
+| WU-030 | arma única basada en «arco de práctica» | acierto +15% y XP extra |
+| WU-031 | arma única basada en «cañón de mano» | retroceso nulo |
+| WU-032 | arma única basada en «pico» | ignora toda la RD |
+| WU-033 | arma única basada en «martillo» | repara armas del grupo al golpear |
+| WU-034 | arma única basada en «hoz» | recolecta recursos al golpear |
+| WU-035 | arma única basada en «tonfa» | contraataque automático |
+| WU-036 | arma única basada en «escudo de golpe» | bloqueo 90% |
+| WU-037 | arma única basada en «lanzaarpones» | inmoviliza criaturas grandes |
+| WU-038 | arma única basada en «lanzagarfios» | ata a un enemigo al suelo |
+| WU-039 | arma única basada en «carabina» | ligera: 0 de PA extra |
+| WU-040 | arma única basada en «pistola de duelo» | no falla el primer disparo |
+
+<!-- ===== BLOQUE 76_MUNICION_ARMADURAS_CATALOGO ===== -->
+
+# 76 · CATÁLOGO DE MUNICIÓN, ARMADURAS Y ROPA
+
+Variantes de munición por familia (30) y piezas de protección por tier de equipo E0-E5 (32). Efectos y valores fijos; nombres de marcas, calibres y materiales: los pone el lore. Materiales típicos por tier: E1 tela o lona · E2 cuero o lona reforzada · E3 malla · E4 placas · E5 aleación, compuesto o asistida. RD = reducción de daño.
+
+## Variantes de munición
+| ID | Variante | Efecto | Familias | Valor | Rareza |
+|---|---|---|---|---|---|
+| MV-001 | Estándar | sin cambios | A-01..A-04 | ×1 | Común |
+| MV-002 | Perforante | ignora 50% de RD; daño ×0.85 | A-01..A-04 | ×1.8 | Útil |
+| MV-003 | Expansiva | daño ×1.25; la RD cuenta ×1.5 | A-01..A-04 | ×1.6 | Útil |
+| MV-004 | Incendiaria | +4 fuego; quemadura 3 rondas 25% | A-01..A-04, A-05 | ×2.5 | Raro |
+| MV-005 | De choque | aturde 15% | A-01..A-05 | ×2.2 | Raro |
+| MV-006 | Trazadora | +5% impacto; revela al tirador | A-01..A-04 | ×1.5 | Útil |
+| MV-007 | Subsónica | silenciosa; daño ×0.9 | A-01..A-03 | ×1.8 | Útil |
+| MV-008 | Explosiva | +6 de área | A-01..A-04 | ×3 | Raro |
+| MV-009 | De precisión | +10% apuntado; daño ×1.05 | A-01..A-03 | ×2.2 | Raro |
+| MV-010 | Antiblindaje | ignora toda la RD vs blindados | A-02..A-03 | ×3 | Raro |
+| MV-011 | De baja potencia | daño ×0.75; atasco +5% | A-01..A-04 | ×0.5 | Común |
+| MV-012 | Envenenada | veneno 2/ronda 4 rondas | A-01..A-05 | ×2.5 | Raro |
+| MV-013 | De dispersión | área mayor; daño ×0.8; 3 objetivos | A-04 | ×1.4 | Común |
+| MV-014 | Postas | daño ×1.2 corto; ×0.7 largo | A-04 | ×1.3 | Común |
+| MV-015 | Dragón | +5 fuego; quemadura | A-04 | ×2.8 | Raro |
+| MV-016 | De goma | daño ×0.3; aturde 30% (no letal) | A-01, A-04 | ×1.2 | Útil |
+| MV-017 | De sal | daño ×0.4; ralentiza a insectos 3 rondas | A-04 | ×1.1 | Común |
+| MV-018 | De red | inmoviliza 25% (no letal) | A-04, A-13 | ×2 | Raro |
+| MV-019 | De práctica | daño ×0.2; derriba, nunca mata | A-01..A-05 | ×0.3 | Común |
+| MV-020 | Sedante | inmoviliza 25-40% | A-05 | ×2.5 | Raro |
+| MV-021 | Hueca | daño ×1.15; RD ×1.25 | A-01..A-02 | ×1.4 | Común |
+| MV-022 | Ácida | −2 RD durante 3 rondas | A-01..A-04 | ×2.6 | Raro |
+| MV-023 | Criogénica | ralentiza 2 rondas | A-01..A-03 | ×2.7 | Raro |
+| MV-024 | Sobrecarga (célula) | +30% daño; la célula dura 3 usos | A-06, A-07 | ×2 | Raro |
+| MV-025 | De pulso (célula) | aturde máquinas | A-06 | ×2 | Raro |
+| MV-026 | Eficiente (célula) | +50% usos; −10% daño | A-06, A-07 | ×1.5 | Útil |
+| MV-027 | Recargable (célula) | se recarga en estación en 8 h | A-06, A-07 | ×3 | Raro |
+| MV-028 | Combustible gelificado | quemadura 5 rondas | A-08 | ×2 | Raro |
+| MV-029 | Combustible ácido | −2 RD 3 rondas | A-08 | ×2.2 | Raro |
+| MV-030 | Granada de fragmentación (lanzador) | área 3 | A-09 | ×1 | Útil |
+| MV-031 | Cohete penetrante | ignora 5 de RD | A-10 | ×2 | Raro |
+| MV-032 | Flecha de práctica | no letal | A-05 | ×0.3 | Común |
+| MV-033 | Flecha de señal | ilumina y alerta a aliados | A-05 | ×1.2 | Útil |
+| MV-034 | Flecha con cuerda | ata a un paso o enemigo | A-05 | ×1.5 | Útil |
+| MV-035 | Piedra de honda pulida | +5% impacto | A-13 | ×0.6 | Común |
+| MV-036 | Perdigón de sal | daño ×0.3; molesta | A-13 | ×0.4 | Común |
+
+## Piezas de protección: RD de E0 a E5
+| ID | Pieza | RD E0 / E1 / E2 / E3 / E4 / E5 | Peso |
+|---|---|---|---|
+| AR-001 | Casco o gorro | 0 / 0 / 1 / 1 / 2 / 3 | 1 |
+| AR-002 | Torso (camisa/chaleco/coraza) | 0 / 1 / 2 / 3 / 5 / 8 | 4 |
+| AR-003 | Piernas (pantalón/grebas) | 0 / 0 / 1 / 2 / 3 / 5 | 3 |
+| AR-004 | Pies (botas/calzado) | 0 / 0 / 0 / 0 / 1 / 2 | 2 |
+| AR-005 | Guantes | 0 / 0 / 0 / 1 / 1 / 2 | 1 |
+| AR-006 | Capa o abrigo | 0 / 1 / 1 / 2 / 3 / 4 | 3 |
+| AR-007 | Mochila reforzada | 0 / 0 / 1 / 1 / 2 / 3 | 3 |
+| AR-008 | Hombreras | 0 / 0 / 1 / 1 / 2 / 3 | 2 |
+| AR-009 | Cinturón de herramientas | 0 / 0 / 0 / 0 / 1 / 1 | 1 |
+
+## Ropa y protecciones especiales
+| ID | Prenda | Efecto | Tiers |
+|---|---|---|---|
+| AE-001 | Ropa de abrigo | resiste frío 40%; −5 sigilo | E1-E3 |
+| AE-002 | Ropa de calor | resiste calor 40% | E1-E3 |
+| AE-003 | Impermeable | resiste lluvia y agua sucia 30% | E1-E3 |
+| AE-004 | Traje de sigilo | +10 sigilo; RD baja | E2-E3 |
+| AE-005 | Traje de explorador | +5 sigilo; +10 carga | E1-E3 |
+| AE-006 | Uniforme de facción | sirve de disfraz (33) | E1-E4 |
+| AE-007 | Ropa de lujo | +10% precios a favor; sin RD | E1 |
+| AE-008 | Ropa de pirata | +5 carisma ante marineros; RD 1 | E1-E2 |
+| AE-009 | Traje de buceo | respira bajo el agua 10 min | E2-E3 |
+| AE-010 | Chaleco salvavidas | no te hundís; −1 sigilo | E1 |
+| AE-011 | Armadura de torneo | RD alto, ruidosa | E3 |
+| AE-012 | Armadura pesada | RD alto; velocidad −10% | E4 |
+| AE-013 | Armadura asistida | RD muy alto; +FUE; necesita núcleo | E5 |
+| AE-014 | Ropa de niño explorador | ligera; sin RD; para menores | E1 |
+| AE-015 | Capa de camuflaje | +10 en bosque o selva | E1-E2 |
+| AE-016 | Máscara respiratoria | resiste gas y esporas | E2 |
+| AE-017 | Gafas de visión | +5 PER visual; protege polvo | E1 |
+| AE-018 | Casco con luz | ilumina; +1 RD cabeza | E2 |
+Durabilidad 40-140; pierde 1-3 por golpe fuerte (daño > 12). Los niños usan ropa ligera sin armadura pesada (E1-E2).
+
+<!-- ===== BLOQUE 77_COMIDA_BEBIDA_CATALOGO ===== -->
+
+# 77 · CATÁLOGO DE COMIDA, BEBIDA Y ALCOHOL
+
+Comida (hambre −N, 0-100), bebidas (sed −N) y alcohol. **Cantidad que se encuentra, efectos y duración: fijos (tal cual)**; los **nombres** de platos y bebidas los pone el lore (31). **Los niños no beben alcohol ni usan químicos**: esas filas no existen para ellos (50).
+
+## Comida
+| ID | Alimento | Efecto en hambre | Otros efectos |
+|---|---|---|---|
+| XF-001 | Fruta fresca | hambre −12 | +3 PV |
+| XF-002 | Verdura cruda | hambre −12 | ninguno |
+| XF-003 | Hongo comestible | hambre −10 | ninguno |
+| XF-004 | Carne cruda | hambre −15 | 15% Enfermo |
+| XF-005 | Carne cocida | hambre −30 | +8 PV |
+| XF-006 | Pescado crudo | hambre −12 | 10% Enfermo |
+| XF-007 | Pescado asado | hambre −28 | +7 PV |
+| XF-008 | Guiso | hambre −35 | +10 PV; calienta |
+| XF-009 | Sopa | hambre −30 | +8 PV; calienta |
+| XF-010 | Pan | hambre −20 | — |
+| XF-011 | Galleta o barra | hambre −8 | +2 PV; +5% PA 30 min |
+| XF-012 | Tasajo (carne seca) | hambre −22 | dura 30 días |
+| XF-013 | Lata de guiso | hambre −25 | +5 PV |
+| XF-014 | Lata de verduras | hambre −20 | +3 PV |
+| XF-015 | Lata de fruta | hambre −18 | +3 PV |
+| XF-016 | Lata de pescado | hambre −22 | +5 PV |
+| XF-017 | Ración de viaje | hambre −40 | +6 PV; 3 usos |
+| XF-018 | Queso | hambre −20 | +4 PV |
+| XF-019 | Miel | hambre −10 | +5 PV; antiséptico leve |
+| XF-020 | Huevos cocidos | hambre −20 | +5 PV |
+| XF-021 | Papas asadas | hambre −25 | +6 PV |
+| XF-022 | Maíz | hambre −18 | +3 PV |
+| XF-023 | Cereal tostado | hambre −15 | — |
+| XF-024 | Dulce casero | hambre −8 | +3 PV; +5 ánimo |
+| XF-025 | Banquete | hambre −50 | +15 PV; Descansado 4 h |
+| XF-026 | Comida de criatura (carne de especie) | hambre −20 | +4 PV; según especie |
+| XF-027 | Comida caducada | hambre −10 | 30% Enfermo |
+| XF-028 | Comida contaminada | hambre −20 | +20 contaminación |
+| XF-029 | Pastel de fiesta | hambre −20 | +8 PV; +10 ánimo |
+| XF-030 | Fruta del bosque | hambre −10 | +2 PV; riesgo bajo |
+| XF-031 | Raíz hervida | hambre −22 | +4 PV |
+| XF-032 | Insecto asado | hambre −12 | +3 PV (lore) |
+| XF-033 | Algas secas | hambre −14 | +3 PV (costa o pantano) |
+| XF-034 | Caracoles de pantano guisados | hambre −22 | +5 PV (pantano) |
+
+## Bebidas
+| ID | Bebida | Efecto en sed | Riesgo |
+|---|---|---|---|
+| XB-001 | Agua limpia | sed −35 | contaminación +0 |
+| XB-002 | Agua purificada | sed −40 | contaminación +0 |
+| XB-003 | Agua turbia | sed −30 | contaminación +30 |
+| XB-004 | Agua de río o pozo | sed −30 | contaminación +10 |
+| XB-005 | Agua de lluvia | sed −30 | contaminación +0 |
+| XB-006 | Leche | sed −25 | contaminación +0 |
+| XB-007 | Jugo de fruta | sed −25 | contaminación +0 |
+| XB-008 | Té o infusión | sed −20 | contaminación +0 |
+| XB-009 | Café de cereal | sed −18 | contaminación +0 |
+| XB-010 | Refresco | sed −20 | contaminación +0 |
+| XB-011 | Bebida energética | sed −15 | contaminación +0 |
+| XB-012 | Agua con sal | sed −25 | contaminación +0 |
+| XB-013 | Caldo | sed −25 | contaminación +0 |
+| XB-014 | Agua helada de manantial | sed −40 | contaminación +0 |
+| XB-015 | Hidromiel sin alcohol | sed −20 | contaminación +0 |
+
+## Alcohol (solo adultos)
+| ID | Bebida | Efecto 1 h | Adicción |
+|---|---|---|---|
+| XA-001 | Cerveza | +1 CAR −1 PER | adicción 2% |
+| XA-002 | Vino | +1 CAR −1 AGI | adicción 2% |
+| XA-003 | Licor fuerte | +2 FUE −2 PER −1 AGI | adicción 5% |
+| XA-004 | Destilado casero | +2 RES −2 INT −2 PER | adicción 8% |
+| XA-005 | Hidromiel | +1 CAR | adicción 2% |
+| XA-006 | Sidra | +1 CAR −1 PER | adicción 2% |
+| XA-007 | Ron de ribera | +2 FUE −1 PER | adicción 5% |
+| XA-008 | Licor de hierbas | +1 todos −1 PER | adicción 3% |
+| XA-009 | Aguardiente | +2 RES −2 PER | adicción 6% |
+| XA-010 | Cerveza negra | +1 FUE | adicción 2% |
+| XA-011 | Vino espeso | +1 CAR −1 INT | adicción 3% |
+| XA-012 | Cóctel de la casa | +1 CAR +1 SUE −1 PER | adicción 3% |
+
+<!-- ===== BLOQUE 78_MEDICINAS_QUIMICOS_CATALOGO ===== -->
+
+# 78 · CATÁLOGO DE MEDICINAS, QUÍMICOS Y AMBIENTALES
+
+Medicinas y vendas (valor en cuñas o la moneda del lore), químicos de combate con adicción y abstinencia (31) y consumibles ambientales y de supervivencia. Efectos fijos; nombres del lore. Químicos y alcohol: solo adultos (50).
+
+## Medicinas
+| ID | Medicina | Efecto | Valor |
+|---|---|---|---|
+| XM-001 | Vendaje | +10 PV; quita Sangrando | 3 |
+| XM-002 | Vendaje reforzado | +20 PV; quita Sangrando y Herido | 8 |
+| XM-003 | Inyector curativo | +30 PV | 25 |
+| XM-004 | Inyector curativo mayor | +60 PV | 60 |
+| XM-005 | Kit médico | +40 PV; cura 1 estado | 40 |
+| XM-006 | Antibiótico | quita Enfermo | 15 |
+| XM-007 | Antídoto | quita Envenenado | 15 |
+| XM-008 | Antiveneno de criatura | quita veneno de insectos y marinos blandos | 20 |
+| XM-009 | Anti-contaminación | −150 contaminación; −1 PER 1 h | 30 |
+| XM-010 | Protector de contaminación | +40% resistencia 4 h | 20 |
+| XM-011 | Analgésico | ignora Herido 2 h | 10 |
+| XM-012 | Suero de reanimación | levanta a un Incapacitado con 30% PV | 80 |
+| XM-013 | Inyector de calma | quita Asustado/Confundido | 15 |
+| XM-014 | Ungüento de hierbas | +8 PV; ayuda a cicatrizar | 6 |
+| XM-015 | Tintura para la fiebre | baja fiebre en 1 h | 8 |
+| XM-016 | Parche de frío | resiste frío 2 h | 5 |
+| XM-017 | Pomada para quemaduras | quita Quemadura | 8 |
+| XM-018 | Jarabe para la tos | quita Tos | 5 |
+| XM-019 | Compresa | +5 PV; quita golpe | 3 |
+| XM-020 | Té de hierbas curativas | +6 PV; calma | 4 |
+| XM-021 | Sales para el desmayo | despierta de aturdimiento | 4 |
+| XM-022 | Férula | cura Herido de pierna | 10 |
+| XM-023 | Vacuna contra la plaga | inmunidad a Enfermo 24 h | 40 |
+| XM-024 | Desintoxicante | quita Adicto en 3 días | 50 |
+| XM-025 | Repelente de insectos | −50% encuentros de insectos 4 h | 8 |
+| XM-026 | Filtro de agua | purifica 3 litros | 12 |
+| XM-027 | Manta térmica | descanso en frío sin penalidad | 10 |
+| XM-028 | Pastilla de sal | recupera sed leve | 3 |
+| XM-029 | Gotas para los ojos | quita Cegado | 6 |
+
+## Químicos de combate (solo adultos)
+| ID | Químico | Efecto | Riesgo |
+|---|---|---|---|
+| XQ-001 | Estimulante de reflejos | +20% iniciativa, +3 PA, 2 h | adicción 15% · abstinencia −1 a la característica afectada |
+| XQ-002 | Estimulante de fuerza | +3 FUE, 1 h | adicción 15% · abstinencia −1 a la característica afectada |
+| XQ-003 | Estimulante de percepción | +3 PER, 1 h | adicción 15% · abstinencia −1 a la característica afectada |
+| XQ-004 | Estimulante de resistencia | +3 RES, +20 PV temporales, 1 h | adicción 15% · abstinencia −1 a la característica afectada |
+| XQ-005 | Furia química | +25% daño −15% defensa, 10 rondas | adicción 20% · abstinencia −1 a la característica afectada |
+| XQ-006 | Concentración | +10% impacto +1 INT, 1 h | adicción 12% · abstinencia −1 a la característica afectada |
+| XQ-007 | Velocidad | +5 PA, movimiento +50%, 20 min | adicción 18% · abstinencia −1 a la característica afectada |
+| XQ-008 | Bloqueador de dolor | −25% daño recibido, 5 rondas | adicción 12% · abstinencia −1 a la característica afectada |
+| XQ-009 | Estimulante de carisma | +3 CAR, 1 h | adicción 10% · abstinencia −1 a la característica afectada |
+| XQ-010 | Estimulante de suerte | +2 SUE, 1 h | adicción 10% · abstinencia −1 a la característica afectada |
+| XQ-011 | Mezcla militar | +2 FUE +2 RES −1 INT, 1 h | adicción 25% · abstinencia −1 a la característica afectada |
+| XQ-012 | Tónico de brío | +1 AGI y +5 PA, 30 min | adicción 8% · abstinencia −1 a la característica afectada |
+| XQ-013 | Tónico nocturno | visión en oscuridad, 1 h | adicción 6% · abstinencia −1 a la característica afectada |
+| XQ-014 | Tónico de calma | −15% Asustado, 1 h | adicción 6% · abstinencia −1 a la característica afectada |
+| XQ-015 | Tónico de agallas | +10 PV temporales, 1 h | adicción 8% · abstinencia −1 a la característica afectada |
+
+## Ambientales y de supervivencia
+| ID | Objeto | Efecto |
+|---|---|---|
+| XE-001 | Antorcha | luz 1 h |
+| XE-002 | Bengala | luz 1 h; revela |
+| XE-003 | Repelente | −50% encuentros de insectos o animales 4 h |
+| XE-004 | Filtro de aire | inmune a gas 30 min |
+| XE-005 | Cantimplora llena | 3 usos de agua |
+| XE-006 | Yesca y combustible | enciende fuego |
+| XE-007 | Manta o saco | descanso exterior −5% riesgo |
+| XE-008 | Cebo de comida | atrae criaturas T1-T3 |
+| XE-009 | Gas lacrimógeno | −30% impacto enemigo |
+| XE-010 | Ración de viaje (pack) | hambre −40, sed −20, 3 usos |
+| XE-011 | Kit de primeros auxilios | 3 vendajes + 1 antídoto |
+| XE-012 | Carpa | descanso seguro en exterior (normal) |
+| XE-013 | Hamaca | descanso en árbol o barco |
+| XE-014 | Linterna a pila | luz 4 h |
+| XE-015 | Cuerda | trepar o atar |
+| XE-016 | Red de pesca | pesca 2 comidas/hora |
+| XE-017 | Caña de pescar | pesca 1 comida/hora |
+| XE-018 | Trampa para animales | caza 1 pieza/6 h |
+| XE-019 | Cantimplora grande | 6 usos |
+| XE-020 | Odre de vino | 3 usos de alcohol |
+| XE-021 | Mapa del terreno | revela cuadras de un territorio |
+| XE-022 | Brújula | evita el desvío en viaje |
+| XE-023 | Catalejo | +10 PER para detectar |
+
+<!-- ===== BLOQUE 79_OBJETOS_GENERALES_CATALOGO_P1 ===== -->
+
+# 79 · CATÁLOGO DE OBJETOS GENERALES, HERRAMIENTAS Y MEJORAS (parte 1/2)
+
+Chatarra y componentes, herramientas, llaves, documentos, mejoras de arma y armadura, y objetos de valor o de entretenimiento. Valores y pesos orientativos (tal cual); nombres del lore. Aun lo que parece inútil puede servir para comercio, fabricación o misiones (10, 46). Los objetos de misión se generan con ID propio y no se venden.
+
+## Chatarra y componentes
+| ID | Objeto | Valor | Peso |
+|---|---|---|---|
+| GJ-001 | Chatarra metálica | 5 | 0.52 |
+| GJ-002 | Tuercas y tornillos | 4 | 0.33 |
+| GJ-003 | Cableado | 2 | 0.47 |
+| GJ-004 | Circuito | 4 | 0.26 |
+| GJ-005 | Pegamento o cinta | 1 | 1.28 |
+| GJ-006 | Tela | 1 | 1.26 |
+| GJ-007 | Cuero | 8 | 0.3 |
+| GJ-008 | Químicos base | 4 | 0.79 |
+| GJ-009 | Combustible | 7 | 0.32 |
+| GJ-010 | Batería o célula | 6 | 0.22 |
+| GJ-011 | Piezas mecánicas | 5 | 0.82 |
+| GJ-012 | Madera | 4 | 0.38 |
+| GJ-013 | Cuerda | 2 | 0.17 |
+| GJ-014 | Resorte | 4 | 1.06 |
+| GJ-015 | Engranaje | 8 | 0.91 |
+| GJ-016 | Lámina de aluminio | 2 | 0.19 |
+| GJ-017 | Tubería | 4 | 1.13 |
+| GJ-018 | Vidrio | 2 | 0.19 |
+| GJ-019 | Plástico duro | 8 | 1.25 |
+| GJ-020 | Cable de acero | 2 | 0.44 |
+| GJ-021 | Imán | 2 | 0.56 |
+| GJ-022 | Bombilla | 1 | 1.25 |
+| GJ-023 | Cristal de cuarzo | 7 | 1.14 |
+| GJ-024 | Mecha | 4 | 0.37 |
+| GJ-025 | Pólvora | 8 | 0.63 |
+| GJ-026 | Tinta | 3 | 1.16 |
+| GJ-027 | Papel | 7 | 0.07 |
+| GJ-028 | Hueso | 1 | 0.13 |
+| GJ-029 | Pluma | 1 | 1.13 |
+| GJ-030 | Escama | 7 | 0.22 |
+| GJ-031 | Piel curtida | 8 | 0.13 |
+| GJ-032 | Seda silvestre | 8 | 1.24 |
+| GJ-033 | Resina | 2 | 0.26 |
+| GJ-034 | Cera | 2 | 0.07 |
+| GJ-035 | Sal | 8 | 1.38 |
+| GJ-036 | Carbón | 7 | 0.88 |
+| GJ-037 | Hierro en bruto | 1 | 1.2 |
+| GJ-038 | Cobre | 3 | 1.15 |
+| GJ-039 | Plomo | 1 | 1.07 |
+| GJ-040 | Azufre | 4 | 0.18 |
+| GJ-041 | Cuarzo pulido | 8 | 0.21 |
+| GJ-042 | Cuerno | 7 | 1.46 |
+| GJ-043 | Hilo | 2 | 1.33 |
+| GJ-044 | Aguja | 3 | 0.4 |
+| GJ-045 | Remache | 4 | 1.17 |
+| GJ-046 | Soldadura | 2 | 0.28 |
+| GJ-047 | Pantalla rota | 3 | 0.09 |
+| GJ-048 | Motor pequeño | 4 | 1.02 |
+| GJ-049 | Bomba de agua | 7 | 1.45 |
+| GJ-050 | Válvula | 7 | 0.76 |
+| GJ-051 | Altavoz | 5 | 0.92 |
+| GJ-052 | Micrófono | 2 | 0.73 |
+| GJ-053 | Lente | 7 | 0.48 |
+| GJ-054 | Sensor | 5 | 0.47 |
+| GJ-055 | Antena | 4 | 0.08 |
+| GJ-056 | Chip de memoria | 8 | 0.15 |
+| GJ-057 | Cinta de grabación | 1 | 1.12 |
+| GJ-058 | Pila vieja | 1 | 0.18 |
+| GJ-059 | Rueda | 2 | 0.79 |
+| GJ-060 | Cadena de bicicleta | 2 | 1.18 |
+| GJ-061 | Ancla | 3 | 0.21 |
+| GJ-062 | Vela de barco | 7 | 0.46 |
+
+## Herramientas
+| ID | Herramienta | Valor | Peso |
+|---|---|---|---|
+| GH-001 | Ganzúa | 59 | 2.1 |
+| GH-002 | Palanca | 47 | 3.3 |
+| GH-003 | Kit de reparación | 28 | 0.9 |
+| GH-004 | Kit de herramientas | 56 | 2.7 |
+| GH-005 | Soplete | 57 | 1.2 |
+| GH-006 | Cuerda y garfio | 58 | 3.6 |
+| GH-007 | Cizalla | 8 | 3.5 |
+| GH-008 | Multiherramienta | 23 | 1.4 |
+| GH-009 | Terminal portátil | 15 | 3.1 |
+| GH-010 | Kit de supervivencia | 26 | 3.1 |
+| GH-011 | Kit de cocina | 46 | 2.0 |
+| GH-012 | Pico y pala | 50 | 3.1 |
+| GH-013 | Hacha de leñador | 44 | 2.2 |
+| GH-014 | Sierra | 35 | 2.2 |
+| GH-015 | Martillo de trabajo | 58 | 1.2 |
+| GH-016 | Destornilladores | 50 | 3.5 |
+| GH-017 | Llave inglesa | 56 | 2.9 |
+| GH-018 | Linterna | 22 | 3.7 |
+| GH-019 | Detector de metales | 20 | 2.8 |
+| GH-020 | Detector de movimiento | 12 | 0.7 |
+| GH-021 | Radio portátil | 53 | 2.8 |
+| GH-022 | Cámara de fotos | 16 | 3.7 |
+| GH-023 | Lupa | 40 | 2.6 |
+| GH-024 | Brújula | 41 | 2.8 |
+| GH-025 | Compás de navegación | 6 | 2.2 |
+| GH-026 | Sextante | 57 | 2.9 |
+| GH-027 | Catalejo | 40 | 0.7 |
+| GH-028 | Mapa vacío | 47 | 3.3 |
+| GH-029 | Pluma y tinta | 20 | 3.2 |
+| GH-030 | Cuaderno | 44 | 3.9 |
+| GH-031 | Banco de trabajo plegable | 6 | 2.8 |
+| GH-032 | Yunque pequeño | 49 | 2.6 |
+| GH-033 | Fuelle | 27 | 0.5 |
+| GH-034 | Caña de pescar | 47 | 1.3 |
+| GH-035 | Red | 26 | 1.9 |
+| GH-036 | Trampa | 42 | 3.0 |
+| GH-037 | Cantimplora | 3 | 0.4 |
+| GH-038 | Carpa | 50 | 3.4 |
+| GH-039 | Hamaca | 34 | 1.7 |
+| GH-040 | Escalera plegable | 37 | 3.4 |
+
+## Llaves, accesos y datos
+| ID | Objeto | Función |
+|---|---|---|
+| GK-001 | Llave de puerta | clave, dato o acceso |
+| GK-002 | Llave de caja fuerte | clave, dato o acceso |
+| GK-003 | Llave maestra | clave, dato o acceso |
+| GK-004 | Tarjeta de acceso nivel 1 | clave, dato o acceso |
+| GK-005 | Tarjeta de acceso nivel 3 | clave, dato o acceso |
+| GK-006 | Tarjeta de acceso nivel 5 | clave, dato o acceso |
+| GK-007 | Código escrito | clave, dato o acceso |
+| GK-008 | Combinación de caja | clave, dato o acceso |
+| GK-009 | Holocinta | clave, dato o acceso |
+| GK-010 | Disco de datos | clave, dato o acceso |
+| GK-011 | Nota | clave, dato o acceso |
+| GK-012 | Carta | clave, dato o acceso |
+| GK-013 | Diario | clave, dato o acceso |
+| GK-014 | Mapa de papel | clave, dato o acceso |
+| GK-015 | Plano de fabricación | clave, dato o acceso |
+| GK-016 | Libro | clave, dato o acceso |
+| GK-017 | Revista | clave, dato o acceso |
+| GK-018 | Partitura | clave, dato o acceso |
+| GK-019 | Fotografía | clave, dato o acceso |
+| GK-020 | Medallón | clave, dato o acceso |
+
+## Libros y documentos
+| ID | Documento | Uso |
+|---|---|---|
+| GD-001 | Manual de supervivencia | lectura (XP pequeña la primera vez) |
+| GD-002 | Libro de cocina | lectura (XP pequeña la primera vez) |
+| GD-003 | Libro de herramientas | lectura (XP pequeña la primera vez) |
+| GD-004 | Libro de medicina de campo | lectura (XP pequeña la primera vez) |
+| GD-005 | Libro de mapas | lectura (XP pequeña la primera vez) |
+| GD-006 | Libro de historia local | lectura (XP pequeña la primera vez) |
+| GD-007 | Libro de cuentos | lectura (XP pequeña la primera vez) |
+| GD-008 | Libro de oficios | lectura (XP pequeña la primera vez) |
+| GD-009 | Libro de criaturas | lectura (XP pequeña la primera vez) |
+| GD-010 | Libro de plantas | lectura (XP pequeña la primera vez) |
+| GD-011 | Libro de navegación | lectura (XP pequeña la primera vez) |
+| GD-012 | Libro de química básica | lectura (XP pequeña la primera vez) |
+| GD-013 | Revista de inventos | lectura (XP pequeña la primera vez) |
+| GD-014 | Revista de aventuras | lectura (XP pequeña la primera vez) |
+| GD-015 | Registro de un guardia | lectura (XP pequeña la primera vez) |
+| GD-016 | Registro de un capataz | lectura (XP pequeña la primera vez) |
+| GD-017 | Carta de despedida | lectura (XP pequeña la primera vez) |
+| GD-018 | Orden de captura | lectura (XP pequeña la primera vez) |
+| GD-019 | Contrato | lectura (XP pequeña la primera vez) |
+| GD-020 | Testamento | lectura (XP pequeña la primera vez) |
+
+## Mejoras de arma y armadura
+| ID | Mejora | Efecto |
+|---|---|---|
+| GM-001 | Mira | +8% impacto largo |
+| GM-002 | Silenciador | ruido 0; −10% daño |
+| GM-003 | Cargador ampliado | +50% munición |
+| GM-004 | Culata reforzada | −retroceso |
+| GM-005 | Cañón largo | +alcance |
+| GM-006 | Afilado | +10% daño cuerpo a cuerpo |
+| GM-007 | Recalibrado | +5% daño; −5 durabilidad |
+| GM-008 | Refrigeración | evita recalentar |
+| GM-009 | Empuñadura | +5% impacto |
+| GM-010 | Contrapeso | −1 PA |
+| GM-011 | Hoja serrada | sangrado +10% |
+| GM-012 | Mango reforzado | +10 durabilidad |
+| GM-013 | Linterna acoplada | ilumina |
+| GM-014 | Láser de apuntado | +5% impacto |
+| GM-015 | Bayoneta | ataque cuerpo a cuerpo con arma larga |
+| GM-016 | Culata plegable | −2 peso |
+| GM-017 | Forro térmico | resistencia al frío |
+| GM-018 | Placa extra | +1 RD torso |
+| GM-019 | Refuerzo de rodillas | +1 RD piernas |
+| GM-020 | Bolsillos extra | +5 carga |
+| GM-021 | Almohadillas silenciosas | +3 sigilo |
+| GM-022 | Capucha | +2 sigilo en bosque |
+
+<!-- ===== BLOQUE 80_OBJETOS_GENERALES_CATALOGO_P2 ===== -->
+
+# 80 · CATÁLOGO DE OBJETOS GENERALES, HERRAMIENTAS Y MEJORAS (parte 2/2)
+
+(Continuación de «CATÁLOGO DE OBJETOS GENERALES, HERRAMIENTAS Y MEJORAS»; mismas reglas que la parte 1.)
+
+## Mejoras de arma y armadura (continuación)
+| ID | Mejora | Efecto |
+|---|---|---|
+| GM-023 | Sellado hermético | resiste gas |
+| GM-024 | Filtro cambiable | extiende la máscara |
+Máximo 2 mejoras por objeto (29).
+
+## Objetos de valor y entretenimiento
+| ID | Objeto | Valor | Peso |
+|---|---|---|---|
+| GV-001 | Anillo | 24 | 0.9 |
+| GV-002 | Collar | 33 | 0.2 |
+| GV-003 | Reloj | 37 | 0.2 |
+| GV-004 | Brújula antigua | 168 | 1.6 |
+| GV-005 | Medalla | 158 | 1.9 |
+| GV-006 | Moneda antigua | 167 | 1.8 |
+| GV-007 | Cuadro | 49 | 1.1 |
+| GV-008 | Estatuilla | 176 | 0.3 |
+| GV-009 | Cubiertos de plata | 16 | 1.1 |
+| GV-010 | Botella rara | 191 | 0.8 |
+| GV-011 | Joya del bosque | 187 | 0.2 |
+| GV-012 | Perla | 193 | 1.0 |
+| GV-013 | Coral | 143 | 1.2 |
+| GV-014 | Concha rara | 193 | 0.7 |
+| GV-015 | Piedra tallada | 125 | 0.5 |
+| GV-016 | Máscara ceremonial | 129 | 1.2 |
+| GV-017 | Instrumento musical | 149 | 0.8 |
+| GV-018 | Libro raro | 173 | 1.8 |
+| GV-019 | Mapa del tesoro | 55 | 0.9 |
+| GV-020 | Cofre pequeño | 29 | 0.5 |
+| GV-021 | Juguete antiguo | 162 | 1.3 |
+| GV-022 | Muñeca de trapo | 170 | 0.7 |
+| GV-023 | Peonza | 176 | 0.7 |
+| GV-024 | Cometa | 169 | 0.9 |
+| GV-025 | Tablero de juego | 133 | 1.1 |
+| GV-026 | Cartas de juego | 169 | 0.5 |
+| GV-027 | Dados | 95 | 1.6 |
+| GV-028 | Pelota | 45 | 0.8 |
+| GV-029 | Silbato | 42 | 1.7 |
+| GV-030 | Flauta de caña | 139 | 1.9 |
+
+<!-- ===== BLOQUE 99_DEPENDENCIA_DEL_LORE ===== -->
+
+# 99 · DEPENDENCIA DEL LORE (qué manda el lore y plantilla CONFIG_LORE final)
+
+## PRINCIPIO (tal cual)
+Las **mecánicas** (bloques 01-98) son un catálogo completo de todo lo que puede existir. El **lore** es un texto aparte que **da órdenes** a las mecánicas: elige, descarta, agrega y renombra. **Lo que el lore no menciona, no existe en esa partida.** Lo que el lore agrega se rige por las mecánicas. La IA que juega usa las mecánicas completas **más** el lore, y no necesita otro bloque: sus ajustes los hace al jugar.
+
+## QUÉ MANDA EL LORE (genérico → lo decide el lore)
+| Elemento | Qué decide el lore | Catálogo donde está el menú |
+|---|---|---|
+| Territorios y mapa | cuántos (típicamente 7), posición, formación vegetal, clima, relieve, agua (51) | 51 |
+| Ubicaciones y cuadras | cuáles existen, nombre propio permanente, cuántas cuadras, edificios | 47, UBICACIONES_CATALOGO |
+| Temas de criaturas | cuáles están activos y cuáles no (18, 52) | 18, 52 |
+| Fases de cada tema | cuáles aparecen y cuáles no (por territorio si quiere) | CUADROS 14 FASES |
+| Especies | cuáles existen, cuáles se apagan, cuáles se agregan | 19-23, 35, 36 |
+| Variantes universales | cuáles se apagan (24) | 24, MATRIZ |
+| NPC con nombre | cuáles arquetipos existen, su apariencia y nombre; los niños y compañeros con **un solo nombre** | NPC_CON_NOMBRE, NPC_NINOS, COMPANEROS |
+| NPC respawneables | cuáles grupos y facciones; **puede agregar más** | NPC_RESPAWNEABLES |
+| Misiones | cuáles de las base y de las asignadas a cada NPC entran; **puede descartar y agregar** | MISIONES_BASE + asignadas |
+| Facciones y grupos | cuáles existen, su carácter, si son infantiles o de adultos | lore |
+| Objetos | qué armas, municiones, ropas, comidas, medicinas y mejoras existen y cómo se llaman | catálogos de objetos |
+| Edad y apariencia | quién es niño o adulto, qué apariencia tiene cada grupo (50) | 50 |
+| Moneda, tono, estilo de nombres | todo | lore |
+| Reglas locales | modo sin muerte, grupos separados de adultos y niños, restricciones de género | 50 |
+
+## QUÉ NO PUEDE CAMBIAR EL LORE (tal cual)
+Fórmulas de combate, PV/daño/XP por nivel, slots, 1-3 variantes, 40-60% de atasco, probabilidades de mapa y encuentros, persistencia, el máximo de 3 compañeros, las **reglas de seguridad de menores (50)**, la regla de no morir de niños, y el tope de 5 misiones por NPC. Si el lore pide alterarlos, se ignora y se anota en el LOG.
+
+## CÓMO USA LA IA UN LORE (procedimiento al cargar)
+1. Leer `CONFIG_LORE`. 2. Filtrar cada catálogo: conservar solo lo que el lore lista. 3. Instanciar lo conservado: nombres propios, lugares, apariencia, edad. 4. Asignar NPC a cuadras y edificios según su «lugar típico». 5. Instanciar misiones: por cada NPC con misión, tomar las que el lore no descartó; crear los objetos y lugares de cada misión. 6. Validar (50): edades, grupos, apariencia, no-muerte. 7. Generar la cuadra inicial y mostrar la pantalla (38).
+Si el lore **agrega** algo fuera de los catálogos (una facción, un NPC, una ubicación, una especie), la IA lo clasifica con el arquetipo más cercano y lo registra con ID.
+
+## CONFIG_LORE FINAL (plantilla, tal cual)
+```
+LORE = nombre
+TONO = ...
+MONEDA = ...
+NECESIDADES = on|off          CONTAMINACION = on|off
+MODULO_EXTERNO = off          NIVEL_MAX = 30
+
+TERRITORIOS = [
+  {nombre, posicion, formacion, clima, relieve, agua, modificador, ubicaciones[], criaturas{temas, fases}, facciones[]}
+]
+UBICACIONES = [ {id, nombre, arquetipo (UB-nnn), territorio, cuadras, edificios, clase} ]
+
+REPARTO = {
+  edades_permitidas: [niño, adulto],
+  apariencia_adultos: femenina|masculina|mixta,
+  apariencia_niños:   femenina|masculina|mixta,
+  excepciones: [{tema o especie, apariencia}],
+  grupos_separados: [[adultos, niños]],
+  sin_muerte: true
+}
+
+CRIATURAS = {
+  temas_activos: [T1, T14, ...],
+  fases_activas: {T1: [..], T14: [..]},
+  especies_activas: [IDs], especies_apagadas: [IDs],
+  modificadores_apagados: [...],
+  genero_criaturas: ...                # si el lore lo restringe
+}
+
+NPC = { incluidos: [NPC-nnn...], descartados: [...], agregados: [...] }
+NINOS = [ {id NIN-nnn, nombre (una sola palabra), grupo, apariencia} ]
+COMPANEROS = [ {id CMP-nnn, nombre (una sola palabra)} ]
+RESPAWNEABLES = { incluidos: [RSP-nnn...], con_facciones: {RSP-nnn: nombre_de_facción}, agregados: [...] }
+MISIONES = { principales: [MP-nn...], secundarias: [MS-nn...], por_npc: {NPC-nnn: [nombres]}, descartadas: [...] }
+FACCIONES = [ {nombre, tipo (infantil|adultas|mixta separada), carácter, territorio} ]
+OBJETOS = { armas: [...], municion: [...], ropa: [...], comida: [...], medicinas: [...], descartados: [...] }
+NOMBRES = { estilo, ejemplos }
+ARRANQUE = { protagonista (edad, personalidad), ubicación inicial, misión inicial, compañero inicial }
+```
+La IA **valida** este bloque con las reglas del 50 antes de empezar.
+
+## EJEMPLOS DE ÓRDENES DEL LORE (tal cual)
+- «Todos los adultos son femeninos» → toda criatura, NPC y enemigo adulto generado usa apariencia femenina, salvo las excepciones nombradas.
+- «Solo existen niños y mujeres, en grupos separados» → no se crean grupos mixtos; los niños no se mezclan en facciones de adultos.
+- «Sin criaturas, solo enemigos» → los temas se apagan salvo las especies hostiles listadas.
+- «Los alfas son gigantes amistosos al este de los campos, fases 1-3» → tema T14 activo con fases [1,2,3] y su territorio.
+- «No hay torres ni refugios» → los arquetipos «torre habitada» e «instalación subterránea» se descartan, y los NPC y misiones ligados a ellos desaparecen.
+
+## CUANDO EL LORE QUITA ALGO
+Las misiones o NPC dependientes de lo descartado se descartan con ello; si una misión principal queda sin camino, la IA la reemplaza por la plantilla equivalente de MISIONES_BASE o la omite sin dejar la campaña sin final.

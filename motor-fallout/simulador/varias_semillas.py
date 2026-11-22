@@ -14,6 +14,10 @@ import bot as botmod  # noqa: E402
 import motor  # noqa: E402
 
 
+NP = sum(1 for q in motor.mundo.QUESTS.values() if q["tipo"] == "principal")
+NS = sum(1 for q in motor.mundo.QUESTS.values() if q["tipo"] == "secundaria")
+
+
 def una(semilla):
     s = motor.Sim(semilla=semilla)
     b = botmod.Bot(s)
@@ -22,8 +26,8 @@ def una(semilla):
     vivos = sum(1 for L in s.locs.values() for g in L["grupos"] for e in g["miembros"] if e["hp"] > 0)
     pers = c.get("enemigos_creados", 0) == c.get("kills", 0) + c.get("muertes_por_otra_criatura", 0) + vivos
     return dict(semilla=semilla, completa=bool(dia), dia=dia or 0, nivel_fin=getattr(b, "nivel_fin", 0), nivel=s.p["nivel"],
-                prin=sum(1 for q, e in s.quests.items() if q.startswith("M") and e == "hecha"),
-                sec=sum(1 for q, e in s.quests.items() if q.startswith("S") and e == "hecha"),
+                prin=sum(1 for q, e in s.quests.items() if motor.mundo.QUESTS[q]["tipo"] == "principal" and e == "hecha"),
+                sec=sum(1 for q, e in s.quests.items() if motor.mundo.QUESTS[q]["tipo"] == "secundaria" and e == "hecha"),
                 derr=c.get("derrotas", 0), robos=c.get("robos_sufridos", 0), recup=c.get("robos_recuperados", 0),
                 kills=c.get("kills", 0), pers=pers, viol=len(s.violaciones), atascos=c.get("atascos", 0),
                 emb=c.get("emboscadas_mapa", 0))
@@ -42,7 +46,7 @@ def main():
          "| Semilla | ¿Completa? | Día fin | Nivel al terminar / final | Principales | Secundarias | Derrotas | Robos (recup.) | Enemigos | Persistencia | Problemas bot |",
          "|---|---|---|---|---|---|---|---|---|---|---|"]
     for f in filas:
-        L.append(f"| {f['semilla']} | {'sí' if f['completa'] else 'NO'} | {f['dia']} | {f['nivel_fin']} / {f['nivel']} | {f['prin']}/8 | {f['sec']}/20 | "
+        L.append(f"| {f['semilla']} | {'sí' if f['completa'] else 'NO'} | {f['dia']} | {f['nivel_fin']} / {f['nivel']} | {f['prin']}/{NP} | {f['sec']}/{NS} | "
                  f"{f['derr']} | {f['robos']} ({f['recup']}) | {f['kills']} | {'OK' if f['pers'] else 'ERROR'} | {f['viol']} |")
     ok = [f for f in filas if f["completa"]]
     L += ["", "## Promedios",

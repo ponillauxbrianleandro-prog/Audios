@@ -13,7 +13,10 @@ AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 sys.path.insert(0, str(AQUI.parent))
 
-import mundo  # noqa: E402
+import importlib  # noqa: E402
+import os  # noqa: E402
+
+mundo = importlib.import_module(os.environ.get("MUNDO", "mundo"))  # noqa: E402
 import generar_bestiario as gb  # noqa: E402
 
 NIVEL_MAX = 30
@@ -105,15 +108,17 @@ class Sim:
         st = dict(mundo.PROTAGONISTA["stats"])
         self.p = dict(nombre=mundo.PROTAGONISTA["nombre"], nivel=1, xp=0, stats=st,
                       hp=0, arma=1, dur=70, armadura=0, cuñas=30,
-                      inv={"venda": 3, "lata": 2, "agua": 2, "ganzua": 1}, loc="L-001", hambre=10, sed=10, fatiga=0,
+                      inv={"venda": 3, "lata": 2, "agua": 2, "ganzua": 1}, loc=mundo.PROTAGONISTA["hogar"], hambre=10, sed=10, fatiga=0,
+                      edad=mundo.PROTAGONISTA.get("edad", "adulto"), atascado=False,
                       comps=[], estados=set(), karma=0, sigilo=False)
         self.p["hp"] = self.hpmax()
         self.fl = dict(bando=None, purificador=False, llave_silo=False)
         self.quests = {q: "disponible" for q in mundo.QUESTS}
         self.qpaso = {q: 0 for q in mundo.QUESTS}
         self.hist_niv = []
-        self.locs["L-001"]["descubierta"] = True
-        for c in mundo.LOCS["L-001"]["conn"]:
+        hogar = mundo.PROTAGONISTA["hogar"]
+        self.locs[hogar]["descubierta"] = True
+        for c in mundo.LOCS[hogar]["conn"]:
             self.locs[c]["descubierta"] = True
         self.contar("dias_max", 1)
 
@@ -386,6 +391,8 @@ class Sim:
             v -= 10
         if p["comps"] and cortos:
             v -= 10
+        if p.get("atascado"):
+            v += 25  # bloque 49: vulnerabilidad maxima mientras estas atascado
         return max(0, min(100, v + extra))
 
     def fallo(self, enemigos, mod=0, extra_v=0):
@@ -400,7 +407,7 @@ class Sim:
             f = min(95, f + {0: 0, 1: 25, 2: 40}[objetivo["dist"]])  # bloque 37: casi nulas fuera de CORTA
         return f
 
-    def combate(self, enemigos, emboscada_enemiga=False, sorpresa=False, policy=None, ctx=""):
+    def combate(self, enemigos, emboscada_enemiga=False, sorpresa=False, policy=None, ctx="", atascado=False):
         """Devuelve 'victoria', 'derrota' o 'escape'. Mutan los enemigos (persisten)."""
         p = self.p
         for e in enemigos:
@@ -411,6 +418,7 @@ class Sim:
         hp_ini = p["hp"]
         self.say(f"COMBATE vs {nombres} (nv{vivos0[0]['nivel']}, var V{vivos0[0]['var']}, PV c/u {vivos0[0]['hpmax']}) "
                  f"{'[emboscada enemiga]' if emboscada_enemiga else ''}{'[sorpresa]' if sorpresa else ''}")
+        p["atascado"] = atascado
         comp_hp = {c: 30 + 6 * p["nivel"] for c in p["comps"]}
         oculto = sorpresa
         while True:
@@ -419,6 +427,9 @@ class Sim:
             if not vivos:
                 break
             acciones = 3
+            if p.get("atascado") and self.pct(40 + 4 * max(p["stats"]["FUE"], p["stats"]["AGI"])):
+                p["atascado"] = False
+                self.contar("liberado_en_combate")
             if emboscada_enemiga and turno == 1:
                 acciones = 0
             guardia = None
@@ -429,6 +440,9 @@ class Sim:
                     break
                 mov = policy(self, vivos, acciones, oculto, guardia) if policy else ("normal",)
                 tipo = mov[0]
+                if tipo == "escapar" and p.get("atascado"):
+                    acciones -= 1  # atascado: no se puede escapar (bloque 49)
+                    continue
                 if tipo == "escapar":
                     ex = 60 + 3 * p["stats"]["AGI"] - 15 * sum(1 for e in vivos if e["dist"] == 0)
                     ok = self.pct(max(10, min(90, ex)))
@@ -787,13 +801,26 @@ class Sim:
             if not self.puede_entrar(paso):
                 self.say(f"ruta bloqueada hacia {mundo.LOCS[paso]['nombre']}")
                 return False
-            mins = self.rng.randint(20, 60)
-            if not rapido:
-                pass
+            prev = p["loc"]
+            Dp, Do = mundo.LOCS[paso], mundo.LOCS[prev]
+            interno = bool(Dp.get("ubicacion")) and Dp.get("ubicacion") == Do.get("ubicacion")
+            if Dp.get("tipo") == "edificio" or Do.get("tipo") == "edificio":
+                mins = self.rng.randint(1, 3)
+                self.contar("cruces_de_umbral")
+                if not self._umbral(prev, paso):
+                    return False
+                if p["loc"] != prev:   # una derrota durante el cruce nos movio
+                    return False
+            elif interno:
+                mins = self.rng.randint(3, 8)       # de cuadra a cuadra (47)
+                self.contar("movimientos_de_cuadra")
+            else:
+                mins = self.rng.randint(20, 60)
             self.avanzar(mins)
-            # evento en ruta
+            # evento en ruta (entre ubicaciones) o 5% en cuadras hostiles
             clase = mundo.LOCS[paso]["clase"]
-            if mundo.LOCS[paso]["pool"] != "civil" and self.pct(10 + (10 if clase != "S" else 0)):
+            prob_ev = (5 if clase == "H" else 0) if (interno or Dp.get("tipo") == "edificio") else 10 + (10 if clase != "S" else 0)
+            if mundo.LOCS[paso]["pool"] != "civil" and prob_ev and self.pct(prob_ev):
                 lid_t = p["loc"]
                 g = self.generar_grupo(paso)
                 if g and clase != "S":
@@ -998,30 +1025,87 @@ class Sim:
         return False
 
     # ----------------------------------------------------------------- atasco (bloque 39)
-    def salir_por_ventana(self):
+    def pasar_estrecho(self, tipo="ventana", lid=None, ajuste=0):
+        """Paso estrecho (bloque 49): umbral de atasco aleatorio 40-60%. Si hay atasco: ataques mientras estas atascado."""
         p = self.p
-        pc = self.rng.randint(40, 60)
+        lid = lid or p["loc"]
+        umbral = max(40, min(60, self.rng.randint(40, 60) + ajuste))  # limites duros 40-60
         self.contar("atascos_tiradas")
-        if self.rng.randint(1, 100) <= pc:
-            self.contar("atascos")
-            horas = 0
-            while True:
-                self.avanzar(10)
-                if self.rng.randint(1, 100) <= max(10, 40 + 4 * max(p["stats"]["FUE"], p["stats"]["AGI"])):
-                    break
-                horas += 10
-                if horas >= 60:
-                    break
-            if horas and self.pct(30):
+        self.contar("estrechos_" + tipo)
+        if self.rng.randint(1, 100) > umbral:
+            self.say(f"pasa por {tipo} sin atascarse (umbral {umbral}%)", fuerte=False)
+            return True
+        self.contar("atascos")
+        p["atascado"] = True
+        minutos = 0
+        while p["atascado"] and minutos < 60:
+            self.avanzar(10)
+            minutos += 10
+            d = mundo.LOCS[lid]
+            aqui = self.vivos(lid)
+            prob = 60 if aqui else {"S": 3, "N": 12, "H": 25}[d["clase"]]
+            if self.pct(prob):
+                g = next((g for g in self.locs[lid]["grupos"] if any(e["hp"] > 0 for e in g["miembros"])), None)
+                if g is None and d["pool"] != "civil":
+                    g = self.generar_grupo(lid)
+                if g:
+                    self.contar("ataques_mientras_atascado")
+                    self.say(f"ATASCADO en {tipo} ({umbral}%): lo atacan (vulnerable)")
+                    res = self.combate(g["miembros"], emboscada_enemiga=True, policy=self.policy, atascado=True)
+                    if res == "derrota":
+                        p["atascado"] = False
+                        self.derrota(lid)
+                        return False
+            if p["atascado"] and self.pct(40 + 4 * max(p["stats"]["FUE"], p["stats"]["AGI"])):
+                p["atascado"] = False
+        p["atascado"] = False
+        if minutos >= 60 or minutos > 30:
+            if self.pct(30):
                 perd = int(p["cuñas"] * self.rng.uniform(0.05, 0.15))
                 p["cuñas"] -= perd
                 self.contar("robos_por_atasco")
-                self.say(f"ATASCADO en la ventana ({pc}%): robo por estructura −{perd} cuñas")
-            else:
-                self.say(f"ATASCADO en la ventana ({pc}%): logra salir tras {horas} min")
-            return False
-        self.say(f"sale por la ventana sin atascarse (umbral {pc}%)")
-        return True
+                self.say(f"ATASCADO en {tipo} ({umbral}%): robo por estructura −{perd}")
+                return False
+        self.say(f"ATASCADO en {tipo} ({umbral}%): se libera tras {minutos} min", fuerte=False)
+        return False
+
+    def salir_por_ventana(self):
+        return self.pasar_estrecho("ventana")
+
+    def marcar_minimapa(self, destino):
+        """Mapa de muñeca: marcar una cuadra cercana y avanzar. Sin viaje rapido y sin vulnerabilidad (bloque 47)."""
+        self.contar("marcas_minimapa")
+        return self.viajar(destino, rapido=False)
+
+    def _umbral(self, a, b):
+        """Cruce entre cuadra y edificio: puerta (cerradura) o paso estrecho (bloque 48-49). True si se puede pasar."""
+        D = mundo.LOCS
+        edif = b if D[b].get("tipo") == "edificio" else (a if D[a].get("tipo") == "edificio" else None)
+        if edif is None:
+            return True
+        acc = D[edif].get("accesos") or {}
+        puerta = acc.get("puerta", 0)
+        estrechos = [t for t in ("ventana", "agujero", "conducto") if acc.get(t)]
+        abierta = self.locs[edif].setdefault("puerta_abierta", False)
+        if abierta and not (estrechos and self.pct(8)):
+            return True
+        if estrechos and self.pct(10):
+            return self.pasar_estrecho(self.rng.choice(estrechos), lid=a, ajuste=0) or self.p["loc"] == a
+        if puerta == 0:
+            self.locs[edif]["puerta_abierta"] = True
+            return True
+        for _ in range(3):
+            pc = (70 - 12 * puerta + self.p["stats"]["AGI"] * 3 + self.p["nivel"]) if self.p["inv"].get("ganzua", 0) else (60 - 10 * puerta + self.p["stats"]["FUE"] * 3 + self.p["nivel"])
+            self.avanzar(self.rng.randint(3, 8))
+            if self.rng.randint(1, 100) <= max(5, min(95, pc)):
+                self.locs[edif]["puerta_abierta"] = True
+                self.contar("puertas_abiertas")
+                return True
+        if estrechos:
+            self.contar("entradas_por_estrecho")
+            return self.pasar_estrecho(self.rng.choice(estrechos), lid=a) or self.p["loc"] == a
+        self.contar("puertas_imposibles")
+        return False
 
     # ----------------------------------------------------------------- comercio (bloque 09)
     def precio_compra(self, valor):

@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 17/21 -->
+# Registro de la campaña (simulación), parte 17
+
+- d75 04:56 | L-012 | MISIÓN ACEPTADA QA-111-2 «Lo que no se dijo a tiempo» (secundaria)
+- d75 05:01 | L-012 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d75 06:13 | Q-022 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d75 06:13 | L-002 | COMBATE vs 4× Moho viscoso humanoide (nv3, var V1, PV c/u 57) [emboscada enemiga]
+- d75 06:16 | L-002 | VICTORIA en 3 rondas (PV 265→264/300)
+- d75 09:06 | L-011 | COMBATE vs 5× Pulpo (nv6, var V2, PV c/u 42) 
+- d75 09:09 | L-011 | VICTORIA en 3 rondas (PV 276→275/300)
+- d75 09:52 | L-012 | COMBATE vs 3× Slime de pantano (nv7, var V1, PV c/u 32) 
+- d75 09:55 | L-012 | VICTORIA en 3 rondas (PV 278→278/300)
+- d75 10:00 | L-012 | MISIÓN COMPLETADA QA-111-2 «Lo que no se dijo a tiempo» +158 XP
+- d75 13:12 | L-005 | COMBATE vs 2× Mantis gigante (nv5, var V1, PV c/u 112) 
+- d75 13:14 | L-005 | VICTORIA en 2 rondas (PV 300→300/300)
+- d75 13:54 | L-006 | MISIÓN ACEPTADA QA-122-1 «Mercancía para la ambición» (secundaria)
+- d75 14:46 | L-005 | COMBATE vs 2× Ciervo (nv5, var V1, PV c/u 112) 
+- d75 14:49 | L-005 | VICTORIA en 3 rondas (PV 300→293/300)
+- d75 17:25 | L-006 | MISIÓN COMPLETADA QA-122-1 «Mercancía para la ambición» +158 XP
+- d75 19:46 | Q-021 | MISIÓN ACEPTADA QA-129-1 «Provisión del muelle» (secundaria)
+- d75 19:51 | Q-021 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d75 21:00 | L-020 | COMBATE vs 4× Cucaracha mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d75 21:04 | L-020 | VICTORIA en 4 rondas (PV 300→293/300)
+- d75 21:04 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d75 21:18 | Q-021 | MISIÓN COMPLETADA QA-129-1 «Provisión del muelle» +158 XP
+- d75 21:38 | Q-018 | MISIÓN ACEPTADA QA-130-1 «El invento del ingenio» (secundaria)
+- d76 02:09 | Q-001 | FABRICA artefacto (27≤100)
+- d76 02:32 | L-001 | COMBATE vs 4× Oveja humanoide (nv2, var V1, PV c/u 52) 
+- d76 02:36 | L-001 | VICTORIA en 4 rondas (PV 300→293/300)
+- d76 05:49 | Q-018 | MISIÓN COMPLETADA QA-130-1 «El invento del ingenio» +158 XP
+- d76 05:57 | Q-017 | MISIÓN ACEPTADA QA-131-3 «Mercancía para el silencio» (secundaria)
+- d76 06:40 | Q-017 | MISIÓN COMPLETADA QA-131-3 «Mercancía para el silencio» +158 XP
+- d76 06:45 | Q-017 | MISIÓN ACEPTADA QA-131-4 «Faltan recursos» (secundaria)
+- d76 12:40 | Q-017 | MISIÓN COMPLETADA QA-131-4 «Faltan recursos» +158 XP
+- d76 13:03 | Q-023 | MISIÓN ACEPTADA QA-134-1 «Material para la superstición» (secundaria)
+- d76 13:08 | Q-023 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d76 16:42 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d76 17:05 | Q-023 | MISIÓN COMPLETADA QA-134-1 «Material para la superstición» +158 XP
+- d76 17:10 | Q-023 | MISIÓN ACEPTADA QA-134-2 «Lo que vive en el muelle» (secundaria)
+- d76 20:25 | L-020 | COMBATE vs 4× Perro callejero (nv28, var V2, PV c/u 103) 
+- d76 20:30 | L-020 | VICTORIA en 5 rondas (PV 300→279/300)
+- d76 20:30 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d76 20:53 | Q-023 | MISIÓN COMPLETADA QA-134-2 «Lo que vive en el muelle» +158 XP
+- d76 20:58 | Q-023 | MISIÓN ACEPTADA QA-134-3 «Noche de guardia» (secundaria)
+- d76 21:03 | Q-023 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d76 23:51 | L-020 | COMBATE vs 3× Persona con rasgos de Termita mutante (nv28, var V1, PV c/u 325) [sorpresa]
+- d76 23:58 | L-020 | VICTORIA en 7 rondas (PV 293→210/300)
+- d77 00:21 | L-020 | COMBATE vs 5× Terrier humanoide (nv28, var V3, PV c/u 337) 
+- d77 00:38 | L-020 | VICTORIA en 17 rondas (PV 232→102/300)
+- d77 15:07 | Q-023 | MISIÓN COMPLETADA QA-134-3 «Noche de guardia» +158 XP
+- d77 15:23 | Q-025 | MISIÓN ACEPTADA QA-135-3 «Paz para el puente» (secundaria)
+- d77 19:20 | L-020 | COMBATE vs 4× Terrier (nv28, var V1, PV c/u 74) 
+- d77 19:23 | L-020 | VICTORIA en 3 rondas (PV 300→300/300)
+- d77 22:21 | Q-025 | MISIÓN COMPLETADA QA-135-3 «Paz para el puente» +158 XP
+- d77 22:54 | Q-016 | MISIÓN ACEPTADA QA-136-1 «La muralla de la esperanza» (secundaria)
+- d78 00:50 | L-020 | COMBATE vs 4× Rata erguido (nv28, var V2, PV c/u 113) 
+- d78 00:54 | L-020 | VICTORIA en 4 rondas (PV 300→292/300)
+- d78 00:54 | L-020 | COMBATE vs 6× Rata (nv28, var V2, PV c/u 103) [sorpresa]
+- d78 00:59 | L-020 | VICTORIA en 5 rondas (PV 292→240/300)
+- d78 00:59 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d78 01:12 | Q-016 | MISIÓN COMPLETADA QA-136-1 «La muralla de la esperanza» +158 XP
+- d78 01:37 | Q-024 | MISIÓN ACEPTADA QA-137-1 «Día de feria» (secundaria)
+- d78 02:12 | Z-013 | LLEGA por primera vez a Escuela de oficios de Plaza Mayor [segura]
+- d78 02:14 | Z-013 | REGISTRA C-0086 (alacena): ['chatarra', 'dulce', 'obj_124', 'cuñas15']
+- d78 02:47 | Q-024 | MISIÓN COMPLETADA QA-137-1 «Día de feria» +158 XP
+- d78 03:04 | Q-018 | MISIÓN ACEPTADA QA-145-1 «Lo que no se dijo a tiempo» (secundaria)
+- d78 04:06 | Q-034 | LLEGA por primera vez a Mercado de las Lonas, cuadra 3 [segura]
+- d78 05:27 | Q-018 | MISIÓN COMPLETADA QA-145-1 «Lo que no se dijo a tiempo» +158 XP
+- d78 05:32 | Q-018 | MISIÓN ACEPTADA QA-145-4 «El misterio del refugio» (secundaria)
+- d78 06:19 | Q-018 | MISIÓN COMPLETADA QA-145-4 «El misterio del refugio» +158 XP
+- d78 06:24 | Q-018 | MISIÓN ACEPTADA QA-145-5 «Puertas que no abren» (secundaria)
+- d78 07:15 | Z-040 | HACKEO de terminal en Estanco de Barrio Viejo ÉXITO (91%)
+- d78 07:15 | Z-040 | MISIÓN COMPLETADA QA-145-5 «Puertas que no abren» +158 XP
+- d78 08:56 | Q-015 | MISIÓN ACEPTADA QA-147-3 «Respirar de nuevo» (secundaria)
+- d78 11:22 | L-020 | COMBATE vs 4× Perro callejero (nv28, var V2, PV c/u 103) [sorpresa]
+- d78 11:26 | L-020 | VICTORIA en 4 rondas (PV 262→257/300)
+- d78 12:06 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d78 12:17 | Q-015 | MISIÓN COMPLETADA QA-147-3 «Respirar de nuevo» +158 XP
+- d78 12:32 | Q-021 | MISIÓN ACEPTADA QA-148-1 «Reiniciar el mercado» (secundaria)
+- d78 14:25 | L-021 | HACKEO de terminal en Parque de los Faroles ÉXITO (91%)
+- d78 14:25 | L-021 | MISIÓN COMPLETADA QA-148-1 «Reiniciar el mercado» +158 XP
+- d78 14:27 | L-021 | REGISTRA C-0195 (mochila): ['lata', 'chatarra', 'kit_reparacion', 'obj_68', 'cuñas10']
+- d78 16:42 | L-022 | COMBATE vs 5× Termita mutante (nv12, var V2, PV c/u 58) 
+- d78 16:45 | L-022 | VICTORIA en 3 rondas (PV 291→291/300)
+- d78 18:06 | Q-019 | MISIÓN ACEPTADA QA-149-1 «Voz del muelle» (secundaria)
+- d78 18:31 | Z-055 | LLEGA por primera vez a Herrería de Barrio del Parque [segura]
+- d78 18:36 | Z-055 | HACKEO de terminal en Herrería de Barrio del Parque ÉXITO (91%)
+- d78 18:36 | Z-055 | MISIÓN COMPLETADA QA-149-1 «Voz del muelle» +158 XP
+- d78 18:45 | Z-055 | REGISTRA C-0176 (ropero): ['herramientas']
+- d78 20:59 | Q-019 | MISIÓN ACEPTADA QA-149-2 «Letras en la pared» (secundaria)
+- d78 21:54 | Z-032 | HACKEO de terminal en Estanco de Barrio de las Escuelas ÉXITO (91%)
+- d78 21:54 | Z-032 | MISIÓN COMPLETADA QA-149-2 «Letras en la pared» +158 XP
+- d78 23:41 | Q-027 | MISIÓN ACEPTADA QA-150-1 «Construir juntos» (secundaria)
+- d79 04:29 | Q-001 | FABRICA artefacto (69≤100)
+- d79 05:25 | L-001 | COMBATE vs 4× Perro salvaje erguido (nv2, var V1, PV c/u 24) 
+- d79 05:28 | L-001 | VICTORIA en 3 rondas (PV 300→300/300)
+- d79 08:30 | Q-027 | MISIÓN COMPLETADA QA-150-1 «Construir juntos» +158 XP
+- d79 08:35 | Q-027 | MISIÓN ACEPTADA QA-150-2 «Lo que sostiene a la esperanza» (secundaria)
+- d79 09:01 | Z-054 | HACKEO de terminal en Almacén de barrio de Barrio del Parque ÉXITO (91%)
+- d79 09:27 | Z-033 | MISIÓN COMPLETADA QA-150-2 «Lo que sostiene a la esperanza» +158 XP
+- d79 09:48 | Q-014 | MISIÓN ACEPTADA QA-157-2 «Lo que no se dijo a tiempo» (secundaria)
+- d79 11:08 | Q-014 | MISIÓN COMPLETADA QA-157-2 «Lo que no se dijo a tiempo» +158 XP
+- d79 11:54 | L-018 | MISIÓN ACEPTADA QA-160-3 «Puesto de la lealtad» (secundaria)
+- d79 14:12 | L-020 | COMBATE vs 6× Rata (nv28, var V1, PV c/u 74) 
+- d79 14:17 | L-020 | VICTORIA en 5 rondas (PV 300→285/300)
+- d79 14:17 | L-020 | MISIÓN COMPLETADA QA-160-3 «Puesto de la lealtad» +158 XP
+- d79 14:17 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d79 14:42 | Q-023 | MISIÓN ACEPTADA QA-162-1 «Cruce discreto» (secundaria)
+- d79 15:47 | Q-022 | MISIÓN COMPLETADA QA-162-1 «Cruce discreto» +158 XP
+- d79 15:52 | Q-022 | MISIÓN ACEPTADA QA-163-1 «Día de feria» (secundaria)
+- d79 18:41 | Q-022 | MISIÓN COMPLETADA QA-163-1 «Día de feria» +158 XP
+- d80 01:21 | L-013 | MISIÓN ACEPTADA QA-164-2 «Mercancía para la alegría» (secundaria)
+- d80 04:51 | L-013 | MISIÓN COMPLETADA QA-164-2 «Mercancía para la alegría» +158 XP
+- d80 04:56 | L-013 | MISIÓN ACEPTADA QA-164-4 «Lo que se llevó la alegría» (secundaria)
+- d80 05:01 | L-013 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d80 05:01 | L-011 | COMBATE vs 3× Parásito de agua dulce (nv6, var V2, PV c/u 42) [emboscada enemiga]
+- d80 05:04 | L-011 | VICTORIA en 3 rondas (PV 300→300/300)
+- d80 05:45 | Q-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d80 05:45 | L-012 | COMBATE vs 4× Babosa marina erguido (nv7, var V1, PV c/u 35) [emboscada enemiga]
+- d80 05:47 | L-012 | VICTORIA en 2 rondas (PV 300→300/300)
+- d80 06:25 | L-013 | MISIÓN COMPLETADA QA-164-4 «Lo que se llevó la alegría» +158 XP
+- d80 11:47 | Q-018 | MISIÓN ACEPTADA QA-168-4 «En busca de la carta» (secundaria)
+- d80 12:32 | Q-018 | MISIÓN COMPLETADA QA-168-4 «En busca de la carta» +158 XP
+- d80 12:53 | Q-013 | MISIÓN ACEPTADA QA-174-2 «Lo que no se dijo a tiempo» (secundaria)
+- d80 15:23 | L-040 | COMBATE vs 1× Muflón (nv18, var V3, PV c/u 410) [sorpresa]
+- d80 15:27 | L-040 | VICTORIA en 4 rondas (PV 300→300/300)
+- d80 18:51 | Q-013 | MISIÓN COMPLETADA QA-174-2 «Lo que no se dijo a tiempo» +158 XP
+- d80 19:04 | Q-014 | MISIÓN ACEPTADA QA-175-2 «Libros que faltan» (secundaria)
+- d80 19:14 | Q-014 | MISIÓN COMPLETADA QA-175-2 «Libros que faltan» +158 XP
+- d80 19:43 | Q-019 | MISIÓN ACEPTADA QA-179-3 «En busca de la llave» (secundaria)
+- d80 20:32 | Q-019 | MISIÓN COMPLETADA QA-179-3 «En busca de la llave» +158 XP
+- d81 01:20 | L-011 | COMBATE vs 5× Slime azul (nv6, var V3, PV c/u 57) 
+- d81 01:23 | L-011 | VICTORIA en 3 rondas (PV 300→300/300)
+- d81 01:28 | L-011 | MISIÓN ACEPTADA QA-186-2 «Artefacto de la obsesión» (secundaria)
+- d81 04:12 | L-011 | MISIÓN COMPLETADA QA-186-2 «Artefacto de la obsesión» +158 XP

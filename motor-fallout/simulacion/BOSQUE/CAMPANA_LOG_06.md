@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 6/21 -->
+# Registro de la campaña (simulación), parte 6
+
+- d21 03:27 | L-006 | COMBATE vs 3× Cerdo (nv6, var V2, PV c/u 84) 
+- d21 03:30 | L-006 | VICTORIA en 3 rondas (PV 280→274/280)
+- d21 03:56 | L-007 | COMBATE vs 4× Conejo (nv7, var V1, PV c/u 32) 
+- d21 03:58 | L-007 | VICTORIA en 2 rondas (PV 277→277/280)
+- d21 06:54 | L-003 | COMBATE vs 2× Corzo quimera (mitad humano) (nv4, var V1, PV c/u 78) 
+- d21 06:56 | L-003 | VICTORIA en 2 rondas (PV 280→280/280)
+- d21 07:01 | L-003 | MISIÓN COMPLETADA QA-140-2 «Fiebre en el camino» +102 XP
+- d21 07:06 | L-003 | MISIÓN ACEPTADA QA-141-1 «Compañía para el silencio» (secundaria)
+- d21 07:11 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d21 07:11 | L-005 | COMBATE vs 4× Coyote (nv5, var V1, PV c/u 28) [emboscada enemiga]
+- d21 07:14 | L-005 | VICTORIA en 3 rondas (PV 280→280/280)
+- d21 09:15 | L-006 | COMBATE vs 4× Liebre humanoide (nv6, var V2, PV c/u 100) [sorpresa]
+- d21 09:19 | L-006 | VICTORIA en 4 rondas (PV 280→280/280)
+- d21 09:19 | L-006 | MISIÓN COMPLETADA QA-141-1 «Compañía para el silencio» +102 XP
+- d21 09:58 | L-005 | COMBATE vs 5× Perro salvaje (nv5, var V2, PV c/u 39) 
+- d21 10:00 | L-005 | VICTORIA en 2 rondas (PV 280→279/280)
+- d21 11:22 | L-003 | MISIÓN ACEPTADA QA-142-2 «Ronda por el mercado» (secundaria)
+- d21 12:51 | L-003 | COMBATE vs 2× Cerdo (nv4, var V1, PV c/u 52) [sorpresa]
+- d21 12:53 | L-003 | VICTORIA en 2 rondas (PV 280→279/280)
+- d21 12:53 | L-003 | SUBE A NIVEL 27 (PV máx 285, daño nominal 56)
+- d21 12:53 | L-003 | MISIÓN COMPLETADA QA-142-2 «Ronda por el mercado» +102 XP
+- d21 12:58 | L-003 | MISIÓN ACEPTADA QA-143-1 «Pedido especial» (secundaria)
+- d21 15:52 | L-003 | MISIÓN COMPLETADA QA-143-1 «Pedido especial» +102 XP
+- d21 15:57 | L-003 | MISIÓN ACEPTADA QA-144-1 «El acertijo del taller» (secundaria)
+- d21 19:15 | L-001 | COMBATE vs 4× Corzo quimera (mitad humano) (nv2, var V1, PV c/u 66) 
+- d21 19:18 | L-001 | VICTORIA en 3 rondas (PV 285→284/285)
+- d21 22:21 | L-003 | HACKEO de terminal en Cueva del Murmullo ÉXITO (88%)
+- d21 22:21 | L-003 | MISIÓN COMPLETADA QA-144-1 «El acertijo del taller» +102 XP
+- d22 01:39 | Q-001 | MISIÓN ACEPTADA QA-215-1 «Pistas del silencio» (secundaria)
+- d22 07:37 | Q-001 | MISIÓN COMPLETADA QA-215-1 «Pistas del silencio» +102 XP
+- d22 07:42 | Q-001 | MISIÓN ACEPTADA QA-215-4 «Lo que no se dijo a tiempo» (secundaria)
+- d22 16:03 | Q-001 | MISIÓN COMPLETADA QA-215-4 «Lo que no se dijo a tiempo» +102 XP
+- d22 17:01 | L-001 | MISIÓN ACEPTADA QA-220-2 «Más allá del pueblo» (secundaria)
+- d22 17:11 | L-001 | MISIÓN COMPLETADA QA-220-2 «Más allá del pueblo» +102 XP
+- d22 17:16 | L-001 | MISIÓN ACEPTADA QA-220-3 «Guardia contra los intrusos» (secundaria)
+- d22 17:21 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d22 17:21 | L-003 | COMBATE vs 4× Coyote erguido (nv4, var V2, PV c/u 40) [emboscada enemiga]
+- d22 17:24 | L-003 | VICTORIA en 3 rondas (PV 285→284/285)
+- d22 17:48 | L-004 | COMBATE vs 3× Mantis mutante (nv5, var V1, PV c/u 28) 
+- d22 17:50 | L-004 | VICTORIA en 2 rondas (PV 285→284/285)
+- d22 17:50 | L-004 | COMBATE vs 4× Conejo (nv5, var V2, PV c/u 39) 
+- d22 17:52 | L-004 | VICTORIA en 2 rondas (PV 284→284/285)
+- d22 19:27 | L-002 | COMBATE vs 3× Slime verde quimera (mitad humano) (nv3, var V2, PV c/u 100) 
+- d22 19:29 | L-002 | VICTORIA en 2 rondas (PV 285→282/285)
+- d22 20:26 | L-001 | MISIÓN COMPLETADA QA-220-3 «Guardia contra los intrusos» +102 XP
+- d22 21:46 | Q-003 | MISIÓN ACEPTADA QN-002-2 «Buscando a alguien» (secundaria)
+- d22 21:51 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d23 00:11 | L-007 | COMBATE vs 3× Corzo (nv7, var V3, PV c/u 121) 
+- d23 00:15 | L-007 | VICTORIA en 4 rondas (PV 285→264/285)
+- d23 01:32 | L-007 | COMBATE vs 4× Escarabajo mutante (nv7, var V3, PV c/u 60) [sorpresa]
+- d23 01:34 | L-007 | VICTORIA en 2 rondas (PV 273→273/285)
+- d23 03:07 | L-005 | COMBATE vs 3× Oveja (nv5, var V2, PV c/u 78) 
+- d23 03:09 | L-005 | VICTORIA en 2 rondas (PV 283→283/285)
+- d23 05:49 | Q-003 | MISIÓN COMPLETADA QN-002-2 «Buscando a alguien» +102 XP
+- d23 05:54 | Q-003 | MISIÓN ACEPTADA QN-002-5 «Voz del puente» (secundaria)
+- d23 10:33 | L-006 | HACKEO de terminal en Cabaña del Ermitaño ÉXITO (88%)
+- d23 10:33 | L-006 | MISIÓN COMPLETADA QN-002-5 «Voz del puente» +102 XP
+- d23 10:33 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d23 10:33 | L-001 | COMBATE vs 5× Mantis mutante (nv2, var V2, PV c/u 30) [emboscada enemiga]
+- d23 10:36 | L-001 | VICTORIA en 3 rondas (PV 285→283/285)
+- d23 11:20 | Q-003 | MISIÓN ACEPTADA QN-003-2 «Guardia contra las alimañas» (secundaria)
+- d23 14:16 | L-005 | COMBATE vs 3× Abeja mutante (nv5, var V3, PV c/u 53) 
+- d23 14:19 | L-005 | VICTORIA en 3 rondas (PV 285→283/285)
+- d23 14:19 | L-005 | COMBATE vs 1× Persona con rasgos de Moho viscoso (nv5, var V1, PV c/u 123) [sorpresa]
+- d23 14:20 | L-005 | VICTORIA en 1 rondas (PV 283→283/285)
+- d23 15:53 | L-002 | COMBATE vs 4× Liebre (nv3, var V3, PV c/u 45) 
+- d23 15:56 | L-002 | VICTORIA en 3 rondas (PV 285→284/285)
+- d23 16:46 | L-001 | COMBATE vs 5× Conejo (nv2, var V2, PV c/u 30) [sorpresa]
+- d23 16:49 | L-001 | VICTORIA en 3 rondas (PV 285→285/285)
+- d23 17:57 | Q-003 | MISIÓN COMPLETADA QN-003-2 «Guardia contra las alimañas» +102 XP
+- d23 17:57 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d23 17:57 | L-002 | COMBATE vs 1× Ciervo (nv3, var V1, PV c/u 96) [emboscada enemiga]
+- d23 17:59 | L-002 | VICTORIA en 2 rondas (PV 285→285/285)
+- d23 19:01 | L-003 | MISIÓN ACEPTADA QN-034-1 «Cartas sin dueño» (secundaria)
+- d23 19:06 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d23 19:43 | Q-037 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d23 20:55 | L-003 | COMBATE vs 3× Mantis mutante (nv4, var V2, PV c/u 36) 
+- d23 20:57 | L-003 | VICTORIA en 2 rondas (PV 285→284/285)
+- d23 21:02 | L-003 | MISIÓN COMPLETADA QN-034-1 «Cartas sin dueño» +102 XP
+- d23 21:07 | L-003 | MISIÓN ACEPTADA QN-034-2 «Una mesa para la desconfianza» (secundaria)
+- d24 01:01 | L-047 | COMBATE vs 2× Husky erguido (nv22, var V1, PV c/u 136) 
+- d24 01:04 | L-047 | VICTORIA en 3 rondas (PV 285→285/285)
+- d24 03:18 | L-032 | COMBATE vs 3× Lobo (nv19, var V1, PV c/u 112) 
+- d24 03:22 | L-032 | VICTORIA en 4 rondas (PV 285→264/285)
+- d24 07:37 | L-003 | MISIÓN COMPLETADA QN-034-2 «Una mesa para la desconfianza» +102 XP
+- d24 07:42 | L-003 | MISIÓN ACEPTADA QN-036-1 «Defender lo propio» (secundaria)
+- d24 09:12 | L-005 | COMBATE vs 3× Perro salvaje humanoide (nv5, var V3, PV c/u 127) 
+- d24 09:16 | L-005 | VICTORIA en 4 rondas (PV 285→285/285)
+- d24 09:53 | L-006 | COMBATE vs 4× Cerdo (nv6, var V2, PV c/u 84) [sorpresa]
+- d24 09:56 | L-006 | VICTORIA en 3 rondas (PV 285→283/285)
+- d24 11:08 | L-006 | COMBATE vs 5× Zorro rojo (nv6, var V1, PV c/u 30) [sorpresa]
+- d24 11:11 | L-006 | VICTORIA en 3 rondas (PV 285→284/285)
+- d24 12:17 | L-004 | COMBATE vs 5× Liebre (nv5, var V3, PV c/u 53) [sorpresa]
+- d24 12:20 | L-004 | VICTORIA en 3 rondas (PV 285→283/285)
+- d24 12:59 | L-003 | MISIÓN COMPLETADA QN-036-1 «Defender lo propio» +102 XP
+- d24 13:04 | L-003 | MISIÓN ACEPTADA QN-037-1 «Más allá del mercado» (secundaria)
+- d24 13:14 | L-003 | MISIÓN COMPLETADA QN-037-1 «Más allá del mercado» +102 XP
+- d24 13:19 | L-003 | MISIÓN ACEPTADA QN-037-4 «Palabras en el granero» (secundaria)
+- d24 17:38 | L-003 | MISIÓN COMPLETADA QN-037-4 «Palabras en el granero» +102 XP
+- d24 17:43 | L-003 | MISIÓN ACEPTADA QN-038-1 «El misterio del refugio» (secundaria)
+- d24 17:48 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d24 17:48 | L-001 | COMBATE vs 1× Persona con rasgos de Ciervo (nv2, var V1, PV c/u 96) [emboscada enemiga]
+- d24 17:50 | L-001 | VICTORIA en 2 rondas (PV 285→285/285)
+- d24 18:28 | Q-002 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d24 18:28 | L-002 | COMBATE vs 2× Persona con rasgos de Cerdo (nv3, var V1, PV c/u 105) [emboscada enemiga]
+- d24 18:31 | L-002 | VICTORIA en 3 rondas (PV 285→285/285)
+- d24 20:22 | L-003 | MISIÓN COMPLETADA QN-038-1 «El misterio del refugio» +102 XP
+- d24 20:27 | L-003 | MISIÓN ACEPTADA QN-038-3 «Noche de guardia» (secundaria)
+- d24 22:32 | L-008 | COMBATE vs 3× Ciervo erguido (nv7, var V1, PV c/u 140) 
+- d24 22:37 | L-008 | VICTORIA en 5 rondas (PV 285→259/285)
+- d24 22:37 | L-008 | COMBATE vs 2× Oveja erguido (nv7, var V1, PV c/u 70) [sorpresa]
+- d24 22:39 | L-008 | VICTORIA en 2 rondas (PV 259→258/285)
+- d24 23:37 | L-008 | COMBATE vs 3× Cerdo erguido (nv7, var V1, PV c/u 70) 
+- d24 23:40 | L-008 | VICTORIA en 3 rondas (PV 264→257/285)
+- d25 00:27 | L-009 | COMBATE vs 4× Ciervo (nv25, var V1, PV c/u 272) 
+- d25 00:40 | L-009 | VICTORIA en 13 rondas (PV 260→101/285)
+- d25 02:07 | L-003 | MISIÓN COMPLETADA QN-038-3 «Noche de guardia» +102 XP
+- d25 02:12 | L-003 | MISIÓN ACEPTADA QN-039-1 «Lo que se llevó la curiosidad» (secundaria)
+- d25 03:53 | L-003 | MISIÓN COMPLETADA QN-039-1 «Lo que se llevó la curiosidad» +102 XP
+- d25 04:50 | Q-004 | MISIÓN ACEPTADA QN-040-1 «Cuando no alcanza la lealtad» (secundaria)
+- d25 05:40 | L-006 | COMBATE vs 1× Ciervo erguido (nv6, var V1, PV c/u 132) 
+- d25 05:42 | L-006 | VICTORIA en 2 rondas (PV 125→125/285)
+- d25 07:44 | L-007 | COMBATE vs 5× Mantis mutante (nv7, var V2, PV c/u 44) [sorpresa]
+- d25 07:46 | L-007 | VICTORIA en 2 rondas (PV 218→217/285)
+- d25 07:46 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d25 07:46 | L-005 | COMBATE vs 3× Conejo quimera (mitad humano) (nv5, var V2, PV c/u 117) [emboscada enemiga]
+- d25 07:50 | L-005 | VICTORIA en 4 rondas (PV 217→215/285)
+- d25 08:55 | Q-004 | MISIÓN COMPLETADA QN-040-1 «Cuando no alcanza la lealtad» +102 XP
+- d25 09:00 | Q-004 | MISIÓN ACEPTADA QN-040-2 «Sin noticias» (secundaria)
+- d25 12:00 | L-004 | COMBATE vs 2× Cerdo erguido (nv5, var V1, PV c/u 61) [sorpresa]
+- d25 12:02 | L-004 | VICTORIA en 2 rondas (PV 231→231/285)
+- d25 12:58 | Q-004 | MISIÓN COMPLETADA QN-040-2 «Sin noticias» +102 XP

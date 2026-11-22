@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 10/34 -->
+<!-- BESTIARIO GENERADO parte 10/35 -->
 - I-04.F3 | Avispa mutante erguido | T1 | s0 | n=2 | Común@1 · Cazadora@7
 - I-04.F4 | Avispa mutante humanoide | T2 | s1 | n=1 | Común@2
 - I-04.F5 | Avispa mutante quimera (mitad humano) | T2 | s2 | n=2 | Común@4 · Cazadora@10

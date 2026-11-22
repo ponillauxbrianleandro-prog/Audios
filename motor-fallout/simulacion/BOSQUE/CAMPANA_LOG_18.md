@@ -1,0 +1,139 @@
+<!-- CAMPAÑA parte 18/21 -->
+# Registro de la campaña (simulación), parte 18
+
+- d81 09:22 | Q-026 | MISIÓN ACEPTADA QA-190-1 «Piezas para la esperanza» (secundaria)
+- d81 11:48 | L-001 | COMBATE vs 4× Zorro rojo (nv2, var V1, PV c/u 22) 
+- d81 11:50 | L-001 | VICTORIA en 2 rondas (PV 300→298/300)
+- d81 13:14 | Q-001 | FABRICA artefacto (29≤100)
+- d81 13:35 | L-001 | COMBATE vs 5× Mosca mutante (nv2, var V2, PV c/u 30) 
+- d81 13:38 | L-001 | VICTORIA en 3 rondas (PV 300→299/300)
+- d81 17:51 | Q-026 | MISIÓN COMPLETADA QA-190-1 «Piezas para la esperanza» +158 XP
+- d81 17:56 | Q-026 | MISIÓN ACEPTADA QA-190-3 «Faltan provisiones» (secundaria)
+- d81 18:01 | Q-026 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d81 19:29 | L-020 | COMBATE vs 4× Cucaracha mutante (nv28, var V2, PV c/u 103) 
+- d81 19:34 | L-020 | VICTORIA en 5 rondas (PV 300→282/300)
+- d81 22:57 | Q-026 | MISIÓN COMPLETADA QA-190-3 «Faltan provisiones» +158 XP
+- d81 23:37 | Q-014 | MISIÓN ACEPTADA QA-197-1 «Cuando no alcanza el silencio» (secundaria)
+- d82 01:36 | L-020 | COMBATE vs 6× Perro callejero (nv28, var V2, PV c/u 103) [sorpresa]
+- d82 01:41 | L-020 | VICTORIA en 5 rondas (PV 300→261/300)
+- d82 01:56 | L-020 | COMBATE vs 5× Rata quimera (mitad humano) (nv28, var V1, PV c/u 222) [sorpresa]
+- d82 02:17 | L-020 | VICTORIA en 21 rondas (PV 263→146/300)
+- d82 02:17 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d82 02:32 | Q-014 | MISIÓN COMPLETADA QA-197-1 «Cuando no alcanza el silencio» +158 XP
+- d82 07:16 | Q-024 | MISIÓN ACEPTADA QA-199-2 «Código del genio» (secundaria)
+- d82 08:06 | Z-033 | HACKEO de terminal en Posada de Barrio de las Escuelas ÉXITO (91%)
+- d82 08:06 | Z-033 | MISIÓN COMPLETADA QA-199-2 «Código del genio» +158 XP
+- d82 08:22 | Q-024 | MISIÓN ACEPTADA QA-199-3 «Qué pasó en el pueblo» (secundaria)
+- d82 09:06 | Q-024 | MISIÓN COMPLETADA QA-199-3 «Qué pasó en el pueblo» +158 XP
+- d82 09:26 | Q-012 | MISIÓN ACEPTADA QA-201-1 «Mediación» (secundaria)
+- d82 10:46 | Q-012 | MISIÓN COMPLETADA QA-201-1 «Mediación» +158 XP
+- d82 10:51 | Q-012 | MISIÓN ACEPTADA QA-201-3 «Defender lo propio» (secundaria)
+- d82 13:17 | L-020 | COMBATE vs 3× Conejo humanoide (nv28, var V1, PV c/u 177) 
+- d82 13:22 | L-020 | VICTORIA en 5 rondas (PV 300→268/300)
+- d82 14:18 | L-020 | COMBATE vs 6× Perro callejero (nv28, var V2, PV c/u 103) [sorpresa]
+- d82 14:24 | L-020 | VICTORIA en 6 rondas (PV 273→253/300)
+- d82 14:24 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d82 14:45 | Q-012 | MISIÓN COMPLETADA QA-201-3 «Defender lo propio» +158 XP
+- d82 15:01 | Q-020 | MISIÓN ACEPTADA QA-212-1 «Fiesta del pueblo» (secundaria)
+- d82 15:34 | Q-020 | MISIÓN COMPLETADA QA-212-1 «Fiesta del pueblo» +158 XP
+- d82 16:00 | Q-023 | MISIÓN ACEPTADA QA-223-1 «La sombra de la astucia» (secundaria)
+- d82 16:38 | Q-009 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d82 17:43 | L-040 | MISIÓN COMPLETADA QA-223-1 «La sombra de la astucia» +158 XP
+- d82 17:43 | L-040 | COMBATE vs 2× Ciervo erguido (nv18, var V1, PV c/u 237) [sorpresa]
+- d82 17:47 | L-040 | VICTORIA en 4 rondas (PV 260→260/300)
+- d82 17:47 | L-040 | COMBATE vs 1× Escarabajo colosal (nv18, var V2, PV c/u 604) [sorpresa]
+- d82 17:52 | L-040 | VICTORIA en 5 rondas (PV 260→224/300)
+- d82 17:54 | L-040 | REGISTRA C-0299 (heladera): ['venda', 'circuito', 'kit_reparacion']
+- d82 17:56 | L-040 | REGISTRA C-0300 (cofre): ['venda_reforzada', 'obj_99']
+- d82 17:58 | L-040 | REGISTRA C-0301 (alacena): ['herramientas', 'circuito', 'venda']
+- d82 18:00 | L-040 | REGISTRA C-0302 (caja): ['chatarra', 'lata']
+- d82 21:52 | Q-023 | MISIÓN ACEPTADA QA-223-4 «Sobre ruedas» (secundaria)
+- d82 22:29 | Q-022 | MISIÓN COMPLETADA QA-223-4 «Sobre ruedas» +158 XP
+- d82 22:50 | Q-019 | MISIÓN ACEPTADA QA-225-1 «Remedio para la sabiduría» (secundaria)
+- d82 22:55 | Q-019 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d83 04:13 | Q-019 | MISIÓN COMPLETADA QA-225-1 «Remedio para la sabiduría» +158 XP
+- d83 04:18 | Q-019 | MISIÓN ACEPTADA QA-225-3 «Contra el veneno» (secundaria)
+- d83 06:42 | L-020 | COMBATE vs 4× Rata erguido (nv28, var V1, PV c/u 81) [sorpresa]
+- d83 06:46 | L-020 | VICTORIA en 4 rondas (PV 293→289/300)
+- d83 07:16 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d83 07:39 | Q-019 | MISIÓN COMPLETADA QA-225-3 «Contra el veneno» +158 XP
+- d83 08:06 | Q-015 | MISIÓN ACEPTADA QN-009-1 «Pistas de la esperanza» (secundaria)
+- d83 08:29 | Q-015 | MISIÓN COMPLETADA QN-009-1 «Pistas de la esperanza» +158 XP
+- d83 08:34 | Q-015 | MISIÓN ACEPTADA QN-009-3 «Fiesta del refugio» (secundaria)
+- d83 09:16 | Q-015 | MISIÓN COMPLETADA QN-009-3 «Fiesta del refugio» +158 XP
+- d83 09:38 | Q-023 | MISIÓN ACEPTADA QN-012-1 «Buscando a alguien» (secundaria)
+- d83 09:43 | Q-023 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d83 12:43 | L-020 | COMBATE vs 4× Conejo (nv28, var V1, PV c/u 74) [sorpresa]
+- d83 12:46 | L-020 | VICTORIA en 3 rondas (PV 300→290/300)
+- d83 12:46 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d83 13:09 | Q-023 | MISIÓN COMPLETADA QN-012-1 «Buscando a alguien» +158 XP
+- d83 13:14 | Q-023 | MISIÓN ACEPTADA QN-012-2 «Devolver la reliquia» (secundaria)
+- d83 14:07 | Q-023 | MISIÓN COMPLETADA QN-012-2 «Devolver la reliquia» +158 XP
+- d83 14:39 | Q-014 | MISIÓN ACEPTADA QN-015-3 «Entrega pesada» (secundaria)
+- d83 20:01 | L-002 | COMBATE vs 4× Mantis mutante (nv3, var V2, PV c/u 33) 
+- d83 20:03 | L-002 | VICTORIA en 2 rondas (PV 300→299/300)
+- d83 21:00 | L-001 | MISIÓN COMPLETADA QN-015-3 «Entrega pesada» +158 XP
+- d83 21:00 | L-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d83 21:00 | L-009 | COMBATE vs 2× Ciervo (nv28, var V1, PV c/u 296) [emboscada enemiga]
+- d83 21:06 | L-009 | VICTORIA en 6 rondas (PV 300→300/300)
+- d83 22:05 | L-008 | MISIÓN ACEPTADA QN-021-1 «La sombra de la paciencia» (secundaria)
+- d84 02:02 | Q-002 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d84 02:31 | Q-026 | MISIÓN COMPLETADA QN-021-1 «La sombra de la paciencia» +158 XP
+- d84 03:02 | Q-012 | MISIÓN ACEPTADA QN-041-1 «Premio inesperado» (secundaria)
+- d84 03:27 | Z-053 | LLEGA por primera vez a Almacén de barrio de Barrio del Parque [segura]
+- d84 03:29 | Z-053 | REGISTRA C-0174 (mochila): ['lata', 'circuito', 'obj_259']
+- d84 03:51 | Q-012 | MISIÓN COMPLETADA QN-041-1 «Premio inesperado» +158 XP
+- d84 04:21 | Q-025 | MISIÓN ACEPTADA QN-043-1 «Confianza en el puesto» (secundaria)
+- d84 09:20 | Q-025 | MISIÓN COMPLETADA QN-043-1 «Confianza en el puesto» +158 XP
+- d84 09:32 | Q-026 | MISIÓN ACEPTADA QN-059-1 «Cartas sin dueño» (secundaria)
+- d84 13:58 | Q-026 | MISIÓN COMPLETADA QN-059-1 «Cartas sin dueño» +158 XP
+- d84 14:03 | Q-026 | MISIÓN ACEPTADA QN-059-2 «Ruido en la noche» (secundaria)
+- d84 14:50 | Q-026 | MISIÓN COMPLETADA QN-059-2 «Ruido en la noche» +158 XP
+- d84 15:12 | Q-021 | MISIÓN ACEPTADA QN-066-2 «Reiniciar el puesto» (secundaria)
+- d84 15:26 | Z-029 | LLEGA por primera vez a Taller de bicicletas de Barrio de las Escuelas [segura]
+- d84 15:44 | Z-029 | HACKEO de terminal en Taller de bicicletas de Barrio de las Escuelas ÉXITO (91%)
+- d84 15:44 | Z-029 | MISIÓN COMPLETADA QN-066-2 «Reiniciar el puesto» +158 XP
+- d84 15:54 | Z-029 | REGISTRA C-0124 (mostrador): ['venda', 'chatarra', 'herramientas']
+- d84 15:56 | Z-029 | REGISTRA C-0125 (mostrador): ['lata', 'agua']
+- d84 15:58 | Z-029 | REGISTRA C-0126 (estantería): ['circuito']
+- d84 17:24 | Q-027 | MISIÓN ACEPTADA QN-075-2 «Paz para el pozo» (secundaria)
+- d84 17:29 | Q-027 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d84 20:16 | L-020 | COMBATE vs 4× Rata (nv28, var V2, PV c/u 103) 
+- d84 20:20 | L-020 | VICTORIA en 4 rondas (PV 300→293/300)
+- d84 20:20 | L-020 | COMBATE vs 4× Cucaracha mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d84 20:24 | L-020 | VICTORIA en 4 rondas (PV 293→279/300)
+- d84 23:36 | Q-027 | MISIÓN COMPLETADA QN-075-2 «Paz para el pozo» +158 XP
+- d85 00:50 | Q-028 | MISIÓN ACEPTADA MS-03 «La torre y los excluidos» (secundaria)
+- d85 00:55 | Q-028 | ELIGE BANDO en MS-03: el otro (el grupo «un bando» pasa a ser hostil)
+- d85 01:39 | L-029 | COMBATE vs 6× Saltamontes mutante erguido (nv14, var V2, PV c/u 70) [sorpresa]
+- d85 01:42 | L-029 | VICTORIA en 3 rondas (PV 299→297/300)
+- d85 01:42 | L-029 | COMBATE vs 2× Saqueador (nv28, var V2, PV c/u 414) [sorpresa]
+- d85 01:54 | L-029 | VICTORIA en 12 rondas (PV 297→90/300)
+- d85 01:54 | L-029 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d85 12:25 | L-029 | COMBATE vs 2× Toro (nv28, var V2, PV c/u 828) 
+- d85 12:45 | L-029 | VICTORIA en 20 rondas (PV 300→131/300)
+- d85 12:45 | L-029 | MISIÓN COMPLETADA MS-03 «La torre y los excluidos» +172 XP
+- d85 12:47 | L-029 | REGISTRA C-0233 (cofre): ['venda_reforzada', 'agua', 'lata']
+- d85 12:53 | L-029 | REGISTRA C-0234 (heladera): ['lata', 'agua', 'recurso_bio', 'cuñas27']
+- d85 12:55 | L-029 | REGISTRA C-0235 (caja): ['venda', 'recurso_bio', 'cuñas18']
+- d85 14:30 | L-029 | COMBATE vs 4× Saltamontes mutante quimera (mitad humano) (nv28, var V1, PV c/u 222) [sorpresa]
+- d85 14:40 | L-029 | VICTORIA en 10 rondas (PV 233→164/300)
+- d85 15:34 | Q-028 | MISIÓN ACEPTADA MS-17 «La biblioteca que se cae» (secundaria)
+- d85 15:39 | Q-028 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d85 15:39 | L-026 | LLEGA por primera vez a Molino Alto [segura]
+- d85 16:31 | L-027 | LLEGA por primera vez a Establo Comunal [segura]
+- d85 16:33 | L-027 | REGISTRA C-0227 (caja): ['chatarra', 'dulce', 'kit_reparacion', 'obj_219', 'obj_228', 'obj_302']
+- d85 18:46 | Q-028 | MISIÓN COMPLETADA MS-17 «La biblioteca que se cae» +172 XP
+- d86 01:46 | Q-030 | MISIÓN ACEPTADA MS-24 «La torreta rebelde» (secundaria)
+- d86 03:04 | L-032 | COMBATE vs 1× Vaca erguido (nv19, var V1, PV c/u 492) 
+- d86 03:08 | L-032 | VICTORIA en 4 rondas (PV 300→300/300)
+- d86 03:13 | L-032 | HACKEO de terminal en Camino de las Carretas ÉXITO (91%)
+- d86 03:57 | L-031 | LLEGA por primera vez a Nido de la Matriarca de las Avispas [hostil]
+- d86 03:57 | L-031 | COMBATE vs 6× Saltamontes mutante (nv28, var V1, PV c/u 74) 
+- d86 04:02 | L-031 | VICTORIA en 5 rondas (PV 300→279/300)
+- d86 04:11 | L-031 | REGISTRA C-0240 (cofre): ['herramientas', 'cuñas22']
+- d86 04:13 | L-031 | REGISTRA C-0241 (mochila): ['piezas', 'lata', 'cuerda', 'obj_304']
+- d86 04:13 | L-031 | MISIÓN COMPLETADA MS-24 «La torreta rebelde» +172 XP
+- d86 04:47 | L-031 | COMBATE vs 4× Lobo (nv28, var V2, PV c/u 207) [sorpresa]
+- d86 04:55 | L-031 | VICTORIA en 8 rondas (PV 283→212/300)
+- d86 05:54 | L-031 | COMBATE vs 3× Hormiga gigante guerrera (nv28, var V2, PV c/u 207) [sorpresa]

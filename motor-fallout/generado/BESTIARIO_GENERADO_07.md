@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 7/34 -->
+<!-- BESTIARIO GENERADO parte 7/35 -->
 - C-03.F11 | Trabajador/a de espectáculo con accesorios de Perro salvaje | T3 | s2 | n=1 | Común@4
 - C-03.F12 | Persona instintiva-Perro salvaje | T3 | s2 | n=3 | Común@4 · Rabioso (sangrado)@10 · Alfa@16
 - C-04.F1 | Terrier | T1 | s0 | n=3 | Común@1 · Cavador@7 · Rastreador@13

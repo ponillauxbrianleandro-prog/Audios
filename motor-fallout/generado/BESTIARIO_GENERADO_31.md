@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 31/34 -->
+<!-- BESTIARIO GENERADO parte 31/35 -->
 - X-11.F3 | Androide erguido | T3 | s7 | n=1 | Común@14
 - X-11.F4 | Androide humanoide | T3 | s8 | n=3 | Común@16 · Táctico@22 · Prototipo@28
 - X-11.F5 | Androide quimera (mitad humano) | T3 | s9 | n=1 | Común@18

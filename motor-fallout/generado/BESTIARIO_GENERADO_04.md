@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 4/34 -->
+<!-- BESTIARIO GENERADO parte 4/35 -->
 - H-25.F8 | Persona-Burro (se considera Burro) | T3 | s7 | n=2 | Común@14 · Coceador@20
 - H-25.F9 | Furry de Burro | T3 | s7 | n=2 | Común@14 · Coceador@20
 - H-25.F10 | Persona con accesorios de Burro | T3 | s7 | n=1 | Común@14

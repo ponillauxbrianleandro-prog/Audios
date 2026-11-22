@@ -24,6 +24,9 @@ Si el módulo externo no responde o está off, el motor resuelve el punto con la
 - `[APARIENCIA_EXTRA]`: el módulo amplía la descripción física por fase (08, 25). El motor solo entrega fase, especie, apariencia (femenina/masculina) y vestimenta.
 Ninguno cambia números ni reglas.
 
+## SEGURIDAD DE MENORES (tal cual, prioridad máxima)
+El motor **rechaza** cualquier punto de enlace cuyo participante tenga `edad: niño` (50). Ningún módulo externo, interruptor ni lore puede cambiarlo. Solo personajes marcados `edad: adulto` pueden entrar en esos puntos.
+
 ## CONTRATO DEL MÓDULO
 - Debe respetar el estado y los IDs del motor; no puede crear objetos o ubicaciones fuera de reglas.
 - Debe devolver siempre: `tiempo transcurrido`, `deltas de JUG/INV/FLAGS`, `desenlace`, y `próximos botones`.

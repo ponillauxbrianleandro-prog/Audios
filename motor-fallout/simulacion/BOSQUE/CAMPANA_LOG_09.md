@@ -1,0 +1,135 @@
+<!-- CAMPAÑA parte 9/21 -->
+# Registro de la campaña (simulación), parte 9
+
+- d33 17:31 | Q-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d33 17:31 | L-002 | COMBATE vs 4× Mantis mutante quimera (mitad humano) (nv3, var V3, PV c/u 136) [emboscada enemiga]
+- d33 17:36 | L-002 | VICTORIA en 5 rondas (PV 300→286/300)
+- d33 19:20 | L-003 | MISIÓN COMPLETADA QN-035-5 «Rastro de la llave» +116 XP
+- d33 19:25 | L-003 | MISIÓN ACEPTADA QN-037-3 «La muralla del silencio» (secundaria)
+- d33 22:31 | L-006 | COMBATE vs 4× Coyote (nv6, var V1, PV c/u 30) [sorpresa]
+- d33 22:34 | L-006 | VICTORIA en 3 rondas (PV 300→300/300)
+- d33 22:34 | L-006 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d33 22:34 | L-004 | COMBATE vs 4× Corzo humanoide (nv5, var V3, PV c/u 127) [emboscada enemiga]
+- d33 22:38 | L-004 | VICTORIA en 4 rondas (PV 300→292/300)
+- d33 23:38 | L-003 | MISIÓN COMPLETADA QN-037-3 «La muralla del silencio» +116 XP
+- d33 23:43 | L-003 | MISIÓN ACEPTADA QN-038-2 «Cartas sin dueño» (secundaria)
+- d33 23:58 | L-003 | MISIÓN COMPLETADA QN-038-2 «Cartas sin dueño» +116 XP
+- d34 00:03 | L-003 | MISIÓN ACEPTADA QN-039-2 «Pieza única» (secundaria)
+- d34 01:23 | L-003 | COMBATE vs 3× Cerdo (nv4, var V2, PV c/u 72) 
+- d34 01:25 | L-003 | VICTORIA en 2 rondas (PV 300→300/300)
+- d34 01:30 | L-003 | MISIÓN COMPLETADA QN-039-2 «Pieza única» +116 XP
+- d34 01:35 | L-003 | MISIÓN ACEPTADA QN-039-3 «Noche de guardia» (secundaria)
+- d34 03:03 | L-005 | COMBATE vs 2× Mantis gigante humanoide (nv5, var V1, PV c/u 134) [sorpresa]
+- d34 03:05 | L-005 | VICTORIA en 2 rondas (PV 300→288/300)
+- d34 03:05 | L-005 | COMBATE vs 4× Abeja mutante (nv5, var V3, PV c/u 53) 
+- d34 03:07 | L-005 | VICTORIA en 2 rondas (PV 288→287/300)
+- d34 04:47 | L-003 | MISIÓN COMPLETADA QN-039-3 «Noche de guardia» +116 XP
+- d34 05:34 | Q-005 | MISIÓN ACEPTADA QN-065-3 «Premio inesperado» (secundaria)
+- d34 05:44 | Q-005 | MISIÓN COMPLETADA QN-065-3 «Premio inesperado» +116 XP
+- d34 07:11 | L-004 | COMBATE vs 1× Persona con rasgos de Escarabajo mutante (nv5, var V1, PV c/u 123) 
+- d34 07:13 | L-004 | VICTORIA en 2 rondas (PV 300→300/300)
+- d34 07:18 | L-004 | MISIÓN ACEPTADA QN-071-2 «Defender lo propio» (secundaria)
+- d34 08:04 | L-003 | COMBATE vs 2× Ciervo (nv4, var V1, PV c/u 104) 
+- d34 08:06 | L-003 | VICTORIA en 2 rondas (PV 300→295/300)
+- d34 09:29 | L-003 | COMBATE vs 3× Hormiga mutante humanoide (nv4, var V2, PV c/u 87) [sorpresa]
+- d34 09:32 | L-003 | VICTORIA en 3 rondas (PV 300→300/300)
+- d34 10:24 | L-004 | MISIÓN COMPLETADA QN-071-2 «Defender lo propio» +116 XP
+- d34 11:07 | L-005 | MISIÓN ACEPTADA QN-076-1 «Cacería en el puesto» (secundaria)
+- d34 13:04 | L-004 | COMBATE vs 5× Zorro rojo (nv5, var V1, PV c/u 28) [sorpresa]
+- d34 13:07 | L-004 | VICTORIA en 3 rondas (PV 300→298/300)
+- d34 13:47 | L-005 | MISIÓN COMPLETADA QN-076-1 «Cacería en el puesto» +116 XP
+- d34 15:44 | Q-010 | LLEGA por primera vez a Plaza Mayor, cuadra 2 [segura]
+- d34 15:47 | Q-011 | LLEGA por primera vez a Plaza Mayor, cuadra 3 [segura]
+- d34 15:50 | Q-012 | LLEGA por primera vez a Barrio del Mercado, cuadra 1 [segura]
+- d34 16:09 | Q-024 | LLEGA por primera vez a Barrio de los Talleres, cuadra 3 [segura]
+- d34 16:15 | Q-025 | LLEGA por primera vez a Barrio del Parque, cuadra 1 [segura]
+- d34 16:20 | Q-025 | MISIÓN ACEPTADA MS-02 «Los de las jaulas» (secundaria)
+- d34 16:29 | Q-026 | LLEGA por primera vez a Barrio del Parque, cuadra 2 [segura]
+- d34 19:09 | L-020 | LLEGA por primera vez a Alcantarillas [hostil]
+- d34 19:09 | L-020 | COMBATE vs 5× Slime verde humanoide (nv28, var V3, PV c/u 337) [sorpresa]
+- d34 19:24 | L-020 | VICTORIA en 15 rondas (PV 300→105/300)
+- d34 19:36 | L-020 | COMBATE vs 3× Terrier humanoide (nv28, var V3, PV c/u 337) 
+- d34 19:45 | L-020 | VICTORIA en 9 rondas (PV 225→125/300)
+- d34 22:48 | Q-025 | MISIÓN COMPLETADA MS-02 «Los de las jaulas» +130 XP
+- d34 23:02 | Z-036 | LLEGA por primera vez a Posada de Barrio Viejo [segura]
+- d35 03:11 | Z-036 | REGISTRA C-0142 (barril): ['chatarra', 'medicina', 'obj_51']
+- d35 03:16 | Z-036 | REGISTRA C-0143 (escritorio): ['kit_reparacion', 'circuito']
+- d35 05:22 | Q-015 | MISIÓN ACEPTADA MS-09 «Lo que vive en la mina» (secundaria)
+- d35 08:24 | L-020 | COMBATE vs 6× Cucaracha mutante (nv28, var V2, PV c/u 103) 
+- d35 08:28 | L-020 | VICTORIA en 4 rondas (PV 300→276/300)
+- d35 08:28 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d35 08:39 | Q-015 | MISIÓN COMPLETADA MS-09 «Lo que vive en la mina» +130 XP
+- d35 08:41 | Q-015 | REGISTRA C-0100 (baúl): ['recurso_bio', 'venda', 'circuito', 'obj_165', 'obj_198', 'obj_236']
+- d35 10:32 | Q-020 | MISIÓN ACEPTADA MS-16 «Una voz sin cuerpo» (secundaria)
+- d35 11:04 | Q-013 | LLEGA por primera vez a Barrio del Mercado, cuadra 2 [segura]
+- d35 11:05 | Z-022 | LLEGA por primera vez a Heladería de Barrio del Mercado [segura]
+- d35 11:19 | Z-022 | HACKEO de terminal en Heladería de Barrio del Mercado ÉXITO (91%)
+- d35 11:19 | Z-022 | MISIÓN COMPLETADA MS-16 «Una voz sin cuerpo» +130 XP
+- d35 11:27 | Z-022 | REGISTRA C-0108 (cajón): ['herramientas', 'obj_214', 'obj_249']
+- d35 11:29 | Z-022 | REGISTRA C-0109 (barril): ['kit_reparacion', 'piezas']
+- d35 13:32 | Q-027 | MISIÓN ACEPTADA MS-23 «El taller del inventor» (secundaria)
+- d35 13:37 | Q-027 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d35 16:49 | Q-001 | FABRICA artefacto (20≤100)
+- d35 16:49 | Q-001 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d35 17:16 | Q-027 | MISIÓN COMPLETADA MS-23 «El taller del inventor» +130 XP
+- d35 17:18 | Q-027 | REGISTRA C-0171 (estantería): ['cuerda', 'kit_reparacion', 'venda', 'obj_36', 'obj_138', 'cuñas31']
+- d35 18:52 | Q-014 | MISIÓN ACEPTADA MS-30 «El campamento sin agua» (secundaria)
+- d35 19:26 | Z-054 | LLEGA por primera vez a Almacén de barrio de Barrio del Parque [segura]
+- d35 19:28 | Z-054 | REGISTRA C-0175 (baúl): ['venda_reforzada', 'obj_31', 'obj_48', 'obj_66', 'obj_192', 'obj_308', 'cuñas12']
+- d35 21:53 | L-003 | MISIÓN COMPLETADA MS-30 «El campamento sin agua» +130 XP
+- d35 21:53 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d35 22:11 | Q-013 | MISIÓN ACEPTADA MS-37 «El traidor del puesto» (secundaria)
+- d35 22:22 | Z-018 | LLEGA por primera vez a Panadería de Barrio del Mercado [segura]
+- d35 22:24 | Z-018 | REGISTRA C-0101 (baúl): ['herramientas', 'obj_30', 'obj_143', 'obj_147', 'obj_260', 'obj_310', 'cuñas36']
+- d36 00:22 | L-002 | COMBATE vs 1× Ciervo erguido (nv3, var V1, PV c/u 105) 
+- d36 00:23 | L-002 | VICTORIA en 1 rondas (PV 300→300/300)
+- d36 02:08 | Q-007 | MISIÓN COMPLETADA MS-37 «El traidor del puesto» +130 XP
+- d36 02:08 | Q-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)
+- d36 03:22 | Q-013 | MISIÓN ACEPTADA MS-44 «El inventario del almacén» (secundaria)
+- d36 03:54 | Z-049 | LLEGA por primera vez a Heladería de Barrio de los Talleres [segura]
+- d36 03:56 | Z-049 | REGISTRA C-0165 (estantería): ['chatarra', 'obj_121', 'obj_250', 'cuñas19']
+- d36 03:58 | Z-049 | REGISTRA C-0166 (baúl): ['piezas', 'medicina', 'venda_reforzada', 'obj_314']
+- d36 04:25 | Q-013 | MISIÓN COMPLETADA MS-44 «El inventario del almacén» +130 XP
+- d36 04:27 | Q-013 | REGISTRA C-0098 (ropero): ['cuerda', 'venda_reforzada', 'medicina', 'obj_237']
+- d36 06:13 | Q-025 | MISIÓN ACEPTADA QA-013-1 «A quién creerle» (secundaria)
+- d36 06:18 | Q-025 | ELIGE BANDO en QA-013-1: el otro (el grupo «un bando» pasa a ser hostil)
+- d36 08:48 | L-020 | COMBATE vs 6× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d36 08:51 | L-020 | VICTORIA en 3 rondas (PV 300→300/300)
+- d36 08:51 | L-020 | COMBATE vs 3× Saqueador (nv28, var V2, PV c/u 621) [sorpresa]
+- d36 09:26 | L-020 | VICTORIA en 35 rondas (PV 300→147/300)
+- d36 09:26 | L-020 | MISIÓN COMPLETADA QA-013-1 «A quién creerle» +130 XP
+- d36 09:28 | L-020 | REGISTRA C-0188 (cajón): ['kit_reparacion']
+- d36 09:30 | L-020 | REGISTRA C-0189 (mostrador): ['cuerda']
+- d36 09:32 | L-020 | REGISTRA C-0190 (barril): ['kit_reparacion']
+- d36 09:34 | L-020 | REGISTRA C-0191 (baúl): ['circuito', 'cuerda', 'obj_133']
+- d36 12:11 | Q-016 | MISIÓN ACEPTADA QA-017-2 «Negocio en el camino» (secundaria)
+- d36 12:27 | Z-044 | LLEGA por primera vez a Heladería de Barrio de los Talleres [segura]
+- d36 12:39 | Z-044 | REGISTRA C-0157 (alacena): ['circuito', 'piezas', 'cuerda', 'obj_18', 'obj_78']
+- d36 12:57 | Q-016 | MISIÓN COMPLETADA QA-017-2 «Negocio en el camino» +130 XP
+- d36 13:07 | Z-027 | LLEGA por primera vez a Posada de Barrio del Mercado [segura]
+- d36 17:15 | Z-027 | REGISTRA C-0117 (alacena): ['medicina', 'cuerda', 'obj_232', 'obj_233']
+- d36 18:45 | Q-013 | MISIÓN ACEPTADA QA-018-1 «Lo que se llevó la curiosidad» (secundaria)
+- d36 19:14 | Q-011 | REGISTRA C-0083 (alacena): ['recurso_bio', 'herramientas', 'ganzua', 'obj_20', 'obj_161', 'obj_248']
+- d36 19:27 | Q-013 | MISIÓN COMPLETADA QA-018-1 «Lo que se llevó la curiosidad» +130 XP
+- d36 19:32 | Q-013 | MISIÓN ACEPTADA QA-018-2 «Negocio en el refugio» (secundaria)
+- d36 20:40 | Q-013 | MISIÓN COMPLETADA QA-018-2 «Negocio en el refugio» +130 XP
+- d36 21:14 | Q-022 | MISIÓN ACEPTADA QA-019-2 «Fiesta del granero» (secundaria)
+- d36 21:35 | Z-026 | LLEGA por primera vez a Kiosco de Barrio del Mercado [segura]
+- d36 21:37 | Z-026 | REGISTRA C-0115 (cofre): ['dulce', 'chatarra', 'obj_23', 'obj_89']
+- d36 22:02 | Q-022 | MISIÓN COMPLETADA QA-019-2 «Fiesta del granero» +130 XP
+- d36 22:07 | Q-022 | MISIÓN ACEPTADA QA-019-3 «Todo lo que se junta» (secundaria)
+- d37 00:38 | L-020 | COMBATE vs 3× Persona con rasgos de Termita mutante (nv28, var V1, PV c/u 325) [sorpresa]
+- d37 00:47 | L-020 | VICTORIA en 9 rondas (PV 300→115/300)
+- d37 03:38 | Q-022 | MISIÓN COMPLETADA QA-019-3 «Todo lo que se junta» +130 XP
+- d37 08:18 | Q-022 | MISIÓN ACEPTADA QA-019-4 «Carga hasta el puente» (secundaria)
+- d37 08:42 | Q-018 | REGISTRA C-0120 (ropero): ['recurso_bio', 'kit_reparacion', 'obj_24', 'obj_144', 'obj_220']
+- d37 10:18 | L-019 | MISIÓN COMPLETADA QA-019-4 «Carga hasta el puente» +130 XP
+- d37 10:20 | L-019 | REGISTRA C-0185 (mostrador): ['medicina', 'venda', 'dulce', 'obj_155', 'cuñas35']
+- d37 10:22 | L-019 | REGISTRA C-0186 (caja): ['herramientas', 'piezas', 'lata', 'obj_146', 'cuñas20']
+- d37 10:24 | L-019 | REGISTRA C-0187 (caja): ['chatarra', 'circuito', 'recurso_bio']
+- d37 13:19 | Q-017 | MISIÓN ACEPTADA QA-020-2 «Negocio en el viejo túnel» (secundaria)
+- d37 13:40 | Q-020 | REGISTRA C-0140 (mostrador): ['recurso_bio', 'agua', 'obj_25', 'obj_129', 'cuñas40']
+- d37 13:58 | Q-017 | MISIÓN COMPLETADA QA-020-2 «Negocio en el viejo túnel» +130 XP
+- d37 14:09 | Q-017 | REGISTRA C-0119 (escritorio): ['circuito', 'obj_22', 'obj_88', 'obj_280', 'cuñas38']
+- d37 15:23 | Q-017 | MISIÓN ACEPTADA QA-021-2 «Compañía para el miedo» (secundaria)
+- d37 15:28 | Q-017 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 28%)

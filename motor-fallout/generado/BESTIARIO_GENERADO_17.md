@@ -1,4 +1,4 @@
-<!-- BESTIARIO GENERADO parte 17/34 -->
+<!-- BESTIARIO GENERADO parte 17/35 -->
 - P-15.F4 | Larva de mar humanoide | T2 | s1 | n=2 | Común@2 · Gorda@8
 - P-15.F5 | Larva de mar quimera (mitad humano) | T2 | s2 | n=3 | Común@4 · Gorda@10 · Larva reina@16
 - P-15.F6 | Humano-Larva de mar | T3 | s2 | n=2 | Común@4 · Gorda@10

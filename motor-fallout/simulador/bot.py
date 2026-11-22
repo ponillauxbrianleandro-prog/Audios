@@ -5,10 +5,21 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 
-import mundo  # noqa: E402
 import motor  # noqa: E402
 
-PRINCIPALES = ["M-01", "M-02", "M-03", "M-04", "M-05", "M-06", "M-07", "M-08"]
+mundo = motor.mundo
+
+PRINCIPALES = getattr(mundo, "PRINCIPALES", ["M-01", "M-02", "M-03", "M-04", "M-05", "M-06", "M-07", "M-08"])
+TIENDAS = getattr(mundo, "TIENDAS", ("L-007", "L-010", "L-011"))
+TIENDA_ARMAS = getattr(mundo, "TIENDA_ARMAS", "L-007")
+BANCOS = getattr(mundo, "BANCOS", ("L-001", "L-007"))
+ZONA_CARNE = getattr(mundo, "ZONA_CARNE", "L-012")
+ZONAS_RECURSO = getattr(mundo, "ZONAS_RECURSO", ("L-015", "L-016"))
+TERMINALES = getattr(mundo, "TERMINALES", {"L-011": 1, "L-019": 3, "L-020": 4})
+COMP_AL_DESPEJAR = getattr(mundo, "COMP_AL_DESPEJAR", {"L-009": "K-5"})
+COMPANERO_INICIAL = getattr(mundo, "COMPANERO_INICIAL", "K-1")
+POSTJUEGO = getattr(mundo, "POSTJUEGO", ("L-021", "C-034"))
+HOGAR = mundo.PROTAGONISTA["hogar"]
 
 
 class Bot:
@@ -56,7 +67,7 @@ class Bot:
         s = self.s
         if s.p["loc"] == destino:
             return True
-        if s.p["loc"] == "L-001" and (s.vivos("L-001") or s.pct(30)):
+        if s.p["loc"] == HOGAR and mundo.LOCS[HOGAR].get("ventana") and (s.vivos(HOGAR) or s.pct(30)):
             s.salir_por_ventana()  # el hogar tiene ventana: atasco 40-60% (bloque 39)
         # fisico: no se puede ir si hay enemigos persistentes cerca? se puede (huir)
         ruta = s.ruta(s.p["loc"], destino)
@@ -71,7 +82,16 @@ class Bot:
                 if not s.viajar(paso, rapido=False) or s.p["loc"] != paso:
                     return False
             return s.p["loc"] == destino
-        ok = s.viajar(destino, rapido=permitir_rapido and len(ruta) >= 3)
+        cruces, prev = 0, s.p["loc"]
+        for hop in ruta:
+            ua, ub = mundo.LOCS[prev].get("ubicacion"), mundo.LOCS[hop].get("ubicacion")
+            if not ua or not ub or ua != ub:
+                cruces += 1
+            prev = hop
+        if cruces == 0 and any(mundo.LOCS[x].get("ubicacion") for x in ruta):
+            ok = s.marcar_minimapa(destino)      # mapa de muñeca: de cuadra a cuadra, sin vulnerabilidad
+        else:
+            ok = s.viajar(destino, rapido=permitir_rapido and cruces >= 3)
         if ok and s.p["loc"] != destino:
             return False
         return ok and s.p["loc"] == destino
@@ -110,7 +130,7 @@ class Bot:
         if self.en_ciudad() and p["hp"] < s.hpmax() * 0.7:
             self.descansar_en_cama(8 if p["hp"] < s.hpmax() * 0.4 else 4)
         # comercio en ciudad
-        if p["loc"] in ("L-007", "L-010", "L-011"):
+        if p["loc"] in TIENDAS:
             self.comerciar()
 
     def descansar_en_cama(self, horas):
@@ -130,9 +150,9 @@ class Bot:
             p["hp"] = s.hpmax() if horas >= 8 else p["hp"]
         s.say(f"DESCANSA {horas} h en cama → PV {p['hp']}/{s.hpmax()}", fuerte=False)
         # el hogar puede ser atacado de noche (bloque 39)
-        if p["loc"] == "L-001" and s.pct(6):
+        if p["loc"] == HOGAR and s.pct(6):
             s.contar("ataques_al_hogar")
-            self.pelear_en("L-001", forzar=True)
+            self.pelear_en(HOGAR, forzar=True)
 
     def curar_fuera_de_combate(self):
         """Usa vendas/medicina antes de entrar a pelear si la vida esta baja (como haria un jugador)."""
@@ -162,7 +182,7 @@ class Bot:
                 if not s.comprar(it):
                     break
         # mejorar arma / armadura
-        if p["loc"] == "L-007":
+        if p["loc"] == TIENDA_ARMAS:
             tier_obj = min(5, 1 + p["nivel"] // 5)
             for t in range(tier_obj, p["arma"], -1):
                 key = f"arma_t{t}"
@@ -291,9 +311,7 @@ class Bot:
             i = PRINCIPALES.index(q)
             if i > 0 and s.quests[PRINCIPALES[i - 1]] != "hecha":
                 return False
-        if q == "M-05" and s.p["nivel"] < 9:
-            return False
-        return s.p["nivel"] >= d["nivel"] - 2
+        return s.p["nivel"] >= d.get("nivel_min", d["nivel"] - 2)
 
     def elegir_quest(self):
         s = self.s
@@ -366,7 +384,8 @@ class Bot:
             p["comps"].pop(0)
         p["comps"].append(kid)
         s.contar("companeros")
-        s.say(f"RECLUTA a {mundo.COMPANEROS[kid]['nombre']} ({mundo.COMPANEROS[kid]['aporte']})")
+        c = mundo.COMPANEROS.get(kid, {"nombre": kid, "aporte": ""})
+        s.say(f"RECLUTA a {c['nombre']} ({c['aporte']})")
 
     def hablar(self, nid):
         s = self.s
@@ -503,7 +522,7 @@ class Bot:
                 return "bloqueado"
             if s.vivos(loc) and self.pelear_en(loc) < 0:
                 return "bloqueado"
-            dif = {"L-011": 1, "L-019": 3, "L-020": 4}.get(loc, 2)
+            dif = TERMINALES.get(loc, 2)
             if s.terminal(loc, dif):
                 return "ok"
             s.avanzar(24 * 60)
@@ -542,8 +561,9 @@ class Bot:
             otro = b if eleg == a else a
             s.say(f"ELIGE BANDO en {q}: {eleg} (el grupo «{otro}» pasa a ser hostil)")
             s.contar("bandos_elegidos")
-            lugar = "L-010" if q == "M-05" else "L-014"
-            g = s.generar_grupo(lugar, forzar_especies=["U-11" if q == "M-05" else "U-04"])
+            lugar = paso[3] if len(paso) > 3 else ("L-010" if q == "M-05" else "L-014")
+            sp = paso[4] if len(paso) > 4 else ("U-11" if q == "M-05" else "U-04")
+            g = s.generar_grupo(lugar, forzar_especies=[sp])
             if g:
                 s.contar("grupos_rivales")
             return "ok"
@@ -569,13 +589,13 @@ class Bot:
             for _ in range(4):
                 if p["inv"].get("carne", 0):
                     return
-                self.ir("L-012")
-                self.pelear_en("L-012")
-                s.buscar("L-012")
-                s.generar_grupo("L-012")
-                self.pelear_en("L-012")
+                self.ir(ZONA_CARNE)
+                self.pelear_en(ZONA_CARNE)
+                s.buscar(ZONA_CARNE)
+                s.generar_grupo(ZONA_CARNE)
+                self.pelear_en(ZONA_CARNE)
         elif item == "recurso_bio":
-            for lid in ("L-015", "L-016"):
+            for lid in ZONAS_RECURSO:
                 if p["inv"].get("recurso_bio", 0):
                     return
                 self.ir(lid)
@@ -585,18 +605,18 @@ class Bot:
                         p["inv"]["recurso_bio"] = p["inv"].get("recurso_bio", 0) + 1
                         break
         elif item in ("circuito", "piezas"):
-            if self.ir("L-007"):
+            if self.ir(TIENDA_ARMAS):
                 s.comprar(item)
 
     def fabricar(self, item):
         s, p = self.s, self.s.p
         receta = {"radio": {"circuito": 1, "chatarra": 2}, "artefacto": {"piezas": 2, "circuito": 1}}[item]
-        if p["loc"] not in ("L-001", "L-007"):
-            self.ir("L-001")
+        if p["loc"] not in BANCOS:
+            self.ir(BANCOS[0])
         for k, n in receta.items():
             while p["inv"].get(k, 0) < n:
-                if p["loc"] != "L-007":
-                    self.ir("L-007")
+                if p["loc"] != TIENDA_ARMAS:
+                    self.ir(TIENDA_ARMAS)
                 if not s.comprar(k):
                     s.violaciones.append(f"no alcanza el dinero para fabricar {item}")
                     p["cuñas"] += 20
@@ -626,7 +646,7 @@ class Bot:
             for lid, d in mundo.LOCS.items():
                 if d["clase"] in ("H", "N") and d["pool"] != "civil" and s.locs[lid]["descubierta"] and s.puede_entrar(lid):
                     cand.append((abs(d["nivel"] - p["nivel"] - 1), lid))
-        return min(cand)[1] if cand else "L-002"
+        return min(cand)[1] if cand else HOGAR
 
     def grind(self):
         s, p = self.s, self.s.p
@@ -677,9 +697,8 @@ class Bot:
     def jugar(self, max_dias=700, post_dias=60):
         s = self.s
         # compañero inicial
-        self.reclutar("K-1")
-        if "K-1" not in s.p["comps"]:
-            s.p["comps"].append("K-1")
+        if COMPANERO_INICIAL:
+            self.reclutar(COMPANERO_INICIAL)
         dia_fin = None
         iteraciones = 0
         while s.dia() < max_dias and iteraciones < 20000:
@@ -689,9 +708,14 @@ class Bot:
             if s.reloj == t0:
                 s.avanzar(30)  # garantia: toda iteracion consume tiempo (evita bucles sin avance)
             # recluta a Tuerca al despejar el Deposito 9
-            if s.locs["L-009"]["despejada"] and "K-5" not in s.p["comps"] and not s.fl.get("k5"):
-                s.fl["k5"] = True
-                self.reclutar("K-5")
+            for kid_c, cc in mundo.COMPANEROS.items():
+                if cc.get("loc") == s.p["loc"] and kid_c not in s.p["comps"] and not s.fl.get("rec_" + kid_c) and len(s.p["comps"]) < 3 and "edad" in cc and cc["edad"] != "neutro":
+                    s.fl["rec_" + kid_c] = True
+                    self.reclutar(kid_c)
+            for lid_c, kid in COMP_AL_DESPEJAR.items():
+                if s.locs[lid_c]["despejada"] and kid not in s.p["comps"] and not s.fl.get("rec_" + kid):
+                    s.fl["rec_" + kid] = True
+                    self.reclutar(kid)
             if self.fin_campana and dia_fin is None:
                 dia_fin = s.dia()
                 self.nivel_fin = s.p["nivel"]
@@ -706,11 +730,11 @@ class Bot:
         """Despues de completar todo: seguir jugando (enemigos regeneran, comercio, oasis)."""
         s, p = self.s, self.s.p
         s.contar("turnos_post_juego")
-        if s.fl.get("purificador") and not s.fl.get("oasis_visitado"):
-            if self.ir("L-021"):
+        if POSTJUEGO and s.fl.get("purificador") and not s.fl.get("oasis_visitado"):
+            if self.ir(POSTJUEGO[0]):
                 s.fl["oasis_visitado"] = True
-                s.registrar("L-021", "C-034")
-                s.say("visita el Oasis Verde (ubicación segura nueva, cama y alacena)")
+                s.registrar(POSTJUEGO[0], POSTJUEGO[1])
+                s.say("visita el lugar nuevo que aparece al terminar la campaña (cama y alacena)")
         if p["nivel"] < motor.NIVEL_MAX or s.contadores.get("turnos_post_juego", 0) % 3 == 0:
             self.grind()
         else:

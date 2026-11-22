@@ -1,0 +1,138 @@
+<!-- CAMPAÑA parte 13/21 -->
+# Registro de la campaña (simulación), parte 13
+
+- d51 09:08 | L-001 | COMBATE vs 2× Mantis gigante (nv2, var V1, PV c/u 88) [sorpresa]
+- d51 09:11 | L-001 | VICTORIA en 3 rondas (PV 297→296/300)
+- d51 09:11 | L-001 | MISIÓN COMPLETADA QN-071-1 «Compañía para la valentía» +130 XP
+- d51 10:05 | L-002 | COMBATE vs 3× Perro salvaje humanoide (nv3, var V3, PV c/u 109) 
+- d51 10:08 | L-002 | VICTORIA en 3 rondas (PV 300→300/300)
+- d51 11:58 | L-004 | MISIÓN ACEPTADA QN-071-4 «Devolver la herramienta» (secundaria)
+- d51 12:31 | L-005 | COMBATE vs 5× Perro salvaje (nv5, var V2, PV c/u 39) [sorpresa]
+- d51 12:34 | L-005 | VICTORIA en 3 rondas (PV 300→298/300)
+- d51 14:52 | L-004 | COMBATE vs 3× Cerdo humanoide (nv5, var V2, PV c/u 94) [sorpresa]
+- d51 14:55 | L-004 | VICTORIA en 3 rondas (PV 300→297/300)
+- d51 15:00 | L-004 | MISIÓN COMPLETADA QN-071-4 «Devolver la herramienta» +130 XP
+- d51 18:18 | Q-027 | MISIÓN ACEPTADA QN-075-4 «Un buen trato» (secundaria)
+- d51 18:54 | Q-027 | MISIÓN COMPLETADA QN-075-4 «Un buen trato» +130 XP
+- d51 18:59 | Q-027 | MISIÓN ACEPTADA QN-075-5 «Noche de guardia» (secundaria)
+- d51 21:38 | L-020 | COMBATE vs 5× Perro callejero quimera (mitad humano) (nv28, var V1, PV c/u 222) [sorpresa]
+- d51 21:48 | L-020 | VICTORIA en 10 rondas (PV 300→176/300)
+- d51 21:48 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d51 22:12 | Q-027 | MISIÓN COMPLETADA QN-075-5 «Noche de guardia» +130 XP
+- d52 02:58 | Q-018 | MISIÓN ACEPTADA QN-080-1 «Premio inesperado» (secundaria)
+- d52 03:57 | Q-018 | MISIÓN COMPLETADA QN-080-1 «Premio inesperado» +130 XP
+- d52 05:46 | L-003 | COMBATE vs 3× Slime verde erguido (nv4, var V1, PV c/u 28) 
+- d52 05:48 | L-003 | VICTORIA en 2 rondas (PV 300→300/300)
+- d52 05:53 | L-003 | MISIÓN ACEPTADA QN-084-1 «Curiosidad de la curiosidad» (secundaria)
+- d52 06:03 | L-003 | MISIÓN COMPLETADA QN-084-1 «Curiosidad de la curiosidad» +130 XP
+- d52 06:03 | L-003 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d52 06:03 | L-006 | COMBATE vs 1× Jabalí erguido (nv6, var V3, PV c/u 250) [emboscada enemiga]
+- d52 06:07 | L-006 | VICTORIA en 4 rondas (PV 300→300/300)
+- d52 06:43 | L-007 | COMBATE vs 4× Moho viscoso humanoide (nv7, var V1, PV c/u 76) 
+- d52 06:46 | L-007 | VICTORIA en 3 rondas (PV 300→300/300)
+- d52 06:51 | L-007 | MISIÓN ACEPTADA MS-07 «El culto del artefacto» (secundaria)
+- d52 06:56 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d52 06:56 | L-001 | COMBATE vs 1× Ciervo (nv2, var V1, PV c/u 88) [emboscada enemiga]
+- d52 06:58 | L-001 | VICTORIA en 2 rondas (PV 300→300/300)
+- d52 09:25 | L-002 | COMBATE vs 4× Cerdo humanoide (nv3, var V2, PV c/u 80) 
+- d52 09:29 | L-002 | VICTORIA en 4 rondas (PV 300→293/300)
+- d52 11:55 | L-007 | MISIÓN COMPLETADA MS-07 «El culto del artefacto» +144 XP
+- d52 12:00 | L-007 | MISIÓN ACEPTADA MS-14 «El juicio» (secundaria)
+- d52 13:45 | L-005 | COMBATE vs 2× Jabalí erguido (nv5, var V2, PV c/u 172) 
+- d52 13:49 | L-005 | VICTORIA en 4 rondas (PV 300→262/300)
+- d52 14:55 | L-005 | MISIÓN COMPLETADA MS-14 «El juicio» +144 XP
+- d52 17:38 | Q-013 | MISIÓN ACEPTADA QA-018-3 «Todo lo que se junta» (secundaria)
+- d52 20:14 | L-020 | COMBATE vs 6× Cucaracha mutante (nv28, var V2, PV c/u 103) [sorpresa]
+- d52 20:19 | L-020 | VICTORIA en 5 rondas (PV 292→277/300)
+- d52 23:15 | Q-013 | MISIÓN COMPLETADA QA-018-3 «Todo lo que se junta» +144 XP
+- d52 23:46 | Q-022 | MISIÓN ACEPTADA QA-019-1 «Pedido especial» (secundaria)
+- d53 00:31 | Q-022 | MISIÓN COMPLETADA QA-019-1 «Pedido especial» +144 XP
+- d53 00:55 | Q-017 | MISIÓN ACEPTADA QA-021-1 «Negocio en el mercado» (secundaria)
+- d53 01:32 | Z-019 | REGISTRA C-0103 (cajón): ['venda', 'obj_26', 'obj_193', 'cuñas21']
+- d53 01:53 | Q-017 | MISIÓN COMPLETADA QA-021-1 «Negocio en el mercado» +144 XP
+- d53 02:07 | Q-015 | MISIÓN ACEPTADA QA-026-2 «Reparación en el mercado» (secundaria)
+- d53 05:41 | Q-001 | FABRICA artefacto (97≤100)
+- d53 09:33 | Q-015 | MISIÓN COMPLETADA QA-026-2 «Reparación en el mercado» +144 XP
+- d53 10:01 | Q-027 | MISIÓN ACEPTADA QA-027-2 «Un buen trato» (secundaria)
+- d53 10:27 | Q-027 | MISIÓN COMPLETADA QA-027-2 «Un buen trato» +144 XP
+- d53 11:03 | Q-018 | MISIÓN ACEPTADA QA-036-3 «Todo lo que se junta» (secundaria)
+- d53 17:17 | Q-018 | MISIÓN COMPLETADA QA-036-3 «Todo lo que se junta» +144 XP
+- d53 17:37 | Q-014 | MISIÓN ACEPTADA QA-037-1 «Sobre ruedas» (secundaria)
+- d53 18:03 | Z-030 | REGISTRA C-0128 (escritorio): ['venda_reforzada', 'obj_37']
+- d53 18:24 | Q-027 | MISIÓN COMPLETADA QA-037-1 «Sobre ruedas» +144 XP
+- d53 18:46 | Q-019 | MISIÓN ACEPTADA QA-040-4 «Pruebas del muelle» (secundaria)
+- d53 22:03 | L-002 | COMBATE vs 2× Cerdo (nv3, var V2, PV c/u 67) [sorpresa]
+- d53 22:05 | L-002 | VICTORIA en 2 rondas (PV 300→300/300)
+- d54 00:14 | L-015 | MISIÓN COMPLETADA QA-040-4 «Pruebas del muelle» +144 XP
+- d54 05:17 | Q-011 | MISIÓN ACEPTADA QA-043-4 «Devolver el mapa» (secundaria)
+- d54 06:13 | Q-011 | MISIÓN COMPLETADA QA-043-4 «Devolver el mapa» +144 XP
+- d54 06:55 | Q-026 | MISIÓN ACEPTADA QA-044-1 «El misterio del granero» (secundaria)
+- d54 07:22 | Z-041 | LLEGA por primera vez a Carpintería de Barrio Viejo [segura]
+- d54 07:24 | Z-041 | REGISTRA C-0151 (ropero): ['herramientas', 'cuerda', 'obj_50', 'cuñas11']
+- d54 07:45 | Q-026 | MISIÓN COMPLETADA QA-044-1 «El misterio del granero» +144 XP
+- d54 07:47 | Q-026 | REGISTRA C-0170 (mostrador): ['cuerda']
+- d54 09:43 | Q-018 | MISIÓN ACEPTADA QA-046-1 «Qué pasó en el viejo túnel» (secundaria)
+- d54 10:07 | Q-018 | MISIÓN COMPLETADA QA-046-1 «Qué pasó en el viejo túnel» +144 XP
+- d54 10:12 | Q-018 | MISIÓN ACEPTADA QA-046-3 «Un mensaje para la esperanza» (secundaria)
+- d54 14:06 | Q-018 | MISIÓN COMPLETADA QA-046-3 «Un mensaje para la esperanza» +144 XP
+- d54 14:11 | Q-018 | MISIÓN ACEPTADA QA-046-4 «Rastro de la herramienta» (secundaria)
+- d54 14:34 | Z-023 | LLEGA por primera vez a Sala de mapas de Barrio del Mercado [segura]
+- d54 14:36 | Z-023 | REGISTRA C-0110 (escritorio): ['dulce', 'cuerda', 'obj_53', 'obj_186']
+- d54 14:55 | Q-018 | MISIÓN COMPLETADA QA-046-4 «Rastro de la herramienta» +144 XP
+- d54 15:00 | Q-018 | MISIÓN ACEPTADA QA-046-5 «Un buen trato» (secundaria)
+- d54 15:16 | Z-031 | LLEGA por primera vez a Sala de mapas de Barrio de las Escuelas [segura]
+- d54 15:18 | Z-031 | REGISTRA C-0130 (caja): ['herramientas', 'agua', 'dulce', 'obj_54', 'cuñas27']
+- d54 15:30 | Q-018 | MISIÓN COMPLETADA QA-046-5 «Un buen trato» +144 XP
+- d54 15:51 | Q-009 | MISIÓN ACEPTADA QA-047-3 «Los bordes del mapa» (secundaria)
+- d54 16:01 | Q-009 | MISIÓN COMPLETADA QA-047-3 «Los bordes del mapa» +144 XP
+- d54 18:31 | L-007 | MISIÓN ACEPTADA QA-052-2 «Caso sin cerrar» (secundaria)
+- d54 18:36 | L-007 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 38%)
+- d54 18:36 | L-005 | COMBATE vs 2× Corzo (nv5, var V3, PV c/u 106) [emboscada enemiga]
+- d54 18:39 | L-005 | VICTORIA en 3 rondas (PV 300→300/300)
+- d54 22:10 | Q-026 | MISIÓN COMPLETADA QA-052-2 «Caso sin cerrar» +144 XP
+- d54 22:24 | Q-022 | MISIÓN ACEPTADA QA-056-4 «Entrega urgente» (secundaria)
+- d55 00:56 | Q-022 | MISIÓN COMPLETADA QA-056-4 «Entrega urgente» +144 XP
+- d55 01:14 | Q-026 | MISIÓN ACEPTADA QA-058-1 «Pedido especial» (secundaria)
+- d55 03:38 | Q-026 | MISIÓN COMPLETADA QA-058-1 «Pedido especial» +144 XP
+- d55 03:43 | Q-026 | MISIÓN ACEPTADA QA-058-2 «Material para la generosidad» (secundaria)
+- d55 05:55 | L-020 | COMBATE vs 5× Terrier erguido (nv28, var V3, PV c/u 154) [sorpresa]
+- d55 06:01 | L-020 | VICTORIA en 6 rondas (PV 300→282/300)
+- d55 06:11 | L-020 | COMBATE vs 6× Rata (nv28, var V2, PV c/u 103) [sorpresa]
+- d55 06:17 | L-020 | VICTORIA en 6 rondas (PV 284→262/300)
+- d55 07:27 | L-020 | MAPA GRANDE: viaje rápido interrumpido (vulnerable, 55%)
+- d55 07:56 | Q-026 | MISIÓN COMPLETADA QA-058-2 «Material para la generosidad» +144 XP
+- d55 10:34 | L-005 | MISIÓN ACEPTADA QA-072-1 «En busca del cuaderno» (secundaria)
+- d55 12:09 | L-005 | MISIÓN COMPLETADA QA-072-1 «En busca del cuaderno» +144 XP
+- d55 13:19 | L-018 | MISIÓN ACEPTADA QA-074-3 «Defender lo propio» (secundaria)
+- d55 15:05 | L-020 | COMBATE vs 5× Terrier (nv28, var V1, PV c/u 74) [sorpresa]
+- d55 15:09 | L-020 | VICTORIA en 4 rondas (PV 300→290/300)
+- d55 16:47 | L-018 | MISIÓN COMPLETADA QA-074-3 «Defender lo propio» +144 XP
+- d55 19:11 | L-005 | MISIÓN ACEPTADA QA-077-2 «Cuando no alcanza el silencio» (secundaria)
+- d55 21:04 | L-007 | COMBATE vs 2× Persona con rasgos de Liebre (nv7, var V2, PV c/u 197) [sorpresa]
+- d55 21:07 | L-007 | VICTORIA en 3 rondas (PV 300→289/300)
+- d55 21:25 | L-007 | COMBATE vs 4× Mosca mutante quimera (mitad humano) (nv7, var V2, PV c/u 134) [sorpresa]
+- d55 21:29 | L-007 | VICTORIA en 4 rondas (PV 291→260/300)
+- d55 22:03 | L-006 | COMBATE vs 2× Slime verde quimera (mitad humano) (nv6, var V1, PV c/u 90) 
+- d55 22:06 | L-006 | VICTORIA en 3 rondas (PV 263→256/300)
+- d55 22:56 | L-005 | MISIÓN COMPLETADA QA-077-2 «Cuando no alcanza el silencio» +144 XP
+- d56 00:02 | L-018 | MISIÓN ACEPTADA QA-078-1 «Puesto de la esperanza» (secundaria)
+- d56 02:22 | L-020 | COMBATE vs 6× Termita mutante (nv28, var V1, PV c/u 74) [sorpresa]
+- d56 02:29 | L-020 | VICTORIA en 7 rondas (PV 276→221/300)
+- d56 02:29 | L-020 | MISIÓN COMPLETADA QA-078-1 «Puesto de la esperanza» +144 XP
+- d56 03:44 | L-018 | MISIÓN ACEPTADA QA-079-1 «Construir juntos» (secundaria)
+- d56 06:49 | Q-001 | FABRICA artefacto (14≤100)
+- d56 09:26 | L-018 | MISIÓN COMPLETADA QA-079-1 «Construir juntos» +144 XP
+- d56 09:31 | L-018 | MISIÓN ACEPTADA QA-082-5 «Defender lo propio» (secundaria)
+- d56 11:39 | L-020 | COMBATE vs 6× Slime verde (nv28, var V1, PV c/u 74) 
+- d56 11:45 | L-020 | VICTORIA en 6 rondas (PV 263→238/300)
+- d56 13:00 | L-018 | MISIÓN COMPLETADA QA-082-5 «Defender lo propio» +144 XP
+- d56 14:18 | L-005 | MISIÓN ACEPTADA QA-110-3 «Rastro de la brújula» (secundaria)
+- d56 15:57 | L-005 | COMBATE vs 2× Mantis gigante humanoide (nv5, var V1, PV c/u 134) 
+- d56 16:00 | L-005 | VICTORIA en 3 rondas (PV 256→255/300)
+- d56 16:05 | L-005 | MISIÓN COMPLETADA QA-110-3 «Rastro de la brújula» +144 XP
+- d56 19:27 | L-014 | COMBATE vs 4× Slime azul (nv28, var V3, PV c/u 140) 
+- d56 19:32 | L-014 | VICTORIA en 5 rondas (PV 270→230/300)
+- d56 20:31 | L-012 | MISIÓN ACEPTADA QA-111-1 «Mercancía para los nervios» (secundaria)
+- d56 22:14 | L-012 | MISIÓN COMPLETADA QA-111-1 «Mercancía para los nervios» +144 XP
+- d56 22:14 | L-012 | COMBATE vs 4× Libélula mutante (nv7, var V1, PV c/u 32) [sorpresa]
+- d56 22:16 | L-012 | VICTORIA en 2 rondas (PV 241→241/300)
