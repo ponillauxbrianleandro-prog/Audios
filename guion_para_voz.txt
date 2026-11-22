@@ -1,0 +1,165 @@
+GUION PARA GENERAR LA VOZ (54 frases, en orden de aparición)
+Cada bloque: código · duración objetivo en el video · texto (con 'sh' para ll/y rioplatense).
+Podés generar cada frase en un archivo separado con el código como nombre (ej. 03_1.mp3), o todo junto en un solo audio con una pausa corta entre frases.
+
+[00_0] ~4.2 s
+Hace doscientos cincuenta y dos mishones de años, en el Karoo, Sudáfrica,
+
+[00_1] ~4.3 s
+vivió Vetusodon elikhulu: dieciocho centímetros de cráneo, cuatro fósiles.
+
+[00_2] ~0.8 s
+Nuestro ancestro.
+
+[01_0] ~3.8 s
+Vetusodon elikhulu: «el grande», en zulú.
+
+[01_1] ~6.1 s
+Con un cráneo de dieciocho centímetros, es el mashor cinodonte conocido del Pérmico tardío.
+
+[01_2] ~5.0 s
+Se lo conoce por cuatro ejemplares, todos de la cuenca del Karoo, en Sudáfrica.
+
+[01_3] ~7.6 s
+Fue descrito en dos mil diecinueve. Es el grupo hermano de los eucinodontes, el linaje que sheva a los mamíferos.
+
+[02_0] ~7.7 s
+Karoo, Sudáfrica, Pérmico tardío. Un vashe de ríos estacionales, sin hierba ni flores.
+
+[02_1] ~7.0 s
+Crecen helechos con semishas, colas de cabasho y glossopteris, árboles de hojas en forma de lengua.
+
+[02_2] ~5.9 s
+Dominan los dicinodontes: Diictodon, Dicynodon, Daptocephalus.
+
+[02_3] ~3.6 s
+Entre los insectos hay libélulas primitivas, escarabajos y cucarachas.
+
+[02_4] ~3.8 s
+Y en lo más alto de la cadena alimentaria, los gorgonopsios.
+
+[03_0] ~9.3 s
+Los paleontólogos miden, dibujan y comparan: hocico corto y ancho, y una región temporal que ocupa el sesenta por ciento del cráneo.
+
+[03_1] ~11.0 s
+Christian Kammerer, paleontólogo, dice: «Entre los sinápsidos del Pérmico estaban nuestros propios antepasados, y no hay ni de lejos suficiente gente que lo sepa.»
+
+[03_2] ~8.7 s
+Y Ken Angielczyk, del Field Museum: «Antes de la época de los dinosaurios hubo una era de antiguos parientes de los mamíferos.»
+
+[04_0] ~4.8 s
+Amanecer en el Karoo. El Vetusodon rastrea el suelo con el hocico.
+
+[04_1] ~12.5 s
+Come lo que hay: raíces, semishas, larvas e insectos. Es una inferencia a partir de su dentadura, con incisivos, caninos y postcaninos.
+
+[04_2] ~5.2 s
+Patas abiertas y garras largas: según la reconstrucción, un cuerpo hecho para cavar.
+
+[04_3] ~6.7 s
+Ningún fósil conserva su piel. El pelaje es una inferencia, por su cercanía con los mamíferos.
+
+[04_4] ~6.2 s
+El agua manda: el río sube y baja con las estaciones, y cada charco se defiende.
+
+[12_0] ~9.1 s
+Reconstrucción, no registro fósil: dos adultos se disputan un Diictodon muerto, un dicinodonte de cuarenta y cinco centímetros.
+
+[12_1] ~5.4 s
+Dieciocho centímetros de cráneo y dientes de tres tipos: cada mordida es un arma.
+
+[12_2] ~4.6 s
+En este vashe, una carroña puede decidir quién shega a la estación seca.
+
+[05_0] ~8.2 s
+Sinápsidos: más de trescientos mishones de años de historia. Cinodontes: mandíbula y dientes de mamífero.
+
+[06_0] ~7.4 s
+Los gorgonopsios son los depredadores más grandes del vashe: caninos de sable y una mandíbula que se abre como una tijera.
+
+[06_1] ~4.1 s
+Cazan por emboscada, y un cinodonte es presa posible.
+
+[06_2] ~6.2 s
+Hasta dos metros de largo y un cráneo de treinta y cinco centímetros: casi el doble que el del Vetusodon.
+
+[06_3] ~7.2 s
+El Vetusodon no tiene colmishos de sable ni garras de cazador. Su defensa es la fuga, y la madriguera.
+
+[13_0] ~6.8 s
+Reconstrucción: un grupo de Vetusodon cierra filas ante el gorgonopsio, y el depredador duda.
+
+[13_1] ~10.2 s
+Aristóteles, trescientos cincuenta años antes de Cristo, sobre el estudio de los animales: «En todas las cosas de la naturaleza hay algo maravishoso.»
+
+[07_0] ~6.9 s
+Un detashe anatómico cambió la ciencia. En los cinodontes, la mandíbula inferior tiene varios huesos.
+
+[07_1] ~5.1 s
+Dos de eshos, el articular y el cuadrado, forman la articulación de la mandíbula.
+
+[07_2] ~9.3 s
+En los mamíferos, esos mismos huesos son el martisho y el shunque del oído medio. Es una de las pruebas más sólidas de la evolución.
+
+[08_0] ~7.6 s
+Hace unos doscientos cincuenta y dos mishones de años, en lo que hoy es Siberia, empiezan las erupciones de las Trampas Siberianas.
+
+[08_1] ~5.3 s
+Lava durante cientos de miles de años, y una cantidad enorme de dióxido de carbono.
+
+[08_2] ~6.5 s
+El planeta se calienta. En el Karoo, el río se achica y las plantas se secan.
+
+[09_0] ~4.9 s
+Shegan las cenizas y los gases ácidos, y empieza a caer la shuvia que quema.
+
+[09_1] ~10.9 s
+Pia Viglietti, del Field Museum: «Todos los grandes depredadores del Pérmico tardío de Sudáfrica se extinguieron bastante antes de la extinción masiva del final del Pérmico.»
+
+[09_2] ~4.6 s
+Los gorgonopsios no shegan al peor momento. Desaparecen primero.
+
+[09_3] ~10.6 s
+Después, el final del Pérmico: desaparece alrededor del ochenta y uno por ciento de las especies marinas y el setenta por ciento de los vertebrados terrestres.
+
+[09_4] ~2.8 s
+Es la mashor extinción de la historia de la Tierra.
+
+[14_0] ~4.5 s
+Entre los sobrevivientes aparece un dicinodonte: Lystrosaurus.
+
+[14_1] ~7.0 s
+En el Karoo pasa de representar el cincuenta y cuatro por ciento de los fósiles de vertebrados a representar el setenta por ciento.
+
+[14_2] ~5.4 s
+Sus restos aparecen también en la Antártida y en la India: coloniza un supercontinente.
+
+[10_0] ~9.3 s
+Los cinodontes sobreviven. Entre los pequeños, Thrinaxodon cava madrigueras: sus fósiles aparecen enroscados dentro de una.
+
+[10_1] ~4.3 s
+El Vetusodon no shega al Triásico. Su linaje, sí.
+
+[10_2] ~5.9 s
+Los eucinodontes aparecen pocos mishones de años después, y de eshos salen los mamíferos.
+
+[11_0] ~6.1 s
+Doscientos cincuenta mishones de años después, esos huesos de la mandíbula están dentro de tu oído.
+
+[11_1] ~12.8 s
+Charles Darwin, mil ochocientos cincuenta y nueve: «…a partir de un comienzo tan sencisho han evolucionado, y siguen evolucionando, infinidad de formas, las más beshas y las más maravishosas.»
+
+[11_2] ~3.1 s
+Vetusodon elikhulu. Tu ancestro.
+
+[15_0] ~3.6 s
+Si te gustan los videos así, suscribite y dale like.
+
+[15_1] ~5.9 s
+Buscá más videos en el canal, o hacete miembro para ver más y votar los próximos proshectos.
+
+[15_2] ~1.1 s
+Muchas gracias.
+
+[15_3] ~4.9 s
+Nos vemos dentro de doscientos cincuenta y dos mishones de años. Adiós.
