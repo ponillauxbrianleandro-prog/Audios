@@ -92,7 +92,10 @@ def procesar_voz():
             x = VP.neutralizar(x, sr, RANGO13)                          # menos exaltada: baja el rango de entonación; timbre y formantes intactos
         elif not NUEVA:
             x = VP.gender(x, sr)                                        # voz anterior: formantes x0,95, mediana 124 Hz, rango x1,6
-        if sr != SR:
+        if sr != SR and V14 and SR % sr == 0:
+            from scipy.signal import resample_poly
+            x = lp(resample_poly(x, SR // sr, 1), 10000, 4)             # remuestreo con filtro antiimagen (antes: np.interp lineal, que dejaba aliasing sobre 12 kHz)
+        elif sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
         if not V14:
             x = VP.deriva_tono(x, SR, T0, DER)                          # deriva de tono <= 1 % (sube de a poco, vuelve a neutral)
@@ -100,26 +103,26 @@ def procesar_voz():
         x = VP.deriva_bandas(x, SR, T0, DER)
         if V14:
             x = VP.deriva_ganancia(x, SR, T0, DER)                      # ±0,3 dB lentos, irregulares
-        x = hp(x, 70)
+        x = hp(x, 50 if V14 else 70)
         e = np.abs(x) > 0.015
         if e.any():
             a, b = np.argmax(e), len(e) - np.argmax(e[::-1])
             x = x[max(0, a - int(0.04 * SR)):min(len(x), b + int(0.10 * SR))]
         act = x[np.abs(x) > 0.02]
         rms = np.sqrt((act ** 2).mean()) if len(act) else 0.1
-        x = x * (10 ** (-17 / 20) / (rms + 1e-9))
+        x = x * (10 ** ((-14 if V14 else -17) / 20) / (rms + 1e-9))
+        if V14 and np.abs(x).max() > 0.70:
+            x = x * (0.70 / np.abs(x).max())                           # sin compresor ni limitador activo: solo ganancia
         x = x if V14 else np.tanh(x * 1.25) / 1.25 if V13 else np.tanh(x * 2.0) / 2.0   # v14: sin saturación (el limitador final alcanza)
         x[:int(0.01 * SR)] *= np.linspace(0, 1, int(0.01 * SR))
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
         if V14:
-            cadena = ("highpass=f=55,equalizer=f=150:t=q:w=1.0:g=2,acompressor=threshold=-22dB:ratio=1.6:attack=20:release=250:makeup=%s,"
-                      "alimiter=limit=0.89:level=disabled" % GANANCIA)
-            lim = (0.92, 1.40) if f.name.startswith("00_") else (0.92, 1.12)
-            tempo = min(lim[1], max(lim[0], (len(x) / SR) / DURS11[f.stem])) if f.stem in DURS11 else 1.0
-            if abs(tempo - 1) > 0.02:
-                cadena = "rubberband=tempo=%.4f:pitchq=quality:formant=preserved:transients=smooth," % tempo + cadena
+            cadena = "highpass=f=50,equalizer=f=130:t=q:w=1.2:g=2.5,alimiter=limit=0.95:level=disabled"      # graves profundos; limitador solo de seguridad
+            tempo = min(1.08, (len(x) / SR) / DURS11[f.stem]) if f.stem in DURS11 else 1.0
+            if tempo > 1.02:                                            # solo si la frase se pasa del hueco; nunca se estira: lo corto se rellena con silencio
+                cadena = "atempo=%.4f," % tempo + cadena
         elif NUEVA:
             cadena = ("highpass=f=75,acompressor=threshold=-24dB:ratio=%s:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % (2 if V13 else 3, GANANCIA))
             tempo = min(1.35, max(0.85, (len(x) / SR) / DURS11[f.stem])) if f.stem in DURS11 else 1.0
