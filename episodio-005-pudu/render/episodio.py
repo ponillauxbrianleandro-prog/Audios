@@ -115,7 +115,7 @@ def lerp_(a, b, u):
 
 # ------------------------------------------------------------------ construcción de planos
 def toma(biome, p, tg, f, v=0.55, u=0.5, mv=(0, 0, 0), dtg=(0, 0, 0), actors=(), fg=(), wx=None, zf=None,
-         ap=0.0012, sun=None, sky_fx=None, fx=()):
+         ap=0.0012, sun=None, sky_fx=None, fx=(), cabeza=False):
     p, tg = np.array(p, float), np.array(tg, float)
     mv, dtg = np.array(mv, float), np.array(dtg, float)
 
@@ -128,7 +128,11 @@ def toma(biome, p, tg, f, v=0.55, u=0.5, mv=(0, 0, 0), dtg=(0, 0, 0), actors=(),
     a0 = actors[0].pos(0.0) if actors else tg
     if actors:                                   # el origen del animal está en el tronco: apuntar hacia donde mira (cabeza + cuello)
         an = actors[0].ang
-        tg = tg + np.array([np.cos(an), 0.0, np.sin(an)]) * 0.22 * actors[0].spec["scale"]
+        sc_ = actors[0].spec["scale"]
+        if cabeza:
+            tg = np.array([tg[0], 0.60 * sc_ + 0.0, tg[2]]) + np.array([np.cos(an), 0.0, np.sin(an)]) * 0.66 * sc_
+        else:
+            tg = tg + np.array([np.cos(an), 0.0, np.sin(an)]) * 0.22 * sc_
     zfocus = zf if zf is not None else float(np.hypot(*(a0[[0, 2]] - p[[0, 2]])))
     s = dict(biome=biome, cam=cam, animals=lambda t: [a(t) for a in actors], focus=lambda t: zfocus, aperture=ap,
              wx=wx or {}, actors=actors, through=False, sun=sun, sky_fx=sky_fx, fg=[], life_at=a0, fx=list(fx))
@@ -197,9 +201,9 @@ def build_shots():
     S = {}
     W_ = LLOVIZNA
     # ---- 1. EL FAMILIAR: ciervo colorado majestuoso
-    S["s01a"] = toma("selva_andina", (0, 0.9, -0.3), (0.2, 0.7, 4.4), 3600, v=0.52, mv=(0, 0, 0.12), ap=0.0010, wx=W_,
+    S["s01a"] = toma("selva_andina", (0, 0.9, -0.3), (0.2, 0.7, 4.4), 4300, v=0.50, mv=(0, 0, 0.12), ap=0.0010, wx=W_,
                      actors=[cervido(CIERVO, 0.2, 4.4, -2.0, p_quieto(0.25, 0.10))],
-                     fg=[helecho(-0.55, 1.1, 1.0, 2), nalca(0.7, 1.4, 0.9, 1), colihue(-1.0, 2.2, 1.0, 3)],
+                     fg=[helecho(-0.9, 1.1, 1.0, 2), nalca(1.5, 1.6, 0.8, 1), colihue(-1.4, 2.4, 1.0, 3)],
                      fx=hojas(HI, HS, seed=1))
     S["s01b"] = toma("selva_andina", (0.0, 1.55, 1.0), (0.1, 1.5, 4.3), 7600, v=0.55, mv=(0.03, 0, 0.0), ap=0.0014, wx=W_, zf=3.3,
                      actors=[cervido(CIERVO, 0.1, 4.3, -1.75, p_quieto(0.12, 0.12))],
@@ -213,61 +217,61 @@ def build_shots():
                      actors=[cervido(PUDU, 0.0, 1.4, -2.25, p_sacude())],
                      fg=[nalca(-0.45, 0.85, 0.9, 1), helecho(0.55, 0.8, 0.8, 8), colihue(0.9, 1.7, 1.0, 2)],
                      fx=hojas(HI, HS, rayos_n=3, seed=4))
-    S["s02c"] = toma("selva_andina", (0.4, 0.14, 0.3), (-0.05, 0.2, 1.5), 7600, mv=(-0.08, 0, 0), zf=1.1, wx=CLARO,
+    S["s02c"] = toma("selva_andina", (0.4, 0.14, 0.3), (-0.05, 0.25, 1.5), 3800, mv=(-0.08, 0, 0), zf=1.3, wx=CLARO,
                      actors=[cervido(PUDU, -0.05, 1.5, -1.8, p_quieto(0.4, 0.05))],
                      fg=[nalca(0.35, 0.65, 0.8, 5), helecho(-0.3, 0.7, 0.8, 3)], fx=hojas(HD, HS2, seed=5))
     # ---- 3. LA COMIDA
-    S["s03a"] = toma("selva_andina", (0.1, 0.13, 0.0), (0.05, 0.16, 1.1), 4800, v=0.60, mv=(0, 0, 0.04), wx=W_,
-                     actors=[cervido(PUDU, 0.1, 1.1, -1.85, p_come())],
+    S["s03a"] = toma("selva_andina", (0.1, 0.13, 0.0), (0.05, 0.25, 1.3), 3000, v=0.58, mv=(0, 0, 0.04), wx=W_,
+                     actors=[cervido(PUDU, 0.1, 1.3, -2.1, p_come())],
                      fg=[helecho(-0.35, 0.6, 0.7, 2), nalca(0.6, 0.9, 0.8, 6)], fx=hojas(HI, HD, seed=6))
-    S["s03b"] = toma("selva_andina", (0.3, 0.75, 0.15), (0.1, 0.1, 1.2), 4000, mv=(0, -0.03, 0.02), wx=W_,
-                     actors=[cervido(PUDU, 0.1, 1.2, -1.4, p_come())],
+    S["s03b"] = toma("selva_andina", (0.3, 0.55, 0.15), (0.1, 0.2, 1.3), 2300, mv=(0, -0.02, 0.02), wx=W_,
+                     actors=[cervido(PUDU, 0.1, 1.3, -2.6, p_come())],
                      fg=[helecho(-0.5, 0.7, 0.8, 4)], fx=hojas(HS, HI, seed=7))
     S["s03c"] = toma("selva_andina", (-0.7, 0.35, -0.2), (0.7, 0.2, 2.2), 2800, mv=(0.12, 0, 0.08), wx=W_,
                      actors=[cervido(PUDU, 0.7, 2.3, -2.6, p_come())],
-                     fg=[nalca(-0.3, 0.9, 1.0, 2), colihue(0.2, 1.6, 1.1, 1), helecho(1.1, 1.2, 0.9, 5)], fx=hojas(HD, HS2, rayos_n=3, seed=8))
+                     fg=[nalca(-0.3, 0.9, 1.0, 2), colihue(1.4, 1.6, 1.1, 1), helecho(1.1, 1.2, 0.9, 5)], fx=hojas(HD, HS2, rayos_n=3, seed=8))
     # ---- 4. LOS CUERNITOS
-    S["s04a"] = toma("selva_andina", (0.0, 0.18, 0.05), (0.1, 0.2, 1.0), 7200, mv=(0, 0, 0.03), wx=CLARO,
-                     actors=[cervido(PUDU, 0.1, 1.0, -1.7, p_quieto(0.18, 0.08))],
+    S["s04a"] = toma("selva_andina", (0.55, 0.26, 0.25), (0.1, 0.2, 1.1), 3900, mv=(-0.04, 0, 0.02), wx=CLARO, cabeza=True,
+                     actors=[cervido(PUDU, 0.1, 1.1, -2.75, p_quieto(0.18, 0.08))],
                      fg=[helecho(-0.3, 0.55, 0.7, 1), nalca(0.5, 0.8, 0.7, 2)], fx=hojas(HI, HD, seed=9))
-    S["s04b"] = toma("selva_andina", (0.5, 0.2, 0.2), (0.0, 0.2, 1.2), 5200, mv=(-0.05, 0, 0.02), wx=CLARO,
-                     actors=[cervido(PUDU, 0.0, 1.2, -2.5, p_rasca())],
+    S["s04b"] = toma("selva_andina", (0.5, 0.2, 0.2), (0.0, 0.25, 1.4), 2900, mv=(-0.05, 0, 0.02), wx=CLARO,
+                     actors=[cervido(PUDU, 0.0, 1.4, -2.5, p_rasca())],
                      fg=[colihue(0.5, 0.9, 0.9, 4), helecho(-0.4, 0.8, 0.8, 7)], fx=hojas(HS, HI, seed=10),)
     # ---- 5. EL ESCONDITE
-    S["s05a"] = toma("selva_andina", (0.0, 0.2, 0.0), (0.0, 0.2, 1.3), 5000, mv=(0, 0, 0.03), wx=W_,
-                     actors=[cervido(PUDU, 0.0, 1.3, -1.8, p_alerta())],
+    S["s05a"] = toma("selva_andina", (0.0, 0.2, 0.0), (0.0, 0.25, 1.5), 3000, mv=(0, 0, 0.03), wx=W_,
+                     actors=[cervido(PUDU, 0.0, 1.5, -2.0, p_alerta())],
                      fg=[helecho(-0.3, 0.55, 0.9, 9), nalca(0.45, 0.8, 0.9, 7), helecho(0.2, 0.5, 0.6, 3)], fx=hojas(HI, HD, seed=11))
     S["s05b"] = toma("selva_andina", (1.4, 0.25, 0.6), (-0.2, 0.2, 2.2), 3600, mv=(-0.20, 0, 0.10), wx=W_,
                      actors=[cervido(PUDU, 1.6, 2.2, 3.14159, p_camina(PUDU), speed=2.2)],
                      fg=[helecho(0.8, 0.9, 0.8, 5), nalca(-0.2, 1.2, 1.0, 8), colihue(1.0, 1.5, 1.1, 6)], fx=hojas(HD, HS2, seed=12))
     # ---- 6. LA SOLEDAD
-    S["s06a"] = toma("selva_andina", (-0.6, 0.45, -0.3), (0.5, 0.25, 3.0), 2500, mv=(0.12, 0, 0.10), wx=CLARO,
+    S["s06a"] = toma("selva_andina", (-0.6, 0.45, -0.3), (0.5, 0.25, 3.0), 3100, mv=(0.12, 0, 0.10), wx=CLARO,
                      actors=[cervido(PUDU, -0.8, 3.0, 0.0, p_camina(PUDU), speed=1.0)],
                      fg=[nalca(-0.2, 1.1, 1.0, 3), helecho(0.9, 1.3, 1.0, 4), colihue(-1.2, 1.8, 1.1, 8)], fx=hojas(HI, HS, rayos_n=5, seed=13))
-    S["s06b"] = toma("selva_andina", (0.0, 0.05, 0.4), (0.0, 0.2, 1.7), 4600, mv=(0, 0, 0.02), wx=CLARO, zf=1.5,
-                     actors=[cervido(PUDU, 0.0, 1.7, -1.7, p_mira())],
+    S["s06b"] = toma("selva_andina", (0.0, 0.05, 0.4), (0.0, 0.25, 1.9), 3100, mv=(0, 0, 0.02), wx=CLARO, zf=1.6,
+                     actors=[cervido(PUDU, 0.0, 1.9, -2.0, p_mira())],
                      fg=[helecho(-0.35, 0.9, 0.9, 6), helecho(0.45, 0.8, 0.9, 7), nalca(0.0, 0.6, 0.5, 5)], fx=hojas(HI, HD, seed=14))
     # ---- 7. LO CHIQUITO
-    S["s07a"] = toma("selva_andina", (0.0, 0.2, 0.0), (0.05, 0.22, 0.9), 9500, wx=W_,
-                     actors=[cervido(PUDU, 0.05, 0.9, -1.85, p_quieto(0.15, 0.06))],
+    S["s07a"] = toma("selva_andina", (0.5, 0.26, 0.3), (0.05, 0.22, 1.0), 4700, wx=W_, cabeza=True,
+                     actors=[cervido(PUDU, 0.05, 1.0, -2.7, p_quieto(0.15, 0.06))],
                      fg=[helecho(-0.25, 0.5, 0.6, 2), nalca(0.4, 0.7, 0.7, 4)], fx=hojas(HI, HD, seed=15))
-    S["s07b"] = toma("selva_andina", (0.1, 0.30, 0.2), (0.1, 0.18, 1.4), 4300, mv=(0, 0.01, -0.07), wx=W_,
-                     actors=[cervido(PUDU, 0.1, 1.4, -2.0, p_quieto())],
+    S["s07b"] = toma("selva_andina", (0.1, 0.30, 0.2), (0.1, 0.22, 1.5), 3300, mv=(0, 0.01, -0.07), wx=W_,
+                     actors=[cervido(PUDU, 0.1, 1.5, -2.0, p_quieto())],
                      fg=[dict(kind="log_musgo", x=0.55, z=1.6, sc=0.6, var=1), helecho(-0.5, 0.9, 0.8, 1)], fx=hojas(HS, HI, seed=16))
     # ---- 8. LA REFUTACIÓN
-    S["s08a"] = toma("selva_andina", (0.0, 0.18, 0.0), (0.0, 0.2, 1.2), 4000, wx=CLARO,
-                     actors=[cervido(PUDU, 0.0, 1.2, -1.9, p_mira()), cervido(CIERVO, 1.6, 4.6, 3.14159, p_camina(CIERVO), speed=0.5)],
+    S["s08a"] = toma("selva_andina", (0.0, 0.18, 0.0), (0.0, 0.25, 1.4), 2900, wx=CLARO,
+                     actors=[cervido(PUDU, 0.0, 1.4, -2.0, p_mira()), cervido(CIERVO, 1.6, 4.6, 3.14159, p_camina(CIERVO), speed=0.5)],
                      fg=[nalca(0.0, 0.7, 1.0, 1), nalca(-0.7, 0.9, 1.0, 3), helecho(0.6, 0.8, 0.8, 8)], fx=hojas(HI, HD, seed=17))
     S["s08b"] = toma("selva_andina", (0.1, 0.9, -0.6), (0.2, 0.15, 2.4), 3000, mv=(0, 0, 0.12), wx=TARDE,
                      actors=[cervido(PUDU, 0.2, 2.4, -2.2, p_quieto(0.3, 0.10))],
                      fg=[dict(kind="log_musgo", x=-0.6, z=1.6, sc=0.8, var=2), helecho(0.9, 1.2, 0.9, 2)],
                      fx=hojas(HD, HS2, rayos_n=4, seed=18))
     # ---- 9. CIERRE
-    S["s09a"] = toma("selva_andina", (0, 0.6, -0.4), (0.0, 0.2, 2.6), 2600, mv=(0, 0.02, -0.06), wx=TARDE,
+    S["s09a"] = toma("selva_andina", (0, 0.6, -0.4), (0.0, 0.25, 2.6), 3300, mv=(0, 0.02, -0.06), wx=TARDE,
                      actors=[cervido(PUDU, 0.0, 2.6, -2.2, p_quieto())],
                      fg=[nalca(-0.8, 1.0, 1.1, 5), helecho(0.9, 1.2, 1.0, 9), colihue(1.3, 2.0, 1.1, 2)], fx=hojas(HI, HS, rayos_n=5, seed=19))
-    S["s09b"] = toma("selva_andina", (0, 0.2, 0.2), (0.05, 0.2, 1.2), 6200, wx=TARDE, sun=(-0.3, 0.45, 0.8),
-                     actors=[cervido(PUDU, 0.05, 1.2, -1.62, p_mira())],
+    S["s09b"] = toma("selva_andina", (0, 0.2, 0.2), (0.05, 0.25, 1.5), 3700, wx=TARDE, sun=(-0.3, 0.45, 0.8),
+                     actors=[cervido(PUDU, 0.05, 1.5, -1.9, p_mira())],
                      fg=[helecho(-0.35, 0.6, 0.8, 4), nalca(0.5, 0.8, 0.8, 7)], fx=hojas(HI, HD, rayos_n=3, seed=20))
     return S
 

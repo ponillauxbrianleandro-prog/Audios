@@ -1,0 +1,56 @@
+[
+  {
+    "escena": 1,
+    "titulo": "ESCENA 1. EL FAMILIAR",
+    "inicio": 0.3,
+    "fin": 6.1419999999999995
+  },
+  {
+    "escena": 2,
+    "titulo": "ESCENA 2. LA PRESENTACIÓN",
+    "inicio": 6.692,
+    "fin": 16.757041666666666
+  },
+  {
+    "escena": 3,
+    "titulo": "ESCENA 3. LA COMIDA",
+    "inicio": 17.307041666666667,
+    "fin": 32.236875
+  },
+  {
+    "escena": 4,
+    "titulo": "ESCENA 4. LOS CUERNITOS",
+    "inicio": 32.786875,
+    "fin": 43.39779166666667
+  },
+  {
+    "escena": 5,
+    "titulo": "ESCENA 5. EL ESCONDITE",
+    "inicio": 43.94779166666667,
+    "fin": 55.00004166666667
+  },
+  {
+    "escena": 6,
+    "titulo": "ESCENA 6. LA SOLEDAD",
+    "inicio": 55.550041666666665,
+    "fin": 64.00483333333334
+  },
+  {
+    "escena": 7,
+    "titulo": "ESCENA 7. LO CHIQUITO",
+    "inicio": 64.55483333333333,
+    "fin": 75.36975
+  },
+  {
+    "escena": 8,
+    "titulo": "ESCENA 8. LA REFUTACIÓN",
+    "inicio": 75.91975,
+    "fin": 90.04374999999999
+  },
+  {
+    "escena": 9,
+    "titulo": "ESCENA 9. CIERRE CON ORGULLO",
+    "inicio": 90.59375,
+    "fin": 97.63075
+  }
+]

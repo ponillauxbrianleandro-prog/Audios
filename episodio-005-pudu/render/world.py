@@ -325,7 +325,7 @@ def ground(cam, t, bg, refl_rgba=None, shadow=None, weather=None, ripples=()):
     out = bg.copy()
     y0 = int(max(0, np.ceil(cam.vh + 0.5)))
     if y0 >= H:
-        return out
+        return out, (H, None)
     u = (np.arange(W, dtype=np.float32) - W / 2) / f
     dyr = (np.arange(y0, H, dtype=np.float32) - cam.vh) / f      # >0 hacia abajo
     uu, dd = np.meshgrid(u, dyr)

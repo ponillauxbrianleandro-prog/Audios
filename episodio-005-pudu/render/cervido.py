@@ -20,7 +20,7 @@ def _paint_pudu(alb, rp, skin, ny, nl, hgt, snout):
     x, y = rp[:, 0], rp[:, 1]
     hocico = smoothstep(0.72, 0.80, x) * smoothstep(0.50, 0.58, y) * skin
     alb = alb * (1 - 0.55 * hocico)[:, None]
-    menton = smoothstep(0.70, 0.64, x) * smoothstep(0.66, 0.60, y) * smoothstep(0.52, 0.60, x) * skin
+    menton = smoothstep(0.76, 0.70, x) * smoothstep(0.58, 0.54, y) * smoothstep(0.60, 0.64, x) * skin
     alb = lerp(alb, np.array([0.80, 0.72, 0.62], np.float32), (0.55 * menton)[:, None])
     patas = smoothstep(0.26, 0.10, hgt) * skin
     alb = alb * (1 - 0.30 * patas)[:, None]
