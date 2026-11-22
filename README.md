@@ -2,6 +2,7 @@
 Repositorio para audios rioplatenses masculinos
 
 - [`ANIMALES_USADOS.md`](ANIMALES_USADOS.md): animales de los Shorts que ya se hicieron. Leerlo (y revisar `git branch -r`) antes de elegir uno nuevo, y agregar el nuevo al terminar.
+- [`episodio-005-pudu/`](episodio-005-pudu/guion.md): short del pudú (guion, fuentes, voz clonada, tango y video 2D/2.5D de selva andina lluviosa).
 - [`ESTILO_ARTISTICO.md`](ESTILO_ARTISTICO.md): Documento Maestro de dirección artística 2D. Fuente única de estilo.
 
 ## Herramientas de video en cualquier sesión

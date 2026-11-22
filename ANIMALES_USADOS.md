@@ -14,6 +14,7 @@ Criterio de elección: animal argentino poco conocido pero con silueta reconocib
 | — | Cóndor andino | — | narración de prueba de voz (sesión "Frase grabada en siete voces") |
 | — | Vizcacha | — | mencionada por el usuario como ya hecha; en el repo solo aparece como animal secundario |
 | 004 | **Tuco-tuco** (*Ctenomys*) | rata | rama `ccr-60eae693-ewpsvm` (`episodio-004-tuco-tuco/`) |
+| 005 | **Pudú** (*Pudu puda*) | ciervo (Bambi / ciervo colorado) | rama `claude/argentinian-animal-short-mqngsb` (`episodio-005-pudu/`) |
 
 Otros trabajos del repo que no son shorts de la serie: documentales paleozoicos 2D (Procynosuchus en `claude/global-install-script-j9dsm8`, Gorgonops en `claude/paleozoic-documentary-2d-l51hrn`).
 
