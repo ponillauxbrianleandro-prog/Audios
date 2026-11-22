@@ -64,6 +64,7 @@ class Derivas:
         self.tono = ciclos(total, 101)
         self.graves = ciclos(total, 202, tope=(0.30, 1.00))
         self.agudos = ciclos(total, 303, tope=(0.30, 1.00))
+        self.ganancia = ciclos(total, 404, tope=(0.30, 1.00))
 
     @staticmethod
     def f(par, t):
@@ -99,7 +100,7 @@ def neutralizar(x, sr, rango=0.72):
     return call(parselmouth.Sound(x, sr), "Change gender", 75, 350, 1.0, 0, rango, 1.0).values[0].astype(np.float64)
 
 
-def eq_fir(x, sr, fuerza=1.0, tope=None):
+def eq_fir(x, sr, fuerza=1.0, tope=None, desde=None):
     pf = perfil()
     c = list(pf["centros"])
     g = [max(-9.0, min(8.0, v*1.15*(QUEBRACHO["graves_conservados"] if c_ < 320 else 1.0))) for c_, v in zip(c, pf["corr_db"])]
@@ -107,6 +108,9 @@ def eq_fir(x, sr, fuerza=1.0, tope=None):
     gg = [g[0]] + g + [g[-1]]
     if tope is not None:
         g = [max(-tope, min(tope, v)) for v in g]
+        gg = [g[0]] + g + [g[-1]]
+    if desde is not None:                                               # sin corregir por debajo de «desde» Hz: se conserva el tono profundo
+        g = [v if c_ >= desde else 0.0 for c_, v in zip(c, g)]
         gg = [g[0]] + g + [g[-1]]
     h = firwin2(2049, f, 10 ** (np.array(gg) * fuerza / 20), fs=sr)
     return fftconvolve(x, h, mode="same")
@@ -117,3 +121,8 @@ def deriva_bandas(x, sr, T0, D):
     lo = sosfiltfilt(butter(2, 220, "low", fs=sr, output="sos"), x)
     hi = sosfiltfilt(butter(2, 3200, "high", fs=sr, output="sos"), x)
     return x + lo * D.f(D.graves, t) * 3.0 + hi * D.f(D.agudos, t) * 3.0         # ±1 % de deriva ≈ ±3 % de ganancia de banda (≈ ±0,26 dB)
+
+
+def deriva_ganancia(x, sr, T0, D):
+    t = np.arange(len(x)) / sr + T0
+    return x * (1.0 + D.f(D.ganancia, t) * 3.5)                               # ±1 % de deriva ≈ ±0,3 dB de ganancia
