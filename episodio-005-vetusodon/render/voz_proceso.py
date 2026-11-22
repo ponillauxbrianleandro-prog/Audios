@@ -12,7 +12,8 @@ from pathlib import Path
 import numpy as np
 from scipy.signal import firwin2, fftconvolve, butter, sosfiltfilt
 
-PERFIL = Path(__file__).resolve().parents[2] / "voice_ai" / "perfil_referencia.json"
+import os
+PERFIL = Path(__file__).resolve().parents[2] / "voice_ai" / os.environ.get("PERFIL_JSON", "perfil_referencia.json")
 _P = {}
 
 
@@ -22,7 +23,7 @@ def perfil():
     return _P["p"]
 
 
-QUEBRACHO = dict(nombre="Quebracho", formantes=0.90, mediana_hz=112.0, rango=2.5, graves_conservados=0.8,
+QUEBRACHO = dict(nombre="Quebracho", formantes=0.90, mediana_hz=112.0, rango=2.5, graves_conservados=0.5,
                  cuerpo_db=[("170", 1.0), ("420", 1.5)], rms_dbfs=-14.0)
 
 

@@ -42,19 +42,19 @@ def f0_stats(x, sr):
     return [float(np.median(p)), float(np.percentile(p, 10)), float(np.percentile(p, 90))]
 
 
-def main(ref):
+def main(ref, cache="cache_v9", gen=True, salida="perfil_referencia.json"):
     tmp = AQUI / "cache_v9" / "_ref24.wav"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", ref, "-ac", "1", "-ar", str(SR), str(tmp)], check=True)
     x, sr = sf.read(str(tmp))
     L_ref = ltas(x, sr)
     stats = f0_stats(x, sr)
     proc = []
-    for f in sorted((AQUI / "cache_v9" / "raw").glob("*.wav")):
+    for f in sorted((AQUI / cache / "raw").glob("*.wav")):
         if "tmp" in f.name:
             continue
         y, s2 = sf.read(str(f))
         y = y.mean(1) if y.ndim > 1 else y
-        z = call(parselmouth.Sound(y.astype(float), s2), "Change gender", 70, 300, 0.95, 124, 1.6, 1.0).values[0]
+        z = call(parselmouth.Sound(y.astype(float), s2), "Change gender", 70, 300, 0.95, 124, 1.6, 1.0).values[0] if gen else y.astype(float)
         if s2 != SR:
             z = np.interp(np.linspace(0, len(z) - 1, int(len(z) * SR / s2)), np.arange(len(z)), z)
         proc.append(z)
@@ -64,7 +64,7 @@ def main(ref):
     corr = np.clip(sm * FUERZA, -LIMITE_DB, LIMITE_DB)
     out = dict(centros=CENTROS, corr_db=[round(float(c), 2) for c in corr], ref_ltas=[round(float(v), 2) for v in L_ref],
                tts_ltas=[round(float(v), 2) for v in L_tts], f0_ref=stats)
-    (AQUI / "perfil_referencia.json").write_text(json.dumps(out, indent=1))
+    (AQUI / salida).write_text(json.dumps(out, indent=1))
     print("banda Hz   ref    TTS(sin EQ)  corrección dB")
     for c, a, b, d in zip(CENTROS, L_ref, L_tts, corr):
         print(f"{c:7.0f} {a:6.1f} {b:9.1f} {d:9.1f}")
@@ -72,4 +72,4 @@ def main(ref):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], *( [sys.argv[2], sys.argv[3] != "nogender", sys.argv[4]] if len(sys.argv) > 4 else [] ))

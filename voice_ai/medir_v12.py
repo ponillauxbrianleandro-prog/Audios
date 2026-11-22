@@ -19,8 +19,8 @@ def load(d):
     cen=(f*Pw).sum()/Pw.sum()
     return L,np.array(F0),np.array(F2),cen,pk
 ref=json.load(open('perfil_referencia.json'))
-for nm in ['final_v11','final']:
-    L,F0,F2,c,pk=load(f'cache_v9/{nm}')
+for nm in sys.argv[1:]:
+    L,F0,F2,c,pk=load(nm)
     d=L-np.array(ref['ref_ltas'])
     print(nm,'F0 med %.0f p10-p90 %.0f F2 %.0f centroide %.0f pico %.2f'%(np.median(F0),np.percentile(F0,90)-np.percentile(F0,10),np.median(F2),c,pk))
     print(' dev dB:',' '.join('%d:%+.1f'%(cc,v) for cc,v in zip(P.CENTROS,d) if 126<=cc<=3300))

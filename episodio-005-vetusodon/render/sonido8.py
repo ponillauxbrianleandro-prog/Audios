@@ -73,6 +73,7 @@ def procesar_voz():
     TIEMPOS = json.loads((VOZ / "tiempos_lineas.json").read_text())
     DURS11 = json.loads((VOZ / "durs_v11.json").read_text())
     DER = VP.Derivas()
+    NUEVA = os.environ.get("VOZ_CACHE") == "cache_v12"                  # voz «Quebracho»: base diseñada grave, sin cambio de formantes
     for f in sorted(raw.glob("*.wav")):
         if f.name.endswith(".tmp.wav"):
             continue
@@ -82,7 +83,8 @@ def procesar_voz():
             x = x.mean(1)
         import voz_proceso as VP
         T0 = TIEMPOS.get(f.stem, 0.0)
-        x = VP.gender(x, sr)                                            # v12: formantes x0,95, mediana 124 Hz, rango x1,6
+        if not NUEVA:
+            x = VP.gender(x, sr)                                        # voz anterior: formantes x0,95, mediana 124 Hz, rango x1,6
         if sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
         x = VP.deriva_tono(x, SR, T0, DER)                              # deriva de tono <= 1 % (sube de a poco, vuelve a neutral)
@@ -101,10 +103,16 @@ def procesar_voz():
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
-        cadena = ("highpass=f=75,equalizer=f=170:t=q:w=1.0:g=1,equalizer=f=420:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1.2:g=-2,equalizer=f=2900:t=q:w=1.0:g=-2.5,equalizer=f=5500:t=q:w=1.2:g=-3,"
-                  "acompressor=threshold=-24dB:ratio=3:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % GANANCIA)
-        if f.name.startswith("00_"):                                     # apertura: ritmo más ágil (+28 %), mismo tono
-            cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
+        if NUEVA:
+            cadena = ("highpass=f=75,acompressor=threshold=-24dB:ratio=3:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % GANANCIA)
+            tempo = min(1.35, max(0.85, (len(x) / SR) / DURS11[f.stem])) if f.stem in DURS11 else 1.0
+            if abs(tempo - 1) > 0.01:
+                cadena = "rubberband=tempo=%.4f:pitchq=quality," % tempo + cadena
+        else:
+            cadena = ("highpass=f=75,equalizer=f=170:t=q:w=1.0:g=1,equalizer=f=420:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1.2:g=-2,equalizer=f=2900:t=q:w=1.0:g=-2.5,equalizer=f=5500:t=q:w=1.2:g=-3,"
+                      "acompressor=threshold=-24dB:ratio=3:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % GANANCIA)
+            if f.name.startswith("00_"):
+                cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
         y = rw(fin / f.name)[:, 0]
         if f.stem in DURS11:                                            # congela la duración de la v11: subtítulos y tarjetas siguen alineados
