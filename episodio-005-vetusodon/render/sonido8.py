@@ -62,6 +62,7 @@ def put(buf, x, t, gain=1.0):
 
 # ------------------------------------------------------------------ voz
 GANANCIA = 5.0
+RANGO13 = float(os.environ.get("RANGO13", "0.72"))                    # factor del rango de entonación de la voz v13 (1,0 = sin cambio)
 
 
 def procesar_voz():
@@ -73,7 +74,8 @@ def procesar_voz():
     TIEMPOS = json.loads((VOZ / "tiempos_lineas.json").read_text())
     DURS11 = json.loads((VOZ / "durs_v11.json").read_text())
     DER = VP.Derivas()
-    NUEVA = os.environ.get("VOZ_CACHE") == "cache_v12"                  # voz «Quebracho»: base diseñada grave, sin cambio de formantes
+    V13 = os.environ.get("VOZ_CACHE") == "cache_v13"                    # voz «Quebracho v3»: clonada de la grabación del autor, solo se neutraliza la entonación
+    NUEVA = V13 or os.environ.get("VOZ_CACHE") == "cache_v12"           # sin cambio de formantes
     for f in sorted(raw.glob("*.wav")):
         if f.name.endswith(".tmp.wav"):
             continue
@@ -83,12 +85,14 @@ def procesar_voz():
             x = x.mean(1)
         import voz_proceso as VP
         T0 = TIEMPOS.get(f.stem, 0.0)
-        if not NUEVA:
+        if V13:
+            x = VP.neutralizar(x, sr, RANGO13)                          # menos exaltada: baja el rango de entonación; timbre y formantes intactos
+        elif not NUEVA:
             x = VP.gender(x, sr)                                        # voz anterior: formantes x0,95, mediana 124 Hz, rango x1,6
         if sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
         x = VP.deriva_tono(x, SR, T0, DER)                              # deriva de tono <= 1 % (sube de a poco, vuelve a neutral)
-        x = VP.eq_fir(x, SR)                                            # balance tonal de la grabación de referencia
+        x = VP.eq_fir(x, SR, 0.6, 3.0) if V13 else VP.eq_fir(x, SR)     # balance tonal de la grabación de referencia (v13: suave, ±3 dB)
         x = VP.deriva_bandas(x, SR, T0, DER)
         x = hp(x, 70)
         e = np.abs(x) > 0.015
@@ -98,13 +102,13 @@ def procesar_voz():
         act = x[np.abs(x) > 0.02]
         rms = np.sqrt((act ** 2).mean()) if len(act) else 0.1
         x = x * (10 ** (-17 / 20) / (rms + 1e-9))
-        x = np.tanh(x * 2.0) / 2.0 * 1.0                                 # saturación suave: más cuerpo (voz "gruesa"), sin recortes
+        x = np.tanh(x * 1.25) / 1.25 if V13 else np.tanh(x * 2.0) / 2.0   # v13: solo limitador suave; antes: saturación (más cuerpo)
         x[:int(0.01 * SR)] *= np.linspace(0, 1, int(0.01 * SR))
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
         if NUEVA:
-            cadena = ("highpass=f=75,acompressor=threshold=-24dB:ratio=3:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % GANANCIA)
+            cadena = ("highpass=f=75,acompressor=threshold=-24dB:ratio=%s:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % (2 if V13 else 3, GANANCIA))
             tempo = min(1.35, max(0.85, (len(x) / SR) / DURS11[f.stem])) if f.stem in DURS11 else 1.0
             if abs(tempo - 1) > 0.01:
                 cadena = "rubberband=tempo=%.4f:pitchq=quality," % tempo + cadena

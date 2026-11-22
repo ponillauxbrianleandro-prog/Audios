@@ -92,12 +92,22 @@ def deriva_tono(x, sr, T0, D):
     return y[:len(x)] if len(y) >= len(x) else np.pad(y, (0, len(x) - len(y)))
 
 
-def eq_fir(x, sr, fuerza=1.0):
+def neutralizar(x, sr, rango=0.72):
+    """Baja el rango de entonación (voz menos exaltada) sin tocar formantes ni mediana de tono ni duración."""
+    import parselmouth
+    from parselmouth.praat import call
+    return call(parselmouth.Sound(x, sr), "Change gender", 75, 350, 1.0, 0, rango, 1.0).values[0].astype(np.float64)
+
+
+def eq_fir(x, sr, fuerza=1.0, tope=None):
     pf = perfil()
     c = list(pf["centros"])
     g = [max(-9.0, min(8.0, v*1.15*(QUEBRACHO["graves_conservados"] if c_ < 320 else 1.0))) for c_, v in zip(c, pf["corr_db"])]
     f = [0.0] + c + [sr / 2]
     gg = [g[0]] + g + [g[-1]]
+    if tope is not None:
+        g = [max(-tope, min(tope, v)) for v in g]
+        gg = [g[0]] + g + [g[-1]]
     h = firwin2(2049, f, 10 ** (np.array(gg) * fuerza / 20), fs=sr)
     return fftconvolve(x, h, mode="same")
 
