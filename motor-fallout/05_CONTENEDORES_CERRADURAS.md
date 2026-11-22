@@ -23,7 +23,7 @@ Métodos y %éxito base (`nivel_cerr` = nivel de la cerradura; se suma bono_nive
 | Forzar | Palanca o FUE | 60 − 10×nivel_cerr + FUE×3 + bono_nivel | Ruido; si ≥ 95 daña el contenido (−1 objeto frágil) |
 | Hackear (cerradura electrónica) | Terminal | 70 − 12×nivel_cerr + INT×3 + bono_nivel | Tres fallos → bloqueo por 24 h |
 | Código | Conocerlo | 100 | Código incorrecto: alarma posible |
-Límite 5–95. Nivel 5 solo con llave/código.
+Límite 5–95. Nivel 5 solo con la llave o el código específico (en El Salar: la Llave de la Torre).
 Intentos: cada intento fallido cuesta tiempo. Tras 3 fallos seguidos con el mismo método, ese método ya no se puede intentar con esa cerradura hasta subir de nivel o conseguir mejor herramienta.
 
 ## TRAMPAS

@@ -32,8 +32,9 @@ Una región = un bioma predominante, con variaciones locales. Los encuentros, re
 No mostrar nunca información que el personaje desconoce.
 
 ## VULNERABILIDAD AL ABRIR EL MAPA DE PAPEL
+(Valores finales, ver 39: 8% segura / 18% normal / 35% hostil al abrir; **+20% si hacés viaje rápido**. El mapa de muñeca no genera vulnerabilidad.)
 Abrir el mapa **no detiene el mundo**. Cada vez que se abre:
-- Tirada de interrupción: riesgo = 5% (segura) / 12% (normal) / 25% (hostil). +10% noche. −5% si sigilo.
+- Tirada de interrupción: riesgo = 8% (segura) / 18% (normal) / 35% (hostil), **+20% si el jugador elige viaje rápido**. +10% noche. −5% si sigilo.
 - Si ocurre: encuentro, aproximación enemiga, cambio ambiental o evento (según zona).
 - Si hay enemigos cercanos que no te detectaron: 30% de que te detecten por la distracción.
 La tirada se resuelve al abrir el mapa; si hay interrupción, ocurre antes de que el jugador elija destino.

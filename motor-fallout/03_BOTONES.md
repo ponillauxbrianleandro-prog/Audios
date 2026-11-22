@@ -8,21 +8,28 @@
 - Si el jugador está en combate, el menú cambia al de COMBATE (bloque 06) y los botones de exploración se ocultan.
 - El jugador puede escribir texto libre: mapear a un botón válido.
 
-## A. COMBATE DIRECTO (sin buscar antes)
-| Botón | Aparece si | Min | Chequeo |
+## A. COMBATE DIRECTO (sin buscar antes; ver 37)
+| Botón | Aparece si | Acciones | Chequeo |
 |---|---|---|---|
-| ⚔ ATACAR | Hay enemigo/hostil presente o visible, aunque no hayas buscado | 1 | Sí (06) |
-| 🎯 Disparo apuntado | Arma a distancia y enemigo visible | 1 | Sí |
-| 🗡 Emboscada | Enemigo visible que NO te detectó | 1 | Sí, bonus sorpresa |
-| 🤫 Sigilo | Enemigo visible que no te detectó | 2 | Sí |
-| 🏃 Evitar / retirarte | Enemigo visible que no te detectó | 2 | Sí |
-| 👁 Observar enemigos | Enemigos visibles | 1 | No |
-| 🗣 Intimidar / negociar | Enemigo con inteligencia ≥ media | 1 | Sí |
+| ⚔ ATACAR (elige enemigo) | Hay enemigo visible o presente, aunque no hayas buscado | — | abre el menú de acciones |
+| Golpe sigiloso | Enemigo no te detectó y está en CORTA | 1 | Sí (fallo −20, ×3 daño) |
+| Golpe normal | Enemigo en CORTA | 1 | Sí |
+| Golpe rápido | Enemigo en CORTA | 1 | Sí (×0.7; retrocedés 1 paso) |
+| Golpe potente | Enemigo en CORTA | 2 | Sí (×2; quedás pegado) |
+| Golpe preciso | Enemigo en CORTA | 1 | Sí (cabeza/brazos/patas) |
+| Defensa | Enemigo en CORTA o te atacan | 1 | Sí (bloquea 75%) |
+| Empujar | Enemigo en CORTA | 1 | Sí (+1 distancia; derriba T1-T2) |
+| Acercarse / Alejarse | Siempre en combate | 1 | No |
+| Disparo (variantes) | Arma de distancia y munición | 1-2 | Sí (fallo +25 media / +40 lejos) |
+| Recargar | Arma de distancia | 1 | No |
+| Pasar · Escapar · Rendirse · Vendas | Menú de tu carta | 0-1 | Escapar: Sí |
+| 🤫 Sigilo / 🏃 Evitar / 👁 Observar | Enemigo que no te detectó | 1-2 | Sí |
 
 ## B. EXPLORACIÓN GENERAL
 | Botón | Aparece si | Min | Chequeo |
 |---|---|---|---|
-| 🔍 BUSCAR | Casi siempre (excepto combate) | 10-30 | Sí (04) |
+| 🔍 Explorar (BUSCAR general) | Casi siempre (excepto combate); NO sirve para abrir cajones ni cajas | 10-30 | Sí (04) |
+| Registrar [piso / cajón / ropero / estantería / caja fuerte / cadáver] | Existe ese punto en la escena | 2-10 | Sí si hay cerradura (05) |
 | Examinar alrededores | Siempre | 5 | No |
 | Escuchar el entorno | Siempre | 3 | Sí (PER) |
 | Buscar entradas / salidas | Hay estructura o terreno cerrado | 10 | Sí |

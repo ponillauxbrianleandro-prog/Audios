@@ -1,5 +1,8 @@
 # 16 · ARRANQUE DE PARTIDA
 
+## MUNDO CARGADO: «EL SALAR» (42-45)
+Si se usa la campaña incluida: protagonista Nico «Chispa» Cardal, hogar El Faro Seco (L-001), misión inicial M-01, compañero inicial Rastro (41), mapa de 21 ubicaciones (43). Solo hay que completar `NOMBRE/APARIENCIA` físicos (el autor, con su módulo) y la configuración.
+
 ## INSTRUCCIÓN INICIAL (la IA ejecuta esto al empezar)
 1. Cargar lore (14, con CONFIG_LORE del 34), reglas (01-13, 18, 24-34) y formato (15). Cargar bestiarios de los temas activos (19-23, 35, 36).
 1b. Tirar 1d3 por criatura y fase para el número de variantes (27) o cargar el bestiario generado; calcular enemigos disponibles al nivel 1 (pool inicial T1).
@@ -26,7 +29,7 @@ EDAD FICTICIA:
 TEMA / ESPECIE / FASE (08, 18):
 APARIENCIA CORPORAL (femenina / masculina, solo describe el cuerpo):
 HISTORIA PERSONAL (1-3 líneas):
-STATS INICIALES (FUE PER RES CAR INT AGI SUE, suma 28, 1-10 cada una):
+STATS INICIALES (FUE PER RES CAR INT AGI SUE, 1-10 cada una; en El Salar: 6/5/6/5/4/5/4 = 35):
 OBJETIVO PERSONAL:
 ```
 Valores variables (nivel, equipo, relaciones, karma, etc.) los gestiona la IA después.

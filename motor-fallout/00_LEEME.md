@@ -42,12 +42,31 @@ Bloques de texto modulares para "información principal" de una IA (Haiku). Cada
 | 34 | REGLAS_LORE_VS_FIJO | Regla permanente | Siempre |
 | 35 | CRIATURAS_FANTASIA | Bloque aparte | Solo si el lore usa fantasía |
 | 36 | CRIATURAS_CIENCIA_FICCION | Bloque aparte | Solo si el lore usa ciencia ficción |
+| 37 | COMBATE_CUERPO_A_CUERPO | Regla permanente | Siempre |
+| 38 | INTERFAZ_PANTALLAS | Presentación (botones) | Siempre |
+| 39 | DERROTA_ARRASTRE_ROBO_ATASCO | Regla permanente | Siempre |
+| 40 | NPC_CLASIFICACION | Regla + lore | Siempre |
+| 41 | COMPANEROS | Lore | Siempre |
+| 42 | MUNDO_Y_PROTAGONISTA | **Lore real (El Salar)** | Siempre (reemplaza al ejemplo del 14) |
+| 43 | MAPA_Y_UBICACIONES | Lore | Siempre |
+| 44 | MISIONES_PRINCIPALES | Lore | Siempre |
+| 45 | MISIONES_SECUNDARIAS | Lore | Siempre |
+| 46 | ECONOMIA_Y_CRAFTING | Regla permanente | Siempre |
 | — | `generado/BESTIARIO_GENERADO_01..34.md` | Resultado del generador | Opcional (ver abajo) |
 
-Con `python3 ensamblar.py` se arma `MOTOR_COMPLETO.md` (bloques 01-36 juntos, sin este LÉEME) y se avisa si algún bloque pasa del límite de palabras (`--limite N` para cambiarlo, `--sin-17`, `--sin-fantasia`, `--sin-scifi` para omitir bloques).
+Con `python3 ensamblar.py` se arma `MOTOR_COMPLETO.md` (bloques 01-46 juntos, sin este LÉEME) y se avisa si algún bloque pasa del límite de palabras (`--limite N` para cambiarlo, `--sin-17`, `--sin-fantasia`, `--sin-scifi` para omitir bloques).
 
 ## El bestiario generado
 `python3 generar_bestiario.py --semilla 2026` asigna **1 a 3 variantes** (1d3) a cada criatura de cada fase y escribe archivos partidos de ≤1800 palabras en `generado/`, más `TABLA_DESBLOQUEO.md` (qué enemigos se suman en cada nivel). Ya dejé uno generado con semilla 2026. Opciones: `--fases 1-12`, `--apagar H-45,H-46`, `--temas animales`, `--max-palabras N`. Si no querés pegar ese resultado, la IA hace lo mismo sola siguiendo el procedimiento en texto del bloque 27.
+
+## La simulación (carpeta `simulador/` y `simulacion/`)
+Código que aplica las reglas de los bloques con un jugador automático para **probar que todo cierra** (no es el juego para la IA):
+- `python3 -I simulador/ejecutar.py --semilla 1` juega la campaña completa de El Salar, escribe `simulacion/CAMPANA_LOG_NN.md` (partidos por palabras) e `INFORME_DE_PRUEBA.md`.
+- `python3 -I simulador/pruebas.py` corre 22 pruebas dirigidas (`PRUEBAS_DE_REGLAS.md`).
+- `python3 -I simulador/varias_semillas.py --n 10` repite con 10 semillas (`RESUMEN_VARIAS_SEMILLAS.md`).
+- `python3 -I simulador/calibrar.py` mide el equilibrio de combate por nivel.
+- `simulacion/HALLAZGOS_Y_CORRECCIONES.md` lista los problemas que encontró y lo que no prueba.
+- `python3 -I generar_bloques_mundo.py` reescribe los bloques 43-45 desde `simulador/mundo.py` (única fuente del mapa y las misiones).
 
 ## Cómo se decide qué es del lore y qué es fijo
 Todo texto marcado **(genérico)** lo rellena el lore; **(tal cual)** se deja como está. El bloque 34 trae la tabla completa y la plantilla `CONFIG_LORE`. Ejemplos: el lore decide qué temas, especies y fases existen y cómo se llaman la comida y la medicina; lo fijo es la cantidad, los efectos, las fórmulas y los números.
@@ -63,7 +82,7 @@ A Botones · B Botones + Mapa · C Mapa mundial (Fallout 1/2) · D Mapa-escena (
 
 ## Contenido adulto y reglas fijas
 Estos bloques **no contienen contenido sexual ni desnudez**. Los ganchos neutrales (`[VESTIMENTA_EXTRA]`, `[APARIENCIA_EXTRA]` y el 17) quedan vacíos para tu módulo externo. Todo humano o humanoide es adulto. "Femenino/masculino" describe solo cómo se ve el cuerpo.
-No hay habilidades ni perks; no hay arácnidos; no hay parásitos reales (solo genéricos).
+No hay habilidades ni perks; no hay arácnidos; no hay parásitos reales (solo genéricos). El protagonista no muere (39).
 
 ## Límite realista de Haiku
 Haiku pierde detalle en contexto largo. Por eso: reglas cortas, formatos fijos, estado compacto, y el **Código de guardado** (02) cada pocos turnos.

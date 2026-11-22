@@ -1,6 +1,7 @@
 # 04 · SISTEMA DE BÚSQUEDA
 
 ## PRINCIPIO
+**BUSCAR es solo la búsqueda general** del lugar (botón Explorar). Abrir un cajón, ropero, caja fuerte o mirar el piso son acciones propias de **Registrar [punto]** (03, 05): se hacen sin BUSCAR y sin tirada de hallazgo general.
 BUSCAR existe en casi todas las ubicaciones. El resultado depende del tipo de ubicación, bioma, lore, nivel de exploración y tiempo. Nunca genera nada fuera de lore, y nunca repite lo ya recogido.
 
 ## ESTADO DE EXPLORACIÓN (`explor` 0–5 por ubicación o sector)
@@ -36,6 +37,9 @@ Reglas de coherencia: una vivienda no da recursos industriales; un bosque no da 
 - **Peligro/emboscada:** base 10% ubicación normal, 30% hostil, 3% segura. +10% si noche, +5% si ruido, −5% si sigilo. Si ocurre → nuevo encuentro (06).
 - **Elemento oculto extra:** 8% si el lugar es complejo (aumentado por PER).
 - **Fallo con consecuencia (pifia, tirada ≥ 96):** ruido, herida leve, objeto dañado o alerta de testigos.
+
+## GARANTÍA DE CAMINO (tal cual)
+Si la ubicación tiene una conexión oculta que la historia necesita: tirada independiente de 12% por BUSCAR y **garantía en la 4.ª búsqueda** (explor ≥ 4). Así el progreso nunca se bloquea.
 
 ## EXCLUSIVIDAD DE DESCUBRIMIENTO DE UBICACIONES
 - Categorías F y G solo si la ubicación tiene conexiones por descubrir (bloque 07). Antes de crear algo nuevo, verificar que no exista ya. No crear ubicación cada vez que se busca sin resultados.

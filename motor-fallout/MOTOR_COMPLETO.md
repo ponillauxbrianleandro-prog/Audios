@@ -134,21 +134,28 @@ Si el contexto se hace largo: conservar íntegro JUG, TIEMPO, UBIC ACTUAL, MISIO
 - Si el jugador está en combate, el menú cambia al de COMBATE (bloque 06) y los botones de exploración se ocultan.
 - El jugador puede escribir texto libre: mapear a un botón válido.
 
-## A. COMBATE DIRECTO (sin buscar antes)
-| Botón | Aparece si | Min | Chequeo |
+## A. COMBATE DIRECTO (sin buscar antes; ver 37)
+| Botón | Aparece si | Acciones | Chequeo |
 |---|---|---|---|
-| ⚔ ATACAR | Hay enemigo/hostil presente o visible, aunque no hayas buscado | 1 | Sí (06) |
-| 🎯 Disparo apuntado | Arma a distancia y enemigo visible | 1 | Sí |
-| 🗡 Emboscada | Enemigo visible que NO te detectó | 1 | Sí, bonus sorpresa |
-| 🤫 Sigilo | Enemigo visible que no te detectó | 2 | Sí |
-| 🏃 Evitar / retirarte | Enemigo visible que no te detectó | 2 | Sí |
-| 👁 Observar enemigos | Enemigos visibles | 1 | No |
-| 🗣 Intimidar / negociar | Enemigo con inteligencia ≥ media | 1 | Sí |
+| ⚔ ATACAR (elige enemigo) | Hay enemigo visible o presente, aunque no hayas buscado | — | abre el menú de acciones |
+| Golpe sigiloso | Enemigo no te detectó y está en CORTA | 1 | Sí (fallo −20, ×3 daño) |
+| Golpe normal | Enemigo en CORTA | 1 | Sí |
+| Golpe rápido | Enemigo en CORTA | 1 | Sí (×0.7; retrocedés 1 paso) |
+| Golpe potente | Enemigo en CORTA | 2 | Sí (×2; quedás pegado) |
+| Golpe preciso | Enemigo en CORTA | 1 | Sí (cabeza/brazos/patas) |
+| Defensa | Enemigo en CORTA o te atacan | 1 | Sí (bloquea 75%) |
+| Empujar | Enemigo en CORTA | 1 | Sí (+1 distancia; derriba T1-T2) |
+| Acercarse / Alejarse | Siempre en combate | 1 | No |
+| Disparo (variantes) | Arma de distancia y munición | 1-2 | Sí (fallo +25 media / +40 lejos) |
+| Recargar | Arma de distancia | 1 | No |
+| Pasar · Escapar · Rendirse · Vendas | Menú de tu carta | 0-1 | Escapar: Sí |
+| 🤫 Sigilo / 🏃 Evitar / 👁 Observar | Enemigo que no te detectó | 1-2 | Sí |
 
 ## B. EXPLORACIÓN GENERAL
 | Botón | Aparece si | Min | Chequeo |
 |---|---|---|---|
-| 🔍 BUSCAR | Casi siempre (excepto combate) | 10-30 | Sí (04) |
+| 🔍 Explorar (BUSCAR general) | Casi siempre (excepto combate); NO sirve para abrir cajones ni cajas | 10-30 | Sí (04) |
+| Registrar [piso / cajón / ropero / estantería / caja fuerte / cadáver] | Existe ese punto en la escena | 2-10 | Sí si hay cerradura (05) |
 | Examinar alrededores | Siempre | 5 | No |
 | Escuchar el entorno | Siempre | 3 | Sí (PER) |
 | Buscar entradas / salidas | Hay estructura o terreno cerrado | 10 | Sí |
@@ -258,6 +265,7 @@ Para agregar un botón: fila nueva en la categoría correcta con Aparece si / Mi
 # 04 · SISTEMA DE BÚSQUEDA
 
 ## PRINCIPIO
+**BUSCAR es solo la búsqueda general** del lugar (botón Explorar). Abrir un cajón, ropero, caja fuerte o mirar el piso son acciones propias de **Registrar [punto]** (03, 05): se hacen sin BUSCAR y sin tirada de hallazgo general.
 BUSCAR existe en casi todas las ubicaciones. El resultado depende del tipo de ubicación, bioma, lore, nivel de exploración y tiempo. Nunca genera nada fuera de lore, y nunca repite lo ya recogido.
 
 ## ESTADO DE EXPLORACIÓN (`explor` 0–5 por ubicación o sector)
@@ -293,6 +301,9 @@ Reglas de coherencia: una vivienda no da recursos industriales; un bosque no da 
 - **Peligro/emboscada:** base 10% ubicación normal, 30% hostil, 3% segura. +10% si noche, +5% si ruido, −5% si sigilo. Si ocurre → nuevo encuentro (06).
 - **Elemento oculto extra:** 8% si el lugar es complejo (aumentado por PER).
 - **Fallo con consecuencia (pifia, tirada ≥ 96):** ruido, herida leve, objeto dañado o alerta de testigos.
+
+## GARANTÍA DE CAMINO (tal cual)
+Si la ubicación tiene una conexión oculta que la historia necesita: tirada independiente de 12% por BUSCAR y **garantía en la 4.ª búsqueda** (explor ≥ 4). Así el progreso nunca se bloquea.
 
 ## EXCLUSIVIDAD DE DESCUBRIMIENTO DE UBICACIONES
 - Categorías F y G solo si la ubicación tiene conexiones por descubrir (bloque 07). Antes de crear algo nuevo, verificar que no exista ya. No crear ubicación cada vez que se busca sin resultados.
@@ -342,7 +353,7 @@ Métodos y %éxito base (`nivel_cerr` = nivel de la cerradura; se suma bono_nive
 | Forzar | Palanca o FUE | 60 − 10×nivel_cerr + FUE×3 + bono_nivel | Ruido; si ≥ 95 daña el contenido (−1 objeto frágil) |
 | Hackear (cerradura electrónica) | Terminal | 70 − 12×nivel_cerr + INT×3 + bono_nivel | Tres fallos → bloqueo por 24 h |
 | Código | Conocerlo | 100 | Código incorrecto: alarma posible |
-Límite 5–95. Nivel 5 solo con llave/código.
+Límite 5–95. Nivel 5 solo con la llave o el código específico (en El Salar: la Llave de la Torre).
 Intentos: cada intento fallido cuesta tiempo. Tras 3 fallos seguidos con el mismo método, ese método ya no se puede intentar con esa cerradura hasta subir de nivel o conseguir mejor herramienta.
 
 ## TRAMPAS
@@ -395,22 +406,8 @@ Niveles de amenaza: 1 Débil | 2 Normal | 3 Fuerte | 4 Élite | 5 Jefe. Variante
 - **Defensa/Reducción:** valor abstracto de armadura (bloque 10) resta daño; no anula.
 - **Pifia (≥ 96):** arma atascada (pierde acción) o ataque a aliado.
 
-## ACCIONES EN COMBATE (1 acción principal por turno + 1 menor)
-| Botón | Efecto | Chequeo |
-|---|---|---|
-| ⚔ Atacar | Ataque básico a objetivo | %Impacto |
-| 🎯 Apuntar (parte del cuerpo) | −2 PA extra, +15% y efecto de miembro: cabeza (+daño/aturdir), brazos (−daño enemigo), piernas (−huida/inmoviliza), torso (estándar) | %Impacto |
-| 🛡 Defender | Reduce daño 50% hasta tu próximo turno | No |
-| 👟 Empujar | Aleja/derriba enemigo; 100% se intenta, éxito 60%+FUE×3−peso; fallo: el enemigo puede agarrarte o **tumbarte** | Sí |
-| 🧱 Cubrirse | +15% def. si hay cobertura | No |
-| 🔫 Recargar / cambiar arma | Consume turno | No |
-| 🩹 Usar objeto | Medicina/granada/comida | Según objeto |
-| ✨ Acción especial de arma | Solo si el arma lo define (ráfaga, golpe potente, lanzar) | Sí |
-| 🤫 Sigilo (ocultarse) | Si hay cobertura o escape; rompe contacto | Sí |
-| 🗣 Intimidar / rendición | Si enemigo racional: 20%+CAR×4 | Sí |
-| 🏃 Huir | %huir = 50 + AGI×3 − velocidad_enemigo ± terreno | Sí |
-| Cambiar de objetivo / posición | Menor, 1 vez por turno | No |
-Reglas: acciones consumen PA. Si PA=0, solo Defender o Huir.
+## ACCIONES EN COMBATE
+Las acciones, las 3 distancias, el turno de 3 acciones, la probabilidad de fallo (50-70% según vulnerabilidad) y el menú sobre enemigo y sobre tu carta están en el **bloque 37** y reemplazan a las del 06. Fórmulas de daño y PV: 27.
 
 ## IA ENEMIGA (decisión simple, sin inventar)
 Cada ENE decide por su comportamiento (08): agresivo ataca, defensivo guarda posición, manada flanquea, cobarde huye bajo 25% PV, territorial no persigue fuera de zona. Objetivo por defecto: jugador (o compañero con menor defensa si es manada).
@@ -419,16 +416,8 @@ Cada ENE decide por su comportamiento (08): agresivo ataca, defensivo guarda pos
 Herido (sangrado: −3 PV/ronda, 4 rondas), Aturdido (pierde acción, 1), Asustado (−15% impacto, 3), Derribado/Tumbado (no actúa 1 ronda, enemigos +20% contra ti; levantarse cuesta acción), Inmovilizado (no se mueve/huye hasta liberarte, tirada FUE), Cegado (−30%), Envenenado (−2 PV/ronda, 5), Confuso (objetivo aleatorio, 2), Incapacitado (PV ≤ 0 sin morir; ver derrota).
 Cada estado tiene nombre, efecto, duración y forma de terminar.
 
-## DERROTA DEL JUGADOR (neutral)
-PV ≤ 0 → estado **Derrotado**. Si hay enemigos vivos, se ejecuta la tirada de DESENLACE:
-| Resultado | % base | Efecto |
-|---|---|---|
-| Despiertas más tarde, perdiste objetos | 30 | −% chapas, 1-2 objetos al azar, tiempo +3 h, ubic cercana |
-| Escapas herido | 20 | Con 1 PV, +1 h, marcado como objetivo |
-| Capturado | 20 | Se activa evento de captura según lore (bloque 17 si está activo) |
-| Rescate (NPC aliado) | 10 | Si hay aliados cerca |
-| Muerte permanente | 20 (0 en modo fácil, 40 en difícil) | Fin; ofrecer cargar guardado |
-Registrar: `FLAGS: contador_derrotas +1`. Si el módulo externo (17) está activo, entregarle el control en `[PUNTO_DERROTA]`.
+## DERROTA DEL JUGADOR
+No hay muerte: ver **bloque 39** (Derrotado, arrastre a la cama más cercana, robo recuperable). Los enemigos que quedan persisten.
 
 ## JEFES E INVOCACIONES
 - Todo jefe define: `invoca: tipo, cantidad por invocación (1-3), cooldown (rondas), tope vivos (ej. 6), condición de corte (matar al jefe/destruir fuente), PV de fuente`.
@@ -477,8 +466,9 @@ Una región = un bioma predominante, con variaciones locales. Los encuentros, re
 No mostrar nunca información que el personaje desconoce.
 
 ## VULNERABILIDAD AL ABRIR EL MAPA DE PAPEL
+(Valores finales, ver 39: 8% segura / 18% normal / 35% hostil al abrir; **+20% si hacés viaje rápido**. El mapa de muñeca no genera vulnerabilidad.)
 Abrir el mapa **no detiene el mundo**. Cada vez que se abre:
-- Tirada de interrupción: riesgo = 5% (segura) / 12% (normal) / 25% (hostil). +10% noche. −5% si sigilo.
+- Tirada de interrupción: riesgo = 8% (segura) / 18% (normal) / 35% (hostil), **+20% si el jugador elige viaje rápido**. +10% noche. −5% si sigilo.
 - Si ocurre: encuentro, aproximación enemiga, cambio ambiental o evento (según zona).
 - Si hay enemigos cercanos que no te detectaron: 30% de que te detecten por la distracción.
 La tirada se resuelve al abrir el mapa; si hay interrupción, ocurre antes de que el jugador elija destino.
@@ -725,7 +715,7 @@ FUE (daño cuerpo a cuerpo, carga, forzar) · PER (puntería, detectar, buscar) 
 `bonus_stat = stat − 5`. Fórmula general: `%éxito = base + bonus_stat×3 + bono_nivel + equipo − dificultad − estados`.
 
 ## QUÉ DA SUBIR DE NIVEL (resumen; detalle en 27)
-Sube PV y PA, sube `bono_nivel` (= nivel) y se desbloquean más enemigos y variantes. Nada más: sin puntos que repartir.
+Sube PV, PA, daño (+1.3 por nivel), `bono_nivel` (= nivel) y se desbloquean más enemigos y variantes. Nada más: sin puntos que repartir.
 
 ## KARMA Y REPUTACIÓN
 - **Karma** (−1000..+1000): + por ayudar, salvar, cumplir; − por robar, matar inocentes, traicionar. Etiquetas: Malvado / Maldad / Neutral / Bondad / Santo. Afecta diálogos y compañeros.
@@ -858,6 +848,8 @@ Reemplazá este bloque por otro lore (Pokémon, Dragon Ball, fantasía, ciencia 
 
 # 15 · INTERFAZ Y FORMATOS DE PRESENTACIÓN
 
+Las pantallas con botones (interior, exterior, combate, menús, mapas) están definidas en el **bloque 38**; este bloque queda como formato de texto para plataformas sin imágenes.
+
 ## FORMATO GENERAL DE CADA RESPUESTA (en este orden)
 ```
 ━━━ 📍 [Nombre ubicación] · L-014 · [Clase] · [Región/Bioma] ━━━
@@ -944,6 +936,9 @@ Mecánica primero (🎲, 📊), narración después. Tono según lore (14). Espa
 
 # 16 · ARRANQUE DE PARTIDA
 
+## MUNDO CARGADO: «EL SALAR» (42-45)
+Si se usa la campaña incluida: protagonista Nico «Chispa» Cardal, hogar El Faro Seco (L-001), misión inicial M-01, compañero inicial Rastro (41), mapa de 21 ubicaciones (43). Solo hay que completar `NOMBRE/APARIENCIA` físicos (el autor, con su módulo) y la configuración.
+
 ## INSTRUCCIÓN INICIAL (la IA ejecuta esto al empezar)
 1. Cargar lore (14, con CONFIG_LORE del 34), reglas (01-13, 18, 24-34) y formato (15). Cargar bestiarios de los temas activos (19-23, 35, 36).
 1b. Tirar 1d3 por criatura y fase para el número de variantes (27) o cargar el bestiario generado; calcular enemigos disponibles al nivel 1 (pool inicial T1).
@@ -970,7 +965,7 @@ EDAD FICTICIA:
 TEMA / ESPECIE / FASE (08, 18):
 APARIENCIA CORPORAL (femenina / masculina, solo describe el cuerpo):
 HISTORIA PERSONAL (1-3 líneas):
-STATS INICIALES (FUE PER RES CAR INT AGI SUE, suma 28, 1-10 cada una):
+STATS INICIALES (FUE PER RES CAR INT AGI SUE, 1-10 cada una; en El Salar: 6/5/6/5/4/5/4 = 35):
 OBJETIVO PERSONAL:
 ```
 Valores variables (nivel, equipo, relaciones, karma, etc.) los gestiona la IA después.
@@ -1569,7 +1564,7 @@ Botín según tier (E0: casi nada; E5: arma y armadura de ese tier, con 40% de d
 
 ## NIVELACIÓN (tal cual)
 - Nivel 1 al 30 (tope; los DLC pueden ampliarlo). No hay habilidades ni perks ni puntos que repartir.
-- **XP total para estar en nivel N** = `50 × N × (N − 1)`. Ejemplos: N2 = 100, N3 = 300, N5 = 1000, N10 = 4500, N20 = 19000, N30 = 43500.
+- **XP total para estar en nivel N** = `60 × N × (N − 1)`. Ejemplos: N2 = 120, N3 = 360, N5 = 1200, N10 = 5400, N20 = 22800, N30 = 52200. (Calibrado con el simulador: la campaña principal y todas las secundarias terminan alrededor del nivel 19; llegar al 30 requiere seguir jugando.)
 - Fuentes de XP:
 | Fuente | XP |
 |---|---|
@@ -1586,6 +1581,15 @@ Botín según tier (E0: casi nada; E5: arma y armadura de ese tier, con 40% de d
 | Evento especial resuelto | 20-60 |
 XP final por enemigo = base × `clamp(nivel_enemigo / nivel_jugador, 0.5, 2)`.
 - **Efecto de subir un nivel:** PV máx = 90 + RES×10 + 5×nivel · PA = 60 + AGI×5 + nivel · `bono_nivel = nivel` · carga máx +5 por nivel · curación completa de PV al subir.
+- **Daño del protagonista (tal cual):** `daño = rango del arma × multiplicador del movimiento + (FUE − 5) + floor(1.3 × nivel)`. Ejemplo nivel 10, arma T3 (10-16), golpe normal: 13 + 1 + 13 = 27 de daño.
+
+## PV Y DAÑO DE ENEMIGOS POR TALLA, FASE Y NIVEL (tal cual)
+- **PV** = PV de la talla (19) × `(1 + 0.10 × (nivel enemigo − 1))` × multiplicador de variante (V1 1.0, V2 1.4, V3 1.9) × multiplicador de fase (25). Ej.: T1 (20 PV) nivel 1 = 20; T3 (80) nivel 10 = 152; T4 (160) nivel 20 = 464.
+- **Daño** = rango de la talla × `(1 + 0.085 × (nivel enemigo − 1))` × variante (V2 1.25, V3 1.6) × fase. Ej.: T3 (8-15) nivel 10 = 14-26.
+- **Nivel del enemigo:** zona hostil = `max(nivel de la zona, nivel del jugador − 2)`; zona normal = `min(nivel de la zona + 1, nivel del jugador + 1)`.
+- **Humanos:** además aplican su **equipo** (26): multiplicadores PV/daño/RD por tier — E0 ×0.55/×0.6/0 · E1 ×0.65/×0.7/1 · E2 ×0.8/×0.85/3 · E3 ×1/×1/6 · E4 ×1.2/×1.2/10 · E5 ×1.5/×1.5/16.
+- **Jefes (PV | daño):** Alfa nivel 4: 200 | 9-15 · Reina nivel 8: 330 | 10-18 · Capataz esclavista nivel 12: 520 | 14-22 · Capataz de la Concesión nivel 20: 900 | 22-36. Invocan como máximo **3 ciclos** (28).
+- Meta de equilibrio medida: ganás el 90%+ de los combates de tu nivel perdiendo 15-40% de PV; unas 8-15 rondas por combate.
 - Hitos: niveles 5, 10, 15, 20, 25, 30 → anuncio y evento de región (el lore decide el contenido).
 - La subida es **automática**: al alcanzar XP, la IA aplica y registra (`d3 11:20 | nivel 4→5`).
 
@@ -1694,7 +1698,7 @@ Cada encuentro especial único se registra y no vuelve a salir.
 
 ## JEFES (tal cual)
 - Un jefe por zona clave o hito de nivel. Nivel mínimo en la ficha. **No cuenta para el sistema de variantes** (27).
-- Subordinados: máx. 3 por invocación, tope 6 vivos (10 en jefes de nivel 20+), cooldown 3 rondas, **condición de corte** (matar al jefe, destruir fuente, vencer tiempo).
+- Subordinados: máx. 3 por invocación, tope de vivos (4-6; 10 en jefes de nivel 20+), cooldown 3 rondas, **máximo 3 ciclos de invocación por combate** (después el jefe pelea con lo que quede), **condición de corte** (matar al jefe, destruir fuente, vencer tiempo).
 - Si el jefe no muere, la invocación continúa hasta el tope. Si el jugador mata a todos los subordinados, el jefe puede re-invocar 1 vez.
 - Jefes tienen fases (ej. 100-60% PV normal, 60-30% invoca, 30-0% furia: +25% daño).
 - Recompensa: objeto único, XP 300+, evento de mapa.
@@ -2376,3 +2380,664 @@ Comportamiento común (tal cual): inmunes a veneno, sangrado y miedo; +50% daño
 - Variante "Necrófago radiactivo" (tipo "ghoul"): usar tema no muerta (35) + Radiactiva (24).
 - Los robots usan variantes universales "Robótica" solo si el lore los considera criaturas orgánicas modificadas; los X-01..X-15 ya son artificiales.
 - Fases 4-12 para el tema artificial: androide humanoide (4-5), cyborg (6-7), humano con prótesis (8), con accesorios de máquina (9-12), humano (13), purista (14).
+
+<!-- ===== BLOQUE 37_COMBATE_CUERPO_A_CUERPO ===== -->
+
+# 37 · COMBATE CUERPO A CUERPO, DISTANCIAS Y ESCENA DE BATALLA
+
+## BASE (tal cual)
+Este bloque reemplaza el menú de acciones del 06. Las armas cuerpo a cuerpo tienen todos los movimientos; **las armas de fuego y de distancia usan los mismos movimientos derivados** (ver abajo). Fórmulas de daño, PV y XP: bloques 06, 27, 29.
+
+## ESCENA (tal cual)
+- Tu personaje se ve de cuerpo entero a la izquierda ("tercera persona"), con su carta abajo a la izquierda (retrato, barra de PV, barra de estado, nombre) y 3 círculos de acción (●●●) sobre ella.
+- Cada enemigo aparece **sobre su carta** (imagen del enemigo, nombre, barra de PV, íconos de estado) a una de tres distancias: **LEJOS** (fondo), **MEDIA** (medio) y **CORTA** (pegado al jugador). Sobre cada carta hay un ícono de ataque tachado cuando ese enemigo no puede atacar ahora (lejos o aturdido).
+- Arriba: `Turno: N` y `Acciones: 3`. Botón `Repetir último` junto a tu carta.
+- **Tocar la carta de un enemigo** abre sus acciones sobre ese enemigo. **Tocar tu carta** abre las acciones sobre vos (defensa, objetos, esperar, escapar, rendirse). Los botones disponibles dependen de tus estadísticas y arma (ver 38).
+
+## TURNO (tal cual)
+1. Tenés **3 acciones** por turno. Cada movimiento cuesta 1 o 2 acciones (ver tabla).
+2. Al gastar las 3 (o al elegir `Pasar`), actúan los enemigos: los que están en CORTA atacan; los de MEDIA o LEJOS avanzan un paso (los veloces, dos); los de distancia atacan desde MEDIA o LEJOS con −30% impacto.
+3. Se aplican estados y se avanza el reloj (1 turno = 1 minuto de juego).
+
+## MOVIMIENTOS CUERPO A CUERPO (solo en distancia CORTA)
+| Botón | Acciones | Daño | Efecto en distancia | Notas |
+|---|---|---|---|---|
+| Golpe sigiloso | 1 | ×3 | queda corta | Solo si el objetivo no te detectó (Oculto/Precaución). Fallo −20 |
+| Golpe normal | 1 | ×1 | queda corta | Base de comparación |
+| Golpe rápido | 1 | ×0.7 | **retrocedés 1 paso** (corta→media) | Menos vulnerable: fallo −5 |
+| Golpe potente | 2 | ×2 | quedás pegado, **sin poder retroceder** este turno | Fallo +5; aturde 20% |
+| Golpe preciso | 1 | ×1 | queda corta | Fallo +5; apuntás: cabeza (+30% crítico), brazos (−25% daño enemigo 2 turnos), patas (−1 paso de velocidad) |
+| Defensa (bloqueo) | 1 | — | pegado | Reduce 75% el daño de todo ataque hasta tu próximo turno; si **falla la tirada**, solo 25% |
+| Empujar | 1 | 0-2 | enemigo +1 paso de distancia | Derriba a criaturas T1-T2 (pierden su próxima acción) |
+| Moverse (acercarte / alejarte) | 1 | — | ±1 paso | Alejarte te hace menos vulnerable |
+Aparecen más opciones según arma (ej. golpe de barrido, golpe múltiple) o stats altos.
+
+## PROBABILIDAD DE FALLO POR VULNERABILIDAD (tal cual)
+**Vulnerabilidad V (0-100):**
+- Distancia del enemigo más cercano: CORTA 40 · MEDIA 20 · LEJOS 5.
+- +10 por cada enemigo extra en CORTA (máx. +30).
+- +15 si PV < 50%. +10 si estás Herido, Cansado o Aturdido. +10 en oscuridad/niebla.
+- −15 con cobertura. −10 con compañero en CORTA. −10 con armadura E4 o superior.
+Se limita a 0-100.
+**Fallo base = 50% + 0.2 × V** → entre **50% y 70%**.
+**Bonus del jugador** = (bonus_stat de FUE o PER ×2) + nivel/2 + bonus de arma (tier −2)×3 + modificador del movimiento. Máx. 25.
+**Fallo final = fallo base − bonus**, entre 25% y 70%. Éxito = 100 − fallo.
+Modificadores de movimiento: sigiloso −20, rápido −5, potente +5, preciso +5, defensa 0 (el éxito es el bloqueo).
+Si el movimiento falla: no hay daño. En defensa fallida, el bloqueo es parcial (25%).
+
+## ARMAS DE FUEGO Y DE DISTANCIA (tal cual)
+- Usan los mismos movimientos con estos nombres: **Disparo sigiloso, Disparo normal, Disparo rápido, Disparo potente (2 acciones, +50% daño, retroceso), Disparo preciso, Defensa, Empujar con el arma, Recargar** (1 acción).
+- **Casi nulos a distancia:** si el objetivo está en MEDIA, fallo +25; en LEJOS, fallo +40 (se sigue limitando a 70%+ de fallo; mínimo de acierto 5%). En CORTA, fallo normal.
+- Sin munición o recarga pendiente: solo defensa, empujar o moverse.
+- Armas de energía, explosivos y lanzadores: mismo esquema (los explosivos afectan área).
+
+## ENEMIGOS: ATAQUE Y CONDUCTA (tal cual)
+- %impacto del enemigo = base de su talla (27) − defensa del jugador (2 × RD, mínimo 10%, máximo 90%). El daño sí se reduce por RD. Si el jugador defendió: primero se tira el bloqueo.
+- Los enemigos en CORTA eligen entre atacar (80%) y moverse (20% si son cobardes o huyen).
+- Criaturas **de especies distintas se atacan entre sí** (ver abajo) y atacan al jugador solo si no están peleando entre ellas.
+- Un encuentro tiene **una sola especie** (repetida típicamente 3 veces, 2-7 por talla, bloque 28). Nunca aparecen mezclados en el mismo grupo.
+
+## ENEMIGOS PERSISTENTES (tal cual)
+- Un enemigo que spawneó **no desaparece** hasta morir: te lo podés cruzar al volver, con el PV que le quedó (se recupera 10% por hora de juego si no está herido por veneno).
+- Si te vas del combate (Escapar), siguen donde estaban, al estado actual.
+- Pueden morir por **otra criatura de otra especie** mientras no estás, o delante tuyo.
+- En ubicaciones hostiles, después de >48 h sin presencia del jugador se **regenera la población** (no la del jugador cercano).
+
+## CHOQUE ENTRE ESPECIES (tal cual)
+Cada 2 horas de juego en una ubicación con 2 grupos de especies distintas: cada grupo hace daño a otro (daño medio de su talla ×1.0 ×cantidad ×0.3, tirada de 50%). Si estás presente en la escena, podés mirar, intervenir de un lado, o aprovechar para golpe sigiloso. Las criaturas de la misma especie no se atacan.
+
+## ACCIONES SOBRE VOS (tocar tu carta)
+Defensa · Esperar/Pasar · Usar objeto (vendas, comida, estimulante) · Cambiar de arma · Escapar · Rendirse · Revisar estado.
+- **Escapar:** %éxito = 60 + AGI×3 − 15×(enemigos en CORTA) − velocidad enemiga; si falla, perdés el turno.
+- **Rendirse:** termina el combate; pasa a DERROTA (39) con robo reducido a la mitad.
+
+## DERROTA (resumen; detalle en 39)
+PV 0 = Derrotado; no hay muerte. Te arrastrás a la cama más cercana.
+
+## FINAL DE COMBATE
+XP según 27, botín (05) en los cuerpos, regeneración natural fuera del combate (11), registro en LOG.
+
+<!-- ===== BLOQUE 38_INTERFAZ_PANTALLAS ===== -->
+
+# 38 · INTERFAZ DE PANTALLAS (todo con botones)
+
+## PRINCIPIO (tal cual)
+La IA siempre presenta **una pantalla** con elementos fijos y **botones con ícono + etiqueta**. Cada botón tiene una **acción única**. La IA elige un botón y el motor resuelve todo (cinemática corta + efectos). Si la plataforma muestra imágenes, el fondo es la escena del lugar; si no, se describe en 1-2 líneas. Los botones se numeran para elegir por número.
+Se muestran SOLO los botones válidos (03). Las pantallas de abajo definen **dónde va cada cosa**.
+
+## ELEMENTOS FIJOS DE CUALQUIER PANTALLA
+| Posición | Elemento |
+|---|---|
+| Arriba al centro | Nombre del día (Lunes…Domingo) con una barra de 10 segmentos = momento del día (cada segmento consumido es avance de tiempo) |
+| Arriba a la derecha | Botón **Mapa** (ícono de pergamino con brújula) y, más abajo, botón **Menú** (☰) |
+| Abajo a la izquierda | **Carta del personaje**: retrato, nombre y dos barras verticales: **PV** (cruz) y **Aguante** (corazón: ánimo y energía) |
+| Centro y bordes | Botones de acción del lugar, colocados sobre el elemento al que se refieren (cama = Dormir, mesa = Beber té) |
+
+## PANTALLA 1 · INTERIOR (ejemplo: dormitorio del hogar)
+Fondo: cuarto con ventanas, sofá, mesa baja con té, cama.
+| Botón | Aparece si | Acción |
+|---|---|---|
+| Recordar | siempre en el hogar | Abre el diario: resumen de escenas, notas y misiones |
+| Tomar té | hay té | Aguante +10, sed −10, 10 min |
+| Dormir | hay cama y no hay enemigos | Descansa 1/4/8 h (11) |
+| Salir | hay salida | Abre la salida; si hay ventana: “Salir por la ventana” (atasco 40-60%, 39) |
+Más botones según el lugar: Examinar ventana, Registrar mueble, Abrir cajón, Buscar.
+
+## PANTALLA 2 · INTERIOR CON TRES FUNCIONES (cocina del hogar)
+| Botón | Aparece si | Acción |
+|---|---|---|
+| Al dormitorio | conexión interna | Cambia de sector (no es viaje) |
+| Banco de trabajo | hay taller | Abre fabricación, mejora y reparación (46) |
+| Comer | hay comida | Consume hambre −30 |
+| Salir | siempre | Sale a la ubicación exterior |
+
+## PANTALLA 3 · EXTERIOR (ejemplo: bosque/camino)
+| Botón | Aparece si | Acción |
+|---|---|---|
+| Explorar (lupa) | siempre en exterior | BUSCAR general (04): hallar objetos, rastros, conexiones, enemigos |
+| Ir a [destino] (flechas ▲ ◀ ▶) | ruta conocida | Viaja a esa ubicación conectada |
+| Registrar [punto] | punto de interés visible | Abre ese contenedor/mueble |
+| Mapa | siempre | Abre el mapa grande (vulnerable) |
+Cada botón de ruta lleva la **flecha en la dirección de la ruta** (izquierda, derecha, arriba) y el nombre del destino. “BUSCAR” es **solo para buscar en general**; registrar puntos concretos usa sus propios botones (04).
+
+## PANTALLA 4 · COMBATE (ver 37)
+Arriba: `Turno N` y `Acciones: 3`. Izquierda: personaje de cuerpo entero, con **3 círculos de acción** debajo (● ● ●). Centro y derecha: **cartas de enemigos** en tres alturas = tres distancias: **LEJOS** (arriba, al fondo), **MEDIA** (centro) y **CORTA** (abajo, frente al jugador). Cada carta lleva: imagen, nombre, barra de PV, ícono de ataque (tachado si no puede atacar) y estados. Abajo: carta del personaje y botón **Repetir último**.
+Un enemigo marcado (borde de color) es el objetivo actual.
+
+## PANTALLA 5 · ELEGIR ACCIÓN SOBRE UN ENEMIGO (tocar su carta)
+Ventana con botones: **Cancelar · Golpe normal · Defensa · Empujar · Golpe potente · Golpe preciso**. Con arma de distancia: Disparo normal, Disparo potente, Disparo preciso, Defensa, Empujar, Recargar. Otros botones aparecen con stats altos o por arma (barrido, golpe múltiple). Si el enemigo está en MEDIA o LEJOS, los golpes cuerpo a cuerpo se reemplazan por **Acercarse**.
+
+## PANTALLA 6 · ACCIONES SOBRE VOS (tocar tu carta, en combate)
+Ventana con botones: **Cancelar · Pasar · Escapar · Rendirse · Vendas ×N** (más consumibles equipados, Cambiar arma). Los íconos: reloj de arena (Pasar), corredor (Escapar), bandera (Rendirse), rollo de vendas con cantidad.
+
+## PANTALLA 7 · ACCIONES SOBRE VOS FUERA DE COMBATE (tocar tu carta)
+Ventana con botones: **Volver · Estado · Información · Inventario · Equipo**. Debajo una barra con la moneda: `0 cuñas`. Desde acá se abre cada ficha.
+
+## PANTALLA 8 · ESTADO (primera página)
+Retrato de cuerpo entero y lista:
+| Estadística | Qué significa |
+|---|---|
+| Salud (%) | PV actuales sobre PV máximos (11, 27) |
+| Aguante (%) | energía y ánimo: baja con fatiga, sube al descansar |
+| Daño | daño promedio de tu arma + FUE + 1.3×nivel (27) |
+| Defensa (%) | 2 × RD de la armadura (06) |
+| Días | días pasados y día de la semana |
+| Botón Siguiente | página 2 |
+
+## PANTALLA 9 · ESTADÍSTICAS (segunda página)
+| Estadística | Qué significa |
+|---|---|
+| Nivel y XP | nivel actual y XP para el siguiente (27) |
+| Derrotas | veces que quedaste Derrotado (39) |
+| Robos sufridos | veces que te robaron |
+| Objetos recuperados | veces que recuperaste lo robado |
+| Enemigos derrotados | total, por especie |
+| Ubicaciones | descubiertas / visitadas |
+| Reputación | por facción (12) |
+Se omiten estadísticas de contenido adulto; el módulo externo puede agregar las suyas.
+
+## PANTALLA 10 · ESTADÍSTICAS DE COMBATE (borde estilo ventana, con descripción de cada una)
+Inspirada en el combate por turnos de ese tipo de juegos; aquí **no sexuales**:
+| Atributo | Descripción (tal cual) |
+|---|---|
+| Salud 53/53 | PV: llegar a 0 es Derrotado (no hay muerte, 39) |
+| Aguante 25/25 | energía para movimientos potentes; baja con golpes potentes y esfuerzo |
+| Fuerza | bonus de daño cuerpo a cuerpo, carga y forzar |
+| Percepción | detección, puntería y búsqueda |
+| Resistencia | PV y resistencia a estados |
+| Carisma / Presencia | precio de comercio y probabilidad de que un enemigo dude (+x% de fallo enemigo) |
+| Inteligencia | hackeo, reparación y fabricación |
+| Agilidad | iniciativa, sigilo y escape |
+| Suerte | críticos y rareza del botín |
+Pestañas: **Atributos | Relaciones** (lealtad de compañeros y relación con NPC). Panel derecho: **Hechizos/Objetos** → aquí **Armas/Objetos** (cuadrícula 3×4). Botones de equipo: anillo y colgante → **Accesorios** (3 espacios). Botones laterales: **Equipo, Habilidades (no existen aquí: se omite), Alquimia → Fabricar, Misiones**. Abajo: **Esperar, Escapar**. Arriba a la derecha: **Nivel, moneda y hora**.
+
+## PANTALLA 11 · MAPA GRANDE (de papel)
+Fondo: silueta del Salar con relieve. Cada **ubicación descubierta** es un **botón** con su nombre; las **detectadas** llevan un “?” amarillo; las **no descubiertas** no aparecen. Botón ✖ arriba a la derecha.
+- Tocar una ubicación = **viaje rápido** (07, 39): riesgo de emboscada o robo mientras el mapa está abierto: 8/18/35% según zona **+20% si viajás**.
+- Abrir el mapa **te deja vulnerable en todo momento** (el motor tira el riesgo al abrirlo).
+- Las ubicaciones bloqueadas aparecen atenuadas.
+
+## PANTALLA 12 · MAPA PEQUEÑO DE MUÑECA (Brazalete del Faro)
+No se puede apretar nada salvo **marcar una ubicación cercana** para ir ahí. **No hay viaje rápido** y **no genera vulnerabilidad**.
+- **Interior:** plano de las habitaciones del lugar con un punto en tu sector y marcas en puertas y salidas. Marcar una salida → “Ir hacia la salida”.
+- **Exterior:** círculo con tu ubicación en el centro y las ubicaciones conectadas alrededor, con la dirección de cada ruta. Marcar una → “Ir a [destino]” (viaja por botones, tramo a tramo).
+- Muestra solo lo que el personaje conoce (07).
+
+## PANTALLA 13 · INVENTARIO Y EQUIPO
+Cinco pestañas: Consumibles · Equipo · Armas · Objetos · Recursos; moneda y carga (peso/máx). Botones por objeto: Examinar, Usar, Equipar, Soltar, Entregar. Equipo: casillas Cabeza, Torso, Piernas, Pies, Arma 1, Arma 2, Accesorios ×3.
+
+## PANTALLA 14 · COMERCIO, DIÁLOGO Y MISIONES
+- **Comercio:** dos columnas (tu inventario / stock del comerciante), botones Comprar, Vender, Negociar, Cerrar; precios según 09.
+- **Diálogo:** retrato del NPC, texto breve y 3-5 botones de respuesta; botones fijos: Preguntar, Negociar, Pedir ayuda, Despedirse.
+- **Misiones:** lista Activas/Completadas con el paso actual.
+
+## PANTALLA 15 · DERROTA Y ARRASTRE (39)
+Pantalla oscura con texto: “Quedás Derrotado”. Animación: el personaje se arrastra hacia la cama más cercana. Si hay robo: mensaje del ladrón y cuánto se llevó. Botón **Continuar**.
+
+## NOTA SOBRE LAS IMÁGENES
+Los íconos (lupa, flechas, cama, té, mapa, menú, escudo, bandera, corredor) son referencias; la plataforma puede usar los suyos. El módulo externo puede reemplazar retratos y fondos.
+
+<!-- ===== BLOQUE 39_DERROTA_ARRASTRE_ROBO_ATASCO ===== -->
+
+# 39 · DERROTA, ARRASTRE, ROBO Y ATASCO (sin contenido sexual)
+
+## NO SE MUERE (tal cual)
+El protagonista **no muere**. Con PV 0 queda **Derrotado** y la partida continúa por este bloque. (El 06 menciona "Muerte permanente": en esta campaña está desactivada.) Los compañeros tampoco mueren: quedan Incapacitados hasta descansar.
+
+## SECUENCIA DE DERROTA (tal cual)
+1. **Derrotado:** el combate termina. Los enemigos no se van: quedan en su posición con su PV actual (persistencia, 37).
+2. **Robo en el lugar (tirada):** 60% de que los enemigos humanos o ladrones te roben; 25% con criaturas que roban (duendes, ardillas ladronas); 0% con bestias que no manipulan objetos. Qué se roba: 10-30% de las monedas + 0-2 recursos o consumibles al azar (no equipo equipado, no objetos de misión, no el dispositivo de muñeca). Se guarda en la ficha del ladrón: `botín_robado[]`.
+3. **Arrastre:** animación de tu personaje arrastrándose hasta la **cama más cercana** (hogar, posada, enfermería, refugio: lista de camas en el mapa 43). Duración 20-120 min según distancia.
+4. **Robo en el camino:** por cada 30 min de arrastre, tirada 20% de que alguien (criatura/humano de la zona) te robe un poco: 5-10% monedas o 1 recurso. Solo el 25% de las veces el ladrón es un enemigo nuevo; el resto reutiliza uno persistente de la zona.
+5. **Despertar:** en la cama, con 25% de PV, tiempo avanzado, estados Herido y Cansado 2 h. Sin penalización permanente.
+
+## RECUPERAR LO ROBADO (tal cual)
+Lo robado está en el ladrón (`botín_robado`). Si **volvés a la zona** y lo derrotás, recuperás todo, con +10% de bonus de XP. Si otra criatura lo mata, el botín queda en su cuerpo (contenedor). No hay límite de tiempo para recuperarlo. Si el ladrón es un NPC humano con nombre, puede venderte de vuelta (50%).
+El estado `Derrotado` se registra: `contador_derrotas +1`.
+
+## VULNERABILIDAD MIENTRAS TE ARRASTRÁS (tal cual)
+Estás vulnerable: no podés usar el mapa de papel ni objetos salvo vendas. Si aparece un encuentro, solo ves Escapar o Pasar.
+
+## ATASCO EN ESTRUCTURAS (tal cual)
+Cuando usás una vía no estándar (ventana, hueco, agujero, conducto) para entrar o salir de un lugar:
+- Tirada de **atasco: porcentaje aleatorio entre 40% y 60%** (tirás 1d21+39 para fijar el %, luego 1d100).
+- **Pasa limpio:** sin consecuencia.
+- **Atascado:** quedás inmovilizado; cada hora hay 30% de que una criatura o humano te encuentre (vulnerabilidad máxima) y te robe monedas o recursos (5-15%). Escapás con una tirada de FUE o AGI (40% + stat×4), cada 10 min; después de 1 hora, siempre salís.
+- Tipos de atasco: ventana, agujero, tubería, reja rota, derrumbe, hueco entre rocas.
+- Las salidas por **puerta** o conexión normal no tienen atasco.
+- Está disponible desde el hogar como "Salir por la ventana" (útil si hay enemigos adentro).
+
+## ATAQUE AL HOGAR (tal cual)
+El hogar (L-001) es **ubicación segura** (3% de encuentro) pero **puede ser atacado**: cada noche 6% de que un grupo del tema activo asalte la casa (nivel del grupo según 27). Respuestas: pelear, salir por la ventana (atasco) o escapar por la puerta trasera. Si perdés: Derrotado en tu propia cama (sin arrastre), robo de recursos solo de lo almacenado en el baúl (no se pierde equipo ni lo equipado).
+
+## SISTEMA DE ROBO POR MAPA ABIERTO (tal cual)
+Abrir el mapa grande te deja vulnerable (07). Probabilidad de robo/ataque de oportunidad al abrirlo: 8% en seguras, 18% en normales, 35% en hostiles. **Si hacés viaje rápido: +20%** (los porcentajes anteriores se suman). Si se activa: aparece el encuentro de la zona con ventaja para el enemigo (el jugador pierde las 3 primeras acciones del primer turno).
+El mapa **pequeño de muñeca** no genera vulnerabilidad.
+
+## REGISTRO
+`LOG: d4 12:10 | derrota en L-014 | robo -22 monedas, 1 recurso → ladrón ENE-031 | arrastre a L-007 (cama)`
+`FLAGS: robos_pendientes=[ENE-031]`
+Cuando recuperás: `robos_pendientes` se vacía y se agrega `robos_recuperados +1`.
+
+## ESTADÍSTICAS ASOCIADAS (se muestran en 38)
+Derrotas, robos sufridos, objetos recuperados, atascos, monedas perdidas y recuperadas.
+
+## GANCHO NEUTRO (17)
+`[PUNTO_DERROTA]` se dispara en el paso 2 si el módulo externo está activo; si está apagado, se resuelve con las reglas de este bloque.
+
+<!-- ===== BLOQUE 40_NPC_CLASIFICACION ===== -->
+
+# 40 · CLASIFICACIÓN DE NPC
+
+## REGLAS (tal cual)
+- Cada NPC tiene: `ID | nombre (lore) | arquetipo | personalidad (3-5 palabras) | agenda | relación | inventario | quest?`. Los nombres propios los pone el lore (42); este cuadro solo define **arquetipos**.
+- Los arquetipos se basan en los tipos de habitantes de los mundos abiertos clásicos (asentamientos, caminos, ruinas, puestos militares); no se usan nombres de personajes originales.
+- Los NPC pueden **caminar** de un lugar a otro según su agenda (trabajo → comida → sueño → paseo). Si no está, registrar su última posición.
+- **NPC genéricos:** personas sin nombre propio: `Pueblerino de [lugar]`, `Ocupante de [lugar]`, `Ciudadano de [lugar]`, `Guardia de [lugar]`, `Vendedor ambulante de [lugar]`. Spawnean en esa ubicación, no cambian de lugar, pueden dar charla, rumores y una compra. Si el jugador los ayuda mucho, pueden recibir nombre.
+- Todo NPC es adulto. Cada comerciante tiene personalidad propia aunque comparta tipo.
+- Misiones: si el NPC tiene necesidad, genera misión (45). Si el conflicto es entre humanos, hay elección de bando; si es contra criaturas, no.
+
+## COMERCIANTES (cada uno con su personalidad)
+| Arquetipo | Vende / compra | Personalidades posibles |
+|---|---|---|
+| Comerciante de armas | armas, munición, mejoras | charlatán codicioso · veterano callado · obsesivo con la precisión |
+| Comerciante de recursos generales | chatarra, componentes, herramientas | ahorradora curiosa · acaparador desconfiado · coleccionista alegre |
+| Comerciante de animales de carga | transporte, cargas, comida | bonachón miedoso · bocón optimista · caravanero cansado |
+| Comerciante de comida y bebida | comida, agua, alcohol | generosa mandona · gruñón con buen corazón · alegre supersticiosa |
+| Médico / curandero | medicina, vendajes, tratamiento de adicción | cansada y ética · idealista joven · escéptico sarcástico |
+| Mecánico / armero | reparación, mejora, planos | perfeccionista impaciente · inventor excéntrico · quejoso eficiente |
+| Buhonero ambulante | un poco de todo, rumores | nervioso chismoso · misterioso sonriente · cínico simpático |
+| Tabernero / posadero | cama, comida, rumores | cálido discreto · curioso entrometido · hastiado leal |
+| Comprador de objetos de valor | reliquias, joyas, documentos | calculador cortés · nostálgico coleccionista |
+| Cambista / prestamista | cuñas, deudas, avales | frío puntual · amable peligroso |
+
+## NPC DE SERVICIO Y ORDEN
+| Arquetipo | Función | Personalidad típica |
+|---|---|---|
+| Líder de asentamiento | decide acceso y alianzas | pragmática firme · carismática agotada · autoritaria justa |
+| Capitán / guardia | vigila, cobra peajes | honesto rígido · cínico cansado · joven orgulloso |
+| Centinela / vigía | alerta, detecta | callado atento · nervioso preciso |
+| Cazador / rastreador | misiones de caza, rumores | callado desconfiado · alegre fanfarrón |
+| Científico / técnico | terminales, planos, muestras | distraída brillante · obsesivo secreto |
+| Mensajero | reparte noticias | nervioso veloz chismoso |
+| Granjero / ganadero | comida, animales | cansada humor seco · terco generoso |
+| Pescadora / recolector | recursos | alegre supersticiosa · silencioso paciente |
+| Obrero / fundidor | trabajo, rumores | resignado trabajador · orgulloso del oficio |
+| Capataz | organiza trabajos | autoritario justo · estricto agotado |
+| Cocinero | comida, rumores | generoso mandón · gruñón talentoso |
+| Maestro / consejero | enseñanza, pistas | paciente tozudo · irónico sabio |
+| Sacerdote / predicador | rumores, sermones | sereno persuasivo · fanático amable |
+
+## NPC DE CAMINO Y MUNDO
+| Arquetipo | Comportamiento | Personalidad típica |
+|---|---|---|
+| Viajero / peregrino | camina entre asentamientos; puede pedir escolta | educado asustado · valiente agotado |
+| Vagabundo | pide, roba poco, cuenta historias | simpático borracho · desconfiado hambriento |
+| Caminante solitario | rumores, eventos | misterioso cálido · cínico solitario |
+| Caravana | transporte con guardias | bonachón y guardias profesionales |
+| Superviviente atrapado | misión de rescate | agradecido educado · terco orgulloso |
+| Ex saqueador arrepentido | misiones de reparación | culposo servicial |
+| Borracho perdido | misiones de búsqueda | llorón simpático |
+| Anciano / anciana | memoria del lugar, pistas | cascarrabias protector · nostálgica terca |
+| Amigo de infancia | relación personal | curiosa ingenua · bravucón leal · responsable tensa |
+
+## NPC HOSTILES O AMBIGUOS (humanos)
+| Arquetipo | Comportamiento |
+|---|---|
+| Esclavista / cobrador | captura, intimida, cobra deudas; hostil; liderazgo cruel calculador |
+| Ladrón / carterista | roba y huye; hostil o negociable |
+| Saqueador | grupo agresivo con código propio; puede aliarse si se elige su bando |
+| Bandido de camino | emboscada por peaje |
+| Mercenario | pelea por cuñas; negociable |
+| Soldado de facción | patrulla, disciplina |
+| Francotirador | oculto, distancia |
+| Cultista | fanático, no huye |
+| Capataz de facción hostil | jefe local con escolta |
+| Infiltrado | se hace pasar por civil |
+
+## COMPORTAMIENTO GENERAL DE NPC (tal cual)
+- Saludan según relación (09), reaccionan a delitos con testigos (33), venden según su stock.
+- Pueden ser atacados por criaturas y defenderse con armas del lore.
+- Los NPC de misión **no mueren** salvo evento escrito en la misión; si caen, quedan Incapacitados y se recuperan.
+- Los comerciantes tienen caja limitada y reposición de stock cada 72 h.
+
+## NPC DEL SALAR (resumen; detalle de misiones en 44-45 y de compañeros en 41)
+Ciudad Horno: líder, comerciantes de armas / recursos, médica, mecánico, cocinera, inventor, líder vecinal, amigos de infancia. Puesto del Cantil: capitán y cazador. Granja Quebracho: granjera. Mercado del Silo: capataz y mensajero. Barrio Ceniza: líder de saqueadores y ex saqueador. Hipermercado: borracho perdido. Metro: viajero atrapado. Laguna: pescadora. Casas del Eco: anciana. Campamento Tasador: mentor cautivo y capataz esclavista. Torre: capataz de la Concesión.
+
+<!-- ===== BLOQUE 41_COMPANEROS ===== -->
+
+# 41 · COMPAÑEROS Y AMIGOS DEL HOGAR
+
+## REGLAS (tal cual)
+- Se reclutan hablando con ellos cuando su condición se cumple. Máximo **3 compañeros** activos. Un compañero ocupa una carta propia en combate (37), con PV 30 + 6×nivel; no muere: queda Incapacitado hasta descansar.
+- En combate hacen daño `3 + nivel/2` por turno al enemigo más débil y desvían el 25% de los ataques enemigos hacia ellos. Aportan además su bonificación propia.
+- Tienen lealtad (0-100): suben con misiones personales y buen trato; bajan con crímenes contra su moral. A 0 se van. Cada uno rechaza ciertas conductas.
+- Los compañeros comentan lugares, enemigos y decisiones. Pueden recibir equipo del inventario (mismas reglas de 10).
+- Se describen largo porque son personajes de campaña. Sus nombres siguen el estilo del Salar (42).
+
+## COMPAÑEROS RECLUTABLES (basados en tipos de compañeros de aventuras clásicas, sin copiar personajes)
+### K-1 · RASTRO (perro leal, fase 1, canino de pastoreo)
+Perro grande y flaco de pelo oscuro que vivió siempre en el Faro Seco y cuidaba las cabras que ya no existen. **Personalidad:** callado, atento, terco con las órdenes que le parecen tontas, inmensamente leal; huele el peligro antes que nadie y se pone entre el protagonista y cualquier amenaza. No habla, pero tiene una forma de mirar que lo dice todo. **Aporte:** +10% impacto en CORTA; avisa de emboscadas (el protagonista evita la primera emboscada enemiga el 50% de las veces). **Se une:** desde el inicio, en el hogar. **Rechaza:** maltratar animales.
+### K-2 · ZOILO MÁRMOL (mercenario irónico, fase 13)
+Ex Tasador que se cansó de cobrar deudas a gente que no podía pagar y desertó con una cicatriz y una deuda propia. **Personalidad:** irónico, cínico en la superficie, leal por dinero al principio y por afecto después; bromea para no hablar de lo que hizo; hace cuentas de todo, incluso de su propia conciencia. Miente mal cuando se trata de algo importante. **Aporte:** +15% daño; 10% de robar un objeto al enemigo humano caído. **Se une:** al completar S-13 (Lo que robó Zoilo) en Barrio Ceniza. **Rechaza:** entregar gente a los Tasadores.
+### K-3 · PERLA ÓNIX (tiradora callada, fase 13)
+Francotiradora retirada de la Guardia del Cantil, de pocas palabras y mirada larga. **Personalidad:** callada, seca, de ironía fina; respeta el orden y la puntualidad; ayuda sin preguntar y desconfía de los discursos largos. Cada tiro es una conversación. **Aporte:** +20% impacto a distancia; el protagonista puede usar armas a distancia con −10% de penalización de rango. **Se une:** al completar S-04 (Nido en la cantera). **Rechaza:** matar a quien se rinde.
+### K-4 · TANO GRANITO (humano-toro gigante, fase 6, bovino humanizado)
+Mole de dos metros y medio con cuernos cortos y manos enormes, nómada de una comunidad de bovinos humanizados que comerciaba en la Ruta de Sal. **Personalidad:** amable y tranquilo, tímido con los desconocidos, protector con los débiles, cocina como nadie y llora con las canciones viejas; si lo hacen enojar, la tierra tiembla. Cree que todo se arregla con paciencia y guiso. **Aporte:** +40 de carga; aguanta 1 golpe por combate sin recibir daño. **Se une:** al completar S-01 (Perros en el corral), en la Granja Quebracho. **Rechaza:** violencia contra animales de granja.
+### K-5 · TUERCA (robot reparador, fase 1, artificial)
+Dron-ojo con brazos de soldar, rescatado del Depósito 9. **Personalidad:** parlanchín, optimista sin motivo, convencido de que es un genio incomprendido y de que todo problema es un cable mal puesto; se distrae con cualquier ruido. Imita las bromas de Chispa con un delay de dos segundos. **Aporte:** repara el arma 1 vez por día; abre cerraduras de nivel 1-2 sin ganzúa. **Se une:** al despejar el Depósito 9. **Rechaza:** que lo apaguen sin avisar.
+
+## AMIGOS DEL HOGAR (no reclutables; relación persistente)
+### N-01 · EVARISTO BASALTO (vecino y casi abuelo)
+Viejo vecino del Faro, cascarrabias y protector. Gruñe cuando el protagonista se arriesga, pero deja una vianda en la puerta. Recuerda todo lo que hizo Teodoro, conoce los caminos y cuenta la misma anécdota con detalles distintos cada vez. **Misiones:** M-01, M-02 y pistas. **Relación:** rápido para confiar si lo escuchan.
+### N-27 · PÍA SONDEO (amiga curiosa)
+Joven exploradora con una libreta, curiosa e ingenua, entusiasta hasta el exceso; sueña con dibujar un mapa de todo el Salar y confía demasiado en cualquiera. Habla rápido y se emociona con las ruinas. **Misión:** S-20 (descubrir 4 ubicaciones).
+### N-28 · MATÍAS REBOTE (amigo bravucón)
+Compañero de infancia que fue el matón del barrio y ahora es guardia de puertas en Horno. Bravucón, leal y torpe con las palabras; se burla para demostrar cariño y se ofende cuando lo toman en serio. Protege a los suyos con los puños y pide perdón con un silencio incómodo. **Rol:** cargo de guardia, rumores, ayuda en una pelea cuando se lo pide.
+### N-29 · AURORA YESARES (amiga hija de la líder)
+Hija de la líder de Horno. Responsable y tensa; quiere demostrar valor y que su apellido no es su única virtud; ordena todo y se rompe por dentro si algo sale mal. Tiene un gran corazón y poca práctica en pedir ayuda. **Misión:** S-19 (Fuego en el hogar).
+
+## LEALTAD Y EVENTOS (tal cual)
+| Evento | Lealtad |
+|---|---|
+| Completar su misión personal | +20 |
+| Dormir en lugar seguro con él/ella cerca | +3 por día |
+| Robar o mentir con testigos que le importen | −10 |
+| Abandonarlo/a en combate (sin escapar con él/ella) | −15 |
+| Elegir bando contra su opinión | −10 a −20 |
+Con lealtad ≥ 80 desbloquean un diálogo largo y +5% a su aporte.
+
+<!-- ===== BLOQUE 42_MUNDO_Y_PROTAGONISTA ===== -->
+
+# 42 · MUNDO ÚNICO «EL SALAR» Y PROTAGONISTA (lore cargado)
+
+Este bloque reemplaza al ejemplo del 14: es el lore real de la campaña. Todo lo (genérico) del motor se resuelve con lo que figura acá.
+
+## EL MUNDO
+**El Salar** fue un mar interior que se evaporó dejando una planicie de sal blanca, cañadas secas y ruinas de ciudades que dependían del agua. Hace 140 años "El Cierre" apagó las bombas y los acueductos: quien controlaba el agua controlaba todo. Los sobrevivientes se agruparon alrededor de hornos, pozos y silos. Una compañía, **La Concesión**, construyó un **Purificador** en lo alto de su Torre y después se encerró con él; desde entonces el agua limpia es un recuerdo. El **Faro Seco** (una casa-faro sin mar) es el hogar del protagonista, a la orilla de la Barranca.
+**Tono:** supervivencia con humor seco, calidez entre vecinos, amenaza constante pero no desesperanza. Cielo despejado, polvo, sal en los labios.
+
+## FACCIONES (genérico → resuelto)
+- **Los Hornos** (Ciudad Horno): fundidores y comerciantes. Pragmáticos, justos con quien cumple.
+- **La Guardia del Cantil** (Puesto del Cantil): milicia que cuida los caminos. Honestos y rígidos.
+- **Hermandad del Faro**: técnicos que conservan máquinas antiguas. Neutrales y curiosos.
+- **Los Tasadores**: esclavistas y cobradores de deudas. Hostiles. Capataz: Rufino Hierro.
+- **La Concesión**: la compañía que retiene el Purificador. Hostil. Capataz: Elías Sal.
+- **Saqueadores del Barrio Ceniza**: bandas sin jefe único, con código propio. Hostiles o aliados según elección (S-07).
+
+## ESTILO DE NOMBRES (genérico)
+Nombre de pila rioplatense/italo-español + apellido de **mineral, roca o terreno** (Basalto, Yesares, Cantera, Quebracho, Esquisto, Cuarzo, Pirita, Arcilla, Lutita, Sedimento, Greda, Hollín, Arenal, Salinas, Mármol, Ónix, Granito). Apodos cortos. Lugares: oficio, objeto o accidente del terreno (Faro Seco, Pozo Viejo, Cantera Chica, Ruta de Sal, Casas del Eco).
+Ejemplos válidos: Dolores Cantera, Ezequiel Yeso, Renata Pizarra. No usar nombres fuera de este estilo.
+
+## CONFIG_LORE (completado) (tal cual el formato del 34)
+```
+TEMAS_ACTIVOS = [T1 animales, T10 artificial]
+FASES_ACTIVAS = [1, 3, 4, 5, 7, 13, 14]
+ESPECIES_APAGADAS = [H-45, H-46, H-47, H-48, X-14]        # sin T5 de herbívoros ni colosal mecánico
+CATEGORIAS_ACTIVAS = {armas: [W-01..W-12, W-20..W-31, W-60..W-62], municion: [A-01..A-05, A-13],
+                      consumibles: [CM, BB, MD, AM], quimicos: on, alcohol: on}
+MODIFICADORES_APAGADOS = [Infernal, Demoníaca, Celestial, Elemental]
+NECESIDADES = on                 # hambre, sed, fatiga
+CONTAMINACION = off              # sin radiación; el agua sucia solo enferma
+MODULO_EXTERNO = off
+NIVEL_MAX = 30
+```
+**Moneda:** las **cuñas** (barras de sal prensada con sello de horno).
+**Humanos:** fase 13 y 14; los de fases 4-7 son comunidades nómadas de caninos y bovinos humanizados que comercian en la Ruta de Sal.
+
+## NOMBRES DE OBJETOS DEL LORE (genérico → resuelto; efectos fijos en 29-32)
+| Arquetipo | Nombre en el Salar |
+|---|---|
+| MD-01 vendaje | Venda · reforzada: Venda de lienzo grueso |
+| MD-02 estimulante curativo | Inyector verde |
+| QU-xx estimulante de reflejos | Tónico de brío |
+| CM-03 comida enlatada | Lata de guiso · CM-04 seca: tasajo |
+| BB-01 agua limpia | Agua de pozo hervida · BB-03 sucia: agua turbia |
+| W-05 machete / T2 | Machete de Horno · W-08 martillo / T3: Maza de fragua · W-05 / T4: Espada de fundición · T5: Hoja de la Concesión |
+| W-21 revólver | Revólver del Cantil · W-25 rifle: Rifle de caza del Salar |
+| A-01..A-03 munición | Cartucho chico / mediano / grande |
+| T-01 ganzúa | Ganzúa · T-03 kit: Kit de remiendo |
+| G-13 dispositivo de muñeca | Brazalete del Faro (mapa de muñeca) |
+| K-06 mapa de papel | Mapa del Salar |
+
+## EL PROTAGONISTA: **NICO CARDAL, «CHISPA»**
+- **Identidad (tal cual en lo mecánico, genérico en lo físico):** el autor define apariencia, edad y cuerpo con su módulo (`[APARIENCIA_EXTRA]` en 17). Adulto. Categoría fase 13, humano.
+- **Stats fijos:** FUE 6 · PER 5 · RES 6 · CAR 5 · INT 4 · AGI 5 · SUE 4 (suma 35).
+- **Personalidad:** carismático y de buen humor, dice lo que piensa con una sonrisa, improvisa soluciones con lo que tiene en las manos y no deja a nadie atrás. Es testarudo con las causas justas, algo imprudente con las peleas chicas, y tiene un oído especial para las radios viejas (de ahí el apodo "Chispa").
+- **Historia:** criado en el Faro Seco por **Teodoro Greda**, mentor y casi familia, que enseñó a leer rastros, arreglar equipos y desconfiar de los que prometen agua. Hace una semana Teodoro salió a buscar la fuente de una señal de radio y no volvió.
+- **Motivación:** encontrar al mentor, restaurar el agua y que Ciudad Horno y el Cantil dejen de pelearse por ella.
+- **Hogar:** El Faro Seco (L-001): dormitorio (cama, sofá, té) y cocina con banco de trabajo. Ubicación segura, puede ser atacada de noche (39), salida por ventana con atasco.
+- **Tono al hablar:** cálido, bromista, respetuoso con los mayores, directo con los matones.
+
+## AMIGOS DEL HOGAR (no reclutables, dan misiones y charla)
+Ver 40 y 41: Evaristo Basalto, Pía Sondeo, Matías Rebote y Aurora Yesares.
+
+## REGLAS DE LORE (tal cual)
+No hay magia, extraterrestres ni radiación. Las máquinas son restos de La Concesión. Las criaturas son animales agrandados y mutados por el desequilibrio del agua. Los humanos de fases 4-7 son comunidades antiguas y respetadas. Sin menores de edad en ninguna escena.
+
+<!-- ===== BLOQUE 43_MAPA_Y_UBICACIONES ===== -->
+
+# 43 · MAPA Y UBICACIONES DE «EL SALAR»
+
+Red de 21 ubicaciones (tal cual). IDs y conexiones son fijos; la IA genera los detalles de escena con 04, 05 y 28. Clase: Segura / Normal / Hostil. **Cama** = sirve como destino de arrastre tras una derrota (39). **Nivel** = nivel base de la zona (los enemigos hostiles usan max(nivel de zona, nivel del jugador − 2)).
+
+Conexiones libres salvo indicación. Abrir el mapa grande permite viaje rápido solo a ubicaciones descubiertas con ruta válida; el mapa pequeño de muñeca solo muestra y marca ubicaciones cercanas.
+
+| ID | Nombre | Clase | Espacio | Región | Nivel | Conexiones | Cama | Contenedores (cerradura) | Notas |
+|---|---|---|---|---|---|---|---|---|---|
+| L-001 | El Faro Seco | Segura | Interior | Barranca del Faro | 1 | L-002, L-003 | sí | C-001 baúl del hogar (0), C-002 alacena (0) | hogar: salida por ventana (atasco 40-60%); NPC: Evaristo Basalto |
+| L-002 | Camino de Cardos | Normal | Exterior | Barranca del Faro | 1 | L-001, L-004, L-005 | no | C-003 mochila abandonada (0) | — |
+| L-003 | Pozo Viejo | Normal | Exterior | Barranca del Faro | 1 | L-001 | no | C-004 balde (0) | conexión oculta a L-006 (búsqueda: trampilla bajo la tapa del pozo) |
+| L-004 | Casas del Eco | Normal | Interior | Barranca del Faro | 2 | L-002, L-007 | no | C-005 cajón de cocina (0), C-006 ropero (1), C-007 cajón de dormitorio (0), C-008 caja fuerte pequeña (2) | NPC: Mercedes Lutita |
+| L-005 | Cantera Chica | Hostil | Exterior | Barranca del Faro | 2 | L-002, L-008 | no | C-009 caja de herramientas (1) | — |
+| L-006 | Sótano de la Radio | Normal | Interior | Barranca del Faro | 3 | L-003, L-009 | no | C-010 gabinete de radio (1), C-011 taquilla (2) | — |
+| L-007 | Ciudad Horno | Segura | Exterior | Los Salares | 1 | L-004, L-008, L-010, L-011 | sí | C-012 cajón de la posada (0) | NPC: Renata Yesares, Amadeo Esquisto, Brisa Arenal… |
+| L-008 | Puesto del Cantil | Segura | Exterior | Los Salares | 1 | L-005, L-007, L-012 | sí | C-013 arsenal (3) | NPC: Ciro Cantera, Nahuel Tiza |
+| L-009 | Depósito 9 | Hostil | Interior | Los Salares | 5 | L-006 | no | C-014 estantería de piezas (0), C-015 caja fuerte de la oficina (3), C-016 taquilla del turno (1) | terminal hackeable |
+| L-010 | Ruta de Sal | Normal | Exterior | Los Salares | 4 | L-007, L-013, L-014 | no | C-017 carga volcada (1) | NPC: Facundo Salinas |
+| L-011 | Mercado del Silo | Segura | Interior | Los Salares | 1 | L-007 | no | C-018 bodega del capataz (2) | terminal hackeable; NPC: Roque Fundición, Gaspar Yeso |
+| L-012 | Granja Quebracho | Normal | Exterior | Los Salares | 3 | L-008, L-015 | sí | C-019 arcón del granero (0) | NPC: Dolores Quebracho |
+| L-013 | Cuevas del Zumbido | Hostil | Interior | Los Pozos | 8 | L-010, L-016 | no | C-020 nido seco (0) | jefe: Reina de la Colmena |
+| L-014 | Barrio Ceniza | Hostil | Exterior | Los Pozos | 7 | L-010, L-017 | no | C-021 cofre de saqueadores (2), C-022 ropero quemado (0) | NPC: Pancho Hollín, Bruno Escoria |
+| L-015 | Laguna Turbia | Normal | Exterior | Los Pozos | 5 | L-012, L-018 | no | C-023 bote hundido (1) | NPC: Iris Sedimento |
+| L-016 | Túneles del Metro Viejo | Hostil | Interior | Los Pozos | 10 | L-013, L-017, L-019 | no | C-024 locker de vía (1), C-025 maleta olvidada (0) | NPC: Julián Pizarra |
+| L-017 | Hipermercado Ruina | Hostil | Interior | Los Pozos | 9 | L-014, L-016, L-018 | no | C-026 góndola de farmacia (0), C-027 caja fuerte de gerencia (4), C-028 mostrador (1) | NPC: Eusebio Barro |
+| L-018 | Campamento Tasador | Hostil | Exterior | La Concesión | 12 | L-015, L-017, L-020 | no | C-029 jaula del mentor (3), C-030 tienda del capataz (2) | jefe: Rufino Hierro; NPC: Teodoro Greda, Rufino Hierro |
+| L-019 | Estación de Bombeo | Hostil | Interior | La Concesión | 15 | L-016, L-020 | no | C-031 tablero eléctrico (3), C-032 armario de seguridad (2) | terminal hackeable |
+| L-020 | Torre de la Concesión | Hostil | Interior | La Concesión | 20 | L-018, L-019, L-021 | no | C-033 caja fuerte del Regente (5) | acceso requiere: Llave de la Torre; jefe: Elías Sal; terminal hackeable; NPC: Elías Sal |
+| L-021 | Oasis Verde | Segura | Exterior | La Concesión | 1 | L-020 | sí | C-034 alacena del oasis (0) | acceso requiere: Purificador encendido |
+
+## DESCRIPCIONES BREVES (base de la escena)
+- **L-001 El Faro Seco** (matorral): Casa-faro de dos habitaciones: dormitorio (cama, sofá, té) y cocina con banco de trabajo.
+- **L-002 Camino de Cardos** (matorral): Sendero entre cardos secos, huellas de perros salvajes.
+- **L-003 Pozo Viejo** (matorral): Pozo de piedra con tapa oxidada; zumbido de insectos.
+- **L-004 Casas del Eco** (urbano): Barrio residencial abandonado: casas vacías, cajones, roperos.
+- **L-005 Cantera Chica** (cantera): Cantera abierta, nidos de insectos en las grietas.
+- **L-006 Sótano de la Radio** (subterráneo): Estación de radio enterrada; terminales muertos y un mensaje grabado.
+- **L-007 Ciudad Horno** (urbano): Asentamiento grande de fundidores: hornos, mercado, posada, enfermería.
+- **L-008 Puesto del Cantil** (cantil): Puesto fortificado de la Guardia del Cantil; litera y arsenal.
+- **L-009 Depósito 9** (industrial): Depósito industrial cerrado, robots guardianes, caja fuerte en la oficina.
+- **L-010 Ruta de Sal** (salar): Camino blanco de sal entre dunas; caravanas y alimañas.
+- **L-011 Mercado del Silo** (comercial): Silos convertidos en mercado: puestos, bodegas, un terminal de bombas.
+- **L-012 Granja Quebracho** (granja): Granja pequeña con corrales; cama en el granero.
+- **L-013 Cuevas del Zumbido** (cueva): Colmena subterránea; la Reina vive al fondo.
+- **L-014 Barrio Ceniza** (urbano): Barrio quemado, ocupado por saqueadores y vecinos que resisten.
+- **L-015 Laguna Turbia** (laguna): Laguna de agua turbia; criaturas marinas blandas agrandadas.
+- **L-016 Túneles del Metro Viejo** (subterráneo): Vías inundadas, parásitos y slimes en la penumbra.
+- **L-017 Hipermercado Ruina** (comercial): Estanterías caídas, góndolas y un depósito trasero cerrado.
+- **L-018 Campamento Tasador** (campamento): Campamento de esclavistas con jaulas y capataz.
+- **L-019 Estación de Bombeo** (industrial): Bombas muertas, robots de seguridad, un terminal maestro.
+- **L-020 Torre de la Concesión** (torre): Torre de oficinas con el Purificador del Faro en la cima.
+- **L-021 Oasis Verde** (oasis): Oasis que aparece cuando el Purificador vuelve a funcionar.
+
+## POBLACIONES POR ZONA (pool de especies; filtro por nivel, bloque 27)
+desierto/matorral: caninos, herbívoros pequeños y medianos · insectos: insectos mutantes · marino: marinos blandos, parásitos de agua, slimes · subterráneo: parásitos genéricos y slimes · robots: artificiales (36) · saqueadores / tasadores: humanos y perros de guerra · ganado: animales de granja · civil: sin enemigos fijos (3% de eventos).
+
+## REGLAS DE ESTA RED (tal cual)
+- El hogar (L-001) es el punto de partida y siempre una ubicación segura con cama, baúl, alacena y banco de trabajo (39).
+- Cada ubicación nueva se descubre al llegar a una vecina; las conexiones ocultas se hallan con BUSCAR (garantía en la 4.ª búsqueda, 04).
+- Oasis Verde (L-021) solo aparece cuando el Purificador de la Torre vuelve a funcionar (M-08).
+
+<!-- ===== BLOQUE 44_MISIONES_PRINCIPALES ===== -->
+
+# 44 · MISIONES PRINCIPALES: «EL FARO Y EL PURIFICADOR»
+
+Campaña principal de ocho misiones (tal cual). Se aceptan hablando con el dador. Una misión completada no se reinicia (13). Los pasos son ejecutables por botones. Las recompensas de XP son fijas (27); el lore pone nombres. Después de la última misión el mundo sigue abierto: los hostiles se regeneran, hay comercio y se puede seguir explorando.
+
+## M-01 · Chispa en el Faro
+- **Dador:** Evaristo Basalto (viejo vecino del Faro, cascarrabias y protector; recuerda cada paso que dio el mentor del protagonista y se enoja cuando alguien lo trata como a un viejo inútil, pero deja la puerta abierta a cualquiera que tenga hambre).
+- **Nivel sugerido:** 1. **Historia:** Evaristo Basalto avisa que el mentor no volvió. Registrar el hogar y arreglar la radio en el banco de trabajo.
+- **Pasos:** 1) hablar con Evaristo Basalto; 2) conseguir «registrar el baúl del hogar» en El Faro Seco; 3) fabricar «radio» en el banco de trabajo.
+- **Recompensa:** 150 XP; Venda.
+
+## M-02 · La señal bajo el pozo
+- **Dador:** Evaristo Basalto (viejo vecino del Faro, cascarrabias y protector; recuerda cada paso que dio el mentor del protagonista y se enoja cuando alguien lo trata como a un viejo inútil, pero deja la puerta abierta a cualquiera que tenga hambre).
+- **Nivel sugerido:** 2. **Historia:** La radio capta una señal que viene de debajo del Pozo Viejo. Buscar la trampilla oculta y bajar.
+- **Pasos:** 1) buscar la conexión oculta en Pozo Viejo (hacia Sótano de la Radio); 2) conseguir «Holocinta del mentor» en Sótano de la Radio.
+- **Recompensa:** 250 XP; Chaleco reforzado.
+
+## M-03 · Ciudad Horno
+- **Dador:** Renata Yesares (líder de Ciudad Horno, pragmática y firme; mide a la gente por lo que cumple, no por lo que promete, y es justa incluso con quien la contradice).
+- **Nivel sugerido:** 3. **Historia:** La líder de Ciudad Horno quiere pruebas de confianza: limpiar la Cantera Chica y volver.
+- **Pasos:** 1) viajar a Ciudad Horno; 2) hablar con Renata Yesares; 3) derrotar 2 enemigos en Cantera Chica; 4) hablar con Renata Yesares.
+- **Recompensa:** 300 XP; 100 cuñas.
+
+## M-04 · Las tres piezas
+- **Dador:** Marta Calcita (científica de la Hermandad del Faro, distraída y brillante; olvida comer y recuerda cada dato, y trata a las criaturas como especímenes antes que como amenazas).
+- **Nivel sugerido:** 5. **Historia:** El Núcleo del Faro se armó con tres piezas. Una en el Depósito 9, otra con la Reina del Zumbido, la tercera en el Hipermercado.
+- **Pasos:** 1) conseguir «Pieza del Núcleo I» en Depósito 9; 2) vencer a Reina de la Colmena en Cuevas del Zumbido; 3) conseguir «Pieza del Núcleo III» en Hipermercado Ruina.
+- **Recompensa:** 600 XP; Tónico de brío.
+
+## M-05 · Elegir bando
+- **Dador:** Renata Yesares (líder de Ciudad Horno, pragmática y firme; mide a la gente por lo que cumple, no por lo que promete, y es justa incluso con quien la contradice).
+- **Nivel sugerido:** 9. **Historia:** Ciudad Horno y la Guardia del Cantil se disputan el Purificador. Hay que elegir con quién ir; el otro grupo pasa a ser hostil.
+- **Pasos:** 1) hablar con Renata Yesares; 2) ELEGIR BANDO: Hornos o Guardia (el otro grupo pasa a ser hostil).
+- **Recompensa:** 400 XP; Espada de fundición.
+
+## M-06 · El mentor
+- **Dador:** Evaristo Basalto (viejo vecino del Faro, cascarrabias y protector; recuerda cada paso que dio el mentor del protagonista y se enoja cuando alguien lo trata como a un viejo inútil, pero deja la puerta abierta a cualquiera que tenga hambre).
+- **Nivel sugerido:** 12. **Historia:** Rescatar a Teodoro Greda del Campamento Tasador y vencer al capataz.
+- **Pasos:** 1) vencer a Rufino Hierro en Campamento Tasador; 2) conseguir «Llave de la Torre» en Campamento Tasador; 3) hablar con Teodoro Greda.
+- **Recompensa:** 900 XP; Armadura militar.
+
+## M-07 · Estación de bombeo
+- **Dador:** Teodoro Greda (mentor del protagonista, paciente, sabio y tozudo; prefiere enseñar con preguntas y no cuenta todo de golpe).
+- **Nivel sugerido:** 15. **Historia:** Encender las bombas desde el terminal maestro y recuperar el núcleo de energía.
+- **Pasos:** 1) derrotar 3 enemigos en Estación de Bombeo; 2) hackear el terminal de Estación de Bombeo; 3) conseguir «Núcleo de energía» en Estación de Bombeo.
+- **Recompensa:** 1200 XP; 300 cuñas.
+
+## M-08 · La Torre
+- **Dador:** Teodoro Greda (mentor del protagonista, paciente, sabio y tozudo; prefiere enseñar con preguntas y no cuenta todo de golpe).
+- **Nivel sugerido:** 20. **Historia:** Subir a la Torre, vencer al Capataz de la Concesión y encender el Purificador. Aparece el Oasis Verde.
+- **Pasos:** 1) viajar a Torre de la Concesión; 2) vencer a Elías Sal en Torre de la Concesión; 3) hackear el terminal de Torre de la Concesión.
+- **Recompensa:** 2500 XP; Hoja de la Concesión.
+
+## ELECCIÓN DE BANDO (M-05)
+Ciudad Horno (fundidores, comercio) y la Guardia del Cantil (milicia de caminos) se disputan el Purificador. Elegir uno deja al otro como **hostil**: aparece una patrulla rival persistente (humanos) en la Ruta de Sal y los comerciantes del bando perdedor suben sus precios 30%. La decisión no existe cuando el enemigo es una criatura (no humano). Se registra en [FLAGS] `bando_M-05`.
+
+## JEFES (tal cual)
+| Jefe | Lugar | Nivel | PV | Daño | Invocación |
+|---|---|---|---|---|---|
+| Alfa del Cardal | Camino de Cardos | 4 | 200 | 9-15 | hasta 3 vivos, 3 ciclos, cooldown 3 rondas |
+| Reina de la Colmena | Cuevas del Zumbido | 8 | 330 | 10-18 | hasta 6 vivos, 3 ciclos, cooldown 3 rondas |
+| Rufino Hierro | Campamento Tasador | 12 | 520 | 14-22 | hasta 4 vivos, 3 ciclos, cooldown 3 rondas |
+| Elías Sal | Torre de la Concesión | 20 | 900 | 22-36 | hasta 4 vivos, 3 ciclos, cooldown 3 rondas |
+
+## ORDEN Y REQUISITOS
+Cada principal requiere la anterior hecha. M-05 pide nivel 9. En 10 simulaciones con semillas distintas la campaña completa (8 principales y 20 secundarias) terminó entre los días 111 y 187 de juego (promedio 151) a nivel 19.
+
+<!-- ===== BLOQUE 45_MISIONES_SECUNDARIAS ===== -->
+
+# 45 · MISIONES SECUNDARIAS Y GENERADOR AUTOMÁTICO
+
+Veinte misiones secundarias fijas (tal cual) y una regla para generar nuevas sin intervención. Los dadores y su personalidad son del lore; los pasos, XP y recompensas son fijos.
+
+- **S-01 · Perros en el corral** (nivel 3) — Dolores Quebracho en Granja Quebracho, granjera agotada, de humor seco, que habla con sus animales más que con las personas; no suelta un reclamo hasta que se resuelve. Dolores Quebracho perdió ovejas por perros salvajes; está agotada. Limpiar la zona y traerle la prueba. *Pasos:* 1) hablar con Dolores Quebracho; 2) derrotar 3 enemigos de las especies pedidas en Granja Quebracho; 3) hablar con Dolores Quebracho. *Recompensa:* 120 XP; Lata de guiso. **Compañero:** Tano Granito.
+- **S-02 · Carga perdida** (nivel 4) — Facundo Salinas en Ruta de Sal, comerciante de animales de carga, bonachón y miedoso; cuenta todo con exageración y siempre cree que lo van a robar. Facundo Salinas perdió un cargamento al volcar su carro en la Ruta de Sal. *Pasos:* 1) hablar con Facundo Salinas; 2) conseguir «Carga perdida de Facundo» en Ruta de Sal; 3) entregar «Carga perdida de Facundo» a Facundo Salinas. *Recompensa:* 130 XP; 60 cuñas.
+- **S-03 · Veneno para la doctora** (nivel 5) — Ilse Cobre en Ciudad Horno, médica de Horno, cansada y ética; su sarcasmo es la forma que tiene de no llorar, y nunca le niega ayuda a un herido. Ilse Cobre necesita recursos biológicos de la Laguna Turbia para sus remedios. *Pasos:* 1) hablar con Ilse Cobre; 2) recolectar 3 × Recurso biológico en Laguna Turbia; 3) entregar «Recurso biológico» a Ilse Cobre. *Recompensa:* 140 XP; Inyector verde.
+- **S-04 · Nido en la cantera** (nivel 2) — Ciro Cantera en Puesto del Cantil, capitán de la Guardia del Cantil, honesto y rígido; su orgullo es el uniforme, su debilidad es no saber pedir ayuda. El capitán Ciro Cantera quiere los nidos de la Cantera Chica fuera del camino. *Pasos:* 1) hablar con Ciro Cantera; 2) derrotar 3 enemigos en Cantera Chica; 3) hablar con Ciro Cantera. *Recompensa:* 100 XP; Machete de Horno. **Compañero:** Perla Ónix.
+- **S-05 · Circuitos para el mecánico** (nivel 2) — Lautaro Peña Seca en Ciudad Horno, mecánico obsesivo y perfeccionista; no repara nada sin las piezas exactas y se ofende si alguien improvisa. Lautaro Peña Seca no repara sin circuitos. Buscarlos en las Casas del Eco. *Pasos:* 1) hablar con Lautaro Peña Seca; 2) conseguir «Circuito» en Casas del Eco; 3) entregar «Circuito» a Lautaro Peña Seca. *Recompensa:* 90 XP; Kit de reparación.
+- **S-06 · Piezas de radio** (nivel 3) — Marta Calcita en Sótano de la Radio, científica de la Hermandad del Faro, distraída y brillante; olvida comer y recuerda cada dato, y trata a las criaturas como especímenes antes que como amenazas. Marta Calcita necesita circuitos del Sótano de la Radio para su equipo. *Pasos:* 1) hablar con Marta Calcita; 2) conseguir «Circuito» en Sótano de la Radio; 3) entregar «Circuito» a Marta Calcita. *Recompensa:* 100 XP; 40 cuñas.
+- **S-07 · Deuda en Barrio Ceniza** (nivel 7) — Camila Pirita en Ciudad Horno, líder vecinal indignada y organizada; no tiene miedo y no acepta que le digan que no se puede. Vecinos y saqueadores se pelean por un depósito de agua. Hay que elegir bando; el otro grupo es hostil. *Pasos:* 1) hablar con Camila Pirita; 2) ELEGIR BANDO: Vecinos o Saqueadores (el otro grupo pasa a ser hostil); 3) derrotar 3 enemigos en Barrio Ceniza. *Recompensa:* 250 XP; Agua limpia.
+- **S-08 · Muestras de slime** (nivel 8) — Marta Calcita en Sótano de la Radio, científica de la Hermandad del Faro, distraída y brillante; olvida comer y recuerda cada dato, y trata a las criaturas como especímenes antes que como amenazas. Marta quiere muestras de tres slimes distintos (verde, azul, ácido). *Pasos:* 1) hablar con Marta Calcita; 2) derrotar 3 enemigos de las especies pedidas en Túneles del Metro Viejo; 3) entregar «Recurso biológico» a Marta Calcita. *Recompensa:* 180 XP; Inyector verde.
+- **S-09 · El alfa del cardal** (nivel 4) — Nahuel Tiza en Puesto del Cantil, cazador callado y desconfiado; mide cada palabra, no falla un tiro y respeta a quien rastrea bien. Nahuel Tiza rastrea a un lobo alfa que no deja pasar caravanas por el Camino de Cardos. *Pasos:* 1) hablar con Nahuel Tiza; 2) vencer a Alfa del Cardal en Camino de Cardos; 3) hablar con Nahuel Tiza. *Recompensa:* 200 XP; Maza de fragua.
+- **S-10 · El recuerdo de Mercedes** (nivel 1) — Mercedes Lutita en Casas del Eco, anciana del barrio, nostálgica y terca; vive entre recuerdos de una casa que ya no existe y no acepta lástima, solo compañía. Mercedes Lutita perdió un memento en su antigua casa en las Casas del Eco. *Pasos:* 1) hablar con Mercedes Lutita; 2) conseguir «Medallón de Mercedes» en Casas del Eco; 3) entregar «Medallón de Mercedes» a Mercedes Lutita. *Recompensa:* 60 XP; Lata de guiso.
+- **S-11 · El amigo perdido** (nivel 9) — Eusebio Barro en Hipermercado Ruina, borracho simpático y llorón; ordena mal sus recuerdos pero nunca olvida a un amigo. Eusebio Barro quedó atrapado en el Hipermercado y llora por su botella; hay que sacarlo. *Pasos:* 1) viajar a Hipermercado Ruina; 2) hablar con Eusebio Barro; 3) derrotar 3 enemigos en Hipermercado Ruina. *Recompensa:* 150 XP; Tónico de brío.
+- **S-12 · La laguna infestada** (nivel 5) — Iris Sedimento en Laguna Turbia, pescadora alegre y supersticiosa; le pone nombre a cada ola y no entra al agua sin una oración corta. Iris Sedimento no puede pescar por las criaturas de la laguna (no hay bando que elegir). *Pasos:* 1) hablar con Iris Sedimento; 2) derrotar 3 enemigos en Laguna Turbia; 3) hablar con Iris Sedimento. *Recompensa:* 140 XP; Agua limpia.
+- **S-13 · Lo que robó Zoilo** (nivel 7) — Bruno Escoria en Barrio Ceniza, ex saqueador arrepentido, culposo y servicial; no se perdona lo que hizo y busca reparar cada cosa. Bruno Escoria quiere devolver cosas robadas; Zoilo Mármol lo sabe y tiene sus razones. *Pasos:* 1) hablar con Bruno Escoria; 2) derrotar 2 enemigos en Barrio Ceniza; 3) reclutar a Zoilo Mármol. *Recompensa:* 160 XP; 80 cuñas. **Compañero:** Zoilo Mármol.
+- **S-14 · Las bombas del silo** (nivel 2) — Roque Fundición en Mercado del Silo, capataz del silo, autoritario pero justo; vive cansado de arreglar lo que otros rompen. Roque Fundición necesita reactivar el terminal de bombas del Mercado. *Pasos:* 1) hablar con Roque Fundición; 2) hackear el terminal de Mercado del Silo. *Recompensa:* 90 XP; Agua limpia.
+- **S-15 · El invento** (nivel 3) — Mateo Arcilla en Ciudad Horno, inventor excéntrico y optimista; ve oportunidades donde otros ven chatarra y se distrae a mitad de una frase. Mateo Arcilla necesita que se fabrique un artefacto en el banco de trabajo. *Pasos:* 1) hablar con Mateo Arcilla; 2) fabricar «artefacto» en el banco de trabajo; 3) entregar «Artefacto de Mateo» a Mateo Arcilla. *Recompensa:* 110 XP; Tónico de brío.
+- **S-16 · Atrapados en el metro** (nivel 10) — Julián Pizarra en Túneles del Metro Viejo, viajero educado y asustado; agradece cada gesto y se disculpa por molestar. Julián Pizarra y su pareja quedaron atrapados en los Túneles; hay parásitos y slimes. *Pasos:* 1) viajar a Túneles del Metro Viejo; 2) derrotar 3 enemigos en Túneles del Metro Viejo; 3) hablar con Julián Pizarra. *Recompensa:* 200 XP; Inyector verde.
+- **S-17 · Cartas para los tres pueblos** (nivel 1) — Gaspar Yeso en Mercado del Silo, mensajero nervioso, veloz y chismoso; corre todo el día y se queja de que nadie le da tiempo para respirar. Gaspar Yeso está sobrepasado: llevar mensajes a Ciudad Horno, Puesto del Cantil y Granja Quebracho. *Pasos:* 1) hablar con Gaspar Yeso; 2) llevar el mensaje a Renata Yesares; 3) llevar el mensaje a Ciro Cantera; 4) llevar el mensaje a Dolores Quebracho. *Recompensa:* 100 XP; 30 cuñas.
+- **S-18 · Ingredientes para el guiso** (nivel 3) — Valeria Cuarzo en Ciudad Horno, cocinera generosa y mandona; alimenta a medio pueblo y sabe todos los chismes. Valeria Cuarzo necesita carne fresca de animales de granja y de la ruta. *Pasos:* 1) hablar con Valeria Cuarzo; 2) derrotar 2 enemigos en Granja Quebracho; 3) entregar «Carne fresca» a Valeria Cuarzo. *Recompensa:* 90 XP; Lata de guiso.
+- **S-19 · Fuego en el hogar** (nivel 6) — Aurora Yesares en Ciudad Horno, amiga hija de la líder de Horno; responsable y tensa, quiere demostrar que merece su apellido. Aurora Yesares quiere demostrar valor y pide ayuda para limpiar el Camino de Cardos. *Pasos:* 1) hablar con Aurora Yesares; 2) derrotar 3 enemigos en Camino de Cardos; 3) hablar con Aurora Yesares. *Recompensa:* 110 XP; Chaleco reforzado.
+- **S-20 · Sondeo de la zona** (nivel 4) — Pía Sondeo en Ciudad Horno, amiga de infancia, curiosa e ingenua; sueña con dibujar el mapa de todo el Salar y confía demasiado en la gente. Pía Sondeo quiere un mapa de lugares: descubrir cuatro ubicaciones nuevas. *Pasos:* 1) hablar con Pía Sondeo; 2) descubrir 4 ubicaciones nuevas; 3) hablar con Pía Sondeo. *Recompensa:* 120 XP; 50 cuñas.
+
+## GENERADOR AUTOMÁTICO DE MISIONES (tal cual)
+Cada NPC con `necesidad` genera una misión radiante al hablar con él por tercera vez, según: **personalidad**, **situación**, **lugar** y **enemigos cercanos**.
+| Situación del NPC | Tipo de misión | Pasos tipo |
+|---|---|---|
+| Perdió un objeto | Recuperar | ir al lugar, registrar contenedores, volver |
+| Amenazado por criaturas | Despejar | derrotar N grupos de la especie que merodea, volver |
+| Falta un recurso | Recolectar | recolectar o cazar, entregar |
+| Conflicto entre grupos humanos | Elegir bando | hablar con ambos, elegir, derrotar al otro |
+| Familiar o amigo atrapado | Rescatar | llegar, despejar, hablar |
+| Necesita mensajes o viajes | Repartir | visitar N ubicaciones |
+| Necesita una máquina | Reparar / hackear | conseguir piezas, fabricar o hackear |
+Reglas: la misión usa **solo elementos ya existentes** (ubicaciones, NPC, contenedores); recompensa = XP según nivel (60-250) + objeto del lore; si el enemigo es **criatura no humana** no hay elección de bando; si es **humano**, siempre se puede elegir bando. Máximo 3 misiones radiantes activas.
+
+<!-- ===== BLOQUE 46_ECONOMIA_Y_CRAFTING ===== -->
+
+# 46 · ECONOMÍA, COMERCIO, REPARACIÓN Y FABRICACIÓN
+
+## MONEDA Y VALORES (tal cual)
+Moneda: cuñas (42). Valores base (antes de precio): venda 3 · lata 4 · agua 3 · inyector verde 25 · tónico 20 · ganzúa 5 · kit de reparación 30 · chatarra 1 · circuito 6 · piezas 5 · recurso biológico 6 · Machete T2 30 · Maza T3 80 · Espada T4 200 · Hoja T5 600 · Chaleco E2 20 · Armadura E4 180 · Asistida E5 500.
+Botín en cuñas por enemigo: 0 a 3 + 2×talla.
+
+## COMPRAR Y VENDER (tal cual; fórmula de 09)
+- **Compra** = valor × (1.4 − CAR×0.02), mínimo valor × 0.8. **Venta** = valor × (0.4 + CAR×0.02), máximo valor × 0.7.
+- Con CAR 5: compra ×1.3, venta ×0.5. Relación alta con el comerciante: −10% compra, +10% venta.
+- Estado/durabilidad: roto ×0.3, <50% ×0.6.
+- El comerciante tiene **caja** (cuñas) limitada y **stock** que persiste y se renueva cada 72 h (±20%). Lo vendido queda en su stock.
+- Botón Negociar: tirada `30 + CAR×5 + nivel − dificultad`; éxito −10% precio; fallo −5 relación.
+- **Qué vende cada comerciante** (40): armas → armas y munición; recursos → chatarra, circuitos, piezas, herramientas; médica → vendas, inyectores, antídotos, tratamiento de adicción; mecánico → reparación y mejoras; cocinera → comida; animal de carga → cargas y rumores.
+- Un comerciante hostil por el bando perdido (M-05) sube precios 30%.
+
+## PROGRESIÓN DE EQUIPO (guía, tal cual)
+| Nivel del jugador | Arma recomendada | Armadura |
+|---|---|---|
+| 1-4 | T1-T2 | E1-E2 |
+| 5-9 | T2-T3 | E2 |
+| 10-14 | T3 | E4 (a partir del nivel 8, 180 cuñas) |
+| 15-19 | T4 | E4 |
+| 20+ | T5 (recompensa de M-08) | E5 (caja de la Torre) |
+
+## REPARACIÓN (tal cual)
+- Cada golpe dado: −0.3 de durabilidad. Cada golpe recibido fuerte (daño > 12): −1 de armadura.
+- Con kit: +40% durabilidad (30 cuñas). Con mecánico: 20 cuñas, 100% (tirada fija: éxito).
+- Arma <50%: daño ×0.85; <25%: ×0.7; 0: ×0.4. Atasco desde el 91 si <25%.
+
+## FABRICACIÓN Y MEJORA (tal cual)
+Tirada `50 + INT×4 + nivel`. Éxito: objeto con 100% de durabilidad. Fallo: se pierde la mitad de los componentes. Éxito crítico (≤5): +1 tier en una mejora.
+| Receta | Componentes | Estación | Resultado |
+|---|---|---|---|
+| Radio | 1 circuito + 2 chatarra | banco | arregla la radio (M-01) |
+| Artefacto de inventor | 2 piezas + 1 circuito | banco | misión S-15 |
+| Venda de lienzo grueso | 2 tela + 1 chatarra | cocina | +20 PV |
+| Kit de remiendo | 3 chatarra + 2 piezas | banco | +40% durabilidad, 3 usos |
+| Cartucho mediano | 1 chatarra + 1 químico base | banco | 4 cartuchos |
+| Mejora de arma (+1 tier hasta T4) | 3 piezas + 2 circuitos + kit | banco del mecánico | sube el tier del arma una vez |
+| Mejora de armadura (+1 RD) | 3 tela/cuero + 2 piezas | banco | +1 RD en una pieza |
+| Trampa (cepo) | 2 chatarra + 1 cuerda | banco | W-67 |
+Las recetas con efectos de armas y objetos usan los números de 29-32.
+
+## BANCO DE TRABAJO
+Hay uno en el hogar (cocina) y otro en Ciudad Horno (taller del mecánico). Botones: Fabricar, Mejorar arma, Mejorar armadura, Reparar, Desarmar (objeto → componentes).
+
+## ECONOMÍA DEL MUNDO (tal cual)
+- Ingresos típicos por nivel: nivel 1-5: 20-80 cuñas por misión; 6-12: 60-200; 13-20: 150-500; 21+: 300-1000.
+- Gastos recurrentes: comida y agua (≈10 cuñas por día), vendas (3 cuñas c/u), reparaciones.
+- El hogar es gratis. Las camas de posada cuestan 10 cuñas. Las camas del Cantil y de la Granja son gratis con buena relación.
+
+## ANTI-DUPLICACIÓN (tal cual)
+Todo objeto comprado/vendido/fabricado se registra con ID y cantidad. Un comerciante no vende lo que ya no tiene.

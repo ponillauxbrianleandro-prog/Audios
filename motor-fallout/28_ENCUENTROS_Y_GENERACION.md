@@ -54,7 +54,7 @@ Cada encuentro especial único se registra y no vuelve a salir.
 
 ## JEFES (tal cual)
 - Un jefe por zona clave o hito de nivel. Nivel mínimo en la ficha. **No cuenta para el sistema de variantes** (27).
-- Subordinados: máx. 3 por invocación, tope 6 vivos (10 en jefes de nivel 20+), cooldown 3 rondas, **condición de corte** (matar al jefe, destruir fuente, vencer tiempo).
+- Subordinados: máx. 3 por invocación, tope de vivos (4-6; 10 en jefes de nivel 20+), cooldown 3 rondas, **máximo 3 ciclos de invocación por combate** (después el jefe pelea con lo que quede), **condición de corte** (matar al jefe, destruir fuente, vencer tiempo).
 - Si el jefe no muere, la invocación continúa hasta el tope. Si el jugador mata a todos los subordinados, el jefe puede re-invocar 1 vez.
 - Jefes tienen fases (ej. 100-60% PV normal, 60-30% invoca, 30-0% furia: +25% daño).
 - Recompensa: objeto único, XP 300+, evento de mapa.

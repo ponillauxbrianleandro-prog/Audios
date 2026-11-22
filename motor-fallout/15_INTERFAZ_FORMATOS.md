@@ -1,5 +1,7 @@
 # 15 · INTERFAZ Y FORMATOS DE PRESENTACIÓN
 
+Las pantallas con botones (interior, exterior, combate, menús, mapas) están definidas en el **bloque 38**; este bloque queda como formato de texto para plataformas sin imágenes.
+
 ## FORMATO GENERAL DE CADA RESPUESTA (en este orden)
 ```
 ━━━ 📍 [Nombre ubicación] · L-014 · [Clase] · [Región/Bioma] ━━━

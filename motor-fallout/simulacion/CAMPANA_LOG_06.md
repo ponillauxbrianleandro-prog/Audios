@@ -1,0 +1,33 @@
+<!-- CAMPAÑA parte 6/6 -->
+# Registro de la campaña (simulación), parte 6
+
+- d273 07:07 | L-020 | ESCAPÓ del combate (los enemigos quedan: 2 persistentes)
+- d273 16:23 | L-020 | COMBATE vs 2× Persona con rasgos de Torreta (nv22, var V2, PV c/u 381) [sorpresa]
+- d273 16:31 | L-020 | VICTORIA en 8 rondas (PV 270→237/270)
+- d275 03:15 | L-020 | COMBATE vs 4× Torreta (nv22, var V1, PV c/u 248) [sorpresa]
+- d275 03:24 | L-020 | VICTORIA en 9 rondas (PV 270→209/270)
+- d276 13:49 | L-020 | COMBATE vs 6× Perro mecánico (nv22, var V1, PV c/u 62) [sorpresa]
+- d276 13:57 | L-020 | VICTORIA en 8 rondas (PV 270→259/270)
+- d279 10:45 | L-020 | COMBATE vs 4× Persona con rasgos de Dron ojo (nv22, var V1, PV c/u 272) [sorpresa]
+- d279 11:02 | L-020 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d279 21:51 | L-020 | COMBATE vs 4× Robot de combate humanoide (nv22, var V1, PV c/u 297) 
+- d279 22:04 | L-020 | VICTORIA en 13 rondas (PV 270→164/270)
+- d279 22:04 | L-020 | COMBATE vs 5× Perro mecánico (nv22, var V3, PV c/u 117) [sorpresa]
+- d279 22:11 | L-020 | VICTORIA en 7 rondas (PV 164→162/270)
+- d279 22:11 | L-020 | COMBATE vs 3× Persona con rasgos de Dron ojo (nv22, var V3, PV c/u 518) [sorpresa]
+- d279 22:22 | L-020 | ESCAPÓ del combate (los enemigos quedan: 3 persistentes)
+- d280 08:10 | L-020 | COMBATE vs 3× Persona con rasgos de Dron ojo (nv22, var V3, PV c/u 518) [sorpresa]
+- d280 08:35 | L-020 | VICTORIA en 25 rondas (PV 270→143/270)
+- d283 14:32 | L-020 | COMBATE vs 5× Perro mecánico (nv22, var V3, PV c/u 117) [sorpresa]
+- d283 14:39 | L-020 | SUBE A NIVEL 25 (PV máx 275, daño nominal 54)
+- d283 14:39 | L-020 | VICTORIA en 7 rondas (PV 270→275/275)
+- d283 14:39 | L-020 | COMBATE vs 4× Persona con rasgos de Androide (nv22, var V1, PV c/u 272) 
+- d283 14:59 | L-020 | VICTORIA en 20 rondas (PV 275→74/275)
+- d286 21:57 | L-020 | COMBATE vs 5× Dron ojo humanoide (nv23, var V2, PV c/u 215) [sorpresa]
+- d286 22:07 | L-020 | VICTORIA en 10 rondas (PV 275→230/275)
+- d289 19:25 | L-020 | COMBATE vs 2× Torreta (nv23, var V1, PV c/u 256) [sorpresa]
+- d289 19:30 | L-020 | VICTORIA en 5 rondas (PV 275→251/275)
+- d291 06:27 | L-020 | COMBATE vs 3× Robot doméstico (nv23, var V1, PV c/u 256) 
+- d291 06:35 | L-020 | VICTORIA en 8 rondas (PV 275→229/275)
+- d291 07:26 | L-020 | COMBATE vs 6× Insecto mecánico (nv23, var V1, PV c/u 64) [sorpresa]
+- d291 07:31 | L-020 | VICTORIA en 5 rondas (PV 232→229/275)

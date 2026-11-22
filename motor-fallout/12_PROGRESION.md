@@ -10,7 +10,7 @@ FUE (daño cuerpo a cuerpo, carga, forzar) · PER (puntería, detectar, buscar) 
 `bonus_stat = stat − 5`. Fórmula general: `%éxito = base + bonus_stat×3 + bono_nivel + equipo − dificultad − estados`.
 
 ## QUÉ DA SUBIR DE NIVEL (resumen; detalle en 27)
-Sube PV y PA, sube `bono_nivel` (= nivel) y se desbloquean más enemigos y variantes. Nada más: sin puntos que repartir.
+Sube PV, PA, daño (+1.3 por nivel), `bono_nivel` (= nivel) y se desbloquean más enemigos y variantes. Nada más: sin puntos que repartir.
 
 ## KARMA Y REPUTACIÓN
 - **Karma** (−1000..+1000): + por ayudar, salvar, cumplir; − por robar, matar inocentes, traicionar. Etiquetas: Malvado / Maldad / Neutral / Bondad / Santo. Afecta diálogos y compañeros.

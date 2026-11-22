@@ -2,7 +2,7 @@
 
 ## NIVELACIÓN (tal cual)
 - Nivel 1 al 30 (tope; los DLC pueden ampliarlo). No hay habilidades ni perks ni puntos que repartir.
-- **XP total para estar en nivel N** = `50 × N × (N − 1)`. Ejemplos: N2 = 100, N3 = 300, N5 = 1000, N10 = 4500, N20 = 19000, N30 = 43500.
+- **XP total para estar en nivel N** = `60 × N × (N − 1)`. Ejemplos: N2 = 120, N3 = 360, N5 = 1200, N10 = 5400, N20 = 22800, N30 = 52200. (Calibrado con el simulador: la campaña principal y todas las secundarias terminan alrededor del nivel 19; llegar al 30 requiere seguir jugando.)
 - Fuentes de XP:
 | Fuente | XP |
 |---|---|
@@ -19,6 +19,15 @@
 | Evento especial resuelto | 20-60 |
 XP final por enemigo = base × `clamp(nivel_enemigo / nivel_jugador, 0.5, 2)`.
 - **Efecto de subir un nivel:** PV máx = 90 + RES×10 + 5×nivel · PA = 60 + AGI×5 + nivel · `bono_nivel = nivel` · carga máx +5 por nivel · curación completa de PV al subir.
+- **Daño del protagonista (tal cual):** `daño = rango del arma × multiplicador del movimiento + (FUE − 5) + floor(1.3 × nivel)`. Ejemplo nivel 10, arma T3 (10-16), golpe normal: 13 + 1 + 13 = 27 de daño.
+
+## PV Y DAÑO DE ENEMIGOS POR TALLA, FASE Y NIVEL (tal cual)
+- **PV** = PV de la talla (19) × `(1 + 0.10 × (nivel enemigo − 1))` × multiplicador de variante (V1 1.0, V2 1.4, V3 1.9) × multiplicador de fase (25). Ej.: T1 (20 PV) nivel 1 = 20; T3 (80) nivel 10 = 152; T4 (160) nivel 20 = 464.
+- **Daño** = rango de la talla × `(1 + 0.085 × (nivel enemigo − 1))` × variante (V2 1.25, V3 1.6) × fase. Ej.: T3 (8-15) nivel 10 = 14-26.
+- **Nivel del enemigo:** zona hostil = `max(nivel de la zona, nivel del jugador − 2)`; zona normal = `min(nivel de la zona + 1, nivel del jugador + 1)`.
+- **Humanos:** además aplican su **equipo** (26): multiplicadores PV/daño/RD por tier — E0 ×0.55/×0.6/0 · E1 ×0.65/×0.7/1 · E2 ×0.8/×0.85/3 · E3 ×1/×1/6 · E4 ×1.2/×1.2/10 · E5 ×1.5/×1.5/16.
+- **Jefes (PV | daño):** Alfa nivel 4: 200 | 9-15 · Reina nivel 8: 330 | 10-18 · Capataz esclavista nivel 12: 520 | 14-22 · Capataz de la Concesión nivel 20: 900 | 22-36. Invocan como máximo **3 ciclos** (28).
+- Meta de equilibrio medida: ganás el 90%+ de los combates de tu nivel perdiendo 15-40% de PV; unas 8-15 rondas por combate.
 - Hitos: niveles 5, 10, 15, 20, 25, 30 → anuncio y evento de región (el lore decide el contenido).
 - La subida es **automática**: al alcanzar XP, la IA aplica y registra (`d3 11:20 | nivel 4→5`).
 
