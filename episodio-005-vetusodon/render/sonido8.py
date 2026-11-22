@@ -61,7 +61,7 @@ def put(buf, x, t, gain=1.0):
 
 
 # ------------------------------------------------------------------ voz
-GANANCIA = 5.0
+GANANCIA = float(os.environ.get("GANANCIA", "5.0"))
 RANGO13 = float(os.environ.get("RANGO13", "0.72"))                    # factor del rango de entonación de la voz v13 (1,0 = sin cambio)
 
 
@@ -92,7 +92,7 @@ def procesar_voz():
         if sr != SR:
             x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x)
         x = VP.deriva_tono(x, SR, T0, DER)                              # deriva de tono <= 1 % (sube de a poco, vuelve a neutral)
-        x = VP.eq_fir(x, SR, 0.6, 3.0) if V13 else VP.eq_fir(x, SR)     # balance tonal de la grabación de referencia (v13: suave, ±3 dB)
+        x = VP.eq_fir(x, SR, 1.0, 4.0) if V13 else VP.eq_fir(x, SR)     # balance tonal de la grabación de referencia (v13: suave, ±3 dB)
         x = VP.deriva_bandas(x, SR, T0, DER)
         x = hp(x, 70)
         e = np.abs(x) > 0.015

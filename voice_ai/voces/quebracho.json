@@ -1,6 +1,9 @@
-{"nombre":"Quebracho","version":2,"descripcion":"Narrador adulto, grave y grueso, neutral, para documentales. Voz de base DISEÑADA con Qwen3-TTS VoiceDesign (no clonada de nadie): barítono de unos 50 años, con pecho y poca aire; luego clonada desde esa misma referencia con el modelo Base 1.7B para todo el guion. De la grabación del autor se usa solo el balance tonal (ecualización suave), no su timbre.",
- "referencia_diseñada":"voice_ai/cache_v12/ref/ref.wav (semilla 7/21, instrucción 'B' en voice_ai/candidatas_voz.py, candidata B21)",
- "medido":{"F0_mediana_hz":129,"F1_F2_F3_hz":"≈[422,1562,2531] (grabación de referencia: [410,1590,2455])","nivel_voz_activa_dbfs":-12.5,"audio_final_lufs":-16.2},
- "pipeline":["v12_voz.py: genera las frases (reanudable) en cache_v12/raw","perfil_referencia.py <grabacion.mp3> cache_v12 nogender perfil_quebracho.json: curva de EQ","VOZ_CACHE=cache_v12 PERFIL_JSON=perfil_quebracho.json python sonido8.py --voz: deriva de tono ≤1 %, EQ FIR, deriva de graves/agudos, saturación suave, ajuste de duración (rubberband), compresor 3:1, limitador","luego sonido8.py --central y sonido_v10.py con VOZ_CACHE=cache_v12"],
- "microvariacion":"pasos de 0,01–0,07 % hasta un tope de 0,3–1,0 %, vuelta al punto neutral y nuevo ciclo; tono, graves y agudos independientes",
- "archivos":["voice_ai/v12_voz.py","voice_ai/retoma_v12.py","voice_ai/perfil_quebracho.json","voice_ai/candidatas_voz.py","episodio-005-vetusodon/render/voz_proceso.py","episodio-005-vetusodon/render/sonido8.py"]}
+{"nombre":"Quebracho","version":3,
+ "descripcion":"Voz de narrador del autor para documentales: clonada con Qwen3-TTS Base 1.7B a partir de un tramo de 9,4 s de su grabación de referencia (voces/quebracho_ref.wav + quebracho_ref.txt), con la entonación neutralizada para que no suene exaltada ni comercial.",
+ "medido":{"F0_mediana_hz":155,"rango_entonacion_p10_p90_hz":65,"F2_hz":1706,"nivel_voz_activa_dbfs":-11.9,"audio_final_lufs":-16.3},
+ "pipeline":["python v13_voz.py (reanudable; 3 tomas por frase, elige la que mejor calza con la duración original) -> cache_v13/raw",
+  "python perfil_referencia.py <grabacion.mp3> cache_v13 nogender perfil_quebracho3.json (curva de EQ)",
+  "VOZ_CACHE=cache_v13 PERFIL_JSON=perfil_quebracho3.json GANANCIA=4.0 python sonido8.py --voz: neutralizar (Praat Change gender, solo rango de entonación x0,72; formantes y mediana intactos), deriva de tono <=1 %, EQ FIR (tope 4 dB), deriva de graves/agudos, limitador suave, ajuste de tempo, compresor 2:1",
+  "luego sonido8.py --central y sonido_v10.py con VOZ_CACHE=cache_v13"],
+ "ajustes":"RANGO13=0.72 (más neutral cuanto más bajo; 1,0 = sin cambio); GANANCIA controla el volumen",
+ "archivos":["voice_ai/v13_voz.py","voice_ai/voces/quebracho_ref.wav","voice_ai/voces/quebracho_ref.txt","voice_ai/perfil_quebracho3.json","episodio-005-vetusodon/render/voz_proceso.py","episodio-005-vetusodon/render/sonido8.py"]}
