@@ -18,7 +18,8 @@ from scipy.signal import butter, sosfilt, fftconvolve
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 SR = 48000
-VOZ = AQUI.parents[1] / "voice_ai" / "cache_v9"
+import os
+VOZ = AQUI.parents[1] / "voice_ai" / os.environ.get("VOZ_CACHE", "cache_v9")
 MUS = AQUI.parent / "musica" / "wav"
 TANGO = Path("/root/.claude/uploads/206e7cfb-ffe4-542d-b71e-f006d55357a5/a873ee74-VoztypeRecorderVoiceMP3_160K.mp3")
 VIDEO = AQUI.parent / "video"
