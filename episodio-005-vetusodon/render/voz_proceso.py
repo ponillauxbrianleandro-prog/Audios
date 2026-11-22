@@ -22,7 +22,11 @@ def perfil():
     return _P["p"]
 
 
-def gender(x, sr, ratio=0.86, med=108.0, rango=2.5):
+QUEBRACHO = dict(nombre="Quebracho", formantes=0.90, mediana_hz=112.0, rango=2.5, graves_conservados=0.8,
+                 cuerpo_db=[("170", 1.0), ("420", 1.5)], rms_dbfs=-14.0)
+
+
+def gender(x, sr, ratio=QUEBRACHO["formantes"], med=QUEBRACHO["mediana_hz"], rango=QUEBRACHO["rango"]):
     import parselmouth
     from parselmouth.praat import call
     return call(parselmouth.Sound(x, sr), "Change gender", 70, 300, ratio, med, rango, 1.0).values[0].astype(np.float64)
@@ -90,7 +94,7 @@ def deriva_tono(x, sr, T0, D):
 def eq_fir(x, sr, fuerza=1.0):
     pf = perfil()
     c = list(pf["centros"])
-    g = [max(-9.0, min(8.0, v*1.15)) for v in pf["corr_db"]]
+    g = [max(-9.0, min(8.0, v*1.15*(QUEBRACHO["graves_conservados"] if c_ < 320 else 1.0))) for c_, v in zip(c, pf["corr_db"])]
     f = [0.0] + c + [sr / 2]
     gg = [g[0]] + g + [g[-1]]
     h = firwin2(2049, f, 10 ** (np.array(gg) * fuerza / 20), fs=sr)

@@ -1,0 +1,4 @@
+{"nombre":"Quebracho","descripcion":"Narrador adulto, grueso y neutral para documentales. Base: Qwen3-TTS (VoiceDesign + clon Base 1.7B). Balance tonal tomado de una grabación propia del autor (solo ecualización); irregular y humana.",
+ "pipeline":["Change gender: formantes x0,90, mediana 112 Hz, rango x2,5","microderiva de tono <=1 % (pasos 0,01-0,07 %, ciclos con reinicio a neutral)","EQ FIR con perfil_referencia.json (graves x0,8)","microderiva de graves/agudos","saturación suave tanh x2","cadena ffmpeg: hp75, +1 dB@170, +2,5 dB@420, -2 dB@250, -2,5 dB@2900, -3 dB@5500, compresor 3:1, limitador 0,89"],
+ "nivel":"voz activa ≈ -13 dBFS RMS","archivos":["episodio-005-vetusodon/render/voz_proceso.py","episodio-005-vetusodon/render/sonido8.py (--voz)","voice_ai/perfil_referencia.json","voice_ai/v9_voz.py"],
+ "uso":"cd voice_ai && . .venv/bin/activate && python v9_voz.py (líneas crudas) && cd ../episodio-NNN/render && python sonido8.py --voz"}

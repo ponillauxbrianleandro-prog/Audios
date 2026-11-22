@@ -60,6 +60,9 @@ def put(buf, x, t, gain=1.0):
 
 
 # ------------------------------------------------------------------ voz
+GANANCIA = 5.0
+
+
 def procesar_voz():
     import soundfile as sf
     raw, fin = VOZ / "raw", VOZ / "final"
@@ -91,14 +94,14 @@ def procesar_voz():
             x = x[max(0, a - int(0.04 * SR)):min(len(x), b + int(0.10 * SR))]
         act = x[np.abs(x) > 0.02]
         rms = np.sqrt((act ** 2).mean()) if len(act) else 0.1
-        x = x * (10 ** (-19 / 20) / (rms + 1e-9))
-        x = np.tanh(x * 1.25) / 1.25                                     # limitador suave, sin recortes
+        x = x * (10 ** (-17 / 20) / (rms + 1e-9))
+        x = np.tanh(x * 2.0) / 2.0 * 1.0                                 # saturación suave: más cuerpo (voz "gruesa"), sin recortes
         x[:int(0.01 * SR)] *= np.linspace(0, 1, int(0.01 * SR))
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
-        cadena = ("highpass=f=85,equalizer=f=250:t=q:w=1.2:g=-3,equalizer=f=2900:t=q:w=1.0:g=-2.5,"
-                  "acompressor=threshold=-21dB:ratio=2.6:attack=8:release=140:makeup=2.5,alimiter=limit=0.89:level=disabled")
+        cadena = ("highpass=f=75,equalizer=f=170:t=q:w=1.0:g=1,equalizer=f=420:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1.2:g=-2,equalizer=f=2900:t=q:w=1.0:g=-2.5,equalizer=f=5500:t=q:w=1.2:g=-3,"
+                  "acompressor=threshold=-24dB:ratio=3:attack=8:release=160:makeup=%s,alimiter=limit=0.89:level=disabled" % GANANCIA)
         if f.name.startswith("00_"):                                     # apertura: ritmo más ágil (+28 %), mismo tono
             cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
@@ -440,7 +443,7 @@ def mezclar(central=False):
     env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
     env = np.clip(env / 0.10, 0, 1)
     env = uniform_filter1d(env, int(0.25 * SR), mode="nearest")
-    duck = 1 - 0.62 * env
+    duck = 1 - 0.70 * env
     out = voz * 1.0 + mus * duck[:, None] * 0.95 + amb * (1 - 0.35 * env)[:, None] * 1.0 + fx * 0.9
     out *= 0.9 / (np.abs(out).max() + 1e-9)
     (VIDEO / "audio").mkdir(parents=True, exist_ok=True)
