@@ -1,292 +1,434 @@
 #!/usr/bin/env python3
-"""Mascota del canal Río Puratense: un libro viviente extremadamente gordo, acostado, con 4 patas.  (v2: construcción 3D)
+"""Mascota del canal Río Puratense (v3): libro viviente gordísimo, acostado, con 4 patas. ILUSTRACIÓN 2D PINTADA (sin 3D).
 
-El libro es una malla 3D real (tamaño libro, ≈ 1 : 0,66 : 0,55) proyectada con perspectiva y sombreada como ilustración 2D:
-  * cámara elevada en tres cuartos: se ve TODA la tapa superior (con la pata peluda), el canto de las hojas de frente (ojos)
-    y el de la derecha, y un poco de la panza (tapa inferior abultada) con las patas; el lomo queda atrás, oculto.
-  * bloque de páginas «almohadillado» (abultado en el medio) y tapas abombadas arriba y abajo: se nota que está lleno de hojas.
-  * 4 patas negras tipo stickman (gorditas), 2 ojos tipo canica integrados en el canto de las hojas, sin cola.
+Orientación: acostado sobre la tapa inferior (= panza). Lomo a la IZQUIERDA (una tira oscura asoma), el canto INFERIOR de las
+hojas mira al frente y lleva los 2 ojos canica; el canto derecho (hojas) se ve entero; la tapa superior (= dorso) se ve entera,
+abovedada, con una pata peluda dorada en lugar de la mano del diario. 4 patas negras tipo stickman, gorditas, en las 4 esquinas
+de la tapa inferior. Sin cola. El lado de atrás no se ve.
+Todo se pinta por capas con curvas: degradado de luz, oclusión en los bordes (efecto «inflado»), grano, rayones, manchas, contorno
+marrón. La profundidad sale del dibujo (perspectiva dibujada), no de un modelo 3D.
 
-  python3 mascota.py HOJA.png      hoja de poses
-  draw(pose, size) -> imagen RGBA
+  python3 mascota.py HOJA.png     hoja de poses
+  Mascota().frame(pose) -> PIL RGBA (lienzo 1500x1150, pensado para escalar)
 """
 import math
 import sys
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+import cv2
+from PIL import Image
 
-SS = 2
-GRANATE = np.array([128, 38, 54.]); ORO = np.array([205, 176, 78.]); ORO_OSC = np.array([128, 100, 38.])
-PAPEL = np.array([240, 226, 188.]); PAPEL2 = np.array([222, 205, 164.]); LINEA = (132, 108, 76)
-NEGRO = (22, 18, 22); SOMBRA = np.array([52, 24, 60.])
-LX, LY, LZ = -0.42, 0.78, 0.46                                   # luz (cámara: x der., y arriba, z hacia el espectador)
-LL = math.sqrt(LX * LX + LY * LY + LZ * LZ)
-LX, LY, LZ = LX / LL, LY / LL, LZ / LL
+W, H = 1500, 1150
+OUT = np.array([34, 20, 16], np.float32)                       # contorno marrón cálido
+V_LIT, V_MID, V_DRK = np.array([150, 58, 80.]), np.array([112, 46, 68.]), np.array([62, 30, 40.])   # vino (de las fotos, algo levantado)
+ROJO_DESG = np.array([170, 52, 44.])
+GRIS_VERDE, GRIS_OSC = np.array([128, 134, 108.]), np.array([84, 88, 70.])
+ORO_L, ORO_M, ORO_D = np.array([214, 206, 120.]), np.array([167, 162, 100.]), np.array([108, 100, 58.])
+LATON_L, LATON_D = np.array([196, 168, 96.]), np.array([96, 76, 42.])
+LOMO_C, LOMO_L = np.array([44, 45, 62.]), np.array([86, 86, 108.])
+PAP_L, PAP_M, PAP_D = np.array([246, 234, 200.]), np.array([228, 210, 168.]), np.array([176, 154, 112.])
+LINEA_PAG = np.array([150, 124, 86.])
 
-L_, D_, T_ = 1.0, 0.66, 0.55                                     # largo (canto frontal), ancho (lomo→canto), grosor de páginas
-CT = 0.045                                                       # grosor de tapa
-DOME_T, DOME_B = 0.12, 0.15                                    # abombado de las tapas (la inferior es la panza)
-BF, BE = 0.13, 0.10                                             # abultado de las hojas: canto frontal / cantos de los extremos
-OV = 0.03                                                        # tapas sobresalen del bloque
-
-
-def Rx(a):
-    c, s = math.cos(math.radians(a)), math.sin(math.radians(a)); return np.array([[1, 0, 0], [0, c, -s], [0, s, c]])
-def Ry(a):
-    c, s = math.cos(math.radians(a)), math.sin(math.radians(a)); return np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
-def Rz(a):
-    c, s = math.cos(math.radians(a)), math.sin(math.radians(a)); return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
+# ---- geometría de la tapa superior (dorso) en pantalla: FL,FR delante; BL,BR atrás (el eje «v» se aleja y sube a la derecha)
+FL, FR = np.array([330., 560.]), np.array([930., 604.])
+BACK = np.array([200., -272.])
+BL, BR = FL + BACK, FR + BACK
+T_COVER, T_PAGES, T_BELLY = 34., 250., 38.
+LARGO_CM, ANCHO_CM = 23., 15.
 
 
-def _shade(base, n, spec=0.0):
-    d = max(0.0, n[0] * LX + n[1] * LY + n[2] * LZ)
-    k = 0.50 + 0.62 * d
-    c = base * k + SOMBRA * (1 - min(1, k)) * 0.35               # sombras hacia violeta, no hacia negro
-    if spec:
-        c = c + 255 * spec * max(0.0, d - 0.75) * 2.2
-    return tuple(int(max(0, min(255, v))) for v in c)
+def uv(x_cm, y_cm, dy=0.0):
+    """Coordenadas de la tapa en cm (x a lo ancho 0..15, y a lo largo 0..23, hacia atrás) -> píxeles."""
+    p = FL + (x_cm / ANCHO_CM) * (FR - FL) + (y_cm / LARGO_CM) * BACK
+    return p + np.array([0, dy])
 
 
-class _Cam:
-    def __init__(self, W, H, pitch, dist=3.1, f=1.0):
-        self.W, self.H, self.pitch, self.dist = W, H, pitch, dist
-        self.f = f * W * 1.18 * dist / 3.1
-        self.R = Rx(pitch)                                       # mira hacia abajo `pitch` grados
-
-    def cam(self, p):
-        return self.R @ p
-
-    def proj(self, pc):
-        k = self.f * 1.0 / (self.dist - pc[2])
-        return (self.W / 2 + pc[0] * k, self.H * 0.54 - pc[1] * k)
-
-    def scale(self, pc):
-        return self.f / (self.dist - pc[2])
+def spline(pts, n=14, closed=True):
+    P = [np.array(p, float) for p in pts]
+    m = len(P)
+    out = []
+    rng = range(m) if closed else range(m - 1)
+    for i in rng:
+        p0, p1, p2, p3 = P[(i - 1) % m], P[i], P[(i + 1) % m], P[(i + 2) % m]
+        if not closed:
+            p0 = P[max(i - 1, 0)]; p3 = P[min(i + 2, m - 1)]
+        for t in np.linspace(0, 1, n, endpoint=False):
+            out.append(0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t ** 3))
+    return np.array(out)
 
 
-def draw(pose=None, size=(640, 480)):
-    """pose: turn (giro del cuerpo, ° ; 0 = de frente), pitch (elevación de cámara), lean (+ hocico abajo), roll (180 = patas arriba),
-    bob (alto, unidades ≈ 1 = largo del libro), leg (fase 0..1 | None), spread, look (-1..1,-1..1), blink, mad 0..1, flutter 0..1,
-    squash (1 = normal), dx/dy (desplazamiento en pantalla, px)."""
-    p = dict(turn=-32, pitch=34, lean=0, roll=0, bob=0, leg=None, spread=0, look=(0, 0), blink=0, mad=0, flutter=0, squash=1.0,
-             dx=0, dy=0, scale=1.0)
-    p.update(pose or {})
-    W, H = size[0] * SS, size[1] * SS
-    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    cam = _Cam(W, H, p["pitch"], f=p["scale"])
-    Rb = Ry(p["turn"]) @ Rz(p["roll"]) @ Rx(p["lean"])
-    sq = p["squash"]
-    off = np.array([0.0, p["bob"], 0.0])
+def mask_of(poly):
+    m = np.zeros((H, W), np.uint8)
+    cv2.fillPoly(m, [np.round(np.array(poly) * 16).astype(np.int32)], 255, cv2.LINE_AA, shift=4)
+    return m
 
-    def B2C(q):                                                  # cuerpo -> cámara
-        q = np.array(q, float); q = q * np.array([1, sq, 1])
-        return cam.cam(Rb @ q + off)
-    ctr = B2C((0, 0, 0))
 
-    items = []                                                   # (profundidad, tipo, datos)
+def noise(scale, seed):
+    r = np.random.RandomState(seed)
+    g = r.rand(max(2, H // scale), max(2, W // scale)).astype(np.float32)
+    return cv2.resize(g, (W, H), interpolation=cv2.INTER_CUBIC)
 
-    def quad(a, b, c, d, base, spec=0.0, edge=None, line=None):
-        P = [B2C(x) for x in (a, b, c, d)]
-        n = np.cross(P[1] - P[0], P[3] - P[0]) + np.cross(P[2] - P[1], P[3] - P[1]) * 0
-        m = sum(P) / 4
-        nn = np.linalg.norm(n)
-        if nn < 1e-12:
-            return
-        n = n / nn
-        if np.dot(n, m - ctr) < 0:                               # normal hacia afuera del cuerpo
-            n = -n
-        if np.dot(n, np.array([0, 0, cam.dist]) - m) <= 0:       # cara de espaldas
-            return
-        col = _shade(base, n, spec)
-        items.append((m[2], "q", ([cam.proj(x) for x in P], col, edge, line)))
 
-    def grid(fn, nu, nv):
-        return [[np.array(fn(i / nu, j / nv)) for j in range(nv + 1)] for i in range(nu + 1)]
+class Lienzo:
+    def __init__(self):
+        self.c = np.zeros((H, W, 3), np.float32)
+        self.a = np.zeros((H, W), np.float32)
 
-    # ---------- bloque de hojas «almohadillado» (4 caras) ----------
-    def bulge(u, v, B):
-        return B * (math.sin(math.pi * u) ** 0.6) * (math.sin(math.pi * v) ** 0.7)
+    def pegar(self, mask, color, outline=5):
+        m = mask.astype(np.float32) / 255
+        if outline:
+            o = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (outline * 2 + 1, outline * 2 + 1))).astype(np.float32) / 255
+            self.c = self.c * (1 - o[..., None]) + OUT * o[..., None]
+            self.a = np.maximum(self.a, o)
+        self.c = self.c * (1 - m[..., None]) + color * m[..., None]
+        self.a = np.maximum(self.a, m)
 
-    def y_of(v):
-        return -T_ / 2 + T_ * v
+    def sobre(self, mask, color, alpha=1.0):
+        m = (mask.astype(np.float32) / 255 * alpha)[..., None]
+        self.c = self.c * (1 - m) + color * m
+        self.a = np.maximum(self.a, m[..., 0])
 
-    sides = {
-        "front": lambda u, v: ((u - 0.5) * L_, y_of(v), D_ / 2 + bulge(u, v, BF)),
-        "right": lambda u, v: (L_ / 2 + bulge(u, v, BE), y_of(v), (0.5 - u) * D_),
-        "left": lambda u, v: (-L_ / 2 - bulge(u, v, BE), y_of(v), (u - 0.5) * D_),
-        "back": lambda u, v: ((0.5 - u) * L_, y_of(v), -D_ / 2 - bulge(u, v, 0.03)),
-    }
-    NV = 22
-    for name, fn in sides.items():
-        g = grid(fn, 22, NV)
-        for i in range(22):
-            for j in range(NV):
-                v = (j + 0.5) / NV
-                base = (PAPEL if j % 2 == 0 else PAPEL2) if name != "back" else GRANATE * 0.95
-                ao = 0.55 + 0.45 * min(1, math.sin(math.pi * v) * 2.2)      # oclusión junto a las tapas
-                quad(g[i][j], g[i + 1][j], g[i + 1][j + 1], g[i][j + 1], base * ao,
-                     line=(LINEA if name != "back" else None) if j % 2 == 0 and name != "back" else None)
+    def imagen(self):
+        rgba = np.dstack([np.clip(self.c, 0, 255), np.clip(self.a, 0, 1) * 255]).astype(np.uint8)
+        return Image.fromarray(rgba, "RGBA")
 
-    # ---------- tapas abombadas ----------
-    xo, zf, zb = L_ / 2 + OV, D_ / 2 + OV, -D_ / 2
 
-    def cover(sign, dome, emblem):
-        def surf(u, v):
-            x = (u - 0.5) * 2 * xo; z = zb + v * (zf - zb)
-            xn = x / xo; zn = (z - (zf + zb) / 2) / ((zf - zb) / 2)
-            e = max(0.0, (1 - xn * xn)) * max(0.0, (1 - zn * zn))
-            return (x, sign * (T_ / 2 + CT + dome * e ** 0.8), z)
-        g = grid(surf, 24, 18)
-        for i in range(24):
-            for j in range(18):
-                quad(g[i][j], g[i + 1][j], g[i + 1][j + 1], g[i][j + 1], GRANATE, spec=0.5)
-        # cantos (grosor visible) alrededor
-        def rim(a, b):
-            quad(a, b, (b[0], sign * T_ / 2, b[2]), (a[0], sign * T_ / 2, a[2]), GRANATE * 0.78)
-        for i in range(24):
-            rim(g[i][18], g[i + 1][18]); rim(g[i + 1][0], g[i][0])
-        for j in range(18):
-            rim(g[0][j + 1], g[0][j]); rim(g[24][j], g[24][j + 1])
-        # esquinas metálicas + pata peluda
-        top_fn = lambda x, z: np.array(surf((x / xo + 1) / 2, (z - zb) / (zf - zb))) + np.array([0, sign * 0.006, 0])
-        def decor(poly_xz, col, lift=0.006):
-            pts3 = [np.array(surf((x / xo + 1) / 2, (z - zb) / (zf - zb))) + np.array([0, sign * lift, 0]) for x, z in poly_xz]
-            P = [B2C(q) for q in pts3]
-            m = sum(P) / len(P)
-            nrm = np.cross(P[1] - P[0], P[2] - P[0])
-            if np.linalg.norm(nrm) < 1e-12: return
-            nrm = nrm / np.linalg.norm(nrm)
-            if np.dot(nrm, m - ctr) < 0: nrm = -nrm
-            if np.dot(nrm, np.array([0, 0, cam.dist]) - m) <= 0: return
-            items.append((m[2] + 1e-4, "q", ([cam.proj(x) for x in P], _shade(col, nrm, 0.6), None, None)))
-        k = 0.17
-        for sx, sz in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
-            cx, cz = sx * xo, (zf if sz > 0 else zb)
-            decor([(cx, cz), (cx - sx * k, cz), (cx, cz - sz * k * 0.8)], ORO)
-        if emblem:
-            def ell(cx, cz, rx, rz, n=18):
-                return [(cx + rx * math.cos(2 * math.pi * t / n), cz + rz * math.sin(2 * math.pi * t / n)) for t in range(n)]
-            c0 = (0.0, 0.02)
-            decor(ell(c0[0], c0[1] + 0.045, 0.115, 0.082), ORO)                 # almohadilla
-            for tx, tz, r in ((-0.17, -0.02, 0.05), (-0.058, -0.095, 0.052), (0.058, -0.095, 0.052), (0.17, -0.02, 0.05)):
-                decor(ell(c0[0] + tx, c0[1] + tz, r, r * 0.95, 12), ORO)       # deditos
-            decor(ell(c0[0], c0[1] + 0.06, 0.06, 0.04, 12), ORO_OSC, 0.009)    # brillo interno
+def degradado(mask, c0, c1, p0, p1):
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    d = np.array(p1, np.float32) - np.array(p0, np.float32)
+    t = np.clip(((xx - p0[0]) * d[0] + (yy - p0[1]) * d[1]) / (d @ d), 0, 1)[..., None]
+    return c0 * (1 - t) + c1 * t
 
-    cover(+1, DOME_T, True)
-    cover(-1, DOME_B, False)
 
-    # ---------- patas (4, stickman gorditas, bajo la panza) ----------
-    ground = []
-    legs = []
-    for k, (lx, lz, ph) in enumerate(((-0.36, 0.2, 0.0), (0.36, 0.2, 0.5), (-0.36, -0.2, 0.5), (0.36, -0.2, 0.0))):
-        xn, zn = lx / xo, (lz - (zf + zb) / 2) / ((zf - zb) / 2)
-        e = max(0.0, 1 - xn * xn) * max(0.0, 1 - zn * zn)
-        hip = np.array([lx * 1.05, -(T_ / 2 + CT + DOME_B * e ** 0.8) + 0.02, lz])
-        sw = lift = 0.0
-        if p["leg"] is not None:
-            s = math.sin((p["leg"] + ph) * 2 * math.pi)
-            sw, lift = 0.10 * s, 0.07 * max(0.0, math.cos((p["leg"] + ph) * 2 * math.pi) * -1 + 0)
-            lift = 0.07 * max(0.0, math.sin((p["leg"] + ph) * 2 * math.pi + math.pi / 2))
-        sp = p["spread"] * 0.14 * (1 if lx > 0 else -1)
-        knee = hip + np.array([lx * 0.18 + sp * 0.5, -0.12, sw * 0.5 + 0.04])
-        foot = hip + np.array([lx * 0.12 + sp, -0.25 + lift, sw])
-        legs.append((hip, knee, foot, lz < 0))
+def inflado(mask, base_dark, base_lit, radio=46, grano=10, seed=1, extra_luz=None):
+    """Color con efecto «inflado»: más claro lejos de los bordes (volumen), con grano."""
+    dist = cv2.distanceTransform((mask > 127).astype(np.uint8), cv2.DIST_L2, 5)
+    t = np.clip(dist / radio, 0, 1)[..., None]
+    t = t * t * (3 - 2 * t)
+    col = base_dark * (1 - t) + base_lit * t
+    if extra_luz is not None:
+        col = col * extra_luz[..., None]
+    g = (noise(3, seed) - 0.5) * grano + (noise(18, seed + 7) - 0.5) * grano * 1.4
+    return col + g[..., None]
 
-    # sombra en el suelo (plano horizontal del mundo bajo el punto más bajo)
-    wp = lambda q: Rb @ (np.array(q, float) * np.array([1, sq, 1])) + off
-    feet_w = [wp(f_) for _, _, f_, _ in legs]
-    gy = min(q[1] for q in feet_w + [wp((0, -T_ / 2 - CT - DOME_B, 0))]) - 0.015
-    cxw = sum(q[0] for q in feet_w) / 4; czw = sum(q[2] for q in feet_w) / 4
-    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    pts = [cam.proj(cam.cam(np.array([cxw + 0.72 * math.cos(t), gy, czw + 0.5 * math.sin(t)]))) for t in np.linspace(0, 2 * math.pi, 40)]
-    ImageDraw.Draw(sh).polygon(pts, fill=(10, 4, 20, 120))
-    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10 * SS)))
 
-    for hip, knee, foot, back in legs:
-        a, b, c = B2C(hip), B2C(knee), B2C(foot)
-        dep = (a[2] + c[2]) / 2 - (0.4 if back else -0.05)
-        items.append((dep - 0.5 if back else dep - 0.12, "leg", (a, b, c, back)))
+# -------------------------------------------------------------------------------------------- cuerpo
+def cuerpo(flip=False):
+    L = Lienzo()
+    F = (lambda p: np.array([1500 - p[0], p[1]])) if flip else (lambda p: np.array(p, float))
+    # --- sombra de contacto
+    # (se dibuja aparte en frame())
+    # --- tapa inferior (panza): costado frontal + derecho, abultada hacia abajo
+    def panza_poly():
+        a = FL + np.array([-14, T_COVER + T_PAGES - 4]); b = FR + np.array([14, T_COVER + T_PAGES - 4])
+        c = BR + np.array([14, T_COVER + T_PAGES - 4]);
+        pts = [a, (a + b) / 2 + [0, 0], b, c,
+               c + [12, 12], b + [18, T_BELLY + 6], (a + b) / 2 + [10, T_BELLY + 44], a + [-4, T_BELLY + 12]]
+        return [F(p) for p in spline(pts, 10)]
+    pan = mask_of(panza_poly())
+    col = inflado(pan, GRIS_OSC * 0.8, GRIS_VERDE, radio=30, seed=3) if not flip else inflado(pan, V_DRK, V_MID, radio=30, seed=3)
+    L.pegar(pan, col, 6)
 
-    items.sort(key=lambda t: t[0])
-    d = ImageDraw.Draw(img)
-    for dep, kind, data in items:
-        if kind == "q":
-            poly, col, edge, line = data
-            d.polygon(poly, fill=col)
-            if line:
-                d.line([poly[3], poly[2]], fill=line, width=max(1, SS))
+    # --- lomo (tira oscura que asoma a la izquierda), convexo, con nervaduras
+    lomo_pts = [FL + [4, T_COVER - 8], FL + [-40, T_COVER + 14], FL + [-48, T_COVER + 120], FL + [-44, T_COVER + T_PAGES - 20],
+                FL + [-14, T_COVER + T_PAGES + 6], FL + [4, T_COVER + T_PAGES]]
+    lm = mask_of([F(p) for p in spline(lomo_pts, 8)])
+    colm = inflado(lm, LOMO_C * 0.7, LOMO_L, radio=22, seed=5)
+    for yb in (0.18, 0.42, 0.66, 0.86):                                       # nervaduras
+        y = FL[1] + T_COVER + yb * T_PAGES
+        cv2.line(lm := lm, (0, 0), (0, 0), 0)
+    L.pegar(lm, colm, 5)
+    for yb in (0.2, 0.45, 0.7, 0.9):
+        y = FL[1] + T_COVER + yb * T_PAGES
+        p0, p1 = F([FL[0] - 46, y]), F([FL[0] + 2, y + 6])
+        L.sobre(mask_line(p0, p1, 5), LOMO_L * 1.15, 0.8)
+
+    # --- hojas: cara frontal (canto inferior del libro) abultada como barril
+    def parche(A, B, C, D, bx, by, fn):
+        def P(u, v):
+            base = (1 - v) * ((1 - u) * A + u * B) + v * ((1 - u) * D + u * C)
+            return base + np.array([bx * (u - .5) * 2 * math.sin(math.pi * v) ** .8, by * math.sin(math.pi * u) ** .6 * v ** 1.3])
+        return P
+    A = FL + [0, T_COVER]; B = FR + [0, T_COVER]; C = FR + [0, T_COVER + T_PAGES]; D = FL + [0, T_COVER + T_PAGES]
+    Pf = parche(A, B, C, D, 30, 26, None)
+    contorno = [Pf(u, 0) for u in np.linspace(0, 1, 18)] + [Pf(1, v) for v in np.linspace(0, 1, 18)] + [Pf(u, 1) for u in np.linspace(1, 0, 18)] + [Pf(0, v) for v in np.linspace(1, 0, 18)]
+    fm = mask_of([F(p) for p in contorno])
+    luz = 0.84 + 0.2 * np.clip((degradado(fm, np.array([0.]), np.array([1.]), (FL[0], FL[1] + 380), (FL[0] + 150, FL[1] + 60)))[..., 0], 0, 1)
+    colf = inflado(fm, PAP_D, PAP_L, radio=70, seed=9, extra_luz=luz)
+    L.pegar(fm, colf, 5)
+    # líneas de hojas siguiendo el abultado
+    n = 30
+    for k in range(1, n):
+        v = k / n
+        pts = np.array([F(Pf(u, v)) for u in np.linspace(0, 1, 30)])
+        tono = LINEA_PAG * (0.9 + 0.2 * ((k * 37) % 5) / 5)
+        L.sobre(mask_poly_line(pts, 2 if k % 3 else 3), tono, 0.45 if k % 3 else 0.6)
+    # sombra bajo la tapa superior sobre las hojas (oclusión)
+    ocl = np.zeros((H, W), np.uint8)
+    pts = np.array([F(Pf(u, 0.0)) for u in np.linspace(0, 1, 30)] + [F(Pf(u, 0.16)) for u in np.linspace(1, 0, 30)])
+    cv2.fillPoly(ocl, [np.round(pts).astype(np.int32)], 255, cv2.LINE_AA)
+    ocl = cv2.GaussianBlur(ocl, (0, 0), 9) * (fm > 127)
+    L.sobre(ocl, np.array([60, 36, 44.]), 0.55)
+
+    # --- hojas: cara derecha (canto de las hojas del frente de la tapa)
+    A2, B2 = FR + [0, T_COVER], BR + [0, T_COVER]
+    C2, D2 = BR + [0, T_COVER + T_PAGES], FR + [0, T_COVER + T_PAGES]
+    def Pr(u, v):
+        base = (1 - v) * ((1 - u) * A2 + u * B2) + v * ((1 - u) * D2 + u * C2)
+        return base + np.array([26 * math.sin(math.pi * u) ** .6 * math.sin(math.pi * v) ** .6, 22 * math.sin(math.pi * u) ** .6 * v ** 1.3])
+    cont = [Pr(u, 0) for u in np.linspace(0, 1, 18)] + [Pr(1, v) for v in np.linspace(0, 1, 18)] + [Pr(u, 1) for u in np.linspace(1, 0, 18)] + [Pr(0, v) for v in np.linspace(1, 0, 18)]
+    rm = mask_of([F(p) for p in cont])
+    colr = inflado(rm, PAP_D * 0.78, PAP_M * 0.96, radio=60, seed=11)
+    L.pegar(rm, colr, 5)
+    for k in range(1, n):
+        v = k / n
+        pts = np.array([F(Pr(u, v)) for u in np.linspace(0, 1, 30)])
+        L.sobre(mask_poly_line(pts, 2), LINEA_PAG * 0.85, 0.45)
+    ocl = np.zeros((H, W), np.uint8)
+    pts = np.array([F(Pr(u, 0.0)) for u in np.linspace(0, 1, 30)] + [F(Pr(u, 0.15)) for u in np.linspace(1, 0, 30)])
+    cv2.fillPoly(ocl, [np.round(pts).astype(np.int32)], 255, cv2.LINE_AA)
+    L.sobre(cv2.GaussianBlur(ocl, (0, 0), 9) * (rm > 127), np.array([60, 36, 44.]), 0.5)
+
+    # --- canto de la tapa superior (grosor) frontal y derecho
+    rim_f = [FL, FR, FR + [0, T_COVER], FL + [0, T_COVER]]
+    rim_r = [FR, BR, BR + [0, T_COVER], FR + [0, T_COVER]]
+    for poly, seed in ((rim_f, 13), (rim_r, 14)):
+        mm = mask_of([F(p) for p in poly])
+        L.pegar(mm, inflado(mm, V_DRK * 0.8, V_MID * 0.95, radio=10, seed=seed), 4)
+
+    # --- tapa superior (dorso abovedado)
+    esq = [FL, FR, BR, BL]
+    mid = lambda a, b, o: (a + b) / 2 + np.array(o)
+    cover_pts = [FL + [-4, 2], mid(FL, FR, [0, 10]), FR + [4, 4], mid(FR, BR, [10, 0]), BR + [4, -3], mid(BR, BL, [0, -10]), BL + [-4, -3], mid(BL, FL, [-10, 0])]
+    cm = mask_of([F(p) for p in spline(cover_pts, 10)])
+    luz = 0.86 + 0.22 * np.clip(degradado(cm, np.array([0.]), np.array([1.]), (BL[0] + 600, BL[1] + 500), (BL[0] - 40, BL[1] - 20))[..., 0], 0, 1)
+    base_d, base_l = (V_DRK, V_LIT) if not flip else (GRIS_OSC * 0.85, GRIS_VERDE * 1.05)
+    colc = inflado(cm, base_d, base_l, radio=120, seed=17, grano=12, extra_luz=luz)
+    # desgaste rojo en esquinas delanteras + rayones
+    n1 = noise(40, 21); n2 = noise(10, 22)
+    desg = np.clip((n1 - 0.55) * 4, 0, 1) * np.clip((n2 - 0.35) * 2.2, 0, 1)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    cerca = np.exp(-(((xx - FL[0]) ** 2 + (yy - FL[1]) ** 2) / (2 * 190 ** 2))) + np.exp(-(((xx - FR[0]) ** 2 + (yy - FR[1]) ** 2) / (2 * 220 ** 2)))
+    if not flip:
+        colc = colc * (1 - (desg * cerca)[..., None] * 0.7) + ROJO_DESG * (desg * cerca)[..., None] * 0.7
+    L.pegar(cm, colc, 6)
+    rs = np.random.RandomState(4)
+    scr = np.zeros((H, W), np.uint8)
+    for _ in range(46):
+        x0, y0 = rs.uniform(FL[0], FR[0] + 200), rs.uniform(BL[1], FL[1])
+        a = rs.uniform(-0.6, 0.6); ln = rs.uniform(20, 90)
+        cv2.line(scr, (int(x0), int(y0)), (int(x0 + math.cos(a) * ln), int(y0 + math.sin(a) * ln)), 255, 1, cv2.LINE_AA)
+    L.sobre(scr * (cm > 127), np.array([220, 150, 150.]) if not flip else np.array([210, 215, 190.]), 0.16)
+    # borde de luz (arriba/izquierda)
+    edge = cv2.morphologyEx(cm, cv2.MORPH_GRADIENT, np.ones((5, 5), np.uint8))
+    L.sobre(edge * (cm > 127), np.array([232, 140, 150.]), 0.28)
+
+    # --- decoración de la tapa: pata peluda dorada + esquinas de latón (en el plano de la tapa) ---------------
+    def pl(pts_cm):
+        return [F(uv(x, y)) for x, y in pts_cm]
+    def elipse(cx, cy, rx, ry, n=30, rot=0.0):
+        t = np.linspace(0, 2 * math.pi, n, endpoint=False)
+        px = rx * np.cos(t); py = ry * np.sin(t)
+        c, s = math.cos(rot), math.sin(rot)
+        return [(cx + px[i] * c - py[i] * s, cy + px[i] * s + py[i] * c) for i in range(n)]
+    def pelos(pts, k=2.2, seed=0):
+        r = np.random.RandomState(seed)
+        out = []
+        c = np.mean(pts, 0)
+        for i, p in enumerate(pts):
+            d = (np.array(p) - c); d = d / (np.linalg.norm(d) + 1e-6)
+            if i % 3 == 0:
+                out.append(np.array(p) + d * k * r.uniform(0.8, 1.6))
+            else:
+                out.append(np.array(p))
+        return out
+    if not flip:
+        partes = [(elipse(7.5, 8.4, 3.6, 3.0), 31)]                                    # almohadilla
+        for (tx, ty, r_) in ((3.2, 12.4, 1.5), (5.6, 14.6, 1.7), (9.4, 14.6, 1.7), (11.8, 12.4, 1.5)):   # 4 deditos
+            partes.append((elipse(tx + (0 if True else 0), ty, r_, r_ * 1.15), 32))
+        for pts, sd in partes:
+            pp = pl(pts)
+            sp = spline(pp, 3) if False else np.array(pp)
+            mk = mask_of(sp)
+            L.pegar(mk, inflado(mk, ORO_D, ORO_L, radio=24, seed=sd, grano=14), 3)
+        # rayones del metal
+        scr2 = np.zeros((H, W), np.uint8)
+        rr = np.random.RandomState(8)
+        for _ in range(60):
+            x0, y0 = rr.uniform(2, 13), rr.uniform(5, 16)
+            a = rr.uniform(0.3, 1.1); ln = rr.uniform(0.5, 2.2)
+            p0, p1 = F(uv(x0, y0)), F(uv(x0 + math.cos(a) * ln, y0 + math.sin(a) * ln))
+            cv2.line(scr2, (int(p0[0]), int(p0[1])), (int(p1[0]), int(p1[1])), 255, 1, cv2.LINE_AA)
+        L.sobre(scr2 * (cm > 127), np.array([240, 235, 170.]), 0.35)
+        # almohadilla interna (sombra)
+        pm = mask_of(pl(elipse(7.5, 8.0, 1.9, 1.5)))
+        L.sobre(pm, ORO_D * 0.8, 0.55)
+    # esquinas de latón: triángulo con hipotenusa cóncava y remache
+    def esquina(cx, cy, dx, dy, k=4.6):
+        a, b = (cx + dx * k, cy), (cx, cy + dy * k)
+        ctrl = (cx + dx * k * 0.52, cy + dy * k * 0.52)
+        pts = [(cx, cy), a]
+        for t in np.linspace(0, 1, 12):
+            q = ((1 - t) ** 2 * np.array(a) + 2 * (1 - t) * t * np.array(ctrl) + t ** 2 * np.array(b))
+            pts.append(tuple(q))
+        pts.append(b)
+        return pts, ctrl
+    for (cx, cy, dx, dy) in ((0, 0, 1, 1), (15, 0, -1, 1), (0, 23, 1, -1), (15, 23, -1, -1)):
+        pts, ctrl = esquina(cx, cy, dx, dy)
+        mk = mask_of(pl(pts))
+        L.pegar(mk, inflado(mk, LATON_D, LATON_L, radio=18, seed=cx + cy + 40, grano=16), 3)
+        c = F(uv(cx + dx * 1.15, cy + dy * 1.15))
+        rm_ = np.zeros((H, W), np.uint8)
+        cv2.circle(rm_, (int(c[0]), int(c[1])), 9, 255, -1, cv2.LINE_AA)
+        L.pegar(rm_, np.array([224, 200, 140.]), 2)
+        hl = np.zeros((H, W), np.uint8); cv2.circle(hl, (int(c[0]) - 3, int(c[1]) - 3), 3, 255, -1, cv2.LINE_AA)
+        L.sobre(hl, np.array([255, 250, 230.]), 0.9)
+    return L
+
+
+def mask_line(p0, p1, w):
+    m = np.zeros((H, W), np.uint8)
+    cv2.line(m, (int(p0[0]), int(p0[1])), (int(p1[0]), int(p1[1])), 255, w, cv2.LINE_AA)
+    return m
+
+
+def mask_poly_line(pts, w):
+    m = np.zeros((H, W), np.uint8)
+    cv2.polylines(m, [np.round(np.array(pts)).astype(np.int32)], False, 255, w, cv2.LINE_AA)
+    return m
+
+
+# -------------------------------------------------------------------------------------------- patas, ojos, cuadro
+def pata(L, hip, knee, foot, w=40):
+    for a, b in ((hip, knee), (knee, foot)):
+        m = np.zeros((H, W), np.uint8)
+        cv2.line(m, tuple(int(v) for v in a), tuple(int(v) for v in b), 255, int(w), cv2.LINE_AA)
+        cv2.circle(m, tuple(int(v) for v in b), int(w / 2), 255, -1, cv2.LINE_AA)
+        L.pegar(m, np.array([30, 26, 32.]), 0)
+        hl = np.zeros((H, W), np.uint8)
+        off = np.array([-w * 0.22, 0])
+        cv2.line(hl, tuple(int(v) for v in (a + off)), tuple(int(v) for v in (b + off)), 255, max(2, int(w * 0.16)), cv2.LINE_AA)
+        L.sobre(hl, np.array([96, 90, 110.]), 0.6)
+    fm = np.zeros((H, W), np.uint8)
+    cv2.ellipse(fm, (int(foot[0] + 8), int(foot[1] + 4)), (int(w * 0.95), int(w * 0.5)), 0, 0, 360, 255, -1, cv2.LINE_AA)
+    L.pegar(fm, np.array([30, 26, 32.]), 0)
+
+
+class Mascota:
+    def __init__(self):
+        self.cache = {}
+
+    def _cuerpo(self, flip):
+        if flip not in self.cache:
+            self.cache[flip] = cuerpo(flip)
+        return self.cache[flip]
+
+    def frame(self, pose=None):
+        p = dict(leg=None, bob=0, tilt=0, squash=1.0, blink=0, mad=0, look=(0, 0), flip=False, spread=0, lean=0)
+        p.update(pose or {})
+        flip = p["flip"]
+        base = self._cuerpo(flip)
+        out = Lienzo()
+        # sombra de contacto
+        sh = np.zeros((H, W), np.uint8)
+        cv2.ellipse(sh, (760, 1000), (560, 78), 0, 0, 360, 255, -1, cv2.LINE_AA)
+        sh = cv2.GaussianBlur(sh, (0, 0), 22)
+        out.sobre(sh, np.array([16, 8, 28.]), 0.45)
+        # patas
+        def fase(i):
+            return 0.0 if p["leg"] is None else math.sin((p["leg"] + (0.5 if i in (1, 2) else 0.0)) * 2 * math.pi)
+        G = 1010
+        hips = [FL + [90, T_COVER + T_PAGES + 40], FR + [-30, T_COVER + T_PAGES + 52], BR + [-20, T_COVER + T_PAGES + 30], FL + [200, T_COVER + T_PAGES - 80]]
+        ground = [G, G + 12, 880, 830]
+        order = (3, 2, 0, 1)
+        dibujar_patas = lambda idx: [self._pata(out, i, hips[i], ground[i], fase(i), p, flip) for i in idx]
+        if flip:
+            dibujar_patas((3, 2))
         else:
-            a, b, c, back = data
-            col = (52, 44, 54) if back else NEGRO
-            wd = max(2, int(0.125 * cam.scale(b) * (0.8 if back else 1.0)))
-            pa, pb, pc = cam.proj(a), cam.proj(b), cam.proj(c)
-            d.line([pa, pb, pc], fill=col, width=wd, joint="curve")
-            r = wd * 0.5
-            for q in (pa, pb, pc):
-                d.ellipse([q[0] - r, q[1] - r, q[0] + r, q[1] + r], fill=col)
-            fw = wd * 0.8
-            d.ellipse([pc[0] - fw, pc[1] - fw * 0.55, pc[0] + fw, pc[1] + fw * 0.55], fill=col)   # pie redondo
-            if not back:
-                d.line([(pa[0] - wd * 0.15, pa[1]), (pb[0] - wd * 0.15, pb[1])], fill=(70, 62, 74), width=max(1, wd // 5))
+            dibujar_patas((3, 2))
+        # cuerpo (con transformación: rebote, inclinación, aplastado)
+        img = np.dstack([base.c, base.a[..., None] * 255]).astype(np.float32)
+        M = cv2.getRotationMatrix2D((760, 900), p["tilt"], 1.0)
+        M[1, 2] += p["bob"] - (1 - p["squash"]) * 0
+        sy = p["squash"]
+        M = np.vstack([M, [0, 0, 1]]) @ np.array([[1, 0, 0], [0, sy, 900 * (1 - sy)], [0, 0, 1]])
+        warped = cv2.warpAffine(img, M[:2], (W, H), flags=cv2.INTER_LINEAR, borderValue=(0, 0, 0, 0))
+        a = warped[..., 3:4] / 255
+        out.c = out.c * (1 - a) + warped[..., :3] * a
+        out.a = np.maximum(out.a, a[..., 0])
+        if not flip:
+            dibujar_patas((0, 1))
+        else:
+            dibujar_patas((3, 2, 0, 1))
+        self._ojos(out, p, M, flip)
+        return out.imagen()
 
-    # ---------- ojos (canicas en el canto frontal de las hojas) ----------
-    fc = B2C((0, 0, D_ / 2 + BF))
-    nrm = Rb @ np.array([0, 0, 1.0]); nrm = cam.R @ nrm
-    if nrm[2] > 0.05:
-        lx_, ly_ = p["look"]
-        eyes = []
-        for ex in (-0.20, 0.14):
-            q = (ex * L_, 0.02, D_ / 2 + bulge(ex + 0.5, 0.5, BF) + 0.004)
-            c = B2C(q); eyes.append((cam.proj(c), cam.scale(c)))
-        r0 = 0.058
-        d = ImageDraw.Draw(img)
-        for (sx, sy), k in eyes:
-            r = r0 * k
-            soc = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-            ImageDraw.Draw(soc).ellipse([sx - r * 1.45, sy - r * 1.2, sx + r * 1.45, sy + r * 1.55], fill=(110, 74, 40, 120))
-            img.alpha_composite(soc.filter(ImageFilter.GaussianBlur(3 * SS)))
-            d = ImageDraw.Draw(img)
-            ry = r * (1 - 0.92 * p["blink"])
-            d.ellipse([sx - r, sy - ry, sx + r, sy + ry], fill=NEGRO)
+    def _pata(self, L, i, hip, ground, ph, p, flip):
+        sw = 34 * ph
+        lift = 26 * max(0.0, math.cos(2 * math.pi * 0) * ph) if p["leg"] is not None else 0
+        sp = p["spread"] * 50 * (1 if hip[0] > 700 else -1)
+        if flip:
+            cm = ((2.6, 3.0), (12.4, 3.0), (12.4, 20.0), (2.6, 20.0))[i]
+            q = uv(*cm); hip = np.array([1500 - q[0], q[1]])
+            side = 1 if hip[0] > 750 else -1
+            foot = hip + np.array([side * 20 + sp * 0.8 + sw * 0.6, -200 - sw * 0.5])
+            knee = hip + np.array([side * 30 + sp * 0.3, -105])
+        else:
+            foot = np.array([hip[0] + sw * 0.9 + sp, ground - max(0, ph) * 22 * (1 if p["leg"] is not None else 0) + p["bob"] * 0])
+            knee = (hip + foot) / 2 + np.array([(16 if hip[0] > 700 else -16) + sp * 0.2, 6])
+        pata(L, hip + [0, p["bob"]], knee + [0, p["bob"] * 0.6], foot, 58 if i < 2 else 48)
+
+    def _ojos(self, L, p, M, flip):
+        for ex, ey in ((470, 735), (760, 756)):
+            if flip:
+                ex = 1500 - ex
+            pt = (M @ np.array([ex, ey, 1]))[:2]
+            if flip:
+                pt = np.array([pt[0], pt[1]])
+            r = 33
+            soc = np.zeros((H, W), np.uint8)
+            cv2.ellipse(soc, (int(pt[0]), int(pt[1] + 4)), (int(r * 1.45), int(r * 1.3)), 0, 0, 360, 255, -1, cv2.LINE_AA)
+            soc = cv2.GaussianBlur(soc, (0, 0), 7)
+            L.sobre(soc, np.array([120, 84, 52.]), 0.5)
+            ry = max(2, int(r * (1 - 0.92 * p["blink"])))
+            ob = np.zeros((H, W), np.uint8)
+            cv2.ellipse(ob, (int(pt[0]), int(pt[1])), (r, ry), 0, 0, 360, 255, -1, cv2.LINE_AA)
+            L.pegar(ob, np.array([18, 14, 20.]), 2)
             if p["blink"] < 0.6:
-                hx, hy = sx + lx_ * r * 0.2 - r * 0.34, sy + ly_ * r * 0.18 - ry * 0.4
-                d.ellipse([hx - r * 0.27, hy - r * 0.27, hx + r * 0.27, hy + r * 0.27], fill=(255, 255, 255))
-                d.ellipse([sx + r * 0.25, sy + ry * 0.35, sx + r * 0.6, sy + ry * 0.7], fill=(70, 66, 90))
-        if p["mad"] > 0:                                          # ceño
-            (xa, ya), ka = min(eyes, key=lambda e: e[0][0]); (xb, yb), kb = max(eyes, key=lambda e: e[0][0])
-            r = r0 * ka
-            d.line([(xa - r * 1.4, ya - r * 2.0), (xa + r * 1.3, ya - r * 1.05)], fill=NEGRO, width=int(r * 0.5))
-            d.line([(xb + r * 1.4, yb - r * 2.0), (xb - r * 1.3, yb - r * 1.05)], fill=NEGRO, width=int(r * 0.5))
-
-    img = img.resize(size, Image.LANCZOS)
-    if p["dx"] or p["dy"]:
-        out = Image.new("RGBA", size, (0, 0, 0, 0)); out.alpha_composite(img, (int(p["dx"]), int(p["dy"]))) if p["dx"] >= 0 and p["dy"] >= 0 else out.paste(img, (int(p["dx"]), int(p["dy"])))
-        img = out
-    return img
+                lx, ly = p["look"]
+                hl = np.zeros((H, W), np.uint8)
+                cv2.circle(hl, (int(pt[0] - 10 + lx * 6), int(pt[1] - 11 + ly * 5)), 9, 255, -1, cv2.LINE_AA)
+                L.sobre(hl, np.array([255, 255, 255.]), 0.95)
+                hl2 = np.zeros((H, W), np.uint8)
+                cv2.circle(hl2, (int(pt[0] + 11), int(pt[1] + 11)), 5, 255, -1, cv2.LINE_AA)
+                L.sobre(hl2, np.array([120, 116, 150.]), 0.6)
+        if p["mad"] > 0:
+            for (x0, y0, x1, y1) in ((395, 672, 520, 706), (830, 692, 715, 706)):
+                a, b = (M @ np.array([x0, y0, 1]))[:2], (M @ np.array([x1, y1, 1]))[:2]
+                m = mask_line(a, b, 12)
+                L.pegar(m, np.array([30, 20, 20.]), 0)
 
 
 POSES = [
-    ("sentado mirando", dict(lean=-9, look=(0.7, 0.3))),
-    ("olfatea", dict(lean=10, look=(0.8, 0.9), turn=-44)),
-    ("camina A", dict(leg=0.0, bob=0.0, turn=-55)),
-    ("camina B", dict(leg=0.5, bob=0.02, turn=-55)),
-    ("salta", dict(lean=-16, bob=0.35, spread=1.0, look=(0, -1), turn=-25)),
-    ("de espaldas", dict(roll=180, spread=1.0, blink=0.7, bob=0.0, pitch=30)),
-    ("enojado", dict(mad=1, lean=5, turn=-20)),
-    ("parpadea", dict(blink=1, lean=-4, turn=-36)),
+    ("sentado mirando", dict(tilt=-3, look=(0.6, 0.2))),
+    ("camina A", dict(leg=0.0, bob=-8)),
+    ("camina B", dict(leg=0.5, bob=6)),
+    ("olfatea", dict(tilt=4, look=(0.8, 0.9), bob=14)),
+    ("salta", dict(tilt=-6, bob=-120, spread=1, look=(0, -1))),
+    ("de espaldas", dict(flip=True, spread=1, blink=0.6)),
+    ("enojado", dict(mad=1, tilt=2)),
+    ("parpadea", dict(blink=1)),
 ]
 
 
-def sheet(path):
-    cols = 4
-    cw, ch = 560, 440
-    S = Image.new("RGB", (cols * cw, 2 * ch), (64, 90, 74))
+def hoja(path):
+    M = Mascota()
+    cols, cw, ch = 4, 560, 520
+    S = Image.new("RGB", (cols * cw, 2 * ch), (70, 94, 78))
     for i, (n, pz) in enumerate(POSES):
-        im = draw(pz, (cw, ch))
+        im = M.frame(pz).crop((150, 20, 1300, 1090)).resize((cw, int(cw * 1070 / 1150)), Image.LANCZOS)
         S.paste(im, ((i % cols) * cw, (i // cols) * ch), im)
-        ImageDraw.Draw(S).text(((i % cols) * cw + 10, (i // cols) * ch + 8), n, fill=(255, 255, 255))
     S.save(path)
 
 
 if __name__ == "__main__":
-    sheet(sys.argv[1] if len(sys.argv) > 1 else "mascota_hoja.png")
+    hoja(sys.argv[1] if len(sys.argv) > 1 else "mascota_hoja.png")
