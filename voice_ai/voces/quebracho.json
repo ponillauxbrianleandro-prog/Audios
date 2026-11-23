@@ -1,18 +1,27 @@
 {
  "nombre": "Quebracho",
- "version": 5,
- "descripcion": "Voz de narrador del autor para documentales: clon (Qwen3-TTS Base 1.7B) del tramo voces/quebracho_ref.wav + quebracho_ref.txt, sin postproceso de tono. v5: remuestreo 24->48 kHz con filtro antiimagen (resample_poly; antes np.interp dejaba aliasing >12 kHz), SIN estiramiento de tiempo (rubberband daba phasiness/eco: las frases cortas se rellenan con silencio; atempo <=1,08 solo si se pasan), SIN compresor ni limitador activo (solo ganancia a -14 dBFS RMS, pico <=0,70), graves +2,5 dB en 130 Hz.",
+ "version": 6,
+ "descripcion": "Voz de narrador del autor para documentales: clon (Qwen3-TTS Base 1.7B) del tramo voces/quebracho_ref.wav + quebracho_ref.txt. v6: tomas irregulares (viva T0,62 / sobria T0,45, patrón fijo en mezcla_tomas.py), más grave y gruesa en UN solo paso de Praat (mediana x0,84 con microderiva ±1 %, formantes x0,93, rango de entonación sin cambio), EQ de cuerpo (+2,5 dB 220 Hz, +1,5 dB 380 Hz, +2 dB 2,6 kHz) y compresión paralela; picos de la voz controlados (cresta 10 dB).",
  "medido": {
-  "nivel_voz_activa_dbfs": -15.1,
-  "energia_sobre_12khz_db": -71,
-  "paso_mediano_F0_cents": 31.5,
-  "saltos_mayores_200c_pct": 1.05,
-  "audio_final_lufs": -15.8
+  "F0_mediana_hz": 130,
+  "jitter_pct": 2.42,
+  "shimmer_pct": 9.78,
+  "F0_sd_semitonos": 3.48,
+  "CV_ritmo": 0.44,
+  "saltos_200c_pct": 1.16,
+  "cresta_voz_db": 10.1,
+  "voz_menos_musica_db": 19.9,
+  "voz_menos_ambiente_db": 21.3,
+  "voz_menos_efectos_db": 14.5,
+  "audio_final_lufs": -16.6,
+  "pico_verdadero_dbtp": -1.55
  },
  "pipeline": [
-  "python v14_voz.py -> cache_v14/raw",
-  "VOZ_CACHE=cache_v14 PERFIL_JSON=perfil_quebracho3.json python sonido8.py --voz (sin GANANCIA: ya no hay compresor)",
-  "sonido8.py --central y sonido_v10.py con VOZ_CACHE=cache_v14"
+  "python v14_voz.py y la generación v13 (v13_voz.py) -> cache_v14/raw y cache_v13/raw",
+  "python mezcla_tomas.py -> cache_v16/raw (patrón irregular de tomas)",
+  "VOZ_CACHE=cache_v16 PERFIL_JSON=perfil_quebracho3.json python sonido8.py --voz",
+  "VOZ_CACHE=cache_v16 python sonido8.py --central ; python sonido_v10.py (ducking: música -20 dB y ambiente -10,5 dB bajo la voz; normalización por sonoridad + limitador de pico verdadero con lookahead)",
+  "python validar_audio.py (siempre; falla con código 1)"
  ],
  "ajustes": "RANGO_NEUTRO/RANGO_ALTO y TEMP en v14_voz.py; GANANCIA controla el volumen (no lineal por el limitador)",
  "pendiente": "el rango de entonación sale entre 67 y 88 Hz (objetivo 62): si sigue exaltada, generar más tomas con temperatura 0,35 y elegir las de menor rango",
@@ -24,5 +33,5 @@
   "episodio-005-vetusodon/render/voz_proceso.py",
   "episodio-005-vetusodon/render/sonido8.py"
  ],
- "limite": "El timbre 'de codec' del clon de 9 s con este modelo abierto no se arregla con DSP: si sigue sonando robótico, la ruta es generar las frases con la herramienta original (guion_para_voz.txt) y ajustarlas a los tiempos."
+ "limite": "El timbre 'de códec' del clon de 9 s con este modelo abierto no se arregla con DSP; si sigue sonando robótico, la ruta es generar las frases con la herramienta original (guion_para_voz.txt)."
 }

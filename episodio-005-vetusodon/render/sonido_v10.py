@@ -60,7 +60,10 @@ def _normaliza(x, nombre):
         w.setframerate(SR)
         w.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
     out = V / "audio" / f"_{nombre}_n.wav"
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(SR), str(out)], check=True)
+    if S.V16M:
+        S.loudnorm2(raw, out)
+    else:
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(SR), str(out)], check=True)
     return S.rw(out, 2)
 
 
@@ -80,7 +83,13 @@ def parte(c, plan_clima, booms, sfx_fn, nombre):
     sfx_fn(fx, c)
     env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
     env = uniform_filter1d(np.clip(env / 0.10, 0, 1), int(0.25 * SR), mode="nearest")
-    out = voz + mus * (1 - 0.60 * env)[:, None] * 0.95 + fx * 0.9
+    if S.V16M:
+        env = S.env_duck(voz[:, 0])
+        mus_d = mus * (1 - S.DUCK_MUS * env)[:, None] * 0.95
+        out = voz * S.GVOZ + mus_d + fx * 0.9
+        S.guardar_estudio(nombre, voz[:, 0] * S.GVOZ, (mus_d + fx * 0.9).mean(1), dict(mus=mus_d.mean(1), fx=(fx * 0.9).mean(1)))
+    else:
+        out = voz + mus * (1 - 0.60 * env)[:, None] * 0.95 + fx * 0.9
     f = int(0.5 * SR)
     out[-f:] *= np.linspace(1, 0, f)[:, None]
     return _normaliza(out, nombre)

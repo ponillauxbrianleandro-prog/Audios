@@ -126,3 +126,18 @@ def deriva_bandas(x, sr, T0, D):
 def deriva_ganancia(x, sr, T0, D):
     t = np.arange(len(x)) / sr + T0
     return x * (1.0 + D.f(D.ganancia, t) * 3.5)                               # ±1 % de deriva ≈ ±0,3 dB de ganancia
+
+
+def grave(x, sr, T0, D, factor=0.84, formantes=0.93):
+    """Voz más grave y gruesa en UN solo paso de Praat (PSOLA): mediana de la frase x0,84 (con la microderiva lenta de ±1 %), formantes x0,93,
+    rango de entonación SIN cambio (no se aplana) y sin segunda resíntesis. La mediana de cada frase se conserva relativa, así que la variedad
+    natural entre frases se mantiene."""
+    import parselmouth
+    from parselmouth.praat import call
+    s = parselmouth.Sound(x, sr)
+    p = s.to_pitch(pitch_floor=75, pitch_ceiling=350).selected_array["frequency"]
+    p = p[p > 0]
+    if len(p) < 10:
+        return x
+    nuevo = float(np.median(p)) * factor * (1.0 + D.tono_en(T0))
+    return call(s, "Change gender", 75, 350, formantes, nuevo, 1.0, 1.0).values[0].astype(np.float64)

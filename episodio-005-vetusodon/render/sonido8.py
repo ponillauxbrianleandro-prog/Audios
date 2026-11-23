@@ -62,6 +62,10 @@ def put(buf, x, t, gain=1.0):
 
 # ------------------------------------------------------------------ voz
 GANANCIA = float(os.environ.get("GANANCIA", "5.0"))
+CRESTA_DB = float(os.environ.get("CRESTA_DB", "9.5"))                 # cresta objetivo de la voz (dB entre pico y RMS activo)
+CRESTA = 1.0
+NIVEL_VOZ = float(os.environ.get("NIVEL_VOZ", "-14.3"))                 # RMS activo de cada frase (dBFS)
+PICO_VOZ = float(os.environ.get("PICO_VOZ", "0.50"))
 RANGO13 = float(os.environ.get("RANGO13", "0.72"))                    # factor del rango de entonación de la voz v13 (1,0 = sin cambio)
 
 
@@ -75,7 +79,8 @@ def procesar_voz():
     DURS11 = json.loads((VOZ / "durs_v11.json").read_text())
     DER = VP.Derivas()
     V13 = os.environ.get("VOZ_CACHE") == "cache_v13"                    # voz «Quebracho v3»: clonada de la grabación del autor, solo se neutraliza la entonación
-    V14 = os.environ.get("VOZ_CACHE") == "cache_v14"                    # voz «Quebracho v4»: sin resíntesis de tono ni saturación; neutralidad elegida en la generación
+    V16 = os.environ.get("VOZ_CACHE") == "cache_v16"                    # voz «Quebracho v6»: tomas irregulares, más grave y gruesa, un solo paso de Praat
+    V14 = V16 or os.environ.get("VOZ_CACHE") == "cache_v14"             # sin resíntesis de tono ni saturación; neutralidad elegida en la generación
     NUEVA = V13 or V14 or os.environ.get("VOZ_CACHE") == "cache_v12"    # sin cambio de formantes
     for f in sorted(raw.glob("*.wav")):
         if f.name.endswith(".tmp.wav"):
@@ -86,7 +91,9 @@ def procesar_voz():
             x = x.mean(1)
         import voz_proceso as VP
         T0 = TIEMPOS.get(f.stem, 0.0)
-        if V14:
+        if V16:
+            x = VP.grave(x, sr, T0, DER)                                # mediana x0,84 con microderiva, formantes x0,93, rango sin cambio
+        elif V14:
             pass                                                        # la voz se deja tal cual salió del clon
         elif V13:
             x = VP.neutralizar(x, sr, RANGO13)                          # menos exaltada: baja el rango de entonación; timbre y formantes intactos
@@ -118,7 +125,13 @@ def procesar_voz():
         x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
         tmp = fin / "_tmp.wav"
         sf.write(str(tmp), x.astype(np.float32), SR, subtype="FLOAT")
-        if V14:
+        if V16:
+            cadena = ("highpass=f=60,equalizer=f=220:t=q:w=0.9:g=2.5,equalizer=f=380:t=q:w=1.0:g=1.5,equalizer=f=2600:t=q:w=1.0:g=2,"
+                      "asplit=2[a][b];[b]acompressor=threshold=0.025:ratio=4:attack=12:release=180:makeup=3[c];[a][c]amix=inputs=2:weights=1 0.3:normalize=0")   # grosor + compresión paralela
+            tempo = min(1.08, (len(x) / SR) / DURS11[f.stem]) if f.stem in DURS11 else 1.0
+            if tempo > 1.02:
+                cadena = "atempo=%.4f," % tempo + cadena
+        elif V14:
             cadena = "highpass=f=50,equalizer=f=130:t=q:w=1.2:g=2.5,alimiter=limit=0.95:level=disabled"      # graves profundos; limitador solo de seguridad
             tempo = min(1.08, (len(x) / SR) / DURS11[f.stem]) if f.stem in DURS11 else 1.0
             if tempo > 1.02:                                            # solo si la frase se pasa del hueco; nunca se estira: lo corto se rellena con silencio
@@ -135,6 +148,18 @@ def procesar_voz():
                 cadena = "rubberband=tempo=1.28:pitchq=quality," + cadena
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", cadena, "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / f.name)], check=True)
         y = rw(fin / f.name)[:, 0]
+        if V16:                                                         # voz más alta sin recortar: limitador rápido de picos sueltos (cresta ≈10 dB) y nivel -14,3 dBFS RMS
+            act = y[np.abs(y) > 0.02]
+            rms = np.sqrt((act ** 2).mean()) if len(act) else 0.1
+            sf.write(str(fin / "_tmp2.wav"), y.astype(np.float32), SR, subtype="FLOAT")
+            lim = min(1.0, max(0.0625, rms * CRESTA ** 0.5 * 0 + rms * 10 ** (CRESTA_DB / 20)))
+            subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(fin / "_tmp2.wav"), "-af", "alimiter=limit=%.4f:attack=3:release=60:level=disabled" % lim,
+                            "-ar", str(SR), "-c:a", "pcm_s16le", str(fin / "_tmp3.wav")], check=True)
+            y = rw(fin / "_tmp3.wav")[:, 0]
+            act = y[np.abs(y) > 0.02]
+            y = y * (10 ** (NIVEL_VOZ / 20) / (np.sqrt((act ** 2).mean()) + 1e-9)) if len(act) else y
+            if np.abs(y).max() > PICO_VOZ:
+                y = y * (PICO_VOZ / np.abs(y).max())
         if f.stem in DURS11:                                            # congela la duración de la v11: subtítulos y tarjetas siguen alineados
             n = int(round(DURS11[f.stem] * SR))
             if len(y) > n:
@@ -149,6 +174,70 @@ def procesar_voz():
         durs[f.stem] = len(x) / SR
     (VOZ / "durs.json").write_text(json.dumps(durs))
     print(len(durs), "frases procesadas")
+
+
+# ------------------------------------------------------------------ mezcla v16: voz sobre música, sin recorte
+V16M = os.environ.get("VOZ_CACHE") == "cache_v16"
+GVOZ = float(os.environ.get("GVOZ", "1.0"))                              # ganancia de la voz en la mezcla (lineal)
+DUCK_MUS = float(os.environ.get("DUCK_MUS", "0.90"))                    # 0,90 -> música -20 dB bajo la voz
+DUCK_AMB = float(os.environ.get("DUCK_AMB", "0.70"))                     # 0,70 -> ambiente -10,5 dB bajo la voz
+
+
+def seguidor(env, paso, ataque, release):
+    a, r = np.exp(-paso / ataque), np.exp(-paso / release)
+    y = np.empty_like(env)
+    v = 0.0
+    for i, e in enumerate(env):
+        c = a if e > v else r
+        v = c * v + (1 - c) * e
+        y[i] = v
+    return y
+
+
+def env_duck(voz, umbral=0.08, ataque=0.06, release=0.40, pre=0.08):
+    """Envolvente de ducking suave (ataque 60 ms, release 400 ms), anticipada 80 ms; 0 = sin voz, 1 = voz plena."""
+    from scipy.ndimage import uniform_filter1d
+    e = np.clip(uniform_filter1d(np.abs(voz), int(0.10 * SR), mode="nearest") / umbral, 0, 1)
+    fr = int(0.01 * SR)
+    m = len(e) // fr
+    d = seguidor(e[:m * fr].reshape(m, fr).mean(1), 0.01, ataque, release)
+    k = int(round(pre / 0.01))
+    d = np.concatenate([d[k:], np.zeros(k)])
+    return np.interp(np.arange(len(e)) / fr, np.arange(m) + 0.5, d)
+
+
+def guardar_estudio(nombre, voz, cama, comps=None):
+    """Guarda el RMS por cuadros de 20 ms de la voz y de la cama (música+ambiente+efectos), para validar_audio.py."""
+    fr = int(0.02 * SR)
+    m = len(voz) // fr
+    rv = np.sqrt((voz[:m * fr].reshape(m, fr) ** 2).mean(1) + 1e-12)
+    rc = np.sqrt((cama[:m * fr].reshape(m, fr) ** 2).mean(1) + 1e-12)
+    (VIDEO / "audio").mkdir(parents=True, exist_ok=True)
+    extra = {}
+    for k, z in (comps or {}).items():
+        extra[k] = np.sqrt((z[:m * fr].reshape(m, fr) ** 2).mean(1) + 1e-12).astype(np.float32)
+    np.savez(VIDEO / "audio" / f"estudio_{nombre}.npz", voz=rv.astype(np.float32), cama=rc.astype(np.float32), **extra)
+
+
+def loudnorm2(entrada, salida, I=-16.0, TP=-1.5):
+    """Lleva el audio a I LUFS con ganancia lineal (la misma sonoridad de siempre para música/efectos) y un limitador de pico verdadero con lookahead
+    (ataque 40 ms + uno de seguridad de 2 ms) SOLO para no pasar de TP dBTP; reemplaza al limitador de loudnorm, que bombeaba sobre los graves."""
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(entrada), "-af", f"loudnorm=I={I}:TP={TP}:LRA=11:print_format=json", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    j = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+    g = I - float(j["input_i"])
+    lim = 10 ** (TP / 20)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(entrada), "-af", f"volume={g:.3f}dB,alimiter=limit=0.88:attack=40:release=300:level=disabled,alimiter=limit={lim * 0.93:.4f}:attack=2:release=50:level=disabled", "-ar", "48000", str(salida)], check=True)
+    r2 = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(salida), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
+    tp_out = float(json.loads(r2.stderr[r2.stderr.rindex("{"):r2.stderr.rindex("}") + 1])["input_tp"])
+    extra = 0.0
+    if tp_out > TP:                                                     # el limitador de muestras deja pasar picos entre muestras: se corrige con una bajada lineal mínima
+        extra = TP - tp_out - 0.05
+        tmp = Path(str(salida) + ".tmp.wav")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(salida), "-af", f"volume={extra:.3f}dB", "-ar", "48000", str(tmp)], check=True)
+        tmp.replace(salida)
+    print(f"normalización: {g:+.2f} dB (LUFS {float(j['input_i']):.1f} -> {I:.1f}); pico antes del limitador {float(j['input_tp']) + g:+.2f} dBTP (techo {TP}); corrección final {extra:+.2f} dB")
+    return g
 
 
 # ------------------------------------------------------------------ efectos
@@ -469,11 +558,18 @@ def mezclar(central=False):
                 put(fx, tierra_que_cae(), (c["t0"] - base) + tt, 0.8)
     # bajar la música y el ambiente bajo la voz
     from scipy.ndimage import uniform_filter1d
-    env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
-    env = np.clip(env / 0.10, 0, 1)
-    env = uniform_filter1d(env, int(0.25 * SR), mode="nearest")
-    duck = 1 - 0.70 * env
-    out = voz * 1.0 + mus * duck[:, None] * 0.95 + amb * (1 - 0.35 * env)[:, None] * 1.0 + fx * 0.9
+    if V16M:
+        env = env_duck(voz[:, 0])
+        mus_d, amb_d = mus * (1 - DUCK_MUS * env)[:, None] * 0.95, amb * (1 - DUCK_AMB * env)[:, None]
+        out = voz * GVOZ + mus_d + amb_d + fx * 0.9                     # efectos y booms: sin cambios (ni ducking ni limitador)
+        guardar_estudio("central" if central else "completo", voz[:, 0] * GVOZ, (mus_d + amb_d + fx * 0.9).mean(1),
+                        dict(mus=mus_d.mean(1), amb=amb_d.mean(1), fx=(fx * 0.9).mean(1)))
+    else:
+        env = uniform_filter1d(np.abs(voz[:, 0]), int(0.18 * SR), mode="nearest")
+        env = np.clip(env / 0.10, 0, 1)
+        env = uniform_filter1d(env, int(0.25 * SR), mode="nearest")
+        duck = 1 - 0.70 * env
+        out = voz * 1.0 + mus * duck[:, None] * 0.95 + amb * (1 - 0.35 * env)[:, None] * 1.0 + fx * 0.9
     out *= 0.9 / (np.abs(out).max() + 1e-9)
     (VIDEO / "audio").mkdir(parents=True, exist_ok=True)
     raw = VIDEO / "audio" / ("central_crudo.wav" if central else "vetusodon_crudo.wav")
@@ -483,7 +579,10 @@ def mezclar(central=False):
         w.setframerate(SR)
         w.writeframes((np.clip(out, -1, 1) * 32767).astype("<i2").tobytes())
     fin = VIDEO / "audio" / ("central.wav" if central else "vetusodon.wav")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000", str(fin)], check=True)
+    if V16M:
+        loudnorm2(raw, fin)
+    else:
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000", str(fin)], check=True)
     print("audio listo:", fin, f"{len(out) / SR:.1f} s")
 
 
