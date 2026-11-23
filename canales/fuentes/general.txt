@@ -1,0 +1,158 @@
+# ESTILO ARTÍSTICO GENERAL Y REGLAS VISUALES OBLIGATORIAS
+
+Este documento establece la identidad visual compartida por los dos canales. Todas las ilustraciones, animaciones, personajes, escenarios, animales, paisajes, efectos de iluminación y movimientos de cámara deben respetar estas reglas.
+
+## 1. Filosofía visual: 2D con apariencia tridimensional
+
+El objetivo es conseguir un estilo de animación 2D extraordinariamente elaborado, con profundidad, volumen, iluminación, perspectiva y movimiento cinematográfico.
+
+No queremos modelos 3D convencionales ni personajes que parezcan modelos tridimensionales superpuestos sobre ilustraciones planas. Tampoco queremos dibujos 2D planos que intenten simular profundidad mediante unas pocas sombras.
+
+Queremos ilustraciones 2D con una construcción visual tridimensional.
+
+Cada personaje debe sentirse como un objeto volumétrico que existe dentro del escenario. Los cuerpos deben tener anatomía, grosor, perspectiva, profundidad y una distribución coherente de luces y sombras.
+
+Los ojos, extremidades, plumas, pelaje, escamas, ropa y demás elementos deben integrarse naturalmente en el cuerpo. Nunca deben parecer elementos flotantes pegados encima de una superficie.
+
+La profundidad debe construirse mediante:
+
+- Superposición de volúmenes.
+- Perspectiva anatómica.
+- Iluminación ambiental.
+- Sombras de contacto.
+- Oclusión entre partes del cuerpo.
+- Diferencias de escala.
+- Desenfoque ambiental cuando corresponda.
+- Perspectiva de cámara.
+- Movimiento de cámara que revele diferentes planos del personaje.
+- Animaciones que mantengan la continuidad espacial.
+
+El resultado debe ser cinematográfico, expresivo, hermoso y visualmente reconocible.
+
+## 2. Regla fundamental de cámara: nunca mostrar personajes completamente planos de perfil
+
+Esta es una de las reglas más importantes de toda la producción.
+
+Los animales y personajes no deben permanecer orientados hacia un único lateral de manera completamente plana. Evitar las vistas ortográficas de perfil, en las que solamente se aprecia un costado del cuerpo.
+
+La cámara debe trabajar constantemente con perspectivas de tres cuartos, movimientos orbitales, pequeños cambios de orientación y desplazamientos que permitan apreciar la profundidad real del personaje.
+
+Cuando un animal camine, corra, gire, mire al espectador o interactúe con otro personaje, su cuerpo debe conservar una perspectiva volumétrica.
+
+La cámara debe permitir descubrir diferentes partes del cuerpo a medida que cambia el ángulo.
+
+No se trata de girar arbitrariamente a los personajes, sino de construir una puesta en escena tridimensional mediante ilustraciones 2D.
+
+Las vistas superiores e inferiores pueden utilizarse cuando la composición lo requiera. También pueden existir momentos de orientación lateral parcial, siempre que no se conviertan en una representación completamente plana y estática.
+
+El objetivo es que el espectador siempre perciba un animal completo, reconocible y con volumen.
+
+## 3. Composición cromática: el entorno debe tener personalidad
+
+Evitar las combinaciones genéricas y homogéneas de colores.
+
+Un paisaje no debe limitarse a tierra gris, árboles verdes, cielo azul, nubes blancas y un animal marrón. Esa distribución automática de colores produce escenarios genéricos y sin identidad.
+
+La composición cromática debe construirse a partir del ambiente real que se quiere representar.
+
+Hay que considerar:
+
+- La hora del día.
+- La estación del año.
+- El clima.
+- La temperatura ambiental.
+- La vegetación predominante.
+- El tipo de terreno.
+- La humedad.
+- La presencia de agua.
+- Las condiciones atmosféricas.
+- La luz natural y artificial.
+- Los colores predominantes de la fauna y la flora.
+
+El escenario debe tener una identidad cromática propia.
+
+Un atardecer puede teñir el paisaje entero de tonalidades anaranjadas, rojizas y doradas. Una mañana fría puede utilizar azules suaves, blancos y tonos apagados. Un bosque húmedo puede adquirir una composición de verdes profundos, ocres y reflejos ambientales.
+
+Los colores no deben aparecer simplemente porque corresponden a un objeto. Deben pertenecer a una composición visual coherente.
+
+## 4. Jerarquía cromática
+
+Cada escena debe tener un color predominante que defina su personalidad.
+
+Ese color principal debe dominar visualmente el escenario, especialmente cuando el clima, el momento del día o la iluminación generan una atmósfera muy marcada.
+
+Los colores secundarios deben utilizarse para dar profundidad, separar elementos y crear puntos de interés.
+
+Los colores del animal protagonista deben integrarse con el entorno, sin desaparecer dentro de él. Se pueden utilizar tonalidades relacionadas, complementarias o contrastantes para destacar su silueta.
+
+Evitar que todos los elementos tengan la misma intensidad cromática.
+
+El resultado debe parecer una composición cinematográfica deliberada, no una colección de objetos coloreados independientemente.
+
+## 5. Iluminación y profundidad
+
+La iluminación debe ser una parte fundamental del diseño.
+
+No iluminar todos los objetos de la misma manera. La luz debe responder a una fuente concreta y afectar de manera coherente a los animales, las plantas, el terreno, el agua y la atmósfera.
+
+Utilizar:
+
+- Luz ambiental.
+- Luz directa.
+- Sombras proyectadas.
+- Reflejos.
+- Contraluces.
+- Luz volumétrica cuando corresponda.
+- Brillos naturales sobre superficies.
+- Variaciones de intensidad según la distancia.
+- Iluminación atmosférica.
+
+Los animales deben recibir la misma iluminación ambiental que el escenario. No deben parecer personajes recortados y colocados sobre un fondo.
+
+La profundidad se debe percibir incluso en imágenes estáticas.
+
+## 6. Movimiento y animación
+
+Los personajes deben tener movimiento natural y continuo.
+
+Evitar movimientos rígidos, mecánicos o excesivamente limitados a unas pocas poses.
+
+Los cuerpos deben reaccionar al desplazamiento, al peso, a la gravedad, al contacto con el suelo y a las interacciones con otros objetos.
+
+Las extremidades deben tener continuidad anatómica. El cuerpo debe conservar su volumen durante los giros y las deformaciones propias de la animación.
+
+Utilizar anticipación, aceleración, desaceleración, seguimiento del movimiento y pequeñas reacciones secundarias.
+
+Las animaciones cómicas pueden exagerarse, pero deben conservar una buena lectura visual.
+
+## 7. Escenarios cinematográficos
+
+Los escenarios deben tener profundidad y personalidad.
+
+No construir fondos genéricos que solamente sirvan para ubicar al animal.
+
+La vegetación, las rocas, el agua, las nubes, la nieve, el polvo, las partículas ambientales y los demás elementos deben participar de la composición.
+
+Cada escenario debe parecer un lugar real, con una atmósfera reconocible y una distribución de elementos pensada para la cámara.
+
+La composición debe permitir que el animal protagonista destaque sin necesidad de eliminar la riqueza visual del entorno.
+
+## 8. Regla de coherencia entre los canales
+
+Ambos canales comparten esta filosofía artística:
+
+- Animación 2D de gran calidad.
+- Profundidad tridimensional construida mediante ilustración.
+- Personajes volumétricos.
+- Perspectivas cinematográficas.
+- Iluminación ambiental coherente.
+- Colores predominantes determinados por el entorno.
+- Escenarios con identidad visual.
+- Movimiento fluido.
+- Integración natural entre personajes y fondos.
+- Ausencia de modelos 3D convencionales.
+- Ausencia de personajes planos de perfil.
+
+Las diferencias entre canales deben aparecer en sus respectivos estilos artísticos particulares, que se especifican en documentos adicionales.
+
+OBJETIVO FINAL: conseguir una animación 2D con una profundidad visual extraordinaria, una identidad cromática cinematográfica y personajes que parezcan existir físicamente dentro de sus escenarios. Cada fotograma debe sentirse como una ilustración cuidadosamente compuesta de una producción animada de alta calidad.

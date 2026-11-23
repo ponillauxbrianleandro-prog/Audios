@@ -1,0 +1,77 @@
+# VOZ ORIGINAL: EL GUÍA AUSTRALIANO (PRESENTADOR Y GUÍA DEL CANAL)
+
+Diseño de una voz original para el personaje masculino que será el guía y presentador de un canal de documentales y aventuras sobre animales, naturaleza y expediciones.
+
+Este personaje es un australiano con formación y mentalidad de soldado. Aunque actualmente trabaja como guía de safari y viste ropa de explorador, conserva una personalidad marcada por el deber, la disciplina, la responsabilidad y la experiencia.
+
+No es un militar que se dedica a dar órdenes, ni un explorador genérico. Es un hombre que conoce el terreno, sabe observar, tiene experiencia con animales y siente una responsabilidad auténtica por las personas y criaturas que están bajo su cuidado.
+
+## Referencias de personalidad e interpretación
+
+Una combinación conceptual de:
+
+- Arthur Morgan, de Red Dead Redemption 2: voz grave, algo áspera, cálida, pausada y humana. Tiene que transmitir experiencia, carácter, cansancio natural y una personalidad que se percibe incluso cuando habla poco.
+- Saxton Hale, de Team Fortress 2: carisma, seguridad, energía, expresividad y una personalidad muy marcada. Parte de esa presencia y ese entusiasmo, pero sin convertirlo en una caricatura.
+
+No se quiere clonar ni imitar exactamente a los actores originales. Se quiere una identidad vocal propia que reúna características generales de esas interpretaciones.
+
+## Características fundamentales de la voz
+
+- Masculina, adulta, grave y robusta.
+- Barítono bajo, con una textura ligeramente rasposa y natural.
+- Debe sentirse como una voz humana real, no como una voz sintética.
+- Tiene que tener una personalidad reconocible.
+- Habla con seguridad, pero no necesita gritar ni imponerse constantemente.
+- Puede ser relajado, bromista y conversacional cuando está tranquilo.
+- Cuando aparece una situación que requiere atención, su voz se vuelve firme, concentrada y autoritaria.
+- Debe transmitir responsabilidad y sentido del deber.
+- Tiene que poder mostrar sorpresa, entusiasmo, frustración, humor y preocupación sin perder su identidad.
+- Su carisma debe surgir de su manera de hablar y de su personalidad, no de exagerar cada frase.
+
+## Acento e idioma
+
+El personaje es australiano. Su identidad australiana debe percibirse en su interpretación.
+
+Para la versión en español, la voz debe ser clara y comprensible para el público argentino y latinoamericano. Puede conservar una cadencia, una musicalidad y ciertos matices que recuerden a un australiano, pero sin forzar un acento extraño o difícil de entender.
+
+No debe sonar como un argentino común, ni como un doblaje genérico de aventura. Debe sentirse como un personaje australiano que está hablando español.
+
+Su identidad vocal también debe poder adaptarse a portugués brasileño y otros idiomas sin perder su personalidad.
+
+## Personalidad que debe transmitir
+
+Es un hombre de expedición, pero también un hombre de deber.
+
+- Es experimentado y observador.
+- Es protector con los animales y con las personas a su cargo.
+- Tiene paciencia, aunque puede perderla ante situaciones absurdas.
+- Le gusta explicar lo que descubre.
+- Tiene humor, pero no es un payaso.
+- Es seguro de sí mismo, pero no necesita presumir constantemente.
+- Cuando habla de naturaleza, se nota que respeta lo que está observando.
+- Puede entusiasmarse mucho al descubrir un comportamiento animal extraordinario.
+- Tiene una autoridad natural, como alguien acostumbrado a asumir responsabilidades.
+
+## Relación con el pingüino Gunter
+
+Gunter es un pingüino pelusón, territorial, egocéntrico, expresivo y bastante indignado con el mundo.
+
+El guía debe contrastar con él. Mientras Gunter puede comportarse como un pequeño emperador de las instalaciones, el guía es un adulto experimentado que intenta mantener la expedición bajo control.
+
+La voz del guía debe permitir diálogos cómicos y reacciones espontáneas ante las ocurrencias de Gunter, sin perder su carácter.
+
+## Pruebas de interpretación solicitadas
+
+1. Presentando una expedición con seguridad y entusiasmo.
+2. Explicando un comportamiento animal con conocimiento y paciencia.
+3. Descubriendo algo inesperado durante una observación.
+4. Reaccionando con sorpresa ante una situación absurda protagonizada por Gunter.
+5. Recuperando la seriedad y dando una indicación firme cuando la situación requiere responsabilidad.
+
+Además, una prueba de conversación entre el guía y Gunter, donde el guía tenga que reaccionar a las interrupciones y actitudes del pingüino.
+
+## Objetivo final
+
+Una voz memorable, profunda, carismática y humana. Debe sentirse como la de un explorador australiano con pasado y mentalidad de soldado, que encontró su lugar en el mundo como guía de safari.
+
+No debe sonar como Arthur Morgan disfrazado de explorador ni como Saxton Hale haciendo un documental. Debe ser un personaje nuevo, con su propia identidad, que combine profundidad, carácter, carisma, sentido del deber y humor.

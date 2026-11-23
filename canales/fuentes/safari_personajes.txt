@@ -1,0 +1,181 @@
+# DISEÑO CONCEPTUAL, PERSONALIDAD Y COMPORTAMIENTO DE LOS PERSONAJES: SAFARI
+
+## 1. El protagonista del safari
+
+El protagonista es el personaje humano principal del canal.
+
+Es un explorador que recorre diferentes regiones de sabana para encontrar animales, estudiarlos e interactuar con ellos.
+
+No debe comportarse como un presentador convencional. Su personalidad debe transmitirse mediante expresiones faciales, gestos, movimientos corporales y reacciones.
+
+### Personalidad
+
+Debe ser curioso, expresivo, aventurero y capaz de pasar rápidamente de una actitud profesional a una situación completamente absurda.
+
+Puede adoptar una expresión seria y una voz profunda para explicar información biológica, pero continuar realizando movimientos exagerados con las manos y el cuerpo.
+
+Debe transmitir que conoce los animales y que está interesado en estudiarlos.
+
+También puede cometer errores cómicos, reaccionar exageradamente o encontrarse en situaciones que no controla.
+
+### Doble registro de voz
+
+El protagonista debe disponer de dos formas de hablar:
+
+- Registro natural: voz propia del personaje, utilizada durante sus interacciones, reacciones y conversaciones.
+- Registro documental: voz más grave, profunda y seria, utilizada cuando explica características de los animales.
+
+No son dos personajes ni dos narradores diferentes. Es la misma persona utilizando dos registros vocales.
+
+## 2. Robot pingüino macaroni
+
+### Concepto general
+
+El robot es el acompañante principal del explorador.
+
+Su diseño está inspirado en un pingüino macaroni gordito y rechoncho, pero transformado en un pequeño dispositivo robótico con orugas.
+
+Debe tener una apariencia adorable, compacta y reconocible.
+
+No debe parecer un robot humanoide al que simplemente se le colocó una cabeza de pingüino.
+
+Debe conservar la silueta corporal de un pingüino macaroni.
+
+### Anatomía y componentes
+
+- Cuerpo pequeño y extremadamente rechoncho.
+- Silueta inspirada en un pingüino macaroni.
+- Dos pequeñas orugas en la parte inferior para desplazarse.
+- Pantalla central integrada en el cuerpo, funcionando como cabeza y rostro.
+- Dos pequeños ojos rojos situados a los lados de la pantalla.
+- Una línea electrónica en la pantalla que se deforma según el sonido que produce.
+- Diseño compacto, con proporciones adorables.
+- Superficie exterior con textura y patrón inspirado en el pelaje de un jaguar.
+- Detalles de color distribuidos según las diferentes partes del pingüino.
+
+La pantalla debe ser el elemento facial principal.
+
+No colocar una cara humana convencional ni sustituir la línea electrónica por una boca tradicional.
+
+### La línea de la pantalla
+
+La pantalla muestra una línea similar a un indicador de frecuencia de audio.
+
+La línea cambia de forma según el sonido.
+
+Puede:
+
+- Oscilar cuando habla.
+- Vibrar cuando está emocionado.
+- Distorsionarse cuando produce sonidos fuertes.
+- Realizar pequeños movimientos cuando está tranquilo.
+- Generar patrones más pronunciados cuando está enfadado.
+- Mostrar fluctuaciones rápidas cuando reacciona a algo inesperado.
+
+La línea debe convertirse en su principal recurso expresivo.
+
+### Ojos
+
+Los ojos son pequeños y rojos.
+
+Deben estar colocados a ambos lados de la pantalla central.
+
+No deben competir visualmente con ella.
+
+Su función es aportar expresividad y reforzar su identidad de pingüino macaroni.
+
+### Movimiento
+
+El robot se desplaza mediante pequeñas orugas.
+
+Sus movimientos deben ser expresivos y tener personalidad.
+
+Puede avanzar lentamente, acelerar, girar, detenerse de repente y reaccionar ante situaciones inesperadas.
+
+Su pequeño tamaño y su cuerpo rechoncho deben contrastar con su capacidad para participar en situaciones dinámicas.
+
+No debe desplazarse como un vehículo industrial.
+
+Debe conservar movimientos propios de un personaje animado.
+
+## 3. Personalidad del robot
+
+Su personalidad principal es la de un pingüino macaroni.
+
+Es decir, debe tener una identidad de pingüino incluso siendo un robot.
+
+Puede emitir sonidos de pingüino macaroni, especialmente cuando está enfadado, emocionado o reaccionando a una situación.
+
+Sus sonidos pueden mezclarse con efectos electrónicos.
+
+No debe ser únicamente una máquina que habla mediante frases artificiales.
+
+Debe tener reacciones propias, expresividad y comportamientos reconocibles.
+
+### Su faceta narrativa
+
+Cuando el protagonista está ocupado, distraído o fuera de la situación principal, el robot puede asumir el papel de narrador.
+
+En ese momento utiliza una voz absurdamente seria, profunda y profesional.
+
+El contraste entre su apariencia diminuta y su tono de narración es una parte fundamental de su personalidad.
+
+Puede estar explicando una característica anatómica de un depredador mientras permanece completamente tranquilo, aunque esté ocurriendo algo absurdo alrededor.
+
+### Relación con el protagonista
+
+El robot debe funcionar como acompañante permanente.
+
+Puede seguirlo, observarlo, reaccionar a sus decisiones y participar en sus aventuras.
+
+No es simplemente un accesorio tecnológico.
+
+Es un personaje independiente dentro del universo del safari.
+
+Puede tener momentos en los que parece estar mucho más concentrado que el propio protagonista.
+
+También puede reaccionar de manera cómica ante situaciones que el explorador provoca.
+
+## 4. Identidad cromática del robot
+
+Utilizar el patrón de distribución cromática que se había planteado para los pingüinos anteriores, adaptándolo al nuevo diseño de jaguar.
+
+La idea es conservar la distribución reconocible de las zonas oscuras y claras del pingüino, pero sustituir sus colores y texturas por una identidad inspirada en el jaguar.
+
+Las zonas que originalmente corresponderían al negro deben transformarse en tonalidades del pelaje del jaguar y sus características rosetas oscuras.
+
+Las zonas que originalmente corresponderían al blanco deben utilizar una tonalidad secundaria del animal, principalmente crema o beige claro.
+
+Las patas y los detalles inferiores deben utilizar una tonalidad propia de las extremidades del animal elegido, adaptada a la apariencia robótica.
+
+La distribución debe conservar la silueta visual del pingüino, pero producir una combinación de colores reconocible como una fusión entre pingüino macaroni y jaguar.
+
+No colocar manchas de jaguar de manera aleatoria sobre toda la superficie.
+
+Las rosetas deben integrarse con la estructura del cuerpo y seguir la curvatura de los volúmenes.
+
+El resultado debe sentirse como un diseño unificado.
+
+## 5. Jerarquía de personajes
+
+El protagonista humano y el robot son los personajes permanentes principales.
+
+Los animales son los protagonistas de cada encuentro y deben conservar su importancia.
+
+Los personajes secundarios pueden aparecer cuando la situación lo requiera.
+
+El robot no debe sustituir al animal protagonista.
+
+El explorador no debe convertir cada encuentro en una demostración de sus propias capacidades.
+
+La función de ambos personajes es explorar, estudiar, interactuar y aportar personalidad a las situaciones.
+
+## 6. Regla de oro
+
+El protagonista debe sentirse como un explorador real dentro de un universo animado.
+
+El robot debe sentirse como un pequeño pingüino macaroni convertido en una máquina extraordinariamente expresiva.
+
+Los dos deben tener personalidades diferenciadas.
+
+El explorador aporta la aventura y la interacción. El robot aporta acompañamiento, narración alternativa y personalidad. Los animales aportan el conocimiento y el espectáculo principal.

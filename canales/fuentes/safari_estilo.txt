@@ -1,0 +1,253 @@
+# ESTILO ARTÍSTICO PARTICULAR: SAFARI ANIMADO
+
+Este documento complementa obligatoriamente el ESTILO ARTÍSTICO GENERAL Y REGLAS VISUALES OBLIGATORIAS.
+
+No reemplaza ninguna de sus reglas.
+
+## 1. Identidad visual: Clash Royale con realismo cinematográfico
+
+La identidad visual de este canal debe tomar como referencia el estilo artístico de Clash Royale, especialmente su construcción volumétrica de personajes, sus proporciones estilizadas, su expresividad y su capacidad para representar criaturas con una apariencia tridimensional muy reconocible.
+
+Sin embargo, no queremos reproducir literalmente el acabado de un videojuego.
+
+Queremos llevar esa estética hacia una producción animada mucho más realista, cinematográfica y detallada.
+
+El resultado debe combinar:
+
+- Proporciones estilizadas inspiradas en Clash Royale.
+- Personajes volumétricos.
+- Anatomía animal reconocible.
+- Texturas naturales.
+- Iluminación cinematográfica.
+- Profundidad tridimensional.
+- Escenarios de safari elaborados.
+- Expresividad corporal.
+- Movimiento fluido.
+- Composición cromática atmosférica.
+
+La apariencia debe ser mucho más cercana a una película animada que a una partida de un videojuego.
+
+## 2. Diseño de personajes
+
+Los personajes deben conservar una construcción volumétrica muy marcada.
+
+El protagonista humano debe tener un cuerpo con profundidad, proporciones reconocibles y expresiones faciales exageradas.
+
+Los animales deben conservar su anatomía característica, pero pueden tener una estilización visual que facilite la expresividad y la animación.
+
+El robot pingüino debe aprovechar especialmente esta filosofía de diseño.
+
+Su cuerpo debe sentirse compacto, redondeado y tridimensional, con una integración natural de la pantalla, los ojos, las orugas y las texturas exteriores.
+
+Evitar diseños planos, excesivamente geométricos o con elementos que parezcan pegados encima del personaje.
+
+## 3. Identidad de los escenarios: la sabana
+
+El universo visual debe estar centrado en la sabana y sus diferentes variantes.
+
+No utilizar una única sabana genérica para todos los episodios.
+
+Cada región debe tener su propia vegetación, fauna, terreno y condiciones ambientales.
+
+Pueden aparecer:
+
+- Sabanas abiertas.
+- Sabanas boscosas.
+- Llanuras con vegetación dispersa.
+- Regiones de pastizales.
+- Sabanas húmedas.
+- Sabanas frías.
+- Sabanas nevadas.
+- Regiones con arbustos y árboles aislados.
+- Ambientes de transición entre sabana y bosque abierto.
+
+Los escenarios deben tener una identidad geográfica coherente.
+
+Las diferencias entre Argentina, Brasil, África, Australia y otras regiones deben reflejarse en la vegetación, los animales, el terreno y las condiciones ambientales.
+
+No introducir bosques densos, selvas tropicales o ecosistemas completamente ajenos a la identidad de safari como escenarios habituales.
+
+## 4. Composición cromática 60/30/10
+
+Este canal utiliza una jerarquía cromática especialmente importante.
+
+La distribución visual debe trabajar aproximadamente con una composición 60/30/10.
+
+Los porcentajes son una guía de composición, no una obligación matemática para cada fotograma.
+
+### 60%: color ambiental predominante
+
+El 60% corresponde al color que domina visualmente el escenario.
+
+Este color depende principalmente del momento del día, las condiciones atmosféricas, el clima y la iluminación ambiental.
+
+Durante el día puede predominar el color de la vegetación, el terreno o la atmósfera.
+
+Durante la noche, debe predominar la oscuridad ambiental con sus correspondientes tonalidades frías.
+
+El color predominante debe envolver el escenario y establecer su identidad.
+
+### 30%: iluminación y fuentes de luz
+
+El 30% corresponde a las fuentes de iluminación y sus efectos sobre el escenario.
+
+Pueden ser:
+
+- Luz solar.
+- Luz lunar.
+- Luz de las estrellas.
+- Iluminación artificial.
+- Reflejos ambientales.
+- Iluminación atmosférica.
+
+La luz debe modificar la percepción de los colores del mundo sin eliminar la identidad cromática predominante.
+
+No iluminar todos los objetos con intensidad uniforme.
+
+La luz debe generar profundidad, reflejos y diferencias de exposición.
+
+### 10%: colores propios de los elementos
+
+El 10% restante corresponde a los colores originales de los elementos del escenario.
+
+Son los colores propios de los animales, las plantas, la tierra, las rocas y los objetos.
+
+Estos colores deben permanecer presentes, pero integrados dentro de la iluminación ambiental.
+
+No deben competir constantemente con el color predominante ni parecer completamente independientes de la atmósfera.
+
+## 5. Ejemplo fundamental: la noche en la sabana
+
+La noche es uno de los mejores ejemplos para comprender la identidad cromática deseada.
+
+Durante la noche, el mundo debe adquirir una tonalidad predominantemente oscura y fría.
+
+El terreno, las plantas, los árboles y los demás elementos deben integrarse en una composición de sombras.
+
+No queremos una noche en la que simplemente se reduzca el brillo de una escena diurna.
+
+Queremos una transformación visual completa del ambiente.
+
+### Color predominante
+
+La oscuridad debe dominar el escenario.
+
+Los árboles, la vegetación y la tierra deben tener tonalidades oscuras, con variaciones mínimas que permitan reconocer sus formas.
+
+El ambiente puede adquirir matices azulados, grisáceos, azul verdosos u otras tonalidades frías según las condiciones de iluminación.
+
+### Luz lunar y estrellas
+
+La luna y las estrellas pueden aportar una iluminación tenue y blanquecina.
+
+Los elementos que reciben esta luz deben adquirir reflejos fríos y suaves.
+
+No deben convertirse en objetos intensamente iluminados.
+
+La luz debe permitir reconocer partes del entorno, revelar siluetas y crear una atmósfera nocturna profunda.
+
+### Colores originales
+
+Los colores naturales de la vegetación, los animales y el terreno deben seguir existiendo, pero permanecer parcialmente ocultos por la oscuridad.
+
+Por ejemplo, una planta verde durante el día puede adquirir una tonalidad mucho más oscura durante la noche.
+
+Un animal con pelaje marrón puede verse casi negro en determinadas condiciones.
+
+El color original no desaparece, pero queda condicionado por la iluminación.
+
+### Iluminación artificial
+
+Si existen fuentes de luz artificial, estas pueden convertirse en los elementos dominantes de determinadas zonas.
+
+Una linterna, un vehículo o una instalación iluminada puede producir una composición cromática diferente.
+
+La luz artificial debe afectar a los objetos cercanos, al terreno y a la atmósfera.
+
+También puede reducir la visibilidad de las estrellas y modificar la percepción general del cielo.
+
+La escena debe responder a las fuentes de iluminación presentes, no utilizar una iluminación nocturna genérica.
+
+## 6. Variaciones durante el día
+
+Aunque la noche tiene una identidad muy marcada, el resto de los momentos del día también debe tener personalidad.
+
+### Amanecer
+
+Utilizar tonalidades suaves, frías o cálidas según las condiciones atmosféricas.
+
+Puede haber una transición entre sombras azuladas y luz dorada.
+
+### Mañana
+
+La luz puede ser más clara y definida.
+
+El entorno debe adquirir una composición cromática acorde con la temperatura, la vegetación y las condiciones del lugar.
+
+### Mediodía
+
+La luz solar puede producir sombras más marcadas y colores más definidos.
+
+Evitar que todos los elementos tengan la misma intensidad.
+
+### Atardecer
+
+Utilizar naranjas, rojizos, dorados y tonalidades cálidas que afecten a todo el escenario.
+
+El paisaje debe sentirse iluminado por el atardecer.
+
+La luz debe modificar el color del terreno, las plantas, los animales y las superficies.
+
+### Climas fríos
+
+Las sabanas frías y nevadas deben adquirir una identidad cromática propia.
+
+Pueden predominar blancos, azules suaves, grises fríos y tonos apagados.
+
+La vegetación y el terreno deben reflejar las condiciones ambientales.
+
+## 7. Integración de los animales
+
+Los animales deben integrarse perfectamente con la iluminación del escenario.
+
+No deben conservar colores artificialmente brillantes cuando el entorno está oscuro.
+
+Tampoco deben desaparecer completamente dentro del paisaje.
+
+La luz debe permitir reconocer su anatomía y sus características principales.
+
+Utilizar reflejos, sombras, contraluces y diferencias de iluminación para separar sus siluetas del entorno.
+
+Los primeros planos deben mostrar detalles del pelaje, las plumas, las escamas y las características anatómicas.
+
+Los planos generales deben mostrar cómo el animal se integra en el ambiente.
+
+## 8. Cámara y movimiento
+
+Aplicar rigurosamente las reglas del estilo artístico general.
+
+Evitar las vistas completamente planas de perfil.
+
+Utilizar perspectivas de tres cuartos, movimientos orbitales y desplazamientos de cámara que revelen diferentes partes de los cuerpos.
+
+La cámara debe acompañar las acciones del protagonista y los animales.
+
+Durante una persecución, puede seguir los desplazamientos, cambiar de altura y mostrar diferentes perspectivas.
+
+Durante una explicación, puede acercarse a una característica anatómica y regresar al plano general.
+
+Los movimientos deben conservar continuidad espacial.
+
+## 9. Resultado visual
+
+El canal debe sentirse como una aventura cinematográfica ambientada en un safari.
+
+La influencia de Clash Royale debe aparecer en la construcción volumétrica de personajes, sus proporciones estilizadas y su expresividad.
+
+El acabado, sin embargo, debe ser mucho más realista, detallado y cinematográfico.
+
+Los escenarios deben tener una atmósfera propia y una identidad cromática muy marcada.
+
+La noche debe ser verdaderamente nocturna. Los atardeceres deben transformar el paisaje. Las condiciones climáticas deben sentirse en los colores, la iluminación y las superficies.
+
+OBJETIVO FINAL: construir un universo de safari animado con personajes volumétricos, animales reconocibles, iluminación cinematográfica y escenarios cuya personalidad cromática cambie según la geografía, el clima y el momento del día. Una producción 2D estilizada con profundidad tridimensional y un acabado visual extraordinariamente elaborado.

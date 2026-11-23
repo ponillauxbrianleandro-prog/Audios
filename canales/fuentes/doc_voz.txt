@@ -1,0 +1,44 @@
+# VOZ DEL NARRADOR PRINCIPAL: RÍO PURATENSE
+
+Especificación de diseño de la voz original para el narrador principal del canal de documentales científicos y de historia natural. Las voces se aportarán al momento de producir cada video; este apartado registra la identidad y la personalidad vocal.
+
+## Características fundamentales de la voz
+
+- Masculina, adulta, profundamente grave y gruesa.
+- Barítono bajo, con resonancia natural y cuerpo vocal.
+- Debe sentirse humana, orgánica y creíble. No queremos una voz artificial, robótica, excesivamente procesada ni una imitación de los típicos narradores de tráileres cinematográficos.
+- Tiene que transmitir presencia incluso hablando tranquilamente.
+- Timbre cálido, ligeramente áspero si resulta natural, pero sin forzar la garganta.
+- Dicción clara, pronunciación argentina rioplatense y ritmo natural.
+- Pausas bien colocadas, respiración realista y variaciones sutiles de intensidad.
+- Debe transmitir conocimiento, curiosidad, serenidad y autoridad sin parecer que está leyendo un texto académico.
+- Puede mostrar entusiasmo cuando descubre algo extraordinario, pero sin convertirse en un locutor exageradamente teatral.
+
+## Referencias de interpretación
+
+Interesan algunas características generales de las voces de Luis «Negro» Albornoz, Lalo Mir y Eduardo Aliverti, además de la capacidad narrativa y conversacional de Damián Kuc.
+
+No se quiere copiar ni clonar la identidad vocal de ninguna de estas personas. Se quiere desarrollar una voz nueva que reúna algunas cualidades generales: profundidad, resonancia, naturalidad, buena articulación y personalidad.
+
+## Identidad del narrador
+
+Este narrador es independiente de los personajes del canal. No es Charles Darwin, no es la mascota del libro y no interpreta a ningún personaje. Es la voz que acompaña al espectador durante documentales de aproximadamente 10 a 25 minutos.
+
+Debe poder hablar sobre biología, zoología, evolución, ecología, paleontología y otros temas científicos sin perder naturalidad.
+
+## Entregables de diseño vocal solicitados
+
+1. Una descripción técnica de su timbre, registro, resonancia, textura y ritmo.
+2. Una propuesta de identidad vocal reconocible.
+3. Cinco interpretaciones de un mismo texto:
+   - Documental científico serio.
+   - Explicación científica conversacional.
+   - Narración contemplativa y reflexiva.
+   - Descubrimiento científico con entusiasmo.
+   - Narración con humor sutil.
+4. Una prueba de duración larga para comprobar que la voz no se vuelve monótona después de varios minutos.
+5. Una recomendación sobre cómo conservar la misma identidad vocal durante todos los episodios.
+
+## Prioridad absoluta
+
+Profundidad, grosor, naturalidad y humanidad. Debe parecer un hombre real que conoce el mundo natural y disfruta contándolo, no una voz sintética intentando sonar importante.

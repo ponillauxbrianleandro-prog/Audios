@@ -1,0 +1,174 @@
+# DISEÑO DE VOCES Y PERSONAJES DEL CANAL DE SAFARI
+
+Identidades vocales de tres personajes que forman parte del canal de documentales, expediciones y aventuras sobre animales y naturaleza:
+
+1. El guía australiano.
+2. El pingüino Gunter.
+3. El pequeño robot acompañante, que también funciona como narrador del canal.
+
+Cada uno debe tener una identidad sonora claramente diferenciada.
+
+## 1. El guía australiano
+
+Es un hombre australiano con formación y mentalidad de soldado. Actualmente trabaja como guía de safari y viste ropa de explorador, pero conserva una personalidad marcada por el deber, la disciplina, la responsabilidad y la experiencia.
+
+No es un militar que se dedica a dar órdenes, ni un explorador genérico. Es un hombre que conoce el terreno, sabe observar, tiene experiencia con animales y siente una responsabilidad auténtica por las personas y criaturas que están bajo su cuidado.
+
+### Referencias de interpretación
+
+Una combinación conceptual de:
+
+- Arthur Morgan, de Red Dead Redemption 2: voz grave, algo áspera, cálida, pausada y humana. Debe transmitir experiencia, carácter y una personalidad que se percibe incluso cuando habla poco.
+- Saxton Hale, de Team Fortress 2: carisma, seguridad, energía, expresividad y una personalidad muy marcada.
+
+No se quiere clonar ni imitar exactamente a los actores originales. Se quiere una identidad vocal propia que reúna características generales de esas interpretaciones.
+
+### Características de su voz
+
+- Masculina, adulta, grave y robusta.
+- Barítono bajo, con una textura ligeramente rasposa y natural.
+- Debe sentirse como una voz humana real.
+- Tiene que tener una personalidad reconocible.
+- Habla con seguridad, pero no necesita gritar ni imponerse constantemente.
+- Puede ser relajado, bromista y conversacional cuando está tranquilo.
+- Cuando aparece una situación que requiere atención, su voz se vuelve firme, concentrada y autoritaria.
+- Debe transmitir responsabilidad y sentido del deber.
+- Tiene que poder mostrar sorpresa, entusiasmo, frustración, humor y preocupación sin perder su identidad.
+
+### Acento e idioma
+
+El personaje es australiano. En español debe ser claro y comprensible para el público argentino y latinoamericano, conservando cierta musicalidad y cadencia australiana sin resultar artificial.
+
+No debe sonar como un argentino común ni como un doblaje genérico de aventura.
+
+También debe poder adaptarse a portugués brasileño y otros idiomas sin perder su personalidad.
+
+### Personalidad
+
+- Experimentado y observador.
+- Protector con los animales y con las personas a su cargo.
+- Paciente, aunque puede perderla ante situaciones absurdas.
+- Le gusta explicar lo que descubre.
+- Tiene humor, pero no es un payaso.
+- Es seguro de sí mismo, sin necesidad de presumir.
+- Respeta profundamente la naturaleza.
+- Puede entusiasmarse al descubrir un comportamiento animal extraordinario.
+- Tiene autoridad natural, como alguien acostumbrado a asumir responsabilidades.
+
+## 2. El pingüino Gunter
+
+Gunter es el pingüino pelusón del canal. Es un pingüino macaroni, expresivo, territorial, egocéntrico y bastante indignado con el mundo.
+
+Su personalidad debe contrastar con la del guía.
+
+Mientras el guía es un adulto experimentado que intenta mantener la expedición bajo control, Gunter parece considerarse el verdadero propietario del safari.
+
+Su presencia debe permitir situaciones cómicas, reacciones exageradas y momentos de ternura sin convertirlo en un personaje que habla constantemente.
+
+Gunter no necesita una voz humana convencional. Sus expresiones, movimientos y sonidos de pingüino forman parte de su personalidad.
+
+## 3. El pequeño robot acompañante y narrador
+
+Este personaje es un pequeño robot que acompaña físicamente al guía durante las expediciones.
+
+Su función tiene dos facetas muy particulares.
+
+### A. Cuando narra los documentales
+
+El robot utiliza una voz humana sintética o una voz procesada que funciona como narrador principal del canal.
+
+Debe tener una voz:
+
+- Masculina.
+- Muy grave y gruesa.
+- Un poco exagerada en su profundidad, incluso ligeramente caricaturesca en el grosor.
+- Clara, reconocible y con bastante cuerpo.
+- Seria en comparación con la voz del guía, pero sin llegar a ser fría, rígida o excesivamente solemne.
+- Carismática y peculiar.
+- Con una personalidad propia, que haga reconocible al robot apenas comienza a narrar.
+
+Debe transmitir conocimiento, observación y cierta autoridad documental. Sin embargo, debe conservar un encanto particular. No debe sonar como una computadora sin emociones ni como un narrador de tráiler cinematográfico.
+
+La voz puede tener una pequeña cualidad mecánica en su presentación, pero debe resultar agradable, fluida y expresiva. Su profundidad puede estar algo exagerada deliberadamente para que tenga una identidad memorable.
+
+El robot debe poder narrar documentales completos, presentar animales, explicar comportamientos, describir ecosistemas y acompañar al espectador durante toda la expedición.
+
+### B. Cuando NO está narrando
+
+Aquí está su característica más importante y distintiva:
+
+El robot no utiliza esa voz grave para conversar normalmente.
+
+Cuando no tiene que narrar, sus únicos sonidos son vocalizaciones de pingüino macaroni.
+
+Literalmente.
+
+Debe emitir sonidos inspirados en las vocalizaciones reales de los pingüinos macaroni: llamadas, graznidos, sonidos nasales y vocalizaciones características de esta especie.
+
+No debe hablar con frases humanas, no debe tener conversaciones normales ni utilizar una segunda voz robótica para responder.
+
+Su comunicación cotidiana consiste exclusivamente en esos sonidos de pingüino.
+
+Por ejemplo:
+
+- El guía le pregunta algo y el robot responde con un sonido de pingüino.
+- El guía lo llama y el robot contesta con una vocalización.
+- Gunter hace algo absurdo y el robot emite un sonido de pingüino.
+- El robot observa algo interesante y produce otra vocalización.
+- Cuando está inactivo, puede emitir pequeños sonidos característicos, siempre que no resulten molestos ni excesivos.
+
+La gracia está en el contraste: el mismo robot que puede narrar un documental entero con una voz extremadamente grave y carismática, cuando termina de narrar vuelve a comunicarse exclusivamente como un pingüino macaroni.
+
+No se quiere que sus sonidos sean simplemente pitidos electrónicos genéricos. Deben recordar de manera reconocible a las vocalizaciones de un pingüino macaroni.
+
+Se pueden utilizar grabaciones de referencia de la especie o recreaciones sonoras originales inspiradas en ellas, respetando los derechos de uso de las grabaciones.
+
+## 4. Relación entre los tres personajes
+
+Los tres deben funcionar como un pequeño equipo de expedición:
+
+- El guía: la personalidad humana principal, experimentada, aventurera, australiana, carismática y responsable.
+- Gunter: el pingüino macaroni territorial, expresivo y egocéntrico.
+- El robot: el acompañante que narra los documentales con una voz grave y peculiar, pero que fuera de la narración solamente se comunica mediante sonidos de pingüino macaroni.
+
+El robot no debe reemplazar la personalidad del guía. El guía es quien interactúa con el entorno y protagoniza las expediciones; el robot es su compañero y la voz documental que acompaña al espectador.
+
+## 5. Pruebas de voz e interpretación
+
+### Guía australiano
+
+1. Presentando una expedición.
+2. Explicando un comportamiento animal.
+3. Descubriendo algo inesperado.
+4. Reaccionando ante una situación absurda de Gunter.
+5. Dando una indicación firme cuando la situación requiere responsabilidad.
+
+### Robot narrador
+
+1. Introducción de un documental con su voz grave y característica.
+2. Descripción científica de un animal.
+3. Narración contemplativa de un ecosistema.
+4. Presentación de un comportamiento extraordinario.
+5. Transición entre escenas de una expedición.
+6. Una prueba larga para comprobar que su voz sigue siendo agradable y reconocible durante varios minutos.
+
+### Robot fuera de la narración
+
+1. Respuesta a una pregunta del guía mediante sonidos de pingüino macaroni.
+2. Reacción ante Gunter.
+3. Vocalizaciones de atención, sorpresa y reconocimiento.
+4. Sonidos de espera o inactividad.
+
+En esta última categoría no debe pronunciar palabras humanas.
+
+## Objetivo final
+
+Los tres personajes deben ser reconocibles incluso sin ver la imagen.
+
+El guía debe sonar como un explorador australiano con mentalidad de soldado y una personalidad carismática.
+
+Gunter debe tener una identidad animal propia, expresiva y divertida.
+
+El robot debe ser una combinación muy particular: narrador de documentales con una voz masculina exageradamente grave, seria pero carismática, y acompañante que fuera de la narración solamente emite sonidos de pingüino macaroni.
+
+No se quiere que los tres parezcan personajes del mismo molde. Cada uno debe tener su propio ritmo, personalidad y lenguaje sonoro.
