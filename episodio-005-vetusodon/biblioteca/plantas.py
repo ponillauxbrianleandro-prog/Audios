@@ -594,7 +594,7 @@ def musgo(seed, h_px, pal):
                 cc, aa = curva((x, y), a, H * rg.uniform(.07, .16), rg.uniform(-.4, .4), 6)
                 L.cinta(cc, np.linspace(ss * 1.4, ss * .8, 6), L.tn(L.elegir(pal['seco'])), borde=False, nervio=False)
                 L.elipse(cc[-1], (ss * 2.6, ss * 4.2), float(aa[-1]) * 57.3, L.tn(L.elegir(pal['seco']), 1.1)['med'])
-    return L.final(base, h_px, mott=.15)
+    return L.final(base, h_px, mott=.15, centrar=True)
 
 
 def liquen(seed, h_px, pal):
@@ -629,7 +629,7 @@ def liquen(seed, h_px, pal):
                 a = rg.uniform(0, TAU)
                 rq = rad * rg.uniform(.1, .8)
                 L.disco((c0[0] + np.cos(a) * rq, c0[1] + np.sin(a) * rq * sq), ss * rg.uniform(.7, 1.6), tc['som'])
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 # ------------------------------------------------------------------ hongos
@@ -672,7 +672,7 @@ def prototaxites(seed, h_px, pal):
             L.poly(pts + [top + np.array([r[-1], 0]), top + np.array([-r[-1], 0])], tn['luz'])
             L.linea(pts, tn['prof'], max(1, round(ss)))
         _raiz_vis(L, (base[0] + x, base[1]), H, tn, r0, 2)
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 def hongos(seed, h_px, pal):
@@ -700,7 +700,7 @@ def hongos(seed, h_px, pal):
         for _ in range(int(rg.integers(0, 6))):
             u = rg.uniform(-.7, .7)
             L.disco((top[0] + u * rx, top[1] - rg.uniform(.15, .85) * ry * np.sqrt(1 - u * u)), ss * rg.uniform(1.2, 3), mix(tcap['alta'], (255, 255, 240), .5))
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 # ------------------------------------------------------------------ flora arida
@@ -710,7 +710,7 @@ def welwitschia(seed, h_px, pal):
     tb = L.tn(L.elegir(pal['corteza']), .95)
     M = L.mascara()
     cx = base[0]
-    rx, ry = H * rg.uniform(.22, .3), H * rg.uniform(.28, .4)
+    rx, ry = H * rg.uniform(.3, .4), H * rg.uniform(.2, .28)
     # copa en forma de copa (ancha arriba)
     top_y = base[1] - ry
     pts = np.array([[cx - rx * .55, base[1]], [cx - rx * .95, top_y + ry * .25], [cx - rx * 1.0, top_y], [cx - rx * .5, top_y - ry * .1],
@@ -725,8 +725,8 @@ def welwitschia(seed, h_px, pal):
         for strip in range(2):
             ll = H * rg.uniform(.5, .9)
             gnd = base[1] - H * .012 * (1 + strip * 1.5)
-            arc, _a = curva((cx + sd * rx * (.55 + .2 * strip), top_y - ry * .02), sd * (1.0 + .12 * strip),
-                            H * rg.uniform(.45, .65), sd * rg.uniform(1.3, 1.8), 16)
+            arc, _a = curva((cx + sd * rx * (.55 + .2 * strip), top_y - ry * .02), sd * (1.35 + .08 * strip),
+                            H * rg.uniform(.35, .5), sd * rg.uniform(.5, 1.0), 16)
             arc[:, 1] = np.minimum(arc[:, 1], gnd)
             m = 20
             s2 = np.linspace(0, 1, m)[1:]
@@ -751,7 +751,7 @@ def welwitschia(seed, h_px, pal):
         tc = L.tn(mix(L.elegir(pal['hoja2']), pal['dom'], .5), 1.1)
         cc2, _ = curva(cc[-1], aa[-1], H * .05, 0, 5)
         L.cinta(cc2, np.array([.2, 1, 1, .9, .1]) * H * .014, tc, borde=True, nervio=False)
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 def suculenta(seed, h_px, pal, tipo=None):
@@ -804,7 +804,7 @@ def suculenta(seed, h_px, pal, tipo=None):
             r = H * rg.uniform(.07, .14) * (1 - abs(x) / H * .6)
             h = r * rg.uniform(1.4, 3.0)
             columna((base[0] + x, base[1]), rg.uniform(-.1, .1), h, rg.uniform(-.1, .1), r)
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 def mata_seca(seed, h_px, pal):
@@ -836,7 +836,7 @@ def mata_seca(seed, h_px, pal):
             for _ in range(int(rg.integers(1, 4))):
                 _hc(L, p, a + rg.uniform(-.9, .9), H * rg.uniform(.02, .05), H * .01, rg.uniform(-.4, .4), 'lanza',
                     tl if rg.random() < .5 else tn, 5, False)
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 def cicada(seed, h_px, pal):
@@ -927,7 +927,7 @@ def tronco_caido(seed, h_px, pal, musgo_sobre=True):
         M = L.mascara()
         L.mpoly(M, _blob(rg, P[0], P[1], rx, rx * .5, 18, .05))
         L.masa(M, tf, relieve=.7, rug=.05)
-    return L.final(base, h_px)
+    return L.final(base, h_px, centrar=True)
 
 
 def roca_musgosa(seed, h_px, pal, musgo=True):
@@ -945,8 +945,8 @@ def roca_musgosa(seed, h_px, pal, musgo=True):
         L.mpoly(M, np.vstack([pts, [[cx - rx, base[1] + 2 * ss]], [[cx + rx, base[1] + 2 * ss]]]))
     tn = L.tn(L.elegir(pal['roca']), rg.uniform(.9, 1.05))
     tm = L.tn(L.elegir(pal['hoja']), .95) if musgo else None
-    L.masa(M, tn, relieve=.85, rug=.5, esc_rug=H * .25, caras=1, grietas=int(rg.integers(2, 6)), musgo=tm)
-    return L.final(base, h_px)
+    L.masa(M, tn, relieve=.85, rug=.3, esc_rug=H * .35, caras=1, grietas=int(rg.integers(2, 6)), musgo=tm)
+    return L.final(base, h_px, centrar=True)
 
 
 def piedra(seed, h_px, pal):

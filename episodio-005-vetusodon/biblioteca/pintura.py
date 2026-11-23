@@ -285,7 +285,7 @@ class Lienzo:
         return nx, ny, (x0, y0, x1, y1)
 
     # ---- terminar
-    def final(self, base, h_px, contorno=1.7, grano=6.5, mott=.11, luzv=.34, cola=True):
+    def final(self, base, h_px, contorno=1.7, grano=6.5, mott=.11, luzv=.34, cola=True, centrar=False):
         pal = self.pal
         ss = self.ss
         buf = self.buf.astype(np.float32)
@@ -318,6 +318,8 @@ class Lienzo:
         bx, by = base
         ys = np.where(A.max(1) > .04)[0]
         xs = np.where(A.max(0) > .04)[0]
+        if centrar:
+            bx = (xs[0] + xs[-1] + 1) / 2.0
         ya, yb = ys[0], ys[-1] + 1
         half = int(np.ceil(max(bx - xs[0], xs[-1] + 1 - bx)))
         xa, xb = int(round(bx)) - half, int(round(bx)) + half
