@@ -4,3 +4,11 @@ voice_ai/cache_v12/
 voice_ai/cache_v13/
 voice_ai/cache_v14/
 voice_ai/cache_v16/
+# cachés y generados pesados (se regeneran)
+episodio-005-vetusodon/video/cache/
+episodio-005-vetusodon/video/segmentos/
+episodio-005-vetusodon/video/partes/
+episodio-005-vetusodon/render/audio/
+episodio-005-vetusodon/biblioteca/cache/
+*.pkl
+*.wav

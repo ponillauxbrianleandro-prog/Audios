@@ -1,0 +1,2978 @@
+[
+ {
+  "id": 1,
+  "parte": 1,
+  "titulo": "Prohibido el paso",
+  "paleta": "rojo",
+  "dur": 17.5,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.5,
+    "capa": "cerca"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 8,
+    "t1": 17.5,
+    "escala": 1.1
+   }
+  ],
+  "clima": {
+   "bruma": 0.2,
+   "particulas": null,
+   "rayos": 0
+  },
+  "cartel": {
+   "texto": "PROHIBIDO EL PASO · SOLO PARIENTES",
+   "t0": 5.0,
+   "t1": 13.0
+  },
+  "narracion": [
+   {
+    "t": 1.4,
+    "texto": "Esto no es una película de monstruos."
+   },
+   {
+    "t": 6.1,
+    "texto": "Es la historia de un animal que casi nadie conoce, y que, te guste o no, es pariente tuyo."
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "parte": 1,
+  "titulo": "Una sola flecha",
+  "paleta": "rojo",
+  "dur": 23.7,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "equisetum",
+    "densidad": 0.5,
+    "capa": "fondo"
+   },
+   {
+    "especie": "mata_seca",
+    "densidad": 0.3,
+    "capa": "cerca"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.5,
+    "capa": "medio"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_der",
+   "amplitud": 0.4
+  },
+  "animales": [],
+  "clima": {
+   "bruma": 0.15,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "cartel": {
+   "texto": "KAROO · PÉRMICO TARDÍO →",
+   "t0": 2.0,
+   "t1": 9.0
+  },
+  "narracion": [
+   {
+    "t": 1.7,
+    "texto": "Sudáfrica. El Karoo. Hace unos doscientos cincuenta y dos millones de años."
+   },
+   {
+    "t": 9.8,
+    "texto": "Antes de los dinosaurios. Antes de las flores. Antes, incluso, de que a alguien se le ocurriera la palabra pasto."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "parte": 1,
+  "titulo": "Amanecer en el valle",
+  "paleta": "ambar",
+  "dur": 42.7,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.5
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "olfatear",
+    "vista": "3q_der",
+    "x0": 0.35,
+    "x1": 0.55,
+    "t0": 4,
+    "t1": 42.7,
+    "escala": 1.2
+   },
+   {
+    "especie": "libelula",
+    "accion": "idle",
+    "vista": "3q_izq",
+    "x0": 0.7,
+    "x1": 0.8,
+    "t0": 0,
+    "t1": 42.7,
+    "escala": 0.6
+   }
+  ],
+  "clima": {
+   "bruma": 0.35,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 2.7,
+    "texto": "Ahí está."
+   },
+   {
+    "t": 7.0,
+    "texto": "Vetusodon elikhulu. Vetusodon: «diente viejo», en una mezcla de latín y griego. Elikhulu: «el grande», en zulú."
+   },
+   {
+    "t": 24.7,
+    "texto": "O sea: el viejo dentudo grande. Los paleontólogos no eran poetas, pero eran bastante honestos."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "parte": 1,
+  "titulo": "Cuatro huesos en un cajón",
+  "paleta": "ocre",
+  "dur": 52.2,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "musgo",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.5,
+    "capa": "cerca"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [],
+  "clima": {
+   "bruma": 0.1,
+   "particulas": null,
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "olfatea",
+   "x": 0.2,
+   "t0": 14,
+   "t1": 30
+  },
+  "cuaderno": {
+   "texto": "1958 · hocico\n1985 · cráneo\n2009 · el más completo\n2019 → ¡nombre!",
+   "t0": 6.0,
+   "t1": 40.0
+  },
+  "narracion": [
+   {
+    "t": 1.9,
+    "texto": "Lo que sabemos de él cabe en cuatro fósiles."
+   },
+   {
+    "t": 9.4,
+    "texto": "El primero, apenas un hocico, lo recogió un paleontólogo en el Karoo hacia 1958. Quedó guardado en una colección durante más de sesenta años."
+   },
+   {
+    "t": 26.3,
+    "texto": "Otros aparecieron en 1985 y alrededor de 2009. Recién en 2019 alguien se sentó, los miró bien, y dijo: esto es una especie nueva."
+   },
+   {
+    "t": 43.3,
+    "texto": "Moraleja: en paleontología, la paciencia también es un instrumento."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "parte": 1,
+  "titulo": "El grande, para su época",
+  "paleta": "verde",
+  "dur": 52.2,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.4
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "caminar",
+    "vista": "3q_izq",
+    "x0": 0.75,
+    "x1": 0.3,
+    "t0": 0,
+    "t1": 52.2,
+    "escala": 1.2
+   },
+   {
+    "especie": "diictodon",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.15,
+    "x1": 0.15,
+    "t0": 0,
+    "t1": 52.2,
+    "escala": 0.8
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": null,
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Dieciocho centímetros de cráneo. Parece poco, pero es el cinodonte más grande que se conoce del Pérmico."
+   },
+   {
+    "t": 11.7,
+    "texto": "Para que te hagas una idea: pensá en un perro mediano, de patas cortas y cuerpo robusto. Eso es una inferencia, porque del cuerpo casi no tenemos hueso."
+   },
+   {
+    "t": 27.6,
+    "texto": "Al lado, un Diictodon, de unos cuarenta y cinco centímetros: el dicinodonte más común del valle. Hoy sería el vecino insignificante. Entonces, el vecino de enfrente."
+   },
+   {
+    "t": 42.4,
+    "texto": "Un gordo pelusón entre enanos. Si es que tenía pelusa. Ya vamos a eso."
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "parte": 1,
+  "titulo": "Dientes de perro",
+  "paleta": "violeta",
+  "dur": 49.9,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.7,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.4,
+    "capa": "fondo"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.35
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "alerta",
+    "vista": "3q_frente_der",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 49.9,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.5,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "owen": {
+   "expresion": "indignado",
+   "t0": 24,
+   "t1": 38,
+   "frase": "¡Dientes de perro! Kyon, odous. Lo dije yo primero."
+  },
+  "narracion": [
+   {
+    "t": 2.1,
+    "texto": "Mirá la boca. Incisivos grandes adelante, caninos largos, y atrás unos molares chiquitos y simples."
+   },
+   {
+    "t": 14.7,
+    "texto": "Casi todo el trabajo lo hacían los dientes de adelante, igual que en sus primos los gorgonopsios. Un cuchillo de cocina y poco más."
+   },
+   {
+    "t": 33.6,
+    "texto": "Hay un tipo en Londres, un siglo y medio antes de este bicho, que ya los había bautizado."
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "parte": 1,
+  "titulo": "El valle sin flores",
+  "paleta": "verde",
+  "dur": 61.8,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "equisetum",
+    "densidad": 0.9,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.5,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.9,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.8,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.4,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.3,
+    "capa": "fondo"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_der",
+   "amplitud": 0.5
+  },
+  "animales": [
+   {
+    "especie": "diictodon",
+    "accion": "escarbar",
+    "vista": "3q_izq",
+    "x0": 0.3,
+    "x1": 0.3,
+    "t0": 0,
+    "t1": 61.8,
+    "escala": 0.8
+   },
+   {
+    "especie": "anfibio",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.8,
+    "x1": 0.85,
+    "t0": 0,
+    "t1": 61.8,
+    "escala": 0.9
+   },
+   {
+    "especie": "libelula",
+    "accion": "idle",
+    "vista": "3q_izq",
+    "x0": 0.6,
+    "x1": 0.7,
+    "t0": 0,
+    "t1": 61.8,
+    "escala": 0.5
+   },
+   {
+    "especie": "cucaracha",
+    "accion": "caminar",
+    "vista": "3q_der",
+    "x0": 0.45,
+    "x1": 0.55,
+    "t0": 0,
+    "t1": 61.8,
+    "escala": 0.4
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "olfatear",
+    "vista": "3q_izq",
+    "x0": 0.55,
+    "x1": 0.5,
+    "t0": 8,
+    "t1": 61.8,
+    "escala": 1.1
+   }
+  ],
+  "clima": {
+   "bruma": 0.4,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "sentada",
+   "x": 0.15,
+   "t0": 30,
+   "t1": 50
+  },
+  "narracion": [
+   {
+    "t": 2.0,
+    "texto": "Imaginá el paisaje. Colas de caballo gigantes en la orilla. Glossopteris: árboles de hojas como lenguas. Helechos con semillas."
+   },
+   {
+    "t": 16.4,
+    "texto": "Ni una flor. Ni una brizna de pasto. Ni un pájaro. Los dinosaurios todavía tardarían más de veinte millones de años en aparecer."
+   },
+   {
+    "t": 33.5,
+    "texto": "Y el reino animal estaba en manos de otro grupo: los sinápsidos. Vos sos uno. Técnicamente, también sos un cinodonte."
+   },
+   {
+    "t": 48.5,
+    "texto": "Pero antes de saber cómo llegamos a eso, hay que averiguar cómo vivía este señor."
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "parte": 2,
+  "titulo": "¿Con pelo o sin pelo?",
+  "paleta": "ocre",
+  "dur": 45.6,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.6,
+    "capa": "cerca"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.3,
+    "capa": "fondo"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.5,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 45.6,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.25,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "cartel": {
+   "texto": "PELO: [H] HIPÓTESIS",
+   "t0": 22,
+   "t1": 30
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "La pregunta incómoda: ¿tenía pelo?"
+   },
+   {
+    "t": 4.8,
+    "texto": "Nadie lo sabe. Ningún fósil de Vetusodon conserva piel. El pelo más antiguo que se ve claro es de unos mamíferos del Jurásico, mucho más tarde."
+   },
+   {
+    "t": 17.6,
+    "texto": "En el Pérmico, algunos estudios sugieren que ciertos sinápsidos ya empezaban a tener una vida más activa, quizá más caliente. Pero eso es una hipótesis, no un hallazgo."
+   },
+   {
+    "t": 31.3,
+    "texto": "Así que la versión con pelusa que ves es una suposición con buena cara. Si alguna vez aparece una piel, vamos a tener que reeditar el video."
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "parte": 2,
+  "titulo": "El olfato como brújula",
+  "paleta": "ambar",
+  "dur": 43.8,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.35
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "olfatear",
+    "vista": "3q_izq",
+    "x0": 0.7,
+    "x1": 0.35,
+    "t0": 0,
+    "t1": 43.8,
+    "escala": 1.2
+   },
+   {
+    "especie": "escarabajo",
+    "accion": "caminar",
+    "vista": "3q_izq",
+    "x0": 0.3,
+    "x1": 0.2,
+    "t0": 0,
+    "t1": 43.8,
+    "escala": 0.35
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Un animal así no se guía por los ojos. Se guía por la nariz."
+   },
+   {
+    "t": 8.8,
+    "texto": "En algunos cinodontes parientes cercanos hay pliegues dentro de las fosas nasales, que en los mamíferos acondicionan el aire que respiran. Si Vetusodon los tenía, es una hipótesis."
+   },
+   {
+    "t": 22.5,
+    "texto": "Lo que sí sabemos es que los cinodontes ya tenían un paladar secundario: un techo óseo que separa la boca de la nariz. Permite respirar y masticar al mismo tiempo."
+   },
+   {
+    "t": 37.1,
+    "texto": "Parece poca cosa. Probá comer una milanesa sin poder respirar."
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "parte": 2,
+  "titulo": "Menú del día",
+  "paleta": "verde",
+  "dur": 39.8,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "comer",
+    "vista": "3q_der",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 39.8,
+    "escala": 1.3
+   },
+   {
+    "especie": "cucaracha",
+    "accion": "caminar",
+    "vista": "3q_izq",
+    "x0": 0.75,
+    "x1": 0.65,
+    "t0": 0,
+    "t1": 39.8,
+    "escala": 0.4
+   },
+   {
+    "especie": "escarabajo",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.2,
+    "x1": 0.2,
+    "t0": 0,
+    "t1": 39.8,
+    "escala": 0.4
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": null,
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "olfatea",
+   "x": 0.8,
+   "t0": 14,
+   "t1": 30
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "¿Qué comía? Misterio con pistas. Dientes de adelante grandes, de atrás simples: algo de carne, algo de bichos, quizá raíces."
+   },
+   {
+    "t": 11.5,
+    "texto": "Eso es lo que se infiere. Nadie encontró un estómago con el almuerzo adentro."
+   },
+   {
+    "t": 19.0,
+    "texto": "Lo que sí había para comer: cucarachas, escarabajos, libélulas primitivas, anfibios dormidos. Una cadena alimentaria completa en un valle sin flores."
+   },
+   {
+    "t": 29.5,
+    "texto": "Si a este gordo pelusón le tirás una cucaracha ahora, probablemente la mire como se mira un snack."
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "parte": 2,
+  "titulo": "El vecino cavador",
+  "paleta": "ocre",
+  "dur": 43.8,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.2,
+    "capa": "fondo"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.3,
+    "capa": "cerca"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_der",
+   "amplitud": 0.4
+  },
+  "animales": [
+   {
+    "especie": "diictodon",
+    "accion": "escarbar",
+    "vista": "3q_der",
+    "x0": 0.35,
+    "x1": 0.35,
+    "t0": 0,
+    "t1": 43.8,
+    "escala": 0.9
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "olfatear",
+    "vista": "3q_izq",
+    "x0": 0.75,
+    "x1": 0.6,
+    "t0": 6,
+    "t1": 43.8,
+    "escala": 1.2
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Al lado, un Diictodon cava. Y cava bien. Hay madrigueras fósiles atribuidas a este bicho: de hasta medio metro de profundidad, para escaparle al calor."
+   },
+   {
+    "t": 13.7,
+    "texto": "En una de ellas se encontraron crías en una cámara. Cuidado parental, hace doscientos cincuenta millones de años."
+   },
+   {
+    "t": 23.0,
+    "texto": "Si el vecino tiene una casa bien fresca, ¿por qué el grande no iba a querer una?"
+   },
+   {
+    "t": 31.8,
+    "texto": "Es una inferencia más: nadie ha visto a un Vetusodon con pala. Pero en la sequía que viene, el que cavaba, comía."
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "parte": 2,
+  "titulo": "Reunión de vecinos",
+  "paleta": "violeta",
+  "dur": 28.8,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "equisetum",
+    "densidad": 0.9,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.5,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.9,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.8,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.4,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.3,
+    "capa": "fondo"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.3,
+    "x1": 0.3,
+    "t0": 0,
+    "t1": 28.8,
+    "escala": 1.2
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_izq",
+    "x0": 0.6,
+    "x1": 0.6,
+    "t0": 0,
+    "t1": 28.8,
+    "escala": 1.0
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "echado",
+    "vista": "3q_frente_izq",
+    "x0": 0.8,
+    "x1": 0.8,
+    "t0": 0,
+    "t1": 28.8,
+    "escala": 0.8
+   }
+  ],
+  "clima": {
+   "bruma": 0.45,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "sentada",
+   "x": 0.1,
+   "t0": 8,
+   "t1": 25
+  },
+  "owen": {
+   "expresion": "escéptico",
+   "t0": 18,
+   "t1": 28.8,
+   "frase": "Conjeturas, caballeros. Pura conjetura."
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "¿Vivía en grupo? No hay pruebas. Con cuatro fósiles, ni siquiera sabemos cuántos eran por kilómetro cuadrado."
+   },
+   {
+    "t": 10.2,
+    "texto": "Lo que haría un animal que se parece a esto es pura reconstrucción. Imaginá una reunión de consorcio donde nadie sabe de qué se trata."
+   },
+   {
+    "t": 22.5,
+    "texto": "Tres adultos, tres opiniones y una cucaracha sin dueño."
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "parte": 2,
+  "titulo": "Pelea por una cucaracha",
+  "paleta": "ocre",
+  "dur": 23.0,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.2,
+    "capa": "fondo"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.3,
+    "capa": "cerca"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "pelea",
+    "vista": "3q_der",
+    "x0": 0.35,
+    "x1": 0.45,
+    "t0": 0,
+    "t1": 23.0,
+    "escala": 1.2
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "pelea",
+    "vista": "3q_izq",
+    "x0": 0.65,
+    "x1": 0.55,
+    "t0": 0,
+    "t1": 23.0,
+    "escala": 1.1
+   },
+   {
+    "especie": "cucaracha",
+    "accion": "correr",
+    "vista": "3q_der",
+    "x0": 0.2,
+    "x1": 0.05,
+    "t0": 4,
+    "t1": 23.0,
+    "escala": 0.4
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Reconstrucción cómica: dos adultos discuten por una cucaracha."
+   },
+   {
+    "t": 6.1,
+    "texto": "Caninos largos, mandíbula fuerte, cuello grueso. La anatomía permite la pelea; el motivo, por supuesto, es invención nuestra."
+   },
+   {
+    "t": 15.4,
+    "texto": "La cucaracha, que es la única que sabe lo que pasó, escapa."
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "parte": 2,
+  "titulo": "Los dueños del valle",
+  "paleta": "rojo",
+  "dur": 46.9,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "grua",
+   "amplitud": 0.4
+  },
+  "animales": [
+   {
+    "especie": "gorgonopsio",
+    "accion": "caminar",
+    "vista": "3q_der",
+    "x0": 0.85,
+    "x1": 0.4,
+    "t0": 0,
+    "t1": 46.9,
+    "escala": 1.8
+   },
+   {
+    "especie": "vetusodon",
+    "accion": "alerta",
+    "vista": "3q_izq",
+    "x0": 0.2,
+    "x1": 0.2,
+    "t0": 0,
+    "t1": 46.9,
+    "escala": 1.1
+   }
+  ],
+  "clima": {
+   "bruma": 0.4,
+   "particulas": "ceniza",
+   "rayos": 0
+  },
+  "owen": {
+   "expresion": "asustado",
+   "t0": 34,
+   "t1": 44,
+   "frase": "¿Eso es un reptil o una pesadilla?"
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Pero este valle tiene un dueño. Un gorgonopsio: un sinápsido carnívoro, con caninos como sables."
+   },
+   {
+    "t": 9.2,
+    "texto": "Podía abrir la boca más allá de noventa grados. Los más grandes del Pérmico tardío, como Inostrancevia en Rusia, llegaban a los tres metros y medio."
+   },
+   {
+    "t": 22.1,
+    "texto": "En el Karoo había parientes de menor tamaño. Pero para un bicho de dieciocho centímetros de cráneo, cualquier boca que abre noventa grados es una mala noticia."
+   },
+   {
+    "t": 35.3,
+    "texto": "Vetusodon ve, huele, entiende. Y no tiene sables ni garras de cazador. Tiene piernas cortas y un buen lugar adonde meterse."
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "parte": 2,
+  "titulo": "La madriguera",
+  "paleta": "azul",
+  "dur": 28.3,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "correr",
+    "vista": "3q_der",
+    "x0": 0.85,
+    "x1": 0.1,
+    "t0": 0,
+    "t1": 7,
+    "escala": 1.2
+   },
+   {
+    "especie": "gorgonopsio",
+    "accion": "caminar",
+    "vista": "3q_der",
+    "x0": 0.95,
+    "x1": 0.5,
+    "t0": 3,
+    "t1": 28.3,
+    "escala": 1.8
+   }
+  ],
+  "clima": {
+   "bruma": 0.55,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "olfatea",
+   "x": 0.1,
+   "t0": 10,
+   "t1": 24
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Corre. Y se esconde. Es lo único que un gordo pelusón puede hacer contra un sable."
+   },
+   {
+    "t": 9.7,
+    "texto": "El gorgonopsio raspa la tierra, se cansa, se va."
+   },
+   {
+    "t": 14.9,
+    "texto": "No es una escena demostrada. Es lo que dice la lógica: si tenés patas cortas y garras para escarbar, el refugio es tu mejor amigo."
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "parte": 3,
+  "titulo": "Mandíbula con trabajo doble",
+  "paleta": "violeta",
+  "dur": 40.5,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_der",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 40.5,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.45,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "cuaderno": {
+   "texto": "articular → martillo\ncuadrado → yunque\n¿cuándo cambia?",
+   "t0": 10,
+   "t1": 40
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Ahora, el dato por el que este bicho importa. En los reptiles y en los primeros sinápsidos, la mandíbula inferior tenía varios huesos."
+   },
+   {
+    "t": 12.8,
+    "texto": "Dos de ellos, el articular y el cuadrado, formaban la bisagra de la mandíbula."
+   },
+   {
+    "t": 20.2,
+    "texto": "En los mamíferos, esos mismos huesos son el martillo y el yunque de tu oído medio."
+   },
+   {
+    "t": 28.5,
+    "texto": "Cuando comés una manzana y escuchás el crujido, estás usando huesos que hace doscientos cincuenta millones de años abrían bocas para morder."
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "parte": 3,
+  "titulo": "La libreta de Owen",
+  "paleta": "ocre",
+  "dur": 37.9,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.2,
+    "capa": "fondo"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.3,
+    "capa": "cerca"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.75,
+    "x1": 0.75,
+    "t0": 0,
+    "t1": 37.9,
+    "escala": 1.1
+   }
+  ],
+  "clima": {
+   "bruma": 0.2,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "owen": {
+   "expresion": "anotando",
+   "t0": 2,
+   "t1": 37.9,
+   "frase": "Reptiles, siempre reptiles."
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Richard Owen conoció el Karoo sin pisarlo. Describió, en 1845, el Dicynodon con cráneos que le mandó un geólogo desde el Cabo. Y en 1876 catalogó los reptiles fósiles de Sudáfrica del Museo Británico."
+   },
+   {
+    "t": 17.6,
+    "texto": "Para Owen, todo eso eran reptiles. Los cinodontes también: les puso nombre, los clasificó, y los dejó en el cajón de los lagartos."
+   },
+   {
+    "t": 29.0,
+    "texto": "No se le puede reprochar: nadie sabía todavía que la mandíbula se transformaba en oído."
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "parte": 3,
+  "titulo": "El Owen real",
+  "paleta": "violeta",
+  "dur": 33.5,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_izq",
+    "x0": 0.6,
+    "x1": 0.6,
+    "t0": 0,
+    "t1": 33.5,
+    "escala": 1.0
+   }
+  ],
+  "clima": {
+   "bruma": 0.4,
+   "particulas": null,
+   "rayos": 0
+  },
+  "owen": {
+   "expresion": "celoso",
+   "t0": 22,
+   "t1": 33.5,
+   "frase": "Ese Huxley es un impertinente."
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Owen fue un anatomista descomunal. Inventó la palabra Dinosauria, en 1841, y empujó la creación del Museo de Historia Natural de Londres."
+   },
+   {
+    "t": 12.3,
+    "texto": "Pero también fue un rival de Darwin y de Huxley. Se enfrentó con Huxley por una estructura del cerebro, el hipocampo menor, y perdió esa pelea."
+   },
+   {
+    "t": 25.1,
+    "texto": "Darwin, de estos bichos, no habló nunca. Owen sí. Aunque sea para clasificarlos mal."
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "parte": 3,
+  "titulo": "Más dientes que un ratón",
+  "paleta": "verde",
+  "dur": 39.1,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "comer",
+    "vista": "3q_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 39.1,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": null,
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Un cinodonte tenía dientes diferenciados: incisivos, caninos, postcaninos. Como vos."
+   },
+   {
+    "t": 7.0,
+    "texto": "Los reptiles tenían, en general, una fila de dientes todos parecidos. Los cinodontes empezaron a especializar cada diente para un trabajo."
+   },
+   {
+    "t": 17.5,
+    "texto": "En Vetusodon, los incisivos y caninos son grandes y los molares pequeños y simples. Tiene dientes de perro y molares de ratón."
+   },
+   {
+    "t": 28.5,
+    "texto": "Una criatura absurda, entre un cocodrilo con ganas de ser perro, y un perro sin ganas de ser nada."
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "parte": 3,
+  "titulo": "Sangre fría o sangre tibia",
+  "paleta": "ambar",
+  "dur": 36.2,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_der",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 36.2,
+    "escala": 1.3
+   },
+   {
+    "especie": "libelula",
+    "accion": "idle",
+    "vista": "3q_izq",
+    "x0": 0.2,
+    "x1": 0.3,
+    "t0": 0,
+    "t1": 36.2,
+    "escala": 0.5
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "La sangre. Los gorgonopsios, por estudios del oído interno, parece que eran de sangre fría, como los reptiles."
+   },
+   {
+    "t": 10.5,
+    "texto": "Los cinodontes, en cambio, ya estaban en el camino del calor propio. Algunos estudios de isótopos en dientes lo sugieren para varios grupos de sinápsidos de la época."
+   },
+   {
+    "t": 24.2,
+    "texto": "Para Vetusodon específicamente, no hay estudios. Es un detalle que falta. Y en paleontología, lo que falta suele ser lo más interesante."
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "parte": 3,
+  "titulo": "Músculos de mandíbula",
+  "paleta": "ambar",
+  "dur": 38.8,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "comer",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 38.8,
+    "escala": 1.4
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "olfatea",
+   "x": 0.8,
+   "t0": 15,
+   "t1": 30
+  },
+  "owen": {
+   "expresion": "anotando",
+   "t0": 20,
+   "t1": 32,
+   "frase": "Mandíbula robusta. Apuntar: muy robusta."
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Mirá un cráneo de cinodonte desde arriba: detrás de cada ojo, una ventana enorme. Por ahí pasaban los músculos que cerraban la mandíbula."
+   },
+   {
+    "t": 12.7,
+    "texto": "Cuanto más grande la ventana, más fuerte el mordisco. En los cinodontes, esa zona se agranda y el hueso del dentario empieza a hacerse cargo de casi toda la mandíbula inferior."
+   },
+   {
+    "t": 27.7,
+    "texto": "Traducción: un bicho que muerde con la cabeza entera. Un mordisco de tipo serio, en un cuerpo de tipo simpático."
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "parte": 3,
+  "titulo": "Dato general (y suscripción)",
+  "paleta": "azul",
+  "dur": 37.8,
+  "suelo": "lecho",
+  "flora": [
+   {
+    "especie": "equisetum",
+    "densidad": 0.9,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.5,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.9,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.8,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.4,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.3,
+    "capa": "fondo"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.3,
+    "x1": 0.3,
+    "t0": 0,
+    "t1": 37.8,
+    "escala": 1.0
+   }
+  ],
+  "clima": {
+   "bruma": 0.35,
+   "particulas": "lluvia",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "sentada",
+   "x": 0.5,
+   "t0": 20,
+   "t1": 37.8
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Un dato general, para cambiar de aire. Estos animales se llamaban antes «reptiles mamiferoides». Es un nombre malo: no eran reptiles."
+   },
+   {
+    "t": 11.9,
+    "texto": "Eran sinápsidos. Nuestra rama. La ciencia los llama hoy parientes de los mamíferos, o sinápsidos no mamíferos, según qué tan prolijo sea el paleontólogo."
+   },
+   {
+    "t": 23.7,
+    "texto": "Si te gusta ver cómo se corrigen estas cosas en tiempo real, suscribite al canal. Es gratis, y la mascota te lo agradece."
+   },
+   {
+    "t": 35.1,
+    "texto": "Seguimos."
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "parte": 3,
+  "titulo": "Un diente se despide",
+  "paleta": "ocre",
+  "dur": 36.2,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.2,
+    "capa": "fondo"
+   },
+   {
+    "especie": "roca_musgosa",
+    "densidad": 0.3,
+    "capa": "cerca"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "echado",
+    "vista": "3q_der",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 36.2,
+    "escala": 1.2
+   }
+  ],
+  "clima": {
+   "bruma": 0.2,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.3,
+    "texto": "Vetusodon vivió en una época que no se repitió. El valle empezaba a secarse."
+   },
+   {
+    "t": 8.8,
+    "texto": "En la parte alta de la zona del Daptocephalus, la que contiene a Vetusodon, las rocas empiezan a cambiar: más arena, ríos que cambian de curso."
+   },
+   {
+    "t": 21.5,
+    "texto": "Los geólogos lo interpretan como una señal de un clima más seco, aunque algunos estudios discuten el detalle. La ciencia, cuando no está de acuerdo, es más divertida."
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "parte": 4,
+  "titulo": "Un vecino famoso",
+  "paleta": "verde",
+  "dur": 32.6,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "caminar",
+    "vista": "3q_der",
+    "x0": 0.2,
+    "x1": 0.7,
+    "t0": 0,
+    "t1": 32.6,
+    "escala": 1.1
+   },
+   {
+    "especie": "lystrosaurus",
+    "accion": "caminar",
+    "vista": "3q_izq",
+    "x0": 0.9,
+    "x1": 0.75,
+    "t0": 0,
+    "t1": 32.6,
+    "escala": 0.9
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": null,
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Ahí aparece un vecino que va a ser famoso: Lystrosaurus."
+   },
+   {
+    "t": 7.7,
+    "texto": "Un dicinodonte rechoncho, con dos colmillos, y con una habilidad que le va a salvar la vida: la de ser mediocre en todo."
+   },
+   {
+    "t": 20.3,
+    "texto": "Vetusodon y Lystrosaurus se cruzan en el valle. Uno se va a extinguir. El otro va a heredar la Tierra."
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "parte": 4,
+  "titulo": "Tarde de sequía",
+  "paleta": "ocre",
+  "dur": 41.6,
+  "suelo": "arena",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.9,
+    "capa": "cerca"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.08,
+    "capa": "fondo"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.4
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "caminar",
+    "vista": "3q_der",
+    "x0": 0.15,
+    "x1": 0.8,
+    "t0": 0,
+    "t1": 41.6,
+    "escala": 1.1
+   },
+   {
+    "especie": "diictodon",
+    "accion": "echado",
+    "vista": "3q_izq",
+    "x0": 0.85,
+    "x1": 0.85,
+    "t0": 0,
+    "t1": 41.6,
+    "escala": 0.7
+   }
+  ],
+  "clima": {
+   "bruma": 0.35,
+   "particulas": "polvo",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 2.7,
+    "texto": "El calor sube. El agua baja. Los ríos se angostan."
+   },
+   {
+    "t": 14.1,
+    "texto": "Lo que viene no es una sequía cualquiera."
+   },
+   {
+    "t": 23.7,
+    "texto": "A miles de kilómetros, en lo que hoy es Siberia, la tierra se está abriendo."
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "parte": 4,
+  "titulo": "Trampas Siberianas",
+  "paleta": "rojo",
+  "dur": 35.0,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.6,
+    "capa": "cerca"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.12,
+    "capa": "fondo"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "grua",
+   "amplitud": 0.5
+  },
+  "animales": [],
+  "clima": {
+   "bruma": 0.6,
+   "particulas": "ceniza",
+   "rayos": 2
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Las Trampas Siberianas. Erupciones durante cientos de miles de años. Millones de kilómetros cúbicos de lava."
+   },
+   {
+    "t": 10.6,
+    "texto": "Y gases: dióxido de carbono, azufre, metano. El planeta se calienta alrededor de ocho grados, según algunas estimaciones, y el aire se vuelve ácido."
+   },
+   {
+    "t": 23.7,
+    "texto": "Eso, a escala de vida, es un cambio en el clima. A escala del Karoo, es el final."
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "parte": 4,
+  "titulo": "La nube",
+  "paleta": "ceniza",
+  "dur": 37.5,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "mata_seca",
+    "densidad": 0.6,
+    "capa": "cerca"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.7,
+    "capa": "medio"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.15,
+    "capa": "fondo"
+   },
+   {
+    "especie": "glossopteris",
+    "densidad": 0.12,
+    "capa": "fondo"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_der",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "alerta",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 37.5,
+    "escala": 1.1
+   },
+   {
+    "especie": "lystrosaurus",
+    "accion": "correr",
+    "vista": "3q_izq",
+    "x0": 0.9,
+    "x1": 0.6,
+    "t0": 0,
+    "t1": 37.5,
+    "escala": 0.8
+   }
+  ],
+  "clima": {
+   "bruma": 0.75,
+   "particulas": "ceniza",
+   "rayos": 1
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Llegan las cenizas. Cae lluvia ácida. Las plantas se queman."
+   },
+   {
+    "t": 7.7,
+    "texto": "Los grandes herbívoros se quedan sin comida. Los grandes carnívoros, sin herbívoros. Y los gorgonopsios, que empezaron a decaer antes, desaparecen."
+   },
+   {
+    "t": 19.4,
+    "texto": "Es la peor extinción que haya conocido la Tierra: se perdió cerca del ochenta y uno por ciento de las especies marinas y alrededor del setenta por ciento de los vertebrados terrestres."
+   }
+  ]
+ },
+ {
+  "id": 28,
+  "parte": 4,
+  "titulo": "La madriguera, otra vez",
+  "paleta": "azul",
+  "dur": 38.9,
+  "suelo": "barro",
+  "flora": [
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.4,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "echado",
+    "vista": "3q_der",
+    "x0": 0.4,
+    "x1": 0.4,
+    "t0": 0,
+    "t1": 38.9,
+    "escala": 1.2
+   },
+   {
+    "especie": "diictodon",
+    "accion": "echado",
+    "vista": "3q_izq",
+    "x0": 0.7,
+    "x1": 0.7,
+    "t0": 0,
+    "t1": 38.9,
+    "escala": 0.8
+   }
+  ],
+  "clima": {
+   "bruma": 0.6,
+   "particulas": "ceniza",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "sentada",
+   "x": 0.2,
+   "t0": 20,
+   "t1": 38.9
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Bajo tierra, el aire es más fresco. Si Vetusodon cavaba, esta era su ventaja."
+   },
+   {
+    "t": 9.7,
+    "texto": "Si no cavaba, no sabemos qué hizo. Los fósiles de este momento se parecen a una foto movida: se ve que pasó algo, pero no se ve el detalle."
+   },
+   {
+    "t": 25.2,
+    "texto": "Lo que sí se sabe es que los ríos se secaron, las plantas cambiaron, y los animales que quedaron fueron cada vez menos."
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "parte": 4,
+  "titulo": "Los que sí pasaron",
+  "paleta": "verde",
+  "dur": 29.6,
+  "suelo": "lecho",
+  "flora": [
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.5,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "mata_seca",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.3,
+    "capa": "fondo"
+   },
+   {
+    "especie": "piedra",
+    "densidad": 0.4,
+    "capa": "medio"
+   }
+  ],
+  "camara": {
+   "tipo": "empuje",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "lystrosaurus",
+    "accion": "caminar",
+    "vista": "3q_izq",
+    "x0": 0.2,
+    "x1": 0.7,
+    "t0": 0,
+    "t1": 29.6,
+    "escala": 1.0
+   }
+  ],
+  "clima": {
+   "bruma": 0.45,
+   "particulas": "nieve",
+   "rayos": 0
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Entre los sobrevivientes está Lystrosaurus. Después de la extinción, sus fósiles dominan el Karoo."
+   },
+   {
+    "t": 9.7,
+    "texto": "Y también sobreviven cinodontes pequeños: Thrinaxodon, que ya aparece en el Triásico temprano, es uno de los más conocidos."
+   },
+   {
+    "t": 20.3,
+    "texto": "Vetusodon, en cambio, no vuelve a aparecer. Su rama se corta. Su familia, no."
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "parte": 4,
+  "titulo": "Pariente, no abuelo",
+  "paleta": "ambar",
+  "dur": 30.6,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "dicroidium",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.5,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.3,
+    "capa": "fondo"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   }
+  ],
+  "camara": {
+   "tipo": "paneo_izq",
+   "amplitud": 0.3
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 30.6,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "owen": {
+   "expresion": "anotando",
+   "t0": 22,
+   "t1": 30.6,
+   "frase": "Pariente, dice. Qué atrevimiento."
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Importante: Vetusodon no es tu abuelo. Es un primo, de una rama cercana a la que llegó hasta nosotros."
+   },
+   {
+    "t": 12.1,
+    "texto": "Por eso tenía rasgos que anticipaban a los mamíferos, sin serlo todavía."
+   },
+   {
+    "t": 19.3,
+    "texto": "Es como encontrar una foto de un tío lejano: no es tu padre, pero la nariz es inconfundible."
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "parte": 4,
+  "titulo": "El que está en tu oído",
+  "paleta": "violeta",
+  "dur": 27.2,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "dicroidium",
+    "densidad": 0.6,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.5,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.3,
+    "capa": "fondo"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   }
+  ],
+  "camara": {
+   "tipo": "quieta",
+   "amplitud": 0
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_der",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 27.2,
+    "escala": 1.3
+   }
+  ],
+  "clima": {
+   "bruma": 0.5,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "sentada",
+   "x": 0.7,
+   "t0": 12,
+   "t1": 27.2
+  },
+  "narracion": [
+   {
+    "t": 1.5,
+    "texto": "Los huesos que abrían la boca de Vetusodon, en tus oídos, escuchan este video."
+   },
+   {
+    "t": 9.7,
+    "texto": "Un diente viejo del grande, que durmió sesenta años en un cajón, y hoy te acompaña mientras mirás."
+   },
+   {
+    "t": 19.8,
+    "texto": "No es mal destino para un gordo pelusón sin sables."
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "parte": 4,
+  "titulo": "Cierre",
+  "paleta": "ambar",
+  "dur": 27.0,
+  "suelo": "arcilla",
+  "flora": [
+   {
+    "especie": "glossopteris",
+    "densidad": 0.8,
+    "capa": "medio"
+   },
+   {
+    "especie": "equisetum",
+    "densidad": 0.7,
+    "capa": "fondo"
+   },
+   {
+    "especie": "calamites",
+    "densidad": 0.6,
+    "capa": "fondo"
+   },
+   {
+    "especie": "cordaites",
+    "densidad": 0.5,
+    "capa": "medio"
+   },
+   {
+    "especie": "psaronius",
+    "densidad": 0.4,
+    "capa": "fondo"
+   },
+   {
+    "especie": "helecho_suelo",
+    "densidad": 0.8,
+    "capa": "cerca"
+   },
+   {
+    "especie": "musgo",
+    "densidad": 0.6,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "liquen",
+    "densidad": 0.3,
+    "capa": "primer_plano"
+   },
+   {
+    "especie": "tronco_caido",
+    "densidad": 0.3,
+    "capa": "medio"
+   },
+   {
+    "especie": "hongos",
+    "densidad": 0.2,
+    "capa": "primer_plano"
+   }
+  ],
+  "camara": {
+   "tipo": "grua",
+   "amplitud": 0.4
+  },
+  "animales": [
+   {
+    "especie": "vetusodon",
+    "accion": "idle",
+    "vista": "3q_frente_izq",
+    "x0": 0.5,
+    "x1": 0.5,
+    "t0": 0,
+    "t1": 27.0,
+    "escala": 1.2
+   }
+  ],
+  "clima": {
+   "bruma": 0.3,
+   "particulas": "polen",
+   "rayos": 0
+  },
+  "mascota": {
+   "accion": "camina",
+   "x": 0.3,
+   "t0": 4,
+   "t1": 18
+  },
+  "narracion": [
+   {
+    "t": 3.7,
+    "texto": "Vetusodon elikhulu. El grande. El pariente."
+   },
+   {
+    "t": 14.6,
+    "texto": "Nos vemos en el próximo."
+   }
+  ]
+ }
+]
