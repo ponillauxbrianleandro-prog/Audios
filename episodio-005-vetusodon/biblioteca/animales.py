@@ -296,7 +296,8 @@ def render(S, W, H, ox, oy, bs=.5):
             c1 = c1 * (1 - w2[:, None]) + c2 * w2[:, None]
         if p['bump']:
             v, _ = _ruido3(qv * p['bumpf'] * 1.7, _hash(S.seed, p['nombre'], 'c'), 2.0)
-            c1 = c1 * (1 + .11 * v[:, None])
+            v2, _ = _ruido3(qv * .9, _hash(S.seed, 'manchas'), 1.6)
+            c1 = c1 * (1 + .12 * v[:, None] + .26 * v2[:, None])
         if p['spec']:
             sp = np.clip(n @ HALF, 0, 1) ** 28
             c1 = c1 + (255 - c1) * (sp * p['spec'])[:, None]
@@ -350,7 +351,7 @@ def ao_y_contornos(S, col, alf, zb, pal, ssf):
     # contorno entre piezas (el lado lejano de un salto de profundidad)
     kk = max(3, int(round(k * .8)) | 1)
     mx = _maxfilt(zz, kk)
-    jump = (mx - zz) > (k * 1.6)
+    jump = (mx - zz) > (k * S.sp['H'] * .07)
     jump = jump & m
     edge = cv2.GaussianBlur(jump.astype(np.float32), (0, 0), .7) * .78
     cont = np.array(pal['contorno'], np.float32)
@@ -450,8 +451,8 @@ def trazos(S, p, col_pm, al_pm, zb, ao, ox, oy):
     if f.get('pliegue'):
         # pliegues: linea oscura + linea clara contigua del lado de la luz
         sh = np.argsort(t)
-        pintar(sh, t, max(1, int(round(wpx * .8))), t_off=-1.3, w2s=w2)
-        pintar(sh[len(sh) // 3:], t, max(1, int(round(wpx * .5))), t_off=+.7, frac0=.0, w2s=w2)
+        pintar(sh, t, max(1, int(round(wpx * .8))), t_off=-.9, w2s=w2)
+        pintar(sh[len(sh) // 3:], t, max(1, int(round(wpx * .5))), t_off=+.5, frac0=.0, w2s=w2)
     else:
         order = np.argsort(t)
         sub = order[: int(len(order) * .55)]
@@ -737,12 +738,12 @@ def pose_cuad(sp, accion, ph):
         P['feet']['RF'][2] = .0
     elif accion == 'pelea':
         w = math.sin(math.pi * ph) ** 1.3                   # 0 agazapado .. 1 embestida
-        P['br'][1] = .10 + .30 * w
-        P['bt'][1] = -1.0 + 4.0 * w
-        P['bt'][0] = -3.0 + 7.0 * w
-        P['F'][1] = .12 * w
-        P['neck'][1] = -.15 + .50 * w
-        P['head'][1] = .05 + .15 * w
+        P['br'][1] = .06 + .20 * w
+        P['bt'][1] = -1.0 + 3.0 * w
+        P['bt'][0] = -3.0 + 8.0 * w
+        P['F'][1] = .08 * w
+        P['neck'][1] = -.20 + .22 * w
+        P['head'][1] = -.05 + .05 * w
         P['jaw'] = .85 * smooth((w - .35) / .5)
         P['headt'] = np.array([3.0 * w, 0, 0])
         P['erect'] = 1.0
@@ -776,6 +777,19 @@ def pose_cuad(sp, accion, ph):
         P['head'][1] = .03 * math.sin(tw * ph * 2 + 1)
         P['tail'] = [(.12 * math.sin(tw * ph - .7 * (i + 1)), .06) for i in range(ntail)]
         P['feet']['RF'][2] = 0.0
+    if accion in ('olfatear', 'escarbar', 'comer', 'alerta', 'pelea', 'idle'):
+        f = sp['H'] / 42.0
+        P['bt'] = P['bt'] * f
+        P['headt'] = P['headt'] * f
+        for n_, o_ in P['ov'].items():
+            pass
+        for n_ in LEGS:
+            P['feet'][n_][2] *= f
+        if sp['H'] < 15:
+            P['neck'][1] *= .45
+            P['head'][1] *= .45
+    elif accion == 'correr':
+        P['bt'][1] += (sp['H'] / 42.0 - 1) * 1.8
     return P
 
 
@@ -915,10 +929,11 @@ def construir_cuad(esp, accion, fase, vista, pal, seed, k, D):
         rg = np.random.default_rng(_hash(seed, 'polvo', int(fase * 24)))
         for n in ('LF', 'RF'):
             ft = P['feet'][n]
-            for _ in range(5):
+            lado = -1 if n[0] == 'L' else 1
+            for _ in range(4):
                 u = rg.random()
-                pos = np.array([ft[0] - 4 - 14 * u * (1 + fase % .5 * 2), 2 + ft[2] * .6 + 10 * u * (1 - u) * 4 + rg.random() * 2, ft[1] + rg.normal(0, 2)])
-                S.polvo.append((pos, .8 + rg.random() * 1.6))
+                pos = np.array([ft[0] - 5 - 16 * u, .8 + max(ft[2], 0) * .5 + 7 * u * (1 - u) * 2.5 + rg.random(), ft[1] + lado * rg.random() * 2])
+                S.polvo.append((pos, (.35 + rg.random() * .5) * sp['H'] / 40))
     return S
 
 
@@ -1072,7 +1087,7 @@ def _pintar_frame(S, W, H, ox, oy, pal, ss, seed):
             cx, cy = ox + q[0] * S.k * s_, oy + q[1] * S.k * s_
             pts = np.array([[cx + math.cos(a) * rad * S.k * (.7 + .5 * rg.random()), cy + math.sin(a) * rad * S.k * (.7 + .5 * rg.random())]
                             for a in np.linspace(0, 6.28, 7)[:-1]])
-            cv2.fillPoly(lay, [np.round(pts * 16).astype(np.int32)], tuple(float(v) for v in esc(sc, .85)) + (255.0,), cv2.LINE_AA, 4)
+            cv2.fillPoly(lay, [np.round(pts * 16).astype(np.int32)], tuple(float(v) for v in esc(sc, .62)) + (255.0,), cv2.LINE_AA, 4)
             cv2.polylines(lay, [np.round(pts * 16).astype(np.int32)], True, tuple(float(v) for v in pal['contorno']) + (255.0,), 1, cv2.LINE_AA, 4)
         a = lay[..., 3:4].astype(np.float32) / 255
         col_pm[:] = lay[..., :3] + col_pm * (1 - a)
@@ -1177,7 +1192,7 @@ def ciclo(especie, accion, vista, pal, n=12, seed=0, h_px=400, usar_cache=True):
         return out
     ims = _render_set(especie, accion, [i / n for i in range(n)], vista, pal, seed, h_px)
     for f, im in zip(files, ims):
-        im.save(f)
+        im.save(f, compress_level=1)
     json.dump(dict(ancla=ims[0].info['ancla']), open(meta, 'w'))
     return ims
 
@@ -1227,7 +1242,7 @@ def _tex_piel(u=.1):
 
 
 ESP['gorgonopsio'] = dict(
-    L=140.0, H=58.0, real_cm=200, piel='piel', bump=.42, spec_piel=.10, fold_L=5.5, fold_w=1.3, fold_d=.07,
+    L=140.0, H=58.0, real_cm=200, piel='piel', bump=.42, spec_piel=.10, fold_L=5.5, fold_w=1.3, fold_d=.05,
     y0=30.0, pivF=(16, 30, 0), pivR=(-24, 30, 0), neck_piv=(32, 31, 0), head_piv=(44, 31, 0), jaw_piv=(55, 24, 0),
     pata_F=dict(hip=(17, 16, 15), a0=22, c0=20, L1=9.5, L2=8.5, r1=9.5, r2=6.8, paw=(9.5, 3.6, 7.6),
                 garras=4, glen=5.6, gw=2.8, mat='pata', fur=0),
@@ -1243,7 +1258,7 @@ ESP['gorgonopsio'] = dict(
 )
 
 ESP['diictodon'] = dict(
-    L=45.0, H=25.0, real_cm=45, piel='piel', bump=.30, spec_piel=.08, fold_L=2.4, fold_w=1.0, fold_d=.07,
+    L=45.0, H=25.0, real_cm=45, piel='piel', bump=.30, spec_piel=.08, fold_L=2.4, fold_w=1.0, fold_d=.05,
     y0=12.5, pivF=(6, 12.5, 0), pivR=(-11, 12.5, 0), neck_piv=(14, 14, 0), head_piv=(19, 14.5, 0), jaw_piv=(24, 11.5, 0),
     pata_F=dict(hip=(9, 6.5, 8.0), a0=11, c0=10.5, L1=3.8, L2=3.5, r1=4.2, r2=3.0, paw=(4.6, 1.8, 3.8),
                 garras=4, glen=4.6, gw=1.5, mat='pata', fur=0),
@@ -1259,7 +1274,7 @@ ESP['diictodon'] = dict(
 )
 
 ESP['lystrosaurus'] = dict(
-    L=70.0, H=37.0, real_cm=70, piel='piel', bump=.34, spec_piel=.06, fold_L=3.6, fold_w=1.2, fold_d=.07,
+    L=70.0, H=37.0, real_cm=70, piel='piel', bump=.34, spec_piel=.06, fold_L=3.6, fold_w=1.2, fold_d=.05,
     y0=19.0, pivF=(9, 19, 0), pivR=(-17, 19, 0), neck_piv=(21, 21, 0), head_piv=(28, 21.5, 0), jaw_piv=(36, 17, 0),
     pata_F=dict(hip=(13, 10, 12), a0=16.5, c0=15.5, L1=5.8, L2=5.3, r1=6.5, r2=4.6, paw=(6.5, 2.6, 5.4),
                 garras=4, glen=3.4, gw=2.0, mat='pata', fur=0),
@@ -1450,9 +1465,9 @@ def pose_ins(sp, esp, accion, ph):
             P['vuelo'] = 1.0
             P['bt'][1] = 3.2 + .5 * math.sin(tw * ph)
             P['br'][1] = .12 + .05 * math.sin(tw * ph * 2)
-            P['flap'] = .85 * math.sin(tw * ph * (3 if not run else 5))
-            P['fl2'] = .85 * math.sin(tw * ph * (3 if not run else 5) + math.pi * .55)
-            P['abd'] = -.12 + .05 * math.sin(tw * ph * 2)
+            P['flap'] = .22 + .50 * math.sin(tw * ph * (3 if not run else 5))
+            P['fl2'] = .22 + .50 * math.sin(tw * ph * (3 if not run else 5) + math.pi * .55)
+            P['abd'] = -.02 + .015 * math.sin(tw * ph * 2)
     elif accion == 'alerta':
         P['ant'] = (.5 * math.sin(tw * ph * 3), .25 + .08 * math.sin(tw * ph * 4))
         P['bt'][1] = .05
@@ -1556,7 +1571,7 @@ def construir_ins(esp, accion, fase, vista, pal, seed, k, D):
         pos = np.array([-.1, 1.8, 0.0])
         Rc = np.eye(3)
         for i in range(n):
-            Rc = Rc @ rot(0, P['abd'] + .02, 0)
+            Rc = Rc @ rot(0, P['abd'] + .01, 0)
             d = Rc @ np.array([-1.0, 0, 0])
             ln = .86
             ctr = pos + d * ln * .5

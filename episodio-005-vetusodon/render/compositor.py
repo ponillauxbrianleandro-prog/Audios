@@ -125,6 +125,45 @@ def planta_cache(nom, pal, nvar=3, h=460):
     return lst
 
 
+def mascota_sprites(accion, esc):
+    """Poses de la mascota (render/mascota.py) escaladas, RGBA recto como ndarrays; caché en disco (clave: mtime de mascota.py)."""
+    import mascota as MA
+    mt = int(os.path.getmtime(MA.__file__))
+    f = CACHE / f"masc_{accion}_{int(esc * 1000)}_{mt}.pkl"
+    try:
+        with open(f, 'rb') as fh:
+            return pickle.load(fh)
+    except Exception:
+        pass
+    M = MA.Mascota()
+    if accion in ('camina', 'caminar', 'pasea'):
+        poses = [dict(leg=i / 8, bob=-8 * math.sin(i / 8 * 2 * math.pi * 2) ** 2) for i in range(8)]
+    elif accion in ('olfatea', 'olfatear'):
+        poses = [dict(tilt=4, look=(.8, .9), bob=b) for b in (10, 14, 10, 6)]
+    elif accion == 'salta':
+        poses = [dict(tilt=-6, bob=-120, spread=1, look=(0, -1))]
+    elif accion == 'enojado':
+        poses = [dict(mad=1, tilt=2)]
+    elif accion in ('espaldas', 'de_espaldas'):
+        poses = [dict(flip=True, spread=1, blink=.6)]
+    else:       # sentada / sentado / quieto / parpadea
+        poses = [dict(tilt=-3, look=(.6, .2)), dict(tilt=-3, look=(.6, .2), blink=1)]
+    out = []
+    for pz in poses:
+        im = M.frame(pz)
+        im = im.resize((int(im.width * esc), int(im.height * esc)), Image.LANCZOS)
+        out.append(np.asarray(im.convert('RGBA')).copy())
+    try:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = f.with_suffix(f".{os.getpid()}.tmp")
+        with open(tmp, 'wb') as fh:
+            pickle.dump(out, fh)
+        os.replace(tmp, f)
+    except Exception:
+        pass
+    return out
+
+
 def ruido_periodico(h, w, escalas, rg):
     """fbm periódico (FFT) en x e y, normalizado 0..1."""
     out = np.zeros((h, w), np.float32)
@@ -633,29 +672,12 @@ class Escena:
                     t0=float(o.get('t0', 0)), t1=float(o.get('t1', self.dur)))
 
     def _preparar_mascota(self, m):
-        import mascota as MA
-        M = MA.Mascota()
         accion = m.get('accion', 'camina')
         esc = float(m.get('escala', 1.0)) * .30
-        if accion in ('camina', 'caminar', 'pasea'):
-            poses = [dict(leg=i / 8, bob=-8 * math.sin(i / 8 * 2 * math.pi * 2) ** 2) for i in range(8)]
-        elif accion == 'olfatea':
-            poses = [dict(tilt=4, look=(.8, .9), bob=b) for b in (10, 14, 10, 6)]
-        elif accion == 'salta':
-            poses = [dict(tilt=-6, bob=-120, spread=1, look=(0, -1))]
-        elif accion == 'enojado':
-            poses = [dict(mad=1, tilt=2)]
-        elif accion in ('espaldas', 'de_espaldas'):
-            poses = [dict(flip=True, spread=1, blink=.6)]
-        else:
-            poses = [dict(tilt=-3, look=(.6, .2)), dict(tilt=-3, look=(.6, .2), blink=1)]
-        sprs = []
-        for pz in poses:
-            im = M.frame(pz)
-            im = im.resize((int(im.width * esc), int(im.height * esc)), Image.LANCZOS)
-            im = variar.tinte(im, self.pal['dom'], .12)
-            sprs.append(pm_desde_pil(im))
-        return dict(m=m, spr=sprs, sprf=[np.ascontiguousarray(s[:, ::-1]) for s in sprs], accion=accion,
+        sprs = mascota_sprites(accion, esc)
+        sprs = [pm_desde_pil(variar.tinte(Image.fromarray(np.ascontiguousarray(x[..., [2, 1, 0, 3]]), 'RGBA'), self.pal['dom'], .12))
+                for x in sprs]
+        return dict(m=m, spr=sprs, sprf=[np.ascontiguousarray(x[:, ::-1]) for x in sprs], accion=accion,
                     t0=float(m.get('t0', 0)), t1=float(m.get('t1', self.dur)),
                     x0=float(m.get('x0', m.get('x', .5))), x1=float(m.get('x1', m.get('x', .5))),
                     y=float(m.get('y', .86)), ancla=(760 * esc, 1000 * esc))
@@ -743,7 +765,7 @@ class Escena:
         n = len(m['spr'])
         if m['accion'] in ('camina', 'caminar', 'pasea'):
             ix = int(t * 5.5) % n
-        elif m['accion'] == 'olfatea':
+        elif m['accion'] in ('olfatea', 'olfatear'):
             ix = int(t * 3) % n
         elif n == 2:
             ix = 1 if (t % 4.0) > 3.85 else 0

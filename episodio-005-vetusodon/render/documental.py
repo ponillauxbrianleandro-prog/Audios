@@ -71,6 +71,8 @@ def _precarga_tarea(t):
     try:
         if kind == "planta":
             C.planta_cache(t[2], paletas.obtener(t[1]))
+        elif kind == "mascota":
+            C.mascota_sprites(t[1], t[2])
         else:
             import animales
             animales.ciclo(t[2], t[3], t[4], paletas.obtener(t[1]), t[5])
@@ -96,6 +98,8 @@ def precargar(escenas, jobs):
             tareas.add(("planta", pal, n))
         for a in e.get("animales") or []:
             tareas.add(("animal", pal, a["especie"], a.get("accion", "idle"), a.get("vista", "3q_der"), a.get("n", 8)))
+        if e.get("mascota"):
+            tareas.add(("mascota", e["mascota"].get("accion", "camina"), float(e["mascota"].get("escala", 1.0)) * .30))
     # solo lo que falta en disco (las plantas se detectan por el nombre de archivo)
     import compositor as C
     import paletas
@@ -107,7 +111,7 @@ def precargar(escenas, jobs):
             if not f.exists():
                 falta.append(t)
         else:
-            falta.append(t)          # animales.ciclo tiene su propia caché; si existe vuelve enseguida
+            falta.append(t)          # mascota/animales.ciclo tiene su propia caché; si existe vuelve enseguida
     if not falta:
         return
     print(f"precarga: {len(falta)} elementos (plantas/animales) con {jobs} procesos", flush=True)
@@ -123,7 +127,7 @@ def precargar(escenas, jobs):
 def _ffmpeg(dest):
     return subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", "1920x1080", "-r", str(FPS), "-i", "-",
-         "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", "-g", "48", "-threads", "2", "-an",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-g", "48", "-threads", "2", "-an",
          "-movflags", "+faststart", str(dest)], stdin=subprocess.PIPE)
 
 
@@ -170,7 +174,7 @@ def render_escena_paralela(e, jobs):
     ff.stdin.close()
     ff.wait()
     os.replace(tmp, dest)
-    return e["id"], tb, time.time() - t1, _ES.n_frames
+    return e["id"], tb, (time.time() - t1) * jobs, _ES.n_frames      # tiempo de render en CPU-equivalente
 
 
 def preview_escena(arg):
@@ -292,7 +296,7 @@ def main():
             for e in pend:
                 r = render_escena_paralela(e, jobs)
                 stats.append(r)
-                print(f"  escena {r[0]} lista: armado {r[1]:.1f} s, {r[3]} cuadros en {r[2]:.0f} s ({r[2] / r[3]:.3f} s/cuadro con {jobs} procesos)", flush=True)
+                print(f"  escena {r[0]} lista: armado {r[1]:.1f} s, {r[3]} cuadros, {r[2] / r[3]:.3f} s de CPU/cuadro ({r[2] / r[3] / jobs:.3f} s/cuadro efectivo con {jobs} procesos)", flush=True)
         else:
             with mp.Pool(jobs) as pool:
                 for r in pool.imap_unordered(render_escena, pend):
