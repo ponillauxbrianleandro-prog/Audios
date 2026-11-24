@@ -31,3 +31,6 @@ html,body{margin:0;height:100%;background:#0b0e10;color:#dfe6e8;font:13px/1.35 s
 #der label{display:block;margin:6px 0 2px;color:#9fb0b5}
 #der input[type=range]{width:100%;accent-color:#2fd0c0}
 #msg{color:#e8c36a;font-size:12px}
+
+#luz{pointer-events:none}
+#grano{background-size:256px}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera Extra_Guia_Visual_v2.pdf (ampliacion del documento base v1.0).  Uso: python3 generar_pdf.py"""
+"""Genera Extra_Guia_Visual_v3.pdf (ampliacion del documento base v1.0).  Uso: python3 generar_pdf.py"""
 import os, io, json
 from PIL import Image
 from reportlab.lib.pagesizes import A4
@@ -41,12 +41,12 @@ def swatches(lista, w=24, h=12):
 
 def pie(c, d):
     c.saveState(); c.setFont("Helvetica", 7.5); c.setFillColor(colors.HexColor("#78888e"))
-    c.drawString(18 * mm, 10 * mm, "EXTRA | Guía visual v2.0 · estilo ilustrado 2D inspirado en GTA IV"); c.drawRightString(192 * mm, 10 * mm, str(d.page)); c.restoreState()
+    c.drawString(18 * mm, 10 * mm, "EXTRA | Guía visual v3.0 · estilo ilustrado 2D inspirado en GTA IV"); c.drawRightString(192 * mm, 10 * mm, str(d.page)); c.restoreState()
 
 
 s = []
 s += [Spacer(1, 40 * mm), Paragraph("EXTRA", ParagraphStyle("t", fontName="Helvetica-Bold", fontSize=48, leading=52, textColor=INK, alignment=1)),
-      Paragraph("Guía visual v2.0 — Mundo 2D, color selectivo, intros de silueta y mascota", ParagraphStyle("t2", parent=P, fontSize=14, leading=18, alignment=1, textColor=ACC)),
+      Paragraph("Guía visual v3.0 — Mundo 2D, color selectivo, intros de silueta y mascota", ParagraphStyle("t2", parent=P, fontSize=14, leading=18, alignment=1, textColor=ACC)),
       Spacer(1, 8 * mm), foto("demo_intro.png", 150 * mm),
       Paragraph("Fotograma de la animación demo (renderizada desde el mundo de assets, no 3D).", CAP), Spacer(1, 6 * mm),
       Paragraph("Este documento amplía el documento base v1.0 (Dirección artística e identidad). Mantiene todas sus reglas "
@@ -133,7 +133,7 @@ s += [foto("demo_mascota.png", 150 * mm), Paragraph("La mascota entra a los 9 s 
 
 # ---- 6
 s += [Paragraph("06 · El mundo de assets (catálogo)", H1),
-      Paragraph("Todo está en <i>extra/mundo</i>: 67 assets SVG iniciales organizados por categoría, <i>catalogo.json</i> con id/etiquetas/rol, <i>paletas.json</i> y el motor de escenas. "
+      Paragraph("Todo está en <i>extra/mundo</i>: 79 assets SVG (v3) organizados por categoría, <i>catalogo.json</i> con id/etiquetas/rol, <i>paletas.json</i> y el motor de escenas. "
                 "Cada pedido nuevo <b>agrega</b> más árboles, estructuras, basura, props, suelos y personajes. Regla del motor: nunca un plano vacío (auditoría automática avisa si falta suelo, primer plano o detalles).", P),
       foto("demo_callejon.png", 150 * mm), Paragraph("Callejón armado solo con assets del catálogo (cielo, edificios, pared, suelo, contenedor, cajas, basura, primer plano, polvo y luz).", CAP)]
 for n, t in (("hoja_exterior.png", "Exterior"), ("hoja_interior.png", "Interior"), ("hoja_naturaleza_basura.png", "Naturaleza, basura y suelos"), ("hoja_personajes_props.png", "Personajes, mascota, props y efectos")):
@@ -155,7 +155,25 @@ s += [Paragraph("Referencias (enlaces, no copias)", H2),
                 "https://fallout.fandom.com/wiki/10mm_pistol_(Fallout_3). Las marcas y arte de Grand Theft Auto y Fallout pertenecen a sus titulares; Extra desarrolla recursos propios inspirados en ese lenguaje.", SM),
       Paragraph("Limitación honesta: los assets son ilustraciones vectoriales procedurales; sirven de base consistente y liviana. Para acercarse más a la pintura de GTA IV se irán refinando (más pliegues, luces y texturas) con cada pedido.", SM)]
 
-doc = SimpleDocTemplate(os.path.join(AQUI, "Extra_Guia_Visual_v2.pdf"), pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=16 * mm, bottomMargin=18 * mm,
-                        title="Extra - Guía visual v2.0", author="Extra")
+
+# ---- 8 (v3)
+s += [PageBreak(), Paragraph("08 · Realismo cinematográfico (v3)", H1),
+      Paragraph("A pedido: mucho más realista y cinematográfico, siempre 2D con profundidad. Qué cambió respecto de la v2:", P)]
+s += bullets([
+    "<b>Texturas fotográficas CC0 'pintadas'</b> (ambientCG): ladrillo, piedra, asfalto, concreto, adoquín, madera, metal oxidado, chapa, cuero, tela, hojas, tierra, pasto, revoque, goma, vidrio. Se procesan con un paint-over (mediana + realce + grading frío) y pesan menos de 1 MB en total. Los assets las usan como material, con luz, sombra y suciedad encima.",
+    "<b>Assets HD:</b> edificios con marcos de piedra, reflejos en vidrio, cortinas, aires acondicionados y churretes de suciedad; suelos con líneas gastadas, grietas y aceite; follaje por masas con textura real; contenedor oxidado, cajas de madera, sofá de cuero, alfombra de tela.",
+    "<b>Personajes realistas:</b> proporción de ~6,7 cabezas; rostro con planos de luz, ojos con iris y reflejo, cejas, nariz, labios, barba de textura; pelo por mechones; ropa con textura real y pliegues; manos con dedos. Rig con codos (brazo + antebrazo), parpadeo, cabeza y respiración.",
+    "<b>Mascota HD:</b> acero cepillado con rayones, empuñadura de madera real, mira, puerto de eyección, ojos con iris y brillo, guantes y botas.",
+    "<b>Cámara de cine:</b> profundidad de campo por capa con <i>rack focus</i> animable, cámara en mano, grading por tema, luz con dirección + rim light + sombras proyectadas, grano animado, viñeta, letterbox, bruma atmosférica y filtro 'pintado' que une todo.",
+    "<b>Animación orgánica:</b> ruido suave (idle) en cabeza/brazos/torso, curvas de rebote/elástico, parpadeo, gesto con anticipación y seguimiento.",
+    "<b>Assets nuevos:</b> puerta metálica, graffiti, banco, neumático, tacho, baranda, andamio, cielos (atardecer, nublado), resplandor de luces, lluvia."])
+s += [foto("demo_callejon.png", 160 * mm), Paragraph("Callejón v3: profundidad de campo, texturas fotográficas y personajes con volumen.", CAP),
+      foto("demo_mascota.png", 160 * mm), Paragraph("Entrada de la mascota HD.", CAP),
+      Paragraph("Tiempo de render", H2),
+      Paragraph("El look cinematográfico es costoso: ~1,6 s por cuadro por proceso. Con 4 procesos en paralelo (<font face='Courier'>--workers 4</font>) la demo de 18 s tardó ~8 min. Un video de 10 min a 30 fps tarda varias horas; para borradores usar <font face='Courier'>--rapido</font> y/o <font face='Courier'>--fps 24</font>. El peso del MP4 no cambia: la demo de 18 s pesa 6,1 MB (20,5 MB/min).", P),
+      Paragraph("Créditos de texturas: ambientCG (CC0): Bricks059, Bricks075A, Asphalt031, Concrete034, PavingStones070, WoodFloor064, Rust004, CorrugatedSteel005, Leather011, Fabric026, Ground037, Ground054, Grass005, Plaster003, Tiles074, Cardboard004, Rubber004, Facade001. Límite honesto: los personajes siguen siendo ilustración vectorial en capas (no fotorrealismo); se refinan con cada pedido.", SM)]
+
+doc = SimpleDocTemplate(os.path.join(AQUI, "Extra_Guia_Visual_v3.pdf"), pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=16 * mm, bottomMargin=18 * mm,
+                        title="Extra - Guía visual v3.0", author="Extra")
 doc.build(s, onFirstPage=pie, onLaterPages=pie)
 print("PDF listo")

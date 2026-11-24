@@ -1,13 +1,38 @@
 {
- "nombre": "Demo de intro + callejon + mascota",
+ "nombre": "Demo cinematografica v2",
  "tema": "gta4",
- "duracion": 14,
+ "duracion": 18,
  "fps": 30,
- "fondo_sat": 0.2,
- "vineta": 0.55,
- "grano": 0.09,
- "bruma": 0.2,
+ "fondo_sat": 0.3,
+ "vineta": 0.6,
+ "grano": 0.1,
+ "bruma": 0.22,
  "barras": true,
+ "mano": 1.1,
+ "dof": 7,
+ "luz": 0.6,
+ "foco": [
+  {
+   "t": 0,
+   "v": 1
+  },
+  {
+   "t": 5.2,
+   "v": 1
+  },
+  {
+   "t": 6.0,
+   "v": 0.55
+  },
+  {
+   "t": 8.0,
+   "v": 0.55
+  },
+  {
+   "t": 8.8,
+   "v": 1
+  }
+ ],
  "capas": [
   {
    "nombre": "intro_fondo",
@@ -16,9 +41,10 @@
    "hasta": 4.2,
    "items": [
     {
-     "texto": " ",
-     "x": 0,
-     "y": 0
+     "asset": "cielo_nublado",
+     "x": 960,
+     "y": 800,
+     "esc": 1.7
     }
    ]
   },
@@ -33,8 +59,9 @@
      "x": 960,
      "y": 540,
      "esc": 1.75,
-     "silueta": "#cdcdcd",
-     "id": "sil_fondo"
+     "silueta": "#d2d6d4",
+     "id": "sil_fondo",
+     "sombra": false
     }
    ]
   },
@@ -51,12 +78,19 @@
    },
    "items": [
     {
+     "asset": "cielo_nublado",
+     "x": 960,
+     "y": 800,
+     "esc": 1.7,
+     "sat": 0
+    },
+    {
      "asset": "skyline_lejano",
      "x": 960,
      "y": 640,
      "esc": 1.8,
      "id": "sk1",
-     "sat": 0.0
+     "sat": 0
     },
     {
      "asset": "edificio_oficinas",
@@ -91,14 +125,8 @@
      "x": 1150,
      "y": 700,
      "esc": 1.4,
-     "sat": 0
-    },
-    {
-     "asset": "nube_cielo",
-     "x": 820,
-     "y": 300,
-     "esc": 1.6,
-     "sat": 0
+     "sat": 0,
+     "sombra": false
     },
     {
      "asset": "pajaro_vuelo",
@@ -122,7 +150,8 @@
      "y": 960,
      "esc": 2.2,
      "silueta": "#0c0c0c",
-     "id": "sil_pie"
+     "id": "sil_pie",
+     "sombra": false
     },
     {
      "texto": "EXTRA",
@@ -137,16 +166,23 @@
   },
   {
    "nombre": "cielo",
-   "paralaje": 0.05,
+   "paralaje": 0.04,
    "de": 3.9,
    "items": [
+    {
+     "asset": "cielo_nublado",
+     "x": 960,
+     "y": 760,
+     "esc": 1.7,
+     "sombra": false
+    },
     {
      "asset": "nube_cielo",
      "x": 400,
      "y": 220,
      "esc": 1.4,
      "id": "nb1",
-     "op": 0.8
+     "op": 0.5
     },
     {
      "asset": "nube_cielo",
@@ -154,50 +190,50 @@
      "y": 160,
      "esc": 1.8,
      "id": "nb2",
-     "op": 0.7
-    },
-    {
-     "asset": "skyline_lejano",
-     "x": 960,
-     "y": 640,
-     "esc": 1.8
+     "op": 0.4
     }
    ]
   },
   {
    "nombre": "edificios_lejos",
-   "paralaje": 0.25,
+   "paralaje": 0.22,
    "de": 3.9,
    "items": [
     {
+     "asset": "skyline_nocturno",
+     "x": 960,
+     "y": 760,
+     "esc": 1.7,
+     "op": 0.8
+    },
+    {
      "asset": "edificio_oficinas",
      "x": 220,
-     "y": 700,
-     "esc": 1.0,
-     "op": 0.9
+     "y": 720,
+     "esc": 1.0
     },
     {
      "asset": "edificio_ladrillo_b",
-     "x": 600,
-     "y": 720,
+     "x": 640,
+     "y": 740,
      "esc": 1.1
     },
     {
      "asset": "edificio_ladrillo_a",
      "x": 1450,
-     "y": 700,
+     "y": 720,
      "esc": 1.2
     },
     {
      "asset": "edificio_oficinas",
      "x": 1800,
-     "y": 700,
+     "y": 720,
      "esc": 1.0
     },
     {
      "asset": "puente_suspension",
      "x": 1000,
-     "y": 690,
+     "y": 700,
      "esc": 1.0,
      "op": 0.85
     }
@@ -228,31 +264,67 @@
     },
     {
      "asset": "edificio_escalera_incendio",
-     "x": 1560,
-     "y": 820,
+     "x": 1580,
+     "y": 830,
      "esc": 1.3
     },
     {
+     "asset": "puerta_metalica",
+     "x": 460,
+     "y": 820,
+     "esc": 1.0
+    },
+    {
      "asset": "ventana_barrotes",
-     "x": 180,
+     "x": 160,
      "y": 600,
-     "esc": 1.1,
-     "id": "vent"
+     "esc": 1.1
+    },
+    {
+     "asset": "graffiti_pared",
+     "x": 300,
+     "y": 560,
+     "esc": 1.0,
+     "op": 0.8,
+     "sombra": false
     },
     {
      "asset": "cartel_neon",
-     "x": 880,
-     "y": 420,
+     "x": 900,
+     "y": 440,
      "esc": 1.0,
      "texto_editable": "EXTRA",
      "id": "neon",
      "afin": true
     },
     {
+     "asset": "luz_glow",
+     "x": 900,
+     "y": 440,
+     "esc": 2.2,
+     "id": "glow_neon",
+     "mezcla": "screen",
+     "op": 0.35,
+     "hue": 300,
+     "sat": 1,
+     "sombra": false
+    },
+    {
      "asset": "poste_luz",
-     "x": 760,
-     "y": 830,
-     "esc": 1.3
+     "x": 780,
+     "y": 840,
+     "esc": 1.35
+    },
+    {
+     "asset": "luz_glow",
+     "x": 810,
+     "y": 600,
+     "esc": 3.0,
+     "id": "glow_poste",
+     "mezcla": "screen",
+     "op": 0.5,
+     "sat": 1,
+     "sombra": false
     },
     {
      "asset": "cables_electricos",
@@ -260,6 +332,13 @@
      "y": 170,
      "esc": 3.3,
      "id": "cables"
+    },
+    {
+     "asset": "andamio",
+     "x": 60,
+     "y": 830,
+     "esc": 1.3,
+     "op": 0.9
     }
    ]
   },
@@ -271,18 +350,24 @@
     {
      "asset": "suelo_asfalto",
      "x": 960,
-     "y": 1080,
+     "y": 1090,
      "esc": 1.7,
-     "id": "asf",
-     "sat": 0.35
+     "sat": 0.5
     },
     {
      "asset": "suelo_asfalto",
      "x": 960,
-     "y": 940,
+     "y": 950,
      "esc": 1.7,
-     "sat": 0.35,
-     "op": 0.8
+     "sat": 0.5,
+     "op": 0.85
+    },
+    {
+     "asset": "suelo_vereda",
+     "x": 960,
+     "y": 860,
+     "esc": 1.7,
+     "sat": 0.4
     }
    ]
   },
@@ -293,102 +378,99 @@
    "items": [
     {
      "asset": "contenedor_basura",
-     "x": 1500,
+     "x": 1560,
      "y": 940,
-     "esc": 1.6,
-     "id": "cont"
+     "esc": 1.6
     },
     {
      "asset": "caja_madera_g",
-     "x": 1220,
-     "y": 900,
-     "esc": 1.2,
-     "id": "cajaG"
+     "x": 1300,
+     "y": 905,
+     "esc": 1.2
     },
     {
      "asset": "caja_madera_p",
-     "x": 1330,
-     "y": 930,
+     "x": 1410,
+     "y": 935,
      "esc": 1.1
     },
     {
-     "asset": "bolsa_basura",
-     "x": 1000,
+     "asset": "tacho_metal",
+     "x": 1750,
      "y": 950,
+     "esc": 1.5
+    },
+    {
+     "asset": "bolsa_basura",
+     "x": 1010,
+     "y": 955,
      "esc": 1.5
     },
     {
      "asset": "caja_carton",
      "x": 380,
-     "y": 960,
+     "y": 965,
      "esc": 1.4
     },
     {
      "asset": "hidrante",
-     "x": 260,
-     "y": 900,
+     "x": 250,
+     "y": 905,
      "esc": 1.3
     },
     {
      "asset": "alfombra_enrollada",
-     "x": 760,
-     "y": 1000,
-     "esc": 1.2,
-     "id": "alf"
+     "x": 800,
+     "y": 1005,
+     "esc": 1.2
     },
     {
-     "asset": "arbusto",
+     "asset": "banco_parque",
      "x": 120,
-     "y": 1010,
-     "esc": 1.3
+     "y": 930,
+     "esc": 1.0
     },
     {
      "asset": "pasto_mata",
      "x": 520,
-     "y": 1010,
+     "y": 1012,
      "esc": 2.0
-    },
-    {
-     "asset": "botella_vidrio",
-     "x": 880,
-     "y": 1020,
-     "esc": 1.6
     },
     {
      "asset": "humo_nube",
      "x": 560,
-     "y": 980,
+     "y": 985,
      "esc": 1.0,
      "id": "vapor",
-     "op": 0.55,
-     "sat": 0
+     "op": 0.5,
+     "sat": 0,
+     "sombra": false
     },
     {
      "asset": "npc_campera_marron",
-     "x": 1130,
-     "y": 1015,
-     "esc": 1.05,
+     "x": 1160,
+     "y": 1040,
+     "esc": 1.0,
      "id": "npc",
-     "flip": true,
-     "afin": false
+     "flip": true
     },
     {
      "asset": "anfitrion_extra",
-     "x": 700,
-     "y": 1030,
-     "esc": 1.15,
+     "x": 640,
+     "y": 1045,
+     "esc": 1.04,
      "id": "host"
     },
     {
-     "asset": "lata_aplastada",
-     "x": 1579,
+     "asset": "neumatico",
+     "x": 583,
      "y": 996,
      "esc": 1.7951935655656968,
      "flip": false
     },
     {
-     "asset": "grieta_suelo",
-     "x": 1781,
+     "asset": "botella_vidrio",
+     "x": 119,
      "y": 1024,
      "esc": 1.7759585674357168,
      "flip": true
@@ -436,18 +518,46 @@
      "flip": false
     },
     {
-     "asset": "papel_arrugado",
-     "x": 432,
-     "y": 955,
-     "esc": 1.9665643123171954,
+     "asset": "botella_vidrio",
+     "x": 1854,
+     "y": 957,
+     "esc": 1.1816686685456037,
      "flip": false
     },
     {
-     "asset": "lata_aplastada",
-     "x": 104,
-     "y": 997,
-     "esc": 1.4149067116227452,
+     "asset": "papel_arrugado",
+     "x": 844,
+     "y": 981,
+     "esc": 1.0215702083795513,
+     "flip": true
+    },
+    {
+     "asset": "hojas_suelo",
+     "x": 600,
+     "y": 921,
+     "esc": 1.3318544872206382,
      "flip": false
+    },
+    {
+     "asset": "neumatico",
+     "x": 66,
+     "y": 991,
+     "esc": 1.0660224505510771,
+     "flip": true
+    },
+    {
+     "asset": "lata_aplastada",
+     "x": 1044,
+     "y": 985,
+     "esc": 1.1847732400984943,
+     "flip": true
+    },
+    {
+     "asset": "hojas_suelo",
+     "x": 176,
+     "y": 970,
+     "esc": 1.9750995631442354,
+     "flip": true
     }
    ]
   },
@@ -458,8 +568,8 @@
    "items": [
     {
      "asset": "mascota_pistola_10mm",
-     "x": 960,
-     "y": 960,
+     "x": 940,
+     "y": 1030,
      "esc": 1.0,
      "id": "gun"
     }
@@ -473,16 +583,15 @@
     {
      "asset": "arbusto",
      "x": 90,
-     "y": 1110,
+     "y": 1120,
      "esc": 2.6,
      "id": "fg1",
-     "sat": 0.5,
      "op": 0.95
     },
     {
      "asset": "pasto_mata",
      "x": 1780,
-     "y": 1120,
+     "y": 1130,
      "esc": 4.5,
      "id": "fg2",
      "op": 0.95
@@ -490,16 +599,23 @@
     {
      "asset": "hojas_suelo",
      "x": 600,
-     "y": 1090,
+     "y": 1095,
      "esc": 3,
      "op": 0.9
     },
     {
      "asset": "poste_luz",
-     "x": 1880,
-     "y": 1120,
+     "x": 1890,
+     "y": 1130,
      "esc": 2.4,
      "id": "fg3"
+    },
+    {
+     "asset": "baranda_acero",
+     "x": 960,
+     "y": 1150,
+     "esc": 2.2,
+     "op": 0.9
     }
    ]
   },
@@ -507,7 +623,6 @@
    "nombre": "polvo",
    "paralaje": 1.1,
    "de": 3.9,
-   "op": 0.9,
    "items": [
     {
      "asset": "polvo_particulas",
@@ -515,14 +630,15 @@
      "y": 700,
      "esc": 3,
      "id": "pv1",
-     "ancla": "base"
+     "sombra": false
     },
     {
      "asset": "polvo_particulas",
      "x": 1400,
      "y": 760,
      "esc": 3,
-     "id": "pv2"
+     "id": "pv2",
+     "sombra": false
     },
     {
      "asset": "rayos_luz",
@@ -530,7 +646,9 @@
      "y": 560,
      "esc": 2.2,
      "id": "luz",
-     "op": 0.45
+     "op": 0.4,
+     "sombra": false,
+     "mezcla": "screen"
     }
    ]
   }
@@ -539,200 +657,397 @@
   {
    "item": "sil_pie",
    "prop": "y",
+   "from": 40,
    "to": 0,
    "t0": 0,
    "t1": 3.9,
-   "ease": "out",
-   "from": 40
+   "ease": "out"
   },
   {
    "item": "sk1",
    "prop": "x",
+   "from": -80,
    "to": 80,
    "t0": 0,
    "t1": 4.2,
-   "ease": "lineal",
-   "from": -80
+   "ease": "lineal"
   },
   {
    "item": "pj",
    "prop": "x",
+   "from": -420,
    "to": 620,
    "t0": 0,
    "t1": 4,
-   "ease": "lineal",
-   "from": -420
+   "ease": "lineal"
   },
   {
    "item": "titulo",
    "prop": "op",
+   "from": 0,
    "to": 1,
    "t0": 1.2,
    "t1": 2.0,
-   "ease": "out",
-   "from": 0
+   "ease": "out"
   },
   {
    "item": "nb1",
    "prop": "x",
+   "from": -60,
    "to": 80,
    "t0": 3.9,
-   "t1": 14,
-   "ease": "lineal",
-   "from": -60
+   "t1": 18,
+   "ease": "lineal"
   },
   {
    "item": "nb2",
    "prop": "x",
+   "from": 80,
    "to": -60,
    "t0": 3.9,
-   "t1": 14,
-   "ease": "lineal",
-   "from": 80
+   "t1": 18,
+   "ease": "lineal"
   },
   {
    "item": "vapor",
    "prop": "y",
+   "from": 0,
    "to": -30,
    "t0": 3.9,
-   "t1": 14,
+   "t1": 18,
    "ease": "lineal",
    "loop": true,
    "periodo": 3,
-   "pingpong": true,
-   "from": 0
+   "pingpong": true
   },
   {
    "item": "cables",
    "prop": "rot",
+   "from": -0.4,
    "to": 0.4,
    "t0": 0,
-   "t1": 14,
+   "t1": 18,
    "ease": "inout",
    "loop": true,
    "periodo": 5,
-   "pingpong": true,
-   "from": -0.4
+   "pingpong": true
   },
   {
    "item": "pv1",
    "prop": "y",
+   "from": 0,
    "to": -60,
    "t0": 3.9,
-   "t1": 14,
+   "t1": 18,
    "ease": "lineal",
    "loop": true,
-   "periodo": 7,
-   "from": 0
+   "periodo": 7
   },
   {
    "item": "pv2",
    "prop": "y",
+   "from": 0,
    "to": -40,
    "t0": 3.9,
-   "t1": 14,
+   "t1": 18,
    "ease": "lineal",
    "loop": true,
-   "periodo": 9,
-   "from": 0
+   "periodo": 9
   },
   {
    "item": "luz",
    "prop": "op",
-   "to": 0.6,
+   "from": 0.3,
+   "to": 0.55,
    "t0": 3.9,
-   "t1": 14,
+   "t1": 18,
    "ease": "inout",
    "loop": true,
    "periodo": 4,
-   "pingpong": true,
-   "from": 0.35
+   "pingpong": true
+  },
+  {
+   "item": "glow_poste",
+   "prop": "op",
+   "ruido": true,
+   "amp": 0.08,
+   "freq": 1.3,
+   "semilla": 2,
+   "sum": true,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "neon",
+   "prop": "op",
+   "from": 0.75,
+   "to": 1,
+   "t0": 3.9,
+   "t1": 18,
+   "ease": "lineal",
+   "loop": true,
+   "periodo": 0.35,
+   "pingpong": true
   },
   {
    "item": "host",
    "prop": "esc",
+   "from": 1,
    "to": 1.012,
-   "t0": 4,
-   "t1": 14,
+   "t0": 3.9,
+   "t1": 18,
    "ease": "inout",
    "loop": true,
-   "periodo": 2.2,
-   "pingpong": true,
-   "from": 1
+   "periodo": 2.4,
+   "pingpong": true
   },
   {
    "item": "host",
-   "parte": "brazo_d",
-   "prop": "rot",
+   "parte": "ojos",
+   "prop": "escy",
    "pivote": [
-    184,
-    172
+    130,
+    70
    ],
-   "to": -28,
-   "t0": 6.0,
-   "t1": 6.5,
-   "ease": "out",
-   "from": 0
-  },
-  {
-   "item": "host",
-   "parte": "brazo_d",
-   "prop": "rot",
-   "pivote": [
-    184,
-    172
-   ],
-   "to": 24,
-   "t0": 6.5,
-   "t1": 7.3,
-   "ease": "inout",
-   "from": 0
+   "from": 1,
+   "to": 0.08,
+   "t0": 3.9,
+   "t1": 18,
+   "ease": "parpadeo",
+   "loop": true,
+   "periodo": 3.6
   },
   {
    "item": "host",
    "parte": "cabeza",
    "prop": "rot",
    "pivote": [
-    124,
-    110
+    130,
+    112
    ],
-   "to": -6,
-   "t0": 8.4,
-   "t1": 9.0,
-   "ease": "out",
-   "from": 0
+   "ruido": true,
+   "amp": 1.6,
+   "freq": 0.22,
+   "semilla": 0,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "host",
+   "parte": "brazo_i",
+   "prop": "rot",
+   "pivote": [
+    62,
+    152
+   ],
+   "ruido": true,
+   "amp": 1.0,
+   "freq": 0.3,
+   "semilla": 1,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "host",
+   "parte": "torso",
+   "prop": "dy",
+   "ruido": true,
+   "amp": 1.2,
+   "freq": 0.4,
+   "semilla": 0,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
   },
   {
    "item": "npc",
    "prop": "esc",
-   "to": 1.01,
-   "t0": 4,
-   "t1": 14,
+   "from": 1,
+   "to": 1.012,
+   "t0": 3.9,
+   "t1": 18,
    "ease": "inout",
    "loop": true,
-   "periodo": 2.6,
-   "pingpong": true,
-   "from": 1
+   "periodo": 3.7,
+   "pingpong": true
+  },
+  {
+   "item": "npc",
+   "parte": "ojos",
+   "prop": "escy",
+   "pivote": [
+    130,
+    70
+   ],
+   "from": 1,
+   "to": 0.08,
+   "t0": 5.2,
+   "t1": 18,
+   "ease": "parpadeo",
+   "loop": true,
+   "periodo": 4.9
+  },
+  {
+   "item": "npc",
+   "parte": "cabeza",
+   "prop": "rot",
+   "pivote": [
+    130,
+    112
+   ],
+   "ruido": true,
+   "amp": 1.6,
+   "freq": 0.22,
+   "semilla": 1.3,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "npc",
+   "parte": "brazo_i",
+   "prop": "rot",
+   "pivote": [
+    62,
+    152
+   ],
+   "ruido": true,
+   "amp": 1.0,
+   "freq": 0.3,
+   "semilla": 2.3,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "npc",
+   "parte": "torso",
+   "prop": "dy",
+   "ruido": true,
+   "amp": 1.2,
+   "freq": 0.4,
+   "semilla": 1.3,
+   "t0": 0,
+   "t1": 18,
+   "from": 0,
+   "to": 0
+  },
+  {
+   "item": "host",
+   "parte": "brazo_d",
+   "prop": "rot",
+   "pivote": [
+    205,
+    152
+   ],
+   "from": 0,
+   "to": -22,
+   "t0": 6.0,
+   "t1": 6.5,
+   "ease": "out"
+  },
+  {
+   "item": "host",
+   "parte": "antebrazo_d",
+   "prop": "rot",
+   "pivote": [
+    220,
+    262
+   ],
+   "from": 0,
+   "to": 70,
+   "t0": 6.0,
+   "t1": 6.6,
+   "ease": "out"
+  },
+  {
+   "item": "host",
+   "parte": "brazo_d",
+   "prop": "rot",
+   "pivote": [
+    205,
+    152
+   ],
+   "from": -22,
+   "to": 0,
+   "t0": 7.6,
+   "t1": 8.4,
+   "ease": "inout"
+  },
+  {
+   "item": "host",
+   "parte": "antebrazo_d",
+   "prop": "rot",
+   "pivote": [
+    220,
+    262
+   ],
+   "from": 70,
+   "to": 0,
+   "t0": 7.6,
+   "t1": 8.4,
+   "ease": "inout"
+  },
+  {
+   "item": "host",
+   "parte": "cabeza",
+   "prop": "rot",
+   "pivote": [
+    130,
+    112
+   ],
+   "from": 0,
+   "to": -5,
+   "t0": 8.4,
+   "t1": 9.0,
+   "ease": "out",
+   "sum": true
+  },
+  {
+   "item": "host",
+   "parte": "boca",
+   "prop": "escy",
+   "pivote": [
+    130,
+    108
+   ],
+   "from": 1,
+   "to": 0.55,
+   "t0": 4.4,
+   "t1": 18,
+   "ease": "inout",
+   "loop": true,
+   "periodo": 0.34,
+   "pingpong": true
   },
   {
    "item": "gun",
    "prop": "esc",
+   "from": 0,
    "to": 0.62,
    "t0": 9.0,
    "t1": 9.9,
    "ease": "elastico",
-   "antes": true,
-   "from": 0
+   "antes": true
   },
   {
    "item": "gun",
    "prop": "y",
+   "from": -380,
    "to": 0,
    "t0": 9.0,
    "t1": 9.6,
    "ease": "rebote",
-   "antes": true,
-   "from": -380
+   "antes": true
   },
   {
    "item": "gun",
@@ -742,11 +1057,11 @@
     44,
     50
    ],
+   "from": 0,
    "to": -40,
    "t0": 10.4,
    "t1": 10.6,
-   "ease": "out",
-   "from": 0
+   "ease": "out"
   },
   {
    "item": "gun",
@@ -756,11 +1071,11 @@
     44,
     50
    ],
+   "from": -40,
    "to": 0,
    "t0": 10.6,
    "t1": 10.7,
-   "ease": "in",
-   "from": -40
+   "ease": "in"
   },
   {
    "item": "gun",
@@ -770,27 +1085,60 @@
     96,
     150
    ],
+   "from": 0,
    "to": -25,
    "t0": 10.9,
    "t1": 11.6,
    "ease": "inout",
    "loop": true,
    "periodo": 1.2,
-   "pingpong": true,
-   "from": 0
+   "pingpong": true
   },
   {
    "item": "gun",
    "parte": "ojos",
    "prop": "dx",
+   "from": -3,
    "to": 5,
    "t0": 9.9,
-   "t1": 13,
+   "t1": 14,
    "ease": "inout",
    "loop": true,
    "periodo": 1.8,
-   "pingpong": true,
-   "from": -3
+   "pingpong": true
+  },
+  {
+   "item": "gun",
+   "parte": "ojos",
+   "prop": "escy",
+   "pivote": [
+    176,
+    80
+   ],
+   "from": 1,
+   "to": 0.08,
+   "t0": 10.2,
+   "t1": 18,
+   "ease": "parpadeo",
+   "loop": true,
+   "periodo": 2.9
+  },
+  {
+   "item": "gun",
+   "parte": "boca",
+   "prop": "escy",
+   "pivote": [
+    176,
+    108
+   ],
+   "from": 1,
+   "to": 0.4,
+   "t0": 11,
+   "t1": 18,
+   "ease": "inout",
+   "loop": true,
+   "periodo": 0.3,
+   "pingpong": true
   },
   {
    "item": "gun",
@@ -800,26 +1148,14 @@
     200,
     280
    ],
+   "from": -2,
    "to": 2,
    "t0": 9.9,
-   "t1": 14,
+   "t1": 18,
    "ease": "inout",
    "loop": true,
    "periodo": 0.9,
-   "pingpong": true,
-   "from": -2
-  },
-  {
-   "item": "neon",
-   "prop": "op",
-   "to": 1,
-   "t0": 4,
-   "t1": 14,
-   "ease": "lineal",
-   "loop": true,
-   "periodo": 0.35,
-   "pingpong": true,
-   "from": 0.75
+   "pingpong": true
   }
  ],
  "camara": [
@@ -850,14 +1186,14 @@
    "ease": "inout"
   },
   {
-   "t": 11.5,
+   "t": 12.5,
    "x": 1000,
    "y": 560,
-   "z": 1.12,
+   "z": 1.14,
    "ease": "inout"
   },
   {
-   "t": 14,
+   "t": 18,
    "x": 960,
    "y": 540,
    "z": 1.0,
@@ -889,7 +1225,7 @@
   },
   {
    "tipo": "salida",
-   "t": 13.5,
+   "t": 17.5,
    "dur": 0.5
   }
  ]

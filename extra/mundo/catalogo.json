@@ -6,7 +6,7 @@
    "cat": "exterior",
    "w": 360,
    "h": 640,
-   "desc": "Edificio de ladrillo con ventanas",
+   "desc": "Edificio de ladrillo realista con ventanas, marcos y suciedad",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -21,7 +21,7 @@
    "cat": "exterior",
    "w": 300,
    "h": 520,
-   "desc": "Edificio bajo de ladrillo rojizo",
+   "desc": "Edificio bajo de piedra/ladrillo",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -35,7 +35,7 @@
    "cat": "exterior",
    "w": 340,
    "h": 640,
-   "desc": "Edificio con escaleras de incendio",
+   "desc": "Edificio con escaleras de incendio de acero",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -50,7 +50,7 @@
    "cat": "exterior",
    "w": 280,
    "h": 720,
-   "desc": "Torre de oficinas azulada",
+   "desc": "Torre de oficinas con fachada vidriada y reflejos",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -110,7 +110,7 @@
    "cat": "exterior",
    "w": 80,
    "h": 340,
-   "desc": "Poste de alumbrado urbano",
+   "desc": "Poste de alumbrado de acero",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -139,7 +139,7 @@
    "cat": "exterior",
    "w": 60,
    "h": 90,
-   "desc": "Hidrante rojo gastado",
+   "desc": "Hidrante rojo con pintura descascarada",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -259,7 +259,7 @@
    "cat": "interior",
    "w": 520,
    "h": 360,
-   "desc": "Pared de ladrillo de callejon (tile grande)",
+   "desc": "Pared de ladrillo de callejon con luz, humedad y manchas",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -274,7 +274,7 @@
    "cat": "interior",
    "w": 200,
    "h": 190,
-   "desc": "Caja de madera grande de almacen",
+   "desc": "Caja de madera grande con vetas, clavos y desgaste",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -304,7 +304,7 @@
    "cat": "interior",
    "w": 280,
    "h": 160,
-   "desc": "Contenedor de basura metalico de callejon",
+   "desc": "Contenedor metalico de callejon, oxidado y abollado",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -348,7 +348,7 @@
    "cat": "interior",
    "w": 300,
    "h": 130,
-   "desc": "Sofa de cuero marron",
+   "desc": "Sofa de cuero con costuras",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -377,7 +377,7 @@
    "cat": "naturaleza",
    "w": 300,
    "h": 380,
-   "desc": "Arbol frondoso verde apagado (parque urbano)",
+   "desc": "Arbol frondoso con follaje fotografico pintado",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -437,7 +437,7 @@
    "cat": "naturaleza",
    "w": 160,
    "h": 90,
-   "desc": "Arbusto bajo",
+   "desc": "Arbusto con hojas texturadas",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -615,7 +615,7 @@
    "cat": "basura",
    "w": 170,
    "h": 60,
-   "desc": "Alfombra roja enrollada (escena del callejon)",
+   "desc": "Alfombra roja enrollada con trama de tela",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
@@ -630,7 +630,7 @@
    "cat": "suelos",
    "w": 1200,
    "h": 160,
-   "desc": "Asfalto gastado con manchas",
+   "desc": "Asfalto fotografico con lineas gastadas, grietas y aceite",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -645,7 +645,7 @@
    "cat": "suelos",
    "w": 1200,
    "h": 160,
-   "desc": "Vereda de concreto con juntas",
+   "desc": "Vereda de adoquines/concreto con juntas",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -660,7 +660,7 @@
    "cat": "suelos",
    "w": 1200,
    "h": 160,
-   "desc": "Tierra y grava",
+   "desc": "Tierra y grava reales",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -675,7 +675,7 @@
    "cat": "suelos",
    "w": 1200,
    "h": 160,
-   "desc": "Pasto de parque",
+   "desc": "Pasto de parque con parches de tierra",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -690,7 +690,7 @@
    "cat": "suelos",
    "w": 1200,
    "h": 160,
-   "desc": "Piso interior de madera/baldosa",
+   "desc": "Piso de madera lustrada",
    "rol": "fondo",
    "ancla": "base",
    "tags": [
@@ -822,13 +822,14 @@
   {
    "id": "npc_campera_marron",
    "cat": "personajes",
-   "w": 240,
-   "h": 520,
-   "desc": "Personaje con campera marron y guantes (estilo calle)",
+   "w": 260,
+   "h": 640,
+   "desc": "Hombre con campera de cuero marron y guantes sin dedos (realista)",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
     "personaje",
+    "realista",
     "npc",
     "calle",
     "marron"
@@ -838,13 +839,14 @@
   {
    "id": "npc_traje_oscuro",
    "cat": "personajes",
-   "w": 240,
-   "h": 520,
-   "desc": "Personaje de traje oscuro y corbata",
+   "w": 260,
+   "h": 640,
+   "desc": "Hombre de traje oscuro, camisa blanca y corbata",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
     "personaje",
+    "realista",
     "npc",
     "traje",
     "formal"
@@ -854,13 +856,14 @@
   {
    "id": "npc_chandal_azul",
    "cat": "personajes",
-   "w": 240,
-   "h": 520,
-   "desc": "Personaje con chandal azul de rayas blancas",
+   "w": 260,
+   "h": 640,
+   "desc": "Hombre con chandal azul de rayas, cabeza rapada",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
     "personaje",
+    "realista",
     "npc",
     "chandal",
     "calle"
@@ -870,17 +873,17 @@
   {
    "id": "anfitrion_extra",
    "cat": "personajes",
-   "w": 240,
-   "h": 520,
-   "desc": "Anfitrion de Extra: peinado hacia atras, camisa abierta ochentera, aire de banda de rock simpatico",
+   "w": 260,
+   "h": 640,
+   "desc": "Anfitrion de Extra: peinado hacia atras, camisa abierta turquesa ochentera, cadena de oro",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
     "personaje",
+    "realista",
     "anfitrion",
     "vice",
-    "protagonista",
-    "mascota-humana"
+    "protagonista"
    ],
    "archivo": "assets/personajes/anfitrion_extra.svg"
   },
@@ -919,7 +922,7 @@
    "cat": "mascota",
    "w": 420,
    "h": 300,
-   "desc": "Mascota: pistola 10mm de Fallout 3 (rig: cuerpo, martillo, ojos, boca, brazos)",
+   "desc": "Mascota HD: pistola 10mm de Fallout 3 (acero cepillado, madera, ojos realistas; rig: cuerpo, martillo, ojos, boca, brazos, piernas)",
    "rol": "sujeto",
    "ancla": "base",
    "tags": [
@@ -1002,6 +1005,186 @@
     "ambiente"
    ],
    "archivo": "assets/efectos/pajaro_vuelo.svg"
+  },
+  {
+   "id": "suelo_baldosa_damero",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Piso damero de salon",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_baldosa_damero.svg"
+  },
+  {
+   "id": "puerta_metalica",
+   "cat": "exterior",
+   "w": 150,
+   "h": 260,
+   "desc": "Puerta metalica de servicio con pintura descascarada",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "puerta",
+    "metal",
+    "callejon"
+   ],
+   "archivo": "assets/exterior/puerta_metalica.svg"
+  },
+  {
+   "id": "graffiti_pared",
+   "cat": "exterior",
+   "w": 240,
+   "h": 130,
+   "desc": "Graffiti de aerosol sobre pared (capa para superponer)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "graffiti",
+    "pared",
+    "detalle"
+   ],
+   "archivo": "assets/exterior/graffiti_pared.svg"
+  },
+  {
+   "id": "banco_parque",
+   "cat": "naturaleza",
+   "w": 220,
+   "h": 100,
+   "desc": "Banco de plaza de madera y fundicion",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "banco",
+    "parque",
+    "mobiliario"
+   ],
+   "archivo": "assets/naturaleza/banco_parque.svg"
+  },
+  {
+   "id": "neumatico",
+   "cat": "basura",
+   "w": 70,
+   "h": 70,
+   "desc": "Neumatico viejo tirado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "neumatico",
+    "basura",
+    "goma"
+   ],
+   "archivo": "assets/basura/neumatico.svg"
+  },
+  {
+   "id": "tacho_metal",
+   "cat": "basura",
+   "w": 80,
+   "h": 110,
+   "desc": "Tacho de metal abollado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "tacho",
+    "basura",
+    "metal"
+   ],
+   "archivo": "assets/basura/tacho_metal.svg"
+  },
+  {
+   "id": "baranda_acero",
+   "cat": "exterior",
+   "w": 360,
+   "h": 110,
+   "desc": "Baranda de acero con barrotes",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "baranda",
+    "acero",
+    "estructura"
+   ],
+   "archivo": "assets/exterior/baranda_acero.svg"
+  },
+  {
+   "id": "andamio",
+   "cat": "exterior",
+   "w": 220,
+   "h": 300,
+   "desc": "Andamio metalico de obra",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "andamio",
+    "obra",
+    "estructura"
+   ],
+   "archivo": "assets/exterior/andamio.svg"
+  },
+  {
+   "id": "cielo_atardecer",
+   "cat": "exterior",
+   "w": 1200,
+   "h": 500,
+   "desc": "Cielo de atardecer degradado con nubes largas",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "cielo",
+    "atardecer",
+    "fondo"
+   ],
+   "archivo": "assets/exterior/cielo_atardecer.svg"
+  },
+  {
+   "id": "cielo_nublado",
+   "cat": "exterior",
+   "w": 1200,
+   "h": 500,
+   "desc": "Cielo nublado frio estilo Liberty City",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "cielo",
+    "nublado",
+    "fondo"
+   ],
+   "archivo": "assets/exterior/cielo_nublado.svg"
+  },
+  {
+   "id": "luz_glow",
+   "cat": "efectos",
+   "w": 300,
+   "h": 300,
+   "desc": "Resplandor de luz (bloom) para farolas, neones y ventanas; usar con mezcla:'screen'",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "luz",
+    "bloom",
+    "glow"
+   ],
+   "archivo": "assets/efectos/luz_glow.svg"
+  },
+  {
+   "id": "lluvia_capa",
+   "cat": "efectos",
+   "w": 600,
+   "h": 600,
+   "desc": "Capa de lluvia diagonal (animar y)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "lluvia",
+    "clima",
+    "atmosfera"
+   ],
+   "archivo": "assets/efectos/lluvia_capa.svg"
   }
  ]
 }

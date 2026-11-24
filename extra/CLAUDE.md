@@ -1,7 +1,7 @@
 # Extra — memoria del proyecto visual (leer antes de hacer animaciones)
 
 Canal "Extra". Estilo: **ilustración 2D con profundidad inspirada en el arte de GTA IV**, tirando a realista (guiño a GTA VI), nunca 3D.
-Guía completa: `extra/doc/Extra_Guia_Visual_v2.pdf` (regenerar con `python3 extra/doc/generar_pdf.py`).
+Guía completa: `extra/doc/Extra_Guia_Visual_v3.pdf` (regenerar con `python3 extra/doc/generar_pdf.py`).
 
 ## Reglas
 - 2D con paralaje por capas; personajes con volumen, ropa con pliegues; luz con dirección; composición diagonal/asimétrica.
@@ -23,3 +23,10 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 - Editor visual: servir `extra/mundo` (`python3 -m http.server -d extra/mundo`) y abrir `/app/index.html`.
 - Grabar: `node extra/mundo/herramientas/grabar.mjs <escena.json> salida.mp4 [--audio narracion.mp3] [--fps 30] [--crf 20]` (Playwright + ffmpeg por pipe).
 - Los SVG se inyectan inline con ids únicos por instancia (si se agrega código nuevo, no usar ids globales fuera de `url(#...)`).
+
+## v3 — realismo cinematográfico (leer)
+- Texturas CC0 pintadas en `mundo/texturas/*.webp` (`bajar_texturas.py` las regenera; créditos en `texturas/CREDITOS.json`). En SVG se usan como `<image href="@TEX/nombre.webp">` (el motor reemplaza `@TEX/`).
+- Assets HD en `herramientas/assets_hd.py` y `assets_hd2.py` (mismos ids que v1; gana el último). Personajes: `persona_hd(...)` con rig `torso, brazo_i/d > antebrazo_i/d, cabeza, ojos (animar `escy` para parpadear), cejas, boca`.
+- Motor: DoF por capa (`dof`, `foco` con rack focus), `mano` (cámara en mano), `luz`, grano animado, filtro `pintado`, sombras/rim light automáticos, `mezcla` por item (`screen` para luces), anim con `ruido` (idle orgánico) y eases `elastico|rebote|parpadeo`.
+- Render lento (~1,6 s/cuadro/proceso): `grabar.mjs --workers 4`; borradores `--rapido --fps 24`. El peso del MP4 sigue siendo pequeño (demo 18 s = 6 MB).
+- Cada pedido nuevo: sumar assets (HD, con textura + luz) y commitear.

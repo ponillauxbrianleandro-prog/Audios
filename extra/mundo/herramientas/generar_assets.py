@@ -701,8 +701,19 @@ def _():
 
 # ============================================================ ESCRIBIR
 def main():
-    catalogo = []
+    import sys
+    sys.modules.setdefault("generar_assets", sys.modules[__name__])
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import assets_hd  # noqa: F401  (v2: registra versiones HD con los mismos ids; gana la ultima)
+    try:
+        import assets_hd2  # noqa: F401  (mascota HD y nuevos assets)
+    except ImportError:
+        pass
+    unicos = {}
     for a in REGISTRO:
+        unicos[a["id"]] = a
+    catalogo = []
+    for a in unicos.values():
         defs, cuerpo = a["fn"]()
         svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {a["w"]} {a["h"]}" width="{a["w"]}" height="{a["h"]}">'
                f'<defs>{defs}</defs>{cuerpo}</svg>')

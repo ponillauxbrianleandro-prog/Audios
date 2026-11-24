@@ -1,40 +1,219 @@
 {
-  "extraidas_de_referencias": {
-    "callejon_noche_azul": ["#2d3338","#1a2930","#34454c","#869594","#b8d0c1","#21343e"],
-    "liberty_verde_gris": ["#6a7e79","#83938c","#405660","#4e6264","#323a42","#aec1be"],
-    "almacen_marron": ["#7d6c5b","#8f8072","#3b3f40","#312725","#8c3d35","#c1b293"],
-    "bernie_puente": ["#dfe1dd","#cbcdca","#928e85","#1b2127","#554233"],
-    "francotirador_cielo": ["#b4daeb","#364446","#667873","#4b6567","#a1c7d6"],
-    "silueta_gris": ["#9c9c9c","#0c0c0c","#868686","#cdcdcd","#b2b2b2"]
+ "extraidas_de_referencias": {
+  "callejon_noche_azul": [
+   "#2d3338",
+   "#1a2930",
+   "#34454c",
+   "#869594",
+   "#b8d0c1",
+   "#21343e"
+  ],
+  "liberty_verde_gris": [
+   "#6a7e79",
+   "#83938c",
+   "#405660",
+   "#4e6264",
+   "#323a42",
+   "#aec1be"
+  ],
+  "almacen_marron": [
+   "#7d6c5b",
+   "#8f8072",
+   "#3b3f40",
+   "#312725",
+   "#8c3d35",
+   "#c1b293"
+  ],
+  "bernie_puente": [
+   "#dfe1dd",
+   "#cbcdca",
+   "#928e85",
+   "#1b2127",
+   "#554233"
+  ],
+  "francotirador_cielo": [
+   "#b4daeb",
+   "#364446",
+   "#667873",
+   "#4b6567",
+   "#a1c7d6"
+  ],
+  "silueta_gris": [
+   "#9c9c9c",
+   "#0c0c0c",
+   "#868686",
+   "#cdcdcd",
+   "#b2b2b2"
+  ]
+ },
+ "temas": {
+  "gta4": {
+   "nombre": "Liberty City frio",
+   "cielo": [
+    "#b8d0c1",
+    "#869594"
+   ],
+   "tinte": "#34454c",
+   "tinte_op": 0.18,
+   "fondo_sat": 0.22,
+   "sujeto_sat": 1.0,
+   "acentos": [
+    "#8c3d35",
+    "#c1b293",
+    "#554233"
+   ],
+   "luz": {
+    "dx": 16,
+    "color": "#fff0d2",
+    "x": 0.2,
+    "y": 0.1
+   },
+   "grade": {
+    "r": [
+     0,
+     0.08,
+     0.55,
+     1
+    ],
+    "g": [
+     0,
+     0.1,
+     0.55,
+     0.98
+    ],
+    "b": [
+     0.04,
+     0.16,
+     0.55,
+     0.93
+    ]
+   }
   },
-  "temas": {
-    "gta4": {
-      "nombre": "Liberty City frio",
-      "cielo": ["#b8d0c1", "#869594"],
-      "tinte": "#34454c", "tinte_op": 0.18,
-      "fondo_sat": 0.22, "sujeto_sat": 1.0,
-      "acentos": ["#8c3d35", "#c1b293", "#554233"]
-    },
-    "vice": {
-      "nombre": "Vice City ochentero",
-      "cielo": ["#ff9a6b", "#7b3fa0"],
-      "tinte": "#ff5fa2", "tinte_op": 0.16,
-      "fondo_sat": 0.45, "sujeto_sat": 1.1,
-      "acentos": ["#2fd9c8", "#ff5fa2", "#ffd36b"]
-    },
-    "gta6": {
-      "nombre": "Costa violeta moderna",
-      "cielo": ["#3a1f6e", "#d44fa8"],
-      "tinte": "#7a3fd0", "tinte_op": 0.2,
-      "fondo_sat": 0.4, "sujeto_sat": 1.1,
-      "acentos": ["#ff4fa8", "#4fb8ff", "#ffd36b"]
-    },
-    "futbol": {
-      "nombre": "Estadio (ajustar colores del club)",
-      "cielo": ["#0b1d3a", "#2a5aa8"],
-      "tinte": "#2a7a3a", "tinte_op": 0.14,
-      "fondo_sat": 0.5, "sujeto_sat": 1.05,
-      "acentos": ["#ffffff", "#2a7a3a", "#ffd36b"]
-    }
+  "vice": {
+   "nombre": "Vice City ochentero",
+   "cielo": [
+    "#ff9a6b",
+    "#7b3fa0"
+   ],
+   "tinte": "#ff5fa2",
+   "tinte_op": 0.16,
+   "fondo_sat": 0.45,
+   "sujeto_sat": 1.1,
+   "acentos": [
+    "#2fd9c8",
+    "#ff5fa2",
+    "#ffd36b"
+   ],
+   "luz": {
+    "dx": 14,
+    "color": "#ffc08a",
+    "x": 0.8,
+    "y": 0.2
+   },
+   "grade": {
+    "r": [
+     0,
+     0.1,
+     0.58,
+     1
+    ],
+    "g": [
+     0,
+     0.07,
+     0.5,
+     0.95
+    ],
+    "b": [
+     0.06,
+     0.2,
+     0.55,
+     0.9
+    ]
+   }
+  },
+  "gta6": {
+   "nombre": "Costa violeta moderna",
+   "cielo": [
+    "#3a1f6e",
+    "#d44fa8"
+   ],
+   "tinte": "#7a3fd0",
+   "tinte_op": 0.2,
+   "fondo_sat": 0.4,
+   "sujeto_sat": 1.1,
+   "acentos": [
+    "#ff4fa8",
+    "#4fb8ff",
+    "#ffd36b"
+   ],
+   "luz": {
+    "dx": 12,
+    "color": "#ff9ad0",
+    "x": 0.75,
+    "y": 0.15
+   },
+   "grade": {
+    "r": [
+     0.03,
+     0.12,
+     0.58,
+     1
+    ],
+    "g": [
+     0,
+     0.06,
+     0.48,
+     0.95
+    ],
+    "b": [
+     0.08,
+     0.22,
+     0.6,
+     1
+    ]
+   }
+  },
+  "futbol": {
+   "nombre": "Estadio (ajustar colores del club)",
+   "cielo": [
+    "#0b1d3a",
+    "#2a5aa8"
+   ],
+   "tinte": "#2a7a3a",
+   "tinte_op": 0.14,
+   "fondo_sat": 0.5,
+   "sujeto_sat": 1.05,
+   "acentos": [
+    "#ffffff",
+    "#2a7a3a",
+    "#ffd36b"
+   ],
+   "luz": {
+    "dx": 10,
+    "color": "#ffffff",
+    "x": 0.5,
+    "y": 0
+   },
+   "grade": {
+    "r": [
+     0,
+     0.1,
+     0.55,
+     1
+    ],
+    "g": [
+     0,
+     0.12,
+     0.58,
+     1
+    ],
+    "b": [
+     0,
+     0.1,
+     0.5,
+     0.95
+    ]
+   }
   }
+ }
 }

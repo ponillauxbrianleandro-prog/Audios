@@ -1,0 +1,20 @@
+{
+ "ladrillo": "ambientCG Bricks059 (CC0)",
+ "asfalto": "ambientCG Asphalt031 (CC0)",
+ "concreto": "ambientCG Concrete034 (CC0)",
+ "vereda": "ambientCG PavingStones070 (CC0)",
+ "metal_oxidado": "ambientCG Rust004 (CC0)",
+ "chapa_pintada": "ambientCG CorrugatedSteel005 (CC0)",
+ "cuero": "ambientCG Leather011 (CC0)",
+ "tela": "ambientCG Fabric026 (CC0)",
+ "hojas": "ambientCG Ground037 (CC0)",
+ "tierra": "ambientCG Ground054 (CC0)",
+ "pasto": "ambientCG Grass005 (CC0)",
+ "revoque": "ambientCG Plaster003 (CC0)",
+ "carton": "ambientCG Cardboard004 (CC0)",
+ "goma": "ambientCG Rubber004 (CC0)",
+ "vidrio_sucio": "ambientCG Facade001 (CC0)",
+ "madera": "ambientCG WoodFloor064 (CC0)",
+ "piedra": "ambientCG Bricks075A (CC0)",
+ "baldosa_damero": "ambientCG Tiles074 (CC0)"
+}

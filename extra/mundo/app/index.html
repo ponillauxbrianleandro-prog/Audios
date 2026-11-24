@@ -52,6 +52,7 @@
   const esc = q.get("escena") || "ejemplos/demo_intro.json";
   const ed = await (await fetch(base + esc)).json();
   dur = ed.duracion || 10;
+  if (q.get("rapido")) { ed.pintado = false; ed.sin_sombras = true; ed.dof = Math.min(ed.dof ?? 7, 3); }
   await Motor.cargarEscena(ed);
   window.__listo = true; window.__duracion = dur; window.__fps = ed.fps || 30;
   window.__auditoria = Motor.auditar();
@@ -69,7 +70,7 @@
     $("grid").innerHTML = "";
     Motor.catalogo.assets.filter(a => (catAct === "todos" || a.cat === catAct) && (!txt || (a.id + a.desc + a.tags.join(" ")).toLowerCase().includes(txt))).forEach(a => {
       const d = document.createElement("div"); d.className = "tile"; d.title = a.desc;
-      d.innerHTML = `<img src="${base + a.archivo}" loading="lazy"><span>${a.id}</span>`;
+      d.innerHTML = `<span>${a.id}</span>`; Motor.svg(a.id).then(t => { d.insertAdjacentHTML("afterbegin", Motor.unico(t)); const sv = d.querySelector("svg"); const vb = sv.viewBox.baseVal, hh = Math.min(66, 80 * vb.height / vb.width); sv.setAttribute("height", hh); sv.setAttribute("width", hh * vb.width / vb.height); });
       d.onclick = () => agregar(a);
       $("grid").appendChild(d);
     });
