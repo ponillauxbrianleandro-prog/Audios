@@ -1,0 +1,1007 @@
+{
+ "version": 1,
+ "assets": [
+  {
+   "id": "edificio_ladrillo_a",
+   "cat": "exterior",
+   "w": 360,
+   "h": 640,
+   "desc": "Edificio de ladrillo con ventanas",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "edificio",
+    "ladrillo",
+    "ciudad"
+   ],
+   "archivo": "assets/exterior/edificio_ladrillo_a.svg"
+  },
+  {
+   "id": "edificio_ladrillo_b",
+   "cat": "exterior",
+   "w": 300,
+   "h": 520,
+   "desc": "Edificio bajo de ladrillo rojizo",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "edificio",
+    "ladrillo"
+   ],
+   "archivo": "assets/exterior/edificio_ladrillo_b.svg"
+  },
+  {
+   "id": "edificio_escalera_incendio",
+   "cat": "exterior",
+   "w": 340,
+   "h": 640,
+   "desc": "Edificio con escaleras de incendio",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "edificio",
+    "escalera",
+    "ciudad"
+   ],
+   "archivo": "assets/exterior/edificio_escalera_incendio.svg"
+  },
+  {
+   "id": "edificio_oficinas",
+   "cat": "exterior",
+   "w": 280,
+   "h": 720,
+   "desc": "Torre de oficinas azulada",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "edificio",
+    "torre",
+    "vidrio"
+   ],
+   "archivo": "assets/exterior/edificio_oficinas.svg"
+  },
+  {
+   "id": "skyline_lejano",
+   "cat": "exterior",
+   "w": 1200,
+   "h": 260,
+   "desc": "Skyline lejano brumoso (capa de horizonte)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "skyline",
+    "fondo",
+    "horizonte"
+   ],
+   "archivo": "assets/exterior/skyline_lejano.svg"
+  },
+  {
+   "id": "skyline_nocturno",
+   "cat": "exterior",
+   "w": 1200,
+   "h": 280,
+   "desc": "Skyline nocturno con ventanas encendidas",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "skyline",
+    "noche",
+    "luces"
+   ],
+   "archivo": "assets/exterior/skyline_nocturno.svg"
+  },
+  {
+   "id": "puente_suspension",
+   "cat": "exterior",
+   "w": 900,
+   "h": 420,
+   "desc": "Puente colgante de acero tipo Manhattan",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "puente",
+    "acero",
+    "ciudad"
+   ],
+   "archivo": "assets/exterior/puente_suspension.svg"
+  },
+  {
+   "id": "poste_luz",
+   "cat": "exterior",
+   "w": 80,
+   "h": 340,
+   "desc": "Poste de alumbrado urbano",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "poste",
+    "luz",
+    "calle"
+   ],
+   "archivo": "assets/exterior/poste_luz.svg"
+  },
+  {
+   "id": "semaforo",
+   "cat": "exterior",
+   "w": 70,
+   "h": 300,
+   "desc": "Semaforo urbano",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "semaforo",
+    "calle"
+   ],
+   "archivo": "assets/exterior/semaforo.svg"
+  },
+  {
+   "id": "hidrante",
+   "cat": "exterior",
+   "w": 60,
+   "h": 90,
+   "desc": "Hidrante rojo gastado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "hidrante",
+    "calle",
+    "objeto"
+   ],
+   "archivo": "assets/exterior/hidrante.svg"
+  },
+  {
+   "id": "taxi",
+   "cat": "exterior",
+   "w": 330,
+   "h": 120,
+   "desc": "Taxi amarillo de perfil con volumen 2D",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "taxi",
+    "vehiculo",
+    "calle"
+   ],
+   "archivo": "assets/exterior/taxi.svg"
+  },
+  {
+   "id": "auto_sedan",
+   "cat": "exterior",
+   "w": 320,
+   "h": 110,
+   "desc": "Sedan oscuro de perfil",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "auto",
+    "vehiculo",
+    "calle"
+   ],
+   "archivo": "assets/exterior/auto_sedan.svg"
+  },
+  {
+   "id": "boca_tormenta",
+   "cat": "exterior",
+   "w": 120,
+   "h": 36,
+   "desc": "Rejilla de alcantarilla en el suelo",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "calle",
+    "rejilla"
+   ],
+   "archivo": "assets/exterior/boca_tormenta.svg"
+  },
+  {
+   "id": "cartel_neon",
+   "cat": "exterior",
+   "w": 220,
+   "h": 90,
+   "desc": "Cartel luminoso de comercio (texto editable en escena)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "cartel",
+    "neon",
+    "comercio"
+   ],
+   "archivo": "assets/exterior/cartel_neon.svg"
+  },
+  {
+   "id": "valla_publicitaria",
+   "cat": "exterior",
+   "w": 360,
+   "h": 240,
+   "desc": "Valla publicitaria sobre estructura de acero",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "valla",
+    "cartel",
+    "estructura"
+   ],
+   "archivo": "assets/exterior/valla_publicitaria.svg"
+  },
+  {
+   "id": "cables_electricos",
+   "cat": "exterior",
+   "w": 600,
+   "h": 90,
+   "desc": "Cables colgantes entre postes (primer plano)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "cables",
+    "primer plano"
+   ],
+   "archivo": "assets/exterior/cables_electricos.svg"
+  },
+  {
+   "id": "salon_chimenea",
+   "cat": "interior",
+   "w": 700,
+   "h": 520,
+   "desc": "Pared de salon senorial con chimenea y molduras",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "interior",
+    "chimenea",
+    "pared",
+    "molduras"
+   ],
+   "archivo": "assets/interior/salon_chimenea.svg"
+  },
+  {
+   "id": "pared_ladrillo",
+   "cat": "interior",
+   "w": 520,
+   "h": 360,
+   "desc": "Pared de ladrillo de callejon (tile grande)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "pared",
+    "ladrillo",
+    "callejon"
+   ],
+   "archivo": "assets/interior/pared_ladrillo.svg"
+  },
+  {
+   "id": "caja_madera_g",
+   "cat": "interior",
+   "w": 200,
+   "h": 190,
+   "desc": "Caja de madera grande de almacen",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "caja",
+    "madera",
+    "almacen"
+   ],
+   "archivo": "assets/interior/caja_madera_g.svg"
+  },
+  {
+   "id": "caja_madera_p",
+   "cat": "interior",
+   "w": 110,
+   "h": 100,
+   "desc": "Caja de madera chica",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "caja",
+    "madera",
+    "almacen"
+   ],
+   "archivo": "assets/interior/caja_madera_p.svg"
+  },
+  {
+   "id": "contenedor_basura",
+   "cat": "interior",
+   "w": 280,
+   "h": 160,
+   "desc": "Contenedor de basura metalico de callejon",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "contenedor",
+    "basura",
+    "callejon"
+   ],
+   "archivo": "assets/interior/contenedor_basura.svg"
+  },
+  {
+   "id": "ventana_barrotes",
+   "cat": "interior",
+   "w": 120,
+   "h": 150,
+   "desc": "Ventana con rejas y luz calida interior",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "ventana",
+    "rejas"
+   ],
+   "archivo": "assets/interior/ventana_barrotes.svg"
+  },
+  {
+   "id": "lampara_techo",
+   "cat": "interior",
+   "w": 180,
+   "h": 120,
+   "desc": "Lampara de techo industrial con cono de luz",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "lampara",
+    "luz",
+    "techo"
+   ],
+   "archivo": "assets/interior/lampara_techo.svg"
+  },
+  {
+   "id": "sofa_cuero",
+   "cat": "interior",
+   "w": 300,
+   "h": 130,
+   "desc": "Sofa de cuero marron",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "sofa",
+    "mueble",
+    "interior"
+   ],
+   "archivo": "assets/interior/sofa_cuero.svg"
+  },
+  {
+   "id": "cuadro_marco",
+   "cat": "interior",
+   "w": 140,
+   "h": 170,
+   "desc": "Cuadro con marco dorado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "cuadro",
+    "decoracion"
+   ],
+   "archivo": "assets/interior/cuadro_marco.svg"
+  },
+  {
+   "id": "arbol_verde",
+   "cat": "naturaleza",
+   "w": 300,
+   "h": 380,
+   "desc": "Arbol frondoso verde apagado (parque urbano)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "arbol",
+    "parque",
+    "verde"
+   ],
+   "archivo": "assets/naturaleza/arbol_verde.svg"
+  },
+  {
+   "id": "arbol_otonal",
+   "cat": "naturaleza",
+   "w": 300,
+   "h": 380,
+   "desc": "Arbol otonal ocre",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "arbol",
+    "otono",
+    "ocre"
+   ],
+   "archivo": "assets/naturaleza/arbol_otonal.svg"
+  },
+  {
+   "id": "arbol_seco",
+   "cat": "naturaleza",
+   "w": 260,
+   "h": 360,
+   "desc": "Arbol sin hojas invernal",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "arbol",
+    "seco",
+    "invierno"
+   ],
+   "archivo": "assets/naturaleza/arbol_seco.svg"
+  },
+  {
+   "id": "palmera",
+   "cat": "naturaleza",
+   "w": 240,
+   "h": 420,
+   "desc": "Palmera tropical (Vice City)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "palmera",
+    "tropical",
+    "vice"
+   ],
+   "archivo": "assets/naturaleza/palmera.svg"
+  },
+  {
+   "id": "arbusto",
+   "cat": "naturaleza",
+   "w": 160,
+   "h": 90,
+   "desc": "Arbusto bajo",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "arbusto",
+    "vegetacion",
+    "suelo"
+   ],
+   "archivo": "assets/naturaleza/arbusto.svg"
+  },
+  {
+   "id": "pasto_mata",
+   "cat": "naturaleza",
+   "w": 100,
+   "h": 50,
+   "desc": "Mata de pasto salvaje (grietas, bordes)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "pasto",
+    "suelo",
+    "detalle"
+   ],
+   "archivo": "assets/naturaleza/pasto_mata.svg"
+  },
+  {
+   "id": "hojas_suelo",
+   "cat": "naturaleza",
+   "w": 120,
+   "h": 30,
+   "desc": "Hojas secas esparcidas en el suelo",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "hojas",
+    "suelo",
+    "detalle"
+   ],
+   "archivo": "assets/naturaleza/hojas_suelo.svg"
+  },
+  {
+   "id": "vaso_tirado",
+   "cat": "basura",
+   "w": 40,
+   "h": 26,
+   "desc": "Vaso descartable tirado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "vaso",
+    "basura",
+    "detalle"
+   ],
+   "archivo": "assets/basura/vaso_tirado.svg"
+  },
+  {
+   "id": "lata_aplastada",
+   "cat": "basura",
+   "w": 30,
+   "h": 24,
+   "desc": "Lata de gaseosa tirada",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "lata",
+    "basura",
+    "detalle"
+   ],
+   "archivo": "assets/basura/lata_aplastada.svg"
+  },
+  {
+   "id": "papel_arrugado",
+   "cat": "basura",
+   "w": 28,
+   "h": 24,
+   "desc": "Bola de papel arrugado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "papel",
+    "basura",
+    "detalle"
+   ],
+   "archivo": "assets/basura/papel_arrugado.svg"
+  },
+  {
+   "id": "bolsa_basura",
+   "cat": "basura",
+   "w": 70,
+   "h": 70,
+   "desc": "Bolsa de residuos negra",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "bolsa",
+    "basura"
+   ],
+   "archivo": "assets/basura/bolsa_basura.svg"
+  },
+  {
+   "id": "botella_vidrio",
+   "cat": "basura",
+   "w": 24,
+   "h": 50,
+   "desc": "Botella de vidrio verde",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "botella",
+    "vidrio",
+    "basura"
+   ],
+   "archivo": "assets/basura/botella_vidrio.svg"
+  },
+  {
+   "id": "charco",
+   "cat": "basura",
+   "w": 160,
+   "h": 30,
+   "desc": "Charco de agua con reflejo",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "charco",
+    "suelo",
+    "agua"
+   ],
+   "archivo": "assets/basura/charco.svg"
+  },
+  {
+   "id": "grieta_suelo",
+   "cat": "basura",
+   "w": 180,
+   "h": 30,
+   "desc": "Grieta de pavimento",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "grieta",
+    "suelo",
+    "asfalto"
+   ],
+   "archivo": "assets/basura/grieta_suelo.svg"
+  },
+  {
+   "id": "piedritas",
+   "cat": "basura",
+   "w": 90,
+   "h": 20,
+   "desc": "Piedritas y tierra suelta",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "piedras",
+    "suelo",
+    "detalle"
+   ],
+   "archivo": "assets/basura/piedritas.svg"
+  },
+  {
+   "id": "caja_carton",
+   "cat": "basura",
+   "w": 90,
+   "h": 70,
+   "desc": "Caja de carton aplastada",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "carton",
+    "basura"
+   ],
+   "archivo": "assets/basura/caja_carton.svg"
+  },
+  {
+   "id": "alfombra_enrollada",
+   "cat": "basura",
+   "w": 170,
+   "h": 60,
+   "desc": "Alfombra roja enrollada (escena del callejon)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "alfombra",
+    "objeto",
+    "rojo"
+   ],
+   "archivo": "assets/basura/alfombra_enrollada.svg"
+  },
+  {
+   "id": "suelo_asfalto",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Asfalto gastado con manchas",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_asfalto.svg"
+  },
+  {
+   "id": "suelo_vereda",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Vereda de concreto con juntas",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_vereda.svg"
+  },
+  {
+   "id": "suelo_tierra",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Tierra y grava",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_tierra.svg"
+  },
+  {
+   "id": "suelo_pasto",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Pasto de parque",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_pasto.svg"
+  },
+  {
+   "id": "suelo_interior",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Piso interior de madera/baldosa",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_interior.svg"
+  },
+  {
+   "id": "suelo_arena",
+   "cat": "suelos",
+   "w": 1200,
+   "h": 160,
+   "desc": "Arena costera (Vice City)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "suelo",
+    "textura",
+    "base"
+   ],
+   "archivo": "assets/suelos/suelo_arena.svg"
+  },
+  {
+   "id": "pistola_urbana",
+   "cat": "props",
+   "w": 120,
+   "h": 80,
+   "desc": "Pistola semiautomatica compacta (prop)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "arma",
+    "pistola",
+    "prop"
+   ],
+   "archivo": "assets/props/pistola_urbana.svg"
+  },
+  {
+   "id": "rifle_asalto",
+   "cat": "props",
+   "w": 300,
+   "h": 90,
+   "desc": "Rifle de asalto de madera y acero",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "arma",
+    "rifle",
+    "prop"
+   ],
+   "archivo": "assets/props/rifle_asalto.svg"
+  },
+  {
+   "id": "rifle_francotirador",
+   "cat": "props",
+   "w": 360,
+   "h": 90,
+   "desc": "Rifle de francotirador con mira y bipode",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "arma",
+    "francotirador",
+    "prop"
+   ],
+   "archivo": "assets/props/rifle_francotirador.svg"
+  },
+  {
+   "id": "placa_policia",
+   "cat": "props",
+   "w": 70,
+   "h": 80,
+   "desc": "Placa de policia dorada (prop de la escena del auto)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "placa",
+    "policia",
+    "prop"
+   ],
+   "archivo": "assets/props/placa_policia.svg"
+  },
+  {
+   "id": "cigarro_puro",
+   "cat": "props",
+   "w": 70,
+   "h": 16,
+   "desc": "Puro encendido",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "cigarro",
+    "prop"
+   ],
+   "archivo": "assets/props/cigarro_puro.svg"
+  },
+  {
+   "id": "anteojos_sol",
+   "cat": "props",
+   "w": 90,
+   "h": 36,
+   "desc": "Anteojos de sol oscuros ochenteros",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "anteojos",
+    "ropa",
+    "vice"
+   ],
+   "archivo": "assets/props/anteojos_sol.svg"
+  },
+  {
+   "id": "cadena_oro",
+   "cat": "props",
+   "w": 60,
+   "h": 70,
+   "desc": "Cadena de oro con medallon",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "cadena",
+    "joyeria",
+    "prop"
+   ],
+   "archivo": "assets/props/cadena_oro.svg"
+  },
+  {
+   "id": "npc_campera_marron",
+   "cat": "personajes",
+   "w": 240,
+   "h": 520,
+   "desc": "Personaje con campera marron y guantes (estilo calle)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "personaje",
+    "npc",
+    "calle",
+    "marron"
+   ],
+   "archivo": "assets/personajes/npc_campera_marron.svg"
+  },
+  {
+   "id": "npc_traje_oscuro",
+   "cat": "personajes",
+   "w": 240,
+   "h": 520,
+   "desc": "Personaje de traje oscuro y corbata",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "personaje",
+    "npc",
+    "traje",
+    "formal"
+   ],
+   "archivo": "assets/personajes/npc_traje_oscuro.svg"
+  },
+  {
+   "id": "npc_chandal_azul",
+   "cat": "personajes",
+   "w": 240,
+   "h": 520,
+   "desc": "Personaje con chandal azul de rayas blancas",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "personaje",
+    "npc",
+    "chandal",
+    "calle"
+   ],
+   "archivo": "assets/personajes/npc_chandal_azul.svg"
+  },
+  {
+   "id": "anfitrion_extra",
+   "cat": "personajes",
+   "w": 240,
+   "h": 520,
+   "desc": "Anfitrion de Extra: peinado hacia atras, camisa abierta ochentera, aire de banda de rock simpatico",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "personaje",
+    "anfitrion",
+    "vice",
+    "protagonista",
+    "mascota-humana"
+   ],
+   "archivo": "assets/personajes/anfitrion_extra.svg"
+  },
+  {
+   "id": "silueta_hombre_hombros",
+   "cat": "personajes",
+   "w": 480,
+   "h": 700,
+   "desc": "Silueta de hombre de espaldas hasta caderas (mascara para intros)",
+   "rol": "sujeto",
+   "ancla": "centro",
+   "tags": [
+    "silueta",
+    "mascara",
+    "intro"
+   ],
+   "archivo": "assets/personajes/silueta_hombre_hombros.svg"
+  },
+  {
+   "id": "silueta_hombre_entero",
+   "cat": "personajes",
+   "w": 120,
+   "h": 300,
+   "desc": "Silueta de hombre de pie mirando la ciudad",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "silueta",
+    "mascara",
+    "intro"
+   ],
+   "archivo": "assets/personajes/silueta_hombre_entero.svg"
+  },
+  {
+   "id": "mascota_pistola_10mm",
+   "cat": "mascota",
+   "w": 420,
+   "h": 300,
+   "desc": "Mascota: pistola 10mm de Fallout 3 (rig: cuerpo, martillo, ojos, boca, brazos)",
+   "rol": "sujeto",
+   "ancla": "base",
+   "tags": [
+    "mascota",
+    "pistola",
+    "fallout",
+    "10mm"
+   ],
+   "archivo": "assets/mascota/mascota_pistola_10mm.svg"
+  },
+  {
+   "id": "rayos_luz",
+   "cat": "efectos",
+   "w": 400,
+   "h": 700,
+   "desc": "Haces de luz diagonales (volumetrica)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "luz",
+    "rayos",
+    "atmosfera"
+   ],
+   "archivo": "assets/efectos/rayos_luz.svg"
+  },
+  {
+   "id": "humo_nube",
+   "cat": "efectos",
+   "w": 300,
+   "h": 220,
+   "desc": "Nube de humo/vapor de alcantarilla",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "humo",
+    "vapor",
+    "atmosfera"
+   ],
+   "archivo": "assets/efectos/humo_nube.svg"
+  },
+  {
+   "id": "polvo_particulas",
+   "cat": "efectos",
+   "w": 400,
+   "h": 300,
+   "desc": "Particulas de polvo en el aire",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "polvo",
+    "particulas",
+    "atmosfera"
+   ],
+   "archivo": "assets/efectos/polvo_particulas.svg"
+  },
+  {
+   "id": "nube_cielo",
+   "cat": "efectos",
+   "w": 360,
+   "h": 110,
+   "desc": "Nube de cielo estilo pintado",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "nube",
+    "cielo"
+   ],
+   "archivo": "assets/efectos/nube_cielo.svg"
+  },
+  {
+   "id": "pajaro_vuelo",
+   "cat": "efectos",
+   "w": 40,
+   "h": 20,
+   "desc": "Pajaro volando (silueta, animable)",
+   "rol": "fondo",
+   "ancla": "base",
+   "tags": [
+    "pajaro",
+    "ambiente"
+   ],
+   "archivo": "assets/efectos/pajaro_vuelo.svg"
+  }
+ ]
+}

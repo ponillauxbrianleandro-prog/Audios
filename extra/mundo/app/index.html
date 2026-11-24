@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Extra · Mundo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="estilo.css"></head>
+<body>
+<div id="wrap">
+  <div id="lado">
+    <h1>EXTRA · Mundo 2D</h1>
+    <div style="padding:0 10px"><input id="buscar" placeholder="buscar asset…" style="width:100%;box-sizing:border-box"></div>
+    <div id="cats"></div><div id="grid"></div>
+  </div>
+  <div id="centro">
+    <div id="vista"><div id="stage" class="editor"></div></div>
+    <div id="barra">
+      <button id="play">▶</button><input id="t" type="range" min="0" max="10" step="0.033" style="flex:1;min-width:160px"><span id="tt">0.0s</span>
+      <select id="selEscena"></select><select id="selTema"></select>
+      <select id="selCapa"></select>
+      <button id="exportar">Exportar escena JSON</button><span id="msg"></span>
+    </div>
+  </div>
+  <div id="der">
+    <b id="selNombre">Sin selección</b>
+    <label>Escala <span id="vEsc"></span></label><input id="rEsc" type="range" min="0.1" max="4" step="0.01">
+    <label>Rotación</label><input id="rRot" type="range" min="-180" max="180" step="1">
+    <label>Saturación (vacío = automática)</label><input id="rSat" type="range" min="0" max="1.5" step="0.01">
+    <label>Matiz</label><input id="rHue" type="range" min="-180" max="180" step="1">
+    <label>Opacidad</label><input id="rOp" type="range" min="0" max="1" step="0.01">
+    <p><button id="bFlip">Espejar</button> <button id="bDup">Duplicar</button> <button id="bDel">Borrar</button> <button id="bAfin">Color afín</button></p>
+    <p style="color:#9fb0b5">Clic en un asset del menú para agregarlo a la capa elegida. Arrastrá para moverlo. Rol: fondo = descolorido, sujeto = con color.</p>
+    <pre id="aud" style="white-space:pre-wrap;color:#e8c36a"></pre>
+  </div>
+</div>
+<script src="motor.js"></script>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search), grabar = q.get("modo") === "grabar";
+  const base = "../";
+  await Motor.cargarBase(base);
+  const st = document.getElementById("stage");
+  const $ = id => document.getElementById(id);
+  const msg = s => $("msg").textContent = s;
+  let sel = null, dur = 10, reproduciendo = false;
+
+  function ajustar() {
+    const v = $("vista"), s = Math.min(v.clientWidth / 1920, v.clientHeight / 1080);
+    st.style.transform = grabar ? "none" : `translate(${(v.clientWidth - 1920 * s) / 2}px,${(v.clientHeight - 1080 * s) / 2}px) scale(${s})`;
+    window.__escala = s;
+  }
+  if (grabar) { document.body.innerHTML = ""; document.body.style.background = "#000"; document.body.appendChild(st); st.className = ""; st.style.cssText += ";position:fixed;left:0;top:0"; }
+  addEventListener("resize", ajustar);
+
+  const esc = q.get("escena") || "ejemplos/demo_intro.json";
+  const ed = await (await fetch(base + esc)).json();
+  dur = ed.duracion || 10;
+  await Motor.cargarEscena(ed);
+  window.__listo = true; window.__duracion = dur; window.__fps = ed.fps || 30;
+  window.__auditoria = Motor.auditar();
+  if (grabar) return;
+  ajustar();
+  $("t").max = dur;
+
+  // ---- menu de assets
+  const cats = [...new Set(Motor.catalogo.assets.map(a => a.cat))];
+  let catAct = "todos";
+  function pintarMenu() {
+    $("cats").innerHTML = "";
+    ["todos", ...cats].forEach(c => { const b = document.createElement("button"); b.textContent = c; if (c === catAct) b.className = "on"; b.onclick = () => { catAct = c; pintarMenu(); }; $("cats").appendChild(b); });
+    const txt = $("buscar").value.toLowerCase();
+    $("grid").innerHTML = "";
+    Motor.catalogo.assets.filter(a => (catAct === "todos" || a.cat === catAct) && (!txt || (a.id + a.desc + a.tags.join(" ")).toLowerCase().includes(txt))).forEach(a => {
+      const d = document.createElement("div"); d.className = "tile"; d.title = a.desc;
+      d.innerHTML = `<img src="${base + a.archivo}" loading="lazy"><span>${a.id}</span>`;
+      d.onclick = () => agregar(a);
+      $("grid").appendChild(d);
+    });
+  }
+  $("buscar").oninput = pintarMenu; pintarMenu();
+
+  // ---- selectores
+  Object.keys(Motor.paletas.temas).forEach(k => $("selTema").add(new Option("tema: " + k, k)));
+  $("selTema").value = ed.tema || "gta4";
+  $("selTema").onchange = async () => { ed.tema = $("selTema").value; await recargar(); };
+  const ESC = ["ejemplos/demo_intro.json", ...(window.__escenas || [])];
+  ESC.forEach(e => $("selEscena").add(new Option(e, e))); $("selEscena").value = esc;
+  $("selEscena").onchange = () => location.search = "?escena=" + $("selEscena").value;
+  function pintarCapas() { $("selCapa").innerHTML = ""; Motor.capas.forEach((c, i) => $("selCapa").add(new Option(`capa ${i}: ${c.def.nombre} (p=${c.def.paralaje ?? 1})`, i))); }
+  pintarCapas();
+
+  async function recargar() { const t = Motor.t || 0; await Motor.cargarEscena(ed); pintarCapas(); Motor.renderAt(t); auditar(); }
+  function auditar() { $("aud").textContent = Motor.auditar().map(w => "⚠ " + w).join("\n"); }
+  auditar();
+
+  async function agregar(a) {
+    const capa = Motor.capas[+$("selCapa").value || 0];
+    const it = { id: "n" + Date.now(), asset: a.id, x: 960, y: a.cat === "suelos" ? 1080 : 800, esc: 1 };
+    if (a.cat === "suelos") { it.x = 960; it.y = 1080; it.esc = 1.6; }
+    capa.def.items = capa.def.items || []; capa.def.items.push(it);
+    await Motor.agregarItem(capa, it); Motor.renderAt(Motor.t); seleccionar(it.id);
+  }
+  function seleccionar(id) {
+    document.querySelectorAll(".item.sel").forEach(e => e.classList.remove("sel")); sel = id;
+    const r = Motor.items[id]; if (!r) { $("selNombre").textContent = "Sin selección"; return; }
+    r.el.classList.add("sel"); const it = r.it;
+    $("selNombre").textContent = it.asset || "texto";
+    $("rEsc").value = it.esc ?? 1; $("rRot").value = it.rot ?? 0; $("rSat").value = it.sat ?? 1; $("rHue").value = it.hue ?? 0; $("rOp").value = it.op ?? 1;
+  }
+  const mod = (k, f = v => +v) => e => { const r = Motor.items[sel]; if (!r) return; r.it[k] = f(e.target.value); Motor.renderAt(Motor.t); };
+  $("rEsc").oninput = mod("esc"); $("rRot").oninput = mod("rot"); $("rSat").oninput = mod("sat"); $("rHue").oninput = mod("hue"); $("rOp").oninput = mod("op");
+  $("bFlip").onclick = () => { const r = Motor.items[sel]; if (r) { r.it.flip = !r.it.flip; Motor.renderAt(Motor.t); } };
+  $("bAfin").onclick = () => { const r = Motor.items[sel]; if (r) { r.it.afin = !r.it.afin; Motor.renderAt(Motor.t); } };
+  $("bDel").onclick = () => { if (sel) { Motor.quitarItem(sel); sel = null; seleccionar(null); } };
+  $("bDup").onclick = async () => { const r = Motor.items[sel]; if (!r) return; const c = { ...r.it, id: "d" + Date.now(), x: r.it.x + 40 }; delete c._a; r.capa.def.items.push(c); await Motor.agregarItem(r.capa, c); Motor.renderAt(Motor.t); seleccionar(c.id); };
+
+  // arrastrar
+  let drag = null;
+  st.addEventListener("pointerdown", e => {
+    const el = e.target.closest(".item"); if (!el) return seleccionar(null);
+    seleccionar(el.dataset.id); const r = Motor.items[el.dataset.id];
+    drag = { r, sx: e.clientX, sy: e.clientY, x: r.it.x, y: r.it.y }; el.setPointerCapture(e.pointerId);
+  });
+  addEventListener("pointermove", e => { if (!drag) return; const s = window.__escala, p = drag.r.capa.def.paralaje ?? 1; drag.r.it.x = drag.x + (e.clientX - drag.sx) / s / (p || 1); drag.r.it.y = drag.y + (e.clientY - drag.sy) / s / (p || 1); Motor.renderAt(Motor.t); });
+  addEventListener("pointerup", () => drag = null);
+  addEventListener("keydown", e => { if (e.key === "Delete") $("bDel").click(); });
+
+  // tiempo
+  $("t").oninput = e => { Motor.renderAt(+e.target.value); $("tt").textContent = (+e.target.value).toFixed(1) + "s"; };
+  let t0 = 0;
+  function tick(ts) { if (!reproduciendo) return; const t = ((ts - t0) / 1000) % dur; $("t").value = t; $("tt").textContent = t.toFixed(1) + "s"; Motor.renderAt(t); requestAnimationFrame(tick); }
+  $("play").onclick = () => { reproduciendo = !reproduciendo; $("play").textContent = reproduciendo ? "⏸" : "▶"; if (reproduciendo) { t0 = performance.now() - (+$("t").value) * 1000; requestAnimationFrame(tick); } };
+  $("exportar").onclick = () => {
+    const limpia = JSON.parse(JSON.stringify(ed, (k, v) => k === "_a" ? undefined : v));
+    const blob = new Blob([JSON.stringify(limpia, null, 1)], { type: "application/json" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "escena.json"; a.click(); msg("escena exportada (JSON liviano, no video)");
+  };
+})();
+</script></body></html>

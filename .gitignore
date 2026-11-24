@@ -1,1 +1,5 @@
 __pycache__/
+
+doc/img/
+extra/doc/img/
+node_modules/
