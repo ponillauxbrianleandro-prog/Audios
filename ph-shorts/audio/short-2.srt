@@ -1,0 +1,35 @@
+1
+00:00:00,500 --> 00:00:04,208
+Este líquido es azul de bromotimol, un indicador ácido-base.
+
+2
+00:00:04,488 --> 00:00:07,962
+Se usa mucho en laboratorios, porque es simple y muy visual.
+
+3
+00:00:08,242 --> 00:00:10,987
+Cambia de color según el pH de lo que le agregues.
+
+4
+00:00:11,267 --> 00:00:13,666
+En medio ácido, se pone amarillo.
+
+5
+00:00:13,946 --> 00:00:15,648
+En medio neutro, verde.
+
+6
+00:00:15,928 --> 00:00:17,872
+Y en medio básico, azul.
+
+7
+00:00:18,152 --> 00:00:22,541
+Entre el amarillo y el azul hay un verde intermedio: ahí está la neutralidad.
+
+8
+00:00:22,821 --> 00:00:28,716
+Ojo: no es incoloro ni rosado. Vira entre pH seis y siete coma seis.
+
+9
+00:00:28,996 --> 00:00:31,757
+Un colorcito, y ya sabés qué tenés en el vaso.

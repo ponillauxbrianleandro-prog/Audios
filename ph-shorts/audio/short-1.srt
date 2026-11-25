@@ -1,0 +1,35 @@
+1
+00:00:00,500 --> 00:00:04,101
+¿Ácido o base? Para saberlo existe el pH.
+
+2
+00:00:04,381 --> 00:00:07,764
+El pH mide qué tan ácida o básica es una sustancia.
+
+3
+00:00:08,044 --> 00:00:10,868
+Pensalo como un termómetro, pero de acidez.
+
+4
+00:00:11,148 --> 00:00:14,592
+Se representa en una recta numérica que va del cero al catorce.
+
+5
+00:00:14,872 --> 00:00:17,571
+No del cero al siete: del cero al catorce.
+
+6
+00:00:17,851 --> 00:00:20,157
+Menos de siete, el medio es ácido.
+
+7
+00:00:20,437 --> 00:00:22,802
+Más de siete, el medio es básico.
+
+8
+00:00:23,082 --> 00:00:28,273
+Y justo en el siete están las sustancias neutras. No catorce: siete.
+
+9
+00:00:28,553 --> 00:00:31,870
+Tenelo bien presente, porque es la base de todo lo que sigue.

@@ -1,0 +1,51 @@
+{
+ "titulo": "SHORT 1. ¿Qué es el pH?",
+ "duracion": 32.56979166666667,
+ "cues": [
+  {
+   "inicio": 0.5,
+   "fin": 4.100875,
+   "texto": "¿Ácido o base? Para saberlo existe el pH."
+  },
+  {
+   "inicio": 4.380875,
+   "fin": 7.764333333333333,
+   "texto": "El pH mide qué tan ácida o básica es una sustancia."
+  },
+  {
+   "inicio": 8.044333333333332,
+   "fin": 10.868083333333333,
+   "texto": "Pensalo como un termómetro, pero de acidez."
+  },
+  {
+   "inicio": 11.148083333333334,
+   "fin": 14.591916666666666,
+   "texto": "Se representa en una recta numérica que va del cero al catorce."
+  },
+  {
+   "inicio": 14.871916666666667,
+   "fin": 17.571375,
+   "texto": "No del cero al siete: del cero al catorce."
+  },
+  {
+   "inicio": 17.851375,
+   "fin": 20.157,
+   "texto": "Menos de siete, el medio es ácido."
+  },
+  {
+   "inicio": 20.437,
+   "fin": 22.80175,
+   "texto": "Más de siete, el medio es básico."
+  },
+  {
+   "inicio": 23.08175,
+   "fin": 28.272541666666665,
+   "texto": "Y justo en el siete están las sustancias neutras. No catorce: siete."
+  },
+  {
+   "inicio": 28.552541666666666,
+   "fin": 31.869791666666668,
+   "texto": "Tenelo bien presente, porque es la base de todo lo que sigue."
+  }
+ ]
+}

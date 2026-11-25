@@ -1,0 +1,35 @@
+1
+00:00:00,500 --> 00:00:02,927
+Del otro lado de la escala están las bases.
+
+2
+00:00:03,207 --> 00:00:05,863
+El detergente tiene un pH de diez a once.
+
+3
+00:00:06,143 --> 00:00:10,169
+Con azul de bromotimol, se pone azul. No rosado.
+
+4
+00:00:10,449 --> 00:00:14,401
+El detergente es resbaloso entre los dedos, típico de las bases.
+
+5
+00:00:14,681 --> 00:00:17,259
+Y la soda cáustica llega a pH catorce.
+
+6
+00:00:17,539 --> 00:00:22,585
+Es hidróxido de sodio, una base muy fuerte. Ni se te ocurra tocarla.
+
+7
+00:00:22,865 --> 00:00:27,589
+El indicador no pasa de incoloro a azul: arranca amarillo o verde y termina azul.
+
+8
+00:00:27,869 --> 00:00:31,738
+El rosado sobre incoloro es de otro indicador: la fenolftaleína.
+
+9
+00:00:32,018 --> 00:00:35,304
+Azul con bromotimol: base, siempre mayor a siete.

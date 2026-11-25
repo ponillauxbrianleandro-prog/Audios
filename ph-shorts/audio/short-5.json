@@ -1,0 +1,51 @@
+{
+ "titulo": "SHORT 5. El mar, ¿ácido o base?",
+ "duracion": 34.4215,
+ "cues": [
+  {
+   "inicio": 0.5,
+   "fin": 2.46625,
+   "texto": "¿El agua de mar es ácida o básica?"
+  },
+  {
+   "inicio": 2.74625,
+   "fin": 5.388083333333333,
+   "texto": "El agua pura es neutra: pH siete."
+  },
+  {
+   "inicio": 5.668083333333334,
+   "fin": 8.150083333333333,
+   "texto": "El mar tiene un pH de ocho coma cinco."
+  },
+  {
+   "inicio": 8.430083333333334,
+   "fin": 11.779458333333332,
+   "texto": "Es mayor a siete: ligeramente básica, no ácida."
+  },
+  {
+   "inicio": 12.059458333333334,
+   "fin": 16.628958333333333,
+   "texto": "Tiene sales disueltas, como los carbonatos, que le dan ese carácter básico."
+  },
+  {
+   "inicio": 16.908958333333334,
+   "fin": 20.899375,
+   "texto": "Con azul de bromotimol se ve azul, porque ya pasó el siete coma seis."
+  },
+  {
+   "inicio": 21.179375,
+   "fin": 25.053625,
+   "texto": "Pero ojo: el dióxido de carbono la va acidificando de a poco."
+  },
+  {
+   "inicio": 25.333625,
+   "fin": 28.45475,
+   "texto": "Y los corales y las conchas sufren cuando el pH baja."
+  },
+  {
+   "inicio": 28.73475,
+   "fin": 33.7215,
+   "texto": "Repaso rápido: ácido menor a siete, neutro siete, base mayor a siete."
+  }
+ ]
+}
