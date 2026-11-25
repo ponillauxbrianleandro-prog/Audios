@@ -1,0 +1,232 @@
+{
+ "promedio": {
+  "sat_centro": 0.201,
+  "sat_fondo": 0.142,
+  "ratio_sat": 2.208,
+  "lum_media": 0.581,
+  "contraste": 0.231,
+  "niveles_tonales_activos": 14.625,
+  "densidad_bordes": 0.15,
+  "dureza_p97": 0.149,
+  "tono_sombra": 0.243,
+  "tono_luz": 0.187
+ },
+ "imagenes": [
+  {
+   "archivo": "444ab414-image.jpg",
+   "sat_centro": 0.213,
+   "sat_fondo": 0.074,
+   "ratio_sat": 2.88,
+   "lum_media": 0.724,
+   "contraste": 0.287,
+   "niveles_tonales_activos": 18,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.153,
+   "tono_sombra": 0.075,
+   "tono_luz": 0.084,
+   "direccion_luz_xy": [
+    -0.253,
+    -0.812
+   ],
+   "paleta": [
+    "#ffffff",
+    "#544132",
+    "#9b9b9b",
+    "#d8d7d7",
+    "#c1bcb6",
+    "#f1f1f0",
+    "#fdffff",
+    "#fefffa"
+   ]
+  },
+  {
+   "archivo": "07824410-image.jpg",
+   "sat_centro": 0.156,
+   "sat_fondo": 0.031,
+   "ratio_sat": 5.05,
+   "lum_media": 0.701,
+   "contraste": 0.231,
+   "niveles_tonales_activos": 18,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.139,
+   "tono_sombra": 0.071,
+   "tono_luz": 0.063,
+   "direccion_luz_xy": [
+    -0.058,
+    -0.708
+   ],
+   "paleta": [
+    "#a7a7a7",
+    "#ffffff",
+    "#c1c2c2",
+    "#cecdcc",
+    "#b6b4b3",
+    "#45372d",
+    "#e9e9e9",
+    "#8a7e76"
+   ]
+  },
+  {
+   "archivo": "23d535b1-image.jpg",
+   "sat_centro": 0.103,
+   "sat_fondo": 0.104,
+   "ratio_sat": 0.99,
+   "lum_media": 0.75,
+   "contraste": 0.272,
+   "niveles_tonales_activos": 10,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.163,
+   "tono_sombra": 0.594,
+   "tono_luz": 0.094,
+   "direccion_luz_xy": [
+    0.188,
+    -2.216
+   ],
+   "paleta": [
+    "#caccc9",
+    "#e2e3df",
+    "#d6d6d2",
+    "#fafbf8",
+    "#1a2025",
+    "#ebece5",
+    "#dcdedb",
+    "#8f8c84"
+   ]
+  },
+  {
+   "archivo": "bb21da6f-image.jpg",
+   "sat_centro": 0.195,
+   "sat_fondo": 0.043,
+   "ratio_sat": 4.51,
+   "lum_media": 0.794,
+   "contraste": 0.209,
+   "niveles_tonales_activos": 13,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.181,
+   "tono_sombra": 0.076,
+   "tono_luz": 0.094,
+   "direccion_luz_xy": [
+    -0.193,
+    -1.009
+   ],
+   "paleta": [
+    "#fdfdfd",
+    "#dbdbdb",
+    "#e3e3e3",
+    "#644e3d",
+    "#cfcdc4",
+    "#d7d6d3",
+    "#b8a187",
+    "#f3f3f2"
+   ]
+  },
+  {
+   "archivo": "4cb147ab-image.jpg",
+   "sat_centro": 0.232,
+   "sat_fondo": 0.272,
+   "ratio_sat": 0.85,
+   "lum_media": 0.335,
+   "contraste": 0.222,
+   "niveles_tonales_activos": 15,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.157,
+   "tono_sombra": 0.553,
+   "tono_luz": 0.551,
+   "direccion_luz_xy": [
+    0.109,
+    -0.71
+   ],
+   "paleta": [
+    "#292e34",
+    "#354348",
+    "#1a2830",
+    "#869494",
+    "#b9d0c2",
+    "#4f5b5c",
+    "#21343d",
+    "#30353a"
+   ]
+  },
+  {
+   "archivo": "01ee9411-image.jpg",
+   "sat_centro": 0.222,
+   "sat_fondo": 0.203,
+   "ratio_sat": 1.1,
+   "lum_media": 0.414,
+   "contraste": 0.189,
+   "niveles_tonales_activos": 20,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.115,
+   "tono_sombra": 0.553,
+   "tono_luz": 0.516,
+   "direccion_luz_xy": [
+    0.974,
+    -0.249
+   ],
+   "paleta": [
+    "#768279",
+    "#83938d",
+    "#405660",
+    "#5d797b",
+    "#323a42",
+    "#1d2223",
+    "#4e6264",
+    "#b0c3c0"
+   ]
+  },
+  {
+   "archivo": "2cf9b7fb-image.jpg",
+   "sat_centro": 0.129,
+   "sat_fondo": 0.129,
+   "ratio_sat": 1.0,
+   "lum_media": 0.542,
+   "contraste": 0.259,
+   "niveles_tonales_activos": 7,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.134,
+   "tono_sombra": 0,
+   "tono_luz": 0,
+   "direccion_luz_xy": [
+    0.001,
+    -0.813
+   ],
+   "paleta": [
+    "#9c9c9c",
+    "#000000",
+    "#858585",
+    "#cdcdcd",
+    "#b2b2b2",
+    "#dcdcdc",
+    "#808080",
+    "#161616"
+   ]
+  },
+  {
+   "archivo": "660bcdb0-image.jpg",
+   "sat_centro": 0.356,
+   "sat_fondo": 0.279,
+   "ratio_sat": 1.28,
+   "lum_media": 0.387,
+   "contraste": 0.179,
+   "niveles_tonales_activos": 16,
+   "densidad_bordes": 0.15,
+   "dureza_p97": 0.148,
+   "tono_sombra": 0.02,
+   "tono_luz": 0.094,
+   "direccion_luz_xy": [
+    0.61,
+    -0.209
+   ],
+   "paleta": [
+    "#312724",
+    "#88705d",
+    "#3b3e3f",
+    "#8f8072",
+    "#8c3d35",
+    "#c3b495",
+    "#6b6558",
+    "#503631"
+   ]
+  }
+ ]
+}

@@ -30,3 +30,8 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 - Motor: DoF por capa (`dof`, `foco` con rack focus), `mano` (cámara en mano), `luz`, grano animado, filtro `pintado`, sombras/rim light automáticos, `mezcla` por item (`screen` para luces), anim con `ruido` (idle orgánico) y eases `elastico|rebote|parpadeo`.
 - Render lento (~1,6 s/cuadro/proceso): `grabar.mjs --workers 4`; borradores `--rapido --fps 24`. El peso del MP4 sigue siendo pequeño (demo 18 s = 6 MB).
 - Cada pedido nuevo: sumar assets (HD, con textura + luz) y commitear.
+
+## ESTADO v4 (IMPORTANTE)
+- v1–v3 (SVG + texturas fotográficas) fueron rechazadas por el usuario: NO se parecen a GTA IV. No usar ese estilo para videos nuevos.
+- v4 en curso (`extra/estilo/`, `extra/mundo3d/`): análisis de estilo (`estilo_gta4.json`: fondo ~3–5× menos saturado que el sujeto, sombras frías, ~15 niveles tonales suaves, casi sin contorno negro) y un cantante rockabilly esculpido por SDF en un shader WebGL (`motor/cantante.frag`, render con `herramientas/foto.mjs`).
+- Resultado actual: maniquí 3D tosco (ver `ESTADO_hero_prueba.png`), NO es aún arte tipo GTA IV. No presentarlo como terminado.

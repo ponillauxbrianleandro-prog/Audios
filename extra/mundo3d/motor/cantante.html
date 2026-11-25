@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#000"><canvas id="c"></canvas>
+<script>
+async function iniciar(W,H){
+ const c=document.getElementById('c');c.width=W;c.height=H;
+ const gl=c.getContext('webgl2',{preserveDrawingBuffer:true,antialias:false});
+ const fs=await (await fetch('cantante.frag')).text();
+ const vs=`#version 300 es\nin vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
+ const mk=(t,s)=>{const x=gl.createShader(t);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x));return x};
+ const pr=gl.createProgram();gl.attachShader(pr,mk(gl.VERTEX_SHADER,vs));gl.attachShader(pr,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+ if(!gl.getProgramParameter(pr,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(pr));
+ gl.useProgram(pr);const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+ const l=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(l);gl.vertexAttribPointer(l,2,gl.FLOAT,false,0,0);
+ window.dibujar=(P)=>{const D={fov:.5,uFish:0,uJaw:0,uWide:0,uPucker:0,uSmile:0,uBrow:0,uQuiff:.5,uYaw:0,uPitch:0,uLean:0,uArmR:0,uArmL:0,uBob:0,uBg:1,T:0,camPos:[0,1.66,1.05],camTgt:[0,1.64,0],...P};
+  gl.viewport(0,0,W,H);
+  for(const k in D){const u=gl.getUniformLocation(pr,k);if(!u)continue;const v=D[k];Array.isArray(v)?gl.uniform3fv(u,v):gl.uniform1f(u,v);}
+  gl.uniform2f(gl.getUniformLocation(pr,'R'),W,H);gl.drawArrays(gl.TRIANGLES,0,3);gl.finish();};
+}
+</script>
