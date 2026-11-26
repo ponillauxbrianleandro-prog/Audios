@@ -35,3 +35,7 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 - v1–v3 (SVG + texturas fotográficas) fueron rechazadas por el usuario: NO se parecen a GTA IV. No usar ese estilo para videos nuevos.
 - v4 en curso (`extra/estilo/`, `extra/mundo3d/`): análisis de estilo (`estilo_gta4.json`: fondo ~3–5× menos saturado que el sujeto, sombras frías, ~15 niveles tonales suaves, casi sin contorno negro) y un cantante rockabilly esculpido por SDF en un shader WebGL (`motor/cantante.frag`, render con `herramientas/foto.mjs`).
 - Resultado actual: maniquí 3D tosco (ver `ESTADO_hero_prueba.png`), NO es aún arte tipo GTA IV. No presentarlo como terminado.
+
+## v5 — generación de imágenes (leer)
+- Instalado y probado en CPU: ver `extra/herramientas_ia/INSTALAR.md` (SD1.5 + LCM-LoRA + IP-Adapter con tus referencias como estilo; ~1 min/imagen). Primeras pruebas en `extra/herramientas_ia/pruebas/` (ya se ve estilo GTA, pero tira a GTA V/caricatura; falta fidelidad fina).
+- Siguiente paso: separar capas con `rembg`, animar con PixiJS/Three.js (profundidad, ojo de pez, expresiones) y grabar MP4 liviano. Para máxima calidad pedir al usuario GPU/clave de API de imágenes.
