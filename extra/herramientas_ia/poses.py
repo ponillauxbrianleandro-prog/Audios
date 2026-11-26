@@ -28,8 +28,8 @@ LIMBS = [(1, 2), (1, 5), (2, 3), (3, 4), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)
 COL = [(255, 0, 0), (255, 85, 0), (255, 170, 0), (255, 255, 0), (170, 255, 0), (85, 255, 0), (0, 255, 0), (0, 255, 85), (0, 255, 170), (0, 255, 255), (0, 170, 255), (0, 85, 255), (0, 0, 255), (85, 0, 255), (170, 0, 255), (255, 0, 255), (255, 0, 170), (255, 0, 85)]
 
 
-def render(nombre, w=512, h=768):
-    k = POSES[nombre]; img = np.zeros((h, w, 3), np.uint8)
+def render(nombre, w=512, h=768, zoom=1.0):
+    k = {i: ((256 + (x - 256) * zoom, 330 + (y - 215) * zoom) if x >= 0 else (x, y)) for i, (x, y) in POSES[nombre].items()} if zoom != 1.0 else POSES[nombre]; img = np.zeros((h, w, 3), np.uint8)
     for (a, b), c in zip(LIMBS, COL):
         if a not in k or b not in k or k[a][0] < 0 or k[b][0] < 0: continue
         (x1, y1), (x2, y2) = k[a], k[b]; m = ((x1 + x2) / 2, (y1 + y2) / 2); L = math.hypot(x1 - x2, y1 - y2); ang = math.degrees(math.atan2(y1 - y2, x1 - x2))

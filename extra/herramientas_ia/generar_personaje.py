@@ -20,7 +20,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--pose", default="cantando_micro"); ap.add_argument("--expr", default="cantando_aah"); ap.add_argument("--out", default="out.png")
 ap.add_argument("--seed", type=int, default=7); ap.add_argument("--steps", type=int, default=6); ap.add_argument("--maestro"); ap.add_argument("--ip", type=float, default=.5)
 ap.add_argument("--lora", default=os.path.join(AQUI, "..", "estilo", "gta4_style_lora")); ap.add_argument("--lora-w", type=float, default=.9)
-ap.add_argument("--cn", type=float, default=.9); ap.add_argument("--extra", default=""); ap.add_argument("--lista", action="store_true")
+ap.add_argument("--cn", type=float, default=.9); ap.add_argument("--zoom", type=float, default=1.0); ap.add_argument("--extra", default=""); ap.add_argument("--lista", action="store_true")
 a = ap.parse_args()
 if a.lista: print("poses:", list(poses.POSES)); print("expresiones:", list(EXPR)); sys.exit()
 from diffusers import StableDiffusionControlNetPipeline, ControlNetModel, LCMScheduler
@@ -36,7 +36,7 @@ kw = {}
 if a.maestro:
     pipe.load_ip_adapter("h94/IP-Adapter", subfolder="models", weight_name="ip-adapter_sd15.bin"); pipe.set_ip_adapter_scale(a.ip)
     kw["ip_adapter_image"] = Image.open(a.maestro).convert("RGB")
-ctrl = Image.fromarray(poses.render(a.pose))
+ctrl = Image.fromarray(poses.render(a.pose, zoom=a.zoom))
 prompt = f"{ESTILO}, {PERSONAJE}, {EXPR[a.expr]}, {a.extra}"
 t = time.time()
 img = pipe(prompt, image=ctrl, negative_prompt=NEG, width=512, height=768, num_inference_steps=a.steps, guidance_scale=1.3, controlnet_conditioning_scale=a.cn,
