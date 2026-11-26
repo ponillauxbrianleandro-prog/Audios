@@ -1,6 +1,6 @@
 # Shorts de pH (azul de bromotimol)
 
-5 videos verticales (1080×1920, 30 fps, 32–36 s) basados en la guía "Indicador de pH" de Química de los Procesos (6°2°).
+5 videos verticales (1080×1920, 30 fps, ~36 s), sin voz: solo animación y subtítulos. Basados en la guía "Indicador de pH" de Química de los Procesos (6°2°).
 
 | Short | Tema |
 |---|---|
@@ -10,5 +10,5 @@
 | 4 | Bases: detergente y soda cáustica → azul; el rosado es de la fenolftaleína |
 | 5 | Agua de mar (pH 8,5): ligeramente básica + repaso |
 
-Videos en `salida/`. Para regenerar: `python3 generar_audio.py` (edge-tts + ffmpeg) y luego `python3 render.py [N ...]` (Pillow).
-Guion en `guion.md`: cada línea es una frase y un "beat" de la animación (en `animar.py`).
+Videos en `salida/`. Regenerar: `python3 render.py [N ...]` (Pillow, numpy, ffmpeg).
+`guion.md` tiene el texto de los subtítulos (una línea = un momento de la animación); `animar.py` las escenas y `motor.py` el dibujo.
