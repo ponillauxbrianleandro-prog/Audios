@@ -39,3 +39,8 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 ## v5 — generación de imágenes (leer)
 - Instalado y probado en CPU: ver `extra/herramientas_ia/INSTALAR.md` (SD1.5 + LCM-LoRA + IP-Adapter con tus referencias como estilo; ~1 min/imagen). Primeras pruebas en `extra/herramientas_ia/pruebas/` (ya se ve estilo GTA, pero tira a GTA V/caricatura; falta fidelidad fina).
 - Siguiente paso: separar capas con `rembg`, animar con PixiJS/Three.js (profundidad, ojo de pez, expresiones) y grabar MP4 liviano. Para máxima calidad pedir al usuario GPU/clave de API de imágenes.
+
+## v6 — estado (leer)
+- Entorno: `extra/herramientas_ia/INSTALAR.md` (también es setup script del entorno). LoRA de estilo propio entrenado: `extra/estilo/gta4_style_lora/` (12 MB). Personaje: `extra/personajes/cantante_rockabilly/` (maestro, 6 poses `poses/`, expresiones por inpainting de boca `expresiones/`, `hoja_poses.png`).
+- Comandos: `generar_personaje.py --pose X --zoom 1.7 --maestro maestro_busto.png`, `expresiones.py maestro.png salida --solo aah,sonrisa`.
+- Límite actual: estilo plano/vectorial (no alcanza la pintura de Rockstar), manos débiles, pompadour poco alto, gafas tapan cejas. Mejoras: más pasos/rango del LoRA con más imágenes, SDXL con GPU o API de imágenes.
