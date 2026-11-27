@@ -1,0 +1,10 @@
+{
+  "nombre": "cantante_rockabilly",
+  "descripcion": "a muscular 1980s rockabilly singer, tall black pompadour quiff piled high and swept back, dark wayfarer sunglasses",
+  "vestuario": "short black leather jacket, sheer white t-shirt, thick gold chain with round gold links and a large medallion with rock symbols, black leather gloves, brown belt with black details, black pants, black boots",
+  "accion_base": "singing into a vintage microphone on a stand",
+  "ambiente": "desaturated pale city background",
+  "poses": {"puno_arriba": "raising his right fist high in the air, shouting", "senalando": "pointing at the viewer with a smirk", "perfil": "side profile view singing", "contrapicado": "extreme low angle shot looking up at him, wide angle lens perspective"},
+  "expresiones": {"grito": "extreme close-up portrait, screaming into the microphone", "sonrisa": "extreme close-up portrait, big charismatic smile showing teeth"},
+  "mezcla": {"gta4": 0.8, "gta6": 0.2}
+}

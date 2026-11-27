@@ -44,3 +44,9 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 - Entorno: `extra/herramientas_ia/INSTALAR.md` (también es setup script del entorno). LoRA de estilo propio entrenado: `extra/estilo/gta4_style_lora/` (12 MB). Personaje: `extra/personajes/cantante_rockabilly/` (maestro, 6 poses `poses/`, expresiones por inpainting de boca `expresiones/`, `hoja_poses.png`).
 - Comandos: `generar_personaje.py --pose X --zoom 1.7 --maestro maestro_busto.png`, `expresiones.py maestro.png salida --solo aah,sonrisa`.
 - Límite actual: estilo plano/vectorial (no alcanza la pintura de Rockstar), manos débiles, pompadour poco alto, gafas tapan cejas. Mejoras: más pasos/rango del LoRA con más imágenes, SDXL con GPU o API de imágenes.
+
+## v8 — RUTA ACTUAL: Flux + LoRA GTA (leer primero)
+- Estilo objetivo: **80 % GTA IV pintado + 20 % realismo GTA VI**. Procedimiento completo en `extra/PROCEDIMIENTO_GTA4ART.md`; para un chat nuevo ver `extra/PROMPT_NUEVO_CHAT.md`.
+- Instalar/levantar: `bash extra/herramientas_ia/arrancar.sh --servidor`. Generar: `flux_gen.py`, `lote_flux.py`, `crear_personaje.py ficha.json` (≈ 8 min/imagen sin GPU; lotes en segundo plano y reanudables).
+- NO usar SVG (v1–v3) ni SDF (v4). SD1.5 (`generar_personaje.py`) solo para pruebas rápidas/poses con ControlNet.
+- Cada pedido nuevo: documentar en `PROCEDIMIENTO_GTA4ART.md` lo que cambie y commitear.
