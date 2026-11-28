@@ -50,3 +50,9 @@ Si pesa GBs, se hizo mal. Siempre correr `python3 extra/mundo/herramientas/verif
 - Instalar/levantar: `bash extra/herramientas_ia/arrancar.sh --servidor`. Generar: `flux_gen.py`, `lote_flux.py`, `crear_personaje.py ficha.json` (≈ 8 min/imagen sin GPU; lotes en segundo plano y reanudables).
 - NO usar SVG (v1–v3) ni SDF (v4). SD1.5 (`generar_personaje.py`) solo para pruebas rápidas/poses con ControlNet.
 - Cada pedido nuevo: documentar en `PROCEDIMIENTO_GTA4ART.md` lo que cambie y commitear.
+
+## v9 — NUEVA RUTA (el usuario rechazó la IA generativa: NO usar Flux/SD/Local Dream)
+- Todo en código: **Blender (bpy 5.3 por pip) + Python** para modelar/renderizar pasadas, **Three.js** y **PixiJS** para animar/componer; bloques en `extra/bloques/`. Estilo objetivo: pintura GTA IV (80 %) + realismo GTA VI (20 %) "como spray sobre un modelo 3D".
+- Bloque 1 `extra/bloques/gta4_grafico/` (EN CURSO): `modelar/humano_mpfb.py` crea un cuerpo anatómico real con **MPFB2** (`git clone https://github.com/makehumancommunity/mpfb2 /root/bl/mpfb2`; se carga como `bl_ext.user_default.mpfb`; targets de detalle por nombre sin carpeta, p.ej. `torso-muscle-pectoral-incr`, `l-upperarm-muscle-incr`, rig `game_engine`), `modelar/pose.py` (IK de 2 huesos), `render/prueba_mpfb.py` (Cycles CPU, ~10 s). venv: `/root/bl/venv` (bpy, OpenEXR, numpy, opencv).
+- Hecho: cuerpo muscular posado con rig. Falta: ropa (camisa abierta con palmeras grises, jeans sueltos, botas), sombrero con palmera de oro, revólver, cara/ojos, pasadas + **pintor** (numpy/OpenCV) y bloques Three.js/PixiJS, `instalar_bloques.sh`, setup del entorno.
+- Descartado y archivado: SVG (v1–v3), SDF (v4), SD1.5/Flux (v6–v8).
