@@ -1,0 +1,14 @@
+{
+  "nombre": "Vaquero exótico",
+  "estilo": "arte promocional GTA IV (pintura sobre volumen 3D) — por código, sin IA generativa",
+  "ropa": {
+    "sombrero": "vaquero crema, cinta marrón, emblema de PALMERA DE ORO en vez de estrella",
+    "camisa": "blanca ABIERTA, estampado de palmeras en grises (work/palm_print.png, generado por código)",
+    "pantalon": "jeans índigo sueltos, modernos, con pliegues acumulados al tobillo",
+    "botas": "vaqueras cortas, sueltas, cuero marrón",
+    "accesorios": "lentes espejados verdes, cinturón con hebilla dorada, revólver"
+  },
+  "cuerpo": "musculatura SDF: pectorales, abdominales con surcos, oblicuos, serrato, deltoides, bíceps/tríceps, antebrazos — fusionados orgánicamente",
+  "poses": {"posing": "posando con el revólver arriba, mano libre en la cintura", "aiming": "apuntando con ambas manos, 3/4"},
+  "archivos": {"modelo": "build.py", "escultura_sdf": "body_sdf.py"}
+}
